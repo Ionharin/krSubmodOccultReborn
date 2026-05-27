@@ -68,3 +68,72 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = QIE_wushan_wu_jiang_power_auto.11
+	hidden = yes
+	is_triggered_only = yes
+	trigger = {
+		has_completed_focus = QIE_wushan_power
+	}
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_completed_focus = QIE_the_defense_of_wu }
+			}
+			activate_shine_on_focus = QIE_the_defense_of_wu
+			set_country_flag = {
+				flag = QIE_the_defense_of_wu_in_progress_flag
+				days = 35
+				value = 1
+			}
+			country_event = { id = QIE_wushan_wu_jiang_power_auto.12 days = 35 }
+		}
+		else_if = {
+			limit = {
+				NOT = { has_completed_focus = QIE_mobilize_connections }
+			}
+			activate_shine_on_focus = QIE_mobilize_connections
+			set_country_flag = {
+				flag = QIE_mobilize_connections_in_progress_flag
+				days = 35
+				value = 1
+			}
+			country_event = { id = QIE_wushan_wu_jiang_power_auto.12 days = 35 }
+		}
+	}
+}
+
+country_event = {
+	id = QIE_wushan_wu_jiang_power_auto.12
+	hidden = yes
+	is_triggered_only = yes
+	trigger = {
+		has_completed_focus = QIE_wushan_power
+	}
+	immediate = {
+		if = {
+			limit = {
+				has_shine_effect_on_focus = QIE_the_defense_of_wu
+			}
+			complete_national_focus = {
+				focus = QIE_the_defense_of_wu
+				use_side_message = yes
+				originator_name = QIE_wushan_focus_name
+			}
+			clr_country_flag = QIE_the_defense_of_wu_in_progress_flag
+			country_event = { id = QIE_wushan_wu_jiang_power_auto.11 }
+		}
+		else_if = {
+			limit = {
+				has_shine_effect_on_focus = QIE_mobilize_connections
+			}
+			complete_national_focus = {
+				focus = QIE_mobilize_connections
+				use_side_message = yes
+				originator_name = QIE_wushan_focus_name
+			}
+			clr_country_flag = QIE_mobilize_connections_in_progress_flag
+		}
+	}
+}

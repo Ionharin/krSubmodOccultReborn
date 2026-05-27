@@ -47,6 +47,10 @@ focus_tree = {
 					id = QIE_wushan_wu_jiang_power_auto.01
 					days = 1
 				}
+				country_event = {
+					id = QIE_wushan_wu_jiang_power_auto.11
+					days = 1
+				}
 			}
 		}
 	}
@@ -95,6 +99,31 @@ focus_tree = {
 		icon = QIE_wushan_test
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_the_defense_of_wu_in_progress_flag
+				}
+				set_temp_variable = {
+					temp_focus_days = 35
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_wu_power_auto_focus_in_progress_tt
+						FLAG_DAYS = [?QIE_the_defense_of_wu_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_wu_power_focus_can_only_be_completed_by_advisor_tt
+					}
+					always = no
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_wushan_power
 		}
@@ -172,6 +201,31 @@ focus_tree = {
 		icon = GFX_goal_generic_party_bottle
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_mobilize_connections_in_progress_flag
+				}
+				set_temp_variable = {
+					temp_focus_days = 35
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_wu_power_auto_focus_in_progress_tt
+						FLAG_DAYS = [?QIE_mobilize_connections_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_wu_power_focus_can_only_be_completed_by_advisor_tt
+					}
+					always = no
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_the_defense_of_wu
 		}
@@ -184,7 +238,7 @@ focus_tree = {
 		id = QIE_the_reluctant_two_leaders
 		x = 6
 		y = 4
-		cost = 0
+		cost = 1
 		icon = QIE_wushan_test
 		continue_if_invalid = no
 		cancel_if_invalid = no
@@ -200,7 +254,7 @@ focus_tree = {
 		id = QIE_jiang_controls_the_wushan
 		x = 3
 		y = 4
-		cost = 0
+		cost = 2
 		icon = QIE_wushan_test
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -214,12 +268,20 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_lobby_members
 		}
+		completion_reward = {
+			custom_effect_tooltip = QIE_jiang_control_wushan_focus_tt
+			hidden_effect = {
+				QIE_ws_jiang_chao_zong = {
+					promote_character = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = QIE_wu_control_the_wushan
 		x = 9
 		y = 4
-		cost = 0
+		cost = 2
 		icon = QIE_wushan_test
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -232,6 +294,14 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = QIE_beijing_mingjing_society
+		}
+		completion_reward = {
+			custom_effect_tooltip = QIE_wu_control_wushan_focus_tt
+			hidden_effect = {
+				QIE_ws_wu_pei_fu = {
+					promote_character = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -279,6 +349,16 @@ focus_tree = {
 		icon = GFX_focus_generic_catholic_dominion
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_focus_need_lao_tier_1_required_tt
+				OR = {
+					has_idea = QIE_god_circle_lao_tier_1
+					has_idea = QIE_god_circle_lao_tier_2
+					has_idea = QIE_god_circle_lao_tier_3
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_seances_restart_in_beijing
 		}
@@ -288,7 +368,7 @@ focus_tree = {
 		x = -6
 		y = 5
 		cost = 0
-		icon = GFX_focus_JAP_incorporate_buddhist_socialism
+		icon = GFX_focus_generic_catholic_dominion
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		available = {
@@ -313,6 +393,16 @@ focus_tree = {
 		icon = GFX_focus_generic_catholic_dominion
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_focus_need_no_focus_tier_1_required_tt
+				OR = {
+					has_idea = QIE_god_circle_no_focus_tier_1
+					has_idea = QIE_god_circle_no_focus_tier_2
+					has_idea = QIE_god_circle_no_focus_tier_3
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_seances_restart_in_beijing
 		}
@@ -322,9 +412,19 @@ focus_tree = {
 		x = -2
 		y = 5
 		cost = 0
-		icon = GFX_focus_generic_vatican_state
+		icon = GFX_focus_generic_catholic_dominion
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_focus_need_jesus_tier_1_required_tt
+				OR = {
+					has_idea = QIE_god_circle_jesus_tier_1
+					has_idea = QIE_god_circle_jesus_tier_2
+					has_idea = QIE_god_circle_jesus_tier_3
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_seances_restart_in_beijing
 		}
@@ -337,6 +437,16 @@ focus_tree = {
 		icon = GFX_focus_generic_catholic_dominion
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_focus_need_con_tier_1_required_tt
+				OR = {
+					has_idea = QIE_god_circle_con_tier_1
+					has_idea = QIE_god_circle_con_tier_2
+					has_idea = QIE_god_circle_con_tier_3
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_seances_restart_in_beijing
 		}
@@ -370,7 +480,7 @@ focus_tree = {
 		id = QIE_economic_stability
 		x = 15
 		y = 2
-		cost = 0
+		cost = 4
 		icon = GFX_focus_generic_expropriate_industrialist
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -382,7 +492,7 @@ focus_tree = {
 		id = QIE_debt_negotiation
 		x = 14
 		y = 4
-		cost = 0
+		cost = 3
 		icon = GFX_goal_COS_German_Bailout
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -399,7 +509,7 @@ focus_tree = {
 		id = QIE_cancel_completely
 		x = 16
 		y = 4
-		cost = 0
+		cost = 3
 		icon = GFX_goal_treaty_fails
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -435,6 +545,26 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_charitable_share_bank
 		}
+		completion_reward = {
+			add_political_power = -50
+			add_war_support = -0.1
+			add_ideas = QIE_work_for_rice
+			custom_effect_tooltip = QIE_pauper_factory_tt
+			hidden_effect = {
+				country_event = {
+					id = QIE_wushan_auto_industry.01
+					days = 7
+				}
+				country_event = {
+					id = QIE_wushan_auto_industry.11
+					days = 21
+				}
+				country_event = {
+					id = QIE_wushan_auto_industry.21
+					days = 14
+				}
+			}
+		}
 	}
 	focus = {
 		id = QIE_temporary_housing
@@ -451,10 +581,35 @@ focus_tree = {
 		id = QIE_project_henan
 		x = 22
 		y = 4
-		cost = 0
+		cost = 5
 		icon = GFX_focus_generic_industry_1
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_project_henan_in_progress_flag
+				}
+				set_temp_variable = {
+					temp_focus_days = 35
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_henan_auto_focus_in_progress_tt
+						FLAG_DAYS = [?QIE_project_henan_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_henan_focus_can_only_be_completed_by_poor_tt
+					}
+					always = no
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_pauper_factory
 		}
@@ -463,10 +618,35 @@ focus_tree = {
 		id = QIE_project_zhili
 		x = 26
 		y = 4
-		cost = 0
+		cost = 4
 		icon = GFX_focus_generic_industry_1
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_project_zhili_in_progress_flag
+				}
+				set_temp_variable = {
+					temp_focus_days = 28
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_zhili_auto_focus_in_progress_tt
+						FLAG_DAYS = [?QIE_project_zhili_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_zhili_focus_can_only_be_completed_by_poor_tt
+					}
+					always = no
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_pauper_factory
 		}
@@ -475,10 +655,35 @@ focus_tree = {
 		id = QIE_project_xian
 		x = 24
 		y = 4
-		cost = 0
+		cost = 7
 		icon = GFX_focus_generic_industry_1
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_project_xian_in_progress_flag
+				}
+				set_temp_variable = {
+					temp_focus_days = 49
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_xian_auto_focus_in_progress_tt
+						FLAG_DAYS = [?QIE_project_xian_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_xian_focus_can_only_be_completed_by_poor_tt
+					}
+					always = no
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_pauper_factory
 		}
@@ -499,7 +704,7 @@ focus_tree = {
 		id = QIE_seize_german_assets
 		x = 18
 		y = 5
-		cost = 0
+		cost = 5
 		icon = GFX_focus_DEN_heavy_regulations
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -520,7 +725,7 @@ focus_tree = {
 		id = QIE_restart_beijing_charity_society
 		x = 13
 		y = 1
-		cost = 2
+		cost = 1
 		icon = GFX_goal_generic_debt_negotiations
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -535,6 +740,15 @@ focus_tree = {
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_focus_need_jesus_tier_3_required_tt
+				has_idea = QIE_god_circle_jesus_tier_3
+			}
+		}
+		prerequisite = {
+			focus = QIE_jesus_stage_2
+		}
 	}
 	focus = {
 		id = QIE_raise_the_long_blade
@@ -543,6 +757,15 @@ focus_tree = {
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_focus_need_con_tier_3_required_tt
+				has_idea = QIE_god_circle_con_tier_3
+			}
+		}
+		prerequisite = {
+			focus = QIE_mohammad_stage_2
+		}
 	}
 	focus = {
 		id = QIE_spring_and_autumn_ritual
@@ -551,6 +774,15 @@ focus_tree = {
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_focus_need_no_focus_tier_3_required_tt
+				has_idea = QIE_god_circle_no_focus_tier_3
+			}
+		}
+		prerequisite = {
+			focus = QIE_confucism_stage_2
+		}
 	}
 	focus = {
 		id = QIE_into_samadhi
@@ -565,6 +797,9 @@ focus_tree = {
 				has_idea = QIE_god_circle_shi_tier_3
 			}
 		}
+		prerequisite = {
+			focus = QIE_buddhism_stage_2
+		}
 	}
 	focus = {
 		id = QIE_seize_the_great_game
@@ -573,6 +808,12 @@ focus_tree = {
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_focus_need_lao_tier_3_required_tt
+				has_idea = QIE_god_circle_lao_tier_3
+			}
+		}
 		prerequisite = {
 			focus = QIE_educate_the_people_with_tao
 		}
@@ -596,7 +837,7 @@ focus_tree = {
 		id = QIE_introducing_funds
 		x = 12
 		y = 5
-		cost = 0
+		cost = 4
 		icon = GFX_goal_generic_loans
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -619,10 +860,35 @@ focus_tree = {
 		id = QIE_develop_henan
 		x = 22
 		y = 5
-		cost = 0
+		cost = 15
 		icon = GFX_focus_generic_industry_2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_develop_henan_in_progress_flag
+				}
+				set_temp_variable = {
+					temp_focus_days = 105
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_henan_auto_focus_in_progress_tt
+						FLAG_DAYS = [?QIE_develop_henan_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_henan_focus_can_only_be_completed_by_poor_tt
+					}
+					always = no
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_project_henan
 		}
@@ -631,10 +897,35 @@ focus_tree = {
 		id = QIE_develop_zhili
 		x = 26
 		y = 5
-		cost = 0
+		cost = 8
 		icon = GFX_focus_generic_industry_2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_develop_zhili_in_progress_flag
+				}
+				set_temp_variable = {
+					temp_focus_days = 56
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_zhili_auto_focus_in_progress_tt
+						FLAG_DAYS = [?QIE_develop_zhili_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_zhili_focus_can_only_be_completed_by_poor_tt
+					}
+					always = no
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_project_zhili
 		}
@@ -643,10 +934,35 @@ focus_tree = {
 		id = QIE_final_industry_henan
 		x = 22
 		y = 6
-		cost = 0
+		cost = 19
 		icon = GFX_focus_generic_industry_3
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_final_industry_henan_in_progress_flag
+				}
+				set_temp_variable = {
+					temp_focus_days = 133
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_henan_auto_focus_in_progress_tt
+						FLAG_DAYS = [?QIE_final_industry_henan_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_henan_focus_can_only_be_completed_by_poor_tt
+					}
+					always = no
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_develop_henan
 		}
@@ -655,10 +971,35 @@ focus_tree = {
 		id = QIE_final_industry_xian
 		x = 24
 		y = 6
-		cost = 0
+		cost = 20
 		icon = GFX_focus_generic_industry_3
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_final_industry_xian_in_progress_flag
+				}
+				set_temp_variable = {
+					temp_focus_days = 140
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_xian_auto_focus_in_progress_tt
+						FLAG_DAYS = [?QIE_final_industry_xian_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_xian_focus_can_only_be_completed_by_poor_tt
+					}
+					always = no
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_develop_xian
 		}
@@ -667,10 +1008,35 @@ focus_tree = {
 		id = QIE_final_industry_zhili
 		x = 26
 		y = 6
-		cost = 0
+		cost = 18
 		icon = GFX_focus_generic_industry_3
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_final_industry_zhili_in_progress_flag
+				}
+				set_temp_variable = {
+					temp_focus_days = 126
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_zhili_auto_focus_in_progress_tt
+						FLAG_DAYS = [?QIE_final_industry_zhili_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_zhili_focus_can_only_be_completed_by_poor_tt
+					}
+					always = no
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_develop_zhili
 		}
@@ -679,7 +1045,7 @@ focus_tree = {
 		id = QIE_german_technology
 		x = 16
 		y = 6
-		cost = 0
+		cost = 7
 		icon = GFX_focus_research2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -691,7 +1057,7 @@ focus_tree = {
 		id = QIE_collaborate_with_german_companies
 		x = 14
 		y = 6
-		cost = 0
+		cost = 6
 		icon = GFX_goal_LEP_deutschasiatische
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -715,10 +1081,35 @@ focus_tree = {
 		id = QIE_develop_xian
 		x = 24
 		y = 5
-		cost = 0
+		cost = 12
 		icon = GFX_focus_generic_industry_2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_develop_xian_in_progress_flag
+				}
+				set_temp_variable = {
+					temp_focus_days = 84
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_xian_auto_focus_in_progress_tt
+						FLAG_DAYS = [?QIE_develop_xian_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_xian_focus_can_only_be_completed_by_poor_tt
+					}
+					always = no
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_project_xian
 		}
@@ -727,7 +1118,7 @@ focus_tree = {
 		id = QIE_construction_after_chinese_unification
 		x = 23
 		y = 7
-		cost = 0
+		cost = 2
 		icon = GFX_goal_agrarian_reform
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1065,10 +1456,14 @@ focus_tree = {
 		id = QIE_become_MP_shadow
 		x = 17
 		y = 3
-		cost = 0
+		cost = 4
 		icon = GFX_goal_QIE_manchu_symbol
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_become_YCP_shadow
+			focus = QIE_become_CERA_shadow
+		}
 		prerequisite = {
 			focus = QIE_economic_stability
 		}
@@ -1077,10 +1472,14 @@ focus_tree = {
 		id = QIE_become_CERA_shadow
 		x = 15
 		y = 3
-		cost = 0
+		cost = 4
 		icon = GFX_goal_QIE_cera
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_become_YCP_shadow
+			focus = QIE_become_MP_shadow
+		}
 		prerequisite = {
 			focus = QIE_economic_stability
 		}
@@ -1089,10 +1488,14 @@ focus_tree = {
 		id = QIE_become_YCP_shadow
 		x = 13
 		y = 3
-		cost = 0
+		cost = 4
 		icon = GFX_goal_QIE_ycp
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_become_CERA_shadow
+			focus = QIE_become_MP_shadow
+		}
 		prerequisite = {
 			focus = QIE_economic_stability
 		}
@@ -1437,12 +1840,16 @@ focus_tree = {
 		cost = 1
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		completion_reward = {
+			add_ideas = QIE_eight_mighty_dragon_scripture
+			country_event = { id = QIE_wushan_events.5 }
+		}
 	}
 	focus = {
 		id = QIE_restore_the_order_behind_shanhaiguan
 		x = 15
 		y = 7
-		cost = 0
+		cost = 5
 		icon = GFX_focus_PRC_towards_one_china
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1459,7 +1866,7 @@ focus_tree = {
 		id = QIE_eliminate_traitors_in_the_south
 		x = 13
 		y = 8
-		cost = 0
+		cost = 3
 		icon = GFX_goal_generic_attack_upc
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1471,7 +1878,7 @@ focus_tree = {
 		id = QIE_destory_the_red_flag
 		x = 17
 		y = 8
-		cost = 0
+		cost = 3
 		icon = GFX_goal_generic_attack_kmt
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1483,7 +1890,7 @@ focus_tree = {
 		id = QIE_advance_to_the_shanhaiguan
 		x = 16
 		y = 9
-		cost = 0
+		cost = 2
 		icon = GFX_goal_generic_attack_fengtian
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1498,7 +1905,7 @@ focus_tree = {
 		id = QIE_revenge_for_1928
 		x = 14
 		y = 9
-		cost = 0
+		cost = 2
 		icon = GFX_goal_QIE_destroy_LEC
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1513,7 +1920,7 @@ focus_tree = {
 		id = QIE_the_dawn_of_loong_the_dusk_of_thieves
 		x = 15
 		y = 10
-		cost = 0
+		cost = 4
 		icon = GFX_focus_JAP_ally_the_dragon_king
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1531,6 +1938,15 @@ focus_tree = {
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_focus_need_lao_tier_2_required_tt
+				OR = {
+					has_idea = QIE_god_circle_lao_tier_2
+					has_idea = QIE_god_circle_lao_tier_3
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_honor_tao_as_the_superior
 		}
@@ -1551,7 +1967,7 @@ focus_tree = {
 		id = QIE_industry_focus_independ_1
 		x = 18
 		y = 6
-		cost = 0
+		cost = 4
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1562,11 +1978,113 @@ focus_tree = {
 		id = QIE_industry_focus_independ_2
 		x = 12
 		y = 6
-		cost = 0
+		cost = 6
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_introducing_funds
+		}
+	}
+	focus = {
+		id = QIE_buddhism_stage_2
+		x = -6
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_honor_buddhism_as_the_superior
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_focus_need_shi_tier_2_required_tt
+				OR = {
+					has_idea = QIE_god_circle_shi_tier_2
+					has_idea = QIE_god_circle_shi_tier_3
+				}
+			}
+		}
+	}
+	focus = {
+		id = QIE_confucism_stage_2
+		x = -4
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_focus_need_no_focus_tier_2_required_tt
+				OR = {
+					has_idea = QIE_god_circle_no_focus_tier_2
+					has_idea = QIE_god_circle_no_focus_tier_3
+				}
+			}
+		}
+		prerequisite = {
+			focus = QIE_honor_con_as_the_superior
+		}
+	}
+	focus = {
+		id = QIE_jesus_stage_2
+		x = -2
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_focus_need_jesus_tier_2_required_tt
+				OR = {
+					has_idea = QIE_god_circle_jesus_tier_2
+					has_idea = QIE_god_circle_jesus_tier_3
+				}
+			}
+		}
+		prerequisite = {
+			focus = QIE_honor_jesus_as_the_superior
+		}
+	}
+	focus = {
+		id = QIE_mohammad_stage_2
+		x = 0
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_focus_need_con_tier_2_required_tt
+				OR = {
+					has_idea = QIE_god_circle_con_tier_2
+					has_idea = QIE_god_circle_con_tier_3
+				}
+			}
+		}
+		prerequisite = {
+			focus = QIE_honor_mohammad_as_the_superior
+		}
+	}
+	focus = {
+		id = QIE_two_leaders_bonus_1
+		x = 4
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_reluctant_two_leaders
+		}
+	}
+	focus = {
+		id = QIE_two_leaders_bonus_2
+		x = 8
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_reluctant_two_leaders
 		}
 	}
 }

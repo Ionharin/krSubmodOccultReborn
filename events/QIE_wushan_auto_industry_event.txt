@@ -1,0 +1,163 @@
+add_namespace = QIE_wushan_auto_industry
+
+# Henan line: project -> develop -> final
+country_event = {
+	id = QIE_wushan_auto_industry.01
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { has_completed_focus = QIE_pauper_factory }
+	immediate = {
+		if = {
+			limit = { NOT = { has_completed_focus = QIE_project_henan } }
+			activate_shine_on_focus = QIE_project_henan
+			set_country_flag = { flag = QIE_project_henan_in_progress_flag days = 35 value = 1 }
+			country_event = { id = QIE_wushan_auto_industry.02 days = 35 }
+		}
+		else_if = {
+			limit = { NOT = { has_completed_focus = QIE_develop_henan } }
+			activate_shine_on_focus = QIE_develop_henan
+			set_country_flag = { flag = QIE_develop_henan_in_progress_flag days = 105 value = 1 }
+			country_event = { id = QIE_wushan_auto_industry.02 days = 105 }
+		}
+		else_if = {
+			limit = { NOT = { has_completed_focus = QIE_final_industry_henan } }
+			activate_shine_on_focus = QIE_final_industry_henan
+			set_country_flag = { flag = QIE_final_industry_henan_in_progress_flag days = 133 value = 1 }
+			country_event = { id = QIE_wushan_auto_industry.02 days = 133 }
+		}
+	}
+}
+
+country_event = {
+	id = QIE_wushan_auto_industry.02
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { has_completed_focus = QIE_pauper_factory }
+	immediate = {
+		if = {
+			limit = { has_shine_effect_on_focus = QIE_project_henan }
+			complete_national_focus = { focus = QIE_project_henan use_side_message = yes originator_name = QIE_wushan_focus_name }
+			clr_country_flag = QIE_project_henan_in_progress_flag
+			country_event = { id = QIE_wushan_auto_industry.01 }
+		}
+		else_if = {
+			limit = { has_shine_effect_on_focus = QIE_develop_henan }
+			complete_national_focus = { focus = QIE_develop_henan use_side_message = yes originator_name = QIE_wushan_focus_name }
+			clr_country_flag = QIE_develop_henan_in_progress_flag
+			country_event = { id = QIE_wushan_auto_industry.01 }
+		}
+		else_if = {
+			limit = { has_shine_effect_on_focus = QIE_final_industry_henan }
+			complete_national_focus = { focus = QIE_final_industry_henan use_side_message = yes originator_name = QIE_wushan_focus_name }
+			clr_country_flag = QIE_final_industry_henan_in_progress_flag
+		}
+	}
+}
+
+# Xian line: project -> develop -> final
+country_event = {
+	id = QIE_wushan_auto_industry.11
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { has_completed_focus = QIE_pauper_factory }
+	immediate = {
+		if = {
+			limit = { NOT = { has_completed_focus = QIE_project_xian } }
+			activate_shine_on_focus = QIE_project_xian
+			set_country_flag = { flag = QIE_project_xian_in_progress_flag days = 49 value = 1 }
+			country_event = { id = QIE_wushan_auto_industry.12 days = 49 }
+		}
+		else_if = {
+			limit = { NOT = { has_completed_focus = QIE_develop_xian } }
+			activate_shine_on_focus = QIE_develop_xian
+			set_country_flag = { flag = QIE_develop_xian_in_progress_flag days = 84 value = 1 }
+			country_event = { id = QIE_wushan_auto_industry.12 days = 84 }
+		}
+		else_if = {
+			limit = { NOT = { has_completed_focus = QIE_final_industry_xian } }
+			activate_shine_on_focus = QIE_final_industry_xian
+			set_country_flag = { flag = QIE_final_industry_xian_in_progress_flag days = 140 value = 1 }
+			country_event = { id = QIE_wushan_auto_industry.12 days = 140 }
+		}
+	}
+}
+
+country_event = {
+	id = QIE_wushan_auto_industry.12
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { has_completed_focus = QIE_pauper_factory }
+	immediate = {
+		if = {
+			limit = { has_shine_effect_on_focus = QIE_project_xian }
+			complete_national_focus = { focus = QIE_project_xian use_side_message = yes originator_name = QIE_wushan_focus_name }
+			clr_country_flag = QIE_project_xian_in_progress_flag
+			country_event = { id = QIE_wushan_auto_industry.11 }
+		}
+		else_if = {
+			limit = { has_shine_effect_on_focus = QIE_develop_xian }
+			complete_national_focus = { focus = QIE_develop_xian use_side_message = yes originator_name = QIE_wushan_focus_name }
+			clr_country_flag = QIE_develop_xian_in_progress_flag
+			country_event = { id = QIE_wushan_auto_industry.11 }
+		}
+		else_if = {
+			limit = { has_shine_effect_on_focus = QIE_final_industry_xian }
+			complete_national_focus = { focus = QIE_final_industry_xian use_side_message = yes originator_name = QIE_wushan_focus_name }
+			clr_country_flag = QIE_final_industry_xian_in_progress_flag
+		}
+	}
+}
+
+# Zhili line: project -> develop -> final
+country_event = {
+	id = QIE_wushan_auto_industry.21
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { has_completed_focus = QIE_pauper_factory }
+	immediate = {
+		if = {
+			limit = { NOT = { has_completed_focus = QIE_project_zhili } }
+			activate_shine_on_focus = QIE_project_zhili
+			set_country_flag = { flag = QIE_project_zhili_in_progress_flag days = 28 value = 1 }
+			country_event = { id = QIE_wushan_auto_industry.22 days = 28 }
+		}
+		else_if = {
+			limit = { NOT = { has_completed_focus = QIE_develop_zhili } }
+			activate_shine_on_focus = QIE_develop_zhili
+			set_country_flag = { flag = QIE_develop_zhili_in_progress_flag days = 56 value = 1 }
+			country_event = { id = QIE_wushan_auto_industry.22 days = 56 }
+		}
+		else_if = {
+			limit = { NOT = { has_completed_focus = QIE_final_industry_zhili } }
+			activate_shine_on_focus = QIE_final_industry_zhili
+			set_country_flag = { flag = QIE_final_industry_zhili_in_progress_flag days = 126 value = 1 }
+			country_event = { id = QIE_wushan_auto_industry.22 days = 126 }
+		}
+	}
+}
+
+country_event = {
+	id = QIE_wushan_auto_industry.22
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { has_completed_focus = QIE_pauper_factory }
+	immediate = {
+		if = {
+			limit = { has_shine_effect_on_focus = QIE_project_zhili }
+			complete_national_focus = { focus = QIE_project_zhili use_side_message = yes originator_name = QIE_wushan_focus_name }
+			clr_country_flag = QIE_project_zhili_in_progress_flag
+			country_event = { id = QIE_wushan_auto_industry.21 }
+		}
+		else_if = {
+			limit = { has_shine_effect_on_focus = QIE_develop_zhili }
+			complete_national_focus = { focus = QIE_develop_zhili use_side_message = yes originator_name = QIE_wushan_focus_name }
+			clr_country_flag = QIE_develop_zhili_in_progress_flag
+			country_event = { id = QIE_wushan_auto_industry.21 }
+		}
+		else_if = {
+			limit = { has_shine_effect_on_focus = QIE_final_industry_zhili }
+			complete_national_focus = { focus = QIE_final_industry_zhili use_side_message = yes originator_name = QIE_wushan_focus_name }
+			clr_country_flag = QIE_final_industry_zhili_in_progress_flag
+		}
+	}
+}
