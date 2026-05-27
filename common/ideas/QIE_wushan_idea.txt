@@ -34,8 +34,57 @@ ideas ={
 		}
 		QIE_eight_mighty_dragon_scripture = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_eight_mighty_dragon_scripture" }
+			picture = qie_eight_mighty_dragon_scripture_broken
+			allowed = { always = no }
+		}
+		QIE_eight_mighty_dragon_scripture_taixi = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_eight_mighty_dragon_scripture_taixi" }
+			picture = qie_eight_mighty_dragon_scripture_fix
+			allowed = { always = no }
+			modifier = {
+				industrial_capacity_factory = 0.15
+				local_resources_factor = 0.10
+				war_support_factor = 0.20
+				conscription_factor = 0.05
+			}
+		}
+		QIE_eight_mighty_dragon_scripture_zhongtu = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_eight_mighty_dragon_scripture_zhongtu" }
+			picture = qie_eight_mighty_dragon_scripture_fix
+			allowed = { always = no }
+			modifier = {
+				production_factory_max_efficiency_factor = 0.10
+				stability_factor = 0.20
+				political_power_gain = 0.20
+				supply_consumption_factor = -0.05
+			}
+		}
+		QIE_eight_mighty_dragon_scripture_longzhang = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_eight_mighty_dragon_scripture_longzhang" }
 			picture = qie_eight_mighty_dragon_scripture
 			allowed = { always = no }
+			modifier = {
+				industrial_capacity_factory = 0.15
+				local_resources_factor = 0.10
+				war_support_factor = 0.20
+				conscription_factor = 0.05
+				production_factory_max_efficiency_factor = 0.10
+				stability_factor = 0.20
+				political_power_gain = 0.20
+				supply_consumption_factor = -0.05
+			}
+		}
+		QIE_wang_jinghui_academy = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wang_jinghui_academy" }
+			picture = generic_research_bonus
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.08
+			}
+			research_bonus = {
+				industry = 0.10
+				electronics = 0.10
+			}
 		}
 }
 }

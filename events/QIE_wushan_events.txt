@@ -94,3 +94,31 @@ country_event = { # 燕京纯阳宫内
         ai_chance = { factor = 1 }
     }
 }
+
+country_event = { # 焚香
+    id = QIE_wushan_events.6
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.6" }
+    title = QIE_wushan_events.6.t
+    desc = QIE_wushan_events.6.desc
+    picture = GFX_QIE_wushan_events_6
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 伽罗香灭，金刚不护其主
+        name = QIE_wushan_events.6.a
+        custom_effect_tooltip = QIE_wushan_events_6_a_tt
+        complete_national_focus = QIE_beijing_mingjing_society
+        ai_chance = { factor = 1 }
+    }
+    option = { # 柏香中折，圣人不度其途
+        name = QIE_wushan_events.6.b
+        custom_effect_tooltip = QIE_wushan_events_6_b_tt
+        complete_national_focus = QIE_seek_japanese_sympathy
+        ai_chance = { factor = 1 }
+    }
+    option = { # 双香同烬，乩语不成真谶
+        name = QIE_wushan_events.6.c
+        custom_effect_tooltip = QIE_wushan_events_6_c_tt
+        ai_chance = { factor = 1 }
+    }
+}
