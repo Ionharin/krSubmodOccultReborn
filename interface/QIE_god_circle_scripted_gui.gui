@@ -1,0 +1,159 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "QIE_god_circle_ui_window"
+		orientation = lower_left
+		position = { x = 0 y = 0 }
+		size = { width = 504 height = 468 }
+		clipping = no
+
+		#BACKGROUND
+		background = {
+			name = "background"
+			quadTextureSprite="GFX_CZE_skoda_background"
+			alwaystransparent = yes
+		}
+
+		#TITLE
+		instantTextBoxType = {
+			name ="god_circle_title_name"
+			orientation = upper_left
+			position = { x = 24 y = 34 }
+			font = "hoi_36header"
+			text = "QIE_god_circle_title_text"
+			format = center
+			maxWidth = 504
+		}
+
+		buttonType = {
+			name ="QIE_no_god_image"
+			quadTextureSprite ="GFX_CZE_skoda_square_default"
+			position = { x = 232 y = 74 }
+			buttonText = ""
+			pdx_tooltip = QIE_no_god_tt
+			buttonFont = "hoi_16mbs"
+		}
+
+		iconType = {
+			name ="CZE_skoda_no_focus_image_selected"
+			quadTextureSprite ="GFX_CZE_skoda_square_default_selected"
+			position = { x = 232 y = 74 }
+			context_aware_tooltip = QIE_god_circle_no_focus_selected_tt
+		}
+
+		buttonType = {
+			name ="QIE_con_focus_image"
+			quadTextureSprite ="GFX_CZE_skoda_square_infantry"
+			position = { x = 120 y = 183 }
+			buttonText = ""
+			pdx_tooltip = QIE_con_focus_tt
+			buttonFont = "hoi_16mbs"
+		}
+
+		iconType = {
+			name ="CZE_skoda_infantry_focus_image_selected"
+			quadTextureSprite ="GFX_CZE_skoda_square_infantry_selected"
+			position = { x = 120 y = 183 }
+			context_aware_tooltip = QIE_god_circle_con_focus_selected_tt
+		}
+
+		buttonType = {
+			name ="QIE_lao_focus_image"
+			quadTextureSprite ="GFX_CZE_skoda_square_aircraft"
+			position = { x = 172 y =294 }
+			buttonText = ""
+			pdx_tooltip = QIE_lao_focus_tt
+			buttonFont = "hoi_16mbs"
+		}
+
+		iconType = {
+			name ="CZE_skoda_plane_focus_image_selected"
+			quadTextureSprite ="GFX_CZE_skoda_square_aircraft_selected"
+			position = { x = 172 y = 294 }
+			context_aware_tooltip = QIE_god_circle_lao_focus_selected_tt
+		}
+
+		buttonType = {
+			name ="QIE_shi_focus_image"
+			quadTextureSprite ="GFX_CZE_skoda_square_armor"
+			position = { x = 344 y= 183 }
+			buttonText = ""
+			pdx_tooltip = QIE_shi_focus_tt
+			buttonFont = "hoi_16mbs"
+		}
+
+		iconType = {
+			name ="CZE_skoda_tank_focus_image_selected"
+			quadTextureSprite ="GFX_CZE_skoda_square_armor_selected"
+			position = { x = 344 y = 183 }
+			context_aware_tooltip = QIE_god_circle_shi_focus_selected_tt
+		}
+
+		buttonType = { 
+			name ="QIE_jesus_focus_image"
+			quadTextureSprite ="GFX_CZE_skoda_square_naval"
+			position = { x = 292 y= 294 }
+			buttonText = ""
+			pdx_tooltip = QIE_jesus_focus_tt
+			buttonFont = "hoi_16mbs"
+		}
+
+		iconType = {
+			name ="CZE_skoda_naval_focus_image_selected"
+			quadTextureSprite ="GFX_CZE_skoda_square_naval_selected"
+			position = { x = 292 y = 294 }
+			context_aware_tooltip = QIE_god_circle_jesus_focus_selected_tt
+		}
+
+		iconType = {
+			name ="QIE_god_circle_center_leader_image"
+			quadTextureSprite = "GFX_portrait_QIE_aisin_gioro_puyi_civilian_large_uniform"
+			position = { x = 240 y = 180 }
+			context_aware_tooltip = {
+				localization_key = QIE_god_circle_leader
+				Leader = [QIE.GetLeader]
+			}
+			scale = 0.5
+		}
+
+		instantTextBoxType = {
+			name ="CZE_skoda_optimization_explanation"
+			position = { x=369 y=64 }
+			text = "QIE_god_circle_tier_header"
+			format = center
+			font = "hoi_16mbs"
+			maxHeight = 50
+			context_aware_tooltip = QIE_god_circle_tier_hover_tt
+		}
+
+		iconType = {
+			name = "CZE_efficiency_background"
+			spriteType = "GFX_CZE_skoda_efficiency_cog"
+			position = { x=444 y=94 }
+		}
+
+		instantTextBoxType = {
+			name ="CZE_skoda_optimization_tier"
+			position = { x=461 y=99 }
+			context_aware_text = QIE_god_circle_tier_var_text
+			font = "hoi_36header"
+			maxHeight = 45
+			context_aware_tooltip = QIE_god_circle_tier_hover_tt
+		}
+
+		iconType = {
+			name = "CZE_description_bg"
+			spriteType = "GFX_CZE_skoda_explanation_background"
+			position = { x=33 y=401 }
+		}
+
+		instantTextBoxType = {
+			name ="QIE_god_circle_description"
+			position = { x=37 y=404 }
+			text = QIE_god_circle_description_tt
+			font = "hoi_16mbs"
+			format = left
+			maxWidth = 488
+		}
+	}
+}

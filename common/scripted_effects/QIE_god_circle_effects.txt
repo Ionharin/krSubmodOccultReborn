@@ -1,0 +1,82 @@
+QIE_update_god_circle_tier = {
+	hidden_effect = {
+		remove_ideas = {
+			QIE_god_circle_no_focus_tier_1
+			QIE_god_circle_no_focus_tier_2
+			QIE_god_circle_no_focus_tier_3
+			QIE_god_circle_con_tier_1
+			QIE_god_circle_con_tier_2
+			QIE_god_circle_con_tier_3
+			QIE_god_circle_shi_tier_1
+			QIE_god_circle_shi_tier_2
+			QIE_god_circle_shi_tier_3
+			QIE_god_circle_lao_tier_1
+			QIE_god_circle_lao_tier_2
+			QIE_god_circle_lao_tier_3
+			QIE_god_circle_jesus_tier_1
+			QIE_god_circle_jesus_tier_2
+			QIE_god_circle_jesus_tier_3
+		}
+	}
+
+	if = {
+		limit = {
+			check_variable = { god_circle_tier > 0 }
+		}
+		if = {
+			limit = {
+				check_variable = { god_circle_focus_var = 0 }
+			}
+			meta_effect = {
+				text = {
+					add_ideas = QIE_god_circle_no_focus_tier_[GOD_TIER]
+				}
+				GOD_TIER = "[?god_circle_tier]"
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { god_circle_focus_var = 1 }
+			}
+			meta_effect = {
+				text = {
+					add_ideas = QIE_god_circle_con_tier_[GOD_TIER]
+				}
+				GOD_TIER = "[?god_circle_tier]"
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { god_circle_focus_var = 2 }
+			}
+			meta_effect = {
+				text = {
+					add_ideas = QIE_god_circle_shi_tier_[GOD_TIER]
+				}
+				GOD_TIER = "[?god_circle_tier]"
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { god_circle_focus_var = 3 }
+			}
+			meta_effect = {
+				text = {
+					add_ideas = QIE_god_circle_lao_tier_[GOD_TIER]
+				}
+				GOD_TIER = "[?god_circle_tier]"
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { god_circle_focus_var = 4 }
+			}
+			meta_effect = {
+				text = {
+					add_ideas = QIE_god_circle_jesus_tier_[GOD_TIER]
+				}
+				GOD_TIER = "[?god_circle_tier]"
+			}
+		}
+	}
+}

@@ -1,0 +1,145 @@
+QIE_god_circle_inlay_window = {
+	window_name = QIE_god_circle_ui_window
+	internal = yes
+	visible = {
+		has_completed_focus = QIE_wushan_power
+	}
+
+	scripted_images = {
+		QIE_no_god_image = {
+			GFX_CZE_skoda_square_default = {
+				NOT = {
+					check_variable = { god_circle_focus_var = 0 }
+				}
+			}
+		}
+		QIE_con_focus_image = {
+			GFX_CZE_skoda_square_infantry = {
+				NOT = {
+					check_variable = { god_circle_focus_var = 1 }
+				}
+			}
+		}
+		QIE_shi_focus_image = {
+			GFX_CZE_skoda_square_armor = {
+				NOT = {
+					check_variable = { god_circle_focus_var = 2 }
+				}
+			}
+		}
+		QIE_lao_focus_image = {
+			GFX_CZE_skoda_square_aircraft = {
+				NOT = {
+					check_variable = { god_circle_focus_var = 3 }
+				}
+			}
+		}
+		QIE_jesus_focus_image = {
+			GFX_CZE_skoda_square_naval = {
+				NOT = {
+					check_variable = { god_circle_focus_var = 4 }
+				}
+			}
+		}
+
+		#selected
+		CZE_skoda_no_focus_image_selected = {
+			GFX_CZE_skoda_square_default_selected = {
+				check_variable = { god_circle_focus_var = 0 }
+			}
+		}
+		CZE_skoda_infantry_focus_image_selected = {
+			GFX_CZE_skoda_square_infantry_selected = {
+				check_variable = { god_circle_focus_var = 1 }
+			}
+		}
+		CZE_skoda_tank_focus_image_selected = {
+			GFX_CZE_skoda_square_armor_selected = {
+				check_variable = { god_circle_focus_var = 2 }
+			}
+		}
+		CZE_skoda_plane_focus_image_selected = {
+			GFX_CZE_skoda_square_aircraft_selected = {
+				check_variable = { god_circle_focus_var = 3 }
+			}
+		}
+		CZE_skoda_naval_focus_image_selected = {
+			GFX_CZE_skoda_square_naval_selected = {
+				check_variable = { god_circle_focus_var = 4 }
+			}
+		}
+	}
+
+	scripted_buttons = {
+		QIE_no_god_image = {
+			click_effect = {
+				set_variable = { god_circle_focus_var = 0 }
+				set_variable = { god_circle_tier = 0 }
+				set_country_flag = {
+					flag = QIE_recently_changed_god_circle_focus
+					days = 28
+					value = 1
+				}
+				hidden_effect = {
+					QIE_update_god_circle_tier = yes
+				}
+			}
+		}
+		QIE_con_focus_image = {
+			click_effect = {
+				set_variable = { god_circle_focus_var = 1 }
+				set_variable = { god_circle_tier = 0 }
+				set_country_flag = {
+					flag = QIE_recently_changed_god_circle_focus
+					days = 28
+					value = 1
+				}
+				hidden_effect = {
+					QIE_update_god_circle_tier = yes
+				}
+			}
+		}
+		QIE_shi_focus_image = {
+			click_effect = {
+				set_variable = { god_circle_focus_var = 2 }
+				set_variable = { god_circle_tier = 0 }
+				set_country_flag = {
+					flag = QIE_recently_changed_god_circle_focus
+					days = 28
+					value = 1
+				}
+				hidden_effect = {
+					QIE_update_god_circle_tier = yes
+				}
+			}
+		}
+		QIE_lao_focus_image = {
+			click_effect = {
+				set_variable = { god_circle_focus_var = 3 }
+				set_variable = { god_circle_tier = 0 }
+				set_country_flag = {
+					flag = QIE_recently_changed_god_circle_focus
+					days = 28
+					value = 1
+				}
+				hidden_effect = {
+					QIE_update_god_circle_tier = yes
+				}
+			}
+		}
+		QIE_jesus_focus_image = {
+			click_effect = {
+				set_variable = { god_circle_focus_var = 4 }
+				set_variable = { god_circle_tier = 0 }
+				set_country_flag = {
+					flag = QIE_recently_changed_god_circle_focus
+					days = 28
+					value = 1
+				}
+				hidden_effect = {
+					QIE_update_god_circle_tier = yes
+				}
+			}
+		}
+	}
+}

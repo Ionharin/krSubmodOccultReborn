@@ -1,0 +1,2 @@
+#set_country_flag = QIE_wushan_start
+QIE_wushan_start：避免玩家点击救世新教自动国策树

@@ -1,0 +1,70 @@
+add_namespace = QIE_wushan_wu_jiang_power_auto
+
+country_event = {
+	id = QIE_wushan_wu_jiang_power_auto.01
+	hidden = yes
+	is_triggered_only = yes
+	trigger = {
+		has_completed_focus = QIE_wushan_power
+	}
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_completed_focus = QIE_the_rise_of_jiang }
+			}
+			activate_shine_on_focus = QIE_the_rise_of_jiang
+			set_country_flag = {
+				flag = QIE_the_rise_of_jiang_in_progress_flag
+				days = 49
+				value = 1
+			}
+			country_event = { id = QIE_wushan_wu_jiang_power_auto.02 days = 49 }
+		}
+		else_if = {
+			limit = {
+				NOT = { has_completed_focus = QIE_lobby_members }
+			}
+			activate_shine_on_focus = QIE_lobby_members
+			set_country_flag = {
+				flag = QIE_lobby_members_in_progress_flag
+				days = 21
+				value = 1
+			}
+			country_event = { id = QIE_wushan_wu_jiang_power_auto.02 days = 21 }
+		}
+	}
+}
+
+country_event = {
+	id = QIE_wushan_wu_jiang_power_auto.02
+	hidden = yes
+	is_triggered_only = yes
+	trigger = {
+		has_completed_focus = QIE_wushan_power
+	}
+	immediate = {
+		if = {
+			limit = {
+				has_shine_effect_on_focus = QIE_the_rise_of_jiang
+			}
+			complete_national_focus = {
+				focus = QIE_the_rise_of_jiang
+				use_side_message = yes
+				originator_name = QIE_wushan_focus_name
+			}
+			clr_country_flag = QIE_the_rise_of_jiang_in_progress_flag
+			country_event = { id = QIE_wushan_wu_jiang_power_auto.01 }
+		}
+		else_if = {
+			limit = {
+				has_shine_effect_on_focus = QIE_lobby_members
+			}
+			complete_national_focus = {
+				focus = QIE_lobby_members
+				use_side_message = yes
+				originator_name = QIE_wushan_focus_name
+			}
+			clr_country_flag = QIE_lobby_members_in_progress_flag
+		}
+	}
+}

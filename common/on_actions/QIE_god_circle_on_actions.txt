@@ -1,0 +1,20 @@
+on_actions = {
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					tag = QIE
+					has_completed_focus = QIE_wushan_power
+					check_variable = { god_circle_tier < 3 }
+					NOT = {
+						has_country_flag = QIE_recently_changed_god_circle_focus
+					}
+				}
+				add_to_variable = {
+					god_circle_tier = 1
+				}
+				QIE_update_god_circle_tier = yes
+			}
+		}
+	}
+}

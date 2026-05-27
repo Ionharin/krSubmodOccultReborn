@@ -1,0 +1,81 @@
+add_namespace = QIE_wushan_events
+
+country_event = { # 救世新教提请集资捐助
+    id = QIE_wushan_events.1
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.1" }
+    title = QIE_wushan_events.1.t
+    desc = QIE_wushan_events.1.desc
+    picture = GFX_report_event_europe_funeral
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 地主家也没有余粮了
+        name = QIE_wushan_events.1.a
+        ai_chance = { factor = 0 }
+        custom_effect_tooltip =  QIE_ws_event1_tt
+        hidden_effect = {
+            swap_ideas = {
+            remove_idea = QIE_conspiracy_of_wushan
+            add_idea = QIE_hate_of_wushan
+            }
+            complete_national_focus = {
+                focus = QIE_secret_meeting
+                use_side_message = yes
+                originator_name = QIE_wushan_focus_name
+                }
+        }
+    }
+    option = { # 再苦一苦财政部
+        name = QIE_wushan_events.1.b
+        ai_chance = { factor = 1 }
+            remove_ideas = QIE_conspiracy_of_wushan
+            add_timed_idea = {
+                idea = QIE_help_of_wushan
+                days = 365
+            }
+    }
+}
+country_event = { # 秘密会面
+    id = QIE_wushan_events.2
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.2" }
+    title = QIE_wushan_events.2.t
+    desc = QIE_wushan_events.2.desc
+    picture = GFX_QIE_wushan_events_2
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 7
+    option = { # 救世新教叙事线
+        name = QIE_wushan_events.2.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 在会面之前
+    id = QIE_wushan_events.3
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.3" }
+    title = QIE_wushan_events.3.t
+    desc = QIE_wushan_events.3.desc
+    picture = GFX_QIE_wushan_events_3
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 可是那会怎样？（移除救世新教的帮助）
+        name = QIE_wushan_events.3.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+news_event = { # QIE_wushan_news_events.1
+    id = QIE_wushan_events.4
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.4" }
+    title = QIE_wushan_events.4.t
+    desc = QIE_wushan_events.4.desc
+    picture = GFX_QIE_wushan_events_4
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 另一个张天然？
+        name = QIE_wushan_events.4.a
+        ai_chance = { factor = 1 }
+    }
+}

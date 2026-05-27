@@ -1,0 +1,100 @@
+################
+## AUTO FOCUS ##
+## BY NETHOP  ##
+################
+
+add_namespace = QIE_wushan_auto_seances
+
+# HOW TO PLAY WUSHAN soceity - Start work on Focus Tree
+country_event = {
+    id = QIE_wushan_auto_seances.01
+    hidden = yes
+    is_triggered_only = yes
+    trigger = {
+        has_completed_focus = QIE_year_of_the_rat
+    }
+    immediate = {
+        if = {
+            limit = {
+                NOT = { has_completed_focus = QIE_the_shadow_of_order }
+            }
+            activate_shine_on_focus = QIE_the_shadow_of_order
+            set_country_flag = {
+                flag = QIE_the_shadow_of_order_in_progress_flag
+                days = 14
+                value = 1
+            }
+            country_event = { id = QIE_wushan_auto_seances.02 days = 14 }
+        }
+            else_if = {
+                limit = {
+                NOT = { has_completed_focus = QIE_secret_meeting }
+            }
+            activate_shine_on_focus = QIE_secret_meeting
+            set_country_flag = {
+                flag = QIE_secret_meeting_in_progress_flag
+                days = 70
+                value = 1
+            }
+            country_event = { id = QIE_wushan_auto_seances.02 days = 70 }
+            }
+            else_if = {
+                limit = {
+                NOT = { has_completed_focus = QIE_hang_on_the_oppo_discontent }
+            }
+            activate_shine_on_focus = QIE_hang_on_the_oppo_discontent
+            set_country_flag = {
+                flag = QIE_hang_on_the_oppo_discontent_in_progress_flag
+                days = 70
+                value = 1
+            }
+            country_event = { id = QIE_wushan_auto_seances.02 days = 70 }
+            }
+    }
+}
+
+country_event = {
+    id = QIE_wushan_auto_seances.02
+    hidden = yes
+    is_triggered_only = yes
+    trigger = {
+        has_completed_focus = QIE_year_of_the_rat
+    }
+    immediate = {
+        if = {
+            limit = {
+                has_shine_effect_on_focus = QIE_the_shadow_of_order
+            }
+            complete_national_focus = {
+                focus = QIE_the_shadow_of_order
+                use_side_message = yes
+                originator_name = QIE_wushan_focus_name
+            }
+            clr_country_flag = QIE_the_shadow_of_order_in_progress_flag
+            country_event = { id = QIE_wushan_auto_seances.01 }
+        }
+            else_if = {
+                limit = {
+                    has_shine_effect_on_focus = QIE_secret_meeting
+                }
+                complete_national_focus = {
+                    focus = QIE_secret_meeting
+                    use_side_message = yes
+                    originator_name = QIE_wushan_focus_name
+                }
+            clr_country_flag = QIE_secret_meeting_in_progress_flag
+            country_event = { id = QIE_wushan_auto_seances.01 }
+            }
+            else_if = {
+                limit = {
+                    has_shine_effect_on_focus = QIE_hang_on_the_oppo_discontent
+                }
+                complete_national_focus = {
+                    focus = QIE_hang_on_the_oppo_discontent
+                    use_side_message = yes
+                    originator_name = QIE_wushan_focus_name
+                }
+            clr_country_flag = QIE_hang_on_the_oppo_discontent_in_progress_flag
+            }
+    }
+}

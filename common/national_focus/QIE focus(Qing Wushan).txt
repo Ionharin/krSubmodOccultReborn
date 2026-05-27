@@ -1,0 +1,1572 @@
+###########################
+# Qing - Wushan Focus Tree
+# By NethopAvis
+###########################
+focus_tree = {
+	id = QIE_wushan
+	country = {
+		factor = 0
+	}
+	initial_show_position = {
+		x = 8
+		y = 0
+	}
+	default = no
+	continuous_focus_position = {
+		x = 130
+		y = 1400
+	}
+	inlay_window = {
+		id = QIE_god_circle_inlay_window
+		position = {
+			x = 240
+			y = 10
+		}
+	}
+	focus = {
+		id = QIE_wushan_power
+		x = 6
+		y = 0
+		cost = 0
+		icon = GFX_focus_RAJ_bathe_in_hellfire
+		continue_if_invalid = no
+		cancel_if_invalid = no
+		completion_reward = {
+			add_political_power = 150
+			custom_effect_tooltip = QIE_ws1_tt
+			hidden_effect = {
+				set_cosmetic_tag = QIE_wushan_cosmetic_tag
+				set_variable = {
+					god_circle_focus_var = 0
+				}
+				set_variable = {
+					god_circle_tier = 0
+				}
+				QIE_update_god_circle_tier = yes
+				country_event = {
+					id = QIE_wushan_wu_jiang_power_auto.01
+					days = 1
+				}
+			}
+		}
+	}
+	focus = {
+		id = QIE_the_rise_of_jiang
+		x = 4
+		y = 1
+		cost = 7
+		icon = QIE_wushan_test
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_the_rise_of_jiang_in_progress_flag
+				}
+				set_temp_variable = {
+					temp_focus_days = 49
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_jiang_power_auto_focus_in_progress_tt
+						FLAG_DAYS = [?QIE_the_rise_of_jiang_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_jiang_power_focus_can_only_be_completed_by_advisor_tt
+					}
+					always = no
+				}
+			}
+		}
+		prerequisite = {
+			focus = QIE_wushan_power
+		}
+	}
+	focus = {
+		id = QIE_the_defense_of_wu
+		x = 8
+		y = 1
+		cost = 5
+		icon = QIE_wushan_test
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_power
+		}
+	}
+	focus = {
+		id = QIE_seek_japanese_sympathy
+		x = 3
+		y = 2
+		cost = 0
+		icon = GFX_goal_japanese_investment
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_rise_of_jiang
+		}
+	}
+	focus = {
+		id = QIE_beijing_mingjing_society
+		x = 9
+		y = 2
+		cost = 0
+		icon = GFX_focus_generic_university_2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_defense_of_wu
+		}
+	}
+	focus = {
+		id = QIE_lobby_members
+		x = 5
+		y = 2
+		cost = 3
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_lobby_members_in_progress_flag
+				}
+				set_temp_variable = {
+					temp_focus_days = 21
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_jiang_power_auto_focus_in_progress_tt
+						FLAG_DAYS = [?QIE_lobby_members_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_jiang_power_focus_can_only_be_completed_by_advisor_tt
+					}
+					always = no
+				}
+			}
+		}
+		prerequisite = {
+			focus = QIE_the_rise_of_jiang
+		}
+		completion_reward = {
+			add_political_power = 10
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	focus = {
+		id = QIE_mobilize_connections
+		x = 7
+		y = 2
+		cost = 5
+		icon = GFX_goal_generic_party_bottle
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_defense_of_wu
+		}
+		completion_reward = {
+			add_political_power = 10
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	focus = {
+		id = QIE_the_reluctant_two_leaders
+		x = 6
+		y = 4
+		cost = 0
+		icon = QIE_wushan_test
+		continue_if_invalid = no
+		cancel_if_invalid = no
+		mutually_exclusive = {
+			focus = QIE_jiang_controls_the_wushan
+			focus = QIE_wu_control_the_wushan
+		}
+		prerequisite = {
+			focus = QIE_the_oracle_of_master_lv
+		}
+	}
+	focus = {
+		id = QIE_jiang_controls_the_wushan
+		x = 3
+		y = 4
+		cost = 0
+		icon = QIE_wushan_test
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_the_reluctant_two_leaders
+			focus = QIE_wu_control_the_wushan
+		}
+		prerequisite = {
+			focus = QIE_seek_japanese_sympathy
+		}
+		prerequisite = {
+			focus = QIE_lobby_members
+		}
+	}
+	focus = {
+		id = QIE_wu_control_the_wushan
+		x = 9
+		y = 4
+		cost = 0
+		icon = QIE_wushan_test
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_the_reluctant_two_leaders
+			focus = QIE_jiang_controls_the_wushan
+		}
+		prerequisite = {
+			focus = QIE_mobilize_connections
+		}
+		prerequisite = {
+			focus = QIE_beijing_mingjing_society
+		}
+	}
+	focus = {
+		id = QIE_the_oracle_of_master_lv
+		x = 6
+		y = 3
+		cost = 1
+		icon = GFX_test
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available_if_capitulated = no
+		allow_branch = {
+			has_completed_focus = QIE_lobby_members
+			has_completed_focus = QIE_mobilize_connections
+			NOT = {
+				has_completed_focus = QIE_seek_japanese_sympathy
+				has_completed_focus = QIE_beijing_mingjing_society
+			}
+		}
+		available = {
+			NOT = {
+				has_completed_focus = QIE_seek_japanese_sympathy
+				has_completed_focus = QIE_beijing_mingjing_society
+			}
+		}
+		prerequisite = {
+			focus = QIE_lobby_members
+		}
+		prerequisite = {
+			focus = QIE_mobilize_connections
+		}
+		completion_reward = {
+			add_political_power = 100
+			custom_effect_tooltip = QIE_ws2_tt
+			hidden_effect = {
+				add_political_power = 100
+			}
+		}
+	}
+	focus = {
+		id = QIE_honor_tao_as_the_superior
+		x = -8
+		y = 5
+		cost = 0
+		icon = GFX_focus_generic_catholic_dominion
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_seances_restart_in_beijing
+		}
+	}
+	focus = {
+		id = QIE_honor_buddhism_as_the_superior
+		x = -6
+		y = 5
+		cost = 0
+		icon = GFX_focus_JAP_incorporate_buddhist_socialism
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_focus_need_shi_tier_1_required_tt
+				OR = {
+					has_idea = QIE_god_circle_shi_tier_1
+					has_idea = QIE_god_circle_shi_tier_2
+					has_idea = QIE_god_circle_shi_tier_3
+				}
+			}
+		}
+		prerequisite = {
+			focus = QIE_seances_restart_in_beijing
+		}
+	}
+	focus = {
+		id = QIE_honor_con_as_the_superior
+		x = -4
+		y = 5
+		cost = 0
+		icon = GFX_focus_generic_catholic_dominion
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_seances_restart_in_beijing
+		}
+	}
+	focus = {
+		id = QIE_honor_jesus_as_the_superior
+		x = -2
+		y = 5
+		cost = 0
+		icon = GFX_focus_generic_vatican_state
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_seances_restart_in_beijing
+		}
+	}
+	focus = {
+		id = QIE_honor_mohammad_as_the_superior
+		x = 0
+		y = 5
+		cost = 0
+		icon = GFX_focus_generic_catholic_dominion
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_seances_restart_in_beijing
+		}
+	}
+	focus = {
+		id = QIE_taiyi_laozu_down
+		x = 6
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_jiang_controls_the_wushan
+			focus = QIE_the_reluctant_two_leaders
+			focus = QIE_wu_control_the_wushan
+		}
+	}
+	focus = {
+		id = QIE_respond_the_sichuan_famine
+		x = 13
+		y = 2
+		cost = 1
+		icon = GFX_goal_generic_rice_field
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_restart_beijing_charity_society
+		}
+	}
+	focus = {
+		id = QIE_economic_stability
+		x = 15
+		y = 2
+		cost = 0
+		icon = GFX_focus_generic_expropriate_industrialist
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_restart_beijing_charity_society
+		}
+	}
+	focus = {
+		id = QIE_debt_negotiation
+		x = 14
+		y = 4
+		cost = 0
+		icon = GFX_goal_COS_German_Bailout
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_cancel_completely
+		}
+		prerequisite = {
+			focus = QIE_become_YCP_shadow
+			focus = QIE_become_CERA_shadow
+			focus = QIE_become_MP_shadow
+		}
+	}
+	focus = {
+		id = QIE_cancel_completely
+		x = 16
+		y = 4
+		cost = 0
+		icon = GFX_goal_treaty_fails
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_debt_negotiation
+		}
+		prerequisite = {
+			focus = QIE_become_YCP_shadow
+			focus = QIE_become_CERA_shadow
+			focus = QIE_become_MP_shadow
+		}
+	}
+	focus = {
+		id = QIE_charitable_share_bank
+		x = 22
+		y = 2
+		cost = 2
+		icon = GFX_focus_generic_welfare
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_restart_beijing_charity_society
+		}
+	}
+	focus = {
+		id = QIE_pauper_factory
+		x = 24
+		y = 3
+		cost = 3
+		icon = GFX_goal_social_reforms
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_charitable_share_bank
+		}
+	}
+	focus = {
+		id = QIE_temporary_housing
+		x = 20
+		y = 3
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_charitable_share_bank
+		}
+	}
+	focus = {
+		id = QIE_project_henan
+		x = 22
+		y = 4
+		cost = 0
+		icon = GFX_focus_generic_industry_1
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_pauper_factory
+		}
+	}
+	focus = {
+		id = QIE_project_zhili
+		x = 26
+		y = 4
+		cost = 0
+		icon = GFX_focus_generic_industry_1
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_pauper_factory
+		}
+	}
+	focus = {
+		id = QIE_project_xian
+		x = 24
+		y = 4
+		cost = 0
+		icon = GFX_focus_generic_industry_1
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_pauper_factory
+		}
+	}
+	focus = {
+		id = QIE_lord_of_the_central_plains
+		x = 20
+		y = 6
+		cost = 20
+		icon = GFX_focus_generic_university_3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_universal_education_for_poor
+		}
+	}
+	focus = {
+		id = QIE_seize_german_assets
+		x = 18
+		y = 5
+		cost = 0
+		icon = GFX_focus_DEN_heavy_regulations
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_cancel_completely
+		}
+	}
+	focus = {
+		id = QIE_old_army_new_life
+		x = 33
+		y = 0
+		cost = 0
+		icon = GFX_focus_generic_crush_the_military
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = QIE_restart_beijing_charity_society
+		x = 13
+		y = 1
+		cost = 2
+		icon = GFX_goal_generic_debt_negotiations
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_power
+		}
+	}
+	focus = {
+		id = QIE_jesus_shed_his_blood
+		x = -2
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = QIE_raise_the_long_blade
+		x = 0
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = QIE_spring_and_autumn_ritual
+		x = -4
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = QIE_into_samadhi
+		x = -6
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_focus_need_shi_tier_3_required_tt
+				has_idea = QIE_god_circle_shi_tier_3
+			}
+		}
+	}
+	focus = {
+		id = QIE_seize_the_great_game
+		x = -8
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_educate_the_people_with_tao
+		}
+	}
+	focus = {
+		id = QIE_union_the_world_as_the_country
+		x = -4
+		y = 9
+		cost = 0
+		icon = GFX_goal_generic_national_unity
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_old_chinese_beliefs_reborn
+		}
+		prerequisite = {
+			focus = QIE_and_new_beliefs_live_in_here
+		}
+	}
+	focus = {
+		id = QIE_introducing_funds
+		x = 12
+		y = 5
+		cost = 0
+		icon = GFX_goal_generic_loans
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_debt_negotiation
+		}
+	}
+	focus = {
+		id = QIE_put_on_the_cloak_of_confucius
+		x = 10
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wu_control_the_wushan
+		}
+	}
+	focus = {
+		id = QIE_develop_henan
+		x = 22
+		y = 5
+		cost = 0
+		icon = GFX_focus_generic_industry_2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_project_henan
+		}
+	}
+	focus = {
+		id = QIE_develop_zhili
+		x = 26
+		y = 5
+		cost = 0
+		icon = GFX_focus_generic_industry_2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_project_zhili
+		}
+	}
+	focus = {
+		id = QIE_final_industry_henan
+		x = 22
+		y = 6
+		cost = 0
+		icon = GFX_focus_generic_industry_3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_develop_henan
+		}
+	}
+	focus = {
+		id = QIE_final_industry_xian
+		x = 24
+		y = 6
+		cost = 0
+		icon = GFX_focus_generic_industry_3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_develop_xian
+		}
+	}
+	focus = {
+		id = QIE_final_industry_zhili
+		x = 26
+		y = 6
+		cost = 0
+		icon = GFX_focus_generic_industry_3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_develop_zhili
+		}
+	}
+	focus = {
+		id = QIE_german_technology
+		x = 16
+		y = 6
+		cost = 0
+		icon = GFX_focus_research2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_cancel_completely
+		}
+	}
+	focus = {
+		id = QIE_collaborate_with_german_companies
+		x = 14
+		y = 6
+		cost = 0
+		icon = GFX_goal_LEP_deutschasiatische
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_debt_negotiation
+		}
+	}
+	focus = {
+		id = QIE_free_schools_for_poor
+		x = 20
+		y = 4
+		cost = 1
+		icon = GFX_focus_generic_university_1
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_temporary_housing
+		}
+	}
+	focus = {
+		id = QIE_develop_xian
+		x = 24
+		y = 5
+		cost = 0
+		icon = GFX_focus_generic_industry_2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_project_xian
+		}
+	}
+	focus = {
+		id = QIE_construction_after_chinese_unification
+		x = 23
+		y = 7
+		cost = 0
+		icon = GFX_goal_agrarian_reform
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_final_industry_henan
+		}
+		prerequisite = {
+			focus = QIE_final_industry_xian
+		}
+		prerequisite = {
+			focus = QIE_final_industry_zhili
+		}
+		prerequisite = {
+			focus = QIE_lord_of_the_central_plains
+		}
+	}
+	focus = {
+		id = QIE_research_and_development_department
+		x = 33
+		y = 2
+		cost = 0
+		icon = GFX_focus_research
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_restart
+		}
+		prerequisite = {
+			focus = QIE_rebuild_the_officer_corps
+		}
+		prerequisite = {
+			focus = QIE_establish_modern_intelligence_department
+		}
+	}
+	focus = {
+		id = QIE_restart
+		x = 31
+		y = 1
+		cost = 0
+		icon = GFX_goal_generic_construct_mil_factory
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		the
+		armory
+		prerequisite = {
+			focus = QIE_old_army_new_life
+		}
+	}
+	focus = {
+		id = QIE_rebuild_the_officer_corps
+		x = 35
+		y = 1
+		cost = 0
+		icon = GFX_focus_generic_full_social_mobilization
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_old_army_new_life
+		}
+	}
+	focus = {
+		id = QIE_the_legacy_of_zhili
+		x = 30
+		y = 2
+		cost = 0
+		icon = GFX_focus_generic_advanced_military_studies
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			NOT = {
+				has_completed_focus = QIE_iron_tank_law
+			}
+		}
+		prerequisite = {
+			focus = QIE_rebuild_the_officer_corps
+		}
+		prerequisite = {
+			focus = QIE_restart
+		}
+		prerequisite = {
+			focus = QIE_establish_modern_intelligence_department
+		}
+	}
+	focus = {
+		id = QIE_iron_tank_law
+		x = 36
+		y = 2
+		cost = 0
+		icon = GFX_focus_generic_tank_assault
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			NOT = {
+				has_completed_focus = QIE_the_legacy_of_zhili
+			}
+		}
+		prerequisite = {
+			focus = QIE_rebuild_the_officer_corps
+		}
+		prerequisite = {
+			focus = QIE_restart
+		}
+		prerequisite = {
+			focus = QIE_establish_modern_intelligence_department
+		}
+	}
+	focus = {
+		id = QIE_the_ocean_of_guns
+		x = 29
+		y = 3
+		cost = 0
+		icon = GFX_focus_CONGO_copper_cartridges
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_legacy_of_zhili
+		}
+	}
+	focus = {
+		id = QIE_let_the_cannons_roar
+		x = 31
+		y = 3
+		cost = 0
+		icon = GFX_focus_SWE_let_fly_all_guns
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_legacy_of_zhili
+		}
+	}
+	focus = {
+		id = QIE_establish_the_war_headquarters
+		x = 33
+		y = 3
+		cost = 0
+		icon = GFX_focus_generic_army_doctrines_2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_legacy_of_zhili
+			focus = QIE_iron_tank_law
+		}
+	}
+	focus = {
+		id = QIE_the_heavy_footsteps_of_the_iron_behemoth
+		x = 35
+		y = 3
+		cost = 0
+		icon = GFX_focus_generic_license_production
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_iron_tank_law
+		}
+	}
+	focus = {
+		id = QIE_improve_the_material_system
+		x = 37
+		y = 3
+		cost = 0
+		icon = GFX_focus_generic_supply_line
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_iron_tank_law
+		}
+	}
+	focus = {
+		id = QIE_speed_is_the_only_useful_thing
+		x = 38
+		y = 4
+		cost = 0
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_improve_the_material_system
+		}
+	}
+	focus = {
+		id = QIE_solid_as_a_rock
+		x = 28
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_ocean_of_guns
+		}
+	}
+	focus = {
+		id = QIE_the_human_tide
+		x = 30
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_ocean_of_guns
+			focus = QIE_let_the_cannons_roar
+		}
+	}
+	focus = {
+		id = QIE_fearless_soilers
+		x = 32
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_ocean_of_guns
+			focus = QIE_let_the_cannons_roar
+			focus = QIE_the_heavy_footsteps_of_the_iron_behemoth
+			focus = QIE_improve_the_material_system
+		}
+	}
+	focus = {
+		id = QIE_increase_military_production
+		x = 34
+		y = 4
+		cost = 0
+		icon = GFX_focus_generic_military_industry
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_ocean_of_guns
+			focus = QIE_let_the_cannons_roar
+			focus = QIE_the_heavy_footsteps_of_the_iron_behemoth
+			focus = QIE_improve_the_material_system
+		}
+	}
+	focus = {
+		id = QIE_elite_soldiers
+		x = 36
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_heavy_footsteps_of_the_iron_behemoth
+			focus = QIE_improve_the_material_system
+		}
+	}
+	focus = {
+		id = QIE_against_airborne_enemies
+		x = 31
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_human_tide
+			focus = QIE_elite_soldiers
+		}
+		prerequisite = {
+			focus = QIE_fearless_soilers
+		}
+		prerequisite = {
+			focus = QIE_increase_military_production
+		}
+		prerequisite = {
+			focus = QIE_speed_is_the_only_useful_thing
+			focus = QIE_solid_as_a_rock
+		}
+	}
+	focus = {
+		id = QIE_against_tanks
+		x = 33
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_human_tide
+			focus = QIE_elite_soldiers
+		}
+		prerequisite = {
+			focus = QIE_fearless_soilers
+		}
+		prerequisite = {
+			focus = QIE_increase_military_production
+		}
+		prerequisite = {
+			focus = QIE_speed_is_the_only_useful_thing
+			focus = QIE_solid_as_a_rock
+		}
+	}
+	focus = {
+		id = QIE_eye_of_the_immortal
+		x = 35
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_human_tide
+			focus = QIE_elite_soldiers
+		}
+		prerequisite = {
+			focus = QIE_fearless_soilers
+		}
+		prerequisite = {
+			focus = QIE_increase_military_production
+		}
+		prerequisite = {
+			focus = QIE_speed_is_the_only_useful_thing
+			focus = QIE_solid_as_a_rock
+		}
+	}
+	focus = {
+		id = QIE_establish_modern_intelligence_department
+		x = 33
+		y = 1
+		cost = 0
+		icon = GFX_focus_generic_secret_service_agency
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_old_army_new_life
+		}
+	}
+	focus = {
+		id = QIE_the_help_of_daben
+		x = 2
+		y = 5
+		cost = 0
+		icon = GFX_focus_jap_spiritual_mobilization
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_jiang_controls_the_wushan
+		}
+	}
+	focus = {
+		id = QIE_become_MP_shadow
+		x = 17
+		y = 3
+		cost = 0
+		icon = GFX_goal_QIE_manchu_symbol
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_economic_stability
+		}
+	}
+	focus = {
+		id = QIE_become_CERA_shadow
+		x = 15
+		y = 3
+		cost = 0
+		icon = GFX_goal_QIE_cera
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_economic_stability
+		}
+	}
+	focus = {
+		id = QIE_become_YCP_shadow
+		x = 13
+		y = 3
+		cost = 0
+		icon = GFX_goal_QIE_ycp
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_economic_stability
+		}
+	}
+	focus = {
+		id = QIE_wu_polit_1
+		x = 10
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_put_on_the_cloak_of_confucius
+		}
+	}
+	focus = {
+		id = QIE_wu_polit_2
+		x = 10
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wu_polit_1
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_2
+		x = 6
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_taiyi_laozu_down
+		}
+	}
+	focus = {
+		id = QIE_jiang_polit_1
+		x = 2
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_help_of_daben
+		}
+	}
+	focus = {
+		id = QIE_jiang_polit_2
+		x = 2
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_jiang_polit_1
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_1
+		x = 4
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_taiyi_laozu_down
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_3
+		x = 8
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_taiyi_laozu_down
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_4
+		x = 4
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_common_polit_1
+		}
+		prerequisite = {
+			focus = QIE_wushan_common_polit_2
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_5
+		x = 6
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_common_polit_2
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_6
+		x = 8
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_common_polit_3
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_7
+		x = 3
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_jiang_polit_2
+		}
+		prerequisite = {
+			focus = QIE_wushan_common_polit_4
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_8
+		x = 5
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_common_polit_4
+		}
+		prerequisite = {
+			focus = QIE_wushan_common_polit_5
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_9
+		x = 7
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_common_polit_5
+		}
+		prerequisite = {
+			focus = QIE_wushan_common_polit_6
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_10
+		x = 9
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wu_polit_2
+		}
+		prerequisite = {
+			focus = QIE_wushan_common_polit_6
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_11
+		x = 2
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_common_polit_8
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_12
+		x = 10
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_common_polit_9
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_13
+		x = 4
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_common_polit_8
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_14
+		x = 8
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_common_polit_9
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_15
+		x = 4
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_common_polit_13
+		}
+		prerequisite = {
+			focus = QIE_wushan_common_polit_14
+		}
+		prerequisite = {
+			focus = QIE_wushan_common_polit_11
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_16
+		x = 6
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_common_polit_13
+		}
+		prerequisite = {
+			focus = QIE_wushan_common_polit_14
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_17
+		x = 8
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_common_polit_14
+		}
+		prerequisite = {
+			focus = QIE_wushan_common_polit_12
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_18
+		x = 5
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_common_polit_15
+		}
+		prerequisite = {
+			focus = QIE_wushan_common_polit_16
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_19
+		x = 7
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_common_polit_17
+		}
+		prerequisite = {
+			focus = QIE_wushan_common_polit_16
+		}
+	}
+	focus = {
+		id = QIE_wushan_common_polit_20
+		x = 6
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_common_polit_18
+		}
+		prerequisite = {
+			focus = QIE_wushan_common_polit_19
+		}
+	}
+	focus = {
+		id = QIE_old_chinese_beliefs_reborn
+		x = -6
+		y = 8
+		cost = 0
+		icon = GFX_focus_generic_annex_country
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_seize_the_great_game
+		}
+		prerequisite = {
+			focus = QIE_into_samadhi
+		}
+		prerequisite = {
+			focus = QIE_spring_and_autumn_ritual
+		}
+	}
+	focus = {
+		id = QIE_and_new_beliefs_live_in_here
+		x = -2
+		y = 8
+		cost = 0
+		icon = GFX_focus_generic_annex_country_2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_jesus_shed_his_blood
+		}
+		prerequisite = {
+			focus = QIE_raise_the_long_blade
+		}
+	}
+	focus = {
+		id = QIE_seances_restart_in_beijing
+		x = -4
+		y = 4
+		cost = 1
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = QIE_restore_the_order_behind_shanhaiguan
+		x = 15
+		y = 7
+		cost = 0
+		icon = GFX_focus_PRC_towards_one_china
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_german_technology
+			focus = QIE_collaborate_with_german_companies
+		}
+		prerequisite = {
+			focus = QIE_industry_focus_independ_2
+			focus = QIE_industry_focus_independ_1
+		}
+	}
+	focus = {
+		id = QIE_eliminate_traitors_in_the_south
+		x = 13
+		y = 8
+		cost = 0
+		icon = GFX_goal_generic_attack_upc
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_restore_the_order_behind_shanhaiguan
+		}
+	}
+	focus = {
+		id = QIE_destory_the_red_flag
+		x = 17
+		y = 8
+		cost = 0
+		icon = GFX_goal_generic_attack_kmt
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_restore_the_order_behind_shanhaiguan
+		}
+	}
+	focus = {
+		id = QIE_advance_to_the_shanhaiguan
+		x = 16
+		y = 9
+		cost = 0
+		icon = GFX_goal_generic_attack_fengtian
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_eliminate_traitors_in_the_south
+		}
+		prerequisite = {
+			focus = QIE_destory_the_red_flag
+		}
+	}
+	focus = {
+		id = QIE_revenge_for_1928
+		x = 14
+		y = 9
+		cost = 0
+		icon = GFX_goal_QIE_destroy_LEC
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_eliminate_traitors_in_the_south
+		}
+		prerequisite = {
+			focus = QIE_destory_the_red_flag
+		}
+	}
+	focus = {
+		id = QIE_the_dawn_of_loong_the_dusk_of_thieves
+		x = 15
+		y = 10
+		cost = 0
+		icon = GFX_focus_JAP_ally_the_dragon_king
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_advance_to_the_shanhaiguan
+		}
+		prerequisite = {
+			focus = QIE_revenge_for_1928
+		}
+	}
+	focus = {
+		id = QIE_educate_the_people_with_tao
+		x = -8
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_honor_tao_as_the_superior
+		}
+	}
+	focus = {
+		id = QIE_universal_education_for_poor
+		x = 20
+		y = 5
+		cost = 5
+		icon = GFX_focus_generic_education
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_free_schools_for_poor
+		}
+	}
+	focus = {
+		id = QIE_industry_focus_independ_1
+		x = 18
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_seize_german_assets
+		}
+	}
+	focus = {
+		id = QIE_industry_focus_independ_2
+		x = 12
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_introducing_funds
+		}
+	}
+}

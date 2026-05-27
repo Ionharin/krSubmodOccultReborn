@@ -1,0 +1,5856 @@
+###########################
+# Qing - Zhili Focus Tree
+# NB - This is the Starting Tree
+# By MantisToboggan
+###########################
+focus_tree = {
+	id = QIE_zhili
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = QIE
+		}
+	}
+	default = no
+	continuous_focus_position = {
+		x = 2050
+		y = 1500
+	}
+	#introductory mini-tree, keep player busy pre-LEP collapse and introduce some lore
+	focus = {
+		id = QIE_year_of_the_rat
+		x = 12
+		y = 0
+		cost = 2
+		icon = GFX_goal_QIE_rat
+		continue_if_invalid = no
+		cancel_if_invalid = no
+		cancelable = no
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_year_of_the_rat"
+			country_event = {
+				id = qing_focus_events.1
+				days = 2
+			}
+			hidden_effect = {
+				country_event = {
+					id = QIE_wushan_auto_seances.01
+					days = 1
+				}
+			}
+			add_stability = 0.03
+			add_war_support = 0.03
+		}
+	}
+	focus = {
+		id = QIE_excising_cash_crops
+		x = -1
+		y = 1
+		cost = 2
+		icon = GFX_goal_SZC_opium_monopoly
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = QIE_year_of_the_rat
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_excising_cash_crops"
+			add_timed_idea = {
+				idea = QIE_excising_the_filth
+				days = 30
+			}
+		}
+		relative_position_id = QIE_year_of_the_rat
+	}
+	focus = {
+		id = QIE_levying_provincial_taxes
+		x = 1
+		y = 1
+		cost = 2
+		icon = GFX_goal_generic_seize_money
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = {
+			focus = QIE_year_of_the_rat
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_levying_provincial_taxes"
+			add_timed_idea = {
+				idea = QIE_gathering_provincial_taxes
+				days = 25
+			}
+			hidden_effect = {
+				country_event = qing_domestic_events.4
+			}
+		}
+		relative_position_id = QIE_year_of_the_rat
+	}
+	focus = {
+		id = QIE_emergency_meeting_of_the_cabinet
+		x = 0
+		y = 2
+		cost = 1
+		icon = GFX_goal_generic_army_high_command
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = {
+			focus = QIE_excising_cash_crops
+		}
+		prerequisite = {
+			focus = QIE_levying_provincial_taxes
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_emergency_meeting_of_the_cabinet"
+			country_event = qing_focus_events.2
+		}
+		relative_position_id = QIE_year_of_the_rat
+	}
+	#pro-ANQ mini political tree
+	focus = {
+		id = QIE_elections_of_year
+		x = 2
+		y = 3
+		cost = 5
+		icon = GFX_goal_generic_elections
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			has_country_flag = wu_intervenes_proANQ
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		mutually_exclusive = {
+			focus = QIE_overtures_to_the_assembly
+		}
+		prerequisite = {
+			focus = QIE_emergency_meeting_of_the_cabinet
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_elections_of_year"
+			country_event = qing_focus_events.3
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = QIE_legitimacy_of_the_monarchy
+					add_idea = QIE_legitimacy_of_the_monarchy_1
+				}
+			}
+			hidden_effect = {
+				QIE_improve_zhili_monarchy_legitimacy = yes
+				if = {
+					limit = {
+						has_template = "Diguo Qibing Shi"
+					}
+					set_division_template_lock = {
+						division_template = "Diguo Qibing Shi"
+						is_locked = no
+					}
+				}
+				if = {
+					limit = {
+						has_template = "Diguo Bubing Shi"
+					}
+					set_division_template_lock = {
+						division_template = "Diguo Bubing Shi"
+						is_locked = no
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = QIE_nationalise_german_industry
+		x = -1
+		y = 2
+		cost = 7
+		icon = GFX_goal_state_economy
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = QIE_foregoing_the_debts
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_nationalise_german_industry"
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			add_timed_idea = {
+				idea = QIE_nationalised_german_industry
+				days = 200
+			}
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = {
+					has_dlc_bba = yes
+				}
+				every_country = {
+					limit = {
+						has_guaranteed = LEC
+					}
+					send_embargo = QIE
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = KR_outraged
+					}
+				}
+				LEC = {
+					send_embargo = QIE
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = KR_hostile
+					}
+				}
+			}
+			else = {
+				every_country = {
+					limit = {
+						has_guaranteed = LEC
+					}
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = KR_outraged
+					}
+				}
+				LEC = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = KR_hostile
+					}
+				}
+			}
+			hidden_effect = {
+				country_event = {
+					id = qing_flavour_events.19
+					days = 30
+					random_days = 120
+				}
+			}
+		}
+		relative_position_id = QIE_elections_of_year
+	}
+	focus = {
+		id = QIE_foregoing_the_debts
+		x = 0
+		y = 1
+		cost = 5
+		icon = GFX_goal_treaty_fails
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		prerequisite = {
+			focus = QIE_elections_of_year
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_foregoing_the_debts"
+			custom_effect_tooltip = QIE_debt_default_tt
+			hidden_effect = {
+				remove_ideas = QIE_big_debt
+			}
+			add_timed_idea = {
+				idea = QIE_defaulted_debt
+				days = 700
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_timed_idea = {
+				idea = QIE_populist_support
+				days = 250
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.03
+			}
+		}
+		relative_position_id = QIE_elections_of_year
+	}
+	focus = {
+		id = QIE_german_designs_chinese_ingenuity
+		x = 1
+		y = 2
+		cost = 7
+		icon = GFX_goal_generic_industry_reallocation
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = QIE_foregoing_the_debts
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_german_designs_chinese_ingenuity"
+			add_tech_bonus = {
+				name = QIE_german_designs_chinese_ingenuity
+				bonus = 1
+				uses = 2
+				category = industry
+				category = excavation_tech
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 450
+				producer = GER
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 200
+				producer = GER
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_timed_idea = {
+				idea = QIE_iterating_upon_german_designs
+				days = 180
+			}
+		}
+		relative_position_id = QIE_elections_of_year
+	}
+	focus = {
+		id = QIE_anti_concessionist_personality_cult
+		x = -2
+		y = 3
+		cost = 7
+		icon = GFX_goal_QIE_cera
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 50
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = {
+			focus = QIE_nationalise_german_industry
+		}
+		prerequisite = {
+			focus = QIE_german_designs_chinese_ingenuity
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_anti_concessionist_personality_cult"
+			QIE_improve_zhili_monarchy_legitimacy = yes
+			add_timed_idea = {
+				idea = QIE_seeing_to_rural_reconstruction
+				days = 180
+			}
+			hidden_effect = {
+				country_event = {
+					id = qing_flavour_events.21
+					days = 30
+					random_days = 120
+				}
+			}
+		}
+		relative_position_id = QIE_elections_of_year
+	}
+	focus = {
+		id = QIE_encourage_nationalist_cooperation
+		x = 0
+		y = 3
+		cost = 7
+		icon = GFX_goal_QIE_ycp
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 50
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+			FOCUS_FILTER_ARMY_XP
+		}
+		prerequisite = {
+			focus = QIE_german_designs_chinese_ingenuity
+		}
+		prerequisite = {
+			focus = QIE_nationalise_german_industry
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_encourage_nationalist_cooperation"
+			QIE_improve_zhili_monarchy_legitimacy = yes
+			add_timed_idea = {
+				idea = QIE_extol_nationalist_cause
+				days = 300
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = QIE_zeng_qi_advisor
+			hidden_effect = {
+				country_event = {
+					id = qing_flavour_events.22
+					days = 30
+					random_days = 120
+				}
+			}
+		}
+		relative_position_id = QIE_elections_of_year
+	}
+	focus = {
+		id = QIE_greasing_the_gears_of_zongshe
+		x = 2
+		y = 3
+		cost = 7
+		icon = GFX_goal_QIE_manchu_symbol
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 50
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		prerequisite = {
+			focus = QIE_german_designs_chinese_ingenuity
+		}
+		prerequisite = {
+			focus = QIE_nationalise_german_industry
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_greasing_the_gears_of_zongshe"
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.05
+			}
+			add_political_power = 25
+			every_army_leader = {
+				limit = {
+					has_trait = CHN_monarchist_officer_trait
+				}
+				add_attack = 1
+				gain_xp = 400
+			}
+			custom_effect_tooltip = tooltip_white_line
+			swap_ruler_traits = {
+				remove = QIE_puppet_emperor
+				add = QIE_son_of_heaven
+			}
+			hidden_effect = {
+				country_event = {
+					id = qing_flavour_events.23
+					days = 30
+					random_days = 120
+				}
+			}
+		}
+		relative_position_id = QIE_elections_of_year
+	}
+	focus = {
+		id = QIE_harmonious_balance
+		x = 0
+		y = 4
+		cost = 7
+		icon = GFX_goal_QIE_modernize_monarchy
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		prerequisite = {
+			focus = QIE_greasing_the_gears_of_zongshe
+		}
+		prerequisite = {
+			focus = QIE_encourage_nationalist_cooperation
+		}
+		prerequisite = {
+			focus = QIE_anti_concessionist_personality_cult
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_harmonious_balance"
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = QIE_legitimacy_of_the_monarchy_3
+					add_idea = QIE_legitimacy_of_the_monarchy_wu
+				}
+			}
+			china_add_research_slots = yes
+			hidden_effect = {
+				QIE_improve_zhili_monarchy_legitimacy = yes
+				if = {
+					limit = {
+						NOT = {
+							has_war_with = FNG
+						}
+					}
+					country_event = {
+						id = qing_flavour_events.24
+						days = 30
+						random_days = 120
+					}
+				}
+			}
+		}
+		relative_position_id = QIE_elections_of_year
+	}
+	#Anti-Concession Military
+	focus = {
+		id = QIE_domain_of_the_jade_marshal
+		x = 3
+		y = 10
+		cost = 7
+		icon = GFX_goal_QIE_zhili
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			has_country_flag = QIE_anti_concessionist_policy
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+		}
+		mutually_exclusive = {
+			focus = QIE_the_eagle_and_the_dragon
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_domain_of_the_jade_marshal"
+			army_experience = 35
+			every_army_leader = {
+				limit = {
+					NOT = {
+						is_character = QIE_wu_peifu
+					}
+					NOT = {
+						has_trait = CHN_monarchist_officer_trait
+					}
+				}
+				random_select_amount = 5
+				add_defense = 1
+			}
+		}
+	}
+	focus = {
+		id = QIE_understanding_our_backyard
+		x = 2
+		y = 1
+		cost = 7
+		icon = GFX_goal_generic_mountain_warfare2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+			FOCUS_FILTER_ARMY_XP
+		}
+		prerequisite = {
+			focus = QIE_domain_of_the_jade_marshal
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_understanding_our_backyard"
+			army_experience = 25
+			add_tech_bonus = {
+				name = QIE_understanding_our_backyard
+				bonus = 0.75
+				uses = 2
+				category = support_tech
+				category = mountaineers_tech
+			}
+			every_army_leader = {
+				limit = {
+					skill < 3
+					NOT = {
+						is_character = QIE_wu_peifu
+					}
+					NOT = {
+						has_trait = CHN_monarchist_officer_trait
+					}
+				}
+				random_select_amount = 2
+				add_trait = {
+					trait = trait_mountaineer
+				}
+			}
+		}
+		relative_position_id = QIE_domain_of_the_jade_marshal
+	}
+	focus = {
+		id = QIE_reorganise_warlord_divisions
+		x = 4
+		y = 1
+		cost = 7
+		icon = GFX_goal_QIE_reorganise_warlord_divisions
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		bypass = {
+			NOT = {
+				has_template = "Beizhi Bubing Zhen"
+			}
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		prerequisite = {
+			focus = QIE_domain_of_the_jade_marshal
+			focus = QIE_the_eagle_and_the_dragon
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_reorganise_warlord_divisions"
+			custom_override_tooltip = {
+				tooltip = {
+					localization_key = tooltip_create_division_template
+					NAME = "Beizhi Bubing Shi"
+					LINE_1 = {
+						localization_key = line_battalion_tt
+						NAME = infantry
+						ICON = GFX_unit_infantry_icon_small
+						COUNT = 10
+					}
+					SUPPORT_1 = {
+						localization_key = support_battalion_tt
+						NAME = engineer
+						ICON = GFX_unit_engineer_icon_small
+					}
+					SUPPORT_2 = {
+						localization_key = support_battalion_tt
+						NAME = artillery
+						ICON = GFX_unit_artillery_icon_small
+					}
+				}
+				if = {
+					limit = {
+						has_template = "Beizhi Bubing Shi"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Beizhi Bubing Shi"
+						disband = yes
+					}
+					#no cheating
+				}
+				division_template = {
+					name = "Beizhi Bubing Shi"
+					template_counter = 58
+					division_names_group = QIE_INF_01
+					regiments = {
+						infantry = {
+							x = 0
+							y = 0
+						}
+						infantry = {
+							x = 0
+							y = 1
+						}
+						infantry = {
+							x = 0
+							y = 2
+						}
+						infantry = {
+							x = 0
+							y = 3
+						}
+						infantry = {
+							x = 1
+							y = 0
+						}
+						infantry = {
+							x = 1
+							y = 1
+						}
+						infantry = {
+							x = 1
+							y = 2
+						}
+						infantry = {
+							x = 1
+							y = 3
+						}
+						infantry = {
+							x = 2
+							y = 0
+						}
+						infantry = {
+							x = 2
+							y = 1
+						}
+					}
+					support = {
+						engineer = {
+							x = 0
+							y = 0
+						}
+						artillery = {
+							x = 0
+							y = 1
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = QIE_consolidate_zhili_infantry_divisions
+			custom_effect_tooltip = tooltip_white_line
+			QIE_upgrade_high_command_effect = yes
+			hidden_effect = {
+				delete_unit_template_and_units = {
+					division_template = "Beizhi Bubing Zhen"
+					disband = yes
+				}
+				random_controlled_state = {
+					prioritize = {
+						607
+						608
+						1059
+						1060
+						1061
+						1062
+						1063
+					}
+					limit = {
+						valid_state_for_spawning_friendly_unit = yes
+					}
+					create_unit = {
+						division = "name = \"Xingguo jun Di 1 Shi\" division_template = \"Beizhi Bubing Shi\" start_experience_factor = 0.3"
+						owner = ROOT
+					}
+					create_unit = {
+						division = "name = \"Xingguo jun Di 2 Shi\" division_template = \"Beizhi Bubing Shi\" start_experience_factor = 0.3"
+						owner = ROOT
+					}
+					create_unit = {
+						division = "name = \"Xingguo jun Di 3 Shi\" division_template = \"Beizhi Bubing Shi\" start_experience_factor = 0.3"
+						owner = ROOT
+					}
+					create_unit = {
+						division = "name = \"Xingguo jun Di 4 Shi\" division_template = \"Beizhi Bubing Shi\" start_experience_factor = 0.3"
+						owner = ROOT
+					}
+					create_unit = {
+						division = "name = \"Xingguo jun Di 5 Shi\" division_template = \"Beizhi Bubing Shi\" start_experience_factor = 0.3"
+						owner = ROOT
+					}
+				}
+			}
+		}
+		relative_position_id = QIE_domain_of_the_jade_marshal
+	}
+	focus = {
+		id = QIE_defend_the_yellow_river
+		x = 4
+		y = 2
+		cost = 3
+		icon = GFX_goal_dam
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 40
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		prerequisite = {
+			focus = QIE_reorganise_warlord_divisions
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_defend_the_yellow_river"
+			custom_effect_tooltip = breach_dams_TT
+			hidden_effect = {
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_relocate_civilians_out_of_danger_area
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_breach_dams_channel_water_north
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_breach_dams_channel_water_south
+				}
+			}
+		}
+		relative_position_id = QIE_domain_of_the_jade_marshal
+	}
+	focus = {
+		id = QIE_king_of_the_battlefield
+		x = 0
+		y = 1
+		cost = 7
+		icon = GFX_goal_generic_army_superior_firepower
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = QIE_domain_of_the_jade_marshal
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_king_of_the_battlefield"
+			every_army_leader = {
+				limit = {
+					OR = {
+						has_trait = artillery_officer
+						has_trait = artillery_specialist
+						has_trait = artillery_expert
+					}
+					NOT = {
+						is_character = QIE_wu_peifu
+					}
+					NOT = {
+						has_trait = CHN_monarchist_officer_trait
+					}
+				}
+				random_select_amount = 2
+				add_unit_leader_trait = master_of_ordnance
+			}
+			every_army_leader = {
+				limit = {
+					attack_skill_level > 2
+					NOT = {
+						has_trait = artillery_officer
+						has_trait = artillery_expert
+						has_trait = artillery_specialist
+						is_character = QIE_wu_peifu
+						has_trait = CHN_monarchist_officer_trait
+					}
+				}
+				random_select_amount = 4
+				add_attack = 1
+				add_trait = {
+					trait = artillery_specialist
+				}
+			}
+			add_tech_bonus = {
+				name = QIE_king_of_the_battlefield
+				bonus = 1
+				uses = 2
+				category = mio_cat_all_artillery_equipment
+			}
+		}
+		relative_position_id = QIE_domain_of_the_jade_marshal
+	}
+	focus = {
+		id = QIE_local_logistics
+		x = -2
+		y = 1
+		cost = 7
+		icon = GFX_focus_generic_supply_line
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_BONUS
+			FOCUS_FILTER_ARMY_XP
+		}
+		prerequisite = {
+			focus = QIE_domain_of_the_jade_marshal
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_local_logistics"
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 20
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 200
+			}
+			every_army_leader = {
+				add_logistics = 1
+			}
+			custom_effect_tooltip = tooltip_white_line
+			hidden_effect = {
+				QIE_tang_zhongming = {
+					set_nationality = ROOT
+				}
+			}
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = QIE_tang_zhongming_advisor
+		}
+		relative_position_id = QIE_domain_of_the_jade_marshal
+	}
+	focus = {
+		id = QIE_placing_faith_in_the_underdogs
+		x = -1
+		y = 2
+		cost = 7
+		icon = GFX_goal_chinese_instructors
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		mutually_exclusive = {
+			focus = QIE_emulating_the_jade_marshal
+		}
+		prerequisite = {
+			focus = QIE_local_logistics
+			focus = QIE_king_of_the_battlefield
+			focus = QIE_understanding_our_backyard
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_placing_faith_in_the_underdogs"
+			add_doctrine_cost_reduction = {
+				name = QIE_placing_faith_in_the_underdogs
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			every_army_leader = {
+				limit = {
+					NOT = {
+						has_trait = CHN_monarchist_officer_trait
+					}
+					skill < 3
+				}
+				random_select_amount = 3
+				add_attack = 1
+				add_planning = 1
+				add_max_trait = 1
+			}
+			QIE_wang_chengbin = {
+				add_attack = 1
+				add_max_trait = 1
+				gain_xp = 500
+			}
+		}
+		relative_position_id = QIE_domain_of_the_jade_marshal
+	}
+	focus = {
+		id = QIE_emulating_the_jade_marshal
+		x = 1
+		y = 2
+		cost = 7
+		icon = GFX_BRM_jade_mines
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_RESEARCH
+		}
+		mutually_exclusive = {
+			focus = QIE_placing_faith_in_the_underdogs
+		}
+		prerequisite = {
+			focus = QIE_local_logistics
+			focus = QIE_king_of_the_battlefield
+			focus = QIE_understanding_our_backyard
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_emulating_the_jade_marshal"
+			add_doctrine_cost_reduction = {
+				name = QIE_emulating_the_jade_marshal
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			every_army_leader = {
+				limit = {
+					OR = {
+						is_character = QIE_zhang_qihuang
+						is_character = QIE_li_bingzhi
+						is_character = QIE_yu_xuezhong
+						is_character = QIE_wei_yisan
+					}
+				}
+				gain_xp = 500
+				add_temporary_buff_to_units = {
+					combat_offense = 0.1
+					org_damage_multiplier = -0.25
+					days = 120
+				}
+			}
+			QIE_wang_chengbin = {
+				add_timed_unit_leader_trait = {
+					trait = disgruntled
+					days = 120
+				}
+			}
+		}
+		relative_position_id = QIE_domain_of_the_jade_marshal
+	}
+	focus = {
+		id = QIE_rolling_the_dice_on_the_markets
+		x = -3
+		y = 3
+		cost = 8
+		icon = GFX_goal_rolling_the_dice
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 75
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		prerequisite = {
+			focus = QIE_emulating_the_jade_marshal
+			focus = QIE_placing_faith_in_the_underdogs
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_rolling_the_dice_on_the_markets"
+			custom_effect_tooltip = QIE_rolling_the_dice_on_the_markets_tt
+			custom_effect_tooltip = tooltip_white_line
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 100
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1000
+				producer = RUS
+			}
+			add_tech_bonus = {
+				name = QIE_rolling_the_dice_on_the_markets
+				bonus = 0.5
+				uses = 2
+				category = support_tech
+			}
+			hidden_effect = {
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_buy_small_arms
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_buy_support_equipment
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_buy_arty
+				}
+			}
+		}
+		relative_position_id = QIE_domain_of_the_jade_marshal
+	}
+	focus = {
+		id = QIE_the_destitute_and_the_stragglers
+		x = 3
+		y = 3
+		cost = 8
+		icon = GFX_goal_GER_Woe_to_the_Vanquished
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 75
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		prerequisite = {
+			focus = QIE_emulating_the_jade_marshal
+			focus = QIE_placing_faith_in_the_underdogs
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_the_destitute_and_the_stragglers"
+			add_timed_idea = {
+				idea = QIE_foreign_advisory_training
+				days = 200
+			}
+			custom_effect_tooltip = QIE_the_destitute_and_the_stragglers_tt
+			custom_effect_tooltip = tooltip_white_line
+			QIE_upgrade_high_command_effect = yes
+			hidden_effect = {
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_hire_bandits
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_hire_russian_cw_veterans
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_hire_legation_exiles
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_hire_flying_tigers
+				}
+			}
+		}
+		relative_position_id = QIE_domain_of_the_jade_marshal
+	}
+	focus = {
+		id = QIE_the_baoding_clique_and_the_third_avenue
+		x = -1
+		y = 3
+		cost = 8
+		icon = GFX_goal_China_Beiyang_Air_Force
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 75
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = QIE_emulating_the_jade_marshal
+			focus = QIE_placing_faith_in_the_underdogs
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_the_baoding_clique_and_the_third_avenue"
+			if = {
+				limit = {
+					has_dlc_bba = no
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = CAS1
+						}
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_tech = early_fighter
+							}
+						}
+						set_technology = {
+							early_fighter = 1
+						}
+					}
+					set_technology = {
+						CAS1 = 1
+					}
+				}
+				else = {
+					add_tech_bonus = {
+						name = QIE_the_baoding_clique_and_the_third_avenue
+						bonus = 0.75
+						uses = 2
+						category = light_air
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = CHN_aviation_industry_organisation
+				mio:CHN_aviation_industry_organisation = {
+					set_mio_flag = CHN_mio_unlocked
+					add_mio_size = 1
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = iw_small_airframe
+						}
+						NOT = {
+							has_tech = basic_small_airframe
+						}
+					}
+					set_technology = {
+						iw_small_airframe = 1
+					}
+					set_technology = {
+						basic_small_airframe = 1
+					}
+				}
+				else_if = {
+					limit = {
+						NOT = {
+							has_tech = basic_small_airframe
+						}
+					}
+					set_technology = {
+						basic_small_airframe = 1
+					}
+				}
+				else = {
+					add_tech_bonus = {
+						name = QIE_the_baoding_clique_and_the_third_avenue
+						bonus = 1
+						uses = 1
+						category = light_fighter
+					}
+				}
+				set_technology = {
+					engines_1 = 1
+				}
+			}
+		}
+		relative_position_id = QIE_domain_of_the_jade_marshal
+	}
+	focus = {
+		id = QIE_expat_air_training_scheme
+		x = -1
+		y = 4
+		cost = 6
+		icon = GFX_focus_generic_air_bases
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 75
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_AIR_XP
+			FOCUS_FILTER_RESEARCH
+			FOCUS_FILTER_AIRFORCE_BONUS
+		}
+		prerequisite = {
+			focus = QIE_the_baoding_clique_and_the_third_avenue
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_expat_air_training_scheme"
+			air_experience = 25
+			add_doctrine_cost_reduction = {
+				name = QIE_expat_air_training_scheme
+				cost_reduction = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+			1062 = {
+				add_building_construction = {
+					type = air_base
+					level = 4
+					instant_build = yes
+				}
+			}
+			set_rule = {
+				can_generate_female_aces = yes
+			}
+		}
+		relative_position_id = QIE_domain_of_the_jade_marshal
+	}
+	focus = {
+		id = QIE_utilising_european_dockyards
+		x = 1
+		y = 3
+		cost = 7
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 0.75
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		prerequisite = {
+			focus = QIE_emulating_the_jade_marshal
+			focus = QIE_placing_faith_in_the_underdogs
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_utilising_european_dockyards"
+			add_tech_bonus = {
+				name = QIE_utilising_european_dockyards
+				bonus = 0.75
+				uses = 2
+				category = mio_cat_tech_all_destroyer_and_modules
+			}
+			add_timed_idea = {
+				idea = QIE_embers_of_a_new_beiyang
+				days = 365
+			}
+			custom_effect_tooltip = QIE_sicilyships_tt
+			custom_effect_tooltip = QIE_sic_ships_warning
+			hidden_effect = {
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_sic_destroyers
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_sic_subs
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_sic_cruisers
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_sic_convoys
+				}
+			}
+		}
+		relative_position_id = QIE_domain_of_the_jade_marshal
+	}
+	focus = {
+		id = QIE_reviving_the_beiyang_fleet
+		x = 1
+		y = 4
+		cost = 7
+		icon = GFX_goal_China_Beiyang_Navy
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 0.75
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_NAVY_XP
+			FOCUS_FILTER_NAVY_BONUS
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = QIE_utilising_european_dockyards
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_reviving_the_beiyang_fleet"
+			clear_navy_chief = yes
+			activate_advisor = QIE_sa_zhenbing_navy_chief
+			custom_effect_tooltip = tooltip_white_line
+			add_ideas = {
+				QIE_the_beiyang_navy
+			}
+			custom_effect_tooltip = tooltip_white_line
+			mio:CHN_naval_industry_organisation = {
+				add_mio_size = 1
+			}
+		}
+		relative_position_id = QIE_domain_of_the_jade_marshal
+	}
+	focus = {
+		id = QIE_science_and_modernity_hand_in_hand
+		x = 0
+		y = 5
+		cost = 7
+		icon = GFX_goal_QIE_baoding
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = QIE_reviving_the_beiyang_fleet
+		}
+		prerequisite = {
+			focus = QIE_expat_air_training_scheme
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_science_and_modernity_hand_in_hand"
+			china_add_research_slots = yes
+			add_ideas = QIE_baoding_military_academy
+		}
+		relative_position_id = QIE_domain_of_the_jade_marshal
+	}
+	#pro_LEP mini political tree
+	focus = {
+		id = QIE_overtures_to_the_assembly
+		x = 8
+		y = 3
+		cost = 5
+		icon = GFX_goal_QIE_assembly
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			has_country_flag = wu_intervenes_proLEP
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		mutually_exclusive = {
+			focus = QIE_elections_of_year
+		}
+		prerequisite = {
+			focus = QIE_emergency_meeting_of_the_cabinet
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_overtures_to_the_assembly"
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = QIE_legitimacy_of_the_monarchy
+					add_idea = QIE_legitimacy_of_the_monarchy_1
+				}
+			}
+			activate_targeted_decision = {
+				target = FROM
+				decision = QIE_placate_manchu
+			}
+			activate_targeted_decision = {
+				target = FROM
+				decision = QIE_placate_YCP
+			}
+			activate_targeted_decision = {
+				target = FROM
+				decision = QIE_placate_CERA
+			}
+			hidden_effect = {
+				QIE_improve_zhili_monarchy_legitimacy = yes
+				country_event = {
+					id = qing_flavour_events.57
+					days = 9
+				}
+				if = {
+					limit = {
+						has_template = "Diguo Qibing Shi"
+					}
+					set_division_template_lock = {
+						division_template = "Diguo Qibing Shi"
+						is_locked = no
+					}
+				}
+				if = {
+					limit = {
+						has_template = "Diguo Bubing Shi"
+					}
+					set_division_template_lock = {
+						division_template = "Diguo Bubing Shi"
+						is_locked = no
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = QIE_negotiating_better_terms
+		x = 0
+		y = 1
+		cost = 5
+		icon = GFX_goal_COS_German_Bailout
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		prerequisite = {
+			focus = QIE_overtures_to_the_assembly
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_negotiating_better_terms"
+			swap_ideas = {
+				remove_idea = QIE_big_debt
+				add_idea = QIE_big_debt6
+			}
+			activate_targeted_decision = {
+				target = GER
+				decision = QIE_ger_debt_repayment
+			}
+			custom_effect_tooltip = tooltip_white_line
+			QIE_cao_kun = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = tooltip_modify_character_trait
+						ROLE = political_advisor
+						TRAIT = QIE_king_of_baoding
+					}
+					remove_trait = {
+						character = QIE_cao_kun
+						slot = political_advisor
+						trait = QIE_king_of_baoding
+					}
+					add_trait = {
+						character = QIE_cao_kun
+						slot = political_advisor
+						trait = QIE_king_of_baoding_2
+					}
+				}
+				effect_tooltip = {
+					set_temp_variable = {
+						modifier_change_tt = -0.05
+						tooltip = special_forces_training_time_factor_tooltip
+					}
+					set_temp_variable = {
+						modifier_change_tt = -0.05
+						tooltip = political_advisor_cost_factor_tooltip
+					}
+					set_temp_variable = {
+						modifier_change_tt = 0.1
+						tooltip = stability_factor_tooltip
+					}
+					set_temp_variable = {
+						modifier_change_tt = 0.01
+						tooltip = authoritarian_democrat_drift_tooltip
+					}
+				}
+			}
+		}
+		relative_position_id = QIE_overtures_to_the_assembly
+	}
+	focus = {
+		id = QIE_simplify_international_investment_laws
+		x = 0
+		y = 2
+		cost = 8
+		icon = GFX_goal_generic_loans
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = {
+			focus = QIE_negotiating_better_terms
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_simplify_international_investment_laws"
+			china_add_research_slots = yes
+			add_stability = -0.05
+			QIE_upgrade_wang_kemin_advisor_effect = yes
+			custom_effect_tooltip = tooltip_white_line
+			add_timed_idea = {
+				idea = QIE_flurry_of_investment
+				days = 280
+			}
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = {
+					amount_taken_ideas = {
+						amount > 0
+						slots = {
+							industrial_concern
+						}
+					}
+				}
+				custom_effect_tooltip = available_industrial_concern
+				show_ideas_tooltip = QIE_AOG_bank
+			}
+			else = {
+				add_ideas = QIE_AOG_bank
+			}
+			hidden_effect = {
+				country_event = {
+					id = qing_flavour_events.25
+					days = 30
+					random_days = 120
+				}
+			}
+		}
+		relative_position_id = QIE_overtures_to_the_assembly
+	}
+	focus = {
+		id = QIE_import_krupp_steel
+		x = -2
+		y = 3
+		cost = 7
+		icon = GFX_goal_LEP_krupp_industial
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = QIE_simplify_international_investment_laws
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_import_krupp_steel"
+			add_tech_bonus = {
+				name = QIE_import_krupp_steel
+				bonus = 0.75
+				uses = 2
+				category = industry
+			}
+			QIE_import_krupp_steel_effect = yes
+		}
+		relative_position_id = QIE_overtures_to_the_assembly
+	}
+	focus = {
+		id = QIE_hire_western_rail_engineers
+		x = -2
+		y = 4
+		cost = 7
+		icon = GFX_goal_GER_infa
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 0.5
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = QIE_import_krupp_steel
+			focus = QIE_modernising_our_chemistry
+			focus = QIE_partner_with_german_manufacturing_firms
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_hire_western_rail_engineers"
+			QIE_improve_zhili_monarchy_legitimacy = yes
+			add_timed_idea = {
+				idea = QIE_german_railroad_engineers_idea
+				days = 200
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.03
+			}
+			hidden_effect = {
+				country_event = {
+					id = qing_flavour_events.26
+					days = 90
+					random_days = 120
+				}
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_advisor_role = {
+				#using this instead of the retire and restore method since he needs to be a character for republic
+				character = QIE_huang_boqiao
+				advisor = {
+					slot = political_advisor
+					idea_token = QIE_huang_boqiao_advisor
+					traits = {
+						KR_railway_magnate
+					}
+					ai_will_do = {
+						factor = 1
+					}
+				}
+			}
+		}
+		relative_position_id = QIE_overtures_to_the_assembly
+	}
+	focus = {
+		id = QIE_partner_with_german_manufacturing_firms
+		x = 0
+		y = 3
+		cost = 7
+		icon = GFX_goal_LEP_deutschasiatische
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = QIE_simplify_international_investment_laws
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_partner_with_german_manufacturing_firms"
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.06
+			}
+			add_tech_bonus = {
+				name = QIE_partner_with_german_manufacturing_firms
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+			QIE_unlock_german_companies_effect = yes
+		}
+		relative_position_id = QIE_overtures_to_the_assembly
+	}
+	focus = {
+		id = QIE_securing_advanced_equipment
+		x = 0
+		y = 4
+		cost = 7
+		icon = GFX_goal_radio
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = QIE_secure_foreign_expertise
+			focus = QIE_hire_western_rail_engineers
+			focus = QIE_partner_with_german_manufacturing_firms
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_securing_advanced_equipment"
+			add_timed_idea = {
+				idea = QIE_Sie_Contracts
+				days = 250
+			}
+			add_tech_bonus = {
+				name = QIE_securing_advanced_equipment
+				bonus = 0.5
+				uses = 2
+				category = electronics
+			}
+			608 = {
+				prioritize_state = yes
+			}
+			add_one_random_radar_station = yes
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			hidden_effect = {
+				country_event = {
+					id = qing_flavour_events.27
+					days = 90
+					random_days = 120
+				}
+			}
+		}
+		relative_position_id = QIE_overtures_to_the_assembly
+	}
+	focus = {
+		id = QIE_modernising_our_chemistry
+		x = 2
+		y = 3
+		cost = 7
+		icon = GFX_goal_Brabag
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 50
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = QIE_simplify_international_investment_laws
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_modernising_our_chemistry"
+			if = {
+				limit = {
+					NOT = {
+						has_tech = fuel_silos
+					}
+				}
+				set_technology = {
+					fuel_silos = 1
+				}
+			}
+			add_tech_bonus = {
+				name = QIE_modernising_our_chemistry
+				bonus = 1
+				uses = 1
+				category = synth_resources
+			}
+			add_one_random_synthetic_refinery = yes
+			modify_building_resources = {
+				building = synthetic_refinery
+				resource = rubber
+				amount = 2
+			}
+		}
+		relative_position_id = QIE_overtures_to_the_assembly
+	}
+	focus = {
+		id = QIE_secure_foreign_expertise
+		x = 2
+		y = 4
+		cost = 7
+		icon = GFX_goal_generic_german_construction
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = QIE_modernising_our_chemistry
+			focus = QIE_import_krupp_steel
+			focus = QIE_partner_with_german_manufacturing_firms
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_secure_foreign_expertise"
+			QIE_improve_zhili_monarchy_legitimacy = yes
+			add_timed_idea = {
+				idea = QIE_zhili_war_production_idea
+				days = 365
+			}
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.01
+			}
+		}
+		relative_position_id = QIE_overtures_to_the_assembly
+	}
+	focus = {
+		id = QIE_university_exchange_program
+		x = 0
+		y = 5
+		cost = 7
+		icon = GFX_focus_generic_university_2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = QIE_hire_western_rail_engineers
+		}
+		prerequisite = {
+			focus = QIE_securing_advanced_equipment
+		}
+		prerequisite = {
+			focus = QIE_secure_foreign_expertise
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_university_exchange_program"
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = QIE_legitimacy_of_the_monarchy_3
+					add_idea = QIE_legitimacy_of_the_monarchy_cao
+				}
+			}
+			china_add_research_slots = yes
+			hidden_effect = {
+				QIE_improve_zhili_monarchy_legitimacy = yes
+			}
+		}
+		relative_position_id = QIE_overtures_to_the_assembly
+	}
+	#german military support tree - mutually exclusive with shared anti-concession military tree
+	focus = {
+		id = QIE_the_eagle_and_the_dragon
+		x = 7
+		y = 0
+		cost = 6
+		icon = GFX_goal_German_Staff
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			has_country_flag = QIE_pro_concessionist_policy
+		}
+		ai_will_do = {
+			base = 75
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_NAVY_XP
+			FOCUS_FILTER_AIR_XP
+			FOCUS_FILTER_RESEARCH
+		}
+		mutually_exclusive = {
+			focus = QIE_domain_of_the_jade_marshal
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_the_eagle_and_the_dragon"
+			army_experience = 10
+			air_experience = 10
+			navy_experience = 10
+			add_doctrine_cost_reduction = {
+				name = QIE_the_eagle_and_the_dragon
+				cost_reduction = 0.5
+				uses = 3
+				category = land_doctrine
+				category = air_doctrine
+				category = naval_doctrine
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_theorist
+			show_ideas_tooltip = QIE_cradle_of_the_chinese_eliteheer_theorist
+		}
+		relative_position_id = QIE_domain_of_the_jade_marshal
+	}
+	focus = {
+		id = QIE_leaning_upon_the_juggernaut
+		x = 1
+		y = 1
+		cost = 7
+		icon = GFX_goal_GEO_Artillery_Tactics
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 75
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = QIE_the_eagle_and_the_dragon
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_leaning_upon_the_juggernaut"
+			add_tech_bonus = {
+				name = QIE_leaning_upon_the_juggernaut
+				bonus = 0.75
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 200
+				producer = GER
+			}
+			air_experience = 20
+			navy_experience = 20
+		}
+		relative_position_id = QIE_the_eagle_and_the_dragon
+	}
+	focus = {
+		id = QIE_chinese_auftragstaktik
+		x = -1
+		y = 1
+		cost = 7
+		icon = GFX_focus_generic_radio_equipment
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 75
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = QIE_the_eagle_and_the_dragon
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_chinese_auftragstaktik"
+			if = {
+				limit = {
+					NOT = {
+						has_tech = tech_signal_company
+					}
+				}
+				set_technology = {
+					tech_signal_company = 1
+				}
+				add_tech_bonus = {
+					name = QIE_chinese_auftragstaktik
+					bonus = 0.75
+					uses = 1
+					category = support_tech
+					category = signal_company_tech
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = QIE_chinese_auftragstaktik
+					bonus = 0.75
+					uses = 2
+					category = support_tech
+					category = signal_company_tech
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 200
+				producer = GER
+			}
+		}
+		relative_position_id = QIE_the_eagle_and_the_dragon
+	}
+	focus = {
+		id = QIE_utilising_our_connections
+		x = -2
+		y = 3
+		cost = 8
+		icon = GFX_goal_generic_sea_focused_navy2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 50
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_NAVY_XP
+		}
+		prerequisite = {
+			focus = QIE_chinese_soldiers_german_weapons
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_utilising_our_connections"
+			custom_effect_tooltip = QIE_utilising_our_connections_tooltip
+			add_mastery_bonus = {
+				name = QIE_utilising_our_connections
+				bonus = 0.1
+				days = 365
+				folder = naval
+			}
+			add_tech_bonus = {
+				name = QIE_utilising_our_connections
+				bonus = 1
+				uses = 2
+				category = ship_modules_tech
+			}
+			add_ideas = QIE_the_beiyang_navy
+			hidden_effect = {
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_ger_destroyers
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_ger_subs
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_ger_cruisers
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_ger_battleship
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_ger_convoys
+				}
+			}
+		}
+		relative_position_id = QIE_the_eagle_and_the_dragon
+	}
+	focus = {
+		id = QIE_license_luftstreitkrafte_airplanes
+		x = 0
+		y = 3
+		cost = 8
+		icon = GFX_goal_ELS_Plane_Lease
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 50
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		prerequisite = {
+			focus = QIE_chinese_soldiers_german_weapons
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_license_luftstreitkrafte_airplanes"
+			custom_effect_tooltip = QIE_license_luftwaffe_tooltip
+			set_rule = {
+				can_generate_female_aces = yes
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_timed_idea = {
+				idea = QIE_national_aviation_programme
+				days = 365
+			}
+			if = {
+				limit = {
+					has_dlc_bba = yes
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = iw_small_airframe
+						}
+					}
+					set_technology = {
+						iw_small_airframe = 1
+					}
+				}
+				hidden_effect = {
+					if = {
+						limit = {
+							NOT = {
+								has_tech = early_bombs
+							}
+						}
+						set_technology = {
+							early_bombs = 1
+						}
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_tech = aa_lmg
+							}
+						}
+						set_technology = {
+							aa_lmg = 1
+						}
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_tech = engines_1
+							}
+						}
+						set_technology = {
+							engines_1 = 1
+						}
+					}
+				}
+				create_equipment_variant = {
+					name = "K-47"					#German Fighter Used by China
+					type = small_plane_airframe_0
+					modules = {
+						fixed_main_weapon_slot = light_mg_2x
+						engine_type_slot = engine_1_1x
+						special_type_slot_1 = empty
+					}
+				}
+				create_equipment_variant = {
+					name = "Nieuport-Delage NiD .29"					#French Fighter Used by China
+					type = small_plane_airframe_1
+					parent_version = 0
+					modules = {
+						fixed_main_weapon_slot = light_mg_4x
+						fixed_auxiliary_weapon_slot_1 = light_mg_4x
+						engine_type_slot = engine_2_1x
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						NOT = {
+							has_tech = fighter1
+						}
+					}
+					set_technology = {
+						fighter1 = 1
+					}
+				}
+				create_equipment_variant = {
+					name = "K-47"					#German Fighter Used by China
+					type = fighter_equipment_1
+					parent_version = 0
+					upgrades = {
+						plane_gun_upgrade = 2
+						plane_engine_upgrade = 1
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_dlc_bba = yes
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = basic_small_airframe
+						}
+					}
+					set_technology = {
+						basic_small_airframe = 1
+					}
+				}
+				create_equipment_variant = {
+					name = "Henschel Hs 123"					#German CAS used by China
+					type = small_plane_cas_airframe_0
+					parent_version = 0
+					modules = {
+						fixed_main_weapon_slot = bomb_locks
+						engine_type_slot = engine_1_1x
+					}
+					obsolete = yes
+				}
+				create_equipment_variant = {
+					name = "Curtiss A-12"					#American CAS used by China
+					type = small_plane_cas_airframe_1
+					parent_version = 0
+					modules = {
+						fixed_main_weapon_slot = bomb_locks
+						fixed_auxiliary_weapon_slot_1 = bomb_locks
+						engine_type_slot = engine_2_1x
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						NOT = {
+							has_tech = CAS1
+						}
+					}
+					set_technology = {
+						CAS1 = 1
+					}
+				}
+				create_equipment_variant = {
+					name = "Henschel Hs 123"					#German CAS used in China
+					type = CAS_equipment_1
+					parent_version = 0
+					upgrades = {
+						plane_cas_upgrade = 2
+						plane_engine_upgrade = 2
+					}
+				}
+			}
+			hidden_effect = {
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_buy_ger_fighter
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_buy_ger_cas
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_buy_ger_tac
+				}
+			}
+		}
+		relative_position_id = QIE_the_eagle_and_the_dragon
+	}
+	focus = {
+		id = QIE_the_chinese_armoured_corps
+		x = 2
+		y = 3
+		cost = 8
+		icon = GFX_focus_ger_heavy_tanks
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		prerequisite = {
+			focus = QIE_chinese_soldiers_german_weapons
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_the_chinese_armoured_corps"
+			if = {
+				limit = {
+					has_dlc_bba = no
+				}
+				add_tech_bonus = {
+					name = QIE_the_chinese_armoured_corps
+					bonus = 0.5
+					uses = 1
+					category = armor
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = gwtank
+						}
+					}
+					set_technology = {
+						gwtank = 1
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = CHN_armour_industry_organisation
+				mio:CHN_armour_industry_organisation = {
+					set_mio_flag = CHN_mio_unlocked
+					add_mio_size = 2
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = gwtank_chassis
+						}
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_tech = engine_tech_1
+							}
+						}
+						set_technology = {
+							engine_tech_1 = 1
+						}
+					}
+					set_technology = {
+						gwtank_chassis = 1
+					}
+				}
+				else = {
+					add_tech_bonus = {
+						name = QIE_the_chinese_armoured_corps
+						bonus = 0.5
+						uses = 1
+						category = mio_cat_tech_all_armor_and_modules
+					}
+				}
+			}
+			random_army_leader = {
+				limit = {
+					NOT = {
+						is_character = QIE_wu_peifu
+					}
+					NOT = {
+						is_character = QIE_zhang_qihuang
+					}
+					NOT = {
+						is_character = QIE_li_bingzhi
+					}
+					NOT = {
+						has_trait = CHN_monarchist_officer_trait
+					}
+				}
+				add_trait = {
+					trait = panzer_leader
+				}
+			}
+			custom_effect_tooltip = QIE_the_chinese_armoured_corps_tooltip
+			hidden_effect = {
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_buy_light_tanks
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_buy_medium_tanks
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_buy_motorized
+				}
+			}
+		}
+		relative_position_id = QIE_the_eagle_and_the_dragon
+	}
+	focus = {
+		id = QIE_chinese_soldiers_german_weapons
+		x = 0
+		y = 2
+		cost = 7
+		icon = GFX_goal_GER_Mauser_Werke_Contracts
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		prerequisite = {
+			focus = QIE_leaning_upon_the_juggernaut
+		}
+		prerequisite = {
+			focus = QIE_chinese_auftragstaktik
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_chinese_soldiers_german_weapons"
+			if = {
+				limit = {
+					has_dlc_aat = no
+				}
+				custom_effect_tooltip = QIE_chinese_soldiers_german_weapons_reduced_cost_tt
+				hidden_effect = {
+					add_timed_idea = {
+						idea = QIE_chinese_soldiers_german_weapons_idea
+						days = 365
+					}
+				}
+			}
+			else = {
+				every_military_industrial_organization = {
+					limit = {
+						OR = {
+							is_military_industrial_organization = CHN_small_arms_industry_organisation
+							is_military_industrial_organization = QIE_krupp_organisation
+							is_military_industrial_organization = QIE_opel_organisation
+							is_military_industrial_organization = QIE_henschel_organisation
+							is_military_industrial_organization = QIE_focke_wulf_organisation
+							is_military_industrial_organization = QIE_junkers_organisation
+							is_military_industrial_organization = QIE_blohm_voss_organisation
+						}
+					}
+					add_mio_funds_gain_factor = 0.2
+				}
+			}
+			every_army_leader = {
+				limit = {
+					defense_skill_level < 3
+					NOT = {
+						is_character = QIE_wu_peifu
+					}
+					NOT = {
+						is_character = QIE_zhang_qihuang
+					}
+					NOT = {
+						is_character = QIE_li_bingzhi
+					}
+					NOT = {
+						has_trait = CHN_monarchist_officer_trait
+					}
+				}
+				random_select_amount = 4
+				add_defense = 1
+				gain_xp = 500
+			}
+			custom_effect_tooltip = QIE_chinese_soldiers_german_weapons_tt
+			hidden_effect = {
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_buy_ger_rifles
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_buy_ger_support
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_buy_ger_arty
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_buy_ger_anti_tank
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_buy_ger_anti_air
+				}
+			}
+		}
+		relative_position_id = QIE_the_eagle_and_the_dragon
+	}
+	focus = {
+		id = QIE_extend_the_80_division_plan
+		x = -1
+		y = 4
+		cost = 8
+		icon = GFX_goal_mass_concentration_of_army
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			QIE = {
+				controls_state = 608
+			}
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = QIE_the_chinese_armoured_corps
+		}
+		prerequisite = {
+			focus = QIE_license_luftstreitkrafte_airplanes
+		}
+		prerequisite = {
+			focus = QIE_utilising_our_connections
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_extend_the_80_division_plan"
+			china_add_research_slots = yes
+			add_mastery_bonus = {
+				name = QIE_extend_the_80_division_plan
+				bonus = 0.1
+				days = 365
+				folder = land
+			}
+			add_timed_idea = {
+				idea = QIE_80_division_plan
+				days = 180
+			}
+			custom_effect_tooltip = tooltip_white_line
+			QIE_upgrade_high_command_effect = yes
+		}
+		relative_position_id = QIE_the_eagle_and_the_dragon
+	}
+	focus = {
+		id = QIE_the_future_of_the_special_relationsip
+		x = 1
+		y = 4
+		cost = 3
+		icon = GFX_goal_GER_CHN_military_mission
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			china_is_the_unifier_of_china_trigger = yes
+			OR = {
+				has_global_flag = JAP_defeated_by_china
+				JAP = {
+					is_subject = yes
+				}
+				#edge case if you paradrop japan
+				NOT = {
+					country_exists = JAP
+				}
+			}
+			has_war = no
+			GER = {
+				is_faction_leader = yes
+			}
+		}
+		ai_will_do = {
+			base = 50
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+		}
+		prerequisite = {
+			focus = QIE_the_chinese_armoured_corps
+		}
+		prerequisite = {
+			focus = QIE_license_luftstreitkrafte_airplanes
+		}
+		prerequisite = {
+			focus = QIE_utilising_our_connections
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_the_future_of_the_special_relationsip"
+			country_event = qing_focus_events.25
+			QIE = {
+				activate_targeted_decision = {
+					target = GER
+					decision = GER_sino_german_cooperation
+				}
+			}
+		}
+		relative_position_id = QIE_the_eagle_and_the_dragon
+	}
+	focus = {
+		id = QIE_lessons_of_intervention
+		x = 5
+		y = 4
+		cost = 6
+		icon = GFX_goal_LEP_southern_school
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 75
+			modifier = {
+				factor = 0.75
+				has_war = yes
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+			FOCUS_FILTER_ARMY_XP
+		}
+		prerequisite = {
+			focus = QIE_overtures_to_the_assembly
+			focus = QIE_elections_of_year
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_lessons_of_intervention"
+			army_experience = 25
+			add_war_support = 0.05
+			add_tech_bonus = {
+				name = QIE_lessons_of_intervention
+				bonus = 0.75
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+	#shared central Zhili tree - industrial development and two plans
+	focus = {
+		id = QIE_future_of_the_zhili_clique
+		x = 15
+		y = 4
+		cost = 6
+		icon = GFX_goal_SZC_zhili_army
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			factor = 125
+		}
+		prerequisite = {
+			focus = QIE_elections_of_year
+			focus = QIE_overtures_to_the_assembly
+			focus = QIE_handling_the_disintegration
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_future_of_the_zhili_clique"
+			country_event = qing_focus_events.11
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = {
+					country_exists = SHX
+				}
+				unlock_decision_tooltip = SHX_QIE_begin_negotiations
+			}
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = {
+					has_country_flag = china_has_poor_army
+				}
+				china_army_reform_increase_step = yes
+			}
+			else = {
+				army_experience = 100
+			}
+		}
+	}
+	focus = {
+		id = QIE_on_national_defense
+		x = 1
+		y = 1
+		cost = 5
+		icon = GFX_goal_China_Beiyang_Army
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 2
+				OR = {
+					has_country_flag = wu_no_intervene
+					has_country_flag = wu_intervenes_proANQ
+				}
+			}
+			modifier = {
+				factor = 0
+				has_country_flag = wu_intervenes_proLEP
+			}
+		}
+		mutually_exclusive = {
+			focus = QIE_symphony_of_military_and_industry
+		}
+		prerequisite = {
+			focus = QIE_future_of_the_zhili_clique
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_on_national_defense"
+			QIE_jiang_baili = {
+				promote_to_field_marshal = yes
+			}
+			custom_effect_tooltip = QIE_jiang_baili_plan_focus_tooltip
+			set_country_flag = jiangbaili1_incomplete
+			set_country_flag = jiangbaili2_incomplete
+			set_country_flag = jiangbaili3_incomplete
+			activate_mission = QIE_jiang_plan_mission
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = QIE_stalled_80_division_reform_plan
+					add_idea = QIE_formation_of_a_militaristic_state_people_level1
+				}
+			}
+			clear_army_chief = yes
+			activate_advisor = QIE_jiang_baili_army_chief
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = QIE_jiang_military_plan_tt
+			hidden_effect = {
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_jiang_baili_phase1
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_jiang_baili_phase2
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_jiang_baili_phase3
+				}
+				QIE_upgrade_military_spirit_jiang_effect = yes
+			}
+		}
+		relative_position_id = QIE_future_of_the_zhili_clique
+	}
+	focus = {
+		id = QIE_highlighting_our_goals
+		x = 0
+		y = 1
+		cost = 5
+		icon = GFX_focus_MAN_restore_the_beiyang_army
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.75
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_BONUS
+		}
+		prerequisite = {
+			focus = QIE_on_national_defense
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_highlighting_our_goals"
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = QIE_formation_of_a_militaristic_state_people_level1
+					add_idea = QIE_formation_of_a_militaristic_state_people_level2
+				}
+			}
+			every_army_leader = {
+				limit = {
+					NOT = {
+						is_character = QIE_wu_peifu
+					}
+				}
+				add_attack = 1
+			}
+			custom_effect_tooltip = QIE_highlighting_our_goals_tt
+			hidden_effect = {
+				QIE_upgrade_military_spirit_jiang_effect = yes
+				QIE = {
+					every_character = {
+						#NOT every_army_leader, as this will lead to AI-generated genericos being checked and logging is_character errors from the Wu Peifu check
+						random_select_amount = 3
+						limit = {
+							is_army_leader = yes
+							NOT = {
+								is_character = QIE_wu_peifu
+							}
+						}
+						remove_trait = {
+							trait = politically_connected
+						}
+					}
+				}
+			}
+		}
+		relative_position_id = QIE_on_national_defense
+	}
+	focus = {
+		id = QIE_court_hubei_generals
+		x = 0
+		y = 1
+		cost = 7
+		icon = GFX_goal_LEP_patronize_xiangshen
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		available = {
+			1048 = {
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = QIE_highlighting_our_goals
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_court_hubei_generals"
+			1048 = {
+				add_dynamic_modifier = {
+					modifier = QIE_hubei_generals_dynamic_modifier
+				}
+				prioritize_state = yes
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			if = {
+				limit = {
+					has_dlc_aat = yes
+				}
+				mio:CHN_support_equipment_industry_organisation = {
+					add_mio_funds_gain_factor = 0.1
+					complete_mio_trait = China_mio_trait_integrated_hanyang
+					set_mio_flag = integrated_hanyang
+				}
+			}
+			else = {
+				add_one_random_military_factory = yes
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = QIE_xiao_yaonan_advisor
+		}
+		relative_position_id = QIE_highlighting_our_goals
+	}
+	focus = {
+		id = QIE_symphony_of_military_and_industry
+		x = 3
+		y = 1
+		cost = 5
+		icon = GFX_focus_ger_heavy_tanks
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0
+				OR = {
+					has_country_flag = wu_no_intervene
+					has_country_flag = wu_intervenes_proANQ
+				}
+			}
+			modifier = {
+				factor = 2
+				has_country_flag = wu_intervenes_proLEP
+			}
+		}
+		mutually_exclusive = {
+			focus = QIE_on_national_defense
+		}
+		prerequisite = {
+			focus = QIE_future_of_the_zhili_clique
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_symphony_of_military_and_industry"
+			QIE_tang_zaili = {
+				promote_to_field_marshal = yes
+			}
+			custom_effect_tooltip = QIE_liu_menggeng_plan_tooltip
+			set_country_flag = QIE_symphony_of_military_and_industry1_incomplete
+			set_country_flag = QIE_symphony_of_military_and_industry2_incomplete
+			set_country_flag = QIE_symphony_of_military_and_industry3_incomplete
+			activate_mission = QIE_tang_plan_mission
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = QIE_stalled_80_division_reform_plan
+					add_idea = QIE_in_the_footsteps_of_giants_level1
+				}
+			}
+			clear_army_chief = yes
+			activate_advisor = QIE_tang_zaili_army_chief
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = QIE_germany_military_plan_tt
+			hidden_effect = {
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_tang_zaili_phase_1
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_tang_zaili_phase_2
+				}
+				activate_targeted_decision = {
+					target = FROM
+					decision = QIE_tang_zaili_phase_3
+				}
+				QIE_upgrade_military_spirit_germany_effect = yes
+			}
+		}
+		relative_position_id = QIE_future_of_the_zhili_clique
+	}
+	focus = {
+		id = QIE_expand_baoding_arsenal
+		x = 0
+		y = 1
+		cost = 6
+		icon = GFX_goal_generic_artillery_factories
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			owns_state = 1062
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = QIE_symphony_of_military_and_industry
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_expand_baoding_arsenal"
+			1062 = {
+				prioritize_state = yes
+			}
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			add_ideas = QIE_renovated_baoding_arsenal_idea
+		}
+		relative_position_id = QIE_symphony_of_military_and_industry
+	}
+	focus = {
+		id = QIE_a_competitive_army_and_industry
+		x = 0
+		y = 1
+		cost = 6
+		icon = GFX_goal_Krupp_Artillery
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			factor = 125
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = QIE_expand_baoding_arsenal
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_a_competitive_army_and_industry"
+			add_one_random_military_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = {
+					has_dlc_aat = no
+				}
+				add_tech_bonus = {
+					name = QIE_a_competitive_army_and_industry
+					uses = 2
+					bonus = 1
+					category = infantry_weapons
+					category = artillery
+				}
+			}
+			else = {
+				mio:CHN_artillery_industry_organisation = {
+					add_mio_size = 1
+					add_mio_funds_gain_factor = 0.1
+				}
+				mio:CHN_support_equipment_industry_organisation = {
+					add_mio_funds_gain_factor = 0.1
+					complete_mio_trait = China_mio_trait_integrated_hanyang
+					set_mio_flag = integrated_hanyang
+				}
+			}
+			custom_effect_tooltip = tooltip_white_line
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = QIE_in_the_footsteps_of_giants_level1
+					add_idea = QIE_in_the_footsteps_of_giants_level2
+				}
+			}
+			hidden_effect = {
+				QIE_upgrade_military_spirit_germany_effect = yes
+			}
+		}
+		relative_position_id = QIE_expand_baoding_arsenal
+	}
+	focus = {
+		id = QIE_the_central_plains_artery
+		x = -2
+		y = 1
+		cost = 7
+		icon = GFX_goal_generic_railway_construction
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = QIE_future_of_the_zhili_clique
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_the_central_plains_artery"
+			QIE_jinghan_railroad_focus_effect = yes
+		}
+		relative_position_id = QIE_future_of_the_zhili_clique
+	}
+	focus = {
+		id = QIE_reorganise_the_kailuan_mining_bureau
+		x = 1
+		y = 1
+		cost = 6
+		icon = GFX_focus_generic_mining_industry
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			any_state_of = {
+				target = {
+					614
+					1060
+				}
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		bypass = {
+			OR = {
+				NOT = {
+					owns_state = 614
+				}
+				614 = {
+					has_state_flag = QIE_steel_mines_developed
+				}
+			}
+			OR = {
+				NOT = {
+					owns_state = 1060
+				}
+				1060 = {
+					has_state_flag = QIE_steel_mines_developed
+				}
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = QIE_the_central_plains_artery
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_reorganise_the_kailuan_mining_bureau"
+			if = {
+				limit = {
+					614 = {
+						is_owned_by = ROOT
+						NOT = {
+							has_state_flag = QIE_steel_mines_developed
+						}
+					}
+				}
+				614 = {
+					set_state_flag = QIE_steel_mines_developed
+					add_resource = {
+						type = steel
+						amount = 8
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				hidden_effect = {
+					for_each_scope_loop = {
+						array = global.china_tags_array
+						THIS = {
+							remove_targeted_decision = {
+								target = 614
+								decision = QIE_develop_tangshan_steel_decision
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					1060 = {
+						is_owned_by = ROOT
+						NOT = {
+							has_state_flag = QIE_steel_mines_developed
+						}
+					}
+				}
+				1060 = {
+					set_state_flag = QIE_steel_mines_developed
+					add_resource = {
+						type = steel
+						amount = 8
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				hidden_effect = {
+					for_each_scope_loop = {
+						array = global.china_tags_array
+						THIS = {
+							remove_targeted_decision = {
+								target = 614
+								decision = QIE_develop_zhili_steel_decision
+							}
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_ideas = QIE_kailuan_mining_bureau_idea
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = QIE_kaiping_mines_upgrade_tt
+			show_ideas_tooltip = kaiping_mines_2
+			hidden_effect = {
+				if = {
+					limit = {
+						has_idea = kaiping_mines
+					}
+					add_ideas = kaiping_mines_2
+				}
+			}
+		}
+		relative_position_id = QIE_the_central_plains_artery
+	}
+	focus = {
+		id = QIE_expanding_our_shanxi_spoils
+		x = 0
+		y = 1
+		cost = 6
+		icon = GFX_goal_generic_coal_mining
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			615 = {
+				is_owned_by_ROOT_or_subject = yes
+			}
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = QIE_reorganise_the_kailuan_mining_bureau
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_expanding_our_shanxi_spoils"
+			615 = {
+				prioritize_state = yes
+			}
+			#Datong
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			build_railway = {
+				path = {
+					4190
+					4093
+					12078
+					12344
+				}
+				start_state = 1062
+				target_state = 615
+				level = 1
+				fallback = yes
+			}
+			if = {
+				limit = {
+					country_exists = SHX
+				}
+				add_intel = {
+					target = SHX
+					civilian_intel = 5
+					army_intel = 5
+				}
+				custom_effect_tooltip = tooltip_white_line
+				SHX = {
+					SHX_QIE_spend_small = yes
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						615 = {
+							is_owned_and_controlled_by = QIE
+						}
+						SHX = {
+							NOT = {
+								is_subject_of = QIE
+								is_ally_with = QIE
+								has_country_flag = SHX_took_payout_flag
+								has_country_flag = SHX_private_coal_flag
+							}
+						}
+					}
+					country_event = {
+						id = qing_foreign_policy_events.24
+						days = 20
+						random_days = 25
+					}
+					#Start Mining Dispute Chain
+				}
+				else = {
+					country_event = {
+						id = qing_foreign_policy_events.24002
+						days = 20
+						random_days = 25
+					}
+					#Offer joint partnership with Shanxi
+				}
+			}
+		}
+		relative_position_id = QIE_reorganise_the_kailuan_mining_bureau
+	}
+	focus = {
+		id = QIE_daye_hanyang_development_scheme
+		x = -1
+		y = 1
+		cost = 6
+		icon = GFX_goal_model_cities
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = QIE_the_central_plains_artery
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_daye_hanyang_development_scheme"
+			QIE_daye_hanyang_effect = yes
+		}
+		relative_position_id = QIE_the_central_plains_artery
+	}
+	focus = {
+		id = QIE_gongxian_arsenal_expansion_office
+		x = 0
+		y = 1
+		cost = 6
+		icon = GFX_goal_QIE_gongxian_arsenal
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.75
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = QIE_daye_hanyang_development_scheme
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_gongxian_arsenal_expansion_office"
+			607 = {
+				prioritize_state = yes
+			}
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			if = {
+				limit = {
+					has_dlc_aat = yes
+				}
+				custom_effect_tooltip = tooltip_white_line
+				mio:CHN_small_arms_industry_organisation = {
+					add_mio_size = 2
+					add_mio_funds_gain_factor = 0.1
+					complete_mio_trait = China_mio_trait_integrated_gongxian
+					set_mio_flag = integrated_gongxian
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = QIE_gongxian_arsenal_expansion_office
+					bonus = 1
+					uses = 1
+					category = support_tech
+				}
+			}
+		}
+		relative_position_id = QIE_daye_hanyang_development_scheme
+	}
+	focus = {
+		id = QIE_restore_order_in_the_middle_kingdom
+		x = 0
+		y = 4
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		icon = {
+			trigger = {
+				is_monarchy = yes
+			}
+			value = GFX_goal_QIE_manchu_unite_china
+		}
+		icon = {
+			trigger = {
+				is_monarchy = no
+			}
+			value = GFX_goal_QIE_zhili_unite_china
+		}
+		ai_will_do = {
+			factor = 125
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 5
+				CHN_ai_factor_pressure_to_act_trigger = yes
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_WAR_SUPPORT
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = QIE_gongxian_arsenal_expansion_office
+			focus = QIE_expanding_our_shanxi_spoils
+		}
+		prerequisite = {
+			focus = QIE_a_competitive_army_and_industry
+			focus = QIE_court_hubei_generals
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_restore_order_in_the_middle_kingdom"
+			add_political_power = 100
+			add_war_support = 0.1
+			custom_effect_tooltip = tooltip_white_line
+			china_enable_alliances_decisions = yes
+			custom_effect_tooltip = tooltip_white_line
+			china_enable_non_main_government_demand_submission_decisions = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = china_can_core_through_compliance
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = {
+					has_completed_focus = QIE_on_national_defense
+				}
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = QIE_formation_of_a_militaristic_state_people_level2
+						add_idea = QIE_formation_of_a_militaristic_state_people_level3
+					}
+				}
+				hidden_effect = {
+					QIE_upgrade_military_spirit_jiang_effect = yes
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = QIE_symphony_of_military_and_industry
+				}
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = QIE_in_the_footsteps_of_giants_level2
+						add_idea = QIE_in_the_footsteps_of_giants_level3
+					}
+				}
+				hidden_effect = {
+					QIE_upgrade_military_spirit_germany_effect = yes
+				}
+			}
+			else = {
+				custom_effect_tooltip = QIE_chosen_jiang_plan_tt
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = QIE_formation_of_a_militaristic_state_people_level2
+						add_idea = QIE_formation_of_a_militaristic_state_people_level3
+					}
+				}
+				custom_effect_tooltip = QIE_chosen_germany_plan_tt
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = QIE_in_the_footsteps_of_giants_level2
+						add_idea = QIE_in_the_footsteps_of_giants_level3
+					}
+				}
+			}
+			hidden_effect = {
+				activate_targeted_decision = {
+					target = ROOT
+					decision = QIE_prep_chahar
+				}
+				if = {
+					limit = {
+						country_exists = LEP
+					}
+					activate_targeted_decision = {
+						target = LEP
+						decision = QIE_request_LEP_support_during_FNG_war
+					}
+				}
+				if = {
+					limit = {
+						ANQ = {
+							exists = yes
+							is_subject = no
+							china_is_aligned_with_zhili = yes
+							NOT = {
+								has_war_with = ROOT
+							}
+						}
+					}
+					activate_targeted_decision = {
+						target = ANQ
+						decision = QIE_reach_out_to_anqing_before
+					}
+				}
+				if = {
+					limit = {
+						GXC = {
+							china_is_aligned_with_federalists = yes
+						}
+						YUN = {
+							china_is_aligned_with_federalists = yes
+						}
+						SZC = {
+							china_is_aligned_with_federalists = yes
+						}
+					}
+					country_event = {
+						id = qing_flavour_events.101
+						days = 7
+					}
+				}
+			}
+		}
+		relative_position_id = QIE_future_of_the_zhili_clique
+	}
+	focus = {
+		id = QIE_destroy_federalists
+		x = -2
+		y = 1
+		cost = 3
+		icon = GFX_goal_generic_attack_upc
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			is_subject = no
+			QIE_federalists_exists = yes
+		}
+		bypass = {
+			OR = {
+				NOT = {
+					country_exists = GXC
+				}
+				GXC = {
+					china_is_aligned_with_federalists = no
+				}
+			}
+			OR = {
+				NOT = {
+					country_exists = HNN
+				}
+				OR = {
+					HNN = {
+						china_is_aligned_with_federalists = no
+					}
+					if = {
+						limit = {
+							HNN = {
+								is_subject = yes
+							}
+						}
+						HNN = {
+							overlord = {
+								china_is_aligned_with_federalists = no
+							}
+						}
+					}
+					else = {
+						hidden_trigger = {
+							always = no
+						}
+					}
+				}
+				HNN = {
+					is_subject_of = QIE
+				}
+			}
+			OR = {
+				NOT = {
+					country_exists = SZC
+				}
+				OR = {
+					SZC = {
+						china_is_aligned_with_federalists = no
+					}
+					if = {
+						limit = {
+							SZC = {
+								is_subject = yes
+							}
+						}
+						SZC = {
+							overlord = {
+								china_is_aligned_with_federalists = no
+							}
+						}
+					}
+					else = {
+						hidden_trigger = {
+							always = no
+						}
+					}
+				}
+			}
+			OR = {
+				NOT = {
+					country_exists = YUN
+				}
+				OR = {
+					YUN = {
+						china_is_aligned_with_federalists = no
+					}
+					if = {
+						limit = {
+							YUN = {
+								is_subject = yes
+							}
+						}
+						YUN = {
+							overlord = {
+								china_is_aligned_with_federalists = no
+							}
+						}
+					}
+					else = {
+						hidden_trigger = {
+							always = no
+						}
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					has_country_flag = china_attack_decision_one_month_cooldown
+					GXC = {
+						can_declare_war_on = ROOT
+						china_is_aligned_with_federalists = yes
+						NOT = {
+							is_neighbor_of = ROOT
+							any_neighbor_country = {
+								is_ally_with = ROOT
+							}
+							any_subject_country = {
+								any_neighbor_country = {
+									is_ally_with = ROOT
+								}
+							}
+						}
+					}
+					HNN = {
+						can_declare_war_on = ROOT
+						china_is_aligned_with_federalists = yes
+						NOT = {
+							is_neighbor_of = ROOT
+							any_neighbor_country = {
+								is_ally_with = ROOT
+							}
+							any_subject_country = {
+								any_neighbor_country = {
+									is_ally_with = ROOT
+								}
+							}
+						}
+					}
+					SZC = {
+						can_declare_war_on = ROOT
+						china_is_aligned_with_federalists = yes
+						NOT = {
+							is_neighbor_of = ROOT
+							any_neighbor_country = {
+								is_ally_with = ROOT
+							}
+							any_subject_country = {
+								any_neighbor_country = {
+									is_ally_with = ROOT
+								}
+							}
+						}
+					}
+					YUN = {
+						can_declare_war_on = ROOT
+						china_is_aligned_with_federalists = yes
+						NOT = {
+							is_neighbor_of = ROOT
+							any_neighbor_country = {
+								is_ally_with = ROOT
+							}
+							any_subject_country = {
+								any_neighbor_country = {
+									is_ally_with = ROOT
+								}
+							}
+						}
+					}
+					AND = {
+						check_variable = {
+							enemies^num > 1
+						}
+						OR = {
+							AND = {
+								NOT = {
+									has_war_with = GXC
+								}
+								GXC = {
+									china_is_aligned_with_federalists = yes
+								}
+							}
+							AND = {
+								NOT = {
+									has_war_with = HNN
+								}
+								HNN = {
+									china_is_aligned_with_federalists = yes
+								}
+							}
+							AND = {
+								NOT = {
+									has_war_with = SZC
+								}
+								SZC = {
+									china_is_aligned_with_federalists = yes
+								}
+							}
+							AND = {
+								NOT = {
+									has_war_with = YUN
+								}
+								YUN = {
+									china_is_aligned_with_federalists = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				CHN_ai_factor_pressure_to_act_trigger = yes
+			}
+		}
+		will_lead_to_war_with = GXC
+		will_lead_to_war_with = HNN
+		will_lead_to_war_with = SZC
+		will_lead_to_war_with = YUN
+		select_effect = {
+			log = "[GetLogRoot]: Select Focus QIE_destroy_federalists"
+			set_country_flag = {
+				flag = china_attack_decision_one_month_cooldown
+				days = 30
+				value = 1
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = QIE_restore_order_in_the_middle_kingdom
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_destroy_federalists"
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			if = {
+				limit = {
+					OR = {
+						can_declare_war_on = GXC
+						has_war_with = GXC
+					}
+					GXC = {
+						china_is_aligned_with_federalists = yes
+					}
+				}
+				add_timed_idea = {
+					idea = QIE_attack_fed_GXC_idea
+					days = 180
+				}
+				if = {
+					limit = {
+						can_declare_war_on = GXC
+					}
+					activate_targeted_decision = {
+						target = GXC
+						decision = china_attack_decision
+					}
+				}
+			}
+			if = {
+				limit = {
+					HNN = {
+						china_is_aligned_with_federalists = yes
+					}
+					HNN = {
+						is_subject = no
+					}
+					GXC = {
+						china_alignment_federalists = no
+					}
+					SZC = {
+						china_alignment_federalists = no
+					}
+					YUN = {
+						china_alignment_federalists = no
+					}
+				}
+				HNN = {
+					country_event = china_events.7
+				}
+				custom_effect_tooltip = if_they_accept_tt
+				effect_tooltip = {
+					set_temp_variable = {
+						target = HNN
+					}
+					china_puppet_TARGET_effect = yes
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						can_declare_war_on = HNN
+						has_war_with = HNN
+					}
+					HNN = {
+						china_is_aligned_with_federalists = yes
+					}
+				}
+				add_timed_idea = {
+					idea = QIE_attack_fed_HNN_idea
+					days = 180
+				}
+				if = {
+					limit = {
+						can_declare_war_on = HNN
+					}
+					activate_targeted_decision = {
+						target = HNN
+						decision = china_attack_decision
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						can_declare_war_on = SZC
+						has_war_with = SZC
+					}
+					SZC = {
+						china_is_aligned_with_federalists = yes
+					}
+				}
+				add_timed_idea = {
+					idea = QIE_attack_fed_SZC_idea
+					days = 180
+				}
+				if = {
+					limit = {
+						can_declare_war_on = SZC
+					}
+					activate_targeted_decision = {
+						target = SZC
+						decision = china_attack_decision
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						can_declare_war_on = YUN
+						has_war_with = YUN
+					}
+					YUN = {
+						china_is_aligned_with_federalists = yes
+					}
+				}
+				add_timed_idea = {
+					idea = QIE_attack_fed_YUN_idea
+					days = 180
+				}
+				if = {
+					limit = {
+						can_declare_war_on = YUN
+					}
+					activate_targeted_decision = {
+						target = YUN
+						decision = china_attack_decision
+					}
+				}
+			}
+		}
+		relative_position_id = QIE_restore_order_in_the_middle_kingdom
+	}
+	focus = {
+		id = QIE_cross_the_dai_river
+		x = 0
+		y = 1
+		cost = 3
+		icon = GFX_goal_generic_attack_fengtian
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			OR = {
+				AND = {
+					can_declare_war_on = 716.owner
+					NOT = {
+						has_non_aggression_pact_with = 716.owner
+					}
+				}
+				has_war_with = FNG
+			}
+		}
+		bypass = {
+			716 = {
+				is_owned_by_ROOT_or_subject = yes
+			}
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				JAP = {
+					has_guaranteed = 716.owner
+					NOT = {
+						has_war_with = GER
+					}
+				}
+				var:716.owner = {
+					strength_ratio = {
+						tag = ROOT
+						ratio > 0.5
+					}
+				}
+				NOT = {
+					has_war_with = FNG
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_country_flag = china_attack_decision_one_month_cooldown
+					country_is_in_dangerous_war = yes
+					var:716.owner = {
+						default_attack_AI_trigger = yes
+					}
+					china_proper_not_united = yes
+				}
+				NOT = {
+					has_war_with = FNG
+				}
+			}
+			modifier = {
+				factor = 5
+				CHN_ai_factor_pressure_to_act_trigger = yes
+			}
+		}
+		will_lead_to_war_with = FNG
+		will_lead_to_war_with = MAN
+		will_lead_to_war_with = JAP
+		select_effect = {
+			log = "[GetLogRoot]: Select Focus QIE_cross_the_dai_river"
+			set_country_flag = {
+				flag = china_attack_decision_one_month_cooldown
+				days = 30
+				value = 1
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = QIE_restore_order_in_the_middle_kingdom
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_cross_the_dai_river"
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			if = {
+				limit = {
+					OR = {
+						can_declare_war_on = FNG
+						has_war_with = FNG
+					}
+				}
+				add_timed_idea = {
+					idea = QIE_attack_FNG_idea
+					days = 180
+				}
+				if = {
+					limit = {
+						can_declare_war_on = FNG
+					}
+					activate_targeted_decision = {
+						target = FNG
+						decision = china_attack_decision
+					}
+				}
+			}
+			else = {
+				create_wargoal = {
+					target = 716.owner
+					type = annex_everything
+				}
+			}
+		}
+		relative_position_id = QIE_restore_order_in_the_middle_kingdom
+	}
+	focus = {
+		id = QIE_destroy_kuomintang
+		x = 2
+		y = 1
+		cost = 3
+		icon = GFX_goal_generic_attack_kmt
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			is_subject = no
+			QIE_kuomintang_exists = yes
+			if = {
+				limit = {
+					country_exists = CHI
+				}
+				has_global_flag = LEP_league_war_over
+			}
+			if = {
+				limit = {
+					YUN = {
+						china_is_aligned_with_kmt = yes
+					}
+				}
+				NOT = {
+					YUN = {
+						has_idea = YUN_unrest_in_kunming_level_2
+					}
+				}
+			}
+		}
+		bypass = {
+			OR = {
+				NOT = {
+					country_exists = CHI
+				}
+				CHI = {
+					china_is_aligned_with_kmt = no
+				}
+			}
+			OR = {
+				NOT = {
+					country_exists = GXC
+				}
+				GXC = {
+					china_is_aligned_with_kmt = no
+				}
+			}
+			OR = {
+				NOT = {
+					country_exists = HNN
+				}
+				HNN = {
+					china_is_aligned_with_kmt = no
+				}
+			}
+			OR = {
+				NOT = {
+					country_exists = YUN
+				}
+				YUN = {
+					china_is_aligned_with_kmt = no
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					has_country_flag = china_attack_decision_one_month_cooldown
+					GXC = {
+						can_declare_war_on = ROOT
+						china_is_aligned_with_kmt = yes
+						NOT = {
+							is_neighbor_of = ROOT
+							any_neighbor_country = {
+								is_ally_with = ROOT
+							}
+							any_subject_country = {
+								any_neighbor_country = {
+									is_ally_with = ROOT
+								}
+							}
+						}
+					}
+					HNN = {
+						can_declare_war_on = ROOT
+						china_is_aligned_with_kmt = yes
+						NOT = {
+							is_neighbor_of = ROOT
+							any_neighbor_country = {
+								is_ally_with = ROOT
+							}
+							any_subject_country = {
+								any_neighbor_country = {
+									is_ally_with = ROOT
+								}
+							}
+						}
+					}
+					YUN = {
+						can_declare_war_on = ROOT
+						china_is_aligned_with_kmt = yes
+						NOT = {
+							is_neighbor_of = ROOT
+							any_neighbor_country = {
+								is_ally_with = ROOT
+							}
+							any_subject_country = {
+								any_neighbor_country = {
+									is_ally_with = ROOT
+								}
+							}
+						}
+					}
+					AND = {
+						check_variable = {
+							enemies^num > 1
+						}
+						OR = {
+							AND = {
+								NOT = {
+									has_war_with = GXC
+								}
+								GXC = {
+									china_is_aligned_with_kmt = yes
+								}
+							}
+							AND = {
+								NOT = {
+									has_war_with = HNN
+								}
+								HNN = {
+									china_is_aligned_with_kmt = yes
+								}
+							}
+							AND = {
+								NOT = {
+									has_war_with = YUN
+								}
+								YUN = {
+									china_is_aligned_with_kmt = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				CHN_ai_factor_pressure_to_act_trigger = yes
+			}
+		}
+		will_lead_to_war_with = CHI
+		will_lead_to_war_with = GXC
+		will_lead_to_war_with = HNN
+		will_lead_to_war_with = YUN
+		select_effect = {
+			log = "[GetLogRoot]: Select Focus QIE_destroy_kuomintang"
+			set_country_flag = {
+				flag = china_attack_decision_one_month_cooldown
+				days = 30
+				value = 1
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = QIE_restore_order_in_the_middle_kingdom
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_destroy_kuomintang"
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			if = {
+				limit = {
+					OR = {
+						can_declare_war_on = CHI
+						has_war_with = CHI
+					}
+					CHI = {
+						china_is_aligned_with_kmt = yes
+					}
+				}
+				add_timed_idea = {
+					idea = QIE_attack_kmt_CHI_idea
+					days = 180
+				}
+				if = {
+					limit = {
+						can_declare_war_on = CHI
+					}
+					activate_targeted_decision = {
+						target = CHI
+						decision = china_attack_decision
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						can_declare_war_on = GXC
+						has_war_with = GXC
+					}
+					GXC = {
+						china_is_aligned_with_kmt = yes
+					}
+				}
+				add_timed_idea = {
+					idea = QIE_attack_kmt_GXC_idea
+					days = 180
+				}
+				if = {
+					limit = {
+						can_declare_war_on = GXC
+					}
+					activate_targeted_decision = {
+						target = GXC
+						decision = china_attack_decision
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						can_declare_war_on = HNN
+						has_war_with = HNN
+					}
+					HNN = {
+						china_is_aligned_with_kmt = yes
+					}
+				}
+				add_timed_idea = {
+					idea = QIE_attack_kmt_HNN_idea
+					days = 180
+				}
+				if = {
+					limit = {
+						can_declare_war_on = HNN
+					}
+					activate_targeted_decision = {
+						target = HNN
+						decision = china_attack_decision
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						can_declare_war_on = YUN
+						has_war_with = YUN
+					}
+					YUN = {
+						china_is_aligned_with_kmt = yes
+					}
+				}
+				add_timed_idea = {
+					idea = QIE_attack_kmt_YUN_idea
+					days = 180
+				}
+				if = {
+					limit = {
+						can_declare_war_on = YUN
+					}
+					activate_targeted_decision = {
+						target = YUN
+						decision = china_attack_decision
+					}
+				}
+			}
+		}
+		relative_position_id = QIE_restore_order_in_the_middle_kingdom
+	}
+	focus = {
+		id = QIE_fractured_and_broken_united_yet_again
+		x = 0
+		y = 1
+		cost = 8
+		icon = GFX_focus_chi_one_china_policy
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			china_is_the_unifier_of_china_trigger = yes
+		}
+		ai_will_do = {
+			factor = 400
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = {
+			focus = QIE_destroy_federalists
+		}
+		prerequisite = {
+			focus = QIE_cross_the_dai_river
+		}
+		prerequisite = {
+			focus = QIE_destroy_kuomintang
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_fractured_and_broken_united_yet_again"
+			add_stability = 0.2
+			activate_targeted_decision = {
+				decision = CHN_found_our_faction_decision
+				target = ROOT
+			}
+			effect_tooltip = {
+				unlock_decision_tooltip = china_join_the_reichspakt_decision
+			}
+			add_research_slot_until_five = yes
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = {
+					has_completed_focus = QIE_on_national_defense
+				}
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = QIE_formation_of_a_militaristic_state_people_level3
+						add_idea = QIE_formation_of_a_militaristic_state_people_level4
+					}
+				}
+				hidden_effect = {
+					QIE_upgrade_military_spirit_jiang_effect = yes
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = QIE_symphony_of_military_and_industry
+				}
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = QIE_in_the_footsteps_of_giants_level3
+						add_idea = QIE_in_the_footsteps_of_giants_level4
+					}
+				}
+				hidden_effect = {
+					QIE_upgrade_military_spirit_germany_effect = yes
+				}
+			}
+			else = {
+				custom_effect_tooltip = QIE_chosen_jiang_plan_tt
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = QIE_formation_of_a_militaristic_state_people_level3
+						add_idea = QIE_formation_of_a_militaristic_state_people_level4
+					}
+				}
+				custom_effect_tooltip = QIE_chosen_germany_plan_tt
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = QIE_in_the_footsteps_of_giants_level3
+						add_idea = QIE_in_the_footsteps_of_giants_level4
+					}
+				}
+			}
+		}
+		relative_position_id = QIE_cross_the_dai_river
+	}
+	focus = {
+		id = QIE_tying_up_loose_ends
+		x = -1
+		y = 1
+		cost = 4
+		icon = GFX_focus_CHI_cradle_of_civilization
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			is_subject = no
+		}
+		bypass = {
+			NOT = {
+				can_declare_war_on = MON
+			}
+			NOT = {
+				can_declare_war_on = TIB
+			}
+			NOT = {
+				can_declare_war_on = SIK
+			}
+			NOT = {
+				can_declare_war_on = KUM
+			}
+			NOT = {
+				can_declare_war_on = ETS
+			}
+		}
+		ai_will_do = {
+			factor = 400
+		}
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = QIE_fractured_and_broken_united_yet_again
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_tying_up_loose_ends"
+			china_enable_outskirts_decisions = yes
+			custom_effect_tooltip = QIE_burma_territory_tt
+			hidden_effect = {
+				if = {
+					limit = {
+						ANQ = {
+							china_is_aligned_with_zhili = yes
+						}
+					}
+					activate_targeted_decision = {
+						target = ANQ
+						decision = QIE_integrate_anqing_after
+					}
+					activate_targeted_decision = {
+						target = ANQ
+						decision = QIE_integrate_anqing_after_again
+					}
+					activate_targeted_decision = {
+						target = ANQ
+						decision = QIE_war_goal_anqing_for_refusal_faction
+					}
+					activate_targeted_decision = {
+						target = ANQ
+						decision = QIE_reach_out_to_anqing_after
+					}
+					activate_targeted_decision = {
+						target = ANQ
+						decision = QIE_reach_out_to_anqing_after_again
+					}
+				}
+				add_state_claim = 1111
+				add_state_claim = 1042
+			}
+		}
+		relative_position_id = QIE_fractured_and_broken_united_yet_again
+	}
+	focus = {
+		id = QIE_hives_of_rabid_imperialism
+		x = 1
+		y = 1
+		cost = 4
+		icon = GFX_goal_QIE_destroy_LEC
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			is_subject = no
+		}
+		bypass = {
+			NOT = {
+				country_exists = LEC
+			}
+			326 = {
+				is_owned_by_ROOT_or_subject = yes
+			}
+			#Hong Kong
+			609 = {
+				is_owned_by_ROOT_or_subject = yes
+			}
+			#Tianjin
+			728 = {
+				is_owned_by_ROOT_or_subject = yes
+			}
+			#Guangzhouwan
+			729 = {
+				is_owned_by_ROOT_or_subject = yes
+			}
+			#Macau
+			743 = {
+				is_owned_by_ROOT_or_subject = yes
+			}
+			#Shanghai
+			744 = {
+				is_owned_by_ROOT_or_subject = yes
+			}
+			#Qingdao
+			745 = {
+				is_owned_by_ROOT_or_subject = yes
+			}
+			#Dalian
+			746 = {
+				is_owned_by_ROOT_or_subject = yes
+			}
+			#Ningbo
+			747 = {
+				is_owned_by_ROOT_or_subject = yes
+			}
+			#Fuzhou
+			801 = {
+				is_owned_by_ROOT_or_subject = yes
+			}
+			#Shantou
+			802 = {
+				is_owned_by_ROOT_or_subject = yes
+			}
+			#Xiamen
+			803 = {
+				is_owned_by_ROOT_or_subject = yes
+			}
+			#Wenzhou
+			1075 = {
+				is_owned_by_ROOT_or_subject = yes
+			}
+			#Nantong
+		}
+		ai_will_do = {
+			factor = 400
+		}
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = {
+			focus = QIE_fractured_and_broken_united_yet_again
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_hives_of_rabid_imperialism"
+			china_enable_concession_decisions = yes
+		}
+		relative_position_id = QIE_fractured_and_broken_united_yet_again
+	}
+	#wu 's republic
+	focus = {
+		id = QIE_handling_the_disintegration
+		x = 20
+		y = 3
+		cost = 40
+		icon = GFX_goal_LEP_collapse
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		#coup events will fire during this time, culminating in coup event when focus is 1 day from done.
+		cancelable = no
+		available = {
+			has_country_flag = QIE_coup_phase1
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		prerequisite = {
+			focus = QIE_emergency_meeting_of_the_cabinet
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_handling_the_disintegration"
+			custom_effect_tooltip = QIE_handling_the_disintegration_focus_will_complete_by_event
+			custom_effect_tooltip = tooltip_white_line
+			remove_ideas = QIE_big_protests
+			if = {
+				limit = {
+					has_template = "Diguo Qibing Shi"
+				}
+				set_division_template_lock = {
+					division_template = "Diguo Qibing Shi"
+					is_locked = no
+				}
+			}
+			if = {
+				limit = {
+					has_template = "Diguo Bubing Shi"
+				}
+				set_division_template_lock = {
+					division_template = "Diguo Bubing Shi"
+					is_locked = no
+				}
+			}
+		}
+	}
+	focus = {
+		id = QIE_restoration
+		x = 0
+		y = 1
+		cost = 1
+		icon = GFX_goal_QIE_puyi_restored
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		#restoration, sets up Manchu tree
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		mutually_exclusive = {
+			focus = QIE_let_the_five_banner_flag_fly
+			focus = QIE_the_seances_of_master_lv
+		}
+		prerequisite = {
+			focus = QIE_handling_the_disintegration
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_restoration"
+			load_focus_tree = QIE_manchu
+		}
+		relative_position_id = QIE_handling_the_disintegration
+	}
+	focus = {
+		id = QIE_let_the_five_banner_flag_fly
+		x = 4
+		y = 1
+		cost = 8
+		icon = GFX_goal_SHX_Destiny
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			OR = {
+				has_country_flag = QIE_coup_failed_early
+				has_country_flag = QIE_coup_failed
+			}
+		}
+		select_effect = {
+			log = "[GetLogRoot]: Select Focus QIE_let_the_five_banner_flag_fly"
+			hidden_effect = {
+				country_event = {
+					id = qing_focus_events.4
+					days = 3
+				}
+			}
+		}
+		ai_will_do = {
+			base = 300
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				has_war = no
+			}
+		}
+		mutually_exclusive = {
+			focus = QIE_restoration
+			focus = QIE_the_seances_of_master_lv
+		}
+		prerequisite = {
+			focus = QIE_handling_the_disintegration
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_let_the_five_banner_flag_fly"
+			custom_effect_tooltip = QIE_constitution_TT
+			custom_effect_tooltip = tooltip_white_line
+			hidden_effect = {
+				QIE_wang_chonghui = {
+					set_nationality = ROOT
+				}
+			}
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = QIE_wang_chonghui_advisor
+		}
+		relative_position_id = QIE_handling_the_disintegration
+	}
+	focus = {
+		id = QIE_flying_too_close_to_the_sun
+		x = -1
+		y = 1
+		cost = 5
+		icon = GFX_goal_generic_police_state
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = {
+			focus = QIE_let_the_five_banner_flag_fly
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_flying_too_close_to_the_sun"
+			if = {
+				limit = {
+					has_dlc_lar = no
+				}
+				add_political_power = 50
+				add_ideas = QIE_public_safety_bureau
+			}
+			else_if = {
+				limit = {
+					has_intelligence_agency = no
+				}
+				create_intelligence_agency = yes
+				upgrade_intelligence_agency = upgrade_anti_partisan
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_done_agency_upgrade = upgrade_form_department
+					}
+				}
+				upgrade_intelligence_agency = upgrade_form_department
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_done_agency_upgrade = upgrade_psycho_warfare
+					}
+				}
+				upgrade_intelligence_agency = upgrade_psycho_warfare
+			}
+			else = {
+				add_political_power = 50
+			}
+			add_tech_bonus = {
+				name = QIE_flying_too_close_to_the_sun
+				bonus = 2
+				uses = 1
+				category = military_police_tech
+			}
+			hidden_effect = {
+				country_event = {
+					id = qing_flavour_events.105
+					days = 7
+				}
+			}
+		}
+		relative_position_id = QIE_let_the_five_banner_flag_fly
+	}
+	focus = {
+		id = QIE_the_gift_of_the_dynasties
+		x = 1
+		y = 1
+		cost = 5
+		icon = GFX_goal_generic_debt_negotiations
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_war = no
+			}
+		}
+		prerequisite = {
+			focus = QIE_let_the_five_banner_flag_fly
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_the_gift_of_the_dynasties"
+			country_event = qing_focus_events.10			# debt issue and legitimacy
+			add_timed_idea = {
+				idea = QIE_dealing_with_dishonesty
+				days = 100
+			}
+			add_political_power = 35
+			add_stability = -0.08
+		}
+		relative_position_id = QIE_let_the_five_banner_flag_fly
+	}
+	focus = {
+		id = QIE_endeavours_human_face
+		x = -2
+		y = 2
+		cost = 5
+		icon = GFX_goal_QIE_president_hu
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			has_country_leader = {
+				character = QIE_hu_shih
+			}
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_war = no
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = QIE_path
+					option = QIE_PATH_KOO_AUTDEM
+				}
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		mutually_exclusive = {
+			focus = QIE_beiyangs_favourite_son
+		}
+		prerequisite = {
+			focus = QIE_flying_too_close_to_the_sun
+		}
+		prerequisite = {
+			focus = QIE_the_gift_of_the_dynasties
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_endeavours_human_face"
+			QIE_hu_shih = {
+				add_trait = {
+					trait = QIE_idealist_against_the_storm
+					ideology = authoritarian_democrat_subtype
+				}
+			}
+			add_political_power = 50
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.04
+			}
+		}
+		relative_position_id = QIE_let_the_five_banner_flag_fly
+	}
+	focus = {
+		id = QIE_beiyangs_favourite_son
+		x = 2
+		y = 2
+		cost = 5
+		icon = GFX_goal_QIE_president_koo
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			has_country_leader = {
+				character = QIE_wellington_koo
+			}
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_war = no
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = QIE_path
+					option = QIE_PATH_SHIH_AUTDEM
+				}
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		mutually_exclusive = {
+			focus = QIE_endeavours_human_face
+		}
+		prerequisite = {
+			focus = QIE_flying_too_close_to_the_sun
+		}
+		prerequisite = {
+			focus = QIE_the_gift_of_the_dynasties
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_beiyangs_favourite_son"
+			QIE_wellington_koo = {
+				add_trait = {
+					trait = QIE_the_diplomatic_offensive
+					ideology = authoritarian_democrat_subtype
+				}
+			}
+			add_stability = 0.05
+			608 = {
+				add_dynamic_modifier = {
+					modifier = QIE_beiyang_patronage_dynamic_modifier
+				}
+			}
+			hidden_effect = {
+				country_event = {
+					id = qing_flavour_events.112
+					days = 3
+				}
+				country_event = {
+					id = qing_flavour_events.104
+					days = 14
+				}
+			}
+		}
+		relative_position_id = QIE_let_the_five_banner_flag_fly
+	}
+	focus = {
+		id = QIE_government_of_good_people
+		x = -3
+		y = 3
+		cost = 8
+		icon = GFX_goal_beijing_begonia
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = QIE_endeavours_human_face
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_government_of_good_people"
+			swap_ideas = {
+				remove_idea = QIE_legitimacy_of_the_republic_1
+				add_idea = QIE_legitimacy_of_the_republic_hu_shih_1
+			}
+			add_ideas = QIE_burgeoning_pluralism
+		}
+		relative_position_id = QIE_let_the_five_banner_flag_fly
+	}
+	focus = {
+		id = QIE_flourish_of_the_diplomatic_corps
+		x = 3
+		y = 3
+		cost = 8
+		icon = GFX_goal_beiyang_star
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = {
+			focus = QIE_beiyangs_favourite_son
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_flourish_of_the_diplomatic_corps"
+			swap_ideas = {
+				remove_idea = QIE_legitimacy_of_the_republic_1
+				add_idea = QIE_legitimacy_of_the_republic_koo_1
+			}
+			every_country = {
+				limit = {
+					is_major = yes
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = KR_approves_of_govt
+				}
+			}
+		}
+		relative_position_id = QIE_let_the_five_banner_flag_fly
+	}
+	focus = {
+		id = QIE_the_fragrant_one_lacks_judgement_still
+		x = 1
+		y = 3
+		cost = 6
+		icon = GFX_goal_QIE_purge_manchu
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 75
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = {
+			focus = QIE_flying_too_close_to_the_sun
+		}
+		prerequisite = {
+			focus = QIE_the_gift_of_the_dynasties
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_the_fragrant_one_lacks_judgement_still"
+			add_stability = 0.05
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = QIE_liu_chongyou_advisor
+			show_ideas_tooltip = QIE_xu_qin_advisor
+			show_ideas_tooltip = QIE_shen_junru_advisor
+			custom_effect_tooltip = tooltip_white_line
+			set_party_name = {
+				ideology = social_democrat
+				name = QIE_all_chinese_national_salvation_congress_party
+				long_name = QIE_all_chinese_national_salvation_congress_party_long_tt
+			}
+			set_party_name = {
+				ideology = social_conservative
+				name = QIE_chinese_constitutionalist_party
+				long_name = QIE_chinese_constitutionalist_party_long_tt
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+			hidden_effect = {
+				QIE_xu_qin = {
+					add_country_leader_role = {
+						country_leader = {
+							desc = QIE_xu_qin_leader_desc
+							ideology = social_conservative_subtype
+						}
+						promote_leader = yes
+					}
+				}
+				QIE_shen_junru = {
+					promote_character = social_democrat_subtype
+				}
+				set_party_name = {
+					ideology = social_democrat
+					name = QIE_all_chinese_national_salvation_congress_party
+					long_name = QIE_all_chinese_national_salvation_congress_party_long
+				}
+				set_party_name = {
+					ideology = social_conservative
+					name = QIE_chinese_constitutionalist_party
+					long_name = QIE_chinese_constitutionalist_party_long
+				}
+			}
+		}
+		relative_position_id = QIE_let_the_five_banner_flag_fly
+	}
+	focus = {
+		id = QIE_coopting_nationalist_rhetoric
+		x = -3
+		y = 4
+		cost = 8
+		icon = GFX_goal_QIE_purge_YCP
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = {
+			focus = QIE_government_by_friends
+		}
+		prerequisite = {
+			focus = QIE_the_fragrant_one_lacks_judgement_still
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_coopting_nationalist_rhetoric"
+			add_timed_idea = {
+				idea = QIE_revival_of_new_nationalism
+				days = 100
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = QIE_zeng_qi_advisor
+			custom_effect_tooltip = tooltip_white_line
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.03
+			}
+			set_temp_variable = {
+				coalition_partner_var = token:national_populist
+			}
+			add_to_coalition = yes
+			increase_conscription = yes
+		}
+		relative_position_id = QIE_let_the_five_banner_flag_fly
+	}
+	focus = {
+		id = QIE_government_by_friends
+		x = -1
+		y = 3
+		cost = 6
+		icon = GFX_goal_FNG_unification_conference
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = QIE_flying_too_close_to_the_sun
+		}
+		prerequisite = {
+			focus = QIE_the_gift_of_the_dynasties
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_government_by_friends"
+			if = {
+				limit = {
+					QIE_bai_jianwu = {
+						is_hired_as_advisor = no
+					}
+					has_free_political_advisor_slot = yes
+				}
+				hidden_effect = {
+					activate_advisor = QIE_bai_jianwu_advisor
+				}
+				custom_effect_tooltip = if_not_yet_hired_will_hire
+				show_ideas_tooltip = QIE_bai_jianwu_advisor
+			}
+			else = {
+				add_political_power = 70
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.08
+			}
+			add_stability = 0.07
+			hidden_effect = {
+				country_event = {
+					id = qing_flavour_events.102
+					days = 3
+				}
+			}
+		}
+		relative_position_id = QIE_let_the_five_banner_flag_fly
+	}
+	focus = {
+		id = QIE_reaching_out_to_endeavour
+		x = 3
+		y = 4
+		cost = 8
+		icon = GFX_goal_ANQ_convince_intellectuals
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 75
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = {
+			focus = QIE_government_by_friends
+		}
+		prerequisite = {
+			focus = QIE_the_fragrant_one_lacks_judgement_still
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_reaching_out_to_endeavour"
+			add_timed_idea = {
+				idea = QIE_reaching_out_to_endeavour_idea
+				days = 240
+			}
+			china_add_research_slots = yes
+			custom_effect_tooltip = tooltip_white_line
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.03
+			}
+			set_temp_variable = {
+				coalition_partner_var = token:social_liberal
+			}
+			add_to_coalition = yes
+			hidden_effect = {
+				country_event = {
+					id = qing_flavour_events.110
+					days = 7
+				}
+			}
+		}
+		relative_position_id = QIE_let_the_five_banner_flag_fly
+	}
+	focus = {
+		id = QIE_nationalising_noble_estates
+		x = -1
+		y = 4
+		cost = 8
+		icon = GFX_focus_DEN_heavy_regulations
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = QIE_government_by_friends
+		}
+		prerequisite = {
+			focus = QIE_the_fragrant_one_lacks_judgement_still
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_nationalising_noble_estates"
+			add_timed_idea = {
+				idea = QIE_mass_nationalisation_of_noble_estates
+				days = 200
+			}
+			custom_effect_tooltip = tooltip_white_line
+			every_core_state = {
+				random_select_amount = 2
+				add_extra_state_shared_building_slots = 2
+			}
+			if = {
+				limit = {
+					has_dlc_aat = yes
+				}
+				custom_effect_tooltip = tooltip_white_line
+				mio:CHN_artillery_industry_organisation = {
+					add_mio_size = 2
+					add_mio_funds = 500
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = QIE_nationalising_noble_estates
+					bonus = 1
+					uses = 2
+					category = artillery
+				}
+			}
+		}
+		relative_position_id = QIE_let_the_five_banner_flag_fly
+	}
+	focus = {
+		id = QIE_shoring_up_financial_centres
+		x = 1
+		y = 4
+		cost = 8
+		icon = GFX_goal_develop_provinces
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_war = no
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = {
+			focus = QIE_government_by_friends
+		}
+		prerequisite = {
+			focus = QIE_the_fragrant_one_lacks_judgement_still
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_shoring_up_financial_centres"
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			add_timed_idea = {
+				idea = QIE_support_of_the_bankers
+				days = 210
+			}
+			custom_effect_tooltip = tooltip_white_line
+			QIE_wang_kemin = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = tooltip_replace_character_trait
+						ROLE = political_advisor
+						OLD_TRAIT = KR_bank_president
+						NEW_TRAIT = KR_conductor_of_the_banking_clans
+					}
+					remove_trait = {
+						character = QIE_wang_kemin
+						slot = political_advisor
+						trait = KR_bank_president
+					}
+					add_trait = {
+						character = QIE_wang_kemin
+						slot = political_advisor
+						trait = KR_conductor_of_the_banking_clans
+					}
+				}
+				effect_tooltip = {
+					set_temp_variable = {
+						modifier_change_tt = 0.05
+						tooltip = political_power_factor_tooltip
+					}
+					set_temp_variable = {
+						modifier_change_tt = -0.05
+						tooltip = consumer_goods_factor_tooltip
+					}
+					set_temp_variable = {
+						modifier_change_tt = 0.1
+						tooltip = production_speed_buildings_factor_tooltip
+					}
+				}
+			}
+		}
+		relative_position_id = QIE_let_the_five_banner_flag_fly
+	}
+	focus = {
+		id = QIE_xinhais_legacy
+		x = 0
+		y = 5
+		cost = 4
+		icon = GFX_focus_CHI_restore_the_old_republic
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			china_is_the_unifier_of_china_trigger = yes
+			custom_override_tooltip = {
+				tooltip = QIE_pursued_presidents_policies_tt
+				OR = {
+					has_idea = QIE_legitimacy_of_the_republic_hu_shih_1
+					has_idea = QIE_legitimacy_of_the_republic_koo_1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = QIE_nationalising_noble_estates
+		}
+		prerequisite = {
+			focus = QIE_shoring_up_financial_centres
+		}
+		prerequisite = {
+			focus = QIE_reaching_out_to_endeavour
+		}
+		prerequisite = {
+			focus = QIE_coopting_nationalist_rhetoric
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_xinhais_legacy"
+			if = {
+				limit = {
+					has_completed_focus = QIE_government_of_good_people
+				}
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = QIE_legitimacy_of_the_republic_hu_shih_1
+						add_idea = QIE_legitimacy_of_the_republic_hu_shih_2
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = QIE_flourish_of_the_diplomatic_corps
+				}
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = QIE_legitimacy_of_the_republic_koo_1
+						add_idea = QIE_legitimacy_of_the_republic_koo_2
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = QIE_chosen_hu_shih_tt
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = QIE_legitimacy_of_the_republic_hu_shih_1
+						add_idea = QIE_legitimacy_of_the_republic_hu_shih_2
+					}
+				}
+				custom_effect_tooltip = QIE_chosen_wellington_koo_plan_tt
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = QIE_legitimacy_of_the_republic_koo_1
+						add_idea = QIE_legitimacy_of_the_republic_koo_2
+					}
+				}
+			}
+			set_temp_variable = {
+				coalition_partner_var = token:market_liberal
+			}
+			add_to_coalition = yes
+			set_temp_variable = {
+				coalition_partner_var = token:social_conservative
+			}
+			add_to_coalition = yes
+			set_temp_variable = {
+				coalition_partner_var = token:social_democrat
+			}
+			add_to_coalition = yes
+			hidden_effect = {
+				if = {
+					limit = {
+						has_idea = QIE_legitimacy_of_the_republic_hu_shih_1
+					}
+					swap_ideas = {
+						remove_idea = QIE_legitimacy_of_the_republic_hu_shih_1
+						add_idea = QIE_legitimacy_of_the_republic_hu_shih_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = QIE_legitimacy_of_the_republic_koo_1
+					}
+					swap_ideas = {
+						remove_idea = QIE_legitimacy_of_the_republic_koo_1
+						add_idea = QIE_legitimacy_of_the_republic_koo_2
+					}
+				}
+			}
+		}
+		relative_position_id = QIE_let_the_five_banner_flag_fly
+	}
+	focus = {
+		id = QIE_the_shadow_of_order
+		x = 29
+		y = 1
+		cost = 2
+		icon = GFX_focus_RAJ_red_in_the_shadows
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_the_shadow_of_order_in_progress_flag
+				}
+				set_temp_variable = { temp_focus_days = 14 }
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_auto_focus_in_progress_tt
+						CHARACTER = QIE_wushan_focus_name
+						FLAG_DAYS = [?QIE_the_shadow_of_order_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_focus_can_only_be_completed_by_advisor_tt
+						CHARACTER = QIE_wushan_focus_name
+						FOCUS = QIE_year_of_the_rat
+					}
+					always = no
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_the_shadow_of_order"
+			country_event = {
+				id = QIE_wushan_events.1
+				days = 7
+			}
+		}
+	}
+	focus = {
+		id = QIE_secret_meeting
+		x = 29
+		y = 2
+		cost = 10
+		icon = GFX_focus_CHI_weaponise_the_hongmen
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_secret_meeting_in_progress_flag
+				}
+				set_temp_variable = { temp_focus_days = 70 }
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_auto_focus_in_progress_tt
+						CHARACTER = QIE_wushan_focus_name
+						FLAG_DAYS = [?QIE_secret_meeting_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_focus_can_only_be_completed_by_advisor_tt
+						CHARACTER = QIE_wushan_focus_name
+						FOCUS = QIE_the_shadow_of_order
+					}
+					always = no
+				}
+			}
+		}
+		prerequisite = {
+			focus = QIE_the_shadow_of_order
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_secret_meeting"
+			country_event = {
+				id = QIE_wushan_auto_seances.01
+			}
+		}
+	}
+	focus = {
+		id = QIE_the_seances_of_master_lv
+		x = 29
+		y = 4
+		cost = 1
+		icon = GFX_test
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_let_the_five_banner_flag_fly
+			focus = QIE_restoration
+		}
+		prerequisite = {
+			focus = QIE_handling_the_disintegration
+		}
+		prerequisite = {
+			focus = QIE_hang_on_the_oppo_discontent
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_the_seances_of_master_lv"
+			hidden_effect = {
+				set_party_name = {
+					ideology = paternal_autocrat
+					long_name = QIE_wushan_long
+					name = QIE_wushan_short
+				}
+			}
+			load_focus_tree = QIE_wushan
+			custom_effect_tooltip = QIE_ws0_tt
+		}
+	}
+	focus = {
+		id = QIE_hang_on_the_oppo_discontent
+		x = 29
+		y = 3
+		cost = 10
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		icon = GFX_focus_PHI_declare_military_emergency
+		available = {
+			if = {
+				limit = {
+					has_country_flag = QIE_hang_on_the_oppo_discontent_in_progress_flag
+				}
+				set_temp_variable = { temp_focus_days = 70 }
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_auto_focus_in_progress_tt
+						CHARACTER = QIE_wushan_focus_name
+						FLAG_DAYS = [?QIE_hang_on_the_oppo_discontent_in_progress_flag:days]
+					}
+					always = no
+				}
+			}
+			else = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = QIE_focus_can_only_be_completed_by_advisor_tt
+						CHARACTER = QIE_wushan_focus_name
+						FOCUS = QIE_secret_meeting
+					}
+					always = no
+				}
+			}
+		}
+		prerequisite = {
+			focus = QIE_secret_meeting
+		}
+	}
+}
