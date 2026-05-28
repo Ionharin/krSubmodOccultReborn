@@ -122,3 +122,19 @@ country_event = { # 焚香
         ai_chance = { factor = 1 }
     }
 }
+
+country_event = { # 债务清偿完毕
+    id = QIE_wushan_events.7
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.7" }
+    title = QIE_wushan_events.7.t
+    desc = QIE_wushan_events.7.desc
+    picture = GFX_report_event_europe_funeral
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 无债一身轻
+        name = QIE_wushan_events.7.a
+        ai_chance = { factor = 1 }
+        remove_ideas = QIE_big_debt4
+    }
+}
