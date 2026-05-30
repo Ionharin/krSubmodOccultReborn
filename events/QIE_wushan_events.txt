@@ -138,3 +138,23 @@ country_event = { # 债务清偿完毕
         remove_ideas = QIE_big_debt4
     }
 }
+
+country_event = {
+    id = QIE_wushan_events.8
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.8" }
+    title = QIE_wushan_events.8.t
+    desc = QIE_wushan_events.8.desc
+    picture = GFX_report_event_europe_funeral
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = {
+        name = QIE_wushan_events.8.a
+        ai_chance = { factor = 1 }
+        add_political_power = 100
+        add_popularity = {
+            ideology = paternal_autocrat
+            popularity = 0.05
+        }
+    }
+}

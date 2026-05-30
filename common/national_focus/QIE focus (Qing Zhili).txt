@@ -5711,7 +5711,9 @@ focus_tree = {
 				limit = {
 					has_country_flag = QIE_the_shadow_of_order_in_progress_flag
 				}
-				set_temp_variable = { temp_focus_days = 14 }
+				set_temp_variable = {
+					temp_focus_days = 14
+				}
 				custom_override_tooltip = {
 					tooltip = {
 						localization_key = QIE_auto_focus_in_progress_tt
@@ -5753,7 +5755,9 @@ focus_tree = {
 				limit = {
 					has_country_flag = QIE_secret_meeting_in_progress_flag
 				}
-				set_temp_variable = { temp_focus_days = 70 }
+				set_temp_variable = {
+					temp_focus_days = 70
+				}
 				custom_override_tooltip = {
 					tooltip = {
 						localization_key = QIE_auto_focus_in_progress_tt
@@ -5789,7 +5793,7 @@ focus_tree = {
 		x = 29
 		y = 4
 		cost = 1
-		icon = GFX_test
+		icon = GFX_focus_union_test
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
@@ -5804,11 +5808,91 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_the_seances_of_master_lv"
+			if = {
+				limit = {
+					has_idea = QIE_legitimacy_of_the_monarchy
+				}
+				swap_ideas = {
+					remove_idea = QIE_legitimacy_of_the_monarchy
+					add_idea = QIE_wushan_theocratic_authority_1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = QIE_legitimacy_of_the_monarchy_1
+				}
+				swap_ideas = {
+					remove_idea = QIE_legitimacy_of_the_monarchy_1
+					add_idea = QIE_wushan_theocratic_authority_1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = QIE_legitimacy_of_the_monarchy_2
+				}
+				swap_ideas = {
+					remove_idea = QIE_legitimacy_of_the_monarchy_2
+					add_idea = QIE_wushan_theocratic_authority_1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = QIE_legitimacy_of_the_monarchy_3
+				}
+				swap_ideas = {
+					remove_idea = QIE_legitimacy_of_the_monarchy_3
+					add_idea = QIE_wushan_theocratic_authority_1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = QIE_legitimacy_of_the_monarchy_cao
+				}
+				swap_ideas = {
+					remove_idea = QIE_legitimacy_of_the_monarchy_cao
+					add_idea = QIE_wushan_theocratic_authority_1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = QIE_legitimacy_of_the_monarchy_wu
+				}
+				swap_ideas = {
+					remove_idea = QIE_legitimacy_of_the_monarchy_wu
+					add_idea = QIE_wushan_theocratic_authority_1
+				}
+			}
+			else = {
+				add_ideas = QIE_wushan_theocratic_authority_1
+			}
+			if = {
+				limit = {
+					has_idea = QIE_court_of_the_jade_marshal
+				}
+				swap_ideas = {
+					remove_idea = QIE_court_of_the_jade_marshal
+					add_idea = QIE_wushan_chaotic_big_tent
+				}
+			}
+			else = {
+				add_ideas = QIE_wushan_chaotic_big_tent
+			}
+			set_politics = {
+				ruling_party = paternal_autocrat
+				elections_allowed = no
+			}
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = QIE_wushan_short
+				long_name = QIE_wushan_long_tt
+			}
+			recruit_character = QIE_ws_luanwu_yuan
+			promote_character = QIE_ws_luanwu_yuan
 			hidden_effect = {
 				set_party_name = {
 					ideology = paternal_autocrat
-					long_name = QIE_wushan_long
 					name = QIE_wushan_short
+					long_name = QIE_wushan_long
 				}
 			}
 			load_focus_tree = QIE_wushan
@@ -5820,15 +5904,17 @@ focus_tree = {
 		x = 29
 		y = 3
 		cost = 10
-		cancel_if_invalid = yes
-		continue_if_invalid = no
 		icon = GFX_focus_PHI_declare_military_emergency
+		continue_if_invalid = no
+		cancel_if_invalid = yes
 		available = {
 			if = {
 				limit = {
 					has_country_flag = QIE_hang_on_the_oppo_discontent_in_progress_flag
 				}
-				set_temp_variable = { temp_focus_days = 70 }
+				set_temp_variable = {
+					temp_focus_days = 70
+				}
 				custom_override_tooltip = {
 					tooltip = {
 						localization_key = QIE_auto_focus_in_progress_tt

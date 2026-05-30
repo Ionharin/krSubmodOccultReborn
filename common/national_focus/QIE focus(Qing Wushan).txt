@@ -36,13 +36,6 @@ focus_tree = {
 			custom_effect_tooltip = QIE_ws1_tt
 			hidden_effect = {
 				set_cosmetic_tag = QIE_wushan_cosmetic_tag
-				set_variable = {
-					god_circle_focus_var = 0
-				}
-				set_variable = {
-					god_circle_tier = 0
-				}
-				QIE_update_god_circle_tier = yes
 				country_event = {
 					id = QIE_wushan_wu_jiang_power_auto.01
 					days = 1
@@ -578,6 +571,16 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_restart_beijing_charity_society
 		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = QIE_wushan_charity_relief
+				days = 180
+			}
+			country_event = {
+				id = QIE_wushan_events.8
+				days = 3
+			}
+		}
 	}
 	focus = {
 		id = QIE_pauper_factory
@@ -990,6 +993,15 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_debt_negotiation
 		}
+		completion_reward = {
+			add_stability = -0.05
+			add_timed_idea = {
+				idea = QIE_flurry_of_investment
+				days = 280
+			}
+			set_country_flag = QIE_wushan_foreign_investment_decisions_unlocked
+			custom_effect_tooltip = QIE_wushan_unlock_foreign_investment_decisions_tt
+		}
 	}
 	focus = {
 		id = QIE_put_on_the_cloak_of_confucius
@@ -1267,6 +1279,43 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_debt_negotiation
 		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_collaborate_with_german_companies"
+			if = {
+				limit = {
+					has_completed_focus = QIE_become_YCP_shadow
+				}
+				add_popularity = {
+					ideology = national_populist
+					popularity = 0.1
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = QIE_become_CERA_shadow
+				}
+				add_popularity = {
+					ideology = social_democrat
+					popularity = 0.1
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = QIE_become_MP_shadow
+				}
+				add_popularity = {
+					ideology = social_conservative
+					popularity = 0.1
+				}
+			}
+			add_tech_bonus = {
+				name = QIE_partner_with_german_manufacturing_firms
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+			QIE_unlock_german_companies_effect = yes
+		}
 	}
 	focus = {
 		id = QIE_free_schools_for_poor
@@ -1413,7 +1462,7 @@ focus_tree = {
 		id = QIE_the_legacy_of_zhili
 		x = 30
 		y = 2
-		cost = 0
+		cost = 2
 		icon = GFX_focus_generic_advanced_military_studies
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1452,7 +1501,7 @@ focus_tree = {
 		id = QIE_iron_tank_law
 		x = 36
 		y = 2
-		cost = 0
+		cost = 2
 		icon = GFX_focus_generic_tank_assault
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1500,7 +1549,7 @@ focus_tree = {
 		id = QIE_the_ocean_of_guns
 		x = 29
 		y = 3
-		cost = 0
+		cost = 3
 		icon = GFX_focus_CONGO_copper_cartridges
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1525,7 +1574,7 @@ focus_tree = {
 		id = QIE_let_the_cannons_roar
 		x = 31
 		y = 3
-		cost = 0
+		cost = 3
 		icon = GFX_focus_SWE_let_fly_all_guns
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1550,7 +1599,7 @@ focus_tree = {
 		id = QIE_establish_the_war_headquarters
 		x = 33
 		y = 3
-		cost = 0
+		cost = 1
 		icon = GFX_focus_generic_army_doctrines_2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1558,12 +1607,18 @@ focus_tree = {
 			focus = QIE_the_legacy_of_zhili
 			focus = QIE_iron_tank_law
 		}
+		completion_reward = {
+			every_unit_leader = {
+				add_planning = 1
+				add_logistics = 1
+			}
+		}
 	}
 	focus = {
 		id = QIE_the_heavy_footsteps_of_the_iron_behemoth
 		x = 35
 		y = 3
-		cost = 0
+		cost = 3
 		icon = GFX_focus_generic_license_production
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1605,7 +1660,7 @@ focus_tree = {
 		id = QIE_improve_the_material_system
 		x = 37
 		y = 3
-		cost = 0
+		cost = 3
 		icon = GFX_focus_generic_supply_line
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1638,30 +1693,42 @@ focus_tree = {
 		id = QIE_speed_is_the_only_useful_thing
 		x = 38
 		y = 4
-		cost = 0
+		cost = 3
 		icon = GFX_focus_eng_move_to_secure_the_dominions
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_improve_the_material_system
 		}
+		completion_reward = {
+			custom_effect_tooltip = QIE_wushan_military_reorg_tactic_tt
+			hidden_effect = {
+				set_country_flag = QIE_wushan_speed_tactic_pending_flag
+			}
+		}
 	}
 	focus = {
 		id = QIE_solid_as_a_rock
 		x = 28
 		y = 4
-		cost = 0
+		cost = 3
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_the_ocean_of_guns
+		}
+		completion_reward = {
+			custom_effect_tooltip = QIE_wushan_military_reorg_tactic_tt
+			hidden_effect = {
+				set_country_flag = QIE_wushan_solid_tactic_pending_flag
+			}
 		}
 	}
 	focus = {
 		id = QIE_the_human_tide
 		x = 30
 		y = 4
-		cost = 0
+		cost = 2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1704,9 +1771,13 @@ focus_tree = {
 			focus = QIE_improve_the_material_system
 		}
 		completion_reward = {
-			add_war_support = 0.10
-			608 = { set_state_category = eight }
-			1061 = { set_state_category = four }
+			add_war_support = 0.1
+			608 = {
+				set_state_category = eight
+			}
+			1061 = {
+				set_state_category = four
+			}
 			1062 = {
 				set_state_category = six
 				add_extra_state_shared_building_slots = 3
@@ -1715,7 +1786,10 @@ focus_tree = {
 					level = 3
 					instant_build = yes
 				}
-				set_building_level = { type = infrastructure level = 5 }
+				set_building_level = {
+					type = infrastructure
+					level = 5
+				}
 				add_resource = {
 					type = steel
 					amount = 4
@@ -1724,7 +1798,9 @@ focus_tree = {
 					type = coal
 					amount = 1
 				}
-				add_dynamic_modifier = { modifier = QIE_wushan_zhili_arsenal_state_modifier }
+				add_dynamic_modifier = {
+					modifier = QIE_wushan_zhili_arsenal_state_modifier
+				}
 			}
 		}
 	}
@@ -1732,7 +1808,7 @@ focus_tree = {
 		id = QIE_elite_soldiers
 		x = 36
 		y = 4
-		cost = 0
+		cost = 2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1764,6 +1840,82 @@ focus_tree = {
 			focus = QIE_speed_is_the_only_useful_thing
 			focus = QIE_solid_as_a_rock
 		}
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_tech = interwar_antiair
+					}
+				}
+				set_technology = {
+					interwar_antiair = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_tech = antiair1
+					}
+				}
+				set_technology = {
+					antiair1 = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_tech = antiair2
+					}
+				}
+				set_technology = {
+					antiair2 = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_tech = antiair3
+					}
+				}
+				set_technology = {
+					antiair3 = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_tech = antiair4
+					}
+				}
+				set_technology = {
+					antiair4 = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_tech = antiair5
+					}
+				}
+				set_technology = {
+					antiair5 = 1
+				}
+			}
+			add_mastery_bonus = {
+				name = QIE_against_airborne_enemies
+				bonus = 0.2
+				days = 180
+				folder = land
+				track = combat_support
+			}
+			add_mastery_bonus = {
+				name = QIE_against_airborne_enemies
+				bonus = 0.2
+				days = 180
+				folder = land
+				track = armor
+			}
+		}
 	}
 	focus = {
 		id = QIE_against_tanks
@@ -1786,6 +1938,82 @@ focus_tree = {
 			focus = QIE_speed_is_the_only_useful_thing
 			focus = QIE_solid_as_a_rock
 		}
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_tech = interwar_antitank
+					}
+				}
+				set_technology = {
+					interwar_antitank = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_tech = antitank1
+					}
+				}
+				set_technology = {
+					antitank1 = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_tech = antitank2
+					}
+				}
+				set_technology = {
+					antitank2 = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_tech = antitank3
+					}
+				}
+				set_technology = {
+					antitank3 = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_tech = antitank4
+					}
+				}
+				set_technology = {
+					antitank4 = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_tech = antitank5
+					}
+				}
+				set_technology = {
+					antitank5 = 1
+				}
+			}
+			add_mastery_bonus = {
+				name = QIE_against_tanks
+				bonus = 0.2
+				days = 180
+				folder = land
+				track = combat_support
+			}
+			add_mastery_bonus = {
+				name = QIE_against_tanks
+				bonus = 0.2
+				days = 180
+				folder = land
+				track = armor
+			}
+		}
 	}
 	focus = {
 		id = QIE_eye_of_the_immortal
@@ -1807,6 +2035,59 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_speed_is_the_only_useful_thing
 			focus = QIE_solid_as_a_rock
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc_lar = yes
+				}
+				if = {
+					limit = {
+						has_intelligence_agency = no
+					}
+					create_intelligence_agency = yes
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_done_agency_upgrade = upgrade_form_department
+						}
+					}
+					upgrade_intelligence_agency = upgrade_form_department
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_done_agency_upgrade = upgrade_economy_civilian
+						}
+					}
+					upgrade_intelligence_agency = upgrade_economy_civilian
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_done_agency_upgrade = upgrade_army_department
+						}
+					}
+					upgrade_intelligence_agency = upgrade_army_department
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_done_agency_upgrade = upgrade_naval_department
+						}
+					}
+					upgrade_intelligence_agency = upgrade_naval_department
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_done_agency_upgrade = upgrade_airforce_department
+						}
+					}
+					upgrade_intelligence_agency = upgrade_airforce_department
+				}
+			}
 		}
 	}
 	focus = {
@@ -2358,7 +2639,7 @@ focus_tree = {
 		x = -6
 		y = 9
 		cost = 0
-		icon = GFX_focus_generic_annex_country
+		icon = GFX_focus_left_jade_loong
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2371,6 +2652,8 @@ focus_tree = {
 			focus = QIE_spring_and_autumn_ritual
 		}
 		completion_reward = {
+			custom_effect_tooltip = QIE_old_chinese_beliefs_reborn_warning_tt
+			add_ideas = QIE_inner_sage
 			if = {
 				limit = {
 					has_idea = QIE_eight_mighty_dragon_scripture_taixi
@@ -2408,7 +2691,7 @@ focus_tree = {
 		x = -2
 		y = 9
 		cost = 0
-		icon = GFX_focus_generic_annex_country_2
+		icon = GFX_focus_right_jade_loong
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2418,6 +2701,8 @@ focus_tree = {
 			focus = QIE_raise_the_long_blade
 		}
 		completion_reward = {
+			custom_effect_tooltip = QIE_and_new_beliefs_live_in_here_warning_tt
+			add_ideas = QIE_outer_king
 			if = {
 				limit = {
 					has_idea = QIE_eight_mighty_dragon_scripture_zhongtu
@@ -2461,6 +2746,15 @@ focus_tree = {
 			add_ideas = QIE_eight_mighty_dragon_scripture
 			country_event = {
 				id = QIE_wushan_events.5
+			}
+			hidden_effect = {
+				set_variable = {
+					god_circle_focus_var = 0
+				}
+				set_variable = {
+					god_circle_tier = 0
+				}
+				QIE_update_god_circle_tier = yes
 			}
 		}
 	}
@@ -2580,6 +2874,15 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_free_schools_for_poor
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = QIE_universal_education_for_poor_industry_1
+				ahead_reduction = 1
+				uses = 2
+				category = industry
+			}
+			add_research_slot = 1
 		}
 	}
 	focus = {
@@ -2711,6 +3014,7 @@ focus_tree = {
 		x = 33
 		y = 7
 		cost = 0
+		icon = GFX_focus_generic_army_attack
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2721,6 +3025,42 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = QIE_against_tanks
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_country_flag = QIE_wushan_speed_tactic_pending_flag
+				}
+				if = {
+					limit = {
+						has_idea = QIE_jingchun_army_bureau_tank_upgraded
+					}
+					swap_ideas = {
+						remove_idea = QIE_jingchun_army_bureau_tank_upgraded
+						add_idea = QIE_jingchun_army_bureau_tank_upgraded_2
+					}
+				}
+				remove_ideas = QIE_wushan_madan_spirit
+				remove_ideas = QIE_wushan_elite_soldiers_spirit
+				clr_country_flag = QIE_wushan_speed_tactic_pending_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = QIE_wushan_solid_tactic_pending_flag
+				}
+				if = {
+					limit = {
+						has_idea = QIE_jingchun_army_bureau_upgraded
+					}
+					swap_ideas = {
+						remove_idea = QIE_jingchun_army_bureau_upgraded
+						add_idea = QIE_jingchun_army_bureau_upgraded_2
+					}
+				}
+				remove_ideas = QIE_wushan_madan_spirit
+				remove_ideas = QIE_wushan_human_tide_spirit
+				clr_country_flag = QIE_wushan_solid_tactic_pending_flag
+			}
 		}
 	}
 }
