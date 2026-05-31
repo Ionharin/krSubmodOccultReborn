@@ -37,10 +37,22 @@ ideas ={
 			picture = generic_social_reforms
 			allowed = { always = no }
 			modifier = {
-				industrial_capacity_factory = 0.05
 				consumer_goods_factor = 0.05
 				stability_factor = 0.02
-				production_speed_industrial_complex_factor = 0.05
+				production_factory_start_efficiency_factor = 0.05
+				production_factory_max_efficiency_factor = -0.05
+			}
+		}
+		QIE_work_for_247_rice = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_work_for_247_rice" }
+			picture = generic_social_reforms
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.05
+				stability_factor = 0.02
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+				line_change_production_efficiency_factor = -0.05
 			}
 		}
 		QIE_wushan_charity_relief = {
@@ -52,6 +64,16 @@ ideas ={
 				political_power_gain = -0.5
 				stability_weekly = 0.003
 				war_support_weekly = 0.003
+			}
+		}
+		QIE_wushan_poor_relief_society = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_poor_relief_society" }
+			picture = generic_social_reforms
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.10
+				stability_factor = 0.05
+				political_power_gain = 0.1
 			}
 		}
 		QIE_wushan_daben_donation = {
@@ -105,6 +127,39 @@ ideas ={
 				planning_speed = -0.20
 				max_command_power = -30
 				command_power_gain_mult = 0.05
+			}
+		}
+		QIE_wushan_fiscal_reorganization = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_fiscal_reorganization" }
+			picture = ARG_political_corruption_modifier
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = -0.05
+				stability_factor = -0.03
+				consumer_goods_factor = -0.05
+			}
+		}
+		QIE_wushan_relief_finance_bureau = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_relief_finance_bureau" }
+			picture = ARG_political_corruption_modifier
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = -0.05
+				stability_factor = 0.05
+				consumer_goods_factor = -0.10
+				production_speed_buildings_factor = 0.10
+				industry_free_repair_factor = 0.10
+				economy_cost_factor = -0.10
+				cic_construction_boost_factor = 0.10
+			}
+		}
+		QIE_tangdi_zhihua = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_tangdi_zhihua" }
+			picture = generic_allies_build_infantry
+			allowed = { always = no }
+			modifier = {
+				army_attack_against_minor_factor = 0.05
+				army_defence_against_minor_factor = 0.05
 			}
 		}
 		QIE_eight_mighty_dragon_scripture = {

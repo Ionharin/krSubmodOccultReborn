@@ -8,3 +8,36 @@ QIE_wushan_foreign_investment_category = {
 		has_country_flag = QIE_wushan_foreign_investment_decisions_unlocked
 	}
 }
+QIE_wushan_refugee_crisis_category = {
+	icon = generic_social_reform
+	priority = 55
+	allowed = {
+		tag = QIE
+	}
+	visible = {
+		has_country_flag = QIE_wushan_refugee_crisis_unlocked
+		NOT = {
+			has_completed_focus = QIE_pauper_factory
+		}
+	}
+}
+QIE_wushan_black_diamond_category = {
+	icon = generic_coal_mining
+	priority = 52
+	allowed = {
+		tag = QIE
+	}
+	visible = {
+		has_country_flag = QIE_wushan_black_diamond_decisions_unlocked
+	}
+}
+QIE_wushan_kunpeng_fund_category = {
+	icon = generic_trade
+	priority = 53
+	allowed = {
+		tag = QIE
+	}
+	visible = {
+		has_completed_focus = QIE_restore_the_order_behind_shanhaiguan
+	}
+}

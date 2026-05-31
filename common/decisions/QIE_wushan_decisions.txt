@@ -15,6 +15,30 @@ QIE_wushan_foreign_investment_category = {
 			}
 		}
 	}
+	QIE_wushan_buy_japanese_rifles = {
+		icon = generic_construct_civilian
+		cost = 50
+		days_remove = 30
+		days_re_enable = 180
+		visible = {
+			has_country_leader = {
+				character = QIE_ws_jiang_chao_zong
+			}
+		}
+		available = {
+			has_country_leader = {
+				character = QIE_ws_jiang_chao_zong
+			}
+			JAP = { exists = yes }
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 1000
+				producer = JAP
+			}
+		}
+	}
 	QIE_wushan_accept_daben_donation = {
 		icon = generic_construct_civilian
 		days_remove = 30
@@ -30,7 +54,305 @@ QIE_wushan_foreign_investment_category = {
 			}
 		}
 		complete_effect = {
-			add_ideas = QIE_wushan_daben_donation
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	QIE_wushan_japanese_zaibatsu_funds = {
+		icon = generic_construct_civilian
+		cost = 100
+		days_remove = 90
+		days_re_enable = 365
+		visible = {
+			has_country_leader = {
+				character = QIE_ws_jiang_chao_zong
+			}
+		}
+		available = {
+			has_country_leader = {
+				character = QIE_ws_jiang_chao_zong
+			}
+		}
+		modifier = {
+			consumer_goods_factor = -0.20
+			production_speed_industrial_complex_factor = 0.20
+		}
+		complete_effect = {
+			add_stability = -0.05
+		}
+	}
+	QIE_wushan_support_from_beyond_the_pass = {
+		icon = generic_construct_civilian
+		cost = 50
+		days_remove = 45
+		days_re_enable = 180
+		visible = {
+			has_country_leader = {
+				character = QIE_ws_jiang_chao_zong
+			}
+		}
+		available = {
+			has_country_leader = {
+				character = QIE_ws_jiang_chao_zong
+			}
+			FNG = {
+				exists = yes
+				NOT = { has_war_with = QIE }
+			}
+		}
+		modifier = {
+			consumer_goods_factor = -0.15
+			production_speed_industrial_complex_factor = 0.15
+		}
+	}
+	QIE_wushan_seek_zhili_merchant_support = {
+		icon = generic_construct_civilian
+		cost = 50
+		days_remove = 60
+		days_re_enable = 365
+		visible = {
+			has_country_leader = {
+				character = QIE_ws_wu_pei_fu
+			}
+		}
+		available = {
+			has_country_leader = {
+				character = QIE_ws_wu_pei_fu
+			}
+		}
+		modifier = {
+			production_speed_industrial_complex_factor = 0.20
+			political_power_factor = 0.10
+			production_speed_infrastructure_factor = 0.20
+		}
+	}
+}
+QIE_wushan_refugee_crisis_category = {
+	QIE_wushan_refugees_fleeing_war = {
+		icon = generic_social_reform
+		fire_only_once = yes
+		days_mission_timeout = 60
+		is_good = no
+		visible = {
+			NOT = { has_completed_focus = QIE_pauper_factory }
+		}
+		available = {
+			always = yes
+		}
+		remove_trigger = {
+			has_completed_focus = QIE_pauper_factory
+		}
+		timeout_effect = {
+			add_stability = -0.10
+		}
+	}
+	QIE_wushan_launch_public_fundraising = {
+		icon = generic_social_reform
+		cost = 20
+		days_remove = 14
+		visible = {
+			has_completed_focus = QIE_charitable_share_bank
+			has_active_mission = QIE_wushan_refugees_fleeing_war
+		}
+		available = {
+			has_completed_focus = QIE_charitable_share_bank
+			has_active_mission = QIE_wushan_refugees_fleeing_war
+		}
+		modifier = {
+			political_power_gain = 2
+		}
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = QIE_wushan_refugees_fleeing_war
+				days = 15
+			}
+		}
+	}
+	QIE_wushan_request_international_relief = {
+		icon = generic_construct_civilian
+		cost = 10
+		days_remove = 7
+		visible = {
+			has_completed_focus = QIE_charitable_share_bank
+			has_active_mission = QIE_wushan_refugees_fleeing_war
+		}
+		available = {
+			has_completed_focus = QIE_charitable_share_bank
+			has_active_mission = QIE_wushan_refugees_fleeing_war
+		}
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = QIE_wushan_refugees_fleeing_war
+				days = 15
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.05
+			}
+		}
+	}
+	QIE_wushan_a_secret_remittance = {
+		icon = generic_trade
+		days_remove = 28
+		visible = {
+			has_completed_focus = QIE_charitable_share_bank
+			has_active_mission = QIE_wushan_refugees_fleeing_war
+		}
+		available = {
+			has_completed_focus = QIE_charitable_share_bank
+			has_active_mission = QIE_wushan_refugees_fleeing_war
+		}
+	}
+	QIE_wushan_open_temporary_gruel_kitchens = {
+		icon = generic_social_reform
+		cost = 25
+		days_remove = 7
+		visible = {
+			has_completed_focus = QIE_restart_beijing_charity_society
+			has_active_mission = QIE_wushan_refugees_fleeing_war
+		}
+		available = {
+			has_completed_focus = QIE_restart_beijing_charity_society
+			has_active_mission = QIE_wushan_refugees_fleeing_war
+		}
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = QIE_wushan_refugees_fleeing_war
+				days = 20
+			}
+		}
+	}
+}
+QIE_wushan_black_diamond_category = {
+	QIE_wushan_survey_shanxi_vein = {
+		icon = generic_coal_mining
+		days_remove = 30
+		fire_only_once = yes
+		available = {
+			NOT = { has_country_flag = QIE_wushan_black_diamond_action_ongoing }
+			OR = {
+				controls_state = 615
+				615 = {
+					controller = {
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = {
+				flag = QIE_wushan_black_diamond_action_ongoing
+				days = 30
+			}
+		}
+		remove_effect = {
+			615 = {
+				add_resource = {
+					type = coal
+					amount = 5
+				}
+			}
+		}
+	}
+	QIE_wushan_survey_tangshan_vein = {
+		icon = generic_coal_mining
+		days_remove = 30
+		fire_only_once = yes
+		available = {
+			NOT = { has_country_flag = QIE_wushan_black_diamond_action_ongoing }
+			OR = {
+				controls_state = 614
+				614 = {
+					controller = {
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = {
+				flag = QIE_wushan_black_diamond_action_ongoing
+				days = 30
+			}
+		}
+		remove_effect = {
+			614 = {
+				add_resource = {
+					type = coal
+					amount = 3
+				}
+			}
+		}
+	}
+	QIE_wushan_survey_guisui_vein = {
+		icon = generic_coal_mining
+		days_remove = 30
+		fire_only_once = yes
+		available = {
+			NOT = { has_country_flag = QIE_wushan_black_diamond_action_ongoing }
+			OR = {
+				controls_state = 621
+				621 = {
+					controller = {
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = {
+				flag = QIE_wushan_black_diamond_action_ongoing
+				days = 30
+			}
+		}
+		remove_effect = {
+			621 = {
+				add_resource = {
+					type = coal
+					amount = 3
+				}
+			}
+		}
+	}
+	QIE_wushan_survey_guanzhong_coal = {
+		icon = generic_coal_mining
+		days_remove = 30
+		fire_only_once = yes
+		available = {
+			NOT = { has_country_flag = QIE_wushan_black_diamond_action_ongoing }
+			has_completed_focus = QIE_industry_focus_rely_on_foreigner_country
+			OR = {
+				controls_state = 799
+				799 = {
+					controller = {
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = {
+				flag = QIE_wushan_black_diamond_action_ongoing
+				days = 30
+			}
+		}
+		remove_effect = {
+			799 = {
+				add_resource = {
+					type = coal
+					amount = 5
+				}
+			}
+		}
+	}
+}
+QIE_wushan_kunpeng_fund_category = {
+	QIE_wushan_seize_financial_reserves = {
+		icon = generic_trade
+		fire_only_once = yes
+		available = {
+			has_completed_focus = QIE_seize_the_gold_mine
+		}
+		complete_effect = {
 		}
 	}
 }

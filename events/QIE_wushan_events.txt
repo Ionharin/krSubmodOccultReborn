@@ -139,7 +139,7 @@ country_event = { # 债务清偿完毕
     }
 }
 
-country_event = {
+country_event = { # 社会人士慷慨解囊
     id = QIE_wushan_events.8
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.8" }
     title = QIE_wushan_events.8.t
@@ -151,10 +151,55 @@ country_event = {
     option = {
         name = QIE_wushan_events.8.a
         ai_chance = { factor = 1 }
-        add_political_power = 100
-        add_popularity = {
-            ideology = paternal_autocrat
-            popularity = 0.05
+        add_political_power = 75
+    }
+}
+
+country_event = {
+    id = QIE_wushan_events.9
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.9" }
+    title = QIE_wushan_events.9.t
+    desc = QIE_wushan_events.9.desc
+    picture = GFX_report_event_europe_funeral
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = {
+        name = QIE_wushan_events.9.a
+        ai_chance = { factor = 1 }
+        1048 = {
+            add_building_construction = {
+                type = industrial_complex
+                level = 1
+                instant_build = yes
+            }
         }
+        add_popularity = {
+            ideology = market_liberal
+            popularity = 0.03
+        }
+        add_stability = -0.03
+    }
+    option = {
+        name = QIE_wushan_events.9.b
+        ai_chance = { factor = 1 }
+        add_stability = 0.03
+    }
+}
+
+country_event = {
+    id = QIE_wushan_events.10
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.10" }
+    title = QIE_wushan_events.10.t
+    desc = QIE_wushan_events.10.desc
+    picture = GFX_report_event_europe_funeral
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = {
+        name = QIE_wushan_events.10.a
+        ai_chance = { factor = 1 }
+        remove_ideas = QIE_wushan_fiscal_reorganization
+        add_ideas = QIE_wushan_relief_finance_bureau
     }
 }

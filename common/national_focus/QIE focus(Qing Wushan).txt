@@ -27,7 +27,7 @@ focus_tree = {
 		id = QIE_wushan_power
 		x = 6
 		y = 0
-		cost = 0
+		cost = 2
 		icon = GFX_focus_RAJ_bathe_in_hellfire
 		continue_if_invalid = no
 		cancel_if_invalid = no
@@ -35,6 +35,7 @@ focus_tree = {
 			add_political_power = 150
 			custom_effect_tooltip = QIE_ws1_tt
 			hidden_effect = {
+				set_country_flag = QIE_wushan_refugee_crisis_unlocked
 				set_cosmetic_tag = QIE_wushan_cosmetic_tag
 				country_event = {
 					id = QIE_wushan_wu_jiang_power_auto.01
@@ -244,7 +245,7 @@ focus_tree = {
 		x = 6
 		y = 4
 		cost = 1
-		icon = QIE_wushan_test
+		icon = GFX_focus_left_jade_loong
 		continue_if_invalid = no
 		cancel_if_invalid = no
 		mutually_exclusive = {
@@ -500,6 +501,29 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_restart_beijing_charity_society
 		}
+		completion_reward = {
+			add_political_power = 30
+			if = {
+				limit = {
+					has_idea = QIE_wushan_theocratic_authority_1
+				}
+				swap_ideas = {
+					remove_idea = QIE_wushan_theocratic_authority_1
+					add_idea = QIE_wushan_theocratic_authority_2
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_idea = QIE_wushan_theocratic_authority_2
+					}
+					NOT = {
+						has_idea = QIE_wushan_theocratic_authority_3
+					}
+				}
+				add_ideas = QIE_wushan_theocratic_authority_2
+			}
+		}
 	}
 	focus = {
 		id = QIE_debt_negotiation
@@ -562,10 +586,10 @@ focus_tree = {
 	}
 	focus = {
 		id = QIE_charitable_share_bank
-		x = 22
+		x = 24
 		y = 2
-		cost = 2
-		icon = GFX_focus_generic_welfare
+		cost = 3
+		icon = GFX_focus_generic_monetary_union
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -585,18 +609,36 @@ focus_tree = {
 	focus = {
 		id = QIE_pauper_factory
 		x = 24
-		y = 3
+		y = 4
 		cost = 3
 		icon = GFX_goal_social_reforms
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = QIE_charitable_share_bank
+			focus = QIE_decide_adopt_forced_producing_plan
+			focus = QIE_decide_adopt_247_producing_plan
 		}
 		completion_reward = {
 			add_political_power = -50
 			add_war_support = -0.1
-			add_ideas = QIE_work_for_rice
+			if = {
+				limit = {
+					has_completed_focus = QIE_decide_adopt_forced_producing_plan
+				}
+				swap_ideas = {
+					remove_idea = QIE_wushan_poor_relief_society
+					add_idea = QIE_work_for_rice
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_decide_adopt_247_producing_plan
+				}
+				swap_ideas = {
+					remove_idea = QIE_wushan_poor_relief_society
+					add_idea = QIE_work_for_247_rice
+				}
+			}
 			custom_effect_tooltip = QIE_pauper_factory_tt
 			hidden_effect = {
 				country_event = {
@@ -619,16 +661,24 @@ focus_tree = {
 		x = 20
 		y = 3
 		cost = 5
+		icon = GFX_focus_generic_low_cost_housing
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_charitable_share_bank
 		}
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
+			}
+		}
 	}
 	focus = {
 		id = QIE_project_henan
 		x = 22
-		y = 4
+		y = 5
 		cost = 5
 		icon = GFX_focus_generic_industry_1
 		continue_if_invalid = no
@@ -675,7 +725,7 @@ focus_tree = {
 	focus = {
 		id = QIE_project_zhili
 		x = 26
-		y = 4
+		y = 5
 		cost = 4
 		icon = GFX_focus_generic_industry_1
 		continue_if_invalid = no
@@ -722,7 +772,7 @@ focus_tree = {
 	focus = {
 		id = QIE_project_xian
 		x = 24
-		y = 4
+		y = 5
 		cost = 7
 		icon = GFX_focus_generic_industry_1
 		continue_if_invalid = no
@@ -769,7 +819,7 @@ focus_tree = {
 	focus = {
 		id = QIE_the_legacy_of_wang_jinghui
 		x = 20
-		y = 6
+		y = 7
 		cost = 20
 		icon = GFX_focus_generic_university_3
 		continue_if_invalid = no
@@ -802,6 +852,10 @@ focus_tree = {
 			add_timed_idea = {
 				idea = QIE_nationalised_german_industry
 				days = 200
+			}
+			add_timed_idea = {
+				idea = QIE_iterating_upon_german_designs
+				days = 180
 			}
 			custom_effect_tooltip = tooltip_white_line
 			if = {
@@ -880,6 +934,11 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_wushan_power
+		}
+		completion_reward = {
+			add_stability = 0.025
+			add_ideas = QIE_wushan_poor_relief_society
+			custom_effect_tooltip = QIE_wushan_relief_unsustainable_tt
 		}
 	}
 	focus = {
@@ -1008,6 +1067,7 @@ focus_tree = {
 		x = 10
 		y = 5
 		cost = 0
+		icon = GFX_focus_ARG_keep_it_in_the_party
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1017,7 +1077,7 @@ focus_tree = {
 	focus = {
 		id = QIE_develop_henan
 		x = 22
-		y = 5
+		y = 6
 		cost = 15
 		icon = GFX_focus_generic_industry_2
 		continue_if_invalid = no
@@ -1064,7 +1124,7 @@ focus_tree = {
 	focus = {
 		id = QIE_develop_zhili
 		x = 26
-		y = 5
+		y = 6
 		cost = 8
 		icon = GFX_focus_generic_industry_2
 		continue_if_invalid = no
@@ -1111,7 +1171,7 @@ focus_tree = {
 	focus = {
 		id = QIE_final_industry_henan
 		x = 22
-		y = 6
+		y = 7
 		cost = 19
 		icon = GFX_focus_generic_industry_3
 		continue_if_invalid = no
@@ -1158,7 +1218,7 @@ focus_tree = {
 	focus = {
 		id = QIE_final_industry_xian
 		x = 24
-		y = 6
+		y = 7
 		cost = 20
 		icon = GFX_focus_generic_industry_3
 		continue_if_invalid = no
@@ -1205,7 +1265,7 @@ focus_tree = {
 	focus = {
 		id = QIE_final_industry_zhili
 		x = 26
-		y = 6
+		y = 7
 		cost = 18
 		icon = GFX_focus_generic_industry_3
 		continue_if_invalid = no
@@ -1263,9 +1323,11 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_german_technology"
 			add_timed_idea = {
-				idea = QIE_iterating_upon_german_designs
-				days = 180
+				idea = QIE_ycp_industry_push_idea
+				days = 365
 			}
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
 		}
 	}
 	focus = {
@@ -1328,11 +1390,17 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_temporary_housing
 		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = GXC_mass_education_programs
+				days = 365
+			}
+		}
 	}
 	focus = {
 		id = QIE_develop_xian
 		x = 24
-		y = 5
+		y = 6
 		cost = 12
 		icon = GFX_focus_generic_industry_2
 		continue_if_invalid = no
@@ -1379,7 +1447,7 @@ focus_tree = {
 	focus = {
 		id = QIE_construction_after_chinese_unification
 		x = 23
-		y = 7
+		y = 8
 		cost = 2
 		icon = GFX_goal_agrarian_reform
 		continue_if_invalid = no
@@ -1456,6 +1524,13 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_old_army_new_life
+		}
+		completion_reward = {
+			add_war_support = -0.05
+			army_experience = 30
+			every_unit_leader = {
+				gain_xp = 300
+			}
 		}
 	}
 	focus = {
@@ -1712,6 +1787,7 @@ focus_tree = {
 		x = 28
 		y = 4
 		cost = 3
+		icon = GFX_goal_generic_defence
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1729,6 +1805,7 @@ focus_tree = {
 		x = 30
 		y = 4
 		cost = 2
+		icon = GFX_focus_CHI_popular_army
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1744,6 +1821,7 @@ focus_tree = {
 		x = 32
 		y = 4
 		cost = 0
+		icon = GFX_focus_CHI_utmost_loyalty
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1809,6 +1887,7 @@ focus_tree = {
 		x = 36
 		y = 4
 		cost = 2
+		icon = GFX_focus_chi_army_reform
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1824,6 +1903,7 @@ focus_tree = {
 		x = 35
 		y = 5
 		cost = 0
+		icon = GFX_focus_PRC_anti_air_effort
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1922,6 +2002,7 @@ focus_tree = {
 		x = 31
 		y = 5
 		cost = 0
+		icon = GFX_focus_generic_anti_tank_guns
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2020,6 +2101,7 @@ focus_tree = {
 		x = 33
 		y = 5
 		cost = 0
+		icon = GFX_focus_generic_secret_service_agency
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2095,7 +2177,7 @@ focus_tree = {
 		x = 33
 		y = 1
 		cost = 3
-		icon = GFX_focus_generic_secret_service_agency
+		icon = GFX_focus_RAJ_a_policy_of_silence
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		bypass = {
@@ -2170,13 +2252,13 @@ focus_tree = {
 				if = {
 					limit = {
 						has_country_leader = {
-							character = QIE_wu_peifu
+							character = QIE_ws_wu_pei_fu
 						}
 					}
-					QIE_wu_peifu = {
+					QIE_ws_wu_pei_fu = {
 						add_country_leader_role = {
 							country_leader = {
-								desc = QIE_wu_peifu_leader_desc
+								desc = QIE_ws_wu_pei_fu_leader_desc
 								ideology = social_conservative_subtype
 							}
 							promote_leader = yes
@@ -2238,13 +2320,13 @@ focus_tree = {
 				if = {
 					limit = {
 						has_country_leader = {
-							character = QIE_wu_peifu
+							character = QIE_ws_wu_pei_fu
 						}
 					}
-					QIE_wu_peifu = {
+					QIE_ws_wu_pei_fu = {
 						add_country_leader_role = {
 							country_leader = {
-								desc = QIE_wu_peifu_leader_desc
+								desc = QIE_ws_wu_pei_fu_leader_desc
 								ideology = social_democrat_subtype
 							}
 							promote_leader = yes
@@ -2306,13 +2388,13 @@ focus_tree = {
 				if = {
 					limit = {
 						has_country_leader = {
-							character = QIE_wu_peifu
+							character = QIE_ws_wu_pei_fu
 						}
 					}
-					QIE_wu_peifu = {
+					QIE_ws_wu_pei_fu = {
 						add_country_leader_role = {
 							country_leader = {
-								desc = QIE_wu_peifu_leader_desc
+								desc = QIE_ws_wu_pei_fu_leader_desc
 								ideology = national_populist_subtype
 							}
 							promote_leader = yes
@@ -2361,6 +2443,7 @@ focus_tree = {
 		x = 6
 		y = 6
 		cost = 0
+		icon = GFX_focus_ARG_crackdown_on_corruption
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2394,6 +2477,7 @@ focus_tree = {
 		x = 4
 		y = 6
 		cost = 0
+		icon = GFX_focus_generic_turning_a_blind_eye
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2405,6 +2489,7 @@ focus_tree = {
 		x = 8
 		y = 6
 		cost = 0
+		icon = GFX_focus_generic_printing_press
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2416,24 +2501,35 @@ focus_tree = {
 		x = 4
 		y = 7
 		cost = 0
+		icon = GFX_focus_RAJ_seven_shackles
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_wushan_common_polit_1
 		}
+	}
+	focus = {
+		id = QIE_wushan_china_united_again_lower_phase
+		x = 6
+		y = 8
+		cost = 0
+		icon = GFX_focus_generic_subjugation
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			china_is_the_unifier_of_china_trigger = yes
+		}
 		prerequisite = {
 			focus = QIE_wushan_common_polit_2
 		}
-	}
-	focus = {
-		id = QIE_wushan_common_polit_5
-		x = 6
-		y = 7
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
 		prerequisite = {
-			focus = QIE_wushan_common_polit_2
+			focus = QIE_wushan_common_polit_4
+		}
+		prerequisite = {
+			focus = QIE_wushan_common_polit_6
+		}
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
 		}
 	}
 	focus = {
@@ -2441,6 +2537,7 @@ focus_tree = {
 		x = 8
 		y = 7
 		cost = 0
+		icon = GFX_focus_CHI_connections_with_shanghai_elites
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2457,36 +2554,28 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_jiang_polit_2
 		}
-		prerequisite = {
-			focus = QIE_wushan_common_polit_4
-		}
 	}
 	focus = {
 		id = QIE_wushan_common_polit_8
 		x = 5
-		y = 8
+		y = 9
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = QIE_wushan_common_polit_4
-		}
-		prerequisite = {
-			focus = QIE_wushan_common_polit_5
+			focus = QIE_wushan_china_united_again_lower_phase
 		}
 	}
 	focus = {
 		id = QIE_wushan_common_polit_9
 		x = 7
-		y = 8
+		y = 9
 		cost = 0
+		icon = GFX_focus_CHI_ally_taiwanese_peoples_party
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = QIE_wushan_common_polit_5
-		}
-		prerequisite = {
-			focus = QIE_wushan_common_polit_6
+			focus = QIE_wushan_china_united_again_lower_phase
 		}
 	}
 	focus = {
@@ -2499,59 +2588,65 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_wu_polit_2
 		}
-		prerequisite = {
-			focus = QIE_wushan_common_polit_6
-		}
 	}
 	focus = {
 		id = QIE_wushan_common_polit_11
 		x = 2
-		y = 9
+		y = 10
 		cost = 0
+		icon = GFX_focus_JAP_remove_the_weeds_from_the_crop
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_wushan_common_polit_8
+			focus = QIE_wushan_common_polit_9
 		}
 	}
 	focus = {
 		id = QIE_wushan_common_polit_12
 		x = 10
-		y = 9
+		y = 10
 		cost = 0
+		icon = GFX_focus_RAJ_union_busting
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_wushan_common_polit_9
+			focus = QIE_wushan_common_polit_8
 		}
 	}
 	focus = {
 		id = QIE_wushan_common_polit_13
 		x = 4
-		y = 9
+		y = 10
 		cost = 0
+		icon = GFX_focus_GER_support_the_proletarian_uprising
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_wushan_common_polit_8
+			focus = QIE_wushan_common_polit_9
 		}
 	}
 	focus = {
 		id = QIE_wushan_common_polit_14
 		x = 8
-		y = 9
+		y = 10
 		cost = 0
+		icon = GFX_focus_generic_sympathetic_judges
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_wushan_common_polit_9
+			focus = QIE_wushan_common_polit_8
 		}
 	}
 	focus = {
 		id = QIE_wushan_common_polit_15
 		x = 4
-		y = 10
+		y = 11
 		cost = 0
+		icon = GFX_focus_PRC_reclaim_tibet
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2567,8 +2662,9 @@ focus_tree = {
 	focus = {
 		id = QIE_wushan_common_polit_16
 		x = 6
-		y = 10
+		y = 11
 		cost = 0
+		icon = GFX_focus_RAJ_i_am_death
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2581,8 +2677,9 @@ focus_tree = {
 	focus = {
 		id = QIE_wushan_common_polit_17
 		x = 8
-		y = 10
+		y = 11
 		cost = 0
+		icon = GFX_focus_CONGO_gold_and_diamonds
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2595,36 +2692,33 @@ focus_tree = {
 	focus = {
 		id = QIE_wushan_common_polit_18
 		x = 5
-		y = 11
+		y = 12
 		cost = 0
+		icon = GFX_focus_rocketry
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_wushan_common_polit_15
 		}
-		prerequisite = {
-			focus = QIE_wushan_common_polit_16
-		}
 	}
 	focus = {
 		id = QIE_wushan_common_polit_19
 		x = 7
-		y = 11
+		y = 12
 		cost = 0
+		icon = GFX_focus_generic_nuclear_development
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_wushan_common_polit_17
 		}
-		prerequisite = {
-			focus = QIE_wushan_common_polit_16
-		}
 	}
 	focus = {
 		id = QIE_wushan_common_polit_20
 		x = 6
-		y = 12
+		y = 13
 		cost = 0
+		icon = GFX_focus_RAJ_tryst_with_destiny_hand
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2761,24 +2855,29 @@ focus_tree = {
 	focus = {
 		id = QIE_restore_the_order_behind_shanhaiguan
 		x = 15
-		y = 7
+		y = 8
 		cost = 5
-		icon = GFX_focus_PRC_towards_one_china
+		icon = GFX_focus_qie_wushan_control_inside_china_lands
 		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_german_technology
-			focus = QIE_collaborate_with_german_companies
+		cancel_if_invalid = no
+		available = {
+			war_support_factor > 0.5
 		}
 		prerequisite = {
-			focus = QIE_industry_focus_independ_2
-			focus = QIE_industry_focus_independ_1
+			focus = QIE_adopt_start_coal_mining_search
+		}
+		completion_reward = {
+			add_political_power = 60
+			china_enable_alliances_decisions = yes
+			china_enable_non_main_government_demand_submission_decisions = yes
+			add_ideas = QIE_tangdi_zhihua
+			custom_effect_tooltip = QIE_restore_order_tt
 		}
 	}
 	focus = {
 		id = QIE_eliminate_traitors_in_the_south
 		x = 13
-		y = 8
+		y = 9
 		cost = 3
 		icon = GFX_goal_generic_attack_upc
 		continue_if_invalid = no
@@ -2790,7 +2889,7 @@ focus_tree = {
 	focus = {
 		id = QIE_destory_the_red_flag
 		x = 17
-		y = 8
+		y = 9
 		cost = 3
 		icon = GFX_goal_generic_attack_kmt
 		continue_if_invalid = no
@@ -2802,9 +2901,9 @@ focus_tree = {
 	focus = {
 		id = QIE_advance_to_the_shanhaiguan
 		x = 16
-		y = 9
+		y = 10
 		cost = 2
-		icon = GFX_goal_generic_attack_fengtian
+		icon = GFX_focus_campaign_plan_for_fengtian
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2817,7 +2916,7 @@ focus_tree = {
 	focus = {
 		id = QIE_revenge_for_1928
 		x = 14
-		y = 9
+		y = 10
 		cost = 2
 		icon = GFX_goal_QIE_destroy_LEC
 		continue_if_invalid = no
@@ -2832,9 +2931,9 @@ focus_tree = {
 	focus = {
 		id = QIE_the_dawn_of_loong_the_dusk_of_thieves
 		x = 15
-		y = 10
+		y = 11
 		cost = 4
-		icon = GFX_focus_JAP_ally_the_dragon_king
+		icon = GFX_focus_CHI_strengthening_our_resolve
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2879,32 +2978,42 @@ focus_tree = {
 			add_tech_bonus = {
 				name = QIE_universal_education_for_poor_industry_1
 				ahead_reduction = 1
-				uses = 2
+				uses = 1
 				category = industry
 			}
 			add_research_slot = 1
 		}
 	}
 	focus = {
-		id = QIE_industry_focus_independ_1
-		x = 18
-		y = 6
-		cost = 4
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_seize_german_assets
-		}
-	}
-	focus = {
-		id = QIE_industry_focus_independ_2
+		id = QIE_industry_focus_rely_on_foreigner_country
 		x = 12
 		y = 6
 		cost = 6
+		icon = GFX_focus_CHI_planned_economy
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_introducing_funds
+		}
+		completion_reward = {
+			set_country_flag = QIE_wushan_foreign_industry_path_flag
+			1048 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_timed_idea = {
+				idea = QIE_german_railroad_engineers_idea
+				days = 180
+			}
+			hidden_effect = {
+				country_event = {
+					id = QIE_wushan_events.9
+					days = 30
+				}
+			}
 		}
 	}
 	focus = {
@@ -3014,7 +3123,7 @@ focus_tree = {
 		x = 33
 		y = 7
 		cost = 0
-		icon = GFX_focus_generic_army_attack
+		icon = GFX_focus_PHI_i_shall_return
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -3060,6 +3169,392 @@ focus_tree = {
 				remove_ideas = QIE_wushan_madan_spirit
 				remove_ideas = QIE_wushan_human_tide_spirit
 				clr_country_flag = QIE_wushan_solid_tactic_pending_flag
+			}
+		}
+	}
+	focus = {
+		id = QIE_after_wushan_control_whole_china_jiangzhou_building
+		x = 25
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_construction_after_chinese_unification
+		}
+	}
+	focus = {
+		id = QIE_after_wushan_control_whole_china_jinzhou_building
+		x = 23
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_construction_after_chinese_unification
+		}
+	}
+	focus = {
+		id = QIE_after_wushan_control_whole_china_yangzhou_building
+		x = 21
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_construction_after_chinese_unification
+		}
+	}
+	focus = {
+		id = QIE_after_wushan_control_whole_china_yizhou_building
+		x = 26
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_after_wushan_control_whole_china_jiangzhou_building
+		}
+	}
+	focus = {
+		id = QIE_after_wushan_control_whole_china_yuzhou_building
+		x = 23
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_after_wushan_control_whole_china_jinzhou_building
+		}
+	}
+	focus = {
+		id = QIE_after_wushan_control_whole_china_yanzhou_building
+		x = 23
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_after_wushan_control_whole_china_yuzhou_building
+		}
+	}
+	focus = {
+		id = QIE_after_wushan_control_whole_china_jizhou_building
+		x = 27
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_after_wushan_control_whole_china_yizhou_building
+		}
+	}
+	focus = {
+		id = QIE_after_wushan_control_whole_china_luoyang_building
+		x = 23
+		y = 12
+		cost = 0
+		icon = GFX_focus_RAJ_the_sun_sets
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_after_wushan_control_whole_china_qingzhou_building
+		}
+		prerequisite = {
+			focus = QIE_after_wushan_control_whole_china_yanzhou_building
+		}
+		prerequisite = {
+			focus = QIE_after_wushan_control_whole_china_jizhou_building
+		}
+	}
+	focus = {
+		id = QIE_after_wushan_control_whole_china_qingzhou_building
+		x = 19
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_after_wushan_control_whole_china_xuzhou_building
+		}
+	}
+	focus = {
+		id = QIE_after_wushan_control_whole_china_xuzhou_building
+		x = 20
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_after_wushan_control_whole_china_yangzhou_building
+		}
+	}
+	focus = {
+		id = QIE_wushan_after_china_reborn_CERA
+		x = 15
+		y = 5
+		cost = 0
+		icon = GFX_focus_RAJ_trickle_down_economics
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			china_is_the_unifier_of_china_trigger = yes
+		}
+		allow_branch = {
+			china_is_the_unifier_of_china_trigger = yes
+		}
+		prerequisite = {
+			focus = QIE_become_CERA_shadow
+		}
+	}
+	focus = {
+		id = QIE_wushan_after_china_reborn_YCP
+		x = 12
+		y = 4
+		cost = 0
+		icon = GFX_focus_BRA_end_the_state_of_emergency
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			china_is_the_unifier_of_china_trigger = yes
+		}
+		allow_branch = {
+			china_is_the_unifier_of_china_trigger = yes
+		}
+		prerequisite = {
+			focus = QIE_become_YCP_shadow
+		}
+	}
+	focus = {
+		id = QIE_wushan_after_china_reborn_MP
+		x = 18
+		y = 4
+		cost = 0
+		icon = GFX_focus_SWE_neither_death_nor_dishonor
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			china_is_the_unifier_of_china_trigger = yes
+		}
+		allow_branch = {
+			china_is_the_unifier_of_china_trigger = yes
+		}
+		prerequisite = {
+			focus = QIE_become_MP_shadow
+		}
+	}
+	focus = {
+		id = QIE_wushan_punishment_those_enemies
+		x = 6
+		y = 10
+		cost = 0
+		icon = GFX_focus_CHI_punish_the_signatories
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_china_united_again_lower_phase
+		}
+	}
+	focus = {
+		id = QIE_industry_focus_independent_planned_economy
+		x = 18
+		y = 6
+		cost = 4
+		icon = GFX_focus_generic_currency_reforms
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_seize_german_assets
+		}
+		completion_reward = {
+			add_political_power = -30
+			add_ideas = QIE_wushan_fiscal_reorganization
+			custom_effect_tooltip = QIE_wushan_fiscal_reorg_tt
+			hidden_effect = {
+				country_event = {
+					id = QIE_wushan_events.10
+					days = 180
+				}
+			}
+		}
+	}
+	focus = {
+		id = QIE_decide_adopt_forced_producing_plan
+		x = 23
+		y = 3
+		cost = 2
+		icon = GFX_focus_generic_mining_industry
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_decide_adopt_247_producing_plan
+		}
+		prerequisite = {
+			focus = QIE_charitable_share_bank
+		}
+		completion_reward = {
+			add_political_power = -30
+			custom_effect_tooltip = QIE_forced_producing_plan_tt
+		}
+	}
+	focus = {
+		id = QIE_decide_adopt_247_producing_plan
+		x = 25
+		y = 3
+		cost = 2
+		icon = GFX_focus_CZE_german_puppet
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_decide_adopt_forced_producing_plan
+		}
+		prerequisite = {
+			focus = QIE_charitable_share_bank
+		}
+		completion_reward = {
+			add_political_power = -30
+			custom_effect_tooltip = QIE_247_producing_plan_tt
+		}
+	}
+	focus = {
+		id = QIE_adopt_start_coal_mining_search
+		x = 15
+		y = 7
+		cost = 0
+		icon = GFX_focus_generic_coal_mining
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_industry_focus_rely_on_foreigner_country
+			focus = QIE_industry_focus_independent_planned_economy
+		}
+		prerequisite = {
+			focus = QIE_collaborate_with_german_companies
+			focus = QIE_german_technology
+		}
+		completion_reward = {
+			set_country_flag = QIE_wushan_black_diamond_decisions_unlocked
+			custom_effect_tooltip = QIE_black_diamond_unlock_tt
+			set_variable = {
+				QIE_wushan_coal_mining_principle_factor = 0
+			}
+			if = {
+				limit = {
+					OR = {
+						has_completed_focus = QIE_industry_focus_rely_on_foreigner_country
+						has_completed_focus = QIE_collaborate_with_german_companies
+					}
+				}
+				add_to_variable = {
+					QIE_wushan_coal_mining_principle_factor = -0.15
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_completed_focus = QIE_german_technology
+						has_completed_focus = QIE_industry_focus_independent_planned_economy
+					}
+				}
+				add_to_variable = {
+					QIE_wushan_coal_mining_principle_factor = 0.05
+				}
+			}
+			add_dynamic_modifier = {
+				modifier = QIE_wushan_coal_mining_principle_modifier
+			}
+		}
+	}
+	focus = {
+		id = QIE_adopt_start_steel_producing_search
+		x = 12
+		y = 8
+		cost = 0
+		icon = GFX_focus_generic_steel
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_adopt_start_coal_mining_search
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					controls_state = 614
+				}
+				614 = {
+					add_resource = {
+						type = steel
+						amount = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 1048
+					has_country_flag = QIE_wushan_foreign_industry_path_flag
+				}
+				1048 = {
+					add_resource = {
+						type = steel
+						amount = 10
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = QIE_adopt_start_tungsten_producing_search
+		x = 18
+		y = 8
+		cost = 0
+		icon = GFX_focus_generic_tungsten
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_adopt_start_coal_mining_search
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					controls_state = 615
+				}
+				615 = {
+					add_resource = {
+						type = tungsten
+						amount = 5
+					}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 799
+					has_country_flag = QIE_wushan_foreign_industry_path_flag
+				}
+				799 = {
+					add_resource = {
+						type = tungsten
+						amount = 5
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = QIE_seize_the_gold_mine
+		x = 15
+		y = 9
+		cost = 0
+		icon = GFX_focus_mex_privatisation
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_restore_the_order_behind_shanhaiguan
+		}
+		completion_reward = {
+			add_political_power = 30
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.05
 			}
 		}
 	}
