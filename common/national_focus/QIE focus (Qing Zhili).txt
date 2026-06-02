@@ -5877,21 +5877,40 @@ focus_tree = {
 			else = {
 				add_ideas = QIE_wushan_chaotic_big_tent
 			}
-			set_politics = {
-				ruling_party = paternal_autocrat
-				elections_allowed = no
-			}
 			set_party_name = {
-				ideology = paternal_autocrat
+				ideology = national_populist
 				name = QIE_wushan_short
 				long_name = QIE_wushan_long_tt
 			}
+			set_party_name = {
+				ideology = authoritarian_democrat
+				name = QIE_national_populist_party
+				long_name = QIE_wushan_national_populist_party_long_tt
+			}
+			set_politics = {
+				ruling_party = national_populist
+				elections_allowed = no
+			}
+			promote_character = QIE_ws_zeng_qi
+			promote_character = QIE_ws_hu_shih
+			promote_character = QIE_shen_junru
+			promote_character = QIE_huang_boqiao
+			promote_character = QIE_ws_aisin_gioro_pugong
 			promote_character = QIE_ws_luanwu_yuan
 			hidden_effect = {
+				add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.36
+			}
 				set_party_name = {
-					ideology = paternal_autocrat
+					ideology = national_populist
 					name = QIE_wushan_short
 					long_name = QIE_wushan_long
+				}
+				set_party_name = {
+					ideology = authoritarian_democrat
+					name = QIE_national_populist_party
+					long_name = QIE_national_populist_party_long
 				}
 			}
 			load_focus_tree = QIE_wushan

@@ -85,6 +85,8 @@ focus_tree = {
 			focus = QIE_wushan_power
 		}
 		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_the_defense_of_wu"
+			add_political_power = 30
 			country_event = {
 				id = QIE_wushan_events.6
 				days = 3
@@ -127,6 +129,10 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_wushan_power
 		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_the_defense_of_wu"
+			add_political_power = 30
+		}
 	}
 	focus = {
 		id = QIE_seek_japanese_sympathy
@@ -142,6 +148,15 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_the_rise_of_jiang
 		}
+		completion_reward = {
+			add_political_power = -20
+			JAP = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = QIE_seeked_japanese_sympathy
+				}
+			}
+		}
 	}
 	focus = {
 		id = QIE_beijing_mingjing_society
@@ -156,6 +171,10 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = QIE_the_defense_of_wu
+		}
+		completion_reward = {
+			add_political_power = -30
+			add_stability = 0.03
 		}
 	}
 	focus = {
@@ -195,7 +214,7 @@ focus_tree = {
 			focus = QIE_the_rise_of_jiang
 		}
 		completion_reward = {
-			add_political_power = 10
+			add_political_power = 20
 			mark_focus_tree_layout_dirty = yes
 		}
 	}
@@ -236,7 +255,7 @@ focus_tree = {
 			focus = QIE_the_defense_of_wu
 		}
 		completion_reward = {
-			add_political_power = 10
+			add_political_power = 20
 			mark_focus_tree_layout_dirty = yes
 		}
 	}
@@ -257,6 +276,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			set_country_flag = QIE_wushan_orthodoxy_set_flag
+			set_power_balance = {
+				id = QIE_wushan_dual_leadership_bop
+				left_side = QIE_wushan_bop_jiang_side
+				right_side = QIE_wushan_bop_wu_side
+				set_value = 0
+			}
 		}
 	}
 	focus = {
@@ -463,19 +488,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = QIE_taiyi_laozu_down
-		x = 6
-		y = 5
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_jiang_controls_the_wushan
-			focus = QIE_the_reluctant_two_leaders
-			focus = QIE_wu_control_the_wushan
-		}
-	}
-	focus = {
 		id = QIE_respond_the_sichuan_famine
 		x = 13
 		y = 2
@@ -503,6 +515,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_political_power = 30
+			add_timed_idea = {
+				idea = QIE_rooting_out_corruption
+				days = 100
+			}
 			if = {
 				limit = {
 					has_idea = QIE_wushan_theocratic_authority_1
@@ -542,6 +558,23 @@ focus_tree = {
 			focus = QIE_become_MP_shadow
 		}
 		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = QIE_become_YCP_shadow
+				}
+				custom_effect_tooltip = QIE_debt_negotiation_ycp_betrayed_tt
+				add_stability = -0.10
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_become_MP_shadow
+				}
+				custom_effect_tooltip = QIE_debt_negotiation_mp_env_tt
+				add_popularity = {
+					ideology = national_populist
+					popularity = 0.05
+				}
+			}
 			swap_ideas = {
 				remove_idea = QIE_big_debt
 				add_idea = QIE_big_debt4
@@ -549,6 +582,14 @@ focus_tree = {
 			add_timed_idea = {
 				idea = QIE_wushan_debt_repayment
 				days = 365
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_completed_focus = QIE_wushan_negotations_with_YCP
+					}
+					remove_ideas = QIE_wushan_ycp_one_year_special_plan
+				}
 			}
 			country_event = {
 				id = QIE_wushan_events.7
@@ -573,10 +614,35 @@ focus_tree = {
 			focus = QIE_become_MP_shadow
 		}
 		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = QIE_become_YCP_shadow
+				}
+				custom_effect_tooltip = QIE_cancel_completely_ycp_resolve_tt
+				add_popularity = {
+					ideology = national_populist
+					popularity = 0.05
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_become_MP_shadow
+				}
+				custom_effect_tooltip = QIE_debt_negotiation_mp_betrayed_tt
+				add_stability = -0.10
+			}
 			remove_ideas = QIE_big_debt
 			add_timed_idea = {
 				idea = QIE_defaulted_debt
 				days = 700
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_completed_focus = QIE_wushan_negotitations_with_MP
+					}
+					remove_ideas = QIE_wushan_subsidize_domestic_enterprises_first
+				}
 			}
 			country_event = {
 				id = qing_coup_events.29
@@ -598,7 +664,7 @@ focus_tree = {
 		completion_reward = {
 			add_timed_idea = {
 				idea = QIE_wushan_charity_relief
-				days = 180
+				days = 90
 			}
 			country_event = {
 				id = QIE_wushan_events.8
@@ -670,7 +736,7 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			add_popularity = {
-				ideology = paternal_autocrat
+				ideology = national_populist
 				popularity = 0.05
 			}
 		}
@@ -828,7 +894,15 @@ focus_tree = {
 			focus = QIE_universal_education_for_poor
 		}
 		completion_reward = {
-			add_ideas = QIE_wang_jinghui_academy
+			if = {
+				limit = {
+					has_completed_focus = QIE_wushan_jiang_establish_the_editing_and_translation_department
+				}
+				add_ideas = QIE_wang_jinghui_academy_upgrade
+			}
+			else = {
+				add_ideas = QIE_wang_jinghui_academy
+			}
 			add_research_slot = 1
 		}
 	}
@@ -936,7 +1010,6 @@ focus_tree = {
 			focus = QIE_wushan_power
 		}
 		completion_reward = {
-			add_stability = 0.025
 			add_ideas = QIE_wushan_poor_relief_society
 			custom_effect_tooltip = QIE_wushan_relief_unsustainable_tt
 		}
@@ -1031,7 +1104,7 @@ focus_tree = {
 		x = -4
 		y = 10
 		cost = 0
-		icon = GFX_goal_generic_national_unity
+		icon = GFX_focus_RAJ_to_shake_the_world
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1072,6 +1145,10 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_wu_control_the_wushan
+		}
+		completion_reward = {
+			add_war_support = 0.05
+			add_ideas = QIE_wushan_rebuild_labor_cooperative_institute
 		}
 	}
 	focus = {
@@ -1314,7 +1391,7 @@ focus_tree = {
 		x = 16
 		y = 6
 		cost = 7
-		icon = GFX_focus_research2
+		icon = GFX_focus_generic_industrial_experts
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2180,9 +2257,6 @@ focus_tree = {
 		icon = GFX_focus_RAJ_a_policy_of_silence
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		bypass = {
-			has_intelligence_agency = yes
-		}
 		prerequisite = {
 			focus = QIE_old_army_new_life
 		}
@@ -2198,18 +2272,28 @@ focus_tree = {
 					create_intelligence_agency = yes
 				}
 			}
-		}
-	}
-	focus = {
-		id = QIE_the_help_of_daben
-		x = 2
-		y = 5
-		cost = 0
-		icon = GFX_focus_jap_spiritual_mobilization
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_jiang_controls_the_wushan
+			remove_ideas = QIE_wushan_chawei_commissioner
+			remove_ideas = QIE_wushan_full_power_chawei_commissioner
+			remove_ideas = QIE_wushan_special_mandate_chawei_commissioner
+			if = {
+				limit = {
+					has_country_leader = {
+						character = QIE_ws_jiang_chao_zong
+					}
+				}
+				add_ideas = QIE_wushan_full_power_chawei_commissioner
+			}
+			else_if = {
+				limit = {
+					has_country_leader = {
+						character = QIE_ws_wu_pei_fu
+					}
+				}
+				add_ideas = QIE_wushan_special_mandate_chawei_commissioner
+			}
+			else = {
+				add_ideas = QIE_wushan_chawei_commissioner
+			}
 		}
 	}
 	focus = {
@@ -2233,49 +2317,8 @@ focus_tree = {
 				ideology = social_conservative
 				popularity = 0.1
 			}
-			hidden_effect = {
-				if = {
-					limit = {
-						has_country_leader = {
-							character = QIE_ws_jiang_chao_zong
-						}
-					}
-					QIE_ws_jiang_chao_zong = {
-						add_country_leader_role = {
-							country_leader = {
-								ideology = social_conservative_subtype
-							}
-							promote_leader = yes
-						}
-					}
-				}
-				if = {
-					limit = {
-						has_country_leader = {
-							character = QIE_ws_wu_pei_fu
-						}
-					}
-					QIE_ws_wu_pei_fu = {
-						add_country_leader_role = {
-							country_leader = {
-								desc = QIE_ws_wu_pei_fu_leader_desc
-								ideology = social_conservative_subtype
-							}
-							promote_leader = yes
-						}
-					}
-				}
-			}
-			set_party_name = {
-				ideology = social_conservative
-				name = QIE_jiushi_xinjiao_party
-				long_name = QIE_jiushi_xinjiao_party_long
-			}
-			set_politics = {
-				ruling_party = social_conservative
-			}
 			set_temp_variable = {
-				coalition_partner_var = token:paternal_autocrat
+				coalition_partner_var = token:national_populist
 			}
 			add_to_coalition = yes
 		}
@@ -2301,49 +2344,8 @@ focus_tree = {
 				ideology = social_democrat
 				popularity = 0.1
 			}
-			hidden_effect = {
-				if = {
-					limit = {
-						has_country_leader = {
-							character = QIE_ws_jiang_chao_zong
-						}
-					}
-					QIE_ws_jiang_chao_zong = {
-						add_country_leader_role = {
-							country_leader = {
-								ideology = social_democrat_subtype
-							}
-							promote_leader = yes
-						}
-					}
-				}
-				if = {
-					limit = {
-						has_country_leader = {
-							character = QIE_ws_wu_pei_fu
-						}
-					}
-					QIE_ws_wu_pei_fu = {
-						add_country_leader_role = {
-							country_leader = {
-								desc = QIE_ws_wu_pei_fu_leader_desc
-								ideology = social_democrat_subtype
-							}
-							promote_leader = yes
-						}
-					}
-				}
-			}
-			set_party_name = {
-				ideology = social_democrat
-				name = QIE_jiushi_xinjiao_party
-				long_name = QIE_jiushi_xinjiao_party_long
-			}
-			set_politics = {
-				ruling_party = social_democrat
-			}
 			set_temp_variable = {
-				coalition_partner_var = token:paternal_autocrat
+				coalition_partner_var = token:national_populist
 			}
 			add_to_coalition = yes
 		}
@@ -2366,146 +2368,13 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = QIE_become_YCP_shadow_tt
 			add_popularity = {
-				ideology = national_populist
+				ideology = authoritarian_democrat
 				popularity = 0.1
 			}
-			hidden_effect = {
-				if = {
-					limit = {
-						has_country_leader = {
-							character = QIE_ws_jiang_chao_zong
-						}
-					}
-					QIE_ws_jiang_chao_zong = {
-						add_country_leader_role = {
-							country_leader = {
-								ideology = national_populist_subtype
-							}
-							promote_leader = yes
-						}
-					}
-				}
-				if = {
-					limit = {
-						has_country_leader = {
-							character = QIE_ws_wu_pei_fu
-						}
-					}
-					QIE_ws_wu_pei_fu = {
-						add_country_leader_role = {
-							country_leader = {
-								desc = QIE_ws_wu_pei_fu_leader_desc
-								ideology = national_populist_subtype
-							}
-							promote_leader = yes
-						}
-					}
-				}
-			}
-			set_party_name = {
-				ideology = national_populist
-				name = QIE_jiushi_xinjiao_party
-				long_name = QIE_jiushi_xinjiao_party_long
-			}
-			set_politics = {
-				ruling_party = national_populist
-			}
 			set_temp_variable = {
-				coalition_partner_var = token:paternal_autocrat
+				coalition_partner_var = token:national_populist
 			}
 			add_to_coalition = yes
-		}
-	}
-	focus = {
-		id = QIE_wu_polit_1
-		x = 10
-		y = 6
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_put_on_the_cloak_of_confucius
-		}
-	}
-	focus = {
-		id = QIE_wu_polit_2
-		x = 10
-		y = 7
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wu_polit_1
-		}
-	}
-	focus = {
-		id = QIE_wushan_common_polit_2
-		x = 6
-		y = 6
-		cost = 0
-		icon = GFX_focus_ARG_crackdown_on_corruption
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_taiyi_laozu_down
-		}
-	}
-	focus = {
-		id = QIE_jiang_polit_1
-		x = 2
-		y = 6
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_the_help_of_daben
-		}
-	}
-	focus = {
-		id = QIE_jiang_polit_2
-		x = 2
-		y = 7
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_jiang_polit_1
-		}
-	}
-	focus = {
-		id = QIE_wushan_common_polit_1
-		x = 4
-		y = 6
-		cost = 0
-		icon = GFX_focus_generic_turning_a_blind_eye
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_taiyi_laozu_down
-		}
-	}
-	focus = {
-		id = QIE_wushan_common_polit_3
-		x = 8
-		y = 6
-		cost = 0
-		icon = GFX_focus_generic_printing_press
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_taiyi_laozu_down
-		}
-	}
-	focus = {
-		id = QIE_wushan_common_polit_4
-		x = 4
-		y = 7
-		cost = 0
-		icon = GFX_focus_RAJ_seven_shackles
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_common_polit_1
 		}
 	}
 	focus = {
@@ -2520,39 +2389,18 @@ focus_tree = {
 			china_is_the_unifier_of_china_trigger = yes
 		}
 		prerequisite = {
-			focus = QIE_wushan_common_polit_2
+			focus = QIE_wushan_restore_squire_council
 		}
 		prerequisite = {
-			focus = QIE_wushan_common_polit_4
+			focus = QIE_wushan_contact_with_the_social_elites
 		}
 		prerequisite = {
-			focus = QIE_wushan_common_polit_6
+			focus = QIE_wushan_forcing_prisoners_to_work
 		}
 		completion_reward = {
+			set_stability = 1
+			custom_effect_tooltip = QIE_wushan_china_united_again_next_step_tt
 			mark_focus_tree_layout_dirty = yes
-		}
-	}
-	focus = {
-		id = QIE_wushan_common_polit_6
-		x = 8
-		y = 7
-		cost = 0
-		icon = GFX_focus_CHI_connections_with_shanghai_elites
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_common_polit_3
-		}
-	}
-	focus = {
-		id = QIE_wushan_common_polit_7
-		x = 3
-		y = 8
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_jiang_polit_2
 		}
 	}
 	focus = {
@@ -2586,7 +2434,7 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = QIE_wu_polit_2
+			focus = QIE_wushan_wu_enforcing_ethics_through_military_orders
 		}
 	}
 	focus = {
@@ -2633,7 +2481,7 @@ focus_tree = {
 		x = 8
 		y = 10
 		cost = 0
-		icon = GFX_focus_generic_sympathetic_judges
+		icon = GFX_focus_generic_turning_a_blind_eye
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2861,7 +2709,7 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = no
 		available = {
-			war_support_factor > 0.5
+			has_war_support > 0.5
 		}
 		prerequisite = {
 			focus = QIE_adopt_start_coal_mining_search
@@ -3097,28 +2945,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = QIE_two_leaders_bonus_1
-		x = 4
-		y = 5
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_the_reluctant_two_leaders
-		}
-	}
-	focus = {
-		id = QIE_two_leaders_bonus_2
-		x = 8
-		y = 5
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_the_reluctant_two_leaders
-		}
-	}
-	focus = {
 		id = QIE_wushan_military_end
 		x = 33
 		y = 7
@@ -3294,7 +3120,7 @@ focus_tree = {
 		x = 15
 		y = 5
 		cost = 0
-		icon = GFX_focus_RAJ_trickle_down_economics
+		icon = GFX_focus_ITA_banda_carita
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		available = {
@@ -3312,7 +3138,7 @@ focus_tree = {
 		x = 12
 		y = 4
 		cost = 0
-		icon = GFX_focus_BRA_end_the_state_of_emergency
+		icon = GFX_focus_SWE_neither_death_nor_dishonor
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		available = {
@@ -3330,7 +3156,7 @@ focus_tree = {
 		x = 18
 		y = 4
 		cost = 0
-		icon = GFX_focus_SWE_neither_death_nor_dishonor
+		icon = GFX_focus_RAJ_trickle_down_economics
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		available = {
@@ -3553,8 +3379,530 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 30
 			add_popularity = {
-				ideology = paternal_autocrat
+				ideology = national_populist
 				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_forcing_prisoners_to_work
+		x = 6
+		y = 7
+		cost = 0
+		icon = GFX_focus_RAJ_seven_shackles
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_revise_cautions_laws
+		}
+		completion_reward = {
+			enable_tech_penal_battalion = yes
+		}
+	}
+	focus = {
+		id = QIE_wushan_the_new_government_reviving_tradition
+		x = 6
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_jiang_controls_the_wushan
+			focus = QIE_the_reluctant_two_leaders
+			focus = QIE_wu_control_the_wushan
+		}
+		completion_reward = {
+			add_stability = 0.03
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.01
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.01
+			}
+		}
+	}
+	focus = {
+		id = QIE_the_government_which_wave_foreigners
+		x = 2
+		y = 5
+		cost = 0
+		icon = GFX_focus_PHI_encourage_japanese_investment
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_jiang_controls_the_wushan
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_ideas = QIE_wushan_temporary_friendly_ties
+		}
+	}
+	focus = {
+		id = QIE_wushan_wu_our_precious_traditional_culture
+		x = 10
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_put_on_the_cloak_of_confucius
+		}
+		completion_reward = {
+			add_war_support = 0.05
+			add_ideas = QIE_wushan_precious_tradition
+		}
+	}
+	focus = {
+		id = QIE_wushan_wu_enforcing_ethics_through_military_orders
+		x = 10
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_wu_our_precious_traditional_culture
+		}
+		completion_reward = {
+			custom_override_tooltip = {
+				tooltip = {
+					localization_key = tooltip_create_division_template
+					NAME = "Hufa Jingcha"
+					LINE_1 = {
+						localization_key = line_battalion_tt
+						NAME = irregular_infantry
+						ICON = GFX_unit_irregular_infantry_icon_small
+						COUNT = 5
+					}
+				}
+				if = {
+					limit = {
+						has_template = "Hufa Jingcha"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Hufa Jingcha"
+						disband = yes
+					}
+				}
+				division_template = {
+					name = "Hufa Jingcha"
+					division_names_group = QIE_INF_01
+					regiments = {
+						irregular_infantry = {
+							x = 0
+							y = 0
+						}
+						irregular_infantry = {
+							x = 0
+							y = 1
+						}
+						irregular_infantry = {
+							x = 0
+							y = 2
+						}
+						irregular_infantry = {
+							x = 1
+							y = 0
+						}
+						irregular_infantry = {
+							x = 1
+							y = 1
+						}
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = {
+					1060
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = tooltip_spawn_units
+						COUNT = 3
+						TYPE = "Hufa Jingcha"
+					}
+					create_unit = {
+						division = "name = \"Hufa Jingcha Dadui 1\" division_template = \"Hufa Jingcha\" start_experience_factor = 0.2"
+						allow_spawning_on_enemy_provs = no
+						owner = ROOT
+					}
+					create_unit = {
+						division = "name = \"Hufa Jingcha Dadui 2\" division_template = \"Hufa Jingcha\" start_experience_factor = 0.2"
+						allow_spawning_on_enemy_provs = no
+						owner = ROOT
+					}
+					create_unit = {
+						division = "name = \"Hufa Jingcha Dadui 3\" division_template = \"Hufa Jingcha\" start_experience_factor = 0.2"
+						allow_spawning_on_enemy_provs = no
+						owner = ROOT
+					}
+				}
+			}
+			add_ideas = QIE_wushan_scriptural_police
+		}
+	}
+	focus = {
+		id = QIE_wushan_revise_cautions_laws
+		x = 6
+		y = 6
+		cost = 0
+		icon = GFX_focus_generic_printing_press
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_the_new_government_reviving_tradition
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.075
+			}
+			add_political_power = 50
+			add_stability = 0.03
+			add_timed_idea = {
+				idea = QIE_wushan_enforce_salvationist_legal_code
+				days = 365
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_jiang_establish_the_editing_and_translation_department
+		x = 2
+		y = 6
+		cost = 0
+		icon = GFX_focus_jap_spiritual_mobilization
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_government_which_wave_foreigners
+		}
+		completion_reward = {
+			add_stability = 0.05
+			if = {
+				limit = {
+					has_intelligence_agency = no
+				}
+				create_intelligence_agency = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_done_agency_upgrade = upgrade_diplo_training
+					}
+				}
+				upgrade_intelligence_agency = upgrade_diplo_training
+			}
+			add_ideas = QIE_wushan_siyi_translation_institute
+			custom_effect_tooltip = QIE_wushan_jiang_establish_the_editing_and_translation_department_tt
+		}
+	}
+	focus = {
+		id = QIE_wushan_jiang_fanatics_militia_for_master
+		x = 2
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_jiang_establish_the_editing_and_translation_department
+		}
+		completion_reward = {
+			custom_override_tooltip = {
+				tooltip = {
+					localization_key = tooltip_create_division_template
+					NAME = "Hutan Jun"
+					LINE_1 = {
+						localization_key = line_battalion_tt
+						NAME = irregular_infantry
+						ICON = GFX_unit_irregular_infantry_icon_small
+						COUNT = 5
+					}
+				}
+				if = {
+					limit = {
+						has_template = "Hutan Jun"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Hutan Jun"
+						disband = yes
+					}
+					#no cheating
+				}
+				division_template = {
+					name = "Hutan Jun"
+					division_names_group = QIE_INF_01
+					regiments = {
+						irregular_infantry = {
+							x = 0
+							y = 0
+						}
+						irregular_infantry = {
+							x = 0
+							y = 1
+						}
+						irregular_infantry = {
+							x = 0
+							y = 2
+						}
+						irregular_infantry = {
+							x = 1
+							y = 0
+						}
+						irregular_infantry = {
+							x = 1
+							y = 1
+						}
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = {
+					1060
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = tooltip_spawn_units
+						COUNT = 3
+						TYPE = "Hutan Jun"
+					}
+					create_unit = {
+						division = "name = \"Hutan Jun Dadui 1\" division_template = \"Hutan Jun\" start_experience_factor = 0.2"
+						allow_spawning_on_enemy_provs = no
+						owner = ROOT
+					}
+					create_unit = {
+						division = "name = \"Hutan Jun Dadui 2\" division_template = \"Hutan Jun\" start_experience_factor = 0.2"
+						allow_spawning_on_enemy_provs = no
+						owner = ROOT
+					}
+					create_unit = {
+						division = "name = \"Hutan Jun Dadui 2\" division_template = \"Hutan Jun\" start_experience_factor = 0.2"
+						allow_spawning_on_enemy_provs = no
+						owner = ROOT
+					}
+				}
+			}
+			add_ideas = QIE_wushan_blades_sigils_and_thunderfire
+		}
+	}
+	focus = {
+		id = QIE_wushan_establish_fair_social_standards
+		x = 4
+		y = 6
+		cost = 0
+		icon = GFX_focus_generic_sympathetic_judges
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_the_new_government_reviving_tradition
+		}
+		completion_reward = {
+			add_war_support = -0.03
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.03
+			}
+			add_timed_idea = {
+				idea = QIE_wushan_restore_ethical_order
+				days = 180
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_restore_abolished_positions
+		x = 8
+		y = 6
+		cost = 0
+		icon = GFX_focus_RAJ_institutional_money_laundering
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_the_new_government_reviving_tradition
+		}
+		completion_reward = {
+			add_war_support = -0.03
+			add_timed_idea = {
+				idea = QIE_wushan_rebuild_enyin_temporary
+				days = 180
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_restore_squire_council
+		x = 4
+		y = 7
+		cost = 0
+		icon = GFX_focus_SWI_dissolve_the_federal_council
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_establish_fair_social_standards
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_contact_with_the_social_elites
+		x = 8
+		y = 7
+		cost = 0
+		icon = GFX_focus_CHI_connections_with_shanghai_elites
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_restore_abolished_positions
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.02
+			}
+			custom_effect_tooltip = QIE_wushan_contact_elites_tt
+		}
+	}
+	focus = {
+		id = QIE_wushan_jiang_confirmed_as_the_leader
+		x = 3
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_jiang_fanatics_militia_for_master
+		}
+		available = {
+			has_completed_focus = QIE_economic_stability
+			has_completed_focus = QIE_wushan_restore_squire_council
+			has_completed_focus = QIE_wushan_forcing_prisoners_to_work
+			has_completed_focus = QIE_wushan_contact_with_the_social_elites
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = QIE_wushan_theocratic_authority_2
+				add_idea = QIE_wushan_theocratic_authority_3
+			}
+			QIE_ws_jiang_chao_zong = {
+				add_country_leader_trait = QIE_four_nots_scholar
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_reassess_the_financial_situation
+		x = 4
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_reluctant_two_leaders
+		}
+	}
+	focus = {
+		id = QIE_wushan_two_leader_the_order_of_non_speaker
+		x = 8
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_the_reluctant_two_leaders
+		}
+	}
+	focus = {
+		id = QIE_wushan_negotations_with_YCP
+		x = 12
+		y = 4
+		cost = 0
+		icon = GFX_focus_generic_military_industry
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		allow_branch = {
+			china_is_the_unifier_of_china_trigger = no
+		}
+		prerequisite = {
+			focus = QIE_become_YCP_shadow
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.03
+			}
+			add_stability = -0.05
+			add_timed_idea = {
+				idea = QIE_wushan_ycp_one_year_special_plan
+				days = 365
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_negotitations_with_CERA
+		x = 15
+		y = 5
+		cost = 0
+		icon = GFX_focus_generic_farmland
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		allow_branch = {
+			china_is_the_unifier_of_china_trigger = no
+		}
+		prerequisite = {
+			focus = QIE_become_CERA_shadow
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			add_stability = -0.05
+			615 = { set_state_category = three }
+			799 = { set_state_category = three }
+			1060 = { set_state_category = three }
+			add_timed_idea = {
+				idea = QIE_wushan_rural_revival_movement
+				days = 365
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_negotitations_with_MP
+		x = 18
+		y = 4
+		cost = 0
+		icon = GFX_focus_generic_modernize_industry
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		allow_branch = {
+			china_is_the_unifier_of_china_trigger = no
+		}
+		prerequisite = {
+			focus = QIE_become_MP_shadow
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.03
+			}
+			add_stability = -0.05
+			add_tech_bonus = {
+				name = QIE_wushan_negotitations_with_MP
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+			add_timed_idea = {
+				idea = QIE_wushan_subsidize_domestic_enterprises_first
+				days = 365
 			}
 		}
 	}

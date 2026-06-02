@@ -1,0 +1,91 @@
+QIE_wushan_dual_leadership_bop = {
+	initial_value = 0.00
+	left_side = QIE_wushan_bop_jiang_side
+	right_side = QIE_wushan_bop_wu_side
+	decision_category = QIE_wushan_dual_leadership_bop_category
+
+	side = {
+		id = QIE_wushan_bop_jiang_side
+
+		range = {
+			id = QIE_wushan_bop_jiang_total_control
+			min = -1.0
+			max = -0.75
+			modifier = {
+				political_power_factor = 0.10
+				stability_factor = 0.15
+				offensive_war_stability_factor = -0.20
+				war_support_factor = -0.15
+				planning_speed = -0.15
+				political_advisor_cost_factor = -0.20
+				economy_cost_factor = -0.20
+				industrial_capacity_factory = 0.10
+				surrender_limit = 0.15
+				production_speed_industrial_complex_factor = 0.10
+			}
+		}
+		range = {
+			id = QIE_wushan_bop_jiang_pressure
+			min = -0.75
+			max = -0.25
+			modifier = {
+				stability_factor = 0.10
+				political_advisor_cost_factor = -0.10
+				economy_cost_factor = -0.10
+				war_support_factor = -0.10
+				surrender_limit = 0.08
+				planning_speed = -0.10
+				power_balance_daily = 0.0025
+			}
+		}
+		range = {
+			id = QIE_wushan_bop_balanced_court
+			min = -0.25
+			max = 0.25
+			modifier = {
+				consumer_goods_factor = -0.10
+				political_power_gain = 0.03
+				planning_speed = -0.05
+				political_advisor_cost_factor = 0.15
+				economy_cost_factor = 0.15
+				trade_laws_cost_factor = 0.15
+				mobilization_laws_cost_factor = 0.15
+			}
+		}
+	}
+
+	side = {
+		id = QIE_wushan_bop_wu_side
+
+		range = {
+			id = QIE_wushan_bop_wu_pressure
+			min = 0.25
+			max = 0.75
+			modifier = {
+				war_support_factor = 0.10
+				stability_factor = -0.10
+				planning_speed = 0.05
+				mobilization_laws_cost_factor = -0.15
+				surrender_limit = -0.08
+				power_balance_daily = -0.0025
+			}
+		}
+		range = {
+			id = QIE_wushan_bop_wu_total_control
+			min = 0.75
+			max = 1.0
+			modifier = {
+				war_support_factor = 0.15
+				planning_speed = 0.10
+				mobilization_laws_cost_factor = -0.30
+				command_power_gain = 0.20
+				max_command_power = 30
+				offensive_war_stability_factor = 0.20
+				stability_factor = -0.15
+				political_power_factor = -0.10
+				surrender_limit = -0.15
+				production_speed_arms_factory_factor = 0.10
+			}
+		}
+	}
+}

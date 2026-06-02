@@ -60,10 +60,10 @@ ideas ={
 			picture = generic_social_reforms
 			allowed = { always = no }
 			modifier = {
-				consumer_goods_factor = 0.10
-				political_power_gain = -0.5
-				stability_weekly = 0.003
-				war_support_weekly = 0.003
+				consumer_goods_factor = 0.15
+				political_power_gain = -1
+				stability_weekly = 0.002
+				war_support_weekly = 0.002
 			}
 		}
 		QIE_wushan_poor_relief_society = {
@@ -74,6 +74,37 @@ ideas ={
 				consumer_goods_factor = 0.10
 				stability_factor = 0.05
 				political_power_gain = 0.1
+			}
+		}
+		QIE_wushan_rebuild_labor_cooperative_institute = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_rebuild_labor_cooperative_institute" }
+			picture = generic_social_reforms
+			allowed = { always = no }
+			modifier = {
+				conscription_factor = -0.03
+				production_speed_buildings_factor = 0.03
+				consumer_goods_factor = -0.05
+			}
+		}
+		QIE_wushan_precious_tradition = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_precious_tradition" }
+			picture = generic_positive_trade_relations
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				monthly_population = 0.15
+				mobilization_speed = 0.05
+				consumer_goods_factor = 0.05
+			}
+		}
+		QIE_wushan_scriptural_police = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_scriptural_police" }
+			picture = generic_military_police
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.03
+				war_support_factor = 0.05
 			}
 		}
 		QIE_wushan_daben_donation = {
@@ -209,11 +240,23 @@ ideas ={
 			picture = generic_research_bonus
 			allowed = { always = no }
 			modifier = {
-				research_speed_factor = 0.08
+				research_speed_factor = 0.03
 			}
 			research_bonus = {
-				industry = 0.10
-				electronics = 0.10
+				industry = 0.05
+				electronics = 0.05
+			}
+		}
+		QIE_wang_jinghui_academy_upgrade = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wang_jinghui_academy_upgrade" }
+			picture = generic_research_bonus
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.05
+			}
+			research_bonus = {
+				industry = 0.07
+				electronics = 0.07
 			}
 		}
 		QIE_inner_sage = {
@@ -361,6 +404,163 @@ ideas ={
 				training_time_army_factor = -0.15
 				experience_loss_factor = 0.10
 				pocket_penalty = -0.10
+			}
+		}
+		QIE_wushan_restore_ethical_order = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_restore_ethical_order" }
+			picture = generic_social_reforms
+			allowed = { always = no }
+			modifier = {
+				stability_weekly = 0.001
+				war_support_weekly = -0.001
+				industrial_capacity_factory = -0.03
+				political_power_gain = 0.10
+			}
+		}
+		QIE_wushan_enforce_salvationist_legal_code = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_enforce_salvationist_legal_code" }
+			on_remove = {
+				add_ideas = QIE_wushan_salvationist_legal_code
+			}
+			picture = generic_social_reforms
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				stability_weekly = 0.001
+				production_factory_efficiency_gain_factor = -0.02
+				research_speed_factor = -0.02
+			}
+		}
+		QIE_wushan_salvationist_legal_code = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_salvationist_legal_code" }
+			picture = generic_social_reforms
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				conscription_factor = -0.05
+				defensive_war_stability_factor = 0.30
+				offensive_war_stability_factor = 0.10
+				production_factory_efficiency_gain_factor = -0.05
+			}
+		}
+		QIE_wushan_revived_enyin_system = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_revived_enyin_system" }
+			picture = generic_political_reform
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = -0.03
+			}
+		}
+		QIE_wushan_rebuild_enyin_temporary = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_rebuild_enyin_temporary" }
+			on_remove = {
+				add_ideas = QIE_wushan_revived_enyin_system
+			}
+			picture = generic_political_reform
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.02
+				political_power_gain = 0.2
+			}
+		}
+		QIE_wushan_temporary_friendly_ties = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_temporary_friendly_ties" }
+			picture = generic_trade
+			allowed = { always = no }
+			available = {
+				has_war = no
+			}
+			modifier = {
+				party_popularity_stability_factor = 0.05
+				opinion_gain_monthly_factor = 0.05
+				political_power_factor = -0.02
+			}
+		}
+		QIE_wushan_siyi_translation_institute = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_siyi_translation_institute" }
+			picture = generic_research_bonus
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.03
+			}
+		}
+		QIE_wushan_ycp_one_year_special_plan = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_ycp_one_year_special_plan" }
+			picture = generic_industrial_concern
+			allowed = { always = no }
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				industrial_capacity_factory = 0.05
+				political_power_gain = 0.05
+				consumer_goods_factor = -0.05
+				research_speed_factor = 0.02
+			}
+		}
+		QIE_wushan_rural_revival_movement = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_rural_revival_movement" }
+			picture = generic_farmland
+			allowed = { always = no }
+			modifier = {
+				local_resource_gain_efficiency_per_infrastructure = 0.10
+				production_speed_infrastructure_factor = 0.05
+				political_power_gain = 0.05
+				consumer_goods_factor = -0.05
+			}
+		}
+		QIE_wushan_subsidize_domestic_enterprises_first = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_subsidize_domestic_enterprises_first" }
+			picture = generic_industrial_concern
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.05
+				consumer_goods_factor = -0.05
+				line_change_production_efficiency_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.05
+				production_factory_start_efficiency_factor = 0.05
+			}
+		}
+		QIE_wushan_blades_sigils_and_thunderfire = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_blades_sigils_and_thunderfire" }
+			picture = generic_army_reform
+			allowed = { always = no }
+			modifier = {
+				conscription = 0.015
+				modifier_army_sub_unit_irregular_infantry_attack_factor = 0.05
+				land_reinforce_rate = 0.05
+				resistance_growth_on_our_occupied_states = 0.20
+				resistance_damage_to_garrison_on_our_occupied_states = 0.20
+			}
+		}
+		QIE_wushan_chawei_commissioner = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_chawei_commissioner" }
+			picture = generic_intelligence_exchange
+			allowed = { always = no }
+			modifier = {
+				operative_slot = 1
+				intelligence_agency_defense = 0.5
+			}
+		}
+		QIE_wushan_full_power_chawei_commissioner = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_full_power_chawei_commissioner" }
+			picture = generic_intelligence_exchange
+			allowed = { always = no }
+			modifier = {
+				operative_slot = 1
+				intelligence_agency_defense = 1
+				enemy_operative_detection_chance_factor = 0.05
+				enemy_operative_capture_chance_factor = 0.05
+			}
+		}
+		QIE_wushan_special_mandate_chawei_commissioner = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_special_mandate_chawei_commissioner" }
+			picture = generic_intelligence_exchange
+			allowed = { always = no }
+			modifier = {
+				operative_slot = 1
+				intel_network_gain = 0.1
+				resistance_growth = -0.10
+				resistance_damage_to_garrison = -0.10
 			}
 		}
 }
