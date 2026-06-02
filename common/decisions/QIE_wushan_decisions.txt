@@ -133,15 +133,18 @@ QIE_wushan_refugee_crisis_category = {
 		days_mission_timeout = 60
 		is_good = no
 		visible = {
+			has_country_flag = QIE_wushan_refugee_crisis_unlocked
+			NOT = { has_completed_focus = QIE_pauper_factory }
+		}
+		activation = {
+			has_country_flag = QIE_wushan_refugee_crisis_unlocked
 			NOT = { has_completed_focus = QIE_pauper_factory }
 		}
 		available = {
-			always = yes
-		}
-		remove_trigger = {
 			has_completed_focus = QIE_pauper_factory
 		}
 		timeout_effect = {
+			add_political_power = -50
 			add_stability = -0.10
 		}
 	}

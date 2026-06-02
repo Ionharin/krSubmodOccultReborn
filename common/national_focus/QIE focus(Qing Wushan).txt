@@ -37,6 +37,7 @@ focus_tree = {
 			hidden_effect = {
 				set_country_flag = QIE_wushan_refugee_crisis_unlocked
 				set_cosmetic_tag = QIE_wushan_cosmetic_tag
+				set_global_flag = QIE_wushan_events70_trigger
 				country_event = {
 					id = QIE_wushan_wu_jiang_power_auto.01
 					days = 1
@@ -149,7 +150,7 @@ focus_tree = {
 			focus = QIE_the_rise_of_jiang
 		}
 		completion_reward = {
-			add_political_power = -20
+			add_political_power = -30
 			JAP = {
 				add_opinion_modifier = {
 					target = ROOT
@@ -734,7 +735,7 @@ focus_tree = {
 			focus = QIE_charitable_share_bank
 		}
 		completion_reward = {
-			add_stability = 0.05
+			add_stability = 0.03
 			add_popularity = {
 				ideology = national_populist
 				popularity = 0.05
@@ -2317,8 +2318,9 @@ focus_tree = {
 				ideology = social_conservative
 				popularity = 0.1
 			}
+			add_stability = -0.05
 			set_temp_variable = {
-				coalition_partner_var = token:national_populist
+				coalition_partner_var = token:social_conservative
 			}
 			add_to_coalition = yes
 		}
@@ -2344,8 +2346,9 @@ focus_tree = {
 				ideology = social_democrat
 				popularity = 0.1
 			}
+			add_stability = -0.05
 			set_temp_variable = {
-				coalition_partner_var = token:national_populist
+				coalition_partner_var = token:social_democrat
 			}
 			add_to_coalition = yes
 		}
@@ -2371,8 +2374,9 @@ focus_tree = {
 				ideology = authoritarian_democrat
 				popularity = 0.1
 			}
+			add_stability = -0.05
 			set_temp_variable = {
-				coalition_partner_var = token:national_populist
+				coalition_partner_var = token:authoritarian_democrat
 			}
 			add_to_coalition = yes
 		}
@@ -3838,7 +3842,6 @@ focus_tree = {
 				ideology = authoritarian_democrat
 				popularity = 0.03
 			}
-			add_stability = -0.05
 			add_timed_idea = {
 				idea = QIE_wushan_ycp_one_year_special_plan
 				days = 365
@@ -3864,7 +3867,6 @@ focus_tree = {
 				ideology = social_democrat
 				popularity = 0.03
 			}
-			add_stability = -0.05
 			615 = { set_state_category = three }
 			799 = { set_state_category = three }
 			1060 = { set_state_category = three }
@@ -3893,7 +3895,6 @@ focus_tree = {
 				ideology = social_conservative
 				popularity = 0.03
 			}
-			add_stability = -0.05
 			add_tech_bonus = {
 				name = QIE_wushan_negotitations_with_MP
 				bonus = 0.5
