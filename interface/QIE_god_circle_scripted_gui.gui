@@ -10,7 +10,7 @@ guiTypes = {
 		#BACKGROUND
 		background = {
 			name = "background"
-			quadTextureSprite="GFX_CZE_skoda_background"
+			quadTextureSprite="GFX_QIE_god_circle_background_interface"
 			alwaystransparent = yes
 		}
 
@@ -27,7 +27,7 @@ guiTypes = {
 
 		buttonType = {
 			name ="QIE_no_god_image"
-			quadTextureSprite ="GFX_CZE_skoda_square_default"
+			quadTextureSprite ="GFX_QIE_god_circle_no_god_focus_not_activated"
 			position = { x = 232 y = 74 }
 			buttonText = ""
 			pdx_tooltip = QIE_no_god_tt
@@ -36,14 +36,14 @@ guiTypes = {
 
 		iconType = {
 			name ="CZE_skoda_no_focus_image_selected"
-			quadTextureSprite ="GFX_CZE_skoda_square_default_selected"
+			quadTextureSprite ="GFX_QIE_god_circle_no_god_focus_selected"
 			position = { x = 232 y = 74 }
 			context_aware_tooltip = QIE_god_circle_no_focus_selected_tt
 		}
 
 		buttonType = {
 			name ="QIE_con_focus_image"
-			quadTextureSprite ="GFX_CZE_skoda_square_infantry"
+			quadTextureSprite ="GFX_QIE_god_circle_con_focus_not_activated"
 			position = { x = 120 y = 183 }
 			buttonText = ""
 			pdx_tooltip = QIE_con_focus_tt
@@ -52,14 +52,14 @@ guiTypes = {
 
 		iconType = {
 			name ="CZE_skoda_infantry_focus_image_selected"
-			quadTextureSprite ="GFX_CZE_skoda_square_infantry_selected"
+			quadTextureSprite ="GFX_QIE_god_circle_con_focus_selected"
 			position = { x = 120 y = 183 }
 			context_aware_tooltip = QIE_god_circle_con_focus_selected_tt
 		}
 
 		buttonType = {
 			name ="QIE_lao_focus_image"
-			quadTextureSprite ="GFX_CZE_skoda_square_aircraft"
+			quadTextureSprite ="GFX_QIE_god_circle_lao_focus_not_activated"
 			position = { x = 172 y =294 }
 			buttonText = ""
 			pdx_tooltip = QIE_lao_focus_tt
@@ -68,14 +68,14 @@ guiTypes = {
 
 		iconType = {
 			name ="CZE_skoda_plane_focus_image_selected"
-			quadTextureSprite ="GFX_CZE_skoda_square_aircraft_selected"
+			quadTextureSprite ="GFX_QIE_god_circle_lao_focus_selected"
 			position = { x = 172 y = 294 }
 			context_aware_tooltip = QIE_god_circle_lao_focus_selected_tt
 		}
 
 		buttonType = {
 			name ="QIE_shi_focus_image"
-			quadTextureSprite ="GFX_CZE_skoda_square_armor"
+			quadTextureSprite ="GFX_QIE_god_circle_shi_focus_not_activated"
 			position = { x = 344 y= 183 }
 			buttonText = ""
 			pdx_tooltip = QIE_shi_focus_tt
@@ -84,14 +84,14 @@ guiTypes = {
 
 		iconType = {
 			name ="CZE_skoda_tank_focus_image_selected"
-			quadTextureSprite ="GFX_CZE_skoda_square_armor_selected"
+			quadTextureSprite ="GFX_QIE_god_circle_shi_focus_selected"
 			position = { x = 344 y = 183 }
 			context_aware_tooltip = QIE_god_circle_shi_focus_selected_tt
 		}
 
 		buttonType = { 
 			name ="QIE_jesus_focus_image"
-			quadTextureSprite ="GFX_CZE_skoda_square_naval"
+			quadTextureSprite ="GFX_QIE_god_circle_jesus_focus_not_activated"
 			position = { x = 292 y= 294 }
 			buttonText = ""
 			pdx_tooltip = QIE_jesus_focus_tt
@@ -100,7 +100,7 @@ guiTypes = {
 
 		iconType = {
 			name ="CZE_skoda_naval_focus_image_selected"
-			quadTextureSprite ="GFX_CZE_skoda_square_naval_selected"
+			quadTextureSprite ="GFX_QIE_god_circle_jesus_focus_selected"
 			position = { x = 292 y = 294 }
 			context_aware_tooltip = QIE_god_circle_jesus_focus_selected_tt
 		}
@@ -116,6 +116,14 @@ guiTypes = {
 			scale = 0.5
 		}
 
+		iconType = {
+			name = "QIE_god_circle_center_leader_frame"
+			quadTextureSprite = "GFX_QIE_god_circle_center_frame"
+			position = { x = 240 y = 180 }
+			scale = 0.5 # 跟头像一致，按实际图再微调
+			alwaystransparent = yes
+		}
+
 		instantTextBoxType = {
 			name ="CZE_skoda_optimization_explanation"
 			position = { x=369 y=64 }
@@ -128,7 +136,7 @@ guiTypes = {
 
 		iconType = {
 			name = "CZE_efficiency_background"
-			spriteType = "GFX_CZE_skoda_efficiency_cog"
+			spriteType = "GFX_QIE_god_circle_level_background"
 			position = { x=444 y=94 }
 		}
 

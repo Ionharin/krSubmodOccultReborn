@@ -7,35 +7,36 @@ QIE_god_circle_inlay_window = {
 
 	scripted_images = {
 		QIE_no_god_image = {
-			GFX_CZE_skoda_square_default = {
-				NOT = {
-					check_variable = { god_circle_focus_var = 0 }
+			GFX_QIE_god_circle_no_god_focus_not_activated = {
+				OR = {
+					NOT = { has_variable = god_circle_focus_var }
+					NOT = { check_variable = { god_circle_focus_var = 0 } }
 				}
 			}
 		}
 		QIE_con_focus_image = {
-			GFX_CZE_skoda_square_infantry = {
+			GFX_QIE_god_circle_con_focus_not_activated = {
 				NOT = {
 					check_variable = { god_circle_focus_var = 1 }
 				}
 			}
 		}
 		QIE_shi_focus_image = {
-			GFX_CZE_skoda_square_armor = {
+			GFX_QIE_god_circle_shi_focus_not_activated = {
 				NOT = {
 					check_variable = { god_circle_focus_var = 2 }
 				}
 			}
 		}
 		QIE_lao_focus_image = {
-			GFX_CZE_skoda_square_aircraft = {
+			GFX_QIE_god_circle_lao_focus_not_activated = {
 				NOT = {
 					check_variable = { god_circle_focus_var = 3 }
 				}
 			}
 		}
 		QIE_jesus_focus_image = {
-			GFX_CZE_skoda_square_naval = {
+			GFX_QIE_god_circle_jesus_focus_not_activated = {
 				NOT = {
 					check_variable = { god_circle_focus_var = 4 }
 				}
@@ -44,27 +45,28 @@ QIE_god_circle_inlay_window = {
 
 		#selected
 		CZE_skoda_no_focus_image_selected = {
-			GFX_CZE_skoda_square_default_selected = {
+			GFX_QIE_god_circle_no_god_focus_selected = {
+				has_variable = god_circle_focus_var
 				check_variable = { god_circle_focus_var = 0 }
 			}
 		}
 		CZE_skoda_infantry_focus_image_selected = {
-			GFX_CZE_skoda_square_infantry_selected = {
+			GFX_QIE_god_circle_con_focus_selected = {
 				check_variable = { god_circle_focus_var = 1 }
 			}
 		}
 		CZE_skoda_tank_focus_image_selected = {
-			GFX_CZE_skoda_square_armor_selected = {
+			GFX_QIE_god_circle_shi_focus_selected = {
 				check_variable = { god_circle_focus_var = 2 }
 			}
 		}
 		CZE_skoda_plane_focus_image_selected = {
-			GFX_CZE_skoda_square_aircraft_selected = {
+			GFX_QIE_god_circle_lao_focus_selected = {
 				check_variable = { god_circle_focus_var = 3 }
 			}
 		}
 		CZE_skoda_naval_focus_image_selected = {
-			GFX_CZE_skoda_square_naval_selected = {
+			GFX_QIE_god_circle_jesus_focus_selected = {
 				check_variable = { god_circle_focus_var = 4 }
 			}
 		}
