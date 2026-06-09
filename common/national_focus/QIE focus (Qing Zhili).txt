@@ -5827,7 +5827,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_the_seances_of_master_lv"
-			if = {
+			hidden_effect = {
+				if = {
 				limit = {
 					has_idea = QIE_legitimacy_of_the_monarchy
 				}
@@ -5836,7 +5837,7 @@ focus_tree = {
 					add_idea = QIE_wushan_theocratic_authority_1
 				}
 			}
-			else_if = {
+				else_if = {
 				limit = {
 					has_idea = QIE_legitimacy_of_the_monarchy_1
 				}
@@ -5845,7 +5846,7 @@ focus_tree = {
 					add_idea = QIE_wushan_theocratic_authority_1
 				}
 			}
-			else_if = {
+				else_if = {
 				limit = {
 					has_idea = QIE_legitimacy_of_the_monarchy_2
 				}
@@ -5854,7 +5855,7 @@ focus_tree = {
 					add_idea = QIE_wushan_theocratic_authority_1
 				}
 			}
-			else_if = {
+				else_if = {
 				limit = {
 					has_idea = QIE_legitimacy_of_the_monarchy_3
 				}
@@ -5863,7 +5864,7 @@ focus_tree = {
 					add_idea = QIE_wushan_theocratic_authority_1
 				}
 			}
-			else_if = {
+				else_if = {
 				limit = {
 					has_idea = QIE_legitimacy_of_the_monarchy_cao
 				}
@@ -5872,7 +5873,7 @@ focus_tree = {
 					add_idea = QIE_wushan_theocratic_authority_1
 				}
 			}
-			else_if = {
+				else_if = {
 				limit = {
 					has_idea = QIE_legitimacy_of_the_monarchy_wu
 				}
@@ -5881,30 +5882,29 @@ focus_tree = {
 					add_idea = QIE_wushan_theocratic_authority_1
 				}
 			}
-			else = {
+				else = {
 				add_ideas = QIE_wushan_theocratic_authority_1
 			}
-			set_party_name = {
+				set_party_name = {
 				ideology = national_populist
 				name = QIE_wushan_short
 				long_name = QIE_wushan_long_tt
 			}
-			set_party_name = {
+				set_party_name = {
 				ideology = authoritarian_democrat
 				name = QIE_national_populist_party
 				long_name = QIE_wushan_national_populist_party_long_tt
 			}
-			set_politics = {
+				set_politics = {
 				ruling_party = national_populist
 				elections_allowed = no
 			}
-			promote_character = QIE_ws_zeng_qi
-			promote_character = QIE_ws_hu_shih
-			promote_character = QIE_shen_junru
-			promote_character = QIE_huang_boqiao
-			promote_character = QIE_ws_aisin_gioro_pugong
-			promote_character = QIE_ws_luanwu_yuan
-			hidden_effect = {
+				promote_character = QIE_ws_zeng_qi
+				promote_character = QIE_ws_hu_shih
+				promote_character = QIE_shen_junru
+				promote_character = QIE_huang_boqiao
+				promote_character = QIE_ws_aisin_gioro_pugong
+				promote_character = QIE_ws_luanwu_yuan
 				add_popularity = {
 					ideology = authoritarian_democrat
 					popularity = -0.36

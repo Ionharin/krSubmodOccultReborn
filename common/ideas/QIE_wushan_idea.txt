@@ -623,5 +623,69 @@ ideas ={
 				grant_medal_cost_factor = -0.25
 			}
 		}
-}
+	}
+	hidden_ideas = {
+		QIE_wushan_luoyang_arsenal_zhili_research = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_luoyang_arsenal_zhili_research" }
+			picture = generic_research_bonus
+			allowed = { always = no }
+			research_bonus = {
+				infantry_weapons = 0.15
+				artillery = 0.15
+			}
+		}
+		QIE_wushan_luoyang_arsenal_tank_research = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_luoyang_arsenal_tank_research" }
+			picture = generic_research_bonus
+			allowed = { always = no }
+			research_bonus = {
+				armor = 0.15
+				motorized_equipment = 0.15
+			}
+		}
+		QIE_wushan_luoyang_arsenal_infantry_cost = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_luoyang_arsenal_infantry_cost" }
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			equipment_bonus = {
+				mio_cat_eq_all_infantry_and_support_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+			}
+		}
+		QIE_wushan_luoyang_arsenal_artillery_cost = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_luoyang_arsenal_artillery_cost" }
+			picture = generic_artillery
+			allowed = { always = no }
+			equipment_bonus = {
+				mio_cat_eq_all_artillery_and_rocket_artillery = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+			}
+		}
+		QIE_wushan_luoyang_arsenal_armor_cost = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_luoyang_arsenal_armor_cost" }
+			picture = generic_tank_bonus
+			allowed = { always = no }
+			equipment_bonus = {
+				mio_cat_eq_all_tanks = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+			}
+		}
+		QIE_wushan_luoyang_arsenal_motorized_cost = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_luoyang_arsenal_motorized_cost" }
+			picture = generic_train_tracks
+			allowed = { always = no }
+			equipment_bonus = {
+				motorized_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+			}
+		}
+	}
 }

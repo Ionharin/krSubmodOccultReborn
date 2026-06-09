@@ -402,6 +402,10 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_seances_restart_in_beijing
 		}
+		completion_reward = {
+			add_stability = -0.05
+			country_event = { id = QIE_ws_god_circle_events.4 }
+		}
 	}
 	focus = {
 		id = QIE_honor_buddhism_as_the_superior
@@ -423,6 +427,10 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = QIE_seances_restart_in_beijing
+		}
+		completion_reward = {
+			add_stability = -0.05
+			country_event = { id = QIE_ws_god_circle_events.6 }
 		}
 	}
 	focus = {
@@ -446,6 +454,10 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_seances_restart_in_beijing
 		}
+		completion_reward = {
+			add_stability = -0.05
+			country_event = { id = QIE_ws_god_circle_events.2 }
+		}
 	}
 	focus = {
 		id = QIE_honor_jesus_as_the_superior
@@ -468,6 +480,10 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_seances_restart_in_beijing
 		}
+		completion_reward = {
+			add_stability = -0.05
+			country_event = { id = QIE_ws_god_circle_events.8 }
+		}
 	}
 	focus = {
 		id = QIE_honor_mohammad_as_the_superior
@@ -489,6 +505,10 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = QIE_seances_restart_in_beijing
+		}
+		completion_reward = {
+			add_stability = -0.05
+			country_event = { id = QIE_ws_god_circle_events.10 }
 		}
 	}
 	focus = {
@@ -1077,6 +1097,9 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_jesus_stage_2
 		}
+		completion_reward = {
+			country_event = { id = QIE_ws_god_circle_events.9 }
+		}
 	}
 	focus = {
 		id = QIE_raise_the_long_blade
@@ -1094,6 +1117,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = QIE_mohammad_stage_2
+		}
+		completion_reward = {
+			country_event = { id = QIE_ws_god_circle_events.11 }
 		}
 	}
 	focus = {
@@ -1113,6 +1139,9 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_confucism_stage_2
 		}
+		completion_reward = {
+			country_event = { id = QIE_ws_god_circle_events.3 }
+		}
 	}
 	focus = {
 		id = QIE_into_samadhi
@@ -1130,6 +1159,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = QIE_buddhism_stage_2
+		}
+		completion_reward = {
+			country_event = { id = QIE_ws_god_circle_events.7 }
 		}
 	}
 	focus = {
@@ -1151,6 +1183,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = QIE_seize_the_great_game.tt
+			country_event = { id = QIE_ws_god_circle_events.5 }
 		}
 	}
 	focus = {
@@ -1740,6 +1773,13 @@ focus_tree = {
 			add_war_support = 0.1
 			if = {
 				limit = {
+					NOT = { has_dynamic_modifier = { modifier = QIE_wushan_luoyang_arsenal_modifier } }
+				}
+				add_dynamic_modifier = { modifier = QIE_wushan_luoyang_arsenal_modifier }
+			}
+			add_ideas = QIE_wushan_luoyang_arsenal_zhili_research
+			if = {
+				limit = {
 					has_idea = QIE_jingchun_army_bureau
 				}
 				swap_ideas = {
@@ -1777,6 +1817,13 @@ focus_tree = {
 		completion_reward = {
 			increase_economic_mobilisation = yes
 			add_war_support = 0.1
+			if = {
+				limit = {
+					NOT = { has_dynamic_modifier = { modifier = QIE_wushan_luoyang_arsenal_modifier } }
+				}
+				add_dynamic_modifier = { modifier = QIE_wushan_luoyang_arsenal_modifier }
+			}
+			add_ideas = QIE_wushan_luoyang_arsenal_tank_research
 			if = {
 				limit = {
 					has_idea = QIE_jingchun_army_bureau
@@ -1823,6 +1870,7 @@ focus_tree = {
 				amount = 3000
 				producer = QIE
 			}
+			add_ideas = QIE_wushan_luoyang_arsenal_infantry_cost
 		}
 	}
 	focus = {
@@ -1848,6 +1896,7 @@ focus_tree = {
 				amount = 500
 				producer = QIE
 			}
+			add_ideas = QIE_wushan_luoyang_arsenal_artillery_cost
 		}
 	}
 	focus = {
@@ -1909,6 +1958,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			add_ideas = QIE_wushan_luoyang_arsenal_armor_cost
 		}
 	}
 	focus = {
@@ -1947,6 +1997,7 @@ focus_tree = {
 				level = 1
 				fallback = yes
 			}
+			add_ideas = QIE_wushan_luoyang_arsenal_motorized_cost
 		}
 	}
 	focus = {
@@ -2065,6 +2116,7 @@ focus_tree = {
 					modifier = QIE_wushan_zhili_arsenal_state_modifier
 				}
 			}
+			add_ideas = QIE_wushan_luoyang_arsenal_motorized_cost
 		}
 	}
 	focus = {
@@ -2748,10 +2800,13 @@ focus_tree = {
 		icon = GFX_qie_ws_seances_restart_in_beijing
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		completion_reward = {
+		select_effect = {
+			log = "[GetLogRoot]: Select Focus QIE_seances_restart_in_beijing"
 			country_event = {
-				id = QIE_wushan_events.5
+				id = QIE_ws_god_circle_events.1
 			}
+		}
+		completion_reward = {
 			add_dynamic_modifier = {
 				modifier = QIE_wushan_lvzu_chunyang_throne_modifier
 			}
