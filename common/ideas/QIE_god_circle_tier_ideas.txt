@@ -2,14 +2,14 @@ ideas = {
 	country = {
 		QIE_god_circle_no_focus_tier_1 = {
 			allowed = { always = no }
-			picture = generic_construct_civ_factory
+			picture = qie_ideas_ws_no_god_tier_1
 			modifier = {
 				stability_factor = 0.02
 			}
 		}
 		QIE_god_circle_no_focus_tier_2 = {
 			allowed = { always = no }
-			picture = generic_construct_civ_factory
+			picture = qie_ideas_ws_no_god_tier_2
 			modifier = {
 				stability_factor = 0.04
 				consumer_goods_factor = -0.01
@@ -17,7 +17,7 @@ ideas = {
 		}
 		QIE_god_circle_no_focus_tier_3 = {
 			allowed = { always = no }
-			picture = generic_construct_civ_factory
+			picture = qie_ideas_ws_no_god_tier_3
 			modifier = {
 				stability_factor = 0.06
 				consumer_goods_factor = -0.02
@@ -26,38 +26,41 @@ ideas = {
 
 		QIE_god_circle_con_tier_1 = {
 			allowed = { always = no }
-			picture = generic_diplomacy
+			picture = qie_ideas_ws_con_tier_1
 			modifier = {
-				political_power_factor = 0.03
+				political_power_gain = 0.3
+				stability_factor = 0.03
 			}
 		}
 		QIE_god_circle_con_tier_2 = {
 			allowed = { always = no }
-			picture = generic_diplomacy
+			picture = qie_ideas_ws_con_tier_2
 			modifier = {
-				political_power_factor = 0.05
-				stability_factor = 0.02
+				political_power_gain = 0.4
+				stability_factor = 0.07
 			}
 		}
 		QIE_god_circle_con_tier_3 = {
 			allowed = { always = no }
-			picture = generic_diplomacy
+			picture = qie_ideas_ws_con_tier_3
 			modifier = {
-				political_power_factor = 0.08
-				stability_factor = 0.04
+				political_power_gain = 0.5
+				stability_factor = 0.10
+				supply_consumption_factor = -0.1
+				industrial_capacity_factory = -0.05
 			}
 		}
 
 		QIE_god_circle_shi_tier_1 = {
 			allowed = { always = no }
-			picture = generic_army_reform
+			picture = qie_ideas_ws_shi_tier_1
 			modifier = {
 				army_experience_gain_factor = 0.05
 			}
 		}
 		QIE_god_circle_shi_tier_2 = {
 			allowed = { always = no }
-			picture = generic_army_reform
+			picture = qie_ideas_ws_shi_tier_2
 			modifier = {
 				army_experience_gain_factor = 0.10
 				division_attack_on_core_territory_factor = 0.03
@@ -65,7 +68,7 @@ ideas = {
 		}
 		QIE_god_circle_shi_tier_3 = {
 			allowed = { always = no }
-			picture = generic_army_reform
+			picture = qie_ideas_ws_shi_tier_3
 			modifier = {
 				army_experience_gain_factor = 0.15
 				division_attack_on_core_territory_factor = 0.05
@@ -74,48 +77,53 @@ ideas = {
 
 		QIE_god_circle_lao_tier_1 = {
 			allowed = { always = no }
-			picture = generic_science
+			picture = qie_ideas_ws_lao_tier_1
 			modifier = {
 				research_speed_factor = 0.02
 			}
 		}
 		QIE_god_circle_lao_tier_2 = {
 			allowed = { always = no }
-			picture = generic_science
+			picture = qie_ideas_ws_lao_tier_2
 			modifier = {
 				research_speed_factor = 0.04
 			}
 		}
 		QIE_god_circle_lao_tier_3 = {
 			allowed = { always = no }
-			picture = generic_science
+			picture = qie_ideas_ws_lao_tier_3
 			modifier = {
 				research_speed_factor = 0.06
-				production_speed_buildings_factor = 0.05
+				war_support_factor = 0.15
 			}
 		}
 
 		QIE_god_circle_jesus_tier_1 = {
 			allowed = { always = no }
-			picture = generic_navy_reform
+			picture = qie_ideas_ws_jesus_tier_1
 			modifier = {
-				war_support_factor = 0.02
+				political_power_gain = 0.3
+				war_support_factor = 0.03
 			}
 		}
 		QIE_god_circle_jesus_tier_2 = {
 			allowed = { always = no }
-			picture = generic_navy_reform
+			picture = qie_ideas_ws_jesus_tier_2
 			modifier = {
-				war_support_factor = 0.04
-				justify_war_goal_time = -0.03
+				political_power_gain = 0.4
+				war_support_factor = 0.07
+				drift_defence_factor = 0.10
 			}
 		}
 		QIE_god_circle_jesus_tier_3 = {
 			allowed = { always = no }
-			picture = generic_navy_reform
+			picture = qie_ideas_ws_jesus_tier_3
 			modifier = {
-				war_support_factor = 0.06
-				justify_war_goal_time = -0.05
+				political_power_gain = 0.5
+				war_support_factor = 0.10
+				drift_defence_factor = 0.10
+				subversive_activites_upkeep = -0.10
+				intel_network_gain_factor = -0.20
 			}
 		}
 	}

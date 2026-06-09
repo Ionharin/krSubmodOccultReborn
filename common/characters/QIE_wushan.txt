@@ -8,7 +8,7 @@ characters = {
         }
         country_leader = {
             ideology = national_populist_subtype
-            traits = { stout_defender QIE_fond_of_merit_but_kills_recklessly }
+            traits = { QIE_fond_of_merit_but_kills_recklessly }
             expire = "1965.1.1.1"
             id = -1
         }
@@ -55,6 +55,20 @@ characters = {
             id = -1
         }
     }
+    QIE_ws_qian_neng_xun = {
+        name = QIE_ws_qian_neng_xun
+        portraits = {
+            civilian = {
+                large = "GFX_portrait_qie_ws_qian_neng_xun"
+            }
+        }
+        country_leader = {
+            ideology = national_populist_subtype
+            traits = { QIE_the_puppets_of_region_and_government }
+            expire = "1965.1.1.1"
+            id = -1
+        }
+    }
     QIE_ws_hu_shih = {
         name = QIE_ws_hu_shih
         portraits = {
@@ -97,6 +111,30 @@ characters = {
             traits = { }
             expire = "1965.1.1.1"
             id = -1
+        }
+    }
+    QIE_beiyang_warfare = {
+        name = QIE_beiyang_warfare
+        portraits = {
+            army = {
+                small = GFX_idea_adaptable_modernizers_spirit
+            }
+        }
+        advisor = {
+            slot = theorist
+            idea_token = QIE_beiyang_warfare_theorist
+            ledger = army
+            allowed = {
+                original_tag = QIE
+            }
+            visible = {
+                if = {
+                    limit = { tag = QIE }
+                    always = yes
+                }
+            }
+            traits = { QIE_jade_marshals_roundtable }
+            cost = 100
         }
     }
 }

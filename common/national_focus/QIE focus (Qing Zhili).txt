@@ -39,7 +39,10 @@ focus_tree = {
 			hidden_effect = {
 				country_event = {
 					id = QIE_wushan_auto_seances.01
-					days = 1
+				}
+				country_event = {
+					id = QIE_wushan_events.11
+					days = 2
 				}
 			}
 			add_stability = 0.03
@@ -122,6 +125,12 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_emergency_meeting_of_the_cabinet"
 			country_event = qing_focus_events.2
+			hidden_effect = {
+				country_event = {
+					id = QIE_wushan_events.12
+					days = 2
+				}
+			}
 		}
 		relative_position_id = QIE_year_of_the_rat
 	}
@@ -4201,7 +4210,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_cross_the_dai_river"
 			add_popularity = {
-				ideology = authoritarian_democrat
+				ideology = national_populist
 				popularity = 0.05
 			}
 			if = {
@@ -5783,9 +5792,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_secret_meeting"
-			country_event = {
+			hidden_effect = {
+				country_event = {
 				id = QIE_wushan_auto_seances.01
 			}
+			}		
 		}
 	}
 	focus = {
@@ -5796,6 +5807,14 @@ focus_tree = {
 		icon = GFX_qie_ws_the_seances_of_master_lv
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			NOT = {
+				OR = {
+					has_country_flag = QIE_coup_failed_early
+					has_country_flag = QIE_coup_failed
+			}
+			}
+		}
 		mutually_exclusive = {
 			focus = QIE_let_the_five_banner_flag_fly
 			focus = QIE_restoration
@@ -5864,18 +5883,6 @@ focus_tree = {
 			}
 			else = {
 				add_ideas = QIE_wushan_theocratic_authority_1
-			}
-			if = {
-				limit = {
-					has_idea = QIE_court_of_the_jade_marshal
-				}
-				swap_ideas = {
-					remove_idea = QIE_court_of_the_jade_marshal
-					add_idea = QIE_wushan_chaotic_big_tent
-				}
-			}
-			else = {
-				add_ideas = QIE_wushan_chaotic_big_tent
 			}
 			set_party_name = {
 				ideology = national_populist
@@ -5955,6 +5962,12 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = QIE_secret_meeting
+		}
+		completion_reward = {
+			if = {
+				limit = {has_country_flag = QIE_coup_phase1}
+				country_event = QIE_wushan_events.19
+			}
 		}
 	}
 }

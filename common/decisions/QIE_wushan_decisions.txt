@@ -1,46 +1,103 @@
 QIE_wushan_foreign_investment_category = {
-	QIE_wushan_buy_german_rifles = {
-		icon = generic_construct_civilian
-		cost = 50
+	QIE_wushan_buy_LEC_rifles = {
+		icon = generic_prepare_civil_war
+		allowed = { always = no }
+		cost = 100
 		days_remove = 30
-		days_re_enable = 180
+		days_re_enable = 200
 		available = {
-			GER = { exists = yes }
+			LEC = {
+				exists = yes
+			}
 		}
-		complete_effect = {
+		remove_effect = {
 			add_equipment_to_stockpile = {
 				type = infantry_equipment_1
-				amount = 1000
-				producer = GER
+				amount = 1800
+				producer = LEC
 			}
 		}
 	}
-	QIE_wushan_buy_japanese_rifles = {
-		icon = generic_construct_civilian
+	QIE_wushan_buy_german_rifles = {
+		icon = generic_prepare_civil_war
+		allowed = { always = no }
 		cost = 50
 		days_remove = 30
 		days_re_enable = 180
 		visible = {
 			has_country_leader = {
-				character = QIE_ws_jiang_chao_zong
+				character = QIE_ws_wu_pei_fu
 			}
 		}
 		available = {
 			has_country_leader = {
+				character = QIE_ws_wu_pei_fu
+			}
+			GER = {
+				exists = yes
+				has_opinion = { target = QIE value > 34 }
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 1200
+				producer = GER
+			}
+		}
+	}
+	QIE_wushan_buy_russian_rifles = {
+		icon = generic_prepare_civil_war
+		allowed = { always = no }
+		cost = 50
+		days_remove = 30
+		days_re_enable = 180
+		available = {
+			RUS = {
+				exists = yes
+				has_opinion = { target = QIE value > 39 }
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 1000
+				producer = RUS
+			}
+		}
+	}
+	QIE_wushan_buy_japanese_rifles = {
+		icon = generic_prepare_civil_war
+		allowed = { always = no }
+		cost = 50
+		days_remove = 30
+		days_re_enable = 180
+		visible = {
+				has_country_leader = {
 				character = QIE_ws_jiang_chao_zong
 			}
-			JAP = { exists = yes }
+		}
+		available = {
+				has_country_leader = {
+				character = QIE_ws_jiang_chao_zong
+			}
+			JAP = {
+				exists = yes
+				has_opinion = { target = QIE value > 34 }
+				has_completed_focus = JAP_phase_out_arisakas
+			}
 		}
 		complete_effect = {
 			add_equipment_to_stockpile = {
 				type = infantry_equipment_1
-				amount = 1000
+				amount = 1200
 				producer = JAP
 			}
 		}
 	}
 	QIE_wushan_accept_daben_donation = {
-		icon = generic_construct_civilian
+		icon = GFX_decision_generic_welfare
+		allowed = { always = no }
 		days_remove = 30
 		fire_only_once = yes
 		visible = {
@@ -52,24 +109,89 @@ QIE_wushan_foreign_investment_category = {
 			has_country_leader = {
 				character = QIE_ws_jiang_chao_zong
 			}
+			JAP = {
+				exists = yes
+			}
 		}
 		complete_effect = {
 			add_offsite_building = { type = industrial_complex level = 2 }
 		}
 	}
-	QIE_wushan_japanese_zaibatsu_funds = {
-		icon = generic_construct_civilian
+	QIE_wushan_let_us_ask_the_jiangnan_factory = {
+		icon = GFX_decision_generic_welfare
+		allowed = { always = no }
 		cost = 100
 		days_remove = 90
 		days_re_enable = 365
 		visible = {
-			has_country_leader = {
-				character = QIE_ws_jiang_chao_zong
+			OR = {
+				has_country_leader = {
+				character = QIE_ws_wu_pei_fu
+			}
+				has_country_leader = {
+				character = QIE_ws_qian_neng_xun
+			}
 			}
 		}
 		available = {
-			has_country_leader = {
+			OR = {
+				has_country_leader = {
+				character = QIE_ws_wu_pei_fu
+			}
+				has_country_leader = {
+				character = QIE_ws_qian_neng_xun
+			}
+			}
+			OR = {
+				ANQ = {
+				exists = yes
+				has_opinion = { target = QIE value > 0 }
+			}
+				LEP = {
+				exists = yes
+				has_opinion = { target = QIE value > 0 }
+			}
+			}
+		}
+		modifier = {
+			industrial_capacity_factory = 0.10
+			production_speed_industrial_complex_factor = 0.15
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.04
+			}
+		}
+	}
+	QIE_wushan_japanese_zaibatsu_funds = {
+		icon = GFX_decision_generic_welfare
+		allowed = { always = no }
+		cost = 100
+		days_remove = 90
+		days_re_enable = 365
+		visible = {
+			OR = {
+				has_country_leader = {
 				character = QIE_ws_jiang_chao_zong
+			}
+				has_country_leader = {
+				character = QIE_ws_qian_neng_xun
+			}
+			}
+		}
+		available = {
+			OR = {
+				has_country_leader = {
+				character = QIE_ws_jiang_chao_zong
+			}
+				has_country_leader = {
+				character = QIE_ws_qian_neng_xun
+			}
+			}
+			JAP = {
+				exists = yes
+				has_opinion = { target = QIE value > 24 }
 			}
 		}
 		modifier = {
@@ -77,21 +199,22 @@ QIE_wushan_foreign_investment_category = {
 			production_speed_industrial_complex_factor = 0.20
 		}
 		complete_effect = {
-			add_stability = -0.05
+			add_stability = -0.10
 		}
 	}
 	QIE_wushan_support_from_beyond_the_pass = {
-		icon = generic_construct_civilian
+		icon = GFX_decision_generic_welfare
+		allowed = { always = no }
 		cost = 50
 		days_remove = 45
 		days_re_enable = 180
 		visible = {
-			has_country_leader = {
+				has_country_leader = {
 				character = QIE_ws_jiang_chao_zong
 			}
 		}
 		available = {
-			has_country_leader = {
+				has_country_leader = {
 				character = QIE_ws_jiang_chao_zong
 			}
 			FNG = {
@@ -100,12 +223,13 @@ QIE_wushan_foreign_investment_category = {
 			}
 		}
 		modifier = {
-			consumer_goods_factor = -0.15
-			production_speed_industrial_complex_factor = 0.15
+			consumer_goods_factor = -0.05
+			production_speed_industrial_complex_factor = 0.10
 		}
 	}
 	QIE_wushan_seek_zhili_merchant_support = {
-		icon = generic_construct_civilian
+		icon = GFX_decision_generic_welfare
+		allowed = { always = no }
 		cost = 50
 		days_remove = 60
 		days_re_enable = 365
@@ -120,16 +244,16 @@ QIE_wushan_foreign_investment_category = {
 			}
 		}
 		modifier = {
-			production_speed_industrial_complex_factor = 0.20
+			production_speed_industrial_complex_factor = 0.07
 			political_power_factor = 0.10
-			production_speed_infrastructure_factor = 0.20
+			production_speed_infrastructure_factor = 0.07
 		}
 	}
 }
 QIE_wushan_refugee_crisis_category = {
 	QIE_wushan_refugees_fleeing_war = {
 		icon = generic_social_reform
-		fire_only_once = yes
+		# fire_only_once = no
 		days_mission_timeout = 60
 		is_good = no
 		visible = {
@@ -227,7 +351,7 @@ QIE_wushan_refugee_crisis_category = {
 }
 QIE_wushan_black_diamond_category = {
 	QIE_wushan_survey_shanxi_vein = {
-		icon = generic_coal_mining
+		icon = GFX_decision_coal
 		days_remove = 30
 		fire_only_once = yes
 		available = {
@@ -242,12 +366,10 @@ QIE_wushan_black_diamond_category = {
 			}
 		}
 		complete_effect = {
-			set_country_flag = {
-				flag = QIE_wushan_black_diamond_action_ongoing
-				days = 30
-			}
+			set_country_flag = QIE_wushan_black_diamond_action_ongoing
 		}
 		remove_effect = {
+			clr_country_flag = QIE_wushan_black_diamond_action_ongoing
 			615 = {
 				add_resource = {
 					type = coal
@@ -257,7 +379,7 @@ QIE_wushan_black_diamond_category = {
 		}
 	}
 	QIE_wushan_survey_tangshan_vein = {
-		icon = generic_coal_mining
+		icon = GFX_decision_coal
 		days_remove = 30
 		fire_only_once = yes
 		available = {
@@ -272,12 +394,10 @@ QIE_wushan_black_diamond_category = {
 			}
 		}
 		complete_effect = {
-			set_country_flag = {
-				flag = QIE_wushan_black_diamond_action_ongoing
-				days = 30
-			}
+			set_country_flag = QIE_wushan_black_diamond_action_ongoing
 		}
 		remove_effect = {
+			clr_country_flag = QIE_wushan_black_diamond_action_ongoing
 			614 = {
 				add_resource = {
 					type = coal
@@ -287,7 +407,7 @@ QIE_wushan_black_diamond_category = {
 		}
 	}
 	QIE_wushan_survey_guisui_vein = {
-		icon = generic_coal_mining
+		icon = GFX_decision_coal
 		days_remove = 30
 		fire_only_once = yes
 		available = {
@@ -302,12 +422,10 @@ QIE_wushan_black_diamond_category = {
 			}
 		}
 		complete_effect = {
-			set_country_flag = {
-				flag = QIE_wushan_black_diamond_action_ongoing
-				days = 30
-			}
+			set_country_flag = QIE_wushan_black_diamond_action_ongoing
 		}
 		remove_effect = {
+			clr_country_flag = QIE_wushan_black_diamond_action_ongoing
 			621 = {
 				add_resource = {
 					type = coal
@@ -317,7 +435,7 @@ QIE_wushan_black_diamond_category = {
 		}
 	}
 	QIE_wushan_survey_guanzhong_coal = {
-		icon = generic_coal_mining
+		icon = GFX_decision_coal
 		days_remove = 30
 		fire_only_once = yes
 		available = {
@@ -333,12 +451,10 @@ QIE_wushan_black_diamond_category = {
 			}
 		}
 		complete_effect = {
-			set_country_flag = {
-				flag = QIE_wushan_black_diamond_action_ongoing
-				days = 30
-			}
+			set_country_flag = QIE_wushan_black_diamond_action_ongoing
 		}
 		remove_effect = {
+			clr_country_flag = QIE_wushan_black_diamond_action_ongoing
 			799 = {
 				add_resource = {
 					type = coal
@@ -349,19 +465,320 @@ QIE_wushan_black_diamond_category = {
 	}
 }
 QIE_wushan_kunpeng_fund_category = {
-	QIE_wushan_seize_financial_reserves = {
-		icon = generic_trade
+	QIE_wushan_seize_shanxi_financial_reserves = {
+		icon = GFX_decision_hol_attract_foreign_investors
 		fire_only_once = yes
+		days_remove = 30
 		available = {
 			has_completed_focus = QIE_seize_the_gold_mine
+			OR = {
+				AND = {
+					NOT = { SHX = { exists = yes } }
+					controls_state = 1072
+				}
+				AND = {
+					SHX = { has_capitulated = yes }
+					controls_state = 1072
+				}
+				SHX = {
+					is_subject_of = ROOT
+				}
+			}
 		}
-		complete_effect = {
+		modifier = {
+			consumer_goods_factor = -0.15
+			industrial_capacity_factory = 0.05
+		}
+		remove_effect = {
+			add_to_variable = {
+				post_CHI_war_mio_reconstruction = 1000
+			}
+		}
+	}
+	QIE_wushan_seize_shandong_financial_reserves = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		fire_only_once = yes
+		days_remove = 30
+		available = {
+			has_completed_focus = QIE_seize_the_gold_mine
+			OR = {
+				AND = {
+					NOT = { SHD = { exists = yes } }
+					controls_state = 597
+				}
+				AND = {
+					SHD = { has_capitulated = yes }
+					controls_state = 597
+				}
+				SHD = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		modifier = {
+			consumer_goods_factor = -0.15
+			industrial_capacity_factory = 0.05
+		}
+		remove_effect = {
+			add_to_variable = {
+				post_CHI_war_mio_reconstruction = 1000
+			}
+		}
+	}
+	QIE_wushan_seize_sichuan_financial_reserves = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		fire_only_once = yes
+		days_remove = 30
+		available = {
+			has_completed_focus = QIE_seize_the_gold_mine
+			OR = {
+				AND = {
+					NOT = { SZC = { exists = yes } }
+					controls_state = 650
+				}
+				AND = {
+					SZC = { has_capitulated = yes }
+					controls_state = 650
+				}
+				SZC = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		modifier = {
+			consumer_goods_factor = -0.15
+			industrial_capacity_factory = 0.05
+		}
+		remove_effect = {
+			add_to_variable = {
+				post_CHI_war_mio_reconstruction = 1000
+			}
+		}
+	}
+	QIE_wushan_seize_hunan_financial_reserves = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		fire_only_once = yes
+		days_remove = 30
+		available = {
+			has_completed_focus = QIE_seize_the_gold_mine
+			OR = {
+				AND = {
+					NOT = { HNN = { exists = yes } }
+					controls_state = 602
+				}
+				AND = {
+					HNN = { has_capitulated = yes }
+					controls_state = 602
+				}
+				HNN = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		modifier = {
+			consumer_goods_factor = -0.15
+			industrial_capacity_factory = 0.05
+		}
+		remove_effect = {
+			add_to_variable = {
+				post_CHI_war_mio_reconstruction = 1000
+			}
+		}
+	}
+	QIE_wushan_seize_fengtian_financial_reserves = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		fire_only_once = yes
+		days_remove = 30
+		available = {
+			has_completed_focus = QIE_seize_the_gold_mine
+			OR = {
+				AND = {
+					NOT = { FNG = { exists = yes } }
+					controls_state = 716
+				}
+				AND = {
+					FNG = { has_capitulated = yes }
+					controls_state = 716
+				}
+				FNG = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		modifier = {
+			consumer_goods_factor = -0.15
+			industrial_capacity_factory = 0.05
+		}
+		remove_effect = {
+			add_to_variable = {
+				post_CHI_war_mio_reconstruction = 1000
+			}
+		}
+	}
+	QIE_wushan_seize_yunnan_financial_reserves = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		fire_only_once = yes
+		days_remove = 30
+		available = {
+			has_completed_focus = QIE_seize_the_gold_mine
+			OR = {
+				AND = {
+					NOT = { YUN = { exists = yes } }
+					controls_state = 325
+				}
+				AND = {
+					YUN = { has_capitulated = yes }
+					controls_state = 325
+				}
+				YUN = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		modifier = {
+			consumer_goods_factor = -0.15
+			industrial_capacity_factory = 0.05
+		}
+		remove_effect = {
+			add_to_variable = {
+				post_CHI_war_mio_reconstruction = 1000
+			}
+		}
+	}
+	QIE_wushan_seize_liangguang_financial_reserves = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		fire_only_once = yes
+		days_remove = 30
+		available = {
+			has_completed_focus = QIE_seize_the_gold_mine
+			OR = {
+				AND = {
+					NOT = { GXC = { exists = yes } }
+					controls_state = 592
+				}
+				AND = {
+					GXC = { has_capitulated = yes }
+					controls_state = 592
+				}
+				GXC = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		modifier = {
+			consumer_goods_factor = -0.15
+			industrial_capacity_factory = 0.05
+		}
+		remove_effect = {
+			add_to_variable = {
+				post_CHI_war_mio_reconstruction = 1000
+			}
+		}
+	}
+	QIE_wushan_seize_huadong_financial_reserves = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		fire_only_once = yes
+		days_remove = 30
+		available = {
+			has_completed_focus = QIE_seize_the_gold_mine
+			OR = {
+				AND = {
+					NOT = { ANQ = { exists = yes } }
+					NOT = { LEP = { exists = yes } }
+					NOT = { CHI = { exists = yes } }
+					controls_state = 613
+				}
+				AND = {
+					ANQ = { has_capitulated = yes }
+					LEP = { has_capitulated = yes }
+					CHI = { has_capitulated = yes }
+					controls_state = 613
+				}
+				ANQ = {
+					is_subject_of = ROOT
+				}
+				LEP = {
+					is_subject_of = ROOT
+				}
+				CHI = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		modifier = {
+			consumer_goods_factor = -0.15
+			industrial_capacity_factory = 0.05
+		}
+		remove_effect = {
+			add_to_variable = {
+				post_CHI_war_mio_reconstruction = 1000
+			}
+		}
+	}
+	QIE_wushan_seize_xibei_financial_reserves = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		fire_only_once = yes
+		days_remove = 30
+		available = {
+			has_completed_focus = QIE_seize_the_gold_mine
+			OR = {
+				AND = {
+					NOT = { XSM = { exists = yes } }
+					controls_state = 283
+				}
+				AND = {
+					XSM = { has_capitulated = yes }
+					controls_state = 283
+				}
+				XSM = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		modifier = {
+			consumer_goods_factor = -0.15
+			industrial_capacity_factory = 0.05
+		}
+		remove_effect = {
+			add_to_variable = {
+				post_CHI_war_mio_reconstruction = 1000
+			}
+		}
+	}
+	QIE_wushan_seize_xinjiang_financial_reserves = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		fire_only_once = yes
+		days_remove = 30
+		available = {
+			has_completed_focus = QIE_seize_the_gold_mine
+			OR = {
+				AND = {
+					NOT = { SIK = { exists = yes } }
+					controls_state = 617
+				}
+				AND = {
+					SIK = { has_capitulated = yes }
+					controls_state = 617
+				}
+				SIK = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		modifier = {
+			consumer_goods_factor = -0.15
+			industrial_capacity_factory = 0.05
+		}
+		remove_effect = {
+			add_to_variable = {
+				post_CHI_war_mio_reconstruction = 1000
+			}
 		}
 	}
 }
 QIE_wushan_dual_leadership_bop_category = {
 	QIE_wushan_bop_support_jiang = {
-		icon = generic_political_reform
+		icon = GFX_decision_generic_welfare
 		cost = 10
 		days_remove = 7
 		days_re_enable = 21
@@ -381,7 +798,7 @@ QIE_wushan_dual_leadership_bop_category = {
 		}
 	}
 	QIE_wushan_bop_support_wu = {
-		icon = generic_political_reform
+		icon = GFX_decision_generic_prepare_civil_war
 		cost = 10
 		days_remove = 7
 		days_re_enable = 21
@@ -402,13 +819,17 @@ QIE_wushan_dual_leadership_bop_category = {
 		}
 	}
 	QIE_wushan_bop_celebrity_liaison_fee = {
-		icon = generic_political_reform
+		icon = GFX_decision_hol_exchange_intelligence_data
 		cost = 15
-		days_remove = 1
+		days_remove = 14
 		days_re_enable = 30
 		available = {
 			has_power_balance = {
 				id = QIE_wushan_dual_leadership_bop
+			}
+			is_power_balance_in_range = {
+				id = QIE_wushan_dual_leadership_bop
+				range < QIE_wushan_bop_balanced_court
 			}
 		}
 		remove_effect = {
@@ -416,16 +837,21 @@ QIE_wushan_dual_leadership_bop_category = {
 				id = QIE_wushan_dual_leadership_bop
 				value = -0.15
 			}
+			add_stability = 0.02
 		}
 	}
 	QIE_wushan_bop_extra_funding_army_bureau = {
-		icon = generic_political_reform
+		icon = GFX_decision_generic_protection
 		cost = 15
-		days_remove = 1
+		days_remove = 14
 		days_re_enable = 30
 		available = {
 			has_power_balance = {
 				id = QIE_wushan_dual_leadership_bop
+			}
+			is_power_balance_in_range = {
+				id = QIE_wushan_dual_leadership_bop
+				range > QIE_wushan_bop_balanced_court
 			}
 		}
 		complete_effect = {
@@ -439,13 +865,17 @@ QIE_wushan_dual_leadership_bop_category = {
 		}
 	}
 	QIE_wushan_bop_subsidize_industrialists = {
-		icon = generic_construct_civilian
+		icon = GFX_decision_generic_merge_plant_materiel
 		cost = 30
 		days_remove = 30
 		days_re_enable = 90
 		available = {
 			has_power_balance = {
 				id = QIE_wushan_dual_leadership_bop
+			}
+			is_power_balance_in_range = {
+				id = QIE_wushan_dual_leadership_bop
+				range < QIE_wushan_bop_balanced_court
 			}
 		}
 		modifier = {
@@ -460,13 +890,17 @@ QIE_wushan_dual_leadership_bop_category = {
 		}
 	}
 	QIE_wushan_bop_strengthen_military_training = {
-		icon = generic_army_training
+		icon = GFX_decision_generic_reorganize_irregulars
 		cost = 10
 		days_remove = 30
 		days_re_enable = 90
 		available = {
 			has_power_balance = {
 				id = QIE_wushan_dual_leadership_bop
+			}
+			is_power_balance_in_range = {
+				id = QIE_wushan_dual_leadership_bop
+				range > QIE_wushan_bop_balanced_court
 			}
 			has_army_experience > 10
 		}
@@ -484,29 +918,7 @@ QIE_wushan_dual_leadership_bop_category = {
 		}
 	}
 	QIE_wushan_bop_introduce_elites_to_salvationism = {
-		icon = generic_political_reform
-		cost = 50
-		days_remove = 14
-		days_re_enable = 180
-		available = {
-			has_power_balance = {
-				id = QIE_wushan_dual_leadership_bop
-			}
-			is_power_balance_in_range = {
-				id = QIE_wushan_dual_leadership_bop
-				range < QIE_wushan_bop_balanced_court
-			}
-		}
-		remove_effect = {
-			add_political_power = 100
-			add_power_balance_value = {
-				id = QIE_wushan_dual_leadership_bop
-				value = -0.20
-			}
-		}
-	}
-	QIE_wushan_bop_expand_salvationism_in_officer_corps = {
-		icon = generic_army_training
+		icon = GFX_decision_generic_political_address
 		cost = 30
 		days_remove = 14
 		days_re_enable = 180
@@ -516,7 +928,29 @@ QIE_wushan_dual_leadership_bop_category = {
 			}
 			is_power_balance_in_range = {
 				id = QIE_wushan_dual_leadership_bop
-				range > QIE_wushan_bop_balanced_court
+				range < QIE_wushan_bop_jiang_pressure
+			}
+		}
+		remove_effect = {
+			add_political_power = 75
+			add_power_balance_value = {
+				id = QIE_wushan_dual_leadership_bop
+				value = -0.01
+			}
+		}
+	}
+	QIE_wushan_bop_expand_salvationism_in_officer_corps = {
+		icon = GFX_decision_generic_political_discourse
+		cost = 30
+		days_remove = 14
+		days_re_enable = 180
+		available = {
+			has_power_balance = {
+				id = QIE_wushan_dual_leadership_bop
+			}
+			is_power_balance_in_range = {
+				id = QIE_wushan_dual_leadership_bop
+				range > QIE_wushan_bop_wu_pressure
 			}
 			has_army_experience > 10
 		}
@@ -529,6 +963,256 @@ QIE_wushan_dual_leadership_bop_category = {
 			add_power_balance_value = {
 				id = QIE_wushan_dual_leadership_bop
 				value = 0.20
+			}
+		}
+	}
+}
+QIE_wushan_submitting_to_the_king_category = {
+	QIE_wushan_punish_jinyang = {
+		icon = GFX_decision_generic_intelligence_operation
+		cost = 25
+		fire_only_once = yes
+		days_remove = 180
+		visible = {
+			has_completed_focus = QIE_restore_the_order_behind_shanhaiguan
+		}
+		available = {
+			has_completed_focus = QIE_restore_the_order_behind_shanhaiguan
+			SHX = { exists = yes }
+			has_war_with = SHX
+		}
+		targeted_modifier = {
+			tag = SHX
+			attack_bonus_against = 0.15
+			defense_bonus_against = 0.15
+			breakthrough_bonus_against = 0.15
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					SHX = {
+						exists = yes
+						NOT = { has_capitulated = yes }
+					}
+				}
+				country_event = { id = QIE_ws_normal_events.2 }
+			}
+		}
+	}
+	QIE_wushan_punish_sichuan = {
+		icon = GFX_decision_generic_intelligence_operation
+		cost = 25
+		fire_only_once = yes
+		days_remove = 180
+		visible = {
+			has_completed_focus = QIE_restore_the_order_behind_shanhaiguan
+		}
+		available = {
+			has_completed_focus = QIE_restore_the_order_behind_shanhaiguan
+			SZC = { exists = yes }
+			has_war_with = SZC
+		}
+		targeted_modifier = {
+			tag = SZC
+			attack_bonus_against = 0.15
+			defense_bonus_against = 0.15
+			breakthrough_bonus_against = 0.15
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					SZC = {
+						exists = yes
+						NOT = { has_capitulated = yes }
+					}
+				}
+				country_event = { id = QIE_ws_normal_events.2 }
+			}
+		}
+	}
+	QIE_wushan_punish_wanxi = {
+		icon = GFX_decision_generic_intelligence_operation
+		cost = 25
+		fire_only_once = yes
+		days_remove = 180
+		visible = {
+			has_completed_focus = QIE_restore_the_order_behind_shanhaiguan
+		}
+		available = {
+			has_completed_focus = QIE_destory_the_red_flag
+			ANQ = { exists = yes }
+			has_war_with = ANQ
+		}
+		targeted_modifier = {
+			tag = ANQ
+			attack_bonus_against = 0.15
+			defense_bonus_against = 0.15
+			breakthrough_bonus_against = 0.15
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					ANQ = {
+						exists = yes
+						NOT = { has_capitulated = yes }
+					}
+				}
+				country_event = { id = QIE_ws_normal_events.2 }
+			}
+		}
+	}
+	QIE_wushan_punish_bashenglianhe = {
+		icon = GFX_decision_generic_intelligence_operation
+		cost = 25
+		fire_only_once = yes
+		days_remove = 180
+		visible = {
+			has_completed_focus = QIE_restore_the_order_behind_shanhaiguan
+		}
+		available = {
+			has_completed_focus = QIE_destory_the_red_flag
+			LEP = { exists = yes }
+			has_war_with = LEP
+		}
+		targeted_modifier = {
+			tag = LEP
+			attack_bonus_against = 0.15
+			defense_bonus_against = 0.15
+			breakthrough_bonus_against = 0.15
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					LEP = {
+						exists = yes
+						NOT = { has_capitulated = yes }
+					}
+				}
+				country_event = { id = QIE_ws_normal_events.2 }
+			}
+		}
+	}
+	QIE_wushan_punish_liangguang = {
+		icon = GFX_decision_generic_intelligence_operation
+		cost = 25
+		fire_only_once = yes
+		days_remove = 180
+		visible = {
+			has_completed_focus = QIE_restore_the_order_behind_shanhaiguan
+		}
+		available = {
+			has_completed_focus = QIE_restore_the_order_behind_shanhaiguan
+			GXC = { exists = yes }
+			has_war_with = GXC
+		}
+		targeted_modifier = {
+			tag = GXC
+			attack_bonus_against = 0.15
+			defense_bonus_against = 0.15
+			breakthrough_bonus_against = 0.15
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					GXC = {
+						exists = yes
+						NOT = { has_capitulated = yes }
+					}
+				}
+				country_event = { id = QIE_ws_normal_events.2 }
+			}
+		}
+	}
+	QIE_wushan_punish_hunan = {
+		icon = GFX_decision_generic_intelligence_operation
+		cost = 25
+		fire_only_once = yes
+		days_remove = 180
+		visible = {
+			has_completed_focus = QIE_restore_the_order_behind_shanhaiguan
+		}
+		available = {
+			has_completed_focus = QIE_restore_the_order_behind_shanhaiguan
+			HNN = { exists = yes }
+			has_war_with = HNN
+		}
+		targeted_modifier = {
+			tag = HNN
+			attack_bonus_against = 0.15
+			defense_bonus_against = 0.15
+			breakthrough_bonus_against = 0.15
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					HNN = {
+						exists = yes
+						NOT = { has_capitulated = yes }
+					}
+				}
+				country_event = { id = QIE_ws_normal_events.2 }
+			}
+		}
+	}
+	QIE_wushan_punish_fengtian = {
+		icon = GFX_decision_generic_intelligence_operation
+		cost = 25
+		fire_only_once = yes
+		days_remove = 180
+		visible = {
+			has_completed_focus = QIE_restore_the_order_behind_shanhaiguan
+		}
+		available = {
+			has_completed_focus = QIE_advance_to_the_shanhaiguan
+			FNG = { exists = yes }
+			has_war_with = FNG
+		}
+		targeted_modifier = {
+			tag = FNG
+			attack_bonus_against = 0.15
+			defense_bonus_against = 0.15
+			breakthrough_bonus_against = 0.15
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					FNG = {
+						exists = yes
+						NOT = { has_capitulated = yes }
+					}
+				}
+				country_event = { id = QIE_ws_normal_events.2 }
+			}
+		}
+	}
+	QIE_wushan_punish_lkmt = {
+		icon = GFX_decision_generic_intelligence_operation
+		cost = 25
+		fire_only_once = yes
+		days_remove = 180
+		visible = {
+			has_completed_focus = QIE_restore_the_order_behind_shanhaiguan
+		}
+		available = {
+			has_completed_focus = QIE_destory_the_red_flag
+			CHI = { exists = yes }
+			has_war_with = CHI
+		}
+		targeted_modifier = {
+			tag = CHI
+			attack_bonus_against = 0.15
+			defense_bonus_against = 0.15
+			breakthrough_bonus_against = 0.15
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					CHI = {
+						exists = yes
+						NOT = { has_capitulated = yes }
+					}
+				}
+				country_event = { id = QIE_ws_normal_events.2 }
 			}
 		}
 	}
