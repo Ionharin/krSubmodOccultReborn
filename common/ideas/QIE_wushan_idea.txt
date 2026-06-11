@@ -20,6 +20,9 @@ ideas ={
             on_add = { log = "[GetLogRoot]: add idea QIE_hate_of_wushan" }
 			picture = RAJ_partition_chaos_bad
 			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.10
+			}
     }
 		QIE_wushan_debt_repayment = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_debt_repayment" }
@@ -105,6 +108,61 @@ ideas ={
 				stability_factor = 0.05
 				political_power_factor = 0.03
 				war_support_factor = 0.05
+			}
+		}
+		QIE_wushan_huayi_distinction = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_huayi_distinction" }
+			picture = qie_ideas_ws_huayi_distinction
+			allowed = { always = no }
+			modifier = {
+				justify_war_goal_time = -0.85
+			}
+		}
+		QIE_wushan_preparing_for_the_next_war = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_preparing_for_the_next_war" }
+			picture = CHI_decisive_battle
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.10
+				war_support_factor = 0.05
+				conversion_cost_civ_to_mil_factor = -0.20
+				factory_energy_consumption = -0.10
+				production_speed_arms_factory_factor = 0.05
+				industrial_capacity_factory = 0.03
+				production_factory_max_efficiency_factor = 0.03
+			}
+		}
+		QIE_wushan_five_turbid_evils_world = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_five_turbid_evils_world" }
+			available = {
+				has_war = no
+			}
+			on_remove = {
+				if = {
+					limit = {
+						has_war = yes
+						NOT = { has_idea = QIE_wushan_east_hua_west_xia }
+					}
+					add_ideas = QIE_wushan_east_hua_west_xia
+				}
+			}
+			picture = RAJ_partition_chaos_bad
+			allowed = { always = no }
+			modifier = {
+				stability_weekly = 0.001
+				war_support_weekly = -0.001
+			}
+		}
+		QIE_wushan_east_hua_west_xia = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_east_hua_west_xia" }
+			picture = qie_ideas_ws_huayi_distinction
+			allowed = { always = no }
+			modifier = {
+				stability_weekly = -0.001
+				war_support_weekly = 0.001
+				war_stability_factor = 0.20
+				weekly_casualties_war_support = 0.002
+				conscription_factor = 0.10
 			}
 		}
 		QIE_wushan_daben_donation = {
@@ -599,6 +657,50 @@ ideas ={
 				intel_network_gain = 0.1
 				resistance_growth = -0.10
 				resistance_damage_to_garrison = -0.10
+			}
+		}
+		QIE_wushan_extraordinary_plenipotentiary_chawei_commissioner = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_extraordinary_plenipotentiary_chawei_commissioner" }
+			picture = generic_spy_coup
+			allowed = { always = no }
+			modifier = {
+				operative_slot = 3
+				intelligence_agency_defense = 1.5
+				encryption = 2
+				enemy_operative_detection_chance_factor = 0.20
+				enemy_operative_capture_chance_factor = 0.15
+				enemy_operative_intel_extraction_rate = 0.15
+			}
+		}
+		QIE_wushan_unexpected_budget = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_unexpected_budget" }
+			on_remove = {
+				random_list = {
+					50 = {
+						if = {
+							limit = {
+								NOT = { is_special_project_completed = sp:sp_air_helicopter }
+							}
+							complete_special_project = {
+								project = sp:sp_air_helicopter
+							}
+						}
+					}
+					50 = {
+						country_event = { id = QIE_wushan_events.5 }
+					}
+				}
+			}
+			picture = PER_fund_state_intelligence_idea
+			allowed = { always = no }
+			equipment_bonus = {
+				mio_cat_eq_all_aircraft = {
+					build_cost_ic = -0.15
+					instant = yes
+				}
+			}
+			modifier = {
+				consumer_goods_expected_value = 0.05
 			}
 		}
 		QIE_wushan_let_the_artillery_speak = {

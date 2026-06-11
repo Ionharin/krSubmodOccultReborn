@@ -34,6 +34,12 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 150
 			custom_effect_tooltip = QIE_ws1_tt
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 93
+			}
 			hidden_effect = {
 				set_country_flag = QIE_wushan_refugee_crisis_unlocked
 				set_cosmetic_tag = QIE_wushan_cosmetic_tag
@@ -264,7 +270,7 @@ focus_tree = {
 		id = QIE_the_reluctant_two_leaders
 		x = 6
 		y = 4
-		cost = 3
+		cost = 2
 		icon = GFX_qie_ws_the_reluctant_two_leaders
 		continue_if_invalid = no
 		cancel_if_invalid = no
@@ -404,7 +410,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_stability = -0.05
-			country_event = { id = QIE_ws_god_circle_events.4 }
+			country_event = {
+				id = QIE_ws_god_circle_events.4
+			}
 		}
 	}
 	focus = {
@@ -430,7 +438,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_stability = -0.05
-			country_event = { id = QIE_ws_god_circle_events.6 }
+			country_event = {
+				id = QIE_ws_god_circle_events.6
+			}
 		}
 	}
 	focus = {
@@ -445,9 +455,9 @@ focus_tree = {
 			custom_trigger_tooltip = {
 				tooltip = QIE_focus_need_no_focus_tier_1_required_tt
 				OR = {
-					has_idea = QIE_god_circle_con_tier_1
-					has_idea = QIE_god_circle_con_tier_2
-					has_idea = QIE_god_circle_con_tier_3
+					has_idea = QIE_god_circle_no_focus_tier_1
+					has_idea = QIE_god_circle_no_focus_tier_2
+					has_idea = QIE_god_circle_no_focus_tier_3
 				}
 			}
 		}
@@ -456,7 +466,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_stability = -0.05
-			country_event = { id = QIE_ws_god_circle_events.2 }
+			country_event = {
+				id = QIE_ws_god_circle_events.2
+			}
 		}
 	}
 	focus = {
@@ -482,7 +494,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_stability = -0.05
-			country_event = { id = QIE_ws_god_circle_events.8 }
+			country_event = {
+				id = QIE_ws_god_circle_events.8
+			}
 		}
 	}
 	focus = {
@@ -508,7 +522,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_stability = -0.05
-			country_event = { id = QIE_ws_god_circle_events.10 }
+			country_event = {
+				id = QIE_ws_god_circle_events.10
+			}
 		}
 	}
 	focus = {
@@ -1053,7 +1069,7 @@ focus_tree = {
 		completion_reward = {
 			army_experience = 25
 			add_doctrine_cost_reduction = {
-				name = QIE_emulating_the_jade_marshal
+				name = QIE_old_army_new_life
 				cost_reduction = 0.5
 				uses = 2
 				category = land_doctrine
@@ -1098,7 +1114,17 @@ focus_tree = {
 			focus = QIE_jesus_stage_2
 		}
 		completion_reward = {
-			country_event = { id = QIE_ws_god_circle_events.9 }
+			custom_effect_tooltip = QIE_jesus_shed_his_blood.tt
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 15
+			}
+			QIE_update_god_circle_tier = yes
+			country_event = {
+				id = QIE_ws_god_circle_events.9
+			}
 		}
 	}
 	focus = {
@@ -1119,7 +1145,17 @@ focus_tree = {
 			focus = QIE_mohammad_stage_2
 		}
 		completion_reward = {
-			country_event = { id = QIE_ws_god_circle_events.11 }
+			custom_effect_tooltip = QIE_raise_the_long_blade.tt
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 15
+			}
+			QIE_update_god_circle_tier = yes
+			country_event = {
+				id = QIE_ws_god_circle_events.11
+			}
 		}
 	}
 	focus = {
@@ -1133,14 +1169,24 @@ focus_tree = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = QIE_focus_need_no_focus_tier_3_required_tt
-				has_idea = QIE_god_circle_con_tier_3
+				has_idea = QIE_god_circle_no_focus_tier_3
 			}
 		}
 		prerequisite = {
 			focus = QIE_confucism_stage_2
 		}
 		completion_reward = {
-			country_event = { id = QIE_ws_god_circle_events.3 }
+			custom_effect_tooltip = QIE_spring_and_autumn_ritual.tt
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 15
+			}
+			QIE_update_god_circle_tier = yes
+			country_event = {
+				id = QIE_ws_god_circle_events.3
+			}
 		}
 	}
 	focus = {
@@ -1161,7 +1207,17 @@ focus_tree = {
 			focus = QIE_buddhism_stage_2
 		}
 		completion_reward = {
-			country_event = { id = QIE_ws_god_circle_events.7 }
+			custom_effect_tooltip = QIE_into_samadhi.tt
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 15
+			}
+			QIE_update_god_circle_tier = yes
+			country_event = {
+				id = QIE_ws_god_circle_events.7
+			}
 		}
 	}
 	focus = {
@@ -1175,7 +1231,7 @@ focus_tree = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = QIE_focus_need_lao_tier_3_required_tt
-				has_idea = QIE_god_circle_no_focus_tier_3
+				has_idea = QIE_god_circle_con_tier_3
 			}
 		}
 		prerequisite = {
@@ -1183,7 +1239,16 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = QIE_seize_the_great_game.tt
-			country_event = { id = QIE_ws_god_circle_events.5 }
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 15
+			}
+			QIE_update_god_circle_tier = yes
+			country_event = {
+				id = QIE_ws_god_circle_events.5
+			}
 		}
 	}
 	focus = {
@@ -1194,11 +1259,26 @@ focus_tree = {
 		icon = GFX_focus_qie_ws_union_the_world_as_the_country
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			has_completed_focus = QIE_wushan_china_united_again_lower_phase
+			NOT = {
+				has_completed_focus = QIE_wushan_union_between_loong_eagle
+			}
+		}
 		prerequisite = {
 			focus = QIE_old_chinese_beliefs_reborn
 		}
 		prerequisite = {
 			focus = QIE_and_new_beliefs_live_in_here
+		}
+		completion_reward = {
+			add_ideas = QIE_wushan_huayi_distinction
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 418
+			}
 		}
 	}
 	focus = {
@@ -1660,7 +1740,7 @@ focus_tree = {
 		x = 23
 		y = 8
 		cost = 7
-		icon = GFX_goal_agrarian_reform
+		icon = GFX_goal_QIE_glory
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		available = {
@@ -1773,11 +1853,16 @@ focus_tree = {
 			add_war_support = 0.1
 			if = {
 				limit = {
-					NOT = { has_dynamic_modifier = { modifier = QIE_wushan_luoyang_arsenal_modifier } }
+					NOT = {
+						has_dynamic_modifier = {
+							modifier = QIE_wushan_luoyang_arsenal_modifier
+						}
+					}
 				}
-				add_dynamic_modifier = { modifier = QIE_wushan_luoyang_arsenal_modifier }
+				add_dynamic_modifier = {
+					modifier = QIE_wushan_luoyang_arsenal_modifier
+				}
 			}
-			add_ideas = QIE_wushan_luoyang_arsenal_zhili_research
 			if = {
 				limit = {
 					has_idea = QIE_jingchun_army_bureau
@@ -1789,6 +1874,9 @@ focus_tree = {
 			}
 			else = {
 				add_ideas = QIE_jingchun_army_bureau_upgraded
+			}
+			hidden_effect = {
+				add_ideas = QIE_wushan_luoyang_arsenal_zhili_research
 			}
 		}
 	}
@@ -1819,11 +1907,16 @@ focus_tree = {
 			add_war_support = 0.1
 			if = {
 				limit = {
-					NOT = { has_dynamic_modifier = { modifier = QIE_wushan_luoyang_arsenal_modifier } }
+					NOT = {
+						has_dynamic_modifier = {
+							modifier = QIE_wushan_luoyang_arsenal_modifier
+						}
+					}
 				}
-				add_dynamic_modifier = { modifier = QIE_wushan_luoyang_arsenal_modifier }
+				add_dynamic_modifier = {
+					modifier = QIE_wushan_luoyang_arsenal_modifier
+				}
 			}
-			add_ideas = QIE_wushan_luoyang_arsenal_tank_research
 			if = {
 				limit = {
 					has_idea = QIE_jingchun_army_bureau
@@ -1844,6 +1937,9 @@ focus_tree = {
 			}
 			else = {
 				add_ideas = QIE_jingchun_army_bureau_tank_upgraded
+			}
+			hidden_effect = {
+				add_ideas = QIE_wushan_luoyang_arsenal_tank_research
 			}
 		}
 	}
@@ -2116,7 +2212,6 @@ focus_tree = {
 					modifier = QIE_wushan_zhili_arsenal_state_modifier
 				}
 			}
-			add_ideas = QIE_wushan_luoyang_arsenal_motorized_cost
 		}
 	}
 	focus = {
@@ -2588,7 +2683,7 @@ focus_tree = {
 	focus = {
 		id = QIE_wushan_china_united_again_lower_phase
 		x = 6
-		y = 8
+		y = 9
 		cost = 10
 		icon = GFX_focus_generic_subjugation
 		continue_if_invalid = no
@@ -2597,158 +2692,411 @@ focus_tree = {
 			china_is_the_unifier_of_china_trigger = yes
 		}
 		prerequisite = {
-			focus = QIE_wushan_restore_squire_council
-		}
-		prerequisite = {
-			focus = QIE_wushan_contact_with_the_social_elites
-		}
-		prerequisite = {
-			focus = QIE_wushan_forcing_prisoners_to_work
+			focus = QIE_wushan_dead_leader_live_country
 		}
 		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed QIE_wushan_china_united_again_lower_phase"
 			set_country_flag = qie_wushan_has_control_china
 			set_stability = 1
 			custom_effect_tooltip = QIE_wushan_china_united_again_next_step_tt
 			mark_focus_tree_layout_dirty = yes
-		}
-	}
-	focus = {
-		id = QIE_wushan_common_polit_11
-		x = 2
-		y = 10
-		cost = 5
-		icon = GFX_focus_JAP_remove_the_weeds_from_the_crop
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_great_loong_stand_on_east
-			focus = QIE_wushan_union_between_loong_eagle
-		}
-	}
-	focus = {
-		id = QIE_wushan_common_polit_12
-		x = 10
-		y = 10
-		cost = 5
-		icon = GFX_focus_RAJ_union_busting
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_union_between_loong_eagle
-			focus = QIE_wushan_great_loong_stand_on_east
-		}
-	}
-	focus = {
-		id = QIE_wushan_common_polit_13
-		x = 4
-		y = 10
-		cost = 5
-		icon = GFX_focus_GER_support_the_proletarian_uprising
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_great_loong_stand_on_east
-			focus = QIE_wushan_union_between_loong_eagle
-		}
-	}
-	focus = {
-		id = QIE_wushan_common_polit_14
-		x = 8
-		y = 10
-		cost = 5
-		icon = GFX_focus_generic_turning_a_blind_eye
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_union_between_loong_eagle
-			focus = QIE_wushan_great_loong_stand_on_east
-		}
-	}
-	focus = {
-		id = QIE_wushan_common_polit_15
-		x = 4
-		y = 11
-		cost = 4
-		icon = GFX_focus_PRC_reclaim_tibet
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_common_polit_13
-		}
-		prerequisite = {
-			focus = QIE_wushan_common_polit_14
-		}
-		prerequisite = {
-			focus = QIE_wushan_common_polit_11
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 93
+			}
 		}
 	}
 	focus = {
 		id = QIE_wushan_common_polit_16
 		x = 6
-		y = 11
+		y = 12
 		cost = 10
 		icon = GFX_focus_RAJ_i_am_death
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_common_polit_13
+		allow_branch = {
+			has_country_flag = qie_wushan_we_have_not_finished
 		}
 		prerequisite = {
-			focus = QIE_wushan_common_polit_14
-		}
-	}
-	focus = {
-		id = QIE_wushan_common_polit_17
-		x = 8
-		y = 11
-		cost = 4
-		icon = GFX_focus_CONGO_gold_and_diamonds
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_common_polit_14
+			focus = QIE_wushan_universe_is_destroyed_by_fire
 		}
 		prerequisite = {
-			focus = QIE_wushan_common_polit_12
+			focus = QIE_wushan_universe_is_destroyed_by_water
 		}
 	}
 	focus = {
-		id = QIE_wushan_common_polit_18
-		x = 5
-		y = 12
-		cost = 6
-		icon = GFX_focus_rocketry
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_common_polit_15
-		}
-	}
-	focus = {
-		id = QIE_wushan_common_polit_19
-		x = 7
-		y = 12
-		cost = 6
-		icon = GFX_focus_generic_nuclear_development
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_common_polit_17
-		}
-	}
-	focus = {
-		id = QIE_wushan_common_polit_20
+		id = QIE_wushan_only_one_light_in_this_dark_world
 		x = 6
-		y = 13
-		cost = 15
+		y = 14
+		cost = 1111
 		icon = GFX_focus_RAJ_tryst_with_destiny_hand
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_common_polit_18
+		available = {
+			has_war = no
 		}
 		prerequisite = {
-			focus = QIE_wushan_common_polit_19
+			focus = QIE_wushan_our_rockets_our_victory
+		}
+		prerequisite = {
+			focus = QIE_wushan_wangongchang_explosion
+		}
+		prerequisite = {
+			focus = QIE_wushan_punish_those_syndicalistic_thugs
+		}
+		completion_reward = {
+			add_stability = -0.3
+			add_war_support = 0.2
+			add_ideas = QIE_wushan_five_turbid_evils_world
+			if = {
+				limit = {
+					has_completed_focus = QIE_seize_the_great_game
+					has_completed_focus = QIE_union_the_world_as_the_country
+				}
+				custom_effect_tooltip = QIE_seize_the_great_game_has_complete.tt
+				add_stability = -0.1
+				every_state = {
+					limit = {
+						OR = {
+							is_core_of = TRK
+							is_core_of = BUK
+							is_core_of = AFG
+							is_core_of = KHI
+						}
+					}
+					add_core_of = ROOT
+				}
+				418 = {
+					add_core_of = ROOT
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_seize_the_great_game
+					NOT = {
+						has_completed_focus = QIE_union_the_world_as_the_country
+					}
+				}
+				custom_effect_tooltip = QIE_seize_the_great_game_has_complete_claim.tt
+				every_state = {
+					limit = {
+						OR = {
+							is_core_of = TRK
+							is_core_of = BUK
+							is_core_of = AFG
+							is_core_of = KHI
+						}
+					}
+					add_claim_by = ROOT
+				}
+				418 = {
+					add_claim_by = ROOT
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_into_samadhi
+					has_completed_focus = QIE_union_the_world_as_the_country
+				}
+				custom_effect_tooltip = QIE_into_samadhi_has_complete.tt
+				add_stability = -0.1
+				every_state = {
+					limit = {
+						OR = {
+							is_core_of = SIA
+							is_core_of = BRM
+							is_core_of = BHU
+							is_core_of = NEP
+						}
+					}
+					add_core_of = ROOT
+				}
+				826 = {
+					add_core_of = ROOT
+				}
+				856 = {
+					add_core_of = ROOT
+				}
+				286 = {
+					add_core_of = ROOT
+				}
+				827 = {
+					add_core_of = ROOT
+				}
+				670 = {
+					add_core_of = ROOT
+				}
+				671 = {
+					add_core_of = ROOT
+				}
+				857 = {
+					add_core_of = ROOT
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_into_samadhi
+					NOT = {
+						has_completed_focus = QIE_union_the_world_as_the_country
+					}
+				}
+				custom_effect_tooltip = QIE_into_samadhi_has_complete_claim.tt
+				every_state = {
+					limit = {
+						OR = {
+							is_core_of = SIA
+							is_core_of = BRM
+							is_core_of = BHU
+							is_core_of = NEP
+						}
+					}
+					add_claim_by = ROOT
+				}
+				826 = {
+					add_claim_by = ROOT
+				}
+				856 = {
+					add_claim_by = ROOT
+				}
+				286 = {
+					add_claim_by = ROOT
+				}
+				827 = {
+					add_claim_by = ROOT
+				}
+				670 = {
+					add_claim_by = ROOT
+				}
+				671 = {
+					add_claim_by = ROOT
+				}
+				857 = {
+					add_claim_by = ROOT
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_spring_and_autumn_ritual
+					has_completed_focus = QIE_union_the_world_as_the_country
+				}
+				custom_effect_tooltip = QIE_spring_and_autumn_ritual_has_complete.tt
+				add_stability = -0.1
+				every_state = {
+					limit = {
+						OR = {
+							is_core_of = KOR
+							is_core_of = JAP
+						}
+					}
+					add_core_of = ROOT
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_spring_and_autumn_ritual
+					NOT = {
+						has_completed_focus = QIE_union_the_world_as_the_country
+					}
+				}
+				custom_effect_tooltip = QIE_spring_and_autumn_ritual_has_complete_claim.tt
+				every_state = {
+					limit = {
+						OR = {
+							is_core_of = KOR
+							is_core_of = JAP
+						}
+					}
+					add_claim_by = ROOT
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_jesus_shed_his_blood
+					has_completed_focus = QIE_union_the_world_as_the_country
+				}
+				custom_effect_tooltip = QIE_jesus_shed_his_blood_has_complete.tt
+				add_stability = -0.1
+				454 = {
+					add_core_of = ROOT
+				}
+				2 = {
+					add_core_of = ROOT
+				}
+				26 = {
+					add_core_of = ROOT
+				}
+				112 = {
+					add_core_of = ROOT
+				}
+				161 = {
+					add_core_of = ROOT
+				}
+				87 = {
+					add_core_of = ROOT
+				}
+				277 = {
+					add_core_of = ROOT
+				}
+				992 = {
+					add_core_of = ROOT
+				}
+				453 = {
+					add_core_of = ROOT
+				}
+				753 = {
+					add_core_of = ROOT
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_jesus_shed_his_blood
+					NOT = {
+						has_completed_focus = QIE_union_the_world_as_the_country
+					}
+				}
+				custom_effect_tooltip = QIE_jesus_shed_his_blood_has_complete_claim.tt
+				454 = {
+					add_claim_by = ROOT
+				}
+				2 = {
+					add_claim_by = ROOT
+				}
+				26 = {
+					add_claim_by = ROOT
+				}
+				112 = {
+					add_claim_by = ROOT
+				}
+				161 = {
+					add_claim_by = ROOT
+				}
+				87 = {
+					add_claim_by = ROOT
+				}
+				277 = {
+					add_claim_by = ROOT
+				}
+				992 = {
+					add_claim_by = ROOT
+				}
+				453 = {
+					add_claim_by = ROOT
+				}
+				753 = {
+					add_claim_by = ROOT
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_raise_the_long_blade
+					has_completed_focus = QIE_union_the_world_as_the_country
+				}
+				custom_effect_tooltip = QIE_raise_the_long_blade_has_complete.tt
+				add_stability = -0.1
+				every_state = {
+					limit = {
+						OR = {
+							is_core_of = PER
+							is_core_of = TUR
+							is_core_of = JBS
+							is_core_of = SAU
+							is_core_of = OMA
+							is_core_of = YEM
+							is_core_of = LBA
+							is_core_of = MOR
+							is_core_of = SPA
+						}
+					}
+					add_core_of = ROOT
+				}
+				805 = {
+					add_core_of = ROOT
+				}
+				513 = {
+					add_core_of = ROOT
+				}
+				459 = {
+					add_core_of = ROOT
+				}
+				865 = {
+					add_core_of = ROOT
+				}
+				460 = {
+					add_core_of = ROOT
+				}
+				458 = {
+					add_core_of = ROOT
+				}
+				665 = {
+					add_core_of = ROOT
+				}
+				452 = {
+					add_core_of = ROOT
+				}
+				446 = {
+					add_core_of = ROOT
+				}
+				447 = {
+					add_core_of = ROOT
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_raise_the_long_blade
+					NOT = {
+						has_completed_focus = QIE_union_the_world_as_the_country
+					}
+				}
+				custom_effect_tooltip = QIE_raise_the_long_blade_has_complete_claim.tt
+				every_state = {
+					limit = {
+						OR = {
+							is_core_of = PER
+							is_core_of = TUR
+							is_core_of = JBS
+							is_core_of = SAU
+							is_core_of = OMA
+							is_core_of = YEM
+							is_core_of = LBA
+							is_core_of = MOR
+							is_core_of = SPA
+						}
+					}
+					add_claim_by = ROOT
+				}
+				805 = {
+					add_claim_by = ROOT
+				}
+				513 = {
+					add_claim_by = ROOT
+				}
+				459 = {
+					add_claim_by = ROOT
+				}
+				865 = {
+					add_claim_by = ROOT
+				}
+				460 = {
+					add_claim_by = ROOT
+				}
+				458 = {
+					add_claim_by = ROOT
+				}
+				665 = {
+					add_claim_by = ROOT
+				}
+				452 = {
+					add_claim_by = ROOT
+				}
+				446 = {
+					add_claim_by = ROOT
+				}
+				447 = {
+					add_claim_by = ROOT
+				}
+			}
 		}
 	}
 	focus = {
@@ -2807,8 +3155,12 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_dynamic_modifier = {
-				modifier = QIE_wushan_lvzu_chunyang_throne_modifier
+			custom_effect_tooltip = QIE_seances_restart_in_beijing.tt
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 1
 			}
 			hidden_effect = {
 				set_variable = {
@@ -3438,8 +3790,8 @@ focus_tree = {
 			custom_trigger_tooltip = {
 				tooltip = QIE_focus_need_lao_tier_2_required_tt
 				OR = {
-					has_idea = QIE_god_circle_no_focus_tier_2
-					has_idea = QIE_god_circle_no_focus_tier_3
+					has_idea = QIE_god_circle_con_tier_2
+					has_idea = QIE_god_circle_con_tier_3
 				}
 			}
 		}
@@ -3533,8 +3885,8 @@ focus_tree = {
 			custom_trigger_tooltip = {
 				tooltip = QIE_focus_need_no_focus_tier_2_required_tt
 				OR = {
-					has_idea = QIE_god_circle_con_tier_2
-					has_idea = QIE_god_circle_con_tier_3
+					has_idea = QIE_god_circle_no_focus_tier_2
+					has_idea = QIE_god_circle_no_focus_tier_3
 				}
 			}
 		}
@@ -3764,10 +4116,11 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		available = {
-			china_is_the_unifier_of_china_trigger = yes
+			has_country_flag = qie_wushan_has_control_china
+			has_completed_focus = QIE_wushan_arrest_of_opposition_figures
 		}
 		allow_branch = {
-			china_is_the_unifier_of_china_trigger = yes
+			has_country_flag = qie_wushan_has_control_china
 		}
 		prerequisite = {
 			focus = QIE_become_CERA_shadow
@@ -3782,10 +4135,11 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		available = {
-			china_is_the_unifier_of_china_trigger = yes
+			has_country_flag = qie_wushan_has_control_china
+			has_completed_focus = QIE_wushan_arrest_of_opposition_figures
 		}
 		allow_branch = {
-			china_is_the_unifier_of_china_trigger = yes
+			has_country_flag = qie_wushan_has_control_china
 		}
 		prerequisite = {
 			focus = QIE_become_YCP_shadow
@@ -3800,10 +4154,11 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		available = {
-			china_is_the_unifier_of_china_trigger = yes
+			has_country_flag = qie_wushan_has_control_china
+			has_completed_focus = QIE_wushan_arrest_of_opposition_figures
 		}
 		allow_branch = {
-			china_is_the_unifier_of_china_trigger = yes
+			has_country_flag = qie_wushan_has_control_china
 		}
 		prerequisite = {
 			focus = QIE_become_MP_shadow
@@ -3812,13 +4167,119 @@ focus_tree = {
 	focus = {
 		id = QIE_wushan_punishment_those_enemies
 		x = 6
-		y = 10
+		y = 11
 		cost = 7
-		icon = GFX_focus_CHI_punish_the_signatories
+		icon = GFX_qie_ws_punishment_those_enemies
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			NOT = {
+				has_completed_focus = QIE_wushan_union_between_loong_eagle
+			}
+			has_completed_focus = QIE_revenge_for_1928
+		}
+		bypass = {
+			NOT = {
+				JAP = {
+					exists = yes
+				}
+			}
+			NOT = {
+				RUS = {
+					exists = yes
+				}
+			}
+			NOT = {
+				GER = {
+					exists = yes
+				}
+			}
+			NOT = {
+				USA = {
+					exists = yes
+				}
+			}
+			NOT = {
+				IMP = {
+					exists = yes
+				}
+			}
+			NOT = {
+				AUS = {
+					exists = yes
+				}
+			}
+		}
 		prerequisite = {
 			focus = QIE_wushan_china_united_again_lower_phase
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					JAP = {
+						exists = yes
+					}
+				}
+				create_wargoal = {
+					target = JAP
+					type = annex_everything
+				}
+			}
+			if = {
+				limit = {
+					RUS = {
+						exists = yes
+					}
+				}
+				create_wargoal = {
+					target = RUS
+					type = annex_everything
+				}
+			}
+			if = {
+				limit = {
+					GER = {
+						exists = yes
+					}
+				}
+				create_wargoal = {
+					target = GER
+					type = annex_everything
+				}
+			}
+			if = {
+				limit = {
+					USA = {
+						exists = yes
+					}
+				}
+				create_wargoal = {
+					target = USA
+					type = annex_everything
+				}
+			}
+			if = {
+				limit = {
+					IMP = {
+						exists = yes
+					}
+				}
+				create_wargoal = {
+					target = IMP
+					type = annex_everything
+				}
+			}
+			if = {
+				limit = {
+					AUS = {
+						exists = yes
+					}
+				}
+				create_wargoal = {
+					target = AUS
+					type = annex_everything
+				}
+			}
 		}
 	}
 	focus = {
@@ -4447,9 +4908,7 @@ focus_tree = {
 				remove_idea = QIE_wushan_theocratic_authority_2
 				add_idea = QIE_wushan_theocratic_authority_3
 			}
-			QIE_ws_jiang_chao_zong = {
-				add_country_leader_trait = QIE_four_nots_scholar
-			}
+			add_country_leader_trait = QIE_four_nots_scholar
 		}
 	}
 	focus = {
@@ -4485,7 +4944,9 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		allow_branch = {
-			china_is_the_unifier_of_china_trigger = no
+			NOT = {
+				has_country_flag = qie_wushan_has_control_china
+			}
 		}
 		prerequisite = {
 			focus = QIE_become_YCP_shadow
@@ -4510,7 +4971,9 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		allow_branch = {
-			china_is_the_unifier_of_china_trigger = no
+			NOT = {
+				has_country_flag = qie_wushan_has_control_china
+			}
 		}
 		prerequisite = {
 			focus = QIE_become_CERA_shadow
@@ -4544,7 +5007,9 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		allow_branch = {
-			china_is_the_unifier_of_china_trigger = no
+			NOT = {
+				has_country_flag = qie_wushan_has_control_china
+			}
 		}
 		prerequisite = {
 			focus = QIE_become_MP_shadow
@@ -4583,6 +5048,13 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_wushan_wu_enforcing_ethics_through_military_orders
 		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = QIE_wushan_theocratic_authority_2
+				add_idea = QIE_wushan_theocratic_authority_3
+			}
+			add_country_leader_trait = QIE_ws_spring_and_autumn_justice
+		}
 	}
 	focus = {
 		id = QIE_wushan_prepare_blow_up_the_dam
@@ -4615,71 +5087,90 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = QIE_wushan_establish_the_reborn_navies
+		id = QIE_wushan_more_is_better_faster_is_great
 		x = 34
 		y = 9
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_integrate_existing_MIO_resources
-		}
-	}
-	focus = {
-		id = QIE_wushan_order_warships_from_abroad
-		x = 33
-		y = 10
-		cost = 0
+		cost = 10
+		icon = GFX_goal_generic_artillery_factories
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
-			focus = QIE_wushan_starting_from_zero
+			focus = QIE_wushan_efficient_utilization_of_resources
 		}
 		prerequisite = {
-			focus = QIE_wushan_establish_the_reborn_navies
+			focus = QIE_integrate_existing_MIO_resources
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+			}
+			set_global_flag = QIE_ws_choose_production_tier_1
 		}
 	}
 	focus = {
 		id = QIE_the_project_of_white_horse
-		x = 34
-		y = 12
-		cost = 0
+		x = 35
+		y = 10
+		cost = 10
+		icon = GFX_goal_generic_army_tanks3
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = QIE_wushan_army_4
+			focus = QIE_wushan_more_is_better_faster_is_great
+			focus = QIE_wushan_efficient_utilization_of_resources
+		}
+		completion_reward = {
+			add_political_power = 50
+			if = {
+				limit = {
+					has_completed_focus = QIE_wushan_more_is_better_faster_is_great
+				}
+				set_global_flag = QIE_ws_choose_production_tier_2
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_wushan_efficient_utilization_of_resources
+				}
+				set_global_flag = QIE_ws_choose_resource_tier_2
+			}
 		}
 	}
 	focus = {
-		id = QIE_wushan_starting_from_zero
-		x = 35
-		y = 10
-		cost = 0
+		id = QIE_wushan_efficient_utilization_of_resources
+		x = 36
+		y = 9
+		cost = 10
+		icon = GFX_goal_syndicalist_workers
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
-			focus = QIE_wushan_order_warships_from_abroad
+			focus = QIE_wushan_more_is_better_faster_is_great
 		}
-		prerequisite = {
-			focus = QIE_wushan_establish_the_reborn_navies
-		}
-	}
-	focus = {
-		id = QIE_wushan_the_eagle_soars_in_the_sky
-		x = 44
-		y = 9
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_integrate_existing_MIO_resources
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+			}
+			set_global_flag = QIE_ws_choose_resource_tier_1
 		}
 	}
 	focus = {
 		id = QIE_integrate_existing_MIO_resources
 		x = 39
 		y = 8
-		cost = 18
+		cost = 15
 		icon = GFX_focus_GER_prioritize_the_four_year_plan
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -4692,69 +5183,53 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_wushan_military_end
 		}
+		completion_reward = {
+			custom_effect_tooltip = QIE_integrate_existing_MIO_resources_tt
+			hidden_effect = {
+				set_temp_variable = {
+					qie_luoyang_714_funds_change = post_CHI_war_mio_reconstruction
+				}
+				if = {
+					limit = {
+						mio:QIE_luoyang_714_arsenal_organisation = {
+							is_mio_available = no
+						}
+					}
+					show_mio_tooltip = QIE_luoyang_714_arsenal_organisation
+				}
+				mio:QIE_luoyang_714_arsenal_organisation = {
+					add_mio_size = 1
+					add_mio_funds = var:qie_luoyang_714_funds_change
+				}
+			}
+		}
 	}
 	focus = {
-		id = QIE_wushan_squander_money
-		x = 45
-		y = 10
-		cost = 0
-		icon = GFX_focus_SOV_organize_wreckers
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = QIE_wushan_army_1
-		}
-		prerequisite = {
-			focus = QIE_wushan_the_eagle_soars_in_the_sky
-		}
-	}
-	focus = {
-		id = QIE_wushan_army_1
+		id = QIE_wushan_further_optimize_design_direction
 		x = 43
 		y = 10
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = QIE_wushan_squander_money
-		}
-		prerequisite = {
-			focus = QIE_wushan_the_eagle_soars_in_the_sky
-		}
-	}
-	focus = {
-		id = QIE_wushan_army_2
-		x = 44
-		y = 12
-		cost = 0
+		cost = 10
+		icon = GFX_focus_generic_tank_destroyer
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = QIE_wushan_army_3
+			focus = QIE_wushan_squander_money_focus_on_fire
+			focus = QIE_wushan_stability_first_and_most_important
 		}
-	}
-	focus = {
-		id = QIE_wushan_army_3
-		x = 44
-		y = 11
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_army_1
-			focus = QIE_wushan_squander_money
-		}
-	}
-	focus = {
-		id = QIE_wushan_army_4
-		x = 34
-		y = 11
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_order_warships_from_abroad
-			focus = QIE_wushan_starting_from_zero
+		completion_reward = {
+			add_political_power = 50
+			if = {
+				limit = {
+					has_completed_focus = QIE_wushan_stability_first_and_most_important
+				}
+				set_global_flag = QIE_ws_choose_reliability_rule_tier_2
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_wushan_squander_money_focus_on_fire
+				}
+				set_global_flag = QIE_ws_choose_firepower_rule_tier_2
+			}
 		}
 	}
 	focus = {
@@ -4798,9 +5273,9 @@ focus_tree = {
 	}
 	focus = {
 		id = QIE_wushan_china_airforce_coming
-		x = 56
+		x = 52
 		y = 0
-		cost = 0
+		cost = 6
 		icon = GFX_focus_PRC_establish_domestic_aircraft_production
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -4810,84 +5285,105 @@ focus_tree = {
 		allow_branch = {
 			has_country_flag = qie_wushan_has_control_china
 		}
-	}
-	focus = {
-		id = QIE_wushan_our_independent_tank_factory
-		x = 39
-		y = 9
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_integrate_existing_MIO_resources
-		}
-	}
-	focus = {
-		id = QIE_wushan_army_5
-		x = 38
-		y = 10
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = QIE_wushan_army_6
-		}
-		prerequisite = {
-			focus = QIE_wushan_our_independent_tank_factory
-		}
-	}
-	focus = {
-		id = QIE_wushan_army_6
-		x = 40
-		y = 10
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = QIE_wushan_army_5
-		}
-		prerequisite = {
-			focus = QIE_wushan_our_independent_tank_factory
-		}
-	}
-	focus = {
-		id = QIE_wushan_army_7
-		x = 39
-		y = 11
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_army_5
-			focus = QIE_wushan_army_6
-		}
-	}
-	focus = {
-		id = QIE_wushan_army_8
-		x = 39
-		y = 12
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_army_7
+		completion_reward = {
+			air_experience = 30
+			add_dynamic_modifier = {
+				modifier = QIE_wushan_aviation_affairs_commission_modifer
+			}
 		}
 	}
 	focus = {
 		id = QIE_wushan_the_great_beast_industry
 		x = 39
-		y = 14
-		cost = 0
+		y = 12
+		cost = 20
+		icon = GFX_goal_Focus_Military_Mobilisation
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_the_project_of_white_horse
 		}
 		prerequisite = {
-			focus = QIE_wushan_army_8
+			focus = QIE_wushan_715_armor_design_arsenal
 		}
 		prerequisite = {
-			focus = QIE_wushan_army_2
+			focus = QIE_wushan_further_optimize_design_direction
+		}
+		completion_reward = {
+			custom_effect_tooltip = QIE_wushan_the_great_beast_industry.tt
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			army_experience = 50
+			air_experience = 50
+			navy_experience = 50
+			mio:QIE_luoyang_714_arsenal_organisation = {
+				add_mio_size = 3
+			}
+			set_country_flag = QIE_ws_rearmament_completed_phase1
+			if = {
+				limit = {
+					has_completed_focus = QIE_wushan_more_is_better_faster_is_great
+				}
+				set_global_flag = QIE_ws_choose_production_tier_3
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_wushan_efficient_utilization_of_resources
+				}
+				set_global_flag = QIE_ws_choose_resource_tier_3
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_wushan_conduct_armor_steel_experiments
+				}
+				set_global_flag = QIE_ws_choose_armor_strength_tier_3
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_wushan_high_speed_racing_engine
+				}
+				set_global_flag = QIE_ws_choose_armor_speed_tier_3
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_wushan_stability_first_and_most_important
+				}
+				set_global_flag = QIE_ws_choose_reliability_rule_tier_3
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_wushan_squander_money_focus_on_fire
+				}
+				set_global_flag = QIE_ws_choose_firepower_rule_tier_3
+			}
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_china_airforce_coming
+					QIE_wushan_establish_aviation_industry
+				}
+				cost = 14
+			}
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_focus_on_air_bomb
+					QIE_wushan_focus_on_air_fight
+					QIE_wushan_night_knight
+					QIE_wushan_daytime_airtime
+				}
+				cost = 28
+			}
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_we_will_rule_sky_and_land
+				}
+				cost = 56
+			}
 		}
 	}
 	focus = {
@@ -5364,7 +5860,7 @@ focus_tree = {
 	focus = {
 		id = QIE_wushan_great_loong_stand_on_east
 		x = 5
-		y = 9
+		y = 10
 		cost = 3
 		icon = GFX_qie_ws_great_loong_stand_on_east
 		continue_if_invalid = no
@@ -5375,11 +5871,30 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_wushan_china_united_again_lower_phase
 		}
+		completion_reward = {
+			activate_targeted_decision = {
+				decision = CHN_found_our_faction_decision
+				target = ROOT
+			}
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_our_rockets_our_victory
+					QIE_wushan_wangongchang_explosion
+				}
+				cost = 42
+			}
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 132
+			}
+		}
 	}
 	focus = {
 		id = QIE_wushan_union_between_loong_eagle
 		x = 7
-		y = 9
+		y = 10
 		cost = 3
 		icon = GFX_qie_ws_union_between_loong_eagle
 		continue_if_invalid = no
@@ -5389,6 +5904,20 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = QIE_wushan_china_united_again_lower_phase
+		}
+		completion_reward = {
+			effect_tooltip = {
+				unlock_decision_tooltip = china_join_the_reichspakt_decision
+			}
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 222
+			}
+			hidden_effect = {
+				remove_ideas = QIE_wushan_huayi_distinction
+			}
 		}
 	}
 	focus = {
@@ -5532,268 +6061,1343 @@ focus_tree = {
 	}
 	focus = {
 		id = QIE_wushan_air_force_academy
-		x = 56
-		y = 2
-		cost = 0
-		icon = GFX_focus_FIN_expand_air_force_academy
+		x = 50
+		y = 1
+		cost = 7
+		icon = GFX_focus_generic_pilot_training
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_wushan_china_airforce_coming
 		}
-	}
-	focus = {
-		id = QIE_wushan_air_force_1
-		x = 51
-		y = 1
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_china_airforce_coming
+		completion_reward = {
+			add_tech_bonus = {
+				name = QIE_wushan_china_airforce_coming
+				bonus = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_aviation_affairs_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_accidents_factor = -0.1
+				tooltip = air_accidents_factor_tt
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_wing_xp_loss_when_killed_factor = -0.1
+				tooltip = air_wing_xp_loss_when_killed_factor_tt
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_training_xp_gain_factor = 0.1
+				tooltip = air_training_xp_gain_factor_tt
+			}
 		}
 	}
 	focus = {
-		id = QIE_wushan_air_force_2
-		x = 58
-		y = 1
-		cost = 0
+		id = QIE_wushan_conduct_armor_steel_experiments
+		x = 38
+		y = 9
+		cost = 10
+		icon = GFX_goal_generic_heavy_armour_german
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
-			focus = QIE_wushan_air_force_3
+			focus = QIE_wushan_high_speed_racing_engine
+		}
+		prerequisite = {
+			focus = QIE_integrate_existing_MIO_resources
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+			}
+			set_global_flag = QIE_ws_choose_armor_strength_tier_1
+		}
+	}
+	focus = {
+		id = QIE_wushan_high_speed_racing_engine
+		x = 40
+		y = 9
+		cost = 10
+		icon = GFX_goal_generic_army_tanks2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_wushan_conduct_armor_steel_experiments
+		}
+		prerequisite = {
+			focus = QIE_integrate_existing_MIO_resources
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+			}
+			set_global_flag = QIE_ws_choose_armor_speed_tier_1
+		}
+	}
+	focus = {
+		id = QIE_wushan_715_armor_design_arsenal
+		x = 39
+		y = 10
+		cost = 10
+		icon = GFX_focus_generic_tank_production
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_conduct_armor_steel_experiments
+			focus = QIE_wushan_high_speed_racing_engine
+		}
+		completion_reward = {
+			add_political_power = 50
+			if = {
+				limit = {
+					has_completed_focus = QIE_wushan_conduct_armor_steel_experiments
+				}
+				set_global_flag = QIE_ws_choose_armor_strength_tier_2
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_wushan_high_speed_racing_engine
+				}
+				set_global_flag = QIE_ws_choose_armor_speed_tier_2
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_squander_money_focus_on_fire
+		x = 44
+		y = 9
+		cost = 10
+		icon = GFX_focus_generic_army_tanks2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_wushan_stability_first_and_most_important
+		}
+		prerequisite = {
+			focus = QIE_integrate_existing_MIO_resources
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+			}
+			set_global_flag = QIE_ws_choose_firepower_rule_tier_1
+		}
+	}
+	focus = {
+		id = QIE_wushan_stability_first_and_most_important
+		x = 42
+		y = 9
+		cost = 10
+		icon = GFX_focus_SOV_organize_wreckers
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_wushan_squander_money_focus_on_fire
+		}
+		prerequisite = {
+			focus = QIE_integrate_existing_MIO_resources
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+			}
+			set_global_flag = QIE_ws_choose_reliability_rule_tier_1
+		}
+	}
+	focus = {
+		id = QIE_wushan_eradicate_poisonous_weeds
+		x = 2
+		y = 11
+		cost = 6
+		icon = GFX_focus_JAP_remove_the_weeds_from_the_crop
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_great_loong_stand_on_east
+			focus = QIE_wushan_union_between_loong_eagle
+		}
+		completion_reward = {
+			add_stability = -0.1
+			add_political_power = -50
+			add_country_leader_trait = QIE_ws_undeniable_patriarch
+		}
+	}
+	focus = {
+		id = QIE_wushan_arrest_of_opposition_figures
+		x = 10
+		y = 11
+		cost = 6
+		icon = GFX_goal_RUS_oppression
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_union_between_loong_eagle
+			focus = QIE_wushan_great_loong_stand_on_east
+		}
+		completion_reward = {
+			add_stability = -0.2
+			add_political_power = 100
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_universe_is_destroyed_by_fire
+		x = 4
+		y = 11
+		cost = 5
+		icon = GFX_focus_GER_support_the_proletarian_uprising
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_great_loong_stand_on_east
+			focus = QIE_wushan_union_between_loong_eagle
+		}
+		completion_reward = {
+			add_ideas = QIE_wushan_preparing_for_the_next_war
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 155
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_universe_is_destroyed_by_water
+		x = 8
+		y = 11
+		cost = 5
+		icon = GFX_focus_generic_turning_a_blind_eye
+		continue_if_invalid = yes
+		cancel_if_invalid = no
+		available = {
+			threat > 0.5
+			has_global_flag = second_weltkrieg_has_started
+			has_completed_focus = QIE_establish_modern_intelligence_department
+		}
+		prerequisite = {
+			focus = QIE_wushan_union_between_loong_eagle
+			focus = QIE_wushan_great_loong_stand_on_east
+		}
+		completion_reward = {
+			hidden_effect = {
+				remove_ideas = QIE_wushan_chawei_commissioner
+				remove_ideas = QIE_wushan_full_power_chawei_commissioner
+				remove_ideas = QIE_wushan_special_mandate_chawei_commissioner
+			}
+			add_ideas = QIE_wushan_extraordinary_plenipotentiary_chawei_commissioner
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 155
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_our_rockets_our_victory
+		x = 3
+		y = 12
+		cost = 12
+		icon = GFX_focus_rocketry
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_universe_is_destroyed_by_fire
+		}
+		prerequisite = {
+			focus = QIE_wushan_universe_is_destroyed_by_water
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = QIE_wushan_our_rockets_our_victory
+				ahead_reduction = 2
+				bonus = 1
+				uses = 1
+				category = rocketry
+			}
+			1062 = {
+				add_building_construction = {
+					type = air_facility
+					level = 1
+					province = 7109
+					instant_build = yes
+				}
+			}
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 99
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_wangongchang_explosion
+		x = 9
+		y = 12
+		cost = 12
+		icon = GFX_focus_generic_nuclear_development
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_universe_is_destroyed_by_water
+		}
+		prerequisite = {
+			focus = QIE_wushan_universe_is_destroyed_by_fire
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = QIE_wushan_wangongchang_explosion
+				ahead_reduction = 2
+				bonus = 1
+				uses = 1
+				category = nuclear
+			}
+			608 = {
+				add_building_construction = {
+					type = nuclear_facility
+					level = 1
+					province = 11761
+					instant_build = yes
+				}
+			}
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 99
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_punish_those_syndicalistic_thugs
+		x = 6
+		y = 12
+		cost = 8
+		icon = GFX_HOL_crackdown_syndie
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			has_completed_focus = QIE_integrate_existing_MIO_resources
+			has_completed_focus = QIE_construction_after_chinese_unification
+			has_equipment = {
+				medium_tank_chassis > 5999
+			}
+			has_government = national_populist
+			NOT = {
+				has_country_flag = qie_wushan_the_nightmare_of_leader
+			}
+		}
+		bypass = {
+			AND = {
+				OR = {
+					FRA = {
+						exists = no
+					}
+					FRA = {
+						is_subject = yes
+					}
+				}
+				OR = {
+					ENG = {
+						exists = no
+					}
+					ENG = {
+						is_subject = yes
+					}
+				}
+			}
+		}
+		prerequisite = {
+			focus = QIE_wushan_universe_is_destroyed_by_fire
+		}
+		prerequisite = {
+			focus = QIE_wushan_universe_is_destroyed_by_water
+		}
+		completion_reward = {
+			add_named_threat = {
+				threat = 100
+				name = QIE_wushan_punish_those_syndicalistic_thugs
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.05
+			}
+			add_stability = -0.15
+			custom_effect_tooltip = QIE_wushan_punish_those_syndicalistic_thugs.tt
+			reduce_focus_completion_cost = {
+				focus = {
+					QIE_wushan_only_one_light_in_this_dark_world
+				}
+				cost = 123
+			}
+			hidden_effect = {
+				every_country = {
+					limit = {
+						has_socialist_government = yes
+					}
+					ROOT = {
+						declare_war_on = {
+							target = PREV
+							type = annex_everything
+						}
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_establish_aviation_industry
+		x = 52
+		y = 1
+		cost = 7
+		icon = GFX_focus_SMB_purchase_aircraft
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			controls_state = 607
 		}
 		prerequisite = {
 			focus = QIE_wushan_china_airforce_coming
 		}
+		completion_reward = {
+			if = {
+				limit = {
+					607 = {
+						free_building_slots = {
+							building = arms_factory
+							size > 2
+							include_locked = no
+						}
+					}
+				}
+				607 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = arms_factory
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = arms_factory
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+			add_tech_bonus = {
+				name = QIE_wushan_establish_aviation_industry
+				bonus = 1
+				uses = 2
+				category = air_equipment
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_aviation_affairs_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_aircraft_manufacturer_cost_factor = -0.15
+				tooltip = aircraft_manufacturer_cost_factor_tt
+			}
+		}
 	}
 	focus = {
-		id = QIE_wushan_air_force_3
+		id = QIE_wushan_daytime_airtime
 		x = 54
-		y = 1
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = QIE_wushan_air_force_2
-		}
-		prerequisite = {
-			focus = QIE_wushan_china_airforce_coming
-		}
-	}
-	focus = {
-		id = QIE_wushan_air_force_4
-		x = 56
 		y = 3
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_air_force_3
-			focus = QIE_wushan_air_force_2
-		}
-	}
-	focus = {
-		id = QIE_wushan_air_force_5
-		x = 54
-		y = 2
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_air_force_3
-		}
-	}
-	focus = {
-		id = QIE_wushan_air_force_6
-		x = 58
-		y = 2
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_air_force_2
-		}
-	}
-	focus = {
-		id = QIE_wushan_air_force_7
-		x = 53
-		y = 5
-		cost = 0
+		cost = 10
+		icon = GFX_focus_generic_daytime_bombing
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
-			focus = QIE_wushan_air_force_8
+			focus = QIE_wushan_night_knight
 		}
 		prerequisite = {
-			focus = QIE_wushan_air_force_5
+			focus = QIE_wushan_focus_on_air_bomb
+			focus = QIE_wushan_focus_on_air_fight
+		}
+		completion_reward = {
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_aviation_affairs_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_strategic_bomber_bombing_factor = 0.2
+				tooltip = air_strategic_bomber_bombing_factor_tt
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_agility_factor = 0.1
+				tooltip = air_agility_factor_tt
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_superiority_bonus_in_combat = 0.2
+				tooltip = army_bonus_air_superiority_factor_tt
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_integrate_existing_MIO_resources
+				}
+				custom_effect_tooltip = QIE_wushan_aviation_714_bonus_tt
+				add_to_variable = {
+					QIE_wushan_aviation_affairs_commission_air_night_penalty = -0.1
+					tooltip = air_night_penalty_tt
+				}
+				add_to_variable = {
+					QIE_wushan_aviation_affairs_commission_air_range_factor = 0.05
+					tooltip = air_range_factor_tt
+				}
+			}
 		}
 	}
 	focus = {
-		id = QIE_wushan_air_force_8
-		x = 55
-		y = 5
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = QIE_wushan_air_force_7
-		}
-		prerequisite = {
-			focus = QIE_wushan_air_force_5
-		}
-	}
-	focus = {
-		id = QIE_wushan_air_force_9
-		x = 57
-		y = 5
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = QIE_wushan_air_force_10
-		}
-		prerequisite = {
-			focus = QIE_wushan_air_force_6
-		}
-	}
-	focus = {
-		id = QIE_wushan_air_force_10
-		x = 59
-		y = 5
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = QIE_wushan_air_force_9
-		}
-		prerequisite = {
-			focus = QIE_wushan_air_force_6
-		}
-	}
-	focus = {
-		id = QIE_wushan_air_force_11
-		x = 54
-		y = 6
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_air_force_7
-			focus = QIE_wushan_air_force_8
-		}
-	}
-	focus = {
-		id = QIE_wushan_air_force_12
-		x = 58
-		y = 6
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = QIE_wushan_air_force_9
-			focus = QIE_wushan_air_force_10
-		}
-	}
-	focus = {
-		id = QIE_wushan_air_force_13
-		x = 56
+		id = QIE_wushan_air_defence_force
+		x = 49
 		y = 4
-		cost = 0
+		cost = 8
+		icon = GFX_focus_PER_construct_air_defenses
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			has_completed_focus = QIE_integrate_existing_MIO_resources
+			controls_state = 608
+			controls_state = 743
+			controls_state = 1065
+		}
+		prerequisite = {
+			focus = QIE_wushan_daytime_airtime
+			focus = QIE_wushan_night_knight
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = QIE_wushan_air_defence_force
+				bonus = 0.75
+				uses = 3
+				category = cat_anti_air
+			}
+			608 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			743 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			1065 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			mio:QIE_luoyang_714_arsenal_organisation = {
+				add_mio_funds = 10000
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_night_knight
+		x = 50
+		y = 3
+		cost = 10
+		icon = GFX_focus_generic_nighttime_bombing
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_wushan_daytime_airtime
+		}
+		prerequisite = {
+			focus = QIE_wushan_focus_on_air_bomb
+			focus = QIE_wushan_focus_on_air_fight
+		}
+		completion_reward = {
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_aviation_affairs_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_range_factor = 0.1
+				tooltip = air_range_factor_tt
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_night_penalty = -0.2
+				tooltip = air_night_penalty_tt
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_integrate_existing_MIO_resources
+				}
+				custom_effect_tooltip = QIE_wushan_aviation_714_bonus_tt
+				add_to_variable = {
+					QIE_wushan_aviation_affairs_commission_air_strategic_bomber_bombing_factor = 0.1
+					tooltip = air_strategic_bomber_bombing_factor_tt
+				}
+				add_to_variable = {
+					QIE_wushan_aviation_affairs_commission_air_superiority_bonus_in_combat = 0.1
+					tooltip = army_bonus_air_superiority_factor_tt
+				}
+				add_to_variable = {
+					QIE_wushan_aviation_affairs_commission_air_agility_factor = 0.05
+					tooltip = air_agility_factor_tt
+				}
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_expand_more_air_ports
+		x = 54
+		y = 1
+		cost = 7
+		icon = GFX_focus_generic_aircraft_production
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			controls_state = 608
+			controls_state = 884
+			controls_state = 743
+			controls_state = 1048
+		}
+		prerequisite = {
+			focus = QIE_wushan_china_airforce_coming
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = QIE_wushan_establish_aviation_industry
+				bonus = 1.5
+				uses = 1
+				category = air_equipment
+			}
+			608 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			884 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			743 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			1048 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_aviation_affairs_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_range_factor = 0.05
+				tooltip = air_range_factor_tt
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_agility_factor = 0.05
+				tooltip = air_agility_factor_tt
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_we_will_rule_sky_and_land
+		x = 52
+		y = 6
+		cost = 16
+		icon = GFX_focus_generic_jet_planes
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_paratrooper
+		}
+		prerequisite = {
+			focus = QIE_wushan_air_defence_force
+		}
+		prerequisite = {
+			focus = QIE_wushan_chinese_wisdom_and_design
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = QIE_wushan_the_great_beast_industry
+				}
+				custom_effect_tooltip = {
+					localization_key = tooltip_modify_dynmod
+					DYNMOD = QIE_wushan_aviation_affairs_commission_modifer
+				}
+				custom_effect_tooltip = QIE_wushan_aviation_714_bonus_tt
+				add_to_variable = {
+					QIE_wushan_aviation_affairs_commission_sp_tag_helicopter_speed_factor = 0.2
+					tooltip = sp_tag_helicopter_speed_factor_tt
+				}
+				add_to_variable = {
+					QIE_wushan_aviation_affairs_commission_sp_tag_rocket_speed_factor = 0.2
+					tooltip = sp_tag_rocket_speed_factor_tt
+				}
+				add_to_variable = {
+					QIE_wushan_aviation_affairs_commission_sp_tag_jet_speed_factor = 0.2
+					tooltip = sp_tag_jet_speed_factor_tt
+				}
+			}
+			else = {
+				custom_effect_tooltip = {
+					localization_key = tooltip_modify_dynmod
+					DYNMOD = QIE_wushan_aviation_affairs_commission_modifer
+				}
+				add_to_variable = {
+					QIE_wushan_aviation_affairs_commission_sp_tag_helicopter_speed_factor = 0.1
+					tooltip = sp_tag_helicopter_speed_factor_tt
+				}
+				add_to_variable = {
+					QIE_wushan_aviation_affairs_commission_sp_tag_rocket_speed_factor = 0.1
+					tooltip = sp_tag_rocket_speed_factor_tt
+				}
+				add_to_variable = {
+					QIE_wushan_aviation_affairs_commission_sp_tag_jet_speed_factor = 0.1
+					tooltip = sp_tag_jet_speed_factor_tt
+				}
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_chinese_wisdom_and_design
+		x = 55
+		y = 4
+		cost = 8
+		icon = GFX_focus_generic_early_helicopter
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			has_completed_focus = QIE_integrate_existing_MIO_resources
+		}
+		prerequisite = {
+			focus = QIE_wushan_daytime_airtime
+			focus = QIE_wushan_night_knight
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = QIE_wushan_unexpected_budget
+				days = 180
+			}
+			mio:QIE_luoyang_714_arsenal_organisation = {
+				add_mio_funds = 10000
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_the_ghost_of_dual_ocean_navy
+		x = 63
+		y = 0
+		cost = 6
+		icon = GFX_focus_generic_navy_research_bonus
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			has_country_flag = qie_wushan_has_control_china
+		}
+		allow_branch = {
+			has_country_flag = qie_wushan_has_control_china
+		}
+	}
+	focus = {
+		id = QIE_wushan_focus_on_air_bomb
+		x = 51
+		y = 2
+		cost = 8
+		icon = GFX_goal_generic_air_tactical_bomber_new
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_wushan_focus_on_air_fight
+		}
 		prerequisite = {
 			focus = QIE_wushan_air_force_academy
 		}
+		prerequisite = {
+			focus = QIE_wushan_expand_more_air_ports
+		}
+		prerequisite = {
+			focus = QIE_wushan_establish_aviation_industry
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc_bba = no
+				}
+				add_tech_bonus = {
+					name = QIE_wushan_focus_on_air_bomb
+					bonus = 0.75
+					uses = 2
+					category = cas_bomber
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = QIE_wushan_focus_on_air_bomb
+					bonus = 1
+					uses = 1
+					category = cas_bomber
+				}
+				add_tech_bonus = {
+					name = QIE_wushan_focus_on_air_bomb
+					bonus = 1
+					uses = 1
+					category = plane_modules_tech
+				}
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_mastery_bonus = {
+				name = QIE_wushan_focus_on_air_bomb
+				bonus = 0.1
+				days = 365
+				track = strike_aircraft
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_aviation_affairs_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_power_projection_factor = 0.15
+				tooltip = air_power_projection_factor_tt
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_bombing_targetting = 0.1
+				tooltip = air_bombing_targetting_tt
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_escort_efficiency = 0.15
+				tooltip = air_escort_efficiency_tt
+			}
+		}
 	}
 	focus = {
-		id = QIE_wushan_air_force_14
-		x = 56
+		id = QIE_wushan_focus_on_air_fight
+		x = 53
+		y = 2
+		cost = 8
+		icon = GFX_goal_generic_air_fighter_new
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_wushan_focus_on_air_bomb
+		}
+		prerequisite = {
+			focus = QIE_wushan_establish_aviation_industry
+		}
+		prerequisite = {
+			focus = QIE_wushan_air_force_academy
+		}
+		prerequisite = {
+			focus = QIE_wushan_expand_more_air_ports
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc_bba = no
+				}
+				add_tech_bonus = {
+					name = QIE_wushan_focus_on_air_fight
+					bonus = 0.75
+					uses = 2
+					category = light_fighter
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = QIE_wushan_focus_on_air_fight
+					bonus = 1
+					uses = 1
+					category = light_fighter
+				}
+				add_tech_bonus = {
+					name = QIE_wushan_focus_on_air_fight
+					bonus = 1
+					uses = 1
+					category = plane_modules_tech
+				}
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_mastery_bonus = {
+				name = QIE_wushan_focus_on_air_fight
+				bonus = 0.1
+				days = 365
+				track = fighter_aircraft
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_aviation_affairs_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_home_defence_factor = 0.15
+				tooltip = air_home_defence_factor_tt
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_intercept_efficiency = 0.15
+				tooltip = air_intercept_efficiency_tt
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_air_interception_detect_factor = 0.1
+				tooltip = air_interception_detect_factor_tt
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_paratrooper
+		x = 52
+		y = 4
+		cost = 7
+		icon = GFX_focus_generic_paratrooper
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		available = {
+			has_completed_focus = QIE_integrate_existing_MIO_resources
+		}
+		prerequisite = {
+			focus = QIE_wushan_daytime_airtime
+			focus = QIE_wushan_night_knight
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_tech = paratroopers
+					}
+				}
+				set_technology = {
+					paratroopers = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_tech = paratroopers2
+					}
+				}
+				set_technology = {
+					paratroopers2 = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_tech = paratroopers3
+					}
+				}
+				set_technology = {
+					paratroopers3 = 1
+				}
+			}
+			else = {
+				air_experience = 50
+			}
+			air_experience = 25
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_aviation_affairs_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_special_forces_cap = 0.15
+				tooltip = special_forces_cap_tt
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_extra_paratrooper_supply_grace = 72
+				tooltip = extra_paratrooper_supply_grace_tt
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_special_forces_out_of_supply_factor = -0.1
+				tooltip = special_forces_out_of_supply_factor_tt
+			}
+			add_to_variable = {
+				QIE_wushan_aviation_affairs_commission_paradrop_organization_factor = 0.2
+				tooltip = paradrop_organization_factor_tt
+			}
+			mio:QIE_luoyang_714_arsenal_organisation = {
+				add_mio_funds = 10000
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_focus_on_northern_navy_strategy
+		x = 61
+		y = 2
+		cost = 7
+		icon = GFX_focus_CHI_northern_naval_logistics
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_wushan_focus_on_southern_navy_strategy
+		}
+		prerequisite = {
+			focus = QIE_wushan_we_need_reserves
+		}
+	}
+	focus = {
+		id = QIE_wushan_focus_on_southern_navy_strategy
+		x = 65
+		y = 2
+		cost = 7
+		icon = GFX_focus_CHI_southern_naval_logistics
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_wushan_focus_on_northern_navy_strategy
+		}
+		prerequisite = {
+			focus = QIE_wushan_we_need_reserves
+		}
+	}
+	focus = {
+		id = QIE_wushan_decisive_battle_doctrine
+		x = 60
+		y = 3
+		cost = 7
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_wushan_fleet_in_being
+		}
+		prerequisite = {
+			focus = QIE_wushan_focus_on_northern_navy_strategy
+		}
+	}
+	focus = {
+		id = QIE_wushan_fleet_in_being
+		x = 62
+		y = 3
+		cost = 7
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_wushan_decisive_battle_doctrine
+		}
+		prerequisite = {
+			focus = QIE_wushan_focus_on_northern_navy_strategy
+		}
+	}
+	focus = {
+		id = QIE_wushan_hit_and_run
+		x = 64
+		y = 3
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_focus_on_southern_navy_strategy
+		}
+	}
+	focus = {
+		id = QIE_wushan_submarines_focus
+		x = 66
+		y = 3
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_focus_on_southern_navy_strategy
+		}
+	}
+	focus = {
+		id = QIE_wushan_torpedo_are_best_choice
+		x = 65
+		y = 4
+		cost = 4
+		icon = GFX_focus_generic_cryptologic_bomb
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_hit_and_run
+		}
+		prerequisite = {
+			focus = QIE_wushan_submarines_focus
+		}
+	}
+	focus = {
+		id = QIE_wushan_destroyer_and_cruiser
+		x = 60
+		y = 4
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_decisive_battle_doctrine
+		}
+	}
+	focus = {
+		id = QIE_wushan_our_dream_our_ocean
+		x = 62
 		y = 6
 		cost = 0
+		icon = GFX_focus_SMB_blue_water_fleet
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = QIE_wushan_air_force_13
+			focus = QIE_the_second_choice_movement_base
+			focus = QIE_wushan_the_second_choice_battleship
+			focus = QIE_wushan_the_second_choice_submarines
+			focus = QIE_wushan_the_second_choice_destroyer
 		}
 	}
 	focus = {
-		id = QIE_wushan_air_force_15
-		x = 50
-		y = 2
-		cost = 0
+		id = QIE_wushan_strengthen_coastal_defense
+		x = 62
+		y = 4
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_fleet_in_being
+		}
+	}
+	focus = {
+		id = QIE_wushan_combine_sky_with_ocean
+		x = 57
+		y = 3
+		cost = 7
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_focus_on_air_bomb
+			focus = QIE_wushan_focus_on_air_fight
+		}
+		prerequisite = {
+			focus = QIE_wushan_focus_on_northern_navy_strategy
+			focus = QIE_wushan_focus_on_southern_navy_strategy
+		}
+	}
+	focus = {
+		id = QIE_wushan_the_air_ship
+		x = 57
+		y = 4
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_wushan_combine_sky_with_ocean
+		}
+	}
+	focus = {
+		id = QIE_wushan_the_second_choice_destroyer
+		x = 66
+		y = 5
+		cost = 10
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
-			focus = QIE_wushan_air_force_16
+			focus = QIE_wushan_the_second_choice_submarines
+			focus = QIE_the_second_choice_movement_base
+			focus = QIE_wushan_the_second_choice_battleship
+			focus = QIE_wushan_the_second_choice_cruiser
 		}
 		prerequisite = {
-			focus = QIE_wushan_air_force_1
+			focus = QIE_wushan_destroyer_and_cruiser
+			focus = QIE_wushan_strengthen_coastal_defense
+			focus = QIE_wushan_torpedo_are_best_choice
 		}
 	}
 	focus = {
-		id = QIE_wushan_air_force_16
-		x = 52
-		y = 2
-		cost = 0
+		id = QIE_wushan_the_second_choice_submarines
+		x = 64
+		y = 5
+		cost = 10
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
-			focus = QIE_wushan_air_force_15
+			focus = QIE_wushan_the_second_choice_destroyer
+			focus = QIE_the_second_choice_movement_base
+			focus = QIE_wushan_the_second_choice_battleship
+			focus = QIE_wushan_the_second_choice_cruiser
 		}
 		prerequisite = {
-			focus = QIE_wushan_air_force_1
+			focus = QIE_wushan_destroyer_and_cruiser
+			focus = QIE_wushan_strengthen_coastal_defense
+			focus = QIE_wushan_torpedo_are_best_choice
 		}
 	}
 	focus = {
-		id = QIE_wushan_air_force_17
-		x = 51
-		y = 8
-		cost = 0
+		id = QIE_the_second_choice_movement_base
+		x = 58
+		y = 5
+		cost = 10
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_wushan_the_second_choice_submarines
+			focus = QIE_wushan_the_second_choice_destroyer
+			focus = QIE_wushan_the_second_choice_battleship
+			focus = QIE_wushan_the_second_choice_cruiser
+		}
+		prerequisite = {
+			focus = QIE_wushan_destroyer_and_cruiser
+			focus = QIE_wushan_strengthen_coastal_defense
+			focus = QIE_wushan_torpedo_are_best_choice
+		}
+	}
+	focus = {
+		id = QIE_wushan_the_second_choice_battleship
+		x = 60
+		y = 5
+		cost = 10
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_the_second_choice_movement_base
+			focus = QIE_wushan_the_second_choice_submarines
+			focus = QIE_wushan_the_second_choice_destroyer
+			focus = QIE_wushan_the_second_choice_cruiser
+		}
+		prerequisite = {
+			focus = QIE_wushan_destroyer_and_cruiser
+			focus = QIE_wushan_strengthen_coastal_defense
+			focus = QIE_wushan_torpedo_are_best_choice
+		}
+	}
+	focus = {
+		id = QIE_wushan_the_second_choice_cruiser
+		x = 62
+		y = 5
+		cost = 10
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = QIE_the_second_choice_movement_base
+			focus = QIE_wushan_the_second_choice_battleship
+			focus = QIE_wushan_the_second_choice_submarines
+			focus = QIE_wushan_the_second_choice_destroyer
+		}
+		prerequisite = {
+			focus = QIE_wushan_destroyer_and_cruiser
+			focus = QIE_wushan_strengthen_coastal_defense
+			focus = QIE_wushan_torpedo_are_best_choice
+		}
+	}
+	focus = {
+		id = QIE_wushan_we_need_reserves
+		x = 63
+		y = 1
+		cost = 10
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = QIE_wushan_air_force_15
-			focus = QIE_wushan_air_force_16
+			focus = QIE_wushan_the_ghost_of_dual_ocean_navy
 		}
 	}
 	focus = {
-		id = QIE_wushan_air_force_18
-		x = 56
+		id = QIE_wushan_prepare_for_the_second_round_robin
+		x = 57
 		y = 7
 		cost = 0
+		icon = GFX_focus_PER_communist_afghanistan_intervention
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = QIE_wushan_air_force_11
+			focus = QIE_wushan_we_will_rule_sky_and_land
 		}
 		prerequisite = {
-			focus = QIE_wushan_air_force_14
-		}
-		prerequisite = {
-			focus = QIE_wushan_air_force_12
+			focus = QIE_wushan_our_dream_our_ocean
 		}
 	}
 	focus = {
-		id = QIE_wushan_air_force_19
-		x = 55
+		id = QIE_wushan_dead_leader_live_country
+		x = 6
 		y = 8
-		cost = 0
-		continue_if_invalid = no
+		cost = 3
 		cancel_if_invalid = yes
+		continue_if_invalid = no
 		prerequisite = {
-			focus = QIE_wushan_air_force_18
+			focus = QIE_wushan_restore_squire_council
 		}
-	}
-	focus = {
-		id = QIE_wushan_air_force_20
-		x = 57
-		y = 8
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
 		prerequisite = {
-			focus = QIE_wushan_air_force_18
+			focus = QIE_wushan_forcing_prisoners_to_work
+		}
+		prerequisite = {
+			focus = QIE_wushan_contact_with_the_social_elites
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 50
+			if = {
+				limit = {
+					has_country_leader = {
+						character = QIE_ws_qian_neng_xun
+					}
+				}
+				swap_ideas = {
+					remove_idea = QIE_wushan_theocratic_authority_2
+					add_idea = QIE_wushan_theocratic_authority_3
+				}
+				add_country_leader_trait = QIE_ws_benevolent_dead
+			}
 		}
 	}
 }

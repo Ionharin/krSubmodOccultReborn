@@ -1,3 +1,137 @@
+QIE_refresh_god_circle_dynamic_modifiers = {
+	set_variable = { QIE_wushan_god_circle_shizu_stability_factor = 0 }
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = QIE_wushan_lvzu_chunyang_throne_modifier }
+			has_completed_focus = QIE_into_samadhi
+		}
+		set_variable = { QIE_wushan_god_circle_shizu_stability_factor = 0.05 }
+		if = {
+			limit = {
+				OR = {
+					has_idea = QIE_god_circle_shi_tier_1
+					has_idea = QIE_god_circle_shi_tier_2
+					has_idea = QIE_god_circle_shi_tier_3
+				}
+			}
+			set_variable = { QIE_wushan_god_circle_shizu_stability_factor = god_circle_tier }
+			add_to_variable = { QIE_wushan_god_circle_shizu_stability_factor = 1 }
+			multiply_variable = { QIE_wushan_god_circle_shizu_stability_factor = 0.05 }
+		}
+	}
+
+	set_variable = { QIE_wushan_god_circle_laozu_war_stability_factor = 0 }
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = QIE_wushan_lvzu_chunyang_throne_modifier }
+			has_completed_focus = QIE_seize_the_great_game
+		}
+		set_variable = { QIE_wushan_god_circle_laozu_war_stability_factor = 0.05 }
+		if = {
+			limit = {
+				OR = {
+					has_idea = QIE_god_circle_con_tier_1
+					has_idea = QIE_god_circle_con_tier_2
+					has_idea = QIE_god_circle_con_tier_3
+				}
+			}
+			set_variable = { QIE_wushan_god_circle_laozu_war_stability_factor = god_circle_tier }
+			add_to_variable = { QIE_wushan_god_circle_laozu_war_stability_factor = 1 }
+			multiply_variable = { QIE_wushan_god_circle_laozu_war_stability_factor = 0.05 }
+		}
+	}
+
+	set_variable = { QIE_wushan_god_circle_nofocus_political_power_gain = 0 }
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = QIE_wushan_lvzu_chunyang_throne_modifier }
+			has_completed_focus = QIE_spring_and_autumn_ritual
+		}
+		set_variable = { QIE_wushan_god_circle_nofocus_political_power_gain = 0.15 }
+		if = {
+			limit = {
+				OR = {
+					has_idea = QIE_god_circle_no_focus_tier_1
+					has_idea = QIE_god_circle_no_focus_tier_2
+					has_idea = QIE_god_circle_no_focus_tier_3
+				}
+			}
+			set_variable = { QIE_wushan_god_circle_nofocus_political_power_gain = god_circle_tier }
+			add_to_variable = { QIE_wushan_god_circle_nofocus_political_power_gain = 1 }
+			multiply_variable = { QIE_wushan_god_circle_nofocus_political_power_gain = 0.15 }
+		}
+	}
+
+	set_variable = { QIE_wushan_god_circle_jesus_compliance_gain = 0 }
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = QIE_wushan_lvzu_chunyang_throne_modifier }
+			has_completed_focus = QIE_jesus_shed_his_blood
+		}
+		set_variable = { QIE_wushan_god_circle_jesus_compliance_gain = 0.01 }
+		if = {
+			limit = {
+				OR = {
+					has_idea = QIE_god_circle_jesus_tier_1
+					has_idea = QIE_god_circle_jesus_tier_2
+					has_idea = QIE_god_circle_jesus_tier_3
+				}
+			}
+			set_variable = { QIE_wushan_god_circle_jesus_compliance_gain = god_circle_tier }
+			add_to_variable = { QIE_wushan_god_circle_jesus_compliance_gain = 1 }
+			multiply_variable = { QIE_wushan_god_circle_jesus_compliance_gain = 0.01 }
+		}
+	}
+
+	set_variable = { QIE_wushan_god_circle_laozu_army_attack_speed_factor = 0 }
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = QIE_wushan_lvzu_chunyang_throne_modifier }
+			has_completed_focus = QIE_raise_the_long_blade
+		}
+		set_variable = { QIE_wushan_god_circle_laozu_army_attack_speed_factor = 0.03 }
+		if = {
+			limit = {
+				OR = {
+					has_idea = QIE_god_circle_lao_tier_1
+					has_idea = QIE_god_circle_lao_tier_2
+					has_idea = QIE_god_circle_lao_tier_3
+				}
+			}
+			set_variable = { QIE_wushan_god_circle_laozu_army_attack_speed_factor = god_circle_tier }
+			add_to_variable = { QIE_wushan_god_circle_laozu_army_attack_speed_factor = 1 }
+			multiply_variable = { QIE_wushan_god_circle_laozu_army_attack_speed_factor = 0.03 }
+		}
+	}
+
+	set_variable = { QIE_wushan_god_circle_final_focus_research_speed_factor = 0 }
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = QIE_wushan_lvzu_chunyang_throne_modifier }
+		}
+		if = {
+			limit = { has_completed_focus = QIE_spring_and_autumn_ritual }
+			add_to_variable = { QIE_wushan_god_circle_final_focus_research_speed_factor = -0.03 }
+		}
+		if = {
+			limit = { has_completed_focus = QIE_jesus_shed_his_blood }
+			add_to_variable = { QIE_wushan_god_circle_final_focus_research_speed_factor = -0.03 }
+		}
+		if = {
+			limit = { has_completed_focus = QIE_raise_the_long_blade }
+			add_to_variable = { QIE_wushan_god_circle_final_focus_research_speed_factor = -0.03 }
+		}
+		if = {
+			limit = { has_completed_focus = QIE_into_samadhi }
+			add_to_variable = { QIE_wushan_god_circle_final_focus_research_speed_factor = -0.03 }
+		}
+		if = {
+			limit = { has_completed_focus = QIE_seize_the_great_game }
+			add_to_variable = { QIE_wushan_god_circle_final_focus_research_speed_factor = -0.03 }
+		}
+	}
+}
+
 QIE_update_god_circle_tier = {
 	hidden_effect = {
 		remove_ideas = {
@@ -79,4 +213,6 @@ QIE_update_god_circle_tier = {
 			}
 		}
 	}
+
+	QIE_refresh_god_circle_dynamic_modifiers = yes
 }

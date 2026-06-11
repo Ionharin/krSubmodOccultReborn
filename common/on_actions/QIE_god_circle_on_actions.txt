@@ -1,10 +1,10 @@
 on_actions = {
-	on_monthly = {
+	on_daily = {
 		effect = {
 			if = {
 				limit = {
 					tag = QIE
-					has_completed_focus = QIE_wushan_power
+					has_completed_focus = QIE_seances_restart_in_beijing
 					has_variable = god_circle_focus_var
 					check_variable = { god_circle_tier < 3 }
 					NOT = {
@@ -13,6 +13,11 @@ on_actions = {
 				}
 				add_to_variable = {
 					god_circle_tier = 1
+				}
+				set_country_flag = {
+					flag = QIE_recently_changed_god_circle_focus
+					days = 70
+					value = 1
 				}
 				QIE_update_god_circle_tier = yes
 			}

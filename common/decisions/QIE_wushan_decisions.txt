@@ -254,7 +254,7 @@ QIE_wushan_refugee_crisis_category = {
 	QIE_wushan_refugees_fleeing_war = {
 		icon = generic_social_reform
 		# fire_only_once = no
-		days_mission_timeout = 60
+		days_mission_timeout = 70
 		is_good = no
 		visible = {
 			has_country_flag = QIE_wushan_refugee_crisis_unlocked
@@ -268,13 +268,13 @@ QIE_wushan_refugee_crisis_category = {
 			has_completed_focus = QIE_pauper_factory
 		}
 		timeout_effect = {
-			add_political_power = -50
-			add_stability = -0.10
+			add_stability = -0.2
+			add_war_support = -0.2
 		}
 	}
 	QIE_wushan_launch_public_fundraising = {
 		icon = generic_social_reform
-		cost = 20
+		cost = 25
 		days_remove = 14
 		visible = {
 			has_completed_focus = QIE_charitable_share_bank
@@ -287,7 +287,7 @@ QIE_wushan_refugee_crisis_category = {
 		modifier = {
 			political_power_gain = 2
 		}
-		complete_effect = {
+		remove_effect = {
 			add_days_mission_timeout = {
 				mission = QIE_wushan_refugees_fleeing_war
 				days = 15
@@ -296,7 +296,7 @@ QIE_wushan_refugee_crisis_category = {
 	}
 	QIE_wushan_request_international_relief = {
 		icon = generic_construct_civilian
-		cost = 10
+		cost = 25
 		days_remove = 7
 		visible = {
 			has_completed_focus = QIE_charitable_share_bank
@@ -306,10 +306,10 @@ QIE_wushan_refugee_crisis_category = {
 			has_completed_focus = QIE_charitable_share_bank
 			has_active_mission = QIE_wushan_refugees_fleeing_war
 		}
-		complete_effect = {
+		remove_effect = {
 			add_days_mission_timeout = {
 				mission = QIE_wushan_refugees_fleeing_war
-				days = 15
+				days = 20
 			}
 			add_popularity = {
 				ideology = market_liberal
@@ -319,7 +319,8 @@ QIE_wushan_refugee_crisis_category = {
 	}
 	QIE_wushan_a_secret_remittance = {
 		icon = generic_trade
-		days_remove = 28
+		days_remove = 30
+		fire_only_once = yes
 		visible = {
 			has_completed_focus = QIE_charitable_share_bank
 			has_active_mission = QIE_wushan_refugees_fleeing_war
@@ -328,10 +329,13 @@ QIE_wushan_refugee_crisis_category = {
 			has_completed_focus = QIE_charitable_share_bank
 			has_active_mission = QIE_wushan_refugees_fleeing_war
 		}
+		remove_effect = {
+			add_political_power = 100
+		}
 	}
 	QIE_wushan_open_temporary_gruel_kitchens = {
 		icon = generic_social_reform
-		cost = 25
+		cost = 30
 		days_remove = 7
 		visible = {
 			has_completed_focus = QIE_restart_beijing_charity_society
@@ -341,7 +345,7 @@ QIE_wushan_refugee_crisis_category = {
 			has_completed_focus = QIE_restart_beijing_charity_society
 			has_active_mission = QIE_wushan_refugees_fleeing_war
 		}
-		complete_effect = {
+		remove_effect = {
 			add_days_mission_timeout = {
 				mission = QIE_wushan_refugees_fleeing_war
 				days = 20
@@ -491,7 +495,7 @@ QIE_wushan_kunpeng_fund_category = {
 		}
 		remove_effect = {
 			add_to_variable = {
-				post_CHI_war_mio_reconstruction = 1000
+				post_CHI_war_mio_reconstruction = 3000
 			}
 		}
 	}
@@ -521,7 +525,7 @@ QIE_wushan_kunpeng_fund_category = {
 		}
 		remove_effect = {
 			add_to_variable = {
-				post_CHI_war_mio_reconstruction = 1000
+				post_CHI_war_mio_reconstruction = 3000
 			}
 		}
 	}
@@ -551,7 +555,7 @@ QIE_wushan_kunpeng_fund_category = {
 		}
 		remove_effect = {
 			add_to_variable = {
-				post_CHI_war_mio_reconstruction = 1000
+				post_CHI_war_mio_reconstruction = 3000
 			}
 		}
 	}
@@ -581,7 +585,7 @@ QIE_wushan_kunpeng_fund_category = {
 		}
 		remove_effect = {
 			add_to_variable = {
-				post_CHI_war_mio_reconstruction = 1000
+				post_CHI_war_mio_reconstruction = 3000
 			}
 		}
 	}
@@ -611,7 +615,7 @@ QIE_wushan_kunpeng_fund_category = {
 		}
 		remove_effect = {
 			add_to_variable = {
-				post_CHI_war_mio_reconstruction = 1000
+				post_CHI_war_mio_reconstruction = 3000
 			}
 		}
 	}
@@ -641,7 +645,7 @@ QIE_wushan_kunpeng_fund_category = {
 		}
 		remove_effect = {
 			add_to_variable = {
-				post_CHI_war_mio_reconstruction = 1000
+				post_CHI_war_mio_reconstruction = 3000
 			}
 		}
 	}
@@ -671,7 +675,7 @@ QIE_wushan_kunpeng_fund_category = {
 		}
 		remove_effect = {
 			add_to_variable = {
-				post_CHI_war_mio_reconstruction = 1000
+				post_CHI_war_mio_reconstruction = 3000
 			}
 		}
 	}
@@ -711,7 +715,7 @@ QIE_wushan_kunpeng_fund_category = {
 		}
 		remove_effect = {
 			add_to_variable = {
-				post_CHI_war_mio_reconstruction = 1000
+				post_CHI_war_mio_reconstruction = 3000
 			}
 		}
 	}
@@ -741,7 +745,7 @@ QIE_wushan_kunpeng_fund_category = {
 		}
 		remove_effect = {
 			add_to_variable = {
-				post_CHI_war_mio_reconstruction = 1000
+				post_CHI_war_mio_reconstruction = 3000
 			}
 		}
 	}
@@ -771,7 +775,7 @@ QIE_wushan_kunpeng_fund_category = {
 		}
 		remove_effect = {
 			add_to_variable = {
-				post_CHI_war_mio_reconstruction = 1000
+				post_CHI_war_mio_reconstruction = 3000
 			}
 		}
 	}

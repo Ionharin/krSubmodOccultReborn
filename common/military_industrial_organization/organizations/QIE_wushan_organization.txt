@@ -1,0 +1,788 @@
+##############################
+### QIE Wushan United MIOs ###
+##############################
+
+QIE_luoyang_714_arsenal_organisation = {
+	#include = generic_mobile_tank_organization
+	name = QIE_luoyang_714_arsenal
+	icon = GFX_mio_qie_mio_ws_714_arsenal
+	allowed = {
+		tag = QIE
+	}
+	available = {
+		FROM = {
+			has_country_flag = qie_wushan_has_control_china
+			controls_state = 607
+		}
+	}
+	visible = {
+		FROM = {
+			has_country_flag = qie_wushan_has_control_china
+			has_completed_focus = QIE_integrate_existing_MIO_resources
+			controls_state = 607
+		}
+	}
+	equipment_type = { armor }
+	research_categories = { mio_cat_tech_all_armor_and_modules }
+	on_tech_research_completed = {
+		add_mio_funds = 2500
+	}
+	initial_trait = {
+		name = ws_714_arsenal_mio_initial_trait
+		organization_modifier = {
+			military_industrial_organization_size_up_requirement = 0.05
+			military_industrial_organization_funds_gain = 0.25
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_1
+		name = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_1
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		special_trait_background = yes
+		position = {x= 0 y = 0 }
+		visible = {
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_1_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_production_tier_1
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.02
+			production_efficiency_gain_factor = 0.03
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_1_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_2_1
+		name = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_2_1
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		special_trait_background = yes
+		position = {x= 0 y = 0 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_1_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_2_1_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_production_tier_2
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.02
+			production_efficiency_gain_factor = 0.03
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_2_1_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_2_2
+		name = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_2_2
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		special_trait_background = yes
+		position = {x= 0 y = 0 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_1_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_2_2_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_production_tier_2
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.02
+			production_efficiency_gain_factor = 0.03
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_2_2_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_3
+		name = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_3
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		special_trait_background = yes
+		position = {x= 0 y = 0 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_1_completed
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_2_1_completed
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_2_2_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_3_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_production_tier_3
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.06
+			production_efficiency_gain_factor = 0.09
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_most_and_fast_tier_3_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_1
+		name = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_1
+		icon = GFX_generic_mio_trait_icon_armor_value
+		special_trait_background = yes
+		position = {x= 0 y = 1 }
+		visible = {
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_1_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_armor_strength_tier_1
+		}
+		equipment_bonus = {
+			armor_value = 0.04
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_1_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_2_1
+		name = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_2_1
+		icon = GFX_generic_mio_trait_icon_armor_value
+		special_trait_background = yes
+		position = {x= 0 y = 1 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_1_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_2_1_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_armor_strength_tier_2
+		}
+		equipment_bonus = {
+			armor_value = 0.04
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_2_1_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_2_2
+		name = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_2_2
+		icon = GFX_generic_mio_trait_icon_armor_value
+		special_trait_background = yes
+		position = {x= 0 y = 1 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_1_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_2_2_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_armor_strength_tier_2
+		}
+		equipment_bonus = {
+			armor_value = 0.04
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_2_2_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_3
+		name = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_3
+		icon = GFX_generic_mio_trait_icon_armor_value
+		special_trait_background = yes
+		position = {x= 0 y = 1 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_1_completed
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_2_1_completed
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_2_2_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_3_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_armor_strength_tier_3
+		}
+		equipment_bonus = {
+			armor_value = 0.12
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_strength_tier_3_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_1
+		name = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_1
+		icon = GFX_generic_mio_trait_icon_reliability
+		special_trait_background = yes
+		position = {x= 0 y = 2 }
+		visible = {
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_1_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_reliability_rule_tier_1
+		}
+		equipment_bonus = {
+			reliability = 0.03
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_1_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_2_1
+		name = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_2_1
+		icon = GFX_generic_mio_trait_icon_reliability
+		special_trait_background = yes
+		position = {x= 0 y = 2 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_1_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_2_1_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_reliability_rule_tier_2
+		}
+		equipment_bonus = {
+			reliability = 0.03
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_2_1_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_2_2
+		name = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_2_2
+		icon = GFX_generic_mio_trait_icon_reliability
+		special_trait_background = yes
+		position = {x= 0 y = 2 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_1_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_2_2_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_reliability_rule_tier_2
+		}
+		equipment_bonus = {
+			reliability = 0.03
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_2_2_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_3
+		name = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_3
+		icon = GFX_generic_mio_trait_icon_reliability
+		special_trait_background = yes
+		position = {x= 0 y = 2 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_1_completed
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_2_1_completed
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_2_2_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_3_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_reliability_rule_tier_3
+		}
+		equipment_bonus = {
+			reliability = 0.09
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_reliability_rule_tier_3_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_final_bonus_solve_the_fuel_problem
+		name = ws_714_arsenal_mio_final_bonus_solve_the_fuel_problem
+		icon = GFX_generic_mio_trait_icon_fuel_consumption
+		special_trait_background = yes
+		position = {x= 5 y = 1 }
+		available = {
+			FROM = {
+				has_country_flag = QIE_ws_rearmament_completed_phase1
+				has_completed_focus = QIE_wushan_the_great_beast_industry
+				has_tech = fuel_refining3
+			}
+		}
+		equipment_bonus = {
+			fuel_consumption = -0.6
+			build_cost_ic = 0.1
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_final_bonus_one_hit_kill
+		name = ws_714_arsenal_mio_final_bonus_one_hit_kill
+		icon = GFX_KR_generic_mio_trait_icon_nuclear_reactor
+		special_trait_background = yes
+		position = {x= 4 y = 1 }
+		available = {
+			FROM = {
+				has_country_flag = QIE_ws_rearmament_completed_phase1
+				has_completed_focus = QIE_wushan_the_great_beast_industry
+				has_tech = atomic_research
+			}
+		}
+		equipment_bonus = {
+			ap_attack = 0.3
+			build_cost_ic = 0.1
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_trait_enhance_defense
+		name = ws_714_arsenal_mio_trait_enhance_defense
+		icon = GFX_generic_mio_trait_icon_defense
+		special_trait_background = no
+		position = {x= 2 y = 0 }
+		equipment_bonus = {
+			defense = 0.05
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_trait_upgrade_tracks_and_suspension
+		name = ws_714_arsenal_mio_trait_upgrade_tracks_and_suspension
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		special_trait_background = no
+		position = {x= 7 y = 0 }
+		equipment_bonus = {
+			breakthrough = 0.1
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_trait_reinforced_armor
+		name = ws_714_arsenal_mio_trait_reinforced_armor
+		icon = GFX_generic_mio_trait_icon_hardness
+		special_trait_background = no
+		position = {x= 2 y = 2 }
+		all_parents = { ws_714_arsenal_mio_trait_enhance_defense }
+		equipment_bonus = {
+			armor_value = 0.05
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_trait_utilizing_infantry_weapon
+		name = ws_714_arsenal_mio_trait_utilizing_infantry_weapon
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		special_trait_background = no
+		position = {x= 7 y = 2 }
+		all_parents = { ws_714_arsenal_mio_trait_upgrade_tracks_and_suspension }
+		equipment_bonus = {
+			soft_attack = 0.1
+			hard_attack = 0.05
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_trait_equipped_with_bulldozing
+		name = ws_714_arsenal_mio_trait_equipped_with_bulldozing
+		icon = GFX_generic_mio_trait_icon_entrenchment
+		special_trait_background = no
+		position = {x= 1 y = 1 }
+		equipment_bonus = {
+			entrenchment = 0.5
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_trait_eliminate_redundant_design
+		name = ws_714_arsenal_mio_trait_eliminate_redundant_design
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		special_trait_background = no
+		position = {x= 1 y = 3 }
+		all_parents = { ws_714_arsenal_mio_trait_equipped_with_bulldozing }
+		production_bonus = {
+			production_cost_factor = -0.15
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_trait_new_forged_armor
+		name = ws_714_arsenal_mio_trait_new_forged_armor
+		icon = GFX_generic_mio_trait_icon_max_strength
+		special_trait_background = no
+		position = {x= 3 y = 3 }
+		all_parents = { ws_714_arsenal_mio_trait_reinforced_armor }
+		available = {
+			FROM = {
+				OR = {
+					has_completed_focus = QIE_the_project_of_white_horse
+					has_completed_focus = QIE_wushan_715_armor_design_arsenal
+					has_completed_focus = QIE_wushan_further_optimize_design_direction
+				}
+			}
+		}
+		equipment_bonus = {
+			defense = 0.07
+			armor_value = 0.07
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_trait_versatile_design
+		name = ws_714_arsenal_mio_trait_versatile_design
+		icon = GFX_generic_mio_trait_icon_ap_attack
+		special_trait_background = no
+		position = {x= 6 y = 3 }
+		all_parents = { ws_714_arsenal_mio_trait_utilizing_infantry_weapon }
+		available = {
+			FROM = {
+				OR = {
+					has_completed_focus = QIE_the_project_of_white_horse
+					has_completed_focus = QIE_wushan_715_armor_design_arsenal
+					has_completed_focus = QIE_wushan_further_optimize_design_direction
+				}
+			}
+		}
+		equipment_bonus = {
+			air_attack = 0.1
+			ap_attack = 0.1
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_trait_provide_special_funds
+		name = ws_714_arsenal_mio_trait_provide_special_funds
+		icon = GFX_KR_generic_mio_trait_icon_research_bonus
+		special_trait_background = no
+		position = {x= 8 y = 1 }
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_trait_reallocate_the_budget
+		name = ws_714_arsenal_mio_trait_reallocate_the_budget
+		icon = GFX_KR_generic_mio_trait_icon_funds
+		special_trait_background = no
+		position = {x= 8 y = 3 }
+		all_parents = { ws_714_arsenal_mio_trait_provide_special_funds }
+		organization_modifier = {
+			military_industrial_organization_size_up_requirement = -0.20
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_trait_leading_heavy_industry_platform
+		name = ws_714_arsenal_mio_trait_leading_heavy_industry_platform
+		icon = GFX_generic_mio_trait_icon_batteries_hit_chance
+		special_trait_background = no
+		position = {x= 2 y = 4 }
+		all_parents = { ws_714_arsenal_mio_trait_eliminate_redundant_design }
+		available = {
+			FROM = {
+				OR = {
+					has_completed_focus = QIE_the_project_of_white_horse
+					has_completed_focus = QIE_wushan_715_armor_design_arsenal
+					has_completed_focus = QIE_wushan_further_optimize_design_direction
+				}
+			}
+		}
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.10
+		}
+		equipment_bonus = {
+			reliability = 0.10
+			maximum_speed = 0.05
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_trait_improve_production_guidelines
+		name = ws_714_arsenal_mio_trait_improve_production_guidelines
+		icon = GFX_KR_generic_mio_trait_icon_production_output
+		special_trait_background = no
+		position = {x= 7 y = 4 }
+		all_parents = { ws_714_arsenal_mio_trait_reallocate_the_budget }
+		available = {
+			FROM = {
+				OR = {
+					has_completed_focus = QIE_the_project_of_white_horse
+					has_completed_focus = QIE_wushan_715_armor_design_arsenal
+					has_completed_focus = QIE_wushan_further_optimize_design_direction
+				}
+			}
+		}
+		production_bonus = {
+			production_capacity_factor = 0.10
+			production_conversion_speed_factor = 0.20
+			production_efficiency_gain_factor = 0.10
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_1
+		name = ws_714_arsenal_mio_focus_bonus_tier_1
+		icon = GFX_generic_mio_trait_icon_resources
+		special_trait_background = yes
+		position = {x= 9 y = 0 }
+		visible = {
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_1_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_resource_tier_1
+		}
+		production_bonus = {
+			production_resource_need_factor = -0.04
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_1_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_2_1
+		name = ws_714_arsenal_mio_focus_bonus_tier_2_1
+		icon = GFX_generic_mio_trait_icon_resources
+		special_trait_background = yes
+		position = {x= 9 y = 0 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_1_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_2_1_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_resource_tier_2
+		}
+		production_bonus = {
+			production_resource_need_factor = -0.04
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_2_1_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_2_2
+		name = ws_714_arsenal_mio_focus_bonus_tier_2_2
+		icon = GFX_generic_mio_trait_icon_resources
+		special_trait_background = yes
+		position = {x= 9 y = 0 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_1_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_2_2_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_resource_tier_2
+		}
+		production_bonus = {
+			production_resource_need_factor = -0.04
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_2_2_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_3
+		name = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_3
+		icon = GFX_generic_mio_trait_icon_resources
+		special_trait_background = yes
+		position = {x= 9 y = 0 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_1_completed
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_2_1_completed
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_2_2_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_3_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_resource_tier_3
+		}
+		production_bonus = {
+			production_resource_need_factor = -0.12
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_reduce_resource_tier_3_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_1
+		name = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_1
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		special_trait_background = yes
+		position = {x= 9 y = 1 }
+		visible = {
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_1_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_armor_speed_tier_1
+		}
+		equipment_bonus = {
+			maximum_speed = 0.04
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_1_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_2_1
+		name = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_2_1
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		special_trait_background = yes
+		position = {x= 9 y = 1 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_1_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_2_1_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_armor_speed_tier_2
+		}
+		equipment_bonus = {
+			maximum_speed = 0.04
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_2_1_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_2_2
+		name = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_2_2
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		special_trait_background = yes
+		position = {x= 9 y = 1 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_1_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_2_2_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_armor_speed_tier_2
+		}
+		equipment_bonus = {
+			maximum_speed = 0.04
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_2_2_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_3
+		name = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_3
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		special_trait_background = yes
+		position = {x= 9 y = 1 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_1_completed
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_2_1_completed
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_2_2_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_3_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_armor_speed_tier_3
+		}
+		equipment_bonus = {
+			maximum_speed = 0.12
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_armor_speed_tier_3_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_1
+		name = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_1
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		special_trait_background = yes
+		position = {x= 9 y = 2 }
+		visible = {
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_1_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_firepower_rule_tier_1
+		}
+		equipment_bonus = {
+			soft_attack = 0.04
+			hard_attack = 0.02
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_1_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_2_1
+		name = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_2_1
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		special_trait_background = yes
+		position = {x= 9 y = 2 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_1_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_2_1_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_firepower_rule_tier_2
+		}
+		equipment_bonus = {
+			soft_attack = 0.04
+			hard_attack = 0.02
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_2_1_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_2_2
+		name = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_2_2
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		special_trait_background = yes
+		position = {x= 9 y = 2 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_1_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_2_2_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_firepower_rule_tier_2
+		}
+		equipment_bonus = {
+			soft_attack = 0.04
+			hard_attack = 0.02
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_2_2_completed
+		}
+	}
+	trait = {
+		token = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_3
+		name = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_3
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		special_trait_background = yes
+		position = {x= 9 y = 2 }
+		visible = {
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_1_completed
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_2_1_completed
+			has_mio_flag = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_2_2_completed
+			NOT = {
+				has_mio_flag = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_3_completed
+			}
+		}
+		available = {
+			has_global_flag = QIE_ws_choose_firepower_rule_tier_3
+		}
+		equipment_bonus = {
+			soft_attack = 0.12
+			hard_attack = 0.06
+		}
+		on_complete = {
+			set_mio_flag = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_3_completed
+		}
+	}
+}
