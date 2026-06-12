@@ -40,6 +40,28 @@ focus_tree = {
 				}
 				cost = 93
 			}
+			QIE_ws_adv_gong_xinzhan = { set_nationality = QIE }
+			QIE_ws_adv_tang_erhe = { set_nationality = QIE }
+			QIE_ws_adv_yuan_yonglian = { set_nationality = QIE }
+			QIE_ws_adv_zhong_shiming = { set_nationality = QIE }
+			QIE_ws_adv_zhuang_rensong = { set_nationality = QIE }
+			QIE_ws_adv_zhou_zhenlin = { set_nationality = QIE }
+			QIE_ws_jiang_chao_zong = {
+					add_corps_commander_role = {
+            			traits = {
+                			QIE_wushan_wushanshe_member
+                			infantry_officer
+                			infantry_leader
+                			trait_reckless
+               				old_guard
+            			}
+            			skill = 2
+           				attack_skill = 1
+            			defense_skill = 4
+            			planning_skill = 2
+            			logistics_skill = 2
+        			}
+			}
 			hidden_effect = {
 				set_country_flag = QIE_wushan_refugee_crisis_unlocked
 				set_cosmetic_tag = QIE_wushan_cosmetic_tag
@@ -750,6 +772,20 @@ focus_tree = {
 			country_event = {
 				id = QIE_wushan_events.8
 				days = 3
+			}
+			hidden_effect = { 
+				QIE_ws_adv_li_sihao = { set_nationality = QIE } 
+			} 
+			if = { 
+				limit = { has_free_political_advisor_slot = yes } activate_advisor = QIE_ws_adv_li_sihao_advisor_idea 
+			}
+			else = { 
+				add_political_power = 40
+				effect_tooltip = { 
+					QIE_ws_adv_li_sihao = { 
+						set_nationality = QIE 
+					} 
+				} 
 			}
 		}
 	}
