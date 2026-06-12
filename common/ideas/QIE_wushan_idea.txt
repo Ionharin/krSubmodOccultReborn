@@ -341,8 +341,8 @@ ideas ={
 			picture = qie_ideas_outer_king
 			allowed = { always = no }
 			modifier = {
-				army_claim_attack_factor = 0.10
-				army_claim_defence_factor = 0.10
+				army_non_core_attack_factor = 0.05
+				army_non_core_defence_factor = 0.05
 				non_core_manpower = 0.05
 			}
 		}
@@ -444,6 +444,7 @@ ideas ={
 				org_loss_when_moving = -0.10
 				army_fuel_consumption_factor = -0.10
 				supply_consumption_factor = -0.10
+				supply_node_range = 0.10
 				army_attack_speed_factor = 0.05
 				initiative_factor = 0.05
 				land_reinforce_rate = 0.05
@@ -587,17 +588,15 @@ ideas ={
 			}
 			targeted_modifier = {
 				tag = JAP
-				hidden_modifier = {
-					attack_bonus_against = 0.10
-					breakthrough_bonus_against = 0.10
-				}
+					attack_bonus_against = 0.15
+					breakthrough_bonus_against = 0.15
 			}
 			modifier = {
 				consumer_goods_factor = 0.20
 				consumer_goods_expected_value = 0.10
 				stability_factor = -0.10
-				production_speed_air_base_factor = 1.00
-				production_speed_naval_base_factor = 1.00
+				production_speed_air_base_factor = 2.00
+				production_speed_naval_base_factor = 2.00
 			}
 		}
 		QIE_wushan_ycp_one_year_special_plan = {
@@ -641,7 +640,9 @@ ideas ={
 			allowed = { always = no }
 			modifier = {
 				conscription = 0.01
-				modifier_army_sub_unit_irregular_infantry_attack_factor = 0.05
+				modifier_army_sub_unit_irregular_infantry_attack_factor = 0.10
+				army_org_factor = -0.1
+				army_morale_factor = -0.05
 				land_reinforce_rate = 0.05
 				resistance_growth_on_our_occupied_states = 0.20
 				resistance_damage_to_garrison_on_our_occupied_states = 0.20
@@ -761,11 +762,8 @@ ideas ={
 			picture = qie_ideas_ws_jiang_chao_zong_as_vice_founder
 			allowed = { always = no }
 			modifier = {
-				political_power_factor = 0.15
-				production_factory_max_efficiency_factor = 0.10
-				drift_defence_factor = 0.30
-				resistance_target = -0.10
-				production_speed_buildings_factor = 0.15
+				political_power_gain = 0.15
+				stability_factor = 0.05
 			}
 		}
 		QIE_wushan_wu_as_vice_master = {
@@ -773,11 +771,8 @@ ideas ={
 			picture = qie_ideas_ws_wu_pei_fu_as_vice_founder
 			allowed = { always = no }
 			modifier = {
-				political_power_factor = 0.15
-				production_factory_max_efficiency_factor = 0.10
-				drift_defence_factor = 0.30
-				resistance_target = -0.10
-				production_speed_buildings_factor = 0.15
+				political_power_gain = 0.15
+				war_support_factor = 0.05
 			}
 		}
 		QIE_wushan_pharmacy_anatomy_act = {
@@ -796,15 +791,16 @@ ideas ={
 			picture = SOV_defense_industry_artillery_bonus_ccp_sov_compatibility
 			modifier = {
 				army_artillery_attack_factor = 0.05
-				army_artillery_defense_factor = 0.05
+				army_artillery_defence_factor = 0.05
 			}
 		}
 		QIE_wushan_special_units_focus = {
-			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_artillery_units_focus" }
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_special_units_focus" }
 			picture = PER_special_units_division_idea
 			modifier = {
-				army_artillery_attack_factor = 0.05
-				army_artillery_defense_factor = 0.05
+				land_night_attack = 0.05
+				special_forces_cap = 0.15
+				army_speed_factor = 0.05
 			}
 		}
 	}
