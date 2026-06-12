@@ -9,5 +9,5 @@ tags = {
 
 name = "lostpenglai"
 path = "C:/Users/PC/Documents/Paradox Interactive/Hearts of Iron IV/mod/krsubLostPenglai"
-supported_version = "1.18.2.*"
+supported_version = "1.19.*"
 

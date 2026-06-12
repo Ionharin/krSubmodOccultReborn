@@ -7,12 +7,12 @@ set_stability = 0.55
 set_war_support = 0.55
 starting_train_buffer = 2
 set_cosmetic_tag = QIE_government_qing
+save_global_event_target_as = NZH_leader
 
 set_technology = {
 	### Infantry ###
 	infantry_weapons = 1
 	tech_trucks = 1
-	tech_irregulars = 1
 
 	### Support ###
 	tech_support = 1
@@ -38,6 +38,7 @@ set_technology = {
 	basic_battery = 1
 	basic_torpedo = 1
 }
+enable_tech_irregulars = yes
 
 ### Planes - BBA ###
 if = {
@@ -98,7 +99,7 @@ add_dynamic_modifier = {
 }
 QIE_recalculate_peking_commission = yes
 
-set_variable = { country_intro_page_count = 2 } # intro screen
+set_variable = { country_intro_page_count = 4 } # intro screen
 country_event = { id = qing_domestic_events.18 days = 14 random_hours = 96 } #mining conflicts
 country_event = {
 	id = china_events.70 #National Day of the Republic of China
@@ -368,7 +369,30 @@ recruit_character = QIE_ws_qian_neng_xun
 recruit_character = QIE_ws_hu_shih
 recruit_character = QIE_ws_zeng_qi
 recruit_character = QIE_ws_aisin_gioro_pugong
+recruit_character = QIE_ws_tang_er_he
+
+# recruit wushan advisor #
 recruit_character = QIE_beiyang_warfare
+recruit_character = QIE_ws_adv_cao_rulin
+recruit_character = QIE_ws_adv_gong_xinzhan
+recruit_character = QIE_ws_adv_li_sihao
+recruit_character = QIE_ws_adv_lu_zongyu
+recruit_character = QIE_ws_adv_tang_erhe
+recruit_character = QIE_ws_adv_yuan_yonglian
+recruit_character = QIE_ws_adv_zhong_shiming
+recruit_character = QIE_ws_adv_zhuang_rensong
+recruit_character = QIE_ws_adv_zhou_zhenlin
+
+# retire wushan advisor #
+QIE_ws_adv_cao_rulin = { retire = yes }
+QIE_ws_adv_gong_xinzhan = { retire = yes }
+QIE_ws_adv_li_sihao = { retire = yes }
+QIE_ws_adv_lu_zongyu = { retire = yes }
+QIE_ws_adv_tang_erhe = { retire = yes }
+QIE_ws_adv_yuan_yonglian = { retire = yes }
+QIE_ws_adv_zhong_shiming = { retire = yes }
+QIE_ws_adv_zhuang_rensong = { retire = yes }
+QIE_ws_adv_zhou_zhenlin = { retire = yes }
 
 # Character Setup #
 QIE_ws_jiang_chao_zong = {
@@ -382,6 +406,10 @@ QIE_ws_luanwu_yuan = {
 }
 
 QIE_ws_qian_neng_xun = {
+	china_set_character_alignment_traditionalist_china = yes
+}
+
+QIE_ws_tang_er_he = {
 	china_set_character_alignment_traditionalist_china = yes
 }
 

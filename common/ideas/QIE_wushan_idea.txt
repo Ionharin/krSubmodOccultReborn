@@ -30,9 +30,7 @@ ideas ={
 			allowed = { always = no }
 			modifier = {
 				consumer_goods_factor = 0.05
-				stability_factor = -0.05
-				war_support_factor = -0.10
-				production_speed_buildings_factor = -0.07
+				production_speed_buildings_factor = -0.05
 			}
 		}
 		QIE_work_for_rice = {
@@ -60,7 +58,7 @@ ideas ={
 		}
 		QIE_wushan_charity_relief = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_charity_relief" }
-			picture = ARG_social_welfare_fund_ns
+			picture = HOL_welfare_state
 			allowed = { always = no }
 			modifier = {
 				consumer_goods_factor = 0.15
@@ -333,10 +331,9 @@ ideas ={
 			picture = qie_ideas_inner_sage
 			allowed = { always = no }
 			modifier = {
-				army_core_attack_factor = 0.10
-				army_core_defence_factor = 0.10
-				drift_defence_factor = 0.10
-				supply_combat_penalties_on_core_factor = -0.15
+				army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.05
+				supply_combat_penalties_on_core_factor = -0.1
 			}
 		}
 		QIE_outer_king = {
@@ -347,7 +344,6 @@ ideas ={
 				army_claim_attack_factor = 0.10
 				army_claim_defence_factor = 0.10
 				non_core_manpower = 0.05
-				war_stability_factor = 0.20
 			}
 		}
 		QIE_wushan_madan_spirit = {
@@ -581,6 +577,32 @@ ideas ={
 				research_speed_factor = 0.03
 			}
 		}
+		QIE_wushan_rooster_devours_vermin = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_rooster_devours_vermin" }
+			picture = qie_ideas_ws_rooster_devours_vermin
+			allowed = { always = no }
+			available = {
+				JAP = { exists = yes }
+			}
+			on_remove = {
+				add_stability = 0.1
+				add_war_support = 0.1
+			}
+			targeted_modifier = {
+				tag = JAP
+				hidden_modifier = {
+					attack_bonus_against = 0.10
+					breakthrough_bonus_against = 0.10
+				}
+			}
+			modifier = {
+				consumer_goods_factor = 0.20
+				consumer_goods_expected_value = 0.10
+				stability_factor = -0.10
+				production_speed_air_base_factor = 1.00
+				production_speed_naval_base_factor = 1.00
+			}
+		}
 		QIE_wushan_ycp_one_year_special_plan = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_ycp_one_year_special_plan" }
 			picture = ARG_public_works_investment
@@ -723,6 +745,18 @@ ideas ={
 				supply_node_range = 0.15
 				army_org_factor = 0.05
 				grant_medal_cost_factor = -0.25
+			}
+		}
+		QIE_wushan_sunrise = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_sunrise" }
+			picture = generic_propaganda
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.15
+				production_factory_max_efficiency_factor = 0.10
+				drift_defence_factor = 0.30
+				resistance_target = -0.10
+				production_speed_buildings_factor = 0.15
 			}
 		}
 	}

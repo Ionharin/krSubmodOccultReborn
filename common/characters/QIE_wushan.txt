@@ -1,9 +1,15 @@
 characters = {
     QIE_ws_jiang_chao_zong = {
         name= QIE_ws_jiang_chao_zong
+        can_be_captured = no  # for the DLC TAOG
         portraits = {
             civilian = {
                 large = "GFX_portrait_qie_ws_jiang_chao_zong"
+                small = GFX_portrait_qie_ws_adv_jiang_chaozong
+            }
+            army = {
+                large = GFX_portrait_qie_ws_jiang_chao_zong
+				small = GFX_portrait_QIE_wu_peifu_army_small
             }
         }
         country_leader = {
@@ -11,6 +17,14 @@ characters = {
             traits = { QIE_fond_of_merit_but_kills_recklessly }
             expire = "1965.1.1.1"
             id = -1
+        }
+        field_marshal = {
+            traits = { QIE_wushan_wushanshe_member infantry_officer infantry_leader trait_reckless old_guard }
+            skill = 2
+            attack_skill = 1
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 2
         }
     }
     QIE_ws_wu_pei_fu = {
@@ -69,6 +83,20 @@ characters = {
             id = -1
         }
     }
+    QIE_ws_tang_er_he = {
+        name = QIE_ws_tang_er_he
+        portraits = {
+            civilian = {
+                large = "GFX_portrait_qie_ws_tang_er_he"
+            }
+        }
+        country_leader = {
+            ideology = national_populist_subtype
+            traits = { QIE_good_people_of_republic }
+            expire = "1965.1.1.1"
+            id = -1
+        }
+    }
     QIE_ws_hu_shih = {
         name = QIE_ws_hu_shih
         portraits = {
@@ -111,6 +139,170 @@ characters = {
             traits = { }
             expire = "1965.1.1.1"
             id = -1
+        }
+    }
+### Advisors and theorist ###
+
+    QIE_ws_adv_cao_rulin = {
+        name = QIE_ws_adv_cao_rulin
+        portraits = {
+            civilian = {
+                small = GFX_portrait_qie_ws_adv_cao_rulin
+            }
+        }
+        advisor = {
+            slot = political_advisor
+            idea_token = QIE_ws_adv_cao_rulin_advisor_idea
+            desc = QIE_ws_adv_cao_rulin_desc
+            traits = { QIE_ws_trait_notorious_industrialist }
+            available = {
+				is_country_leader = no
+			}
+            cost = 150
+        }
+    }
+    QIE_ws_adv_gong_xinzhan = {
+        name = QIE_ws_adv_gong_xinzhan
+        portraits = {
+            civilian = {
+                small = GFX_portrait_qie_ws_adv_gong_xinzhan
+            }
+        }
+        advisor = {
+            slot = political_advisor
+            idea_token = QIE_ws_adv_gong_xinzhan_advisor_idea
+            desc = QIE_ws_adv_gong_xinzhan_desc
+            traits = { KR_silent_workhorse }
+            available = {
+				is_country_leader = no
+			}
+            cost = 150
+        }
+    }
+    QIE_ws_adv_li_sihao = {
+        name = QIE_ws_adv_li_sihao
+        portraits = {
+            civilian = {
+                small = GFX_portrait_qie_ws_adv_li_sihao
+            }
+        }
+        advisor = {
+            slot = political_advisor
+            idea_token = QIE_ws_adv_li_sihao_advisor_idea
+            desc = QIE_ws_adv_li_sihao_desc
+            traits = { QIE_ws_trait_financial_magician }
+            available = {
+				is_country_leader = no
+			}
+            cost = 150
+        }
+    }
+    QIE_ws_adv_lu_zongyu = {
+        name = QIE_ws_adv_lu_zongyu
+        portraits = {
+            civilian = {
+                small = GFX_portrait_qie_ws_adv_lu_zongyu
+            }
+        }
+        advisor = {
+            slot = political_advisor
+            idea_token = QIE_ws_adv_lu_zongyu_advisor_idea
+            desc = QIE_ws_adv_lu_zongyu_desc
+            traits = { FNG_capitulating_counselor }
+            available = {
+				is_country_leader = no
+			}
+            cost = 150
+        }
+    }
+    QIE_ws_adv_tang_erhe = {
+        name = QIE_ws_adv_tang_erhe
+        portraits = {
+            civilian = {
+                small = GFX_portrait_qie_ws_adv_tang_erhe
+            }
+        }
+        advisor = {
+            slot = political_advisor
+            idea_token = QIE_ws_adv_tang_erhe_advisor_idea
+            desc = QIE_ws_adv_tang_erhe_desc
+            traits = { QIE_ws_good_man_doctor }
+            available = {
+				is_country_leader = no
+			}
+            cost = 150
+        }
+    }
+    QIE_ws_adv_yuan_yonglian = {
+        name = QIE_ws_adv_yuan_yonglian
+        portraits = {
+            civilian = {
+                small = GFX_portrait_qie_ws_adv_yuan_yonglian
+            }
+        }
+        advisor = {
+            slot = political_advisor
+            idea_token = QIE_ws_adv_yuan_yonglian_advisor_idea
+            desc = QIE_ws_adv_yuan_yonglian_desc
+            traits = { QIE_ws_financial_supervision }
+            available = {
+				is_country_leader = no
+			}
+            cost = 150
+        }
+    }
+    QIE_ws_adv_zhong_shiming = {
+        name = QIE_ws_adv_zhong_shiming
+        portraits = {
+            civilian = {
+                small = GFX_portrait_qie_ws_adv_zhong_shiming
+            }
+        }
+        advisor = {
+            slot = political_advisor
+            idea_token = QIE_ws_adv_zhong_shiming_advisor_idea
+            desc = QIE_ws_adv_zhong_shiming_desc
+            traits = { FNG_political_economist_sic }
+            available = {
+				is_country_leader = no
+			}
+            cost = 150
+        }
+    }
+    QIE_ws_adv_zhuang_rensong = {
+        name = QIE_ws_adv_zhuang_rensong
+        portraits = {
+            civilian = {
+                small = GFX_portrait_qie_ws_adv_zhuang_rensong
+            }
+        }
+        advisor = {
+            slot = political_advisor
+            idea_token = QIE_ws_adv_tang_erhe_advisor_idea
+            desc = QIE_ws_adv_zhuang_rensong_desc
+            traits = { KR_captain_of_industry }
+            available = {
+				is_country_leader = no
+			}
+            cost = 150
+        }
+    }
+    QIE_ws_adv_zhou_zhenlin = {
+        name = QIE_ws_adv_zhou_zhenlin
+        portraits = {
+            civilian = {
+                small = GFX_portrait_qie_ws_adv_zhou_zhenlin
+            }
+        }
+        advisor = {
+            slot = political_advisor
+            idea_token = QIE_ws_adv_zhou_zhenlin_advisor_idea
+            desc = QIE_ws_adv_zhou_zhenlin_desc
+            traits = { QIE_ws_unionist_sympathizers }
+            available = {
+				is_country_leader = no
+			}
+            cost = 150
         }
     }
     QIE_beiyang_warfare = {
