@@ -1,6 +1,7 @@
 ﻿add_namespace = QIE_wushan_events
 add_namespace = QIE_ws_normal_events
 add_namespace = QIE_ws_god_circle_events
+add_namespace = QIE_ws_leader
 
 country_event = { # 救世新教提请集资捐助
     id = QIE_wushan_events.1
@@ -127,7 +128,7 @@ country_event = { # 焚香
     picture = GFX_QIE_wushan_events_6
     is_triggered_only = yes
     hidden = no
-    timeout_days = 14
+    timeout_days = 7
     option = { # 浼界綏棣欑伃锛岄噾鍒氫笉鎶ゅ叾涓?
         name = QIE_wushan_events.6.a
         custom_effect_tooltip = QIE_wushan_events_6_a_tt
@@ -535,16 +536,16 @@ country_event = { # 代帝摄政
     }
 }
 
-news_event = { # QIE_wushan_news_events.2
+news_event = { # QIE_wushan_news_events.23 United CHI
     id = QIE_wushan_events.23
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.4" }
     title = QIE_wushan_events.23.t
     desc = QIE_wushan_events.23.desc
-    picture = GFX_news_event_wushan_wushanshe
+    picture = GFX_news_event_wushan_united_news
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # 另一个张天然？
+    option = { # We Got the Whole China
         name = QIE_wushan_events.23.a
         ai_chance = { factor = 1 }
     }
@@ -800,5 +801,530 @@ country_event = { # 回祖线第二阶段
     option = { # 他们所称之为天园的，实则是火狱。
         name = QIE_ws_god_circle_events.11.a
         ai_chance = { factor = 1 }
+    }
+}
+
+# Wushan Leader
+
+country_event = { # 在书房中
+    id = QIE_ws_leader.1
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.1" }
+    title = QIE_ws_leader.1.t
+    desc = QIE_ws_leader.1.desc
+    picture = GFX_QIE_ws_leader_1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 玉帅，您好点了吗？
+        name = QIE_ws_leader.1.a
+        ai_chance = { factor = 1 }
+        country_event = {
+            id = QIE_ws_leader.10
+            days = 4
+        }
+    }
+}
+
+country_event = { # 在丰泽园里
+    id = QIE_ws_leader.2
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.2" }
+    title = QIE_ws_leader.2.t
+    desc = QIE_ws_leader.2.desc
+    picture = GFX_QIE_ws_leader_2
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 看起来吴小鬼儿找到回家的路了？
+        name = QIE_ws_leader.2.a
+        ai_chance = { factor = 1 }
+        country_event = {
+            id = QIE_ws_leader.5
+            days = 4
+        }
+    }
+}
+
+country_event = { # 令仙舟老人胃痛的一晚
+    id = QIE_ws_leader.3
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.3" }
+    title = QIE_ws_leader.3.t
+    desc = QIE_ws_leader.3.desc
+    picture = GFX_QIE_ws_leader_3
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # “武人不能骂人”吗……
+        name = QIE_ws_leader.3.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 新国新教，新领袖呢？
+    id = QIE_ws_leader.4
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.4" }
+    title = QIE_ws_leader.4.t
+    desc = QIE_ws_leader.4.desc
+    picture = GFX_QIE_ws_leader_4
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 7
+    option = { # 让我跟随江朝宗将军一起切蛋糕。
+        name = QIE_ws_leader.4.a
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = QIE_ws_leader.4.a.tt
+        set_country_flag = QIE_ws_leader_stories_jiang
+        clr_country_flag = QIE_ws_leader_stories_wu
+        clr_country_flag = QIE_ws_leader_stories_qian
+    }
+    option = { # 带我去玉帅吴佩孚构想孔孟新国家的书房。
+        name = QIE_ws_leader.4.b
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = QIE_ws_leader.4.b.tt
+        set_country_flag = QIE_ws_leader_stories_wu
+        clr_country_flag = QIE_ws_leader_stories_jiang
+        clr_country_flag = QIE_ws_leader_stories_qian
+    }
+    option = { # 有没有不选这两个神经病的安静一点的选项？
+        name = QIE_ws_leader.4.c
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = QIE_ws_leader.4.c.tt
+        set_country_flag = QIE_ws_leader_stories_qian
+        clr_country_flag = QIE_ws_leader_stories_jiang
+        clr_country_flag = QIE_ws_leader_stories_wu
+    }
+}
+
+country_event = { # 1923年之邂逅
+    id = QIE_ws_leader.5
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.5" }
+    title = QIE_ws_leader.5.t
+    desc = QIE_ws_leader.5.desc
+    picture = GFX_QIE_ws_leader_5
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 而不幸的是，我尚还没有变成神仙。
+        name = QIE_ws_leader.5.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 风言风语
+    id = QIE_ws_leader.6
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.6" }
+    title = QIE_ws_leader.6.t
+    desc = QIE_ws_leader.6.desc
+    picture = GFX_QIE_ws_leader_6
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 搬起石头砸到了自己的脚。
+        name = QIE_ws_leader.6.a
+        custom_effect_tooltip = QIE_ws_leader_stories_jiang_decrease
+        ai_chance = { factor = 1 }
+        add_political_power = -10
+    }
+    option = { # 小丑般的的争权技俩。
+        trigger = {
+            has_country_flag = QIE_ws_leader_stories_qian
+            NOT = { has_country_flag = QIE_ws_leader_stories_jiang }
+            NOT = { has_country_flag = QIE_ws_leader_stories_wu }
+        }
+        custom_effect_tooltip = QIE_ws_leader_stories_jiang_decrease
+        name = QIE_ws_leader.6.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 云阳丸号事件
+    id = QIE_ws_leader.7
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.7" }
+    title = QIE_ws_leader.7.t
+    desc = QIE_ws_leader.7.desc
+    picture = GFX_QIE_ws_leader_7
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 玉帅之短，原来不止在身量。
+        trigger = {
+            has_country_flag = QIE_ws_leader_stories_jiang
+            NOT = { has_country_flag = QIE_ws_leader_stories_wu }
+            NOT = { has_country_flag = QIE_ws_leader_stories_qian }
+        }
+        custom_effect_tooltip = QIE_ws_leader_stories_wu_decrease
+        name = QIE_ws_leader.7.a
+        ai_chance = { factor = 1 }
+        add_political_power = 10
+    }
+    option = { # 命运与偶然之神向其中一方展露了微笑。
+        trigger = {
+            has_country_flag = QIE_ws_leader_stories_qian
+            NOT = { has_country_flag = QIE_ws_leader_stories_jiang }
+            NOT = { has_country_flag = QIE_ws_leader_stories_wu }
+        }
+        custom_effect_tooltip = QIE_ws_leader_stories_wu_decrease
+        name = QIE_ws_leader.7.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 有人在试图抹黑
+    id = QIE_ws_leader.8
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.8" }
+    title = QIE_ws_leader.8.t
+    desc = QIE_ws_leader.8.desc
+    picture = GFX_QIE_ws_leader_8
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 他们不会真以为能找到什么吧。
+        custom_effect_tooltip = QIE_ws_leader_stories_wu_increase
+        name = QIE_ws_leader.8.a
+        ai_chance = { factor = 1 }
+        add_political_power = 5
+    }
+}
+
+country_event = { # 清算旧账
+    id = QIE_ws_leader.9
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.9" }
+    title = QIE_ws_leader.9.t
+    desc = QIE_ws_leader.9.desc
+    picture = GFX_QIE_ws_leader_9
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 他们怎么还真能查出来东西？
+        custom_effect_tooltip = QIE_ws_leader_stories_wu_decrease
+        name = QIE_ws_leader.9.a
+        ai_chance = { factor = 1 }
+        add_political_power = -10
+    }
+}
+
+country_event = { # 玉帅的一击
+    id = QIE_ws_leader.10
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.10" }
+    title = QIE_ws_leader.10.t
+    desc = QIE_ws_leader.10.desc
+    picture = GFX_QIE_ws_leader_10
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 这近些年的善款去向，你们可曾听过什么风声？
+        name = QIE_ws_leader.10.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 一个滴水不漏的人
+    id = QIE_ws_leader.11
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.11" }
+    title = QIE_ws_leader.11.t
+    desc = QIE_ws_leader.11.desc
+    picture = GFX_QIE_ws_leader_11
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 为什么他们不能再小心一点？
+        custom_effect_tooltip = QIE_ws_leader_stories_wu_decrease
+        name = QIE_ws_leader.11.a
+        ai_chance = { factor = 1 }
+        add_political_power = -10
+    }
+}
+
+country_event = { # 敲诈勒索
+    id = QIE_ws_leader.12
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.12" }
+    title = QIE_ws_leader.12.t
+    desc = QIE_ws_leader.12.desc
+    picture = GFX_QIE_ws_leader_12
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 沦丧道德之辈，莫碰道德之位。
+        trigger = {
+            has_country_flag = QIE_ws_leader_stories_wu
+            NOT = { has_country_flag = QIE_ws_leader_stories_jiang }
+            NOT = { has_country_flag = QIE_ws_leader_stories_qian }
+        }
+        custom_effect_tooltip = QIE_ws_leader_stories_jiang_decrease
+        name = QIE_ws_leader.12.a
+        ai_chance = { factor = 1 }
+        add_political_power = 5
+    }
+    option = { # 致命一击。
+        trigger = {
+            has_country_flag = QIE_ws_leader_stories_qian
+            NOT = { has_country_flag = QIE_ws_leader_stories_jiang }
+            NOT = { has_country_flag = QIE_ws_leader_stories_wu }
+        }
+        custom_effect_tooltip = QIE_ws_leader_stories_jiang_decrease
+        name = QIE_ws_leader.12.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 急功冒进
+    id = QIE_ws_leader.13
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.13" }
+    title = QIE_ws_leader.13.t
+    desc = QIE_ws_leader.13.desc
+    picture = GFX_QIE_ws_leader_13
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 玉帅需要一个称职的政治参谋。
+        custom_effect_tooltip = QIE_ws_leader_stories_jiang_increase
+        name = QIE_ws_leader.13.a
+        ai_chance = { factor = 1 }
+        add_political_power = 5
+    }
+}
+
+country_event = { # 忘记分出去的蛋糕渣
+    id = QIE_ws_leader.14
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.14" }
+    title = QIE_ws_leader.14.t
+    desc = QIE_ws_leader.14.desc
+    picture = GFX_QIE_ws_leader_14
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 之前应该分他们一份的。
+        custom_effect_tooltip = QIE_ws_leader_stories_jiang_decrease
+        name = QIE_ws_leader.14.a
+        ai_chance = { factor = 1 }
+        add_political_power = -10
+    }
+}
+
+country_event = { # 李思浩的回归
+    id = QIE_ws_leader.15
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.15" }
+    title = QIE_ws_leader.15.t
+    desc = QIE_ws_leader.15.desc
+    picture = GFX_QIE_ws_leader_15
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 皖系政府的复活？
+        name = QIE_ws_leader.15.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 李思浩回到了北京
+    id = QIE_ws_leader.16
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.16" }
+    title = QIE_ws_leader.16.t
+    desc = QIE_ws_leader.16.desc
+    picture = GFX_QIE_ws_leader_16
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 财政总长？我不关心这种事。
+        trigger = {
+            has_country_flag = QIE_ws_leader_stories_jiang
+            NOT = { has_country_flag = QIE_ws_leader_stories_qian }
+            NOT = { has_country_flag = QIE_ws_leader_stories_wu }
+        }
+        custom_effect_tooltip = QIE_ws_leader_stories_jiang_decrease
+        custom_effect_tooltip = tooltip_white_line
+        name = QIE_ws_leader.16.a
+        ai_chance = { factor = 1 }
+        hidden_effect = {
+				QIE_ws_adv_li_sihao = {
+					set_nationality = QIE
+				}
+			}
+			if = {
+				limit = {
+					has_free_political_advisor_slot = yes
+				}
+				activate_advisor = QIE_ws_adv_li_sihao_advisor_idea
+			}
+			else = {
+				add_political_power = 40
+				effect_tooltip = {
+					QIE_ws_adv_li_sihao = {
+						set_nationality = QIE
+					}
+				}
+			}
+    }
+    option = { # 龚心湛有什么权力这样做？
+        custom_effect_tooltip = QIE_ws_leader_stories_wu_decrease
+        custom_effect_tooltip = tooltip_white_line
+        name = QIE_ws_leader.16.b
+        ai_chance = { factor = 1 }
+        trigger = {
+            has_country_flag = QIE_ws_leader_stories_wu
+            NOT = { has_country_flag = QIE_ws_leader_stories_qian }
+            NOT = { has_country_flag = QIE_ws_leader_stories_jiang }
+        }
+        hidden_effect = {
+				QIE_ws_adv_li_sihao = {
+					set_nationality = QIE
+				}
+			}
+			if = {
+				limit = {
+					has_free_political_advisor_slot = yes
+				}
+				activate_advisor = QIE_ws_adv_li_sihao_advisor_idea
+			}
+			else = {
+				add_political_power = 40
+				effect_tooltip = {
+					QIE_ws_adv_li_sihao = {
+						set_nationality = QIE
+					}
+				}
+			}
+    }
+    option = { # 欢迎回来，老朋友。
+        custom_effect_tooltip = QIE_ws_leader_stories_jiang_decrease
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = QIE_ws_leader_stories_wu_decrease
+        custom_effect_tooltip = tooltip_white_line
+        name = QIE_ws_leader.16.c
+        ai_chance = { factor = 1 }
+        trigger = {
+            has_country_flag = QIE_ws_leader_stories_qian
+            NOT = { has_country_flag = QIE_ws_leader_stories_wu }
+            NOT = { has_country_flag = QIE_ws_leader_stories_jiang }
+        }
+        hidden_effect = {
+				QIE_ws_adv_li_sihao = {
+					set_nationality = QIE
+				}
+			}
+			if = {
+				limit = {
+					has_free_political_advisor_slot = yes
+				}
+				activate_advisor = QIE_ws_adv_li_sihao_advisor_idea
+			}
+			else = {
+				add_political_power = 40
+				effect_tooltip = {
+					QIE_ws_adv_li_sihao = {
+						set_nationality = QIE
+					}
+				}
+			}
+    }
+}
+
+country_event = { # 江朝宗登临教统之位
+    id = QIE_ws_leader.17
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.17" }
+    title = QIE_ws_leader.17.t
+    desc = QIE_ws_leader.17.desc
+    picture = GFX_QIE_ws_leader_17
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 稽首拜龙轩，祝圣皇德治同乾健，
+        name = QIE_ws_leader.17.a
+        ai_chance = { factor = 1 }
+        add_political_power = 10
+    }
+    option = { # 享升平受福无边，抚华夷垂衣端冕，
+        name = QIE_ws_leader.17.b
+        ai_chance = { factor = 1 }
+        add_political_power = 10
+    }
+    option = { # 绵宝祚亿万斯年。
+        name = QIE_ws_leader.17.c
+        ai_chance = { factor = 1 }
+        add_political_power = 10
+    }
+}
+
+country_event = { # 萧瑟之秋
+    id = QIE_ws_leader.18
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.18" }
+    title = QIE_ws_leader.18.t
+    desc = QIE_ws_leader.18.desc
+    picture = GFX_QIE_ws_leader_18
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 三人成市虎，浸渍解胶漆。
+        name = QIE_ws_leader.18.a
+        ai_chance = { factor = 1 }
+        add_political_power = -10
+    }
+}
+
+country_event = { # 吴佩孚登临教统之位
+    id = QIE_ws_leader.19
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.19" }
+    title = QIE_ws_leader.19.t
+    desc = QIE_ws_leader.19.desc
+    picture = GFX_QIE_ws_leader_19
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 曾经伯乐识长鸣，不似龙行不敢行。
+        name = QIE_ws_leader.19.a
+        ai_chance = { factor = 1 }
+        add_political_power = 10
+    }
+    option = { # 早晚飞黄引同皂，碧云天上作鸾鸣。
+        name = QIE_ws_leader.19.b
+        ai_chance = { factor = 1 }
+        add_political_power = 10
+    }
+}
+
+country_event = { # 败渭南
+    id = QIE_ws_leader.20
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.20" }
+    title = QIE_ws_leader.20.t
+    desc = QIE_ws_leader.20.desc
+    picture = GFX_QIE_ws_leader_20
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 银枪一举追尔命，食尔之肉方称心。
+        name = QIE_ws_leader.20.a
+        ai_chance = { factor = 1 }
+        add_political_power = -10
+    }
+}
+
+country_event = { # 死者归来
+    id = QIE_ws_leader.21
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.21" }
+    title = QIE_ws_leader.21.t
+    desc = QIE_ws_leader.21.desc
+    picture = GFX_QIE_ws_leader_21
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 武人不许骂人。
+        name = QIE_ws_leader.21.a
+        ai_chance = { factor = 1 }
+        add_political_power = 5
+    }
+}
+
+country_event = { # 生者侍候，真人落座
+    id = QIE_ws_leader.22
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.22" }
+    title = QIE_ws_leader.22.t
+    desc = QIE_ws_leader.22.desc
+    picture = GFX_QIE_ws_leader_22
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 向钱总统问好。
+        name = QIE_ws_leader.22.a
+        ai_chance = { factor = 1 }
+        add_political_power = 5
     }
 }
