@@ -298,12 +298,35 @@ characters = {
         name = QIE_beiyang_warfare
         portraits = {
             army = {
-                small = GFX_idea_adaptable_modernizers_spirit
+                small = GFX_portrait_qie_ws_theorist_lin_jianzhang
             }
         }
         advisor = {
             slot = theorist
             idea_token = QIE_beiyang_warfare_theorist
+            desc = QIE_ws_big_gun_warfare_desc
+            ledger = army
+            allowed = {
+                original_tag = QIE
+            }
+            visible = {
+                has_completed_focus = QIE_wushan_long_honed_tactics
+            }
+            traits = { QIE_ws_big_gun_warfare }
+            cost = 80
+        }
+    }
+    QIE_ws_jfc_fuller = {
+        name = QIE_ws_jfc_fuller
+        portraits = {
+            army = {
+                small = GFX_portrait_qie_ws_theorist_jfc_fuller
+            }
+        }
+        advisor = {
+            slot = theorist
+            idea_token = QIE_ws_jfc_fuller_theorist
+            desc = QIE_ws_jfc_fuller_desc
             ledger = army
             allowed = {
                 original_tag = QIE
@@ -314,8 +337,8 @@ characters = {
                     always = yes
                 }
             }
-            traits = { QIE_jade_marshals_roundtable }
-            cost = 100
+            traits = { QIE_ws_english_future_warfare }
+            cost = 80
         }
     }
 }

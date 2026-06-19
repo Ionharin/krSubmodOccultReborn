@@ -33,7 +33,10 @@ focus_tree = {
 		cancel_if_invalid = no
 		select_effect = {
 			log = "[GetLogRoot]: Select Focus QIE_wushan_power"
-			country_event = { id = QIE_ws_leader.4 days = 2} 
+			country_event = {
+				id = QIE_ws_leader.4
+				days = 2
+			}
 		}
 		completion_reward = {
 			add_political_power = 100
@@ -62,6 +65,9 @@ focus_tree = {
 			QIE_ws_adv_zhou_zhenlin = {
 				set_nationality = QIE
 			}
+			QIE_zhang_yanqing = {
+				set_nationality = QIE
+			}
 			QIE_ws_jiang_chao_zong = {
 				add_corps_commander_role = {
 					traits = {
@@ -78,6 +84,11 @@ focus_tree = {
 					logistics_skill = 2
 				}
 			}
+			LEP = {
+					country_event = {
+						id = QIE_wushan_events.34
+					}
+				}
 			hidden_effect = {
 				set_country_flag = QIE_wushan_refugee_crisis_unlocked
 				set_cosmetic_tag = QIE_wushan_cosmetic_tag
@@ -90,6 +101,7 @@ focus_tree = {
 					id = QIE_wushan_wu_jiang_power_auto.11
 					days = 1
 				}
+				country_event = { id = QIE_wushan_events.30 days = 14 }
 			}
 		}
 	}
@@ -178,16 +190,28 @@ focus_tree = {
 			log = "[GetLogRoot]: Focus Completed QIE_the_defense_of_wu"
 			add_political_power = 15
 			if = {
-				limit = { has_country_flag = QIE_ws_leader_stories_jiang }
-				country_event = { id = QIE_ws_leader.2 }
+				limit = {
+					has_country_flag = QIE_ws_leader_stories_jiang
+				}
+				country_event = {
+					id = QIE_ws_leader.2
+				}
 			}
 			else_if = {
-				limit = { has_country_flag = QIE_ws_leader_stories_wu }
-				country_event = { id = QIE_ws_leader.1 }
+				limit = {
+					has_country_flag = QIE_ws_leader_stories_wu
+				}
+				country_event = {
+					id = QIE_ws_leader.1
+				}
 			}
 			else_if = {
-				limit = { has_country_flag = QIE_ws_leader_stories_qian }
-				country_event = { id = QIE_ws_leader.3 }
+				limit = {
+					has_country_flag = QIE_ws_leader_stories_qian
+				}
+				country_event = {
+					id = QIE_ws_leader.3
+				}
 			}
 		}
 	}
@@ -214,18 +238,39 @@ focus_tree = {
 				}
 			}
 			if = {
-				limit = { has_country_flag = QIE_ws_leader_stories_jiang } # choose jiang then jiang view
-				country_event = { id = QIE_ws_leader.7 }
-				country_event = { id = QIE_ws_leader.13 days = 3 }
+				limit = {
+					has_country_flag = QIE_ws_leader_stories_jiang
+				}
+				# choose jiang then jiang view
+				country_event = {
+					id = QIE_ws_leader.7
+				}
+				country_event = {
+					id = QIE_ws_leader.13
+					days = 3
+				}
 			}
 			else_if = {
-				limit = { has_country_flag = QIE_ws_leader_stories_wu } # choose wu then wu view
-				country_event = { id = QIE_ws_leader.9 }
-				country_event = { id = QIE_ws_leader.11 days = 3 }
+				limit = {
+					has_country_flag = QIE_ws_leader_stories_wu
+				}
+				# choose wu then wu view
+				country_event = {
+					id = QIE_ws_leader.9
+				}
+				country_event = {
+					id = QIE_ws_leader.11
+					days = 3
+				}
 			}
 			else_if = {
-				limit = { has_country_flag = QIE_ws_leader_stories_qian } # choose qian then view
-				country_event = { id = QIE_ws_leader.7 }
+				limit = {
+					has_country_flag = QIE_ws_leader_stories_qian
+				}
+				# choose qian then view
+				country_event = {
+					id = QIE_ws_leader.7
+				}
 			}
 		}
 	}
@@ -247,18 +292,39 @@ focus_tree = {
 			add_political_power = -30
 			add_stability = 0.03
 			if = {
-				limit = { has_country_flag = QIE_ws_leader_stories_jiang } # choose jiang then jiang view
-				country_event = { id = QIE_ws_leader.14 }
-				country_event = { id = QIE_ws_leader.6 days = 3 }
+				limit = {
+					has_country_flag = QIE_ws_leader_stories_jiang
+				}
+				# choose jiang then jiang view
+				country_event = {
+					id = QIE_ws_leader.14
+				}
+				country_event = {
+					id = QIE_ws_leader.6
+					days = 3
+				}
 			}
 			else_if = {
-				limit = { has_country_flag = QIE_ws_leader_stories_wu } # choose wu then wu view
-				country_event = { id = QIE_ws_leader.12 }
-				country_event = { id = QIE_ws_leader.8 days = 3 }
+				limit = {
+					has_country_flag = QIE_ws_leader_stories_wu
+				}
+				# choose wu then wu view
+				country_event = {
+					id = QIE_ws_leader.12
+				}
+				country_event = {
+					id = QIE_ws_leader.8
+					days = 3
+				}
 			}
 			else_if = {
-				limit = { has_country_flag = QIE_ws_leader_stories_qian } # choose qian then view
-				country_event = { id = QIE_ws_leader.12 }
+				limit = {
+					has_country_flag = QIE_ws_leader_stories_qian
+				}
+				# choose qian then view
+				country_event = {
+					id = QIE_ws_leader.12
+				}
 			}
 		}
 	}
@@ -377,7 +443,10 @@ focus_tree = {
 			add_ideas = QIE_wushan_wu_as_vice_master
 			custom_effect_tooltip = tooltip_white_line
 			add_ideas = QIE_wushan_jiang_as_vice_master
-			country_event = { id = QIE_ws_leader.22 days = 3 }
+			country_event = {
+				id = QIE_ws_leader.22
+				days = 3
+			}
 		}
 	}
 	focus = {
@@ -406,12 +475,20 @@ focus_tree = {
 				}
 			}
 			if = {
-				limit = { has_country_flag = QIE_ws_leader_stories_jiang }
-				country_event = { id = QIE_ws_leader.17 }
+				limit = {
+					has_country_flag = QIE_ws_leader_stories_jiang
+				}
+				country_event = {
+					id = QIE_ws_leader.17
+				}
 			}
 			else_if = {
-				limit = { has_country_flag = QIE_ws_leader_stories_wu }
-				country_event = { id = QIE_ws_leader.18 }
+				limit = {
+					has_country_flag = QIE_ws_leader_stories_wu
+				}
+				country_event = {
+					id = QIE_ws_leader.18
+				}
 			}
 			set_country_flag = QIE_wushan_orthodoxy_set_flag
 		}
@@ -442,12 +519,20 @@ focus_tree = {
 				}
 			}
 			if = {
-				limit = { has_country_flag = QIE_ws_leader_stories_wu }
-				country_event = { id = QIE_ws_leader.19 }
+				limit = {
+					has_country_flag = QIE_ws_leader_stories_wu
+				}
+				country_event = {
+					id = QIE_ws_leader.19
+				}
 			}
 			else_if = {
-				limit = { has_country_flag = QIE_ws_leader_stories_jiang }
-				country_event = { id = QIE_ws_leader.20 }
+				limit = {
+					has_country_flag = QIE_ws_leader_stories_jiang
+				}
+				country_event = {
+					id = QIE_ws_leader.20
+				}
 			}
 			set_country_flag = QIE_wushan_orthodoxy_set_flag
 		}
@@ -484,7 +569,9 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 50
 			custom_effect_tooltip = QIE_ws2_tt
-			country_event = { id = QIE_ws_leader.21 }
+			country_event = {
+				id = QIE_ws_leader.21
+			}
 		}
 	}
 	focus = {
@@ -604,7 +691,7 @@ focus_tree = {
 		x = 0
 		y = 6
 		cost = 2
-		icon = GFX_focus_qie_ws_honor_mohammad_as_the_superior
+		icon = GFX_focus_PER_state_atheism
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		available = {
@@ -655,6 +742,10 @@ focus_tree = {
 					target = ROOT
 					modifier = QIE_a_helping_hand_in_disaster
 				}
+			}
+			country_event = {
+				id = QIE_ws_leader.23
+				days = 5
 			}
 			hidden_effect = {
 				SZC = {
@@ -720,6 +811,7 @@ focus_tree = {
 				}
 				add_ideas = QIE_wushan_theocratic_authority_2
 			}
+			country_event = { id = QIE_ws_normal_events.1 }
 		}
 	}
 	focus = {
@@ -842,8 +934,13 @@ focus_tree = {
 		select_effect = {
 			log = "[GetLogRoot]: Select Focus QIE_charitable_share_bank"
 			if = {
-				limit = { has_country_flag = QIE_ws_leader_stories_qian }
-				country_event = { id = QIE_ws_leader.15 days = 7 }
+				limit = {
+					has_country_flag = QIE_ws_leader_stories_qian
+				}
+				country_event = {
+					id = QIE_ws_leader.15
+					days = 7
+				}
 			}
 		}
 		prerequisite = {
@@ -859,8 +956,19 @@ focus_tree = {
 				days = 3
 			}
 			if = {
-				NOT = { has_country_flag = QIE_ws_leader_stories_qian }
-				country_event = { id = QIE_ws_leader.16 days = 1 }
+				limit = {
+					NOT = {
+						has_country_flag = QIE_ws_leader_stories_qian
+					}
+				}
+				country_event = {
+					id = QIE_ws_leader.16
+					days = 1
+				}
+			}
+			country_event = {
+				id = QIE_ws_leader.25
+				days = 3
 			}
 		}
 	}
@@ -981,6 +1089,10 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
+			}
+			country_event = {
+				id = QIE_ws_leader.29
+				days = 44
 			}
 		}
 	}
@@ -1174,9 +1286,13 @@ focus_tree = {
 		x = 39
 		y = 0
 		cost = 4
-		icon = GFX_goal_split_helmet
+		icon = GFX_focus_SIA_war_fervor
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		select_effect = {
+			log = "[GetLogRoot]: Select Focus QIE_old_army_new_life"
+			country_event = { id = QIE_ws_leader.47 days = 20}
+		}
 		available = {
 			has_country_flag = QIE_wushan_orthodoxy_set_flag
 		}
@@ -1208,6 +1324,10 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = QIE_wushan_poor_relief_society
 			custom_effect_tooltip = QIE_wushan_relief_unsustainable_tt
+			country_event = {
+				id = QIE_ws_leader.24
+				days = 3
+			}
 		}
 	}
 	focus = {
@@ -1248,7 +1368,7 @@ focus_tree = {
 		x = 0
 		y = 8
 		cost = 4
-		icon = GFX_focus_qie_ws_raise_the_long_blade_uncensored
+		icon = GFX_focus_PER_islamic_solidarity
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		available = {
@@ -1714,6 +1834,10 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			country_event = {
+				id = QIE_ws_leader.34
+				days = 70
+			}
 		}
 	}
 	focus = {
@@ -1921,7 +2045,7 @@ focus_tree = {
 		x = 39
 		y = 2
 		cost = 4
-		icon = GFX_focus_research
+		icon = GFX_focus_SIA_the_midnight_meeting
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1974,7 +2098,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_war_support = -0.05
-			army_experience = 30
+			add_command_power = 25
 			every_unit_leader = {
 				gain_xp = 300
 			}
@@ -2154,7 +2278,7 @@ focus_tree = {
 		x = 39
 		y = 3
 		cost = 3
-		icon = GFX_focus_generic_army_doctrines_2
+		icon = GFX_focus_PRC_army_command
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2229,6 +2353,7 @@ focus_tree = {
 				uses = 2
 				category = logistics_tech
 			}
+			add_ideas = QIE_wushan_redundant_civilian_factory_design
 			add_equipment_to_stockpile = {
 				type = motorized_equipment_1
 				amount = 200
@@ -2247,6 +2372,7 @@ focus_tree = {
 				level = 1
 				fallback = yes
 			}
+			enable_tech_improved_logistics = yes
 			add_ideas = QIE_wushan_luoyang_arsenal_motorized_cost
 		}
 	}
@@ -2307,7 +2433,7 @@ focus_tree = {
 		x = 38
 		y = 4
 		cost = 5
-		icon = GFX_goal_RUS_heroism
+		icon = GFX_focus_PRC_raid_weapon_depots
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -2754,7 +2880,7 @@ focus_tree = {
 		id = QIE_become_MP_shadow
 		x = 17
 		y = 3
-		cost = 4
+		cost = 8
 		icon = GFX_goal_QIE_manchu_symbol
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2782,7 +2908,7 @@ focus_tree = {
 		id = QIE_become_CERA_shadow
 		x = 15
 		y = 3
-		cost = 4
+		cost = 8
 		icon = GFX_goal_QIE_cera
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2810,7 +2936,7 @@ focus_tree = {
 		id = QIE_become_YCP_shadow
 		x = 13
 		y = 3
-		cost = 4
+		cost = 8
 		icon = GFX_goal_QIE_ycp
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2853,7 +2979,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_wushan_china_united_again_lower_phase"
-			set_stability = 1
 			custom_effect_tooltip = QIE_wushan_china_united_again_next_step_tt
 			reduce_focus_completion_cost = {
 				focus = {
@@ -3351,6 +3476,13 @@ focus_tree = {
 		icon = GFX_focus_qie_wushan_control_inside_china_lands
 		continue_if_invalid = yes
 		cancel_if_invalid = no
+		select_effect = {
+			log = "[GetLogRoot]: Select Focus QIE_restore_the_order_behind_shanhaiguan"
+			country_event = {
+				id = QIE_wushan_events.24
+				days = 21
+			}
+		}
 		available = {
 			is_subject = no
 			has_war_support > 0.5
@@ -3364,6 +3496,17 @@ focus_tree = {
 			china_enable_alliances_decisions = yes
 			china_enable_non_main_government_demand_submission_decisions = yes
 			add_ideas = QIE_tangdi_zhihua
+			hidden_effect = {
+				add_collaboration = { target = SHX value = 0.20 }	
+				add_collaboration = { target = SHD value = 0.20 }
+				add_collaboration = { target = SZC value = 0.20 }
+				add_collaboration = { target = LEP value = 0.20 }
+				add_collaboration = { target = ANQ value = 0.20 }
+				add_collaboration = { target = YUN value = 0.20 }
+				add_collaboration = { target = HNN value = 0.20 }
+				add_collaboration = { target = GXC value = 0.20 }
+				add_collaboration = { target = CHI value = 0.20 }
+			}
 		}
 	}
 	focus = {
@@ -4099,7 +4242,7 @@ focus_tree = {
 		x = 0
 		y = 7
 		cost = 3
-		icon = GFX_focus_qie_ws_fake_mohammod_sign
+		icon = GFX_focus_generic_islamic_propaganda
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		available = {
@@ -4868,6 +5011,10 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -30
 			custom_effect_tooltip = QIE_forced_producing_plan_tt
+			country_event = {
+				id = QIE_ws_leader.28
+				days = 30
+			}
 		}
 	}
 	focus = {
@@ -4887,6 +5034,10 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -30
 			custom_effect_tooltip = QIE_247_producing_plan_tt
+			country_event = {
+				id = QIE_ws_leader.27
+				days = 30
+			}
 		}
 	}
 	focus = {
@@ -5055,6 +5206,10 @@ focus_tree = {
 		completion_reward = {
 			enable_tech_penal_battalion = yes
 			add_ideas = QIE_wushan_pharmacy_anatomy_act
+			country_event = {
+				id = QIE_ws_leader.37
+				days = 9
+			}
 		}
 	}
 	focus = {
@@ -5079,6 +5234,10 @@ focus_tree = {
 			add_popularity = {
 				ideology = social_liberal
 				popularity = -0.01
+			}
+			country_event = {
+				id = QIE_wushan_events.27
+				days = 5
 			}
 		}
 	}
@@ -5129,46 +5288,47 @@ focus_tree = {
 			custom_override_tooltip = {
 				tooltip = {
 					localization_key = tooltip_create_division_template
-					NAME = "Hufa Jingcha"
+					NAME = "Hufa Ducha"
 					LINE_1 = {
 						localization_key = line_battalion_tt
-						NAME = irregular_infantry
-						ICON = GFX_unit_irregular_infantry_icon_small
-						COUNT = 5
+						NAME = infantry
+						ICON = GFX_unit_infantry_icon_small
+						COUNT = 4
+					}
+					SUPPORT_1 = {
+						localization_key = support_battalion_tt
+						NAME = military_police
+						ICON = GFX_unit_military_police_icon_small
 					}
 				}
 				if = {
 					limit = {
-						has_template = "Hufa Jingcha"
+						has_template = "Hufa Ducha"
 					}
 					delete_unit_template_and_units = {
-						division_template = "Hufa Jingcha"
+						division_template = "Hufa Ducha"
 						disband = yes
 					}
 				}
 				division_template = {
-					name = "Hufa Jingcha"
+					name = "Hufa Ducha"
 					division_names_group = QIE_INF_01
 					regiments = {
-						irregular_infantry = {
+						infantry = {
 							x = 0
 							y = 0
 						}
-						irregular_infantry = {
+						infantry = {
 							x = 0
 							y = 1
 						}
-						irregular_infantry = {
+						infantry = {
 							x = 0
 							y = 2
 						}
-						irregular_infantry = {
-							x = 1
-							y = 0
-						}
-						irregular_infantry = {
-							x = 1
-							y = 1
+						infantry = {
+							x = 0
+							y = 3
 						}
 					}
 					support = {
@@ -5187,26 +5347,30 @@ focus_tree = {
 					tooltip = {
 						localization_key = tooltip_spawn_units
 						COUNT = 3
-						TYPE = "Hufa Jingcha"
+						TYPE = "Hufa Ducha"
 					}
 					create_unit = {
-						division = "name = \"Hufa Jingcha Dadui 1\" division_template = \"Hufa Jingcha\" start_experience_factor = 0.2"
+						division = "name = \"Hufa Ducha Dadui 1\" division_template = \"Hufa Ducha\" start_experience_factor = 0.2"
 						allow_spawning_on_enemy_provs = no
 						owner = ROOT
 					}
 					create_unit = {
-						division = "name = \"Hufa Jingcha Dadui 2\" division_template = \"Hufa Jingcha\" start_experience_factor = 0.2"
+						division = "name = \"Hufa Ducha Dadui 2\" division_template = \"Hufa Ducha\" start_experience_factor = 0.2"
 						allow_spawning_on_enemy_provs = no
 						owner = ROOT
 					}
 					create_unit = {
-						division = "name = \"Hufa Jingcha Dadui 3\" division_template = \"Hufa Jingcha\" start_experience_factor = 0.2"
+						division = "name = \"Hufa Ducha Dadui 3\" division_template = \"Hufa Ducha\" start_experience_factor = 0.2"
 						allow_spawning_on_enemy_provs = no
 						owner = ROOT
 					}
 				}
 			}
 			add_ideas = QIE_wushan_scriptural_police
+			country_event = {
+				id = QIE_ws_leader.40
+				days = 14
+			}
 		}
 	}
 	focus = {
@@ -5214,7 +5378,7 @@ focus_tree = {
 		x = 6
 		y = 6
 		cost = 4
-		icon = GFX_goal_civil_service
+		icon = GFX_focus_SIA_the_purge
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -5344,6 +5508,10 @@ focus_tree = {
 				}
 			}
 			add_ideas = QIE_wushan_blades_sigils_and_thunderfire
+			country_event = {
+				id = QIE_ws_leader.39
+				days = 14
+			}
 		}
 	}
 	focus = {
@@ -5405,6 +5573,10 @@ focus_tree = {
 				ideology = social_democrat
 				popularity = 0.05
 			}
+			country_event = {
+				id = QIE_ws_leader.35
+				days = 9
+			}
 		}
 	}
 	focus = {
@@ -5429,6 +5601,10 @@ focus_tree = {
 				popularity = 0.02
 			}
 			custom_effect_tooltip = QIE_wushan_contact_elites_tt
+			country_event = {
+				id = QIE_ws_leader.38
+				days = 7
+			}
 		}
 	}
 	focus = {
@@ -5458,6 +5634,10 @@ focus_tree = {
 			}
 			add_country_leader_trait = QIE_four_nots_scholar
 			unlock_national_focus = QIE_wushan_dead_leader_live_country
+			country_event = {
+				id = QIE_ws_leader.46
+				days = 2
+			}
 		}
 	}
 	focus = {
@@ -5607,6 +5787,10 @@ focus_tree = {
 			}
 			add_country_leader_trait = QIE_ws_spring_and_autumn_correct_morality
 			unlock_national_focus = QIE_wushan_dead_leader_live_country
+			country_event = {
+				id = QIE_ws_leader.45
+				days = 2
+			}
 		}
 	}
 	focus = {
@@ -5958,6 +6142,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_wushan_long_honed_tactics"
 			army_experience = 10
+			activate_advisor = QIE_beiyang_warfare_theorist
 			custom_override_tooltip = {
 				tooltip = {
 					localization_key = tooltip_create_division_template
@@ -6115,25 +6300,81 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_wushan_long_honed_tactics"
 			army_experience = 15
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = basic_light_tank_chassis
+						}
+					}
+					set_technology = {
+						basic_light_tank_chassis = 1
+					}
+				}
+				create_equipment_variant = {
+					name = "Vickers M1934"
+					type = light_tank_chassis_1
+					parent_version = 0
+					allow_without_tech = yes
+					modules = {
+						turret_type_slot = tank_light_two_man_tank_turret
+						main_armament_slot = tank_small_cannon
+						special_type_slot_1 = tank_radio_1
+						special_type_slot_2 = smoke_launchers
+						suspension_type_slot = tank_christie_suspension
+						armor_type_slot = tank_riveted_armor
+						engine_type_slot = tank_gasoline_engine
+					}
+					upgrades = {
+						tank_nsb_engine_upgrade = 2
+						tank_nsb_armor_upgrade = 1
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							NOT = {
+								has_tech = basic_light_tank
+							}
+						}
+						set_technology = {
+							basic_light_tank = 1
+						}
+					}
+					create_equipment_variant = {
+						name = "Vickers M1934"
+						type = light_tank_equipment_1
+						upgrades = {
+							tank_gun_upgrade = 2
+							tank_armor_upgrade = 2
+							tank_reliability_upgrade = 2
+							tank_engine_upgrade = 2
+						}
+					}
+					add_equipment_to_stockpile = {
+						type = light_tank_equipment_1
+						amount = 100
+						variant_name = "Panzer I Ausf. A"
+					}
+				}
+			}
 			custom_override_tooltip = {
 				tooltip = {
 					localization_key = tooltip_create_division_template
 					NAME = "Beizhi Bubing Shi"
 					LINE_1 = {
 						localization_key = line_battalion_tt
-						NAME = infantry
-						ICON = GFX_unit_infantry_icon_small
-						COUNT = 10
+						NAME = light_armor
+						ICON = GFX_unit_light_armor_icon_small
+						COUNT = 4
 					}
 					SUPPORT_1 = {
 						localization_key = support_battalion_tt
-						NAME = engineer
-						ICON = GFX_unit_engineer_icon_small
-					}
-					SUPPORT_2 = {
-						localization_key = support_battalion_tt
-						NAME = artillery
-						ICON = GFX_unit_artillery_icon_small
+						NAME = recon
+						ICON = GFX_unit_recon_icon_small
 					}
 				}
 				if = {
@@ -6151,55 +6392,27 @@ focus_tree = {
 					template_counter = 58
 					division_names_group = QIE_INF_01
 					regiments = {
-						infantry = {
+						light_armor = {
 							x = 0
 							y = 0
 						}
-						infantry = {
+						light_armor = {
 							x = 0
 							y = 1
 						}
-						infantry = {
+						light_armor = {
 							x = 0
 							y = 2
 						}
-						infantry = {
+						light_armor = {
 							x = 0
 							y = 3
-						}
-						infantry = {
-							x = 1
-							y = 0
-						}
-						infantry = {
-							x = 1
-							y = 1
-						}
-						infantry = {
-							x = 1
-							y = 2
-						}
-						infantry = {
-							x = 1
-							y = 3
-						}
-						infantry = {
-							x = 2
-							y = 0
-						}
-						infantry = {
-							x = 2
-							y = 1
 						}
 					}
 					support = {
-						engineer = {
+						recon = {
 							x = 0
 							y = 0
-						}
-						artillery = {
-							x = 0
-							y = 1
 						}
 					}
 				}
@@ -6236,14 +6449,6 @@ focus_tree = {
 						division = "name = \"Xingguo jun Di 3 Shi\" division_template = \"Beizhi Bubing Shi\" start_experience_factor = 0.3"
 						owner = ROOT
 					}
-					create_unit = {
-						division = "name = \"Xingguo jun Di 4 Shi\" division_template = \"Beizhi Bubing Shi\" start_experience_factor = 0.3"
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"Xingguo jun Di 5 Shi\" division_template = \"Beizhi Bubing Shi\" start_experience_factor = 0.3"
-						owner = ROOT
-					}
 				}
 			}
 		}
@@ -6277,7 +6482,7 @@ focus_tree = {
 				army_experience = 40
 			}
 			else = {
-				set_grand_doctrine = grand_battleplan
+				set_grand_doctrine = superior_firepower
 			}
 			custom_effect_tooltip = tooltip_white_line
 			add_ideas = QIE_wushan_artillery_units_focus
@@ -6299,6 +6504,8 @@ focus_tree = {
 				idea = QIE_wushan_continuation_of_xiaozhan_spirit
 				days = 730
 			}
+			enable_tech_anti_fortification_artillery = yes
+			custom_effect_tooltip = tooltip_white_line
 		}
 	}
 	focus = {
@@ -6346,6 +6553,13 @@ focus_tree = {
 		icon = GFX_focus_generic_military_academy
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		select_effect = {
+			log = "[GetLogRoot]: Select Focus QIE_wushan_the_war_of_sciences"
+			country_event = {
+				id = QIE_wushan_events.28
+				days = 20
+			}
+		}
 		prerequisite = {
 			focus = QIE_embrace_new_tactics
 		}
@@ -6426,7 +6640,7 @@ focus_tree = {
 				army_experience = 40
 			}
 			else = {
-				set_grand_doctrine = new_mobile_warfare
+				set_grand_doctrine = grand_battleplan
 			}
 			custom_effect_tooltip = tooltip_white_line
 			add_ideas = QIE_wushan_special_units_focus
@@ -7127,14 +7341,6 @@ focus_tree = {
 		icon = GFX_HOL_crackdown_syndie
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		select_effect = {
-			reduce_focus_completion_cost = {
-				focus = {
-					QIE_wushan_only_one_light_in_this_dark_world
-				}
-				cost = 3500
-			}
-		}
 		available = {
 			has_completed_focus = QIE_integrate_existing_MIO_resources
 			has_completed_focus = QIE_construction_after_chinese_unification
@@ -7203,6 +7409,9 @@ focus_tree = {
 					QIE_wushan_only_one_light_in_this_dark_world
 				}
 				cost = 123
+			}
+			country_event = {
+				id = QIE_ws_leader.44
 			}
 			hidden_effect = {
 				every_country = {
@@ -7844,7 +8053,7 @@ focus_tree = {
 		x = 60
 		y = 3
 		cost = 7
-		icon = GFX_focus_SWE_Vasa_II
+		icon = GFX_focus_SWE_coastal_support
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
@@ -8094,7 +8303,7 @@ focus_tree = {
 		x = 57
 		y = 7
 		cost = 0
-		icon = GFX_focus_PER_communist_afghanistan_intervention
+		icon = GFX_focus_SIA_the_hammers_that_strike
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -8138,6 +8347,10 @@ focus_tree = {
 			}
 			add_stability = 0.05
 			add_political_power = 50
+			country_event = {
+				id = QIE_ws_leader.36
+				days = 2
+			}
 			if = {
 				limit = {
 					has_country_leader = {
@@ -8183,6 +8396,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			set_country_flag = qie_wushan_has_control_china
+			set_stability = 1
 			mark_focus_tree_layout_dirty = yes
 		}
 	}
@@ -8215,7 +8429,9 @@ focus_tree = {
 		cancel_if_invalid = yes
 		available = {
 			has_completed_focus = QIE_industry_focus_rely_on_foreigner_country
-			QIE_ws_adv_gong_xinzhan = {  is_hired_as_advisor = yes }
+			QIE_ws_adv_gong_xinzhan = {
+				is_hired_as_advisor = yes
+			}
 		}
 		prerequisite = {
 			focus = QIE_adopt_start_tungsten_producing_search

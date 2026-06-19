@@ -757,6 +757,33 @@ ideas ={
 				production_speed_buildings_factor = 0.15
 			}
 		}
+		QIE_wushan_redundant_civilian_factory_design = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_redundant_civilian_factory_design" }
+			on_remove = {
+				log = "[GetLogRoot]: remove idea QIE_wushan_redundant_civilian_factory_design" 
+				add_timed_idea = {
+					idea = QIE_wushan_rapid_supply_hub_construction
+					days = 365
+				}
+			}
+			picture = generic_construction2
+			allowed = { always = no }
+			available = {
+				has_war = no
+			}
+			modifier = {
+				production_speed_industrial_complex_factor = -0.10
+				conversion_cost_mil_to_civ_factor = 0.10
+			}
+		}
+		QIE_wushan_rapid_supply_hub_construction = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_rapid_supply_hub_construction" }
+			picture = generic_construction
+			allowed = { always = no }
+			modifier = {
+				production_speed_supply_node_factor = 6.00
+			}
+		}
 		QIE_wushan_jiang_as_vice_master = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_jiang_as_vice_master" }
 			picture = qie_ideas_ws_jiang_chao_zong_as_vice_founder

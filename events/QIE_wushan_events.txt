@@ -513,41 +513,266 @@ country_event = { # 紫禁城警备加强
     }
 }
 
-country_event = { # 代帝摄政
+news_event = { # QIE_wushan_news_events.22 Control CHI
     id = QIE_wushan_events.22
-    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.22" }
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_news_events.22" }
     title = QIE_wushan_events.22.t
     desc = QIE_wushan_events.22.desc
-    picture = GFX_QIE_wushan_events_22
+    picture = GFX_news_event_wushan_united_news
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # 孔孟文明将重回中华大地。
+    option = { # We Got the Whole China
         name = QIE_wushan_events.22.a
         ai_chance = { factor = 1 }
+        trigger = { tag = QIE }
     }
-    option = { # 五教联合将保护世界和平。
+    option = { # We Got the Whole China
         name = QIE_wushan_events.22.b
         ai_chance = { factor = 1 }
-    }
-    option = { # 当务之急不是处理灾民吗？
-        name = QIE_wushan_events.22.c
-        ai_chance = { factor = 1 }
+        trigger = { NOT = { tag = QIE } }
     }
 }
 
 news_event = { # QIE_wushan_news_events.23 United CHI
     id = QIE_wushan_events.23
-    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.4" }
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_news_events.23" }
     title = QIE_wushan_events.23.t
     desc = QIE_wushan_events.23.desc
-    picture = GFX_news_event_wushan_united_news
+    picture = GFX_news_event_china_unified_beiyang
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # We Got the Whole China
         name = QIE_wushan_events.23.a
         ai_chance = { factor = 1 }
+        trigger = { tag = QIE }
+    }
+    option = { # We Got the Whole China
+        name = QIE_wushan_events.23.b
+        ai_chance = { factor = 1 }
+        trigger = { NOT = { tag = QIE } }
+    }
+}
+country_event = { # 光复中华
+    id = QIE_wushan_events.24
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.24" }
+    title = QIE_wushan_events.24.t
+    desc = QIE_wushan_events.24.desc
+    picture = GFX_report_event_wushan_guan_yu
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 列祖列宗保佑。
+        name = QIE_wushan_events.24.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 忘恩负义的拉铁摩尔先生
+    id = QIE_wushan_events.25
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.25" }
+    title = QIE_wushan_events.25.t
+    desc = QIE_wushan_events.25.desc
+    picture = GFX_report_event_wushan_owen_lattimore_1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 拉铁摩尔一个外国人，也有权评论中国？
+        name = QIE_wushan_events.25.a
+        ai_chance = { factor = 1 }
+        add_war_support = 0.10
+        add_political_power = 50
+    }
+}
+
+country_event = { # 大阴谋家拉铁摩尔先生
+    id = QIE_wushan_events.26
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.26" }
+    title = QIE_wushan_events.26.t
+    desc = QIE_wushan_events.26.desc
+    picture = GFX_report_event_wushan_owen_lattimore_1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 拉铁摩尔一个外国人，也有权评论中国？
+        name = QIE_wushan_events.26.a
+        ai_chance = { factor = 1 }
+        add_war_support = 0.05
+    }
+}
+
+country_event = { # 《青年要志》创刊号
+    id = QIE_wushan_events.27
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.27" }
+    title = QIE_wushan_events.27.t
+    desc = QIE_wushan_events.27.desc
+    picture = GFX_report_event_wushan_older_teenager
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 敬告青年。
+        name = QIE_wushan_events.27.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 外国教官
+    id = QIE_wushan_events.28
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.28" }
+    title = QIE_wushan_events.28.t
+    desc = QIE_wushan_events.28.desc
+    picture = GFX_report_event_wushan_gu_weijun_and_huang_huilan
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们自己的将领也能学会这些。
+        name = QIE_wushan_events.28.a
+        ai_chance = { factor = 1 }
+        add_political_power = 5
+        add_command_power = 10
+    }
+    option = { # 接顾维钧，我们可以试一试。
+        name = QIE_wushan_events.28.b
+        ai_chance = { factor = 1 }
+        add_political_power = -25
+        country_event = { id = QIE_wushan_events.29 days = 70}
+    }
+}
+
+country_event = { # 好消息
+    id = QIE_wushan_events.29
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.29" }
+    title = QIE_wushan_events.29.t
+    desc = QIE_wushan_events.29.desc
+    picture = GFX_report_event_wushan_fuller_portrait
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 你将帮助我们建成一支前所未有的军队。
+        name = QIE_wushan_events.29.a
+        ai_chance = { factor = 1 }
+        QIE_ws_jfc_fuller = { set_nationality = QIE }
+    }
+}
+
+country_event = { # 给奉天的电报
+    id = QIE_wushan_events.30
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.30" }
+    title = QIE_wushan_events.30.t
+    desc = QIE_wushan_events.30.desc
+    picture = GFX_report_event_FNG_zhang_zuolin_1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 发电报过去。
+        name = QIE_wushan_events.30.a
+        ai_chance = { factor = 99 }
+        FNG = {
+            country_event = { id = QIE_wushan_events.31 days = 1 }
+        }
+
+    }
+    option = { # 此事需从长计议。
+        name = QIE_wushan_events.30.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 来自[QIE.GetName]的消息
+    id = QIE_wushan_events.31
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.31" }
+    title = QIE_wushan_events.31.t
+    desc = QIE_wushan_events.31.desc
+    picture = GFX_report_event_wushan_wushan_she
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 一个也不许走，密切监视他们。
+        name = QIE_wushan_events.31.a
+        ai_chance = { factor = 1 }
+        QIE = {
+            country_event = { id = QIE_wushan_events.32 days = 10 }
+        }
+    }
+    option = { # 放他们两人离开。
+        name = QIE_wushan_events.31.b
+        ai_chance = { factor = 1 }
+        QIE = {
+            country_event = { id = QIE_wushan_events.33 days = 3 }
+        }
+    }
+}
+
+country_event = { # 发起突袭？
+    id = QIE_wushan_events.32
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.32" }
+    title = QIE_wushan_events.32.t
+    desc = QIE_wushan_events.32.desc
+    picture = GFX_news_event_wushan_chi_militia
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 准备发动突袭。
+        name = QIE_wushan_events.32.a
+        ai_chance = { factor = 1 }
+        add_political_power = -30
+        add_equipment_to_stockpile = { type = infantry_equipment_0 amount = -100 }
+        add_manpower = -1000
+        country_event = { id = QIE_wushan_events.33 days = 7 }
+    }
+    option = { # 这不值得我们冒险。
+        name = QIE_wushan_events.32.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 老朋友的回归
+    id = QIE_wushan_events.33
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.33" }
+    title = QIE_wushan_events.33.t
+    desc = QIE_wushan_events.33.desc
+    picture = GFX_report_event_wushan_beiyang_government
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们又一次见面了。
+        name = QIE_wushan_events.33.a
+        ai_chance = { factor = 1 }
+        QIE_ws_adv_cao_rulin = { set_nationality = QIE }
+        QIE_ws_adv_lu_zongyu = { set_nationality = QIE }
+    }
+}
+
+country_event = { # 汤尔和离开南京
+    id = QIE_wushan_events.34
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.34" }
+    title = QIE_wushan_events.34.t
+    desc = QIE_wushan_events.34.desc
+    picture = GFX_news_event_wushan_tangerhe_1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 一个文人，随他去吧。
+        name = QIE_wushan_events.34.a
+        ai_chance = { factor = 1 }
+        retire_character = LEP_tang_erhe
+    }
+}
+
+country_event = { # 林建章前往北京
+    id = QIE_wushan_events.35
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.35" }
+    title = QIE_wushan_events.35.t
+    desc = QIE_wushan_events.35.desc
+    picture = GFX_report_event_generic_beijing_map
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 这啥情况呢
+        name = QIE_wushan_events.35.a
+        ai_chance = { factor = 1 }
+        retire_character = SHD_lin_jianzhang
     }
 }
 
@@ -556,39 +781,64 @@ country_event = { # 政府的伪装
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.1" }
     title = QIE_ws_normal_events.1.t
     desc = QIE_ws_normal_events.1.desc
+    picture = GFX_report_event_wushan_wushan_she
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # 让宗社党人去做。
+    option = { # 宗社党人是合适的合作目标。
         name = QIE_ws_normal_events.1.a
         ai_chance = { factor = 1 }
+        add_political_power = -15
+        reduce_focus_completion_cost = {
+            focus = {
+				QIE_become_MP_shadow
+			}
+			cost = 42
+        }
     }
-    option = { # 也该看看青年党的实践能力了。
+    option = { # 也该看看青年党的能力了。
         name = QIE_ws_normal_events.1.b
         ai_chance = { factor = 1 }
+        add_political_power = -15
+        reduce_focus_completion_cost = {
+            focus = {
+				QIE_become_YCP_shadow
+			}
+			cost = 42
+        }
     }
-    option = { # 帝国宪政会将好好利用它们。
+    option = { # 帝国宪政会更适合被我们操控。
         name = QIE_ws_normal_events.1.c
         ai_chance = { factor = 1 }
-    }
-    option = { # 什么党派？这些是救世新教的财产。
-        name = QIE_ws_normal_events.1.d
-        ai_chance = { factor = 1 }
+        add_political_power = -15
+        reduce_focus_completion_cost = {
+            focus = {
+				QIE_become_CERA_shadow
+			}
+			cost = 42
+        }
     }
 }
-country_event = { # test event
+
+country_event = { # 我们的战争计划遭遇变故
     id = QIE_ws_normal_events.2
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.2" }
     title = QIE_ws_normal_events.2.t
     desc = QIE_ws_normal_events.2.desc
+    picture = GFX_report_event_wushan_beiyang_military
     is_triggered_only = yes
     hidden = no
-    timeout_days = 14
-    option = {
+    timeout_days = 7
+    option = { # 该死
         name = QIE_ws_normal_events.2.a
         ai_chance = { factor = 1 }
+        add_political_power = -50
+        add_command_power = -15
+        add_stability = -0.10
+        add_war_support = -0.15
     }
 }
+
 country_event = { # SZC famine help
     id = QIE_ws_normal_events.3
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.3" }
@@ -604,24 +854,29 @@ country_event = { # SZC famine help
         set_country_flag = qie_ws_szc_easily_accept_annex_because_of_famine
     }
 }
+
 country_event = { # QIE_wushan annex szc
     id = QIE_ws_normal_events.4
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.3" }
     title = QIE_ws_normal_events.4.t
     desc = QIE_ws_normal_events.4.desc
+    picture = GFX_report_event_SZC_yang_sen_desk
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = {
         name = QIE_ws_normal_events.4.a
-        ai_chance = { factor = 50 }
+        ai_chance = { factor = 70 }
+        QIE = {
+            country_event = { id = QIE_ws_normal_events.6 days = 3 }
+        }
     }
     option = {
         name = QIE_ws_normal_events.4.b
         ai_chance = {
-            factor = 50
+            factor = 30
             modifier = {
-                factor = 25
+                factor = 10
                 has_country_flag = qie_ws_szc_easily_accept_annex_because_of_famine
             }
         }
@@ -637,6 +892,40 @@ country_event = { # QIE_wushan annex szc
     }
 }
 
+country_event = { # 慈善的胜利
+    id = QIE_ws_normal_events.5
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.5" }
+    title = QIE_ws_normal_events.5.t
+    desc = QIE_ws_normal_events.5.desc
+    picture = GFX_report_event_SZC_yang_sen_desk
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 小代价解决了大麻烦。
+        name = QIE_ws_normal_events.5.a
+        ai_chance = { factor = 1 }
+        add_political_power = 10
+        add_stability = 0.01
+    }
+}
+
+country_event = { # 忘恩负义
+    id = QIE_ws_normal_events.6
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.6" }
+    title = QIE_ws_normal_events.6.t
+    desc = QIE_ws_normal_events.6.desc
+    picture = GFX_report_event_SZC_yang_sen_dress
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 不要对军阀们的良心抱有幻想，准备集结。
+        name = QIE_ws_normal_events.6.a
+        ai_chance = { factor = 1 }
+        add_collaboration = { target = SZC value = 0.30 }
+    }
+}
+
+
 # Wushan God Circle Events
 
 country_event = { # 燕京纯阳宫内
@@ -644,7 +933,7 @@ country_event = { # 燕京纯阳宫内
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_god_circle_events.1" }
     title = QIE_ws_god_circle_events.1.t
     desc = QIE_ws_god_circle_events.1.desc
-    picture = GFX_QIE_ws_god_circle_events_1
+    picture = GFX_report_event_wushan_seance
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -654,31 +943,31 @@ country_event = { # 燕京纯阳宫内
     }
 }
 
-country_event = { # 儒祖线第一条事件
+country_event = { # 堕三都
     id = QIE_ws_god_circle_events.2
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_god_circle_events.2" }
     title = QIE_ws_god_circle_events.2.t
     desc = QIE_ws_god_circle_events.2.desc
-    picture = GFX_QIE_ws_god_circle_events_2
+    picture = GFX_report_event_wushan_street_performer
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # 孔子已经是个死人了
+    option = { # 赏他两分钱买个馒头。
         name = QIE_ws_god_circle_events.2.a
         ai_chance = { factor = 1 }
     }
 }
 
-country_event = { # 儒祖线第二条事件
+country_event = { # 乡愿
     id = QIE_ws_god_circle_events.3
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_god_circle_events.3" }
     title = QIE_ws_god_circle_events.3.t
     desc = QIE_ws_god_circle_events.3.desc
-    picture = GFX_QIE_ws_god_circle_events_3
+    picture = GFX_report_event_wushan_confucius_portrait
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # 孔子一直没死，何谈复活？
+    option = { # 是啊是啊，孔子说得对。
         name = QIE_ws_god_circle_events.3.a
         ai_chance = { factor = 1 }
     }
@@ -689,7 +978,7 @@ country_event = { # 道祖线第一阶段
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_god_circle_events.4" }
     title = QIE_ws_god_circle_events.4.t
     desc = QIE_ws_god_circle_events.4.desc
-    picture = GFX_QIE_ws_god_circle_events_4
+    picture = GFX_report_event_QIE_hu_shih_desk
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -704,7 +993,7 @@ country_event = { # 道祖线第二阶段
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_god_circle_events.5" }
     title = QIE_ws_god_circle_events.5.t
     desc = QIE_ws_god_circle_events.5.desc
-    picture = GFX_QIE_ws_god_circle_events_5
+    picture = GFX_report_event_wushan_laozu_portrait
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -719,7 +1008,7 @@ country_event = { # 佛祖线第一阶段
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_god_circle_events.6" }
     title = QIE_ws_god_circle_events.6.t
     desc = QIE_ws_god_circle_events.6.desc
-    picture = GFX_QIE_ws_god_circle_events_6
+    picture = GFX_report_event_VIN_Buddhist
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -734,7 +1023,7 @@ country_event = { # 佛祖线第二阶段
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_god_circle_events.7" }
     title = QIE_ws_god_circle_events.7.t
     desc = QIE_ws_god_circle_events.7.desc
-    picture = GFX_QIE_ws_god_circle_events_7
+    picture = GFX_report_event_wushan_buddha_portrait
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -744,31 +1033,31 @@ country_event = { # 佛祖线第二阶段
     }
 }
 
-country_event = { # 耶祖线第一阶段
+country_event = { # 撒玛利亚城
     id = QIE_ws_god_circle_events.8
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_god_circle_events.8" }
     title = QIE_ws_god_circle_events.8.t
     desc = QIE_ws_god_circle_events.8.desc
-    picture = GFX_QIE_ws_god_circle_events_8
+    picture = GFX_report_event_wushan_chinese_christian
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # 这里只有稻米基督徒。
+    option = { # 主，你愿意我们叫火自天降下，焚毁他们吗？
         name = QIE_ws_god_circle_events.8.a
         ai_chance = { factor = 1 }
     }
 }
 
-country_event = { # 耶祖线第二阶段
+country_event = { # 行奇术的西门
     id = QIE_ws_god_circle_events.9
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_god_circle_events.9" }
     title = QIE_ws_god_circle_events.9.t
     desc = QIE_ws_god_circle_events.9.desc
-    picture = GFX_QIE_ws_god_circle_events_9
+    picture = GFX_report_event_wushan_jesus_portrait
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # 为了香蕉搬运炸弹的猴子们。
+    option = { # 把这权柄也给我，叫我手按着谁，谁就可以受圣灵。
         name = QIE_ws_god_circle_events.9.a
         ai_chance = { factor = 1 }
     }
@@ -779,7 +1068,7 @@ country_event = { # 回祖线第一阶段
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_god_circle_events.10" }
     title = QIE_ws_god_circle_events.10.t
     desc = QIE_ws_god_circle_events.10.desc
-    picture = GFX_QIE_ws_god_circle_events_10
+    picture = GFX_report_event_wushan_musilim
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -794,7 +1083,7 @@ country_event = { # 回祖线第二阶段
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_god_circle_events.11" }
     title = QIE_ws_god_circle_events.11.t
     desc = QIE_ws_god_circle_events.11.desc
-    picture = GFX_QIE_ws_god_circle_events_11
+    picture = GFX_report_event_wushan_dajjal
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -804,14 +1093,14 @@ country_event = { # 回祖线第二阶段
     }
 }
 
-# Wushan Leader
+# Wushan Leader Events
 
 country_event = { # 在书房中
     id = QIE_ws_leader.1
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.1" }
     title = QIE_ws_leader.1.t
     desc = QIE_ws_leader.1.desc
-    picture = GFX_QIE_ws_leader_1
+    picture = GFX_report_event_QIE_wu_desk
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -830,7 +1119,7 @@ country_event = { # 在丰泽园里
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.2" }
     title = QIE_ws_leader.2.t
     desc = QIE_ws_leader.2.desc
-    picture = GFX_QIE_ws_leader_2
+    picture = GFX_report_event_wushan_liu_biju
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -849,7 +1138,7 @@ country_event = { # 令仙舟老人胃痛的一晚
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.3" }
     title = QIE_ws_leader.3.t
     desc = QIE_ws_leader.3.desc
-    picture = GFX_QIE_ws_leader_3
+    picture = GFX_report_event_wushan_beiyang_government
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -864,7 +1153,7 @@ country_event = { # 新国新教，新领袖呢？
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.4" }
     title = QIE_ws_leader.4.t
     desc = QIE_ws_leader.4.desc
-    picture = GFX_QIE_ws_leader_4
+    picture = GFX_report_event_wushan_wushan_she
     is_triggered_only = yes
     hidden = no
     timeout_days = 7
@@ -899,7 +1188,7 @@ country_event = { # 1923年之邂逅
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.5" }
     title = QIE_ws_leader.5.t
     desc = QIE_ws_leader.5.desc
-    picture = GFX_QIE_ws_leader_5
+    picture = GFX_report_event_wushan_jiang_chaozong_old
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -914,7 +1203,7 @@ country_event = { # 风言风语
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.6" }
     title = QIE_ws_leader.6.t
     desc = QIE_ws_leader.6.desc
-    picture = GFX_QIE_ws_leader_6
+    picture = GFX_report_event_FNG_collabaration_with_japan
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -941,7 +1230,7 @@ country_event = { # 云阳丸号事件
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.7" }
     title = QIE_ws_leader.7.t
     desc = QIE_ws_leader.7.desc
-    picture = GFX_QIE_ws_leader_7
+    picture = GFX_report_event_FNG_collabaration_with_japan
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -973,7 +1262,7 @@ country_event = { # 有人在试图抹黑
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.8" }
     title = QIE_ws_leader.8.t
     desc = QIE_ws_leader.8.desc
-    picture = GFX_QIE_ws_leader_8
+    picture = GFX_report_event_QIE_wu_peifu_stare
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -990,7 +1279,7 @@ country_event = { # 清算旧账
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.9" }
     title = QIE_ws_leader.9.t
     desc = QIE_ws_leader.9.desc
-    picture = GFX_QIE_ws_leader_9
+    picture = GFX_report_event_QIE_wu_old_4
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -1007,7 +1296,7 @@ country_event = { # 玉帅的一击
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.10" }
     title = QIE_ws_leader.10.t
     desc = QIE_ws_leader.10.desc
-    picture = GFX_QIE_ws_leader_10
+    picture = GFX_report_event_QIE_wu_1926
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -1022,7 +1311,7 @@ country_event = { # 一个滴水不漏的人
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.11" }
     title = QIE_ws_leader.11.t
     desc = QIE_ws_leader.11.desc
-    picture = GFX_QIE_ws_leader_11
+    picture = GFX_report_event_wushan_seance_1
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -1039,7 +1328,7 @@ country_event = { # 敲诈勒索
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.12" }
     title = QIE_ws_leader.12.t
     desc = QIE_ws_leader.12.desc
-    picture = GFX_QIE_ws_leader_12
+    picture = GFX_report_event_wushan_jiang_chaozong_old
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -1071,7 +1360,7 @@ country_event = { # 急功冒进
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.13" }
     title = QIE_ws_leader.13.t
     desc = QIE_ws_leader.13.desc
-    picture = GFX_QIE_ws_leader_13
+    picture = GFX_report_event_wushan_seance_1
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -1088,7 +1377,7 @@ country_event = { # 忘记分出去的蛋糕渣
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.14" }
     title = QIE_ws_leader.14.t
     desc = QIE_ws_leader.14.desc
-    picture = GFX_QIE_ws_leader_14
+    picture = GFX_report_event_wushan_jiang_chaozong_old
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -1105,7 +1394,7 @@ country_event = { # 李思浩的回归
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.15" }
     title = QIE_ws_leader.15.t
     desc = QIE_ws_leader.15.desc
-    picture = GFX_QIE_ws_leader_15
+    picture = GFX_report_event_wushan_beiyang_government
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -1120,7 +1409,7 @@ country_event = { # 李思浩回到了北京
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.16" }
     title = QIE_ws_leader.16.t
     desc = QIE_ws_leader.16.desc
-    picture = GFX_QIE_ws_leader_16
+    picture = GFX_report_event_SHX_tongpu_railway
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -1223,7 +1512,7 @@ country_event = { # 江朝宗登临教统之位
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.17" }
     title = QIE_ws_leader.17.t
     desc = QIE_ws_leader.17.desc
-    picture = GFX_QIE_ws_leader_17
+    picture = GFX_report_event_wushan_jiang_chaozong_old
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -1249,7 +1538,7 @@ country_event = { # 萧瑟之秋
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.18" }
     title = QIE_ws_leader.18.t
     desc = QIE_ws_leader.18.desc
-    picture = GFX_QIE_ws_leader_18
+    picture = GFX_report_event_QIE_wu_old_1
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -1265,7 +1554,7 @@ country_event = { # 吴佩孚登临教统之位
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.19" }
     title = QIE_ws_leader.19.t
     desc = QIE_ws_leader.19.desc
-    picture = GFX_QIE_ws_leader_19
+    picture = GFX_report_event_QIE_wu_speech
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -1286,7 +1575,7 @@ country_event = { # 败渭南
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.20" }
     title = QIE_ws_leader.20.t
     desc = QIE_ws_leader.20.desc
-    picture = GFX_QIE_ws_leader_20
+    picture = GFX_report_event_wushan_jiang_chaozong_old
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -1302,7 +1591,7 @@ country_event = { # 死者归来
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.21" }
     title = QIE_ws_leader.21.t
     desc = QIE_ws_leader.21.desc
-    picture = GFX_QIE_ws_leader_21
+    picture = GFX_report_event_wushan_qian_nengxun_portrait
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -1318,7 +1607,7 @@ country_event = { # 生者侍候，真人落座
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.22" }
     title = QIE_ws_leader.22.t
     desc = QIE_ws_leader.22.desc
-    picture = GFX_QIE_ws_leader_22
+    picture = GFX_report_event_wushan_beiyang_government
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -1326,5 +1615,421 @@ country_event = { # 生者侍候，真人落座
         name = QIE_ws_leader.22.a
         ai_chance = { factor = 1 }
         add_political_power = 5
+    }
+}
+
+country_event = { # 旱
+    id = QIE_ws_leader.23
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.23" }
+    title = QIE_ws_leader.23.t
+    desc = QIE_ws_leader.23.desc
+    picture = GFX_report_event_wushan_famine_woman
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我只知道我饿了。
+        name = QIE_ws_leader.23.a
+        ai_chance = { factor = 1 }
+        country_event = { id = QIE_ws_leader.31 days = 28} 
+    }
+}
+
+country_event = { # 向北
+    id = QIE_ws_leader.24
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.24" }
+    title = QIE_ws_leader.24.t
+    desc = QIE_ws_leader.24.desc
+    picture = GFX_report_event_wushan_chinese_bagger_family
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 重操旧业。
+        name = QIE_ws_leader.24.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 上京
+    id = QIE_ws_leader.25
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.25" }
+    title = QIE_ws_leader.25.t
+    desc = QIE_ws_leader.25.desc
+    picture = GFX_report_event_wushan_hitch_ride
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 人有失手，马有失蹄。
+        name = QIE_ws_leader.25.a
+        ai_chance = { factor = 1 }
+        country_event = { id = QIE_ws_leader.26 days = 7}
+    }
+}
+
+country_event = { # 安全了——
+    id = QIE_ws_leader.26
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.26" }
+    title = QIE_ws_leader.26.t
+    desc = QIE_ws_leader.26.desc
+    picture = GFX_report_event_wushan_education_classroom
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 如入仙境……
+        name = QIE_ws_leader.26.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 披星戴月
+    id = QIE_ws_leader.27
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.27" }
+    title = QIE_ws_leader.27.t
+    desc = QIE_ws_leader.27.desc
+    picture = GFX_report_event_wushan_factory
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # “古有不食嗟来之食，列位诸君不觉惭愧吗？”
+        name = QIE_ws_leader.27.a
+        ai_chance = { factor = 1 }
+        add_stability = -0.05
+        add_political_power = -15
+    }
+}
+
+country_event = { # 仿佛漫无止境
+    id = QIE_ws_leader.28
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.28" }
+    title = QIE_ws_leader.28.t
+    desc = QIE_ws_leader.28.desc
+    picture = GFX_report_event_wushan_factory
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # “夫民生在勤，勤则不匮；劳形以修德，忍饥以明义。”
+        name = QIE_ws_leader.28.a
+        ai_chance = { factor = 1 }
+        add_stability = -0.05
+        add_political_power = -15
+    }
+}
+
+country_event = { # 大开发
+    id = QIE_ws_leader.29
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.29" }
+    title = QIE_ws_leader.29.t
+    desc = QIE_ws_leader.29.desc
+    picture = GFX_report_event_GXC_laborers_building_earthworks_guilin
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 以工代赈初见成效。
+        name = QIE_ws_leader.29.a
+        ai_chance = { factor = 1 }
+        add_political_power = 30
+    }
+}
+
+country_event = { # 欧文·拉铁摩尔的造访
+    id = QIE_ws_leader.30
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.30" }
+    title = QIE_ws_leader.30.t
+    desc = QIE_ws_leader.30.desc
+    picture = GFX_report_event_wushan_owen_lattimore
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 让我们欢迎我们的国际友人！
+        name = QIE_ws_leader.30.a
+        ai_chance = { factor = 1 }
+        country_event = { id = QIE_wushan_events.25 days= 1460 }
+        add_political_power = -10
+        USA = {
+            add_opinion_modifier = { target = ROOT modifier = KR_approves_of_govt }
+        }
+    }
+    option = { # 一个文人不值得我们这么对待。
+        name = QIE_ws_leader.30.b
+        ai_chance = { factor = 1 }
+        country_event = { id = QIE_wushan_events.26 days= 1460 }
+        add_political_power = 10
+    }
+}
+
+country_event = { # 夜半
+    id = QIE_ws_leader.31
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.31" }
+    title = QIE_ws_leader.31.t
+    desc = QIE_ws_leader.31.desc
+    picture = GFX_report_event_wushan_chinese_women
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 但他们为什么不为这件事高兴呢？
+        name = QIE_ws_leader.31.a
+        ai_chance = { factor = 1 }
+        country_event = { id = QIE_ws_leader.32 days = 10}
+    }
+}
+
+country_event = { # 泥泞
+    id = QIE_ws_leader.32
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.32" }
+    title = QIE_ws_leader.32.t
+    desc = QIE_ws_leader.32.desc
+    picture = GFX_report_event_wushan_changjiang
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 所以我就站在这里。
+        name = QIE_ws_leader.32.a
+        ai_chance = { factor = 1 }
+        country_event = { id = QIE_ws_leader.33 days = 7}
+    }
+}
+
+country_event = { # 巴中通讯
+    id = QIE_ws_leader.33
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.33" }
+    title = QIE_ws_leader.33.t
+    desc = QIE_ws_leader.33.desc
+    picture = GFX_report_event_CHN_newspaper
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 此非一县之灾，乃末劫之征。
+        name = QIE_ws_leader.33.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 劳碌命
+    id = QIE_ws_leader.34
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.34" }
+    title = QIE_ws_leader.34.t
+    desc = QIE_ws_leader.34.desc
+    picture = GFX_report_event_wushan_sleep_child
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 安睡于繁华美好之梦中。
+        name = QIE_ws_leader.34.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 洞房花烛
+    id = QIE_ws_leader.35
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.35" }
+    title = QIE_ws_leader.35.t
+    desc = QIE_ws_leader.35.desc
+    picture = GFX_report_event_wushan_married
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 恭喜张公子，新婚志喜！
+        name = QIE_ws_leader.35.a
+        ai_chance = { factor = 1 }
+        add_political_power = -10
+        add_stability = 0.05
+    }
+}
+
+country_event = { # 茶馆
+    id = QIE_ws_leader.36
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.36" }
+    title = QIE_ws_leader.36.t
+    desc = QIE_ws_leader.36.desc
+    picture = GFX_report_event_wushan_rickshaw_puller
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 对！这洋人再怎么厉害，还是断子绝孙了嘛~
+        name = QIE_ws_leader.36.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 舶来的尖端手术
+    id = QIE_ws_leader.37
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.37" }
+    title = QIE_ws_leader.37.t
+    desc = QIE_ws_leader.37.desc
+    picture = GFX_report_event_wushan_lobotomy
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我国医学的又一进展！
+        name = QIE_ws_leader.37.a
+        ai_chance = { factor = 1 }
+        add_political_power = 5
+    }
+}
+
+country_event = { # 旧道德不必全焚
+    id = QIE_ws_leader.38
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.38" }
+    title = QIE_ws_leader.38.t
+    desc = QIE_ws_leader.38.desc
+    picture = GFX_report_event_CHN_newspaper
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 还算他们看得懂风向，让他们刊得更广些。
+        name = QIE_ws_leader.38.a
+        ai_chance = { factor = 1 }
+        add_political_power = 5
+    }
+}
+
+country_event = { # 可疑的仙丹
+    id = QIE_ws_leader.39
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.39" }
+    title = QIE_ws_leader.39.t
+    desc = QIE_ws_leader.39.desc
+    picture = GFX_report_event_wushan_militia_infertry
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 仙丹进腹，刀枪不入。
+        name = QIE_ws_leader.39.a
+        ai_chance = { factor = 1 }
+        add_war_support = 0.05
+        add_manpower = -100
+    }
+}
+
+country_event = { # 把杏坛设在军队中
+    id = QIE_ws_leader.40
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.40" }
+    title = QIE_ws_leader.40.t
+    desc = QIE_ws_leader.40.desc
+    picture = GFX_report_event_QIE_warlord_soldiers
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 一步一步慢慢来。
+        name = QIE_ws_leader.40.a
+        ai_chance = { factor = 1 }
+        add_stability = 0.05
+        add_war_support = -0.05
+    }
+}
+
+country_event = { # 新一座工厂
+    id = QIE_ws_leader.41
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.41" }
+    title = QIE_ws_leader.41.t
+    desc = QIE_ws_leader.41.desc
+    picture = GFX_report_event_CHI_national_labor_university_rubber_factory
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 如同孕育婴儿。
+        name = QIE_ws_leader.41.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 化肥
+    id = QIE_ws_leader.42
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.42" }
+    title = QIE_ws_leader.42.t
+    desc = QIE_ws_leader.42.desc
+    picture = GFX_news_event_wushan_huixian_tang
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 圣人不仁，以百姓为刍狗。
+        name = QIE_ws_leader.42.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 七一四研究所的开幕
+    id = QIE_ws_leader.43
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.43" }
+    title = QIE_ws_leader.43.t
+    desc = QIE_ws_leader.43.desc
+    picture = GFX_report_event_wushan_professor
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 今日草创，来日成器。
+        name = QIE_ws_leader.43.a
+        ai_chance = { factor = 1 }
+    }
+}
+country_event = { # 结束所有血海的血海
+    id = QIE_ws_leader.44
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.44" }
+    title = QIE_ws_leader.44.t
+    desc = QIE_ws_leader.44.desc
+    picture = GFX_report_event_wushan_blood_sea
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们将先实现那血海。
+        name = QIE_ws_leader.44.a
+        ai_chance = { factor = 1 }
+        add_war_support = 0.10
+        reduce_focus_completion_cost = {
+			focus = {
+				QIE_wushan_only_one_light_in_this_dark_world
+			}
+			cost = 3500
+		}
+    }
+}
+
+country_event = { # 人弃我取
+    id = QIE_ws_leader.45
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.28" }
+    title = QIE_ws_leader.45.t
+    desc = QIE_ws_leader.45.desc
+    picture = GFX_report_event_QIE_wu_family
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 字林西报特约记者王敏讯”
+        name = QIE_ws_leader.45.a
+        ai_chance = { factor = 1 }
+        add_political_power = 5
+    }
+}
+
+country_event = { # 江四先生的自白
+    id = QIE_ws_leader.46
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.46" }
+    title = QIE_ws_leader.46.t
+    desc = QIE_ws_leader.46.desc
+    picture = GFX_report_event_wushan_jiang_wang_zhang
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # “一，二，三：华北政府万岁。”
+        name = QIE_ws_leader.46.a
+        ai_chance = { factor = 1 }
+        add_political_power = 10
+        QIE_ws_jiang_chao_zong = {
+            add_trait = { trait = media_personality }
+        }
+    }
+}
+
+country_event = { # 二仙降坛
+    id = QIE_ws_leader.47
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.47" }
+    title = QIE_ws_leader.47.t
+    desc = QIE_ws_leader.47.desc
+    picture = GFX_report_event_wushan_seance_1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 真人降兵法，佑护我中华。
+        name = QIE_ws_leader.47.a
+        ai_chance = { factor = 1 }
+        add_political_power = -10
+        army_experience = 5
     }
 }

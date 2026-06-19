@@ -4,6 +4,16 @@ on_actions = {
 			if = {
 				limit = {
 					tag = QIE
+					date > 1936.11.1
+					date < 1936.11.30
+					NOT = { has_country_flag = QIE_ws_leader_30_triggered }
+				}
+				set_country_flag = QIE_ws_leader_30_triggered
+				country_event = { id = QIE_ws_leader.30 days = 0 }
+			}
+			if = {
+				limit = {
+					tag = QIE
 					has_completed_focus = QIE_seances_restart_in_beijing
 					has_variable = god_circle_focus_var
 					check_variable = { god_circle_tier < 3 }
