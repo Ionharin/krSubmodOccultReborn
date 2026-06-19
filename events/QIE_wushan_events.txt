@@ -925,6 +925,37 @@ country_event = { # 忘恩负义
     }
 }
 
+country_event = { # 为祖国而战
+    id = QIE_ws_normal_events.7
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.7" }
+    title = QIE_ws_normal_events.7.t
+    desc = QIE_ws_normal_events.7.desc
+    picture = GFX_report_event_generic_army_marching
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 迷途的孩子总归要回家。
+        name = QIE_ws_normal_events.7.a
+        ai_chance = { factor = 1 }
+        retire_character = QIE_ws_maczynski
+    }
+}
+
+country_event = { # 捷克语
+    id = QIE_ws_normal_events.8
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.8" }
+    title = QIE_ws_normal_events.8.t
+    desc = QIE_ws_normal_events.8.desc
+    picture = GFX_report_event_generic_army_marching
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们会祝福你的返乡之路，异邦的流浪者。
+        name = QIE_ws_normal_events.8.a
+        ai_chance = { factor = 1 }
+        retire_character = QIE_ws_menzel
+    }
+}
 
 # Wushan God Circle Events
 

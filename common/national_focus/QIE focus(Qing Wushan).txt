@@ -85,10 +85,10 @@ focus_tree = {
 				}
 			}
 			LEP = {
-					country_event = {
-						id = QIE_wushan_events.34
-					}
+				country_event = {
+					id = QIE_wushan_events.34
 				}
+			}
 			hidden_effect = {
 				set_country_flag = QIE_wushan_refugee_crisis_unlocked
 				set_cosmetic_tag = QIE_wushan_cosmetic_tag
@@ -101,7 +101,10 @@ focus_tree = {
 					id = QIE_wushan_wu_jiang_power_auto.11
 					days = 1
 				}
-				country_event = { id = QIE_wushan_events.30 days = 14 }
+				country_event = {
+					id = QIE_wushan_events.30
+					days = 14
+				}
 			}
 		}
 	}
@@ -811,7 +814,9 @@ focus_tree = {
 				}
 				add_ideas = QIE_wushan_theocratic_authority_2
 			}
-			country_event = { id = QIE_ws_normal_events.1 }
+			country_event = {
+				id = QIE_ws_normal_events.1
+			}
 		}
 	}
 	focus = {
@@ -1291,7 +1296,10 @@ focus_tree = {
 		cancel_if_invalid = yes
 		select_effect = {
 			log = "[GetLogRoot]: Select Focus QIE_old_army_new_life"
-			country_event = { id = QIE_ws_leader.47 days = 20}
+			country_event = {
+				id = QIE_ws_leader.47
+				days = 20
+			}
 		}
 		available = {
 			has_country_flag = QIE_wushan_orthodoxy_set_flag
@@ -1307,6 +1315,40 @@ focus_tree = {
 			swap_ideas = {
 				remove_idea = QIE_stalled_80_division_reform_plan
 				add_idea = QIE_jingchun_army_bureau
+			}
+			QIE_ws_maczynski = {
+				add_corps_commander_role = {
+					traits = {
+						QIE_wushan_wushanshe_member
+						brilliant_strategist
+						war_hero
+						trait_cautious
+						cavalry_officer
+						substance_abuser
+						demoted
+					}
+					skill = 3
+					attack_skill = 6
+					defense_skill = 4
+					planning_skill = 5
+					logistics_skill = 2
+				}
+			}
+			QIE_ws_menzel = {
+				add_corps_commander_role = {
+					traits = {
+						QIE_wushan_wushanshe_member
+						infantry_officer
+						war_hero
+						substance_abuser
+						demoted
+					}
+					skill = 3
+					attack_skill = 5
+					defense_skill = 5
+					planning_skill = 3
+					logistics_skill = 3
+				}
 			}
 		}
 	}
@@ -3497,15 +3539,42 @@ focus_tree = {
 			china_enable_non_main_government_demand_submission_decisions = yes
 			add_ideas = QIE_tangdi_zhihua
 			hidden_effect = {
-				add_collaboration = { target = SHX value = 0.20 }	
-				add_collaboration = { target = SHD value = 0.20 }
-				add_collaboration = { target = SZC value = 0.20 }
-				add_collaboration = { target = LEP value = 0.20 }
-				add_collaboration = { target = ANQ value = 0.20 }
-				add_collaboration = { target = YUN value = 0.20 }
-				add_collaboration = { target = HNN value = 0.20 }
-				add_collaboration = { target = GXC value = 0.20 }
-				add_collaboration = { target = CHI value = 0.20 }
+				add_collaboration = {
+					target = SHX
+					value = 0.2
+				}
+				add_collaboration = {
+					target = SHD
+					value = 0.2
+				}
+				add_collaboration = {
+					target = SZC
+					value = 0.2
+				}
+				add_collaboration = {
+					target = LEP
+					value = 0.2
+				}
+				add_collaboration = {
+					target = ANQ
+					value = 0.2
+				}
+				add_collaboration = {
+					target = YUN
+					value = 0.2
+				}
+				add_collaboration = {
+					target = HNN
+					value = 0.2
+				}
+				add_collaboration = {
+					target = GXC
+					value = 0.2
+				}
+				add_collaboration = {
+					target = CHI
+					value = 0.2
+				}
 			}
 		}
 	}
@@ -3635,6 +3704,15 @@ focus_tree = {
 				popularity = 0.05
 			}
 			if = {
+				limit = {
+					OR = {
+						can_declare_war_on = GXC
+						has_war_with = GXC
+					}
+					GXC = {
+						china_is_aligned_with_federalists = yes
+					}
+				}
 				if = {
 					limit = {
 						can_declare_war_on = GXC
@@ -3686,6 +3764,15 @@ focus_tree = {
 				}
 			}
 			if = {
+				limit = {
+					OR = {
+						can_declare_war_on = SZC
+						has_war_with = SZC
+					}
+					SZC = {
+						china_is_aligned_with_federalists = yes
+					}
+				}
 				if = {
 					limit = {
 						can_declare_war_on = SZC
@@ -3697,6 +3784,15 @@ focus_tree = {
 				}
 			}
 			if = {
+				limit = {
+					OR = {
+						can_declare_war_on = YUN
+						has_war_with = YUN
+					}
+					YUN = {
+						china_is_aligned_with_federalists = yes
+					}
+				}
 				if = {
 					limit = {
 						can_declare_war_on = YUN
@@ -7799,6 +7895,12 @@ focus_tree = {
 		}
 		allow_branch = {
 			has_country_flag = qie_wushan_has_control_china
+		}
+		completion_reward = {
+			navy_experience = 30
+			add_dynamic_modifier = {
+				modifier = QIE_wushan_dual_ocean_commission_modifer
+			}
 		}
 	}
 	focus = {
