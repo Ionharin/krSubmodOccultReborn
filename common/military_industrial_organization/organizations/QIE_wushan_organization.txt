@@ -401,8 +401,8 @@ QIE_luoyang_714_arsenal_organisation = {
 		special_trait_background = no
 		position = {x= 1 y = 3 }
 		all_parents = { ws_714_arsenal_mio_trait_equipped_with_bulldozing }
-		production_bonus = {
-			production_cost_factor = -0.15
+		equipment_bonus = {
+			build_cost_ic = -0.15
 		}
 	}
 	trait = {
@@ -783,6 +783,738 @@ QIE_luoyang_714_arsenal_organisation = {
 		}
 		on_complete = {
 			set_mio_flag = ws_714_arsenal_mio_focus_bonus_firepower_rule_tier_3_completed
+		}
+	}
+}
+
+QIE_wushan_luoyang_airport_organisation = {
+	name = QIE_wushan_luoyang_airport_organisation
+	icon = GFX_mio_qie_mio_ws_luoyang_airport
+	allowed = {
+		tag = QIE
+	}
+	available = {
+		FROM = {
+			has_country_flag = qie_wushan_has_control_china
+			controls_state = 607
+		}
+	}
+	visible = {
+		FROM = {
+			has_country_flag = qie_wushan_has_control_china
+			has_completed_focus = QIE_integrate_existing_MIO_resources
+			controls_state = 607
+		}
+	}
+	equipment_type = { 
+		mio_cat_eq_all_small_plane
+		mio_cat_eq_all_medium_plane
+		maritime_patrol_plane
+	}
+	research_categories = {
+		mio_cat_all_light_fighter_and_modules
+		mio_cat_all_naval_bomber_and_modules
+	}
+	on_tech_research_completed = {
+		add_mio_funds = 6000
+		FROM = {
+			if = {
+				limit = { has_completed_focus = QIE_wushan_our_dream_our_ocean }
+				mio:QIE_wushan_jiangnan_shipyard_organisation = { add_mio_funds = 4000 }
+			}
+			else_if = {
+				limit = { has_completed_focus = QIE_integrate_existing_MIO_resources }
+				mio:QIE_luoyang_714_arsenal_organisation = { add_mio_funds = 4000 }
+			}
+		}
+	}
+	initial_trait = {
+		name = ws_luoyang_airport_mio_initial_trait
+		organization_modifier = {
+			military_industrial_organization_size_up_requirement = -0.25
+			military_industrial_organization_funds_gain = 0.10
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_1
+		name = KR_MIO_Trait_cluster_munitions
+		icon = GFX_generic_mio_trait_icon_strategic_attack
+		special_trait_background = yes
+		position = { x = 0 y = 0 }
+		mutually_exclusive = { luoyang_airport_upgrade_2 }
+		available = {
+			FROM = {
+				has_completed_focus = QIE_wushan_prepare_for_the_second_round_robin
+				has_deployed_air_force_size = { size > 299 }
+			}
+		}
+		equipment_bonus = {
+			air_attack = 0.10
+			air_ground_attack = 0.10
+			naval_strike_attack = 0.10
+			maximum_speed = 0.05
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_2
+		name = KR_MIO_Trait_engine_turbocharger
+		icon = GFX_generic_mio_trait_icon_air_agility
+		special_trait_background = yes
+		position = { x = 2 y = 0 }
+		mutually_exclusive = { luoyang_airport_upgrade_1 }
+		available = {
+			FROM = {
+				has_completed_focus = QIE_wushan_prepare_for_the_second_round_robin
+				has_deployed_air_force_size = { size > 299 }
+			}
+		}
+		equipment_bonus = {
+			air_defence = 0.10
+			reliability = 0.10
+			air_superiority = 0.10
+			air_agility = 0.05
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_3
+		name = KR_MIO_Trait_high_quality_engines
+		icon = GFX_generic_mio_trait_icon_air_range
+		position = { x = 4 y = 0 }
+		equipment_bonus = {
+			air_range = 0.10
+			air_superiority = 0.05
+		}
+		on_complete = {
+			add_mio_funds = 2000
+			FROM = {
+				air_experience = 20
+			}
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_4
+		name = KR_MIO_Trait_redesigned_cockpit
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = { x = 3 y = 1 }
+		all_parents = { luoyang_airport_upgrade_3 }
+		equipment_bonus = {
+			air_defence = 0.05
+			reliability = 0.07
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_5
+		name = KR_MIO_Trait_improved_turning_capabilities
+		icon = GFX_generic_mio_trait_icon_air_agility
+		position = { x = 5 y = 1 }
+		all_parents = { luoyang_airport_upgrade_3 }
+		equipment_bonus = {
+			air_agility = 0.05
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_7
+		name = KR_MIO_Trait_increase_wing_loading_limit
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = { x = 4 y = 3 }
+		all_parents = { luoyang_airport_upgrade_4 luoyang_airport_upgrade_5 }
+		equipment_bonus = {
+			maximum_speed = 0.05
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_8
+		name = KR_MIO_Trait_reinforced_fuselage
+		icon = GFX_generic_mio_trait_icon_air_defence
+		position = { x = 4 y = 4 }
+		all_parents = { luoyang_airport_upgrade_7 }
+		equipment_bonus = {
+			air_defence = 0.15
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_9
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_air_attack
+		position = { x = 7 y = 0 }
+		equipment_bonus = {
+			air_attack = 0.05
+			air_ground_attack = 0.05
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_10
+		name = KR_MIO_Trait_longer_work_hours
+		icon = GFX_generic_mio_department_icon_facilities
+		position = { x = 9 y = 0 }
+		production_bonus = {
+			production_efficiency_gain_factor = 0.10
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.10
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_11
+		name = KR_MIO_Trait_additional_radar_arrays
+		icon = GFX_generic_mio_trait_icon_sub_detection
+		position = { x = 7 y = 1 }
+		all_parents = { luoyang_airport_upgrade_9 }
+		equipment_bonus = {
+			naval_strike_attack = 0.05
+			sub_detection = 0.10
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_12
+		name = KR_MIO_Trait_increased_fire_rate
+		icon = GFX_generic_mio_trait_icon_anti_air_attack
+		position = { x = 8 y = 2 }
+		all_parents = { luoyang_airport_upgrade_10 luoyang_airport_upgrade_11 }
+		equipment_bonus = {
+			air_superiority = 0.10
+		}
+		on_complete = {
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = ws_luoyang_airport_upgrade_12_tt
+			custom_effect_tooltip = tooltip_white_line
+			QIE = {
+				mio:QIE_luoyang_714_arsenal_organisation = {
+				add_mio_size = 1
+			}
+				mio:QIE_wushan_jiangnan_shipyard_organisation = {
+				add_mio_size = 1
+			}
+			}
+			FROM = {
+				air_experience = 20
+				if = {
+					limit = {
+						has_completed_focus = QIE_wushan_focus_on_air_bomb
+					}
+					custom_effect_tooltip = ws_luoyang_airport_upgrade_12_1_tt
+					add_to_variable = {
+						QIE_wushan_aviation_affairs_commission_air_ground_attack_factor = 0.15
+					}
+				}
+				if = {
+					limit = {
+						has_completed_focus = QIE_wushan_focus_on_air_fight
+					}
+					custom_effect_tooltip = ws_luoyang_airport_upgrade_12_2_tt
+					add_to_variable = {
+						QIE_wushan_aviation_affairs_commission_air_attack_factor = 0.15
+					}
+				}
+			}
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_13
+		name = KR_MIO_Trait_experimental_prototypes
+		icon = GFX_generic_mio_trait_icon_air_superiority
+		position = { x = 7 y = 3 }
+		all_parents = { luoyang_airport_upgrade_12 }
+		mutually_exclusive = { luoyang_airport_upgrade_14 }
+		equipment_bonus = {
+			air_defence = 0.05
+			maximum_speed = 0.05
+			air_agility = 0.05
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_14
+		name = KR_MIO_Trait_stable_firing_mechanisms
+		icon = GFX_generic_mio_trait_icon_anti_air_attack
+		position = { x = 9 y = 3 }
+		all_parents = { luoyang_airport_upgrade_12 }
+		mutually_exclusive = { luoyang_airport_upgrade_13 }
+		equipment_bonus = {
+			air_attack = 0.05
+			air_ground_attack = 0.05
+			naval_strike_attack = 0.05
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_15
+		name = KR_MIO_Trait_joint_front_line_designer_development_teams
+		icon = GFX_generic_mio_trait_icon_unique
+		special_trait_background = yes
+		position = { x = 8 y = 4 }
+		any_parent = { luoyang_airport_upgrade_13 luoyang_airport_upgrade_14 }
+		available = {
+			FROM = {
+				has_completed_focus = QIE_wushan_we_will_rule_sky_and_land
+			}
+		}
+		equipment_bonus = {
+			air_range = 0.10
+			air_attack = 0.05
+			air_ground_attack = 0.05
+			naval_strike_attack = 0.05
+			air_defence = 0.05
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_16
+		name = KR_MIO_Trait_restructure_development_procedures
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		special_trait_background = yes
+		position = { x = 1 y = 1 }
+		visible = {
+			NOT = {
+				has_mio_flag = qie_mio_luoyang_airport_16
+			}
+		}
+		
+		production_bonus = {
+			production_efficiency_gain_factor = 0.05
+			production_efficiency_cap_factor = 0.025
+			production_resource_need_factor = -0.025
+		}
+		equipment_bonus = { build_cost_ic = -0.03 }
+		organization_modifier = {
+			military_industrial_organization_size_up_requirement = 0.07
+		}
+		on_complete = {
+			custom_effect_tooltip = ws_luoyang_airport_bonus_desc_16
+			set_mio_flag = qie_mio_luoyang_airport_16
+			set_global_flag = qie_mio_luoyang_airport_bonus_completed
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_17
+		name = KR_MIO_Trait_restructure_development_procedures
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		special_trait_background = yes
+		position = { x = 1 y = 1 }
+		visible = {
+			NOT = {
+				has_mio_flag = qie_mio_luoyang_airport_17
+			}
+		}
+		
+		production_bonus = {
+			production_efficiency_gain_factor = 0.05
+			production_efficiency_cap_factor = 0.025
+			production_resource_need_factor = -0.025
+		}
+		equipment_bonus = { build_cost_ic = -0.03 }
+		organization_modifier = {
+			military_industrial_organization_size_up_requirement = 0.07
+		}
+		on_complete = {
+			custom_effect_tooltip = ws_luoyang_airport_bonus_desc_17
+			set_mio_flag = qie_mio_luoyang_airport_17
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_18
+		name = KR_MIO_Trait_restructure_development_procedures
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		special_trait_background = yes
+		position = { x = 1 y = 1 }
+		visible = {
+			NOT = {
+				has_mio_flag = qie_mio_luoyang_airport_18
+			}
+		}
+		
+		production_bonus = {
+			production_efficiency_gain_factor = 0.05
+			production_efficiency_cap_factor = 0.025
+			production_resource_need_factor = -0.025
+		}
+		equipment_bonus = { build_cost_ic = -0.03 }
+		organization_modifier = {
+			military_industrial_organization_size_up_requirement = 0.07
+		}
+		on_complete = {
+			custom_effect_tooltip = ws_luoyang_airport_bonus_desc_18
+			set_mio_flag = qie_mio_luoyang_airport_18
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_19
+		name = KR_MIO_Trait_restructure_development_procedures
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		special_trait_background = yes
+		position = { x = 1 y = 1 }
+		visible = {
+			NOT = {
+				has_mio_flag = qie_mio_luoyang_airport_19
+			}
+		}
+		
+		production_bonus = {
+			production_efficiency_gain_factor = 0.05
+			production_efficiency_cap_factor = 0.025
+			production_resource_need_factor = -0.025
+		}
+		equipment_bonus = { build_cost_ic = -0.03 }
+		organization_modifier = {
+			military_industrial_organization_size_up_requirement = 0.07
+		}
+		on_complete = {
+			custom_effect_tooltip = ws_luoyang_airport_bonus_desc_19
+			set_mio_flag = qie_mio_luoyang_airport_19
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_20
+		name = KR_MIO_Trait_restructure_development_procedures
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		special_trait_background = yes
+		position = { x = 1 y = 1 }
+		visible = {
+			NOT = {
+				has_mio_flag = qie_mio_luoyang_airport_20
+			}
+		}
+		
+		production_bonus = {
+			production_efficiency_gain_factor = 0.05
+			production_efficiency_cap_factor = 0.025
+			production_resource_need_factor = -0.025
+		}
+		equipment_bonus = { build_cost_ic = -0.03 }
+		organization_modifier = {
+			military_industrial_organization_size_up_requirement = 0.07
+		}
+		on_complete = {
+			custom_effect_tooltip = ws_luoyang_airport_bonus_desc_20
+			set_mio_flag = qie_mio_luoyang_airport_20
+		}
+	}
+	trait = {
+		token = luoyang_airport_upgrade_21
+		name = KR_MIO_Trait_expanded_labour_pool
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		special_trait_background = yes
+		position = { x = 1 y = 2 }
+		available = {
+			FROM = {
+				has_completed_focus = QIE_wushan_prepare_for_the_second_round_robin
+			}
+			has_global_flag = qie_mio_luoyang_airport_bonus_completed
+		}
+		production_bonus = {
+			production_capacity_factor = 0.25
+		}
+	}
+}
+
+QIE_wushan_jiangnan_shipyard_organisation = {
+	name = QIE_wushan_jiangnan_shipyard_organisation
+	icon = GFX_idea_CHI_kiangnan
+	allowed = {
+		tag = QIE
+	}
+	available = {
+		FROM = {
+			has_country_flag = qie_wushan_has_control_china
+			controls_state = 607
+		}
+	}
+	visible = {
+		FROM = {
+			has_country_flag = qie_wushan_has_control_china
+			has_completed_focus = QIE_integrate_existing_MIO_resources
+			controls_state = 607
+		}
+	}
+	equipment_type = { 
+		mio_cat_eq_all_carrier
+		mio_cat_eq_all_battleship
+		mio_cat_eq_all_cruiser
+		mio_cat_eq_all_destroyer
+		submarine
+		}
+	research_categories = { 
+		mio_cat_tech_all_carrier_and_modules
+		mio_cat_tech_all_capital_ship_and_modules
+		mio_cat_tech_all_destroyer_and_modules
+		mio_cat_tech_all_cruiser_and_modules
+		mio_cat_tech_all_submarine_and_modules
+		tp_tech 
+	}
+	on_tech_research_completed = {
+		FROM = {
+			navy_experience = 10
+			add_cic = 800
+		}
+	}
+	initial_trait = {
+		name = ws_jiangnan_shipyard_mio_initial_trait
+		organization_modifier = {
+			military_industrial_organization_size_up_requirement = -0.75
+			military_industrial_organization_funds_gain = -0.90
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+	trait = {
+		token = jiangnan_upgrade_1
+		name = KR_MIO_Trait_additional_anti_air_weapon_systems
+		icon = GFX_generic_mio_trait_icon_air_attack
+		position = { x = 4 y = 0 }
+		equipment_bonus = {
+			anti_air_attack = 0.10
+			surface_visibility = -0.05
+			sub_visibility = -0.05
+		}
+		organization_modifier = {
+			military_industrial_organization_size_up_requirement = 0.25
+			military_industrial_organization_funds_gain = 0.30
+			military_industrial_organization_research_bonus = 0.02
+		}
+		on_complete = {
+			QIE = {
+				mio:QIE_wushan_luoyang_airport_organisation = {
+				add_mio_size = 1
+				}
+			}
+		}
+	}
+	trait = {
+		token = jiangnan_upgrade_2
+		name = KR_MIO_Trait_longer_radar_range
+		icon = GFX_generic_mio_trait_icon_surface_detection
+		position = { x = 4 y = 1 }
+		all_parents = { jiangnan_upgrade_1 }
+		equipment_bonus = {
+			surface_detection = 0.05
+			sub_detection = 0.05
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.02
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = jiangnan_upgrade_3
+		name = KR_MIO_Trait_standardise_parts
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = { x = 4 y = 2 }
+		all_parents = { jiangnan_upgrade_2 }
+		equipment_bonus = {
+			reliability = 0.05
+			build_cost_ic = -0.05
+			naval_torpedo_enemy_critical_chance_factor = -0.10
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.02
+		}
+	}
+	trait = {
+		token = jiangnan_upgrade_4
+		name = KR_MIO_Trait_increased_shell_velocity
+		icon = GFX_generic_mio_trait_icon_lg_attack
+		position = { x = 3 y = 2 }
+		all_parents = { jiangnan_upgrade_3 jiangnan_upgrade_6 }
+		equipment_bonus = {
+			lg_armor_piercing = 0.05
+			lg_attack = 0.05
+			sub_attack = 0.10
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.02
+		}
+	}
+	trait = {
+		token = jiangnan_upgrade_5
+		name = KR_MIO_Trait_additional_weakspot_protection
+		icon = GFX_generic_mio_trait_icon_armor_value
+		position = { x = 7 y = 2 }
+		all_parents = { jiangnan_upgrade_11 }
+		equipment_bonus = {
+			armor_value = 0.10
+			max_strength = 0.10
+			naval_torpedo_damage_reduction_factor = 0.05
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.02
+		}
+	}
+	trait = {
+		token = jiangnan_upgrade_6
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_hg_attack
+		position = { x = 1 y = 2 }
+		all_parents = { jiangnan_upgrade_7 jiangnan_upgrade_10 }
+		equipment_bonus = {
+			hg_armor_piercing = 0.05
+			hg_attack = 0.05
+			anti_air_attack = 0.05
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.02
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = jiangnan_upgrade_7
+		name = KR_MIO_Trait_improved_propeller_design
+		icon = GFX_generic_mio_trait_icon_naval_speed
+		position = { x = 2 y = 4 }
+		equipment_bonus = {
+			naval_speed = 0.05
+			naval_range = 0.10
+		}
+		organization_modifier = {
+			military_industrial_organization_size_up_requirement = 0.25
+			military_industrial_organization_funds_gain = 0.30
+			military_industrial_organization_research_bonus = 0.02
+		}
+		on_complete = { add_mio_funds = 1000 }
+	}
+	trait = {
+		token = jiangnan_upgrade_8
+		name = KR_MIO_Trait_improved_materials_for_radiator_cooling
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = { x = 4 y = 4 }
+		mutually_exclusive = { jiangnan_upgrade_9 }
+		all_parents = { jiangnan_upgrade_7 }
+		equipment_bonus = {
+			naval_speed = 0.25
+			naval_range = 0.05
+			build_cost_ic = 0.10
+		}
+	}
+	trait = {
+		token = jiangnan_upgrade_9
+		name = KR_MIO_Trait_improve_engine_overheat_limit
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = { x = 6 y = 4 }
+		mutually_exclusive = { jiangnan_upgrade_8 }
+		all_parents = { jiangnan_upgrade_10 }
+		equipment_bonus = {
+			naval_range = 0.25
+			naval_speed = 0.05
+			build_cost_ic = 0.10
+		}
+	}
+	trait = {
+		token = jiangnan_upgrade_10
+		name = KR_MIO_Trait_efficient_engine_design
+		icon = GFX_generic_mio_trait_icon_naval_speed
+		position = { x = 8 y = 4 }
+		equipment_bonus = {
+			naval_speed = 0.05
+			naval_range = 0.10
+		}
+		organization_modifier = {
+			military_industrial_organization_size_up_requirement = 0.25
+			military_industrial_organization_funds_gain = 0.30
+			military_industrial_organization_research_bonus = 0.02
+		}
+		on_complete = {
+				add_mio_funds = 1000
+		}
+	}
+	trait = {
+		token = jiangnan_upgrade_11
+		name = KR_MIO_Trait_improve_light_gunnery_targetting
+		icon = GFX_generic_mio_trait_icon_hg_attack
+		position = { x = 9 y = 2 }
+		any_parent = { jiangnan_upgrade_7 jiangnan_upgrade_10 }
+		equipment_bonus = {
+			hg_armor_piercing = 0.05
+			hg_attack = 0.05
+			anti_air_attack = 0.05
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.02
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = jiangnan_upgrade_12
+		name = KR_MIO_Trait_additional_fuel_capacity_for_plane_catapult_module
+		icon = GFX_generic_mio_trait_icon_air_superiority
+		position = { x = 7 y = 1 }
+		all_parents = { jiangnan_upgrade_5 }
+		equipment_bonus = {
+			anti_air_attack = 0.05
+			surface_detection = 0.05
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.02
+		}
+	}
+	trait = {
+		token = jiangnan_upgrade_13
+		name = KR_MIO_Trait_hire_additional_designers
+		icon = GFX_generic_mio_trait_icon_supply_consumption
+		special_trait_background = yes
+		position = { x = 4 y = 3 }
+		available = {
+			FROM = {
+				has_completed_focus = QIE_wushan_prepare_for_the_second_round_robin
+			}
+		}
+		equipment_bonus = {
+			fuel_consumption = -0.10
+			build_cost_ic = -0.05
+			naval_range = -0.03
+			naval_speed = -0.03
+		}
+		on_complete = {
+			FROM = {
+				add_ideas = QIE_wushan_jiangnan_shipyard_bonus
+			}
+		}
+	}
+	trait = {
+		token = jiangnan_upgrade_14
+		name = KR_MIO_Trait_improve_light_gunnery_targetting
+		icon = GFX_generic_mio_department_icon_ship_carrier_offense
+		position = { x = 5 y = 3 }
+		special_trait_background = yes
+		mutually_exclusive = { jiangnan_upgrade_15 }
+		available = {
+			FROM = {
+				has_completed_focus = QIE_wushan_focus_on_northern_navy_strategy
+			}
+		}
+		equipment_bonus = {
+			naval_light_gun_hit_chance_factor = 0.05
+			naval_heavy_gun_hit_chance_factor = 0.05
+			hg_attack = 0.05
+			lg_attack = 0.05
+		}
+	}
+	trait = {
+		token = jiangnan_upgrade_15
+		name = KR_MIO_Trait_heavier_torpedo_payload
+		icon = GFX_generic_mio_trait_icon_torpedo_attack
+		position = { x = 6 y = 3 }
+		mutually_exclusive = { jiangnan_upgrade_14 }
+		special_trait_background = yes
+		available = {
+			FROM = {
+				has_completed_focus = QIE_wushan_focus_on_southern_navy_strategy
+			}
+		}
+		equipment_bonus = {
+			naval_torpedo_hit_chance_factor = 0.15
+			torpedo_attack = 0.10
+		}
+	}
+	trait = {
+		token = jiangnan_upgrade_16
+		name = KR_MIO_Trait_extensive_testing
+		icon = GFX_generic_mio_department_icon_ship_capital_ship_production
+		position = { x = 3 y = 3 }
+		special_trait_background = yes
+		available = {
+			FROM = {
+				has_completed_focus = QIE_wushan_the_great_beast_industry
+			}
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.15
 		}
 	}
 }

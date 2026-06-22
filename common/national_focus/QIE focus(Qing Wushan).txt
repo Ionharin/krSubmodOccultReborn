@@ -932,7 +932,7 @@ focus_tree = {
 		id = QIE_charitable_share_bank
 		x = 24
 		y = 2
-		cost = 4
+		cost = 5
 		icon = GFX_focus_generic_monetary_union
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1199,7 +1199,7 @@ focus_tree = {
 		id = QIE_the_legacy_of_wang_jinghui
 		x = 20
 		y = 7
-		cost = 15
+		cost = 12
 		icon = GFX_focus_generic_university_3
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1223,7 +1223,7 @@ focus_tree = {
 		id = QIE_seize_german_assets
 		x = 18
 		y = 5
-		cost = 5
+		cost = 4
 		icon = GFX_focus_DEN_heavy_regulations
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1356,7 +1356,7 @@ focus_tree = {
 		id = QIE_restart_beijing_charity_society
 		x = 13
 		y = 1
-		cost = 1
+		cost = 2
 		icon = GFX_goal_generic_debt_negotiations
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1572,7 +1572,7 @@ focus_tree = {
 		id = QIE_introducing_funds
 		x = 12
 		y = 5
-		cost = 3
+		cost = 2
 		icon = GFX_goal_generic_loans
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1886,7 +1886,7 @@ focus_tree = {
 		id = QIE_german_technology
 		x = 16
 		y = 6
-		cost = 4
+		cost = 3
 		icon = GFX_focus_generic_industrial_experts
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1925,7 +1925,7 @@ focus_tree = {
 		id = QIE_collaborate_with_german_companies
 		x = 14
 		y = 6
-		cost = 5
+		cost = 4
 		icon = GFX_goal_LEP_deutschasiatische
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2053,10 +2053,6 @@ focus_tree = {
 			focus = QIE_final_industry_zhili
 		}
 		completion_reward = {
-			set_capital = {
-				state = 607
-				remember_old_capital = no
-			}
 			add_timed_idea = {
 				idea = QIE_ycp_industry_push_idea
 				days = 730
@@ -2320,7 +2316,7 @@ focus_tree = {
 		x = 39
 		y = 3
 		cost = 3
-		icon = GFX_focus_PRC_army_command
+		icon = GFX_focus_PRC_develop_the_army
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -3140,6 +3136,9 @@ focus_tree = {
 					}
 					add_core_of = ROOT
 				}
+				750 = {
+					add_core_of = ROOT
+				}
 				826 = {
 					add_core_of = ROOT
 				}
@@ -3181,6 +3180,9 @@ focus_tree = {
 					}
 					add_claim_by = ROOT
 				}
+				750 = {
+					add_claim_by = ROOT
+				}
 				826 = {
 					add_claim_by = ROOT
 				}
@@ -3218,6 +3220,9 @@ focus_tree = {
 						}
 					}
 					add_core_of = ROOT
+					524 = {
+					add_core_of = ROOT
+				}
 				}
 			}
 			if = {
@@ -3236,6 +3241,9 @@ focus_tree = {
 						}
 					}
 					add_claim_by = ROOT
+					524 = {
+					add_claim_by = ROOT
+				}
 				}
 			}
 			if = {
@@ -3338,6 +3346,15 @@ focus_tree = {
 					}
 					add_core_of = ROOT
 				}
+				443 = {
+					add_core_of = ROOT
+				}
+				444 = {
+					add_core_of = ROOT
+				}
+				445 = {
+					add_core_of = ROOT
+				}
 				805 = {
 					add_core_of = ROOT
 				}
@@ -3391,6 +3408,15 @@ focus_tree = {
 							is_core_of = SPA
 						}
 					}
+					add_claim_by = ROOT
+				}
+				443 = {
+					add_claim_by = ROOT
+				}
+				444 = {
+					add_claim_by = ROOT
+				}
+				445 = {
 					add_claim_by = ROOT
 				}
 				805 = {
@@ -3515,7 +3541,7 @@ focus_tree = {
 		x = 15
 		y = 8
 		cost = 4
-		icon = GFX_focus_qie_wushan_control_inside_china_lands
+		icon = GFX_goal_QIE_zhili_unite_china
 		continue_if_invalid = yes
 		cancel_if_invalid = no
 		select_effect = {
@@ -3527,7 +3553,6 @@ focus_tree = {
 		}
 		available = {
 			is_subject = no
-			has_war_support > 0.5
 		}
 		prerequisite = {
 			focus = QIE_adopt_start_coal_mining_search
@@ -4415,7 +4440,7 @@ focus_tree = {
 		id = QIE_after_wushan_control_whole_china_jiangzhou_building
 		x = 27
 		y = 9
-		cost = 10
+		cost = 6
 		icon = GFX_qie_ws_after_wushan_control_whole_china_jiangzhou_building
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -4470,7 +4495,7 @@ focus_tree = {
 		id = QIE_after_wushan_control_whole_china_jinzhou_building
 		x = 24
 		y = 9
-		cost = 10
+		cost = 6
 		icon = GFX_qie_ws_after_wushan_control_whole_china_yuzhou_building
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -4540,7 +4565,7 @@ focus_tree = {
 		id = QIE_after_wushan_control_whole_china_yangzhou_building
 		x = 21
 		y = 9
-		cost = 10
+		cost = 6
 		icon = GFX_qie_ws_after_wushan_control_whole_china_yangzhou_building
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -4625,7 +4650,7 @@ focus_tree = {
 		id = QIE_after_wushan_control_whole_china_yizhou_building
 		x = 26
 		y = 10
-		cost = 10
+		cost = 6
 		icon = GFX_qie_ws_after_wushan_control_whole_china_jizhou_building
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -4650,7 +4675,7 @@ focus_tree = {
 		id = QIE_after_wushan_control_whole_china_yuzhou_building
 		x = 24
 		y = 10
-		cost = 10
+		cost = 6
 		icon = GFX_qie_ws_after_wushan_control_whole_china_jinzhou_building
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -4695,7 +4720,7 @@ focus_tree = {
 		id = QIE_after_wushan_control_whole_china_yanzhou_building
 		x = 24
 		y = 11
-		cost = 10
+		cost = 6
 		icon = GFX_qie_ws_after_wushan_control_whole_china_yanzhou_building
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -4735,7 +4760,7 @@ focus_tree = {
 		id = QIE_after_wushan_control_whole_china_jizhou_building
 		x = 27
 		y = 11
-		cost = 10
+		cost = 6
 		icon = GFX_qie_ws_after_wushan_control_whole_china_yizhou_building
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -4794,6 +4819,10 @@ focus_tree = {
 			focus = QIE_after_wushan_control_whole_china_jizhou_building
 		}
 		completion_reward = {
+			set_capital = {
+				state = 607
+				remember_old_capital = no
+			}
 			add_ideas = QIE_wushan_sunrise
 		}
 	}
@@ -4801,7 +4830,7 @@ focus_tree = {
 		id = QIE_after_wushan_control_whole_china_qingzhou_building
 		x = 21
 		y = 11
-		cost = 10
+		cost = 6
 		icon = GFX_qie_ws_after_wushan_control_whole_china_qingzhou_building
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -4831,7 +4860,7 @@ focus_tree = {
 		id = QIE_after_wushan_control_whole_china_xuzhou_building
 		x = 22
 		y = 10
-		cost = 10
+		cost = 6
 		icon = GFX_qie_ws_after_wushan_control_whole_china_xuzhou_building
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -5065,6 +5094,13 @@ focus_tree = {
 					type = annex_everything
 				}
 			}
+			560 = { add_core_of = ROOT }
+			561 = { add_core_of = ROOT }
+			657 = { add_core_of = ROOT }
+			408 = { add_core_of = ROOT }
+			409 = { add_core_of = ROOT }
+			577 = { add_core_of = ROOT }
+			537 = { add_core_of = ROOT }
 		}
 	}
 	focus = {
@@ -5923,7 +5959,7 @@ focus_tree = {
 		id = QIE_wushan_more_is_better_faster_is_great
 		x = 34
 		y = 9
-		cost = 10
+		cost = 4
 		icon = GFX_goal_generic_artillery_factories
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -5977,7 +6013,7 @@ focus_tree = {
 		id = QIE_wushan_efficient_utilization_of_resources
 		x = 36
 		y = 9
-		cost = 10
+		cost = 4
 		icon = GFX_goal_syndicalist_workers
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -6003,7 +6039,7 @@ focus_tree = {
 		id = QIE_integrate_existing_MIO_resources
 		x = 39
 		y = 8
-		cost = 15
+		cost = 7
 		icon = GFX_focus_GER_prioritize_the_four_year_plan
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -6069,7 +6105,7 @@ focus_tree = {
 		id = QIE_wushan_now_has_fallen_into_ancient_ice
 		x = -4
 		y = 17
-		cost = 5
+		cost = 520
 		icon = GFX_focus_generic_happy_cheer
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -6245,8 +6281,8 @@ focus_tree = {
 					NAME = "Beizhi Bubing Shi"
 					LINE_1 = {
 						localization_key = line_battalion_tt
-						NAME = irregular_infantry
-						ICON = GFX_unit_irregular_infantry_icon_small
+						NAME = infantry
+						ICON = GFX_unit_infantry_icon_small
 						COUNT = 9
 					}
 					LINE_2 = {
@@ -6276,39 +6312,39 @@ focus_tree = {
 					template_counter = 58
 					division_names_group = QIE_INF_01
 					regiments = {
-						irregular_infantry = {
+						infantry = {
 							x = 0
 							y = 0
 						}
-						irregular_infantry = {
+						infantry = {
 							x = 0
 							y = 1
 						}
-						irregular_infantry = {
+						infantry = {
 							x = 0
 							y = 2
 						}
-						irregular_infantry = {
+						infantry = {
 							x = 0
 							y = 3
 						}
-						irregular_infantry = {
+						infantry = {
 							x = 1
 							y = 0
 						}
-						irregular_infantry = {
+						infantry = {
 							x = 1
 							y = 1
 						}
-						irregular_infantry = {
+						infantry = {
 							x = 1
 							y = 2
 						}
-						irregular_infantry = {
+						infantry = {
 							x = 1
 							y = 3
 						}
-						irregular_infantry = {
+						infantry = {
 							x = 2
 							y = 0
 						}
@@ -6879,6 +6915,7 @@ focus_tree = {
 				idea = QIE_wushan_rooster_devours_vermin
 				days = 730
 			}
+			524 = { add_claim_by = ROOT }
 		}
 	}
 	focus = {
@@ -7030,6 +7067,7 @@ focus_tree = {
 				target = JAP
 				type = annex_everything
 			}
+			524 = { add_core_of = ROOT }
 		}
 	}
 	focus = {
@@ -7098,7 +7136,7 @@ focus_tree = {
 		id = QIE_wushan_conduct_armor_steel_experiments
 		x = 38
 		y = 9
-		cost = 10
+		cost = 4
 		icon = GFX_goal_generic_heavy_armour_german
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -7124,7 +7162,7 @@ focus_tree = {
 		id = QIE_wushan_high_speed_racing_engine
 		x = 40
 		y = 9
-		cost = 10
+		cost = 4
 		icon = GFX_goal_generic_army_tanks2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -7178,7 +7216,7 @@ focus_tree = {
 		id = QIE_wushan_squander_money_focus_on_fire
 		x = 44
 		y = 9
-		cost = 10
+		cost = 4
 		icon = GFX_focus_generic_army_tanks2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -7204,7 +7242,7 @@ focus_tree = {
 		id = QIE_wushan_stability_first_and_most_important
 		x = 42
 		y = 9
-		cost = 10
+		cost = 4
 		icon = GFX_focus_SOV_organize_wreckers
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -8104,7 +8142,7 @@ focus_tree = {
 				tooltip = special_forces_cap_tt
 			}
 			add_to_variable = {
-				QIE_wushan_aviation_affairs_commission_extra_paratrooper_supply_grace = 72
+				QIE_wushan_aviation_affairs_commission_extra_paratrooper_supply_grace = 240
 				tooltip = extra_paratrooper_supply_grace_tt
 			}
 			add_to_variable = {
@@ -8134,6 +8172,46 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_wushan_we_need_reserves
 		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = QIE_wushan_focus_on_northern_navy_strategy
+				bonus = 1
+				uses = 2
+				category = cat_ship_heavy_battery
+			}
+			1065 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+			1065 = {
+				add_building_construction = {
+					type = naval_base
+					province = 1104
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_heavy_gun_hit_chance_factor = 0.05
+				tooltip = QIE_wushan_dual_ocean_commission_naval_heavy_gun_hit_chance_factor_tt
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_capital_ship_attack_factor = 0.05
+				tooltip = QIE_wushan_dual_ocean_commission_navy_capital_ship_attack_factor_tt
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_capital_ship_defence_factor = 0.05
+				tooltip = QIE_wushan_dual_ocean_commission_navy_capital_ship_defence_factor_tt
+			}
+		}
 	}
 	focus = {
 		id = QIE_wushan_focus_on_southern_navy_strategy
@@ -8148,6 +8226,54 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = QIE_wushan_we_need_reserves
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = QIE_wushan_focus_on_southern_navy_strategy
+				bonus = 1
+				uses = 2
+				category = cat_ship_light_battery
+			}
+			613 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+			743 = {
+				add_building_construction = {
+					type = naval_base
+					province = 7014
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_coordination = 0.1
+				tooltip = naval_coordination_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_retreat_speed = 0.1
+				tooltip = QIE_wushan_dual_ocean_commission_naval_retreat_speed_tt
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_light_gun_hit_chance_factor = 0.05
+				tooltip = QIE_wushan_dual_ocean_commission_naval_light_gun_hit_chance_factor_tt
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_visibility = -0.05
+				tooltip = QIE_wushan_dual_ocean_commission_navy_visibility_tt
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_speed_factor = 0.05
+				tooltip = QIE_wushan_dual_ocean_commission_naval_speed_factor_tt
+			}
 		}
 	}
 	focus = {
@@ -8164,6 +8290,24 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_wushan_focus_on_northern_navy_strategy
 		}
+		completion_reward = {
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_coordination = 0.1
+				tooltip = naval_coordination_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_max_range_factor = 0.05
+				tooltip = navy_max_range_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_ships_at_battle_start = 0.1
+				tooltip = ships_at_battle_start_tooltip
+			}
+		}
 	}
 	focus = {
 		id = QIE_wushan_fleet_in_being
@@ -8179,6 +8323,24 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_wushan_focus_on_northern_navy_strategy
 		}
+		completion_reward = {
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_convoy_escort_efficiency = 0.05
+				tooltip = convoy_escort_efficiency_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_repair_speed_factor = 0.1
+				tooltip = repair_speed_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_spotting_chance = 0.05
+				tooltip = spotting_chance_tooltip
+			}
+		}
 	}
 	focus = {
 		id = QIE_wushan_hit_and_run
@@ -8191,6 +8353,32 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_wushan_focus_on_southern_navy_strategy
 		}
+		completion_reward = {
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_coordination = 0.1
+				tooltip = naval_coordination_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_retreat_speed = 0.15
+				tooltip = naval_retreat_speed_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_light_gun_hit_chance_factor = 0.1
+				tooltip = QIE_wushan_dual_ocean_commission_naval_light_gun_hit_chance_factor_tt
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_screen_defence_factor = 0.1
+				tooltip = navy_screen_defence_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_screen_attack_factor = 0.1
+				tooltip = navy_screen_attack_factor_tooltip
+			}
+		}
 	}
 	focus = {
 		id = QIE_wushan_submarines_focus
@@ -8202,6 +8390,35 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_wushan_focus_on_southern_navy_strategy
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = QIE_wushan_submarines_focus
+				bonus = 2
+				ahead_reduction = 2
+				uses = 2
+				category = mio_cat_tech_all_submarine_and_modules
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_convoy_raiding_efficiency_factor = 0.1
+				tooltip = convoy_raiding_efficiency_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_mines_planting_by_fleets_factor = 0.05
+				tooltip = mines_planting_by_fleets_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_submarine_attack_factor = 0.1
+				tooltip = navy_submarine_attack_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_submarine_defence_factor = 0.1
+				tooltip = navy_submarine_defence_factor_tooltip
+			}
 		}
 	}
 	focus = {
@@ -8218,6 +8435,24 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_wushan_submarines_focus
 		}
+		completion_reward = {
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_torpedo_hit_chance_factor = 0.15
+				tooltip = naval_torpedo_hit_chance_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_torpedo_screen_penetration_factor = 0.1
+				tooltip = naval_torpedo_screen_penetration_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_torpedo_enemy_critical_chance_factor = -0.15
+				tooltip = QIE_wushan_dual_ocean_commission_naval_torpedo_enemy_critical_chance_factor_tt
+			}
+		}
 	}
 	focus = {
 		id = QIE_wushan_destroyer_and_cruiser
@@ -8230,12 +8465,26 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_wushan_decisive_battle_doctrine
 		}
+		completion_reward = {
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_screen_defence_factor = 0.1
+				tooltip = navy_screen_defence_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_capital_ship_attack_factor = 0.1
+				tooltip = navy_capital_ship_attack_factor_tooltip
+			}
+		}
 	}
 	focus = {
 		id = QIE_wushan_our_dream_our_ocean
 		x = 62
 		y = 6
-		cost = 0
+		cost = 7
 		icon = GFX_focus_SMB_blue_water_fleet
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -8245,6 +8494,20 @@ focus_tree = {
 			focus = QIE_wushan_the_second_choice_submarines
 			focus = QIE_wushan_the_second_choice_destroyer
 			focus = QIE_wushan_the_second_choice_cruiser
+		}
+		completion_reward = {
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_sp_tag_submarine_speed_factor = 0.2
+				tooltip = sp_tag_submarine_speed_factor_tt
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_sp_tag_surface_ship_speed_factor = 0.2
+				tooltip = sp_tag_surface_ship_speed_factor_tt
+			}
 		}
 	}
 	focus = {
@@ -8257,6 +8520,52 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_wushan_fleet_in_being
+		}
+		completion_reward = {
+			1068 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+					level = 3
+					instant_build = yes
+				}
+			}
+			609 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+					level = 3
+					instant_build = yes
+				}
+			}
+			1065 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+					level = 3
+					instant_build = yes
+				}
+			}
+			744 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+					level = 3
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -8275,6 +8584,9 @@ focus_tree = {
 			focus = QIE_wushan_focus_on_northern_navy_strategy
 			focus = QIE_wushan_focus_on_southern_navy_strategy
 		}
+		completion_reward = {
+			add_ideas = QIE_wushan_from_sky_to_ocean_0
+		}
 	}
 	focus = {
 		id = QIE_wushan_the_air_ship
@@ -8287,15 +8599,24 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_wushan_combine_sky_with_ocean
 		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = QIE_wushan_from_sky_to_ocean_0
+				add_idea = QIE_wushan_from_sky_to_ocean_1
+			}
+		}
 	}
 	focus = {
 		id = QIE_wushan_the_second_choice_destroyer
 		x = 66
 		y = 5
-		cost = 10
+		cost = 6
 		icon = GFX_goal_generic_naval_destroyer2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		allow_branch = {
+			has_country_flag = QIE_wushan_first_navy_choice_done
+		}
 		mutually_exclusive = {
 			focus = QIE_wushan_the_second_choice_submarines
 			focus = QIE_the_second_choice_movement_base
@@ -8306,16 +8627,44 @@ focus_tree = {
 			focus = QIE_wushan_destroyer_and_cruiser
 			focus = QIE_wushan_strengthen_coastal_defense
 			focus = QIE_wushan_torpedo_are_best_choice
+		}
+		completion_reward = {
+			navy_experience = 15
+			add_tech_bonus = {
+				name = QIE_wushan_the_second_choice_destroyer
+				bonus = 1
+				uses = 1
+				category = mio_cat_tech_all_destroyer_and_modules
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_screening_efficiency = 0.1
+				tooltip = screening_efficiency_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_accidents_chance = -0.1
+				tooltip = naval_accidents_chance_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_critical_receive_chance = -0.05
+				tooltip = QIE_wushan_dual_ocean_commission_critical_receive_chance_tt
+			}
 		}
 	}
 	focus = {
 		id = QIE_wushan_the_second_choice_submarines
 		x = 64
 		y = 5
-		cost = 10
+		cost = 6
 		icon = GFX_goal_generic_naval_submarine2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		allow_branch = {
+			has_country_flag = QIE_wushan_first_navy_choice_done
+		}
 		mutually_exclusive = {
 			focus = QIE_wushan_the_second_choice_destroyer
 			focus = QIE_the_second_choice_movement_base
@@ -8326,16 +8675,44 @@ focus_tree = {
 			focus = QIE_wushan_destroyer_and_cruiser
 			focus = QIE_wushan_strengthen_coastal_defense
 			focus = QIE_wushan_torpedo_are_best_choice
+		}
+		completion_reward = {
+			navy_experience = 15
+			add_tech_bonus = {
+				name = QIE_wushan_the_second_choice_submarines
+				bonus = 1
+				uses = 1
+				category = mio_cat_tech_all_submarine_and_modules
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_submarine_attack_factor = 0.1
+				tooltip = navy_submarine_attack_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_submarine_defence_factor = 0.1
+				tooltip = navy_submarine_defence_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_submarine_detection_factor = 0.05
+				tooltip = navy_submarine_detection_factor_tooltip
+			}
 		}
 	}
 	focus = {
 		id = QIE_the_second_choice_movement_base
 		x = 58
 		y = 5
-		cost = 10
+		cost = 6
 		icon = GFX_goal_generic_naval_carrier2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		allow_branch = {
+			has_country_flag = QIE_wushan_first_navy_choice_done
+		}
 		mutually_exclusive = {
 			focus = QIE_wushan_the_second_choice_submarines
 			focus = QIE_wushan_the_second_choice_destroyer
@@ -8346,16 +8723,48 @@ focus_tree = {
 			focus = QIE_wushan_destroyer_and_cruiser
 			focus = QIE_wushan_strengthen_coastal_defense
 			focus = QIE_wushan_torpedo_are_best_choice
+		}
+		completion_reward = {
+			navy_experience = 15
+			add_tech_bonus = {
+				name = QIE_the_second_choice_movement_base
+				bonus = 1
+				uses = 1
+				category = mio_cat_tech_all_carrier_and_modules
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_max_range_factor = -0.1
+				tooltip = navy_max_range_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_carrier_air_agility_factor = 0.05
+				tooltip = navy_carrier_air_agility_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_carrier_air_attack_factor = 0.1
+				tooltip = navy_carrier_air_attack_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_carrier_air_targetting_factor = 0.05
+				tooltip = navy_carrier_air_targetting_factor_tooltip
+			}
 		}
 	}
 	focus = {
 		id = QIE_wushan_the_second_choice_battleship
 		x = 60
 		y = 5
-		cost = 10
+		cost = 6
 		icon = GFX_goal_generic_naval_battleship2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		allow_branch = {
+			has_country_flag = QIE_wushan_first_navy_choice_done
+		}
 		mutually_exclusive = {
 			focus = QIE_the_second_choice_movement_base
 			focus = QIE_wushan_the_second_choice_submarines
@@ -8367,15 +8776,39 @@ focus_tree = {
 			focus = QIE_wushan_strengthen_coastal_defense
 			focus = QIE_wushan_torpedo_are_best_choice
 		}
+		completion_reward = {
+			navy_experience = 15
+			add_tech_bonus = {
+				name = QIE_wushan_the_second_choice_battleship
+				bonus = 1
+				uses = 1
+				category = mio_cat_tech_all_capital_ship_and_modules
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_capital_ship_attack_factor = 0.1
+				tooltip = navy_capital_ship_attack_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_heavy_gun_hit_chance_factor = 0.1
+				tooltip = QIE_wushan_dual_ocean_commission_naval_heavy_gun_hit_chance_factor_10_tt
+			}
+		}
 	}
 	focus = {
 		id = QIE_wushan_the_second_choice_cruiser
 		x = 62
 		y = 5
-		cost = 10
+		cost = 6
 		icon = GFX_goal_generic_naval_cruiser2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		allow_branch = {
+			has_country_flag = QIE_wushan_first_navy_choice_done
+		}
 		mutually_exclusive = {
 			focus = QIE_the_second_choice_movement_base
 			focus = QIE_wushan_the_second_choice_battleship
@@ -8387,24 +8820,66 @@ focus_tree = {
 			focus = QIE_wushan_strengthen_coastal_defense
 			focus = QIE_wushan_torpedo_are_best_choice
 		}
+		completion_reward = {
+			navy_experience = 15
+			add_tech_bonus = {
+				name = QIE_wushan_the_second_choice_cruiser
+				bonus = 1
+				uses = 1
+				category = mio_cat_tech_all_cruiser_and_modules
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_screen_attack_factor = 0.1
+				tooltip = navy_screen_attack_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_screen_defence_factor = 0.1
+				tooltip = navy_screen_defence_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_positioning = 0.15
+				tooltip = positioning_tooltip
+			}
+		}
 	}
 	focus = {
 		id = QIE_wushan_we_need_reserves
 		x = 63
 		y = 1
-		cost = 10
+		cost = 8
 		icon = GFX_focus_AST_coast_watchers
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_wushan_the_ghost_of_dual_ocean_navy
 		}
+		completion_reward = {
+			navy_experience = 50
+			add_doctrine_cost_reduction = {
+				name = QIE_wushan_we_need_reserves
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_morale_factor = 0.05
+				tooltip = QIE_wushan_dual_ocean_commission_naval_morale_factor_tt
+			}
+		}
 	}
 	focus = {
 		id = QIE_wushan_prepare_for_the_second_round_robin
 		x = 57
 		y = 7
-		cost = 0
+		cost = 7
 		icon = GFX_focus_SIA_the_hammers_that_strike
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -8413,6 +8888,14 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = QIE_wushan_our_dream_our_ocean
+		}
+		completion_reward = {
+			mio:QIE_wushan_luoyang_airport_organisation = {
+				add_mio_size = 2
+			}
+			mio:QIE_wushan_jiangnan_shipyard_organisation = {
+				add_mio_size = 2
+			}
 		}
 	}
 	focus = {
@@ -8552,6 +9035,390 @@ focus_tree = {
 					add_ideas = kaiping_mines_2
 				}
 			}
+		}
+	}
+	focus = {
+		id = QIE_the_first_choice_movement_base
+		x = 58
+		y = 5
+		cost = 7
+		icon = GFX_goal_generic_naval_carrier2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		allow_branch = {
+			NOT = {
+				has_country_flag = QIE_wushan_first_navy_choice_done
+			}
+			has_country_flag = qie_wushan_has_control_china
+		}
+		mutually_exclusive = {
+			focus = QIE_wushan_the_first_choice_submarines
+			focus = QIE_wushan_the_first_choice_destroyer
+			focus = QIE_wushan_the_first_choice_cruiser
+			focus = QIE_wushan_the_first_choice_battleship
+		}
+		prerequisite = {
+			focus = QIE_wushan_destroyer_and_cruiser
+			focus = QIE_wushan_strengthen_coastal_defense
+			focus = QIE_wushan_torpedo_are_best_choice
+		}
+		completion_reward = {
+			set_country_flag = QIE_wushan_first_navy_choice_done
+			mark_focus_tree_layout_dirty = yes
+			navy_experience = 15
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_carrier_air_agility_factor = 0.1
+				tooltip = navy_carrier_air_agility_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_carrier_air_attack_factor = 0.12
+				tooltip = navy_carrier_air_attack_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_carrier_air_targetting_factor = 0.1
+				tooltip = navy_carrier_air_targetting_factor_tooltip
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_the_first_choice_submarines
+		x = 64
+		y = 5
+		cost = 7
+		icon = GFX_goal_generic_naval_submarine2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		allow_branch = {
+			NOT = {
+				has_country_flag = QIE_wushan_first_navy_choice_done
+			}
+			has_country_flag = qie_wushan_has_control_china
+		}
+		mutually_exclusive = {
+			focus = QIE_the_first_choice_movement_base
+			focus = QIE_wushan_the_first_choice_destroyer
+			focus = QIE_wushan_the_first_choice_cruiser
+			focus = QIE_wushan_the_first_choice_battleship
+		}
+		prerequisite = {
+			focus = QIE_wushan_destroyer_and_cruiser
+			focus = QIE_wushan_strengthen_coastal_defense
+			focus = QIE_wushan_torpedo_are_best_choice
+		}
+		completion_reward = {
+			set_country_flag = QIE_wushan_first_navy_choice_done
+			mark_focus_tree_layout_dirty = yes
+			navy_experience = 15
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_submarine_attack_factor = 0.15
+				tooltip = navy_submarine_attack_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_submarine_defence_factor = 0.15
+				tooltip = navy_submarine_defence_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_submarine_detection_factor = 0.1
+				tooltip = navy_submarine_detection_factor_tooltip
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_the_first_choice_destroyer
+		x = 66
+		y = 5
+		cost = 7
+		icon = GFX_goal_generic_naval_destroyer2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		allow_branch = {
+			NOT = {
+				has_country_flag = QIE_wushan_first_navy_choice_done
+			}
+			has_country_flag = qie_wushan_has_control_china
+		}
+		mutually_exclusive = {
+			focus = QIE_the_first_choice_movement_base
+			focus = QIE_wushan_the_first_choice_submarines
+			focus = QIE_wushan_the_first_choice_cruiser
+			focus = QIE_wushan_the_first_choice_battleship
+		}
+		prerequisite = {
+			focus = QIE_wushan_destroyer_and_cruiser
+			focus = QIE_wushan_strengthen_coastal_defense
+			focus = QIE_wushan_torpedo_are_best_choice
+		}
+		completion_reward = {
+			set_country_flag = QIE_wushan_first_navy_choice_done
+			mark_focus_tree_layout_dirty = yes
+			navy_experience = 15
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_screening_efficiency = 0.15
+				tooltip = screening_efficiency_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_accidents_chance = -0.2
+				tooltip = naval_accidents_chance_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_critical_receive_chance = -0.1
+				tooltip = QIE_wushan_dual_ocean_commission_critical_receive_chance_tt
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_the_first_choice_cruiser
+		x = 62
+		y = 5
+		cost = 7
+		icon = GFX_goal_generic_naval_cruiser2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		allow_branch = {
+			NOT = {
+				has_country_flag = QIE_wushan_first_navy_choice_done
+			}
+			has_country_flag = qie_wushan_has_control_china
+		}
+		mutually_exclusive = {
+			focus = QIE_the_first_choice_movement_base
+			focus = QIE_wushan_the_first_choice_submarines
+			focus = QIE_wushan_the_first_choice_destroyer
+			focus = QIE_wushan_the_first_choice_battleship
+		}
+		prerequisite = {
+			focus = QIE_wushan_destroyer_and_cruiser
+			focus = QIE_wushan_strengthen_coastal_defense
+			focus = QIE_wushan_torpedo_are_best_choice
+		}
+		completion_reward = {
+			set_country_flag = QIE_wushan_first_navy_choice_done
+			mark_focus_tree_layout_dirty = yes
+			navy_experience = 15
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_screen_attack_factor = 0.15
+				tooltip = navy_screen_attack_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_screen_defence_factor = 0.15
+				tooltip = navy_screen_defence_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_positioning = 0.2
+				tooltip = positioning_tooltip
+			}
+		}
+	}
+	focus = {
+		id = QIE_wushan_the_first_choice_battleship
+		x = 60
+		y = 5
+		cost = 7
+		icon = GFX_goal_generic_naval_battleship2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		allow_branch = {
+			NOT = {
+				has_country_flag = QIE_wushan_first_navy_choice_done
+			}
+			has_country_flag = qie_wushan_has_control_china
+		}
+		mutually_exclusive = {
+			focus = QIE_the_first_choice_movement_base
+			focus = QIE_wushan_the_first_choice_cruiser
+			focus = QIE_wushan_the_first_choice_submarines
+			focus = QIE_wushan_the_first_choice_destroyer
+		}
+		prerequisite = {
+			focus = QIE_wushan_destroyer_and_cruiser
+			focus = QIE_wushan_strengthen_coastal_defense
+			focus = QIE_wushan_torpedo_are_best_choice
+		}
+		completion_reward = {
+			set_country_flag = QIE_wushan_first_navy_choice_done
+			mark_focus_tree_layout_dirty = yes
+			navy_experience = 15
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = QIE_wushan_dual_ocean_commission_modifer
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_navy_capital_ship_attack_factor = 0.15
+				tooltip = navy_capital_ship_attack_factor_tooltip
+			}
+			add_to_variable = {
+				QIE_wushan_dual_ocean_commission_naval_heavy_gun_hit_chance_factor = 0.15
+				tooltip = QIE_wushan_dual_ocean_commission_naval_heavy_gun_hit_chance_factor_10_tt
+			}
+		}
+	}
+	focus = {
+		id = QIE_ws_tang_erhe_fake_1
+		x = 4
+		y = 10
+		cost = 6
+		icon = GFX_focus_research
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		allow_branch = {
+			NOT = {
+				has_country_flag = qie_wushan_has_control_china
+			}
+		}
+		prerequisite = {
+			focus = QIE_wushan_return_to_democracy
+		}
+		completion_reward = {
+			add_research_slot = 1
+			custom_effect_tooltip = QIE_ws_tang_erhe_fake_1.tt
+		}
+	}
+	focus = {
+		id = QIE_ws_tang_erhe_fake_2
+		x = 8
+		y = 10
+		cost = 6
+		icon = GFX_focus_CHI_commemorate_labour_corp
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		allow_branch = {
+			NOT = {
+				has_country_flag = qie_wushan_has_control_china
+			}
+		}
+		prerequisite = {
+			focus = QIE_wushan_return_to_democracy
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_timed_idea = {
+				idea = QIE_ycp_industry_push_idea
+				days = 730
+			}
+		}
+	}
+	focus = {
+		id = QIE_ws_tang_erhe_fake_3
+		x = 6
+		y = 11
+		cost = 5
+		icon = GFX_focus_generic_improve_the_administration
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_ws_tang_erhe_fake_1
+		}
+		prerequisite = {
+			focus = QIE_ws_tang_erhe_fake_2
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	focus = {
+		id = QIE_ws_tang_erhe_fake_4
+		x = 5
+		y = 12
+		cost = 6
+		icon = GFX_focus_CHI_promote_national_currency
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_ws_tang_erhe_fake_3
+		}
+		prerequisite = {
+			focus = QIE_ws_tang_erhe_fake_7
+			focus = QIE_ws_tang_erhe_fake_8
+		}
+		completion_reward = {
+			add_stability = 0.15
+			add_timed_idea = {
+				idea = GXC_manipulate_the_liangguang_yuan_idea
+				days = 180
+			}
+		}
+	}
+	focus = {
+		id = QIE_ws_tang_erhe_fake_5
+		x = 7
+		y = 12
+		cost = 6
+		icon = GFX_focus_AFG_telegraph
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_ws_tang_erhe_fake_3
+		}
+		prerequisite = {
+			focus = QIE_ws_tang_erhe_fake_8
+			focus = QIE_ws_tang_erhe_fake_7
+		}
+		completion_reward = {
+			custom_effect_tooltip = QIE_ws_tang_erhe_fake_5.tt
+		}
+	}
+	focus = {
+		id = QIE_ws_tang_erhe_fake_6
+		x = 6
+		y = 14
+		cost = 8
+		icon = GFX_focus_ARG_defense_and_democracy
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_ws_tang_erhe_fake_4
+		}
+		prerequisite = {
+			focus = QIE_ws_tang_erhe_fake_5
+		}
+		completion_reward = {
+			custom_effect_tooltip = QIE_ws_tang_erhe_fake_6.tt
+		}
+	}
+	focus = {
+		id = QIE_ws_tang_erhe_fake_7
+		x = 3
+		y = 11
+		cost = 7
+		icon = GFX_focus_SWE_radiotjanst
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_ws_tang_erhe_fake_1
+		}
+		completion_reward = {
+			custom_effect_tooltip = QIE_ws_tang_erhe_fake_7.tt
+		}
+	}
+	focus = {
+		id = QIE_ws_tang_erhe_fake_8
+		x = 9
+		y = 11
+		cost = 7
+		icon = GFX_focus_CHI_found_fertiliser_plant
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = QIE_ws_tang_erhe_fake_2
+		}
+		completion_reward = {
+			custom_effect_tooltip = QIE_ws_tang_erhe_fake_8.tt
 		}
 	}
 }

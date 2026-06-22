@@ -830,6 +830,67 @@ ideas ={
 				army_speed_factor = 0.05
 			}
 		}
+		QIE_wushan_from_sky_to_ocean_0 = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_from_sky_to_ocean_0" }
+			picture = air_support_focus
+			allowed = { always = no }
+			equipment_bonus = {
+				ship_hull_submarine = {
+					build_cost_ic = -0.05 instant = yes
+				}
+				ship_hull_light = {
+					build_cost_ic = -0.05 instant = yes
+				}
+				ship_hull_cruiser = {
+					build_cost_ic = -0.05 instant = yes
+				}
+				ship_hull_heavy = {
+					build_cost_ic = -0.05 instant = yes
+				}
+				ship_hull_carrier = {
+					build_cost_ic = -0.05 instant = yes
+				}
+				mio_cat_eq_all_aircraft = {
+					build_cost_ic = -0.05 instant = yes
+				}
+			}
+			modifier = {
+				production_speed_air_base_factor = 0.10
+				production_speed_dockyard_factor = 0.10
+			}
+		}
+		QIE_wushan_from_sky_to_ocean_1 = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_from_sky_to_ocean_1" }
+			picture = air_support_focus
+			allowed = { always = no }
+			equipment_bonus = {
+				ship_hull_submarine = {
+					build_cost_ic = -0.15 instant = yes
+				}
+				ship_hull_light = {
+					build_cost_ic = -0.15 instant = yes
+				}
+				ship_hull_cruiser = {
+					build_cost_ic = -0.15 instant = yes
+				}
+				ship_hull_heavy = {
+					build_cost_ic = -0.15 instant = yes
+				}
+				ship_hull_carrier = {
+					build_cost_ic = -0.15 instant = yes
+				}
+				mio_cat_eq_all_aircraft = {
+					build_cost_ic = -0.15 instant = yes
+				}
+			}
+			modifier = {
+				production_speed_air_base_factor = 0.10
+				production_speed_dockyard_factor = 0.10
+				nuclear_production_factor = 0.20
+				air_bombing_targetting = 0.10
+				ground_attack_factor = 0.10
+			}
+		}
 	}
 	hidden_ideas = {
 		QIE_wushan_luoyang_arsenal_zhili_research = {
@@ -892,6 +953,12 @@ ideas ={
 					instant = yes
 					build_cost_ic = -0.10
 				}
+			}
+		}
+		QIE_wushan_jiangnan_shipyard_bonus = {
+			allowed = { always = no }
+			modifier = {
+				experience_gain_navy = 0.80
 			}
 		}
 	}
