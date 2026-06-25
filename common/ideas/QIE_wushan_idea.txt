@@ -79,12 +79,31 @@ ideas ={
 		}
 		QIE_wushan_rebuild_labor_cooperative_institute = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_rebuild_labor_cooperative_institute" }
-			picture = DEN_occupation_laws
+			picture = qie_ideas_ws_labor_cooperative
 			allowed = { always = no }
+			available = {
+				has_war = no
+			}
+			on_remove = {
+				add_ideas = QIE_wushan_unite_against_external_enemies
+				country_event = QIE_ws_normal_events.1
+			}
 			modifier = {
 				conscription_factor = -0.03
 				production_speed_buildings_factor = 0.03
 				consumer_goods_factor = -0.05
+			}
+		}
+		QIE_wushan_unite_against_external_enemies = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_unite_against_external_enemies" }
+			picture = qie_ideas_ws_belligerent_government_wu_version
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_expected_value = -0.05
+				production_speed_buildings_factor = 0.1
+				industrial_capacity_factory = 0.05
+				production_factory_max_efficiency_factor = 0.15
+				line_change_production_efficiency_factor = 0.10
 			}
 		}
 		QIE_wushan_precious_tradition = {
@@ -398,8 +417,7 @@ ideas ={
 				experience_gain_army = 0.20
 				war_support_factor = 0.10
 				army_org_regain = -0.05
-				army_leader_cost_factor = 0.25
-				land_doctrine_cost_factor = 0.50
+				max_planning_factor = 0.05
 			}
 		}
 		QIE_jingchun_army_bureau_upgraded = {
@@ -413,7 +431,7 @@ ideas ={
 				army_infantry_attack_factor = 0.05
 				army_infantry_defence_factor = 0.05
 				army_org_regain = -0.05
-				army_leader_cost_factor = 0.25
+				max_planning_factor = 0.10
 			}
 		}
 		QIE_jingchun_army_bureau_tank_upgraded = {
@@ -427,7 +445,7 @@ ideas ={
 				army_armor_attack_factor = 0.05
 				army_armor_defence_factor = 0.05
 				army_org_regain = -0.05
-				army_leader_cost_factor = 0.25
+				max_planning_factor = 0.10
 			}
 		}
 		QIE_jingchun_army_bureau_tank_upgraded_2 = {
@@ -448,9 +466,10 @@ ideas ={
 				army_attack_speed_factor = 0.05
 				initiative_factor = 0.05
 				land_reinforce_rate = 0.05
-				planning_speed = 0.05
+				planning_speed = 0.10
 				army_attack_factor = 0.075
 				army_defence_factor = -0.05
+				max_planning_factor = 0.10
 				experience_loss_factor = -0.05
 				training_time_army_factor = 0.15
 			}
@@ -472,8 +491,10 @@ ideas ={
 				max_dig_in = 3
 				initiative_factor = 0.05
 				land_reinforce_rate = 0.05
+				planning_speed = 0.10
 				army_attack_factor = 0.075
 				army_defence_factor = -0.05
+				max_planning_factor = 0.10
 				conscription_factor = 0.10
 				training_time_army_factor = -0.15
 				experience_loss_factor = 0.10
@@ -823,7 +844,7 @@ ideas ={
 		}
 		QIE_wushan_special_units_focus = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_special_units_focus" }
-			picture = PER_special_units_division_idea
+			picture = RAJ_private_military_complex
 			modifier = {
 				land_night_attack = 0.05
 				special_forces_cap = 0.15
@@ -889,6 +910,44 @@ ideas ={
 				nuclear_production_factor = 0.20
 				air_bombing_targetting = 0.10
 				ground_attack_factor = 0.10
+			}
+		}
+	### United Temporary Ideas
+	QIE_wushan_celebration_for_the_end_of_war = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_celebration_for_the_end_of_war" }
+			picture = generic_victors_of_ww1
+			modifier = {
+				stability_weekly = 0.0015
+				national_populist_drift = 0.02
+				political_power_gain = 0.4
+			}
+		}
+	QIE_wushan_the_fear_of_peace_broken = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_the_fear_of_peace_broken" }
+			picture = SPR_political_violence
+			modifier = {
+				stability_weekly = -0.008
+				war_support_weekly = 0.001
+				political_power_factor = -0.88
+				social_democrat_drift = -0.03
+				social_liberal_drift = -0.03
+				market_liberal_drift = -0.03
+				social_conservative_drift = -0.03
+				authoritarian_democrat_drift = -0.03
+				paternal_autocrat_drift = -0.03
+			}
+		}
+	QIE_wushan_mass_arrests = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_mass_arrests" }
+			picture = generic_prisoner
+			modifier = {
+				political_power_gain = 0.3
+				weekly_manpower = -100
+				stability_factor = 0.25
+				war_support_factor = 0.25
+				production_factory_max_efficiency_factor = 0.10
+				industrial_capacity_factory = 0.10
+				industrial_capacity_dockyard = 0.10
 			}
 		}
 	}

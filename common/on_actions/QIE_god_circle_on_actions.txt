@@ -14,6 +14,19 @@ on_actions = {
 			if = {
 				limit = {
 					tag = QIE
+					NOT = { has_country_flag = QIE_ws_normal_event_10_triggered }
+					NOT = { country_exists = HUN }
+					HUN = {
+						any_core_state = { is_controlled_by = QIE }
+						all_core_state = { is_controlled_by = QIE }
+					}
+				}
+				set_country_flag = QIE_ws_normal_event_10_triggered
+				country_event = { id = QIE_ws_normal_events.10 days = 0 }
+			}
+			if = {
+				limit = {
+					tag = QIE
 					has_completed_focus = QIE_seances_restart_in_beijing
 					has_variable = god_circle_focus_var
 					check_variable = { god_circle_tier < 3 }

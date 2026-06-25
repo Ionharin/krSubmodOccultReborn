@@ -968,6 +968,12 @@ QIE_wushan_dual_leadership_bop_category = {
 				id = QIE_wushan_dual_leadership_bop
 				value = 0.20
 			}
+			random_army_leader = {
+				limit = {
+					NOT = { has_trait = QIE_wushan_wushanshe_member }
+				}
+				add_unit_leader_trait = QIE_wushan_wushanshe_member
+			}
 		}
 	}
 }

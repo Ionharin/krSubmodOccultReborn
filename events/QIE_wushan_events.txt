@@ -514,7 +514,7 @@ country_event = { # 紫禁城警备加强
     }
 }
 
-news_event = { # QIE_wushan_news_events.22 Control CHI
+news_event = { # Tang_erhe died and qie will revenge
     id = QIE_wushan_events.22
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_news_events.22" }
     title = QIE_wushan_events.22.t
@@ -523,12 +523,12 @@ news_event = { # QIE_wushan_news_events.22 Control CHI
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # We Got the Whole China
+    option = { # We will destory them
         name = QIE_wushan_events.22.a
         ai_chance = { factor = 1 }
         trigger = { tag = QIE }
     }
-    option = { # We Got the Whole China
+    option = { # the chinese cult back
         name = QIE_wushan_events.22.b
         ai_chance = { factor = 1 }
         trigger = { NOT = { tag = QIE } }
@@ -550,6 +550,7 @@ news_event = { # QIE_wushan_news_events.23 United CHI
         trigger = { tag = QIE }
         hidden_effect = {
             load_oob = "QIE_wushan_democracy"
+            country_event = { id = QIE_ws_united.1 days = 7 }
         }
     }
     option = { # We Got the Whole China
@@ -672,6 +673,7 @@ country_event = { # 给奉天的电报
     option = { # 发电报过去。
         name = QIE_wushan_events.30.a
         ai_chance = { factor = 99 }
+        add_political_power = -10
         FNG = {
             country_event = { id = QIE_wushan_events.31 days = 1 }
         }
@@ -961,17 +963,55 @@ country_event = { # 捷克语
     }
 }
 
-country_event = { # debug
+country_event = { # 《匈牙利风俗考》
     id = QIE_ws_normal_events.9
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.9" }
     title = QIE_ws_normal_events.9.t
     desc = QIE_ws_normal_events.9.desc
+    picture = GFX_QIE_ws_normal_events_9
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 再怎么说这也太过分了。
+        name = QIE_ws_normal_events.9.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 不要鼓励，但也不要禁止，让它默默发酵。
+        name = QIE_ws_normal_events.9.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 洪特与洪洞
+    id = QIE_ws_normal_events.10
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.10" }
+    title = QIE_ws_normal_events.10.t
+    desc = QIE_ws_normal_events.10.desc
+    picture = GFX_QIE_ws_normal_events_10
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们将重返六百年前的故土。（3个月后将匈牙利地区的人口减少90%，并获得核心）
+        name = QIE_ws_normal_events.10.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 荒谬之说，不禁自息。
+        name = QIE_ws_normal_events.10.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # debug
+    id = QIE_ws_normal_events.11
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.9" }
+    title = QIE_ws_normal_events.11.t
+    desc = QIE_ws_normal_events.11.desc
     picture = GFX_report_event_generic_army_marching
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # debug annex all core zone
-        name = QIE_ws_normal_events.9.a
+        name = QIE_ws_normal_events.11.a
         ai_chance = { factor = 1 }
         every_state = {
 			limit = {
@@ -986,16 +1026,16 @@ country_event = { # debug
 }				
 
 country_event = { # debug annex not core of wushan
-    id = QIE_ws_normal_events.10
+    id = QIE_ws_normal_events.12
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.10" }
-    title = QIE_ws_normal_events.10.t
-    desc = QIE_ws_normal_events.10.desc
+    title = QIE_ws_normal_events.12.t
+    desc = QIE_ws_normal_events.12.desc
     picture = GFX_report_event_generic_army_marching
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # debug annex all core zone
-        name = QIE_ws_normal_events.10.a
+        name = QIE_ws_normal_events.12.a
         ai_chance = { factor = 1 }
         every_state = {
 			limit = {
@@ -2122,13 +2162,38 @@ country_event = { # 岁在[GetYear]
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.1" }
     title = QIE_ws_united.1.t
     desc = QIE_ws_united.1.desc
-    picture = GFX_QIE_ws_united_1
+    picture = GFX_report_event_wushan_celebration
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 恭喜恭喜。
         name = QIE_ws_united.1.a
         ai_chance = { factor = 1 }
+        custom_effect_tooltip = QIE_ws_united.1.tt
+        custom_effect_tooltip = tooltip_white_line
+        promote_character = {
+			character = QIE_ws_armchair_of_lv_dongbin
+			ideology = national_populist_subtype
+		}
+        set_temp_variable = { coalition_partner_var = token:social_democrat }
+			add_to_coalition = yes
+        set_temp_variable = { coalition_partner_var = token:social_liberal }
+			add_to_coalition = yes
+        set_temp_variable = { coalition_partner_var = token:market_liberal }
+			add_to_coalition = yes
+        set_temp_variable = { coalition_partner_var = token:social_conservative }
+			add_to_coalition = yes
+        set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+			add_to_coalition = yes
+        set_temp_variable = { coalition_partner_var = token:paternal_autocrat }
+			add_to_coalition = yes
+        add_timed_idea ={
+            idea = QIE_wushan_celebration_for_the_end_of_war
+            days = 364
+        }
+        hidden_effect = {
+            country_event = { id = QIE_ws_united.2 days = 14 }
+        }
     }
 }
 
@@ -2137,13 +2202,46 @@ country_event = { # 新北洋临时政府委员会
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.2" }
     title = QIE_ws_united.2.t
     desc = QIE_ws_united.2.desc
-    picture = GFX_QIE_ws_united_2
+    picture = GFX_report_event_wushan_united_meeting
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 唯有六松老人能担此重任。
         name = QIE_ws_united.2.a
         ai_chance = { factor = 1 }
+        add_political_power = -10
+        promote_character = {
+			character = QIE_ws_tang_er_he
+			ideology = social_liberal_subtype
+		}
+        set_politics = { ruling_party = social_liberal }
+        hidden_effect = {
+            country_event = { id = QIE_ws_united.6 days = 10 }
+            if = {
+            limit = { has_completed_focus = QIE_jiang_controls_the_wushan }
+            country_event = { id = QIE_ws_united.4 days = 4 }
+            }
+            else_if = {
+                limit = { has_completed_focus = QIE_wu_control_the_wushan }
+                country_event = { id = QIE_ws_united.3 days = 4 }
+            }
+            else_if = {
+                limit = { has_completed_focus = QIE_the_reluctant_two_leaders }
+                country_event = { id = QIE_ws_united.5 days = 4 }
+            }
+            set_temp_variable = { coalition_partner_var = token:social_democrat }
+			    add_to_coalition = yes
+            set_temp_variable = { coalition_partner_var = token:national_populist }
+			    add_to_coalition = yes
+            set_temp_variable = { coalition_partner_var = token:market_liberal }
+			    add_to_coalition = yes
+            set_temp_variable = { coalition_partner_var = token:social_conservative }
+			    add_to_coalition = yes
+            set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+			    add_to_coalition = yes
+            set_temp_variable = { coalition_partner_var = token:paternal_autocrat }
+			    add_to_coalition = yes
+        }
     }
 }
 
@@ -2152,13 +2250,17 @@ country_event = { # 政权交接的某一刻
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.3" }
     title = QIE_ws_united.3.t
     desc = QIE_ws_united.3.desc
-    picture = GFX_QIE_ws_united_3
+    picture = GFX_report_event_QIE_wu_overcoat
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 新中国政府中的和平一瞬。
         name = QIE_ws_united.3.a
         ai_chance = { factor = 1 }
+        add_political_power = 10
+        hidden_effect = {
+            country_event = { id = QIE_ws_united.7 days = 14 }
+        } 
     }
 }
 
@@ -2167,13 +2269,17 @@ country_event = { # 政权交接的某一刻
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.4" }
     title = QIE_ws_united.4.t
     desc = QIE_ws_united.4.desc
-    picture = GFX_QIE_ws_united_4
+    picture = GFX_report_event_wushan_jiang_chaozong_old
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 新中国政府中的和平一瞬。
         name = QIE_ws_united.4.a
         ai_chance = { factor = 1 }
+        add_political_power = 10
+        hidden_effect = {
+            country_event = { id = QIE_ws_united.7 days = 14 }
+        } 
     }
 }
 
@@ -2182,13 +2288,17 @@ country_event = { # 政权交接的某一刻
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.5" }
     title = QIE_ws_united.5.t
     desc = QIE_ws_united.5.desc
-    picture = GFX_QIE_ws_united_5
+    picture = GFX_report_event_wushan_united_meeting
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 新中国政府中的和平一瞬。
         name = QIE_ws_united.5.a
         ai_chance = { factor = 1 }
+        add_political_power = 10
+        hidden_effect = {
+            country_event = { id = QIE_ws_united.7 days = 14 }
+        } 
     }
 }
 
@@ -2197,7 +2307,7 @@ country_event = { # 剃头匠
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.6" }
     title = QIE_ws_united.6.t
     desc = QIE_ws_united.6.desc
-    picture = GFX_report_event_wushan_rickshaw_puller
+    picture = GFX_report_event_wushan_chinese_barber
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -2212,13 +2322,17 @@ country_event = { # 中医团体再一次拒绝调研
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.7" }
     title = QIE_ws_united.7.t
     desc = QIE_ws_united.7.desc
-    picture = GFX_QIE_ws_united_7
+    picture = GFX_report_event_wushan_tangerhe_2
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 或许该进一步与他们痛陈调研的益处，再备上更多谢礼。
         name = QIE_ws_united.7.a
         ai_chance = { factor = 1 }
+        add_political_power = -5
+        hidden_effect = {
+            country_event = { id = QIE_ws_united.8 days = 5 }
+        }
     }
 }
 
@@ -2234,6 +2348,15 @@ country_event = { # 胡适的告别
     option = { # 旅途平安，适之。
         name = QIE_ws_united.8.a
         ai_chance = { factor = 1 }
+        custom_effect_tooltip = characters_will_be_retired
+        character_list_tooltip = {
+			limit = { is_character = QIE_hu_shih }
+		}
+        hidden_effect = {
+            QIE_ws_hu_shih = { retire = yes }
+            QIE_hu_shih = { retire = yes }
+        }
+        country_event = { id = QIE_ws_united.9 days = 7 }
     }
 }
 
@@ -2242,13 +2365,30 @@ country_event = { # 跌跌撞撞的新道路
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.9" }
     title = QIE_ws_united.9.t
     desc = QIE_ws_united.9.desc
-    picture = GFX_QIE_ws_united_9
+    picture = GFX_report_event_wushan_united_meeting
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 多保重身体。
         name = QIE_ws_united.9.a
         ai_chance = { factor = 1 }
+        add_political_power = 10
+        custom_effect_tooltip = QIE_ws_united.9.tt
+        country_event = { id = QIE_ws_united.13 days = 14 }
+        hidden_effect = {
+            if = {
+            limit = { has_completed_focus = QIE_jiang_controls_the_wushan }
+            country_event = { id = QIE_ws_united.11 days = 3 }
+            }
+            else_if = {
+                limit = { has_completed_focus = QIE_wu_control_the_wushan }
+                country_event = { id = QIE_ws_united.10 days = 3 }
+            }
+            else_if = {
+                limit = { has_completed_focus = QIE_the_reluctant_two_leaders }
+                country_event = { id = QIE_ws_united.12 days = 3 }
+            }
+        }
     }
 }
 
@@ -2257,7 +2397,7 @@ country_event = { # 上香
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.10" }
     title = QIE_ws_united.10.t
     desc = QIE_ws_united.10.desc
-    picture = GFX_QIE_ws_united_10
+    picture = GFX_report_event_wushan_god_idol
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -2272,7 +2412,7 @@ country_event = { # 献香
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.11" }
     title = QIE_ws_united.11.t
     desc = QIE_ws_united.11.desc
-    picture = GFX_QIE_ws_united_11
+    picture = GFX_report_event_wushan_god_idol
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -2287,7 +2427,7 @@ country_event = { # 活神仙
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.12" }
     title = QIE_ws_united.12.t
     desc = QIE_ws_united.12.desc
-    picture = GFX_QIE_ws_united_12
+    picture = GFX_report_event_wushan_god_idol
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -2302,13 +2442,26 @@ country_event = { # 最美好的前途
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.13" }
     title = QIE_ws_united.13.t
     desc = QIE_ws_united.13.desc
-    picture = GFX_QIE_ws_united_13
+    picture = GFX_report_event_wushan_tang_erhe_portrait
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 我有点困，你们说什么，我听不清……
         name = QIE_ws_united.13.a
         ai_chance = { factor = 1 }
+        swap_ideas = {
+            remove_idea = QIE_wushan_celebration_for_the_end_of_war
+            add_idea = QIE_wushan_the_fear_of_peace_broken
+        }
+        hidden_effect = {
+            country_event = { id = QIE_ws_united.14 days = 1 }
+            promote_character = {
+			character = QIE_ws_armchair_of_lv_dongbin
+			ideology = social_liberal_subtype
+		    }
+            QIE_ws_tang_er_he = { retire = yes }
+            QIE_ws_adv_tang_erhe = { retire = yes }
+        }
     }
 }
 
@@ -2317,13 +2470,20 @@ country_event = { # 枪响之后
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.14" }
     title = QIE_ws_united.14.t
     desc = QIE_ws_united.14.desc
-    picture = GFX_QIE_ws_united_14
+    picture = GFX_report_event_QIE_cardgame
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 我回来之前，汤尔和不能死。
         name = QIE_ws_united.14.a
         ai_chance = { factor = 1 }
+        custom_effect_tooltip = QIE_ws_united.14.tt
+        add_political_power = -20
+        set_temp_variable = { coalition_partner_var = token:social_democrat }
+		remove_from_coalition = yes
+        hidden_effect = {
+            country_event = { id = QIE_ws_united.15 days = 3 }
+        }
     }
 }
 
@@ -2332,13 +2492,20 @@ country_event = { # 没有“凶手”
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.15" }
     title = QIE_ws_united.15.t
     desc = QIE_ws_united.15.desc
-    picture = GFX_QIE_ws_united_15
+    picture = GFX_report_event_CHN_newspaper
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 我们安全了，但是谁干的？
         name = QIE_ws_united.15.a
         ai_chance = { factor = 1 }
+        custom_effect_tooltip = QIE_ws_united.14.tt
+        add_political_power = -40
+        set_temp_variable = { coalition_partner_var = token:national_populist }
+		remove_from_coalition = yes
+        hidden_effect = {
+            country_event = { id = QIE_ws_united.16 days = 2 }
+        }
     }
 }
 
@@ -2347,13 +2514,45 @@ country_event = { # 孤注一掷
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.16" }
     title = QIE_ws_united.16.t
     desc = QIE_ws_united.16.desc
-    picture = GFX_QIE_ws_united_16
+    picture = GFX_report_event_wushan_xiehe_hospital
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # 我将向[QIE.GetLeader]报告。
+    option = { # 我将向江朝宗报告。
         name = QIE_ws_united.16.a
         ai_chance = { factor = 1 }
+        trigger = { has_completed_focus = QIE_jiang_controls_the_wushan }
+        custom_effect_tooltip = QIE_ws_united.14.tt
+        add_political_power = -60
+        set_temp_variable = { coalition_partner_var = token:paternal_autocrat }
+		remove_from_coalition = yes
+        hidden_effect = {
+            country_event = { id = QIE_ws_united.17 days = 7 }
+        }
+    }
+    option = { # 我将向吴佩孚报告。
+        name = QIE_ws_united.16.b
+        ai_chance = { factor = 1 }
+        trigger = { has_completed_focus = QIE_wu_control_the_wushan }
+        custom_effect_tooltip = QIE_ws_united.14.tt
+        add_political_power = -60
+        set_temp_variable = { coalition_partner_var = token:paternal_autocrat }
+		remove_from_coalition = yes
+        hidden_effect = {
+            country_event = { id = QIE_ws_united.21 days = 7 }
+        }
+    }
+    option = { # 我将向龚心湛报告。
+        name = QIE_ws_united.16.c
+        ai_chance = { factor = 1 }
+        trigger = { has_completed_focus = QIE_the_reluctant_two_leaders }
+        custom_effect_tooltip = QIE_ws_united.14.tt
+        add_political_power = -60
+        set_temp_variable = { coalition_partner_var = token:paternal_autocrat }
+		remove_from_coalition = yes
+        hidden_effect = {
+            country_event = { id = QIE_ws_united.18 days = 7 }
+        }
     }
 }
 
@@ -2362,13 +2561,46 @@ country_event = { # 苦路十四站
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.17" }
     title = QIE_ws_united.17.t
     desc = QIE_ws_united.17.desc
-    picture = GFX_QIE_ws_united_17
+    picture = GFX_report_event_wushan_funeral
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 活神仙呐，为善人申冤吧。
         name = QIE_ws_united.17.a
         ai_chance = { factor = 1 }
+        custom_effect_tooltip = QIE_ws_united.14.tt
+        add_political_power = -80
+        set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+		remove_from_coalition = yes
+        set_temp_variable = { coalition_partner_var = token:market_liberal }
+		remove_from_coalition = yes
+        hidden_effect = {
+            country_event = { id = QIE_ws_united.19 days = 1 }
+        }
+    }
+}
+
+country_event = { # 苦路十四站
+    id = QIE_ws_united.21
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.17" }
+    title = QIE_ws_united.17.t
+    desc = QIE_ws_united.21.desc
+    picture = GFX_report_event_wushan_funeral
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 活神仙呐，为善人申冤吧。
+        name = QIE_ws_united.17.a
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = QIE_ws_united.14.tt
+        add_political_power = -80
+        set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+		remove_from_coalition = yes
+        set_temp_variable = { coalition_partner_var = token:market_liberal }
+		remove_from_coalition = yes
+        hidden_effect = {
+            country_event = { id = QIE_ws_united.19 days = 1 }
+        }
     }
 }
 
@@ -2377,13 +2609,22 @@ country_event = { # 与死去老友的对谈
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.18" }
     title = QIE_ws_united.18.t
     desc = QIE_ws_united.18.desc
-    picture = GFX_QIE_ws_united_18
+    picture = GFX_report_event_wushan_qian_nengxun_portrait
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 你是我们？我们是你？不，我们是他们。
         name = QIE_ws_united.18.a
         ai_chance = { factor = 1 }
+        custom_effect_tooltip = QIE_ws_united.14.tt
+        add_political_power = -100
+        set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+		remove_from_coalition = yes
+        set_temp_variable = { coalition_partner_var = token:market_liberal }
+		remove_from_coalition = yes
+        hidden_effect = {
+            country_event = { id = QIE_ws_united.19 days = 1 }
+        }
     }
 }
 
@@ -2392,13 +2633,18 @@ country_event = { # 在广播之前
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.19" }
     title = QIE_ws_united.19.t
     desc = QIE_ws_united.19.desc
-    picture = GFX_QIE_ws_united_19
+    picture = GFX_report_event_generic_diplomacy1
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 现在已经不能回头了……
         name = QIE_ws_united.19.a
         ai_chance = { factor = 1 }
+        custom_effect_tooltip = QIE_ws_united.19.tt
+        add_political_power = -100
+        set_temp_variable = { coalition_partner_var = token:social_conservative }
+		remove_from_coalition = yes
+        country_event = { id = QIE_ws_united.20 days = 2 }
     }
 }
 
@@ -2407,24 +2653,105 @@ country_event = { # 恶紫夺朱
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.20" }
     title = QIE_ws_united.20.t
     desc = QIE_ws_united.20.desc
-    picture = GFX_QIE_ws_united_20
+    picture = GFX_report_event_wushan_beiyang_military
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 天有五贼，猎之者昌。
         name = QIE_ws_united.20.a
         ai_chance = { factor = 1 }
+        set_politics = { ruling_party = national_populist }
+        set_political_power = 0
+        set_stability = 0.75
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = QIE_ws_united.20.tt
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = characters_will_be_retired
+        character_list_tooltip = {
+			limit = { is_character = QIE_ws_adv_zhou_zhenlin }
+		}
+        remove_ideas = QIE_wushan_the_fear_of_peace_broken
+        add_ideas = QIE_wushan_mass_arrests
+        complete_national_focus = QIE_wushan_return_to_democracy
+        hidden_effect = {
+            QIE_ws_adv_zhou_zhenlin = { retire = yes }
+            QIE_ws_armchair_of_lv_dongbin = { retire = yes }
+        }
+
     }
     option = { # 五贼巨罪，遗祸千世。
         name = QIE_ws_united.20.b
         ai_chance = { factor = 1 }
+        set_politics = { ruling_party = national_populist }
+        set_political_power = 0
+        set_stability = 0.75
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = QIE_ws_united.20.tt
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = characters_will_be_retired
+        character_list_tooltip = {
+			limit = { is_character = QIE_ws_adv_zhou_zhenlin }
+		}
+        remove_ideas = QIE_wushan_the_fear_of_peace_broken
+        add_ideas = QIE_wushan_mass_arrests
+        complete_national_focus = QIE_wushan_return_to_democracy
+        hidden_effect = {
+            QIE_ws_adv_zhou_zhenlin = { retire = yes }
+            QIE_ws_armchair_of_lv_dongbin = { retire = yes }
+        }
     }
     option = { # 贼不除尽，九宫尽失。
         name = QIE_ws_united.20.c
         ai_chance = { factor = 1 }
+        set_politics = { ruling_party = national_populist }
+        set_political_power = 0
+        set_stability = 0.75
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = QIE_ws_united.20.tt
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = characters_will_be_retired
+        character_list_tooltip = {
+			limit = { is_character = QIE_ws_adv_zhou_zhenlin }
+		}
+        remove_ideas = QIE_wushan_the_fear_of_peace_broken
+        add_ideas = QIE_wushan_mass_arrests
+        complete_national_focus = QIE_wushan_return_to_democracy
+        hidden_effect = {
+            QIE_ws_adv_zhou_zhenlin = { retire = yes }
+            QIE_ws_armchair_of_lv_dongbin = { retire = yes }
+        }
     }
     option = { # 鬼魔不灭，四极灾陷。
         name = QIE_ws_united.20.d
         ai_chance = { factor = 1 }
+        set_politics = { ruling_party = national_populist }
+        set_political_power = 0
+        set_stability = 0.75
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = QIE_ws_united.20.tt
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = characters_will_be_retired
+        character_list_tooltip = {
+			limit = { is_character = QIE_ws_adv_zhou_zhenlin }
+		}
+        remove_ideas = QIE_wushan_the_fear_of_peace_broken
+        add_ideas = QIE_wushan_mass_arrests
+        complete_national_focus = QIE_wushan_return_to_democracy
+        hidden_effect = {
+            if = {
+            limit = { has_completed_focus = QIE_jiang_controls_the_wushan }
+                QIE_ws_jiang_chao_zong = { promote_character = yes }
+            }
+            else_if = {
+                limit = { has_completed_focus = QIE_wu_control_the_wushan }
+                QIE_ws_wu_pei_fu = { promote_character = yes }
+            }
+            else_if = {
+                limit = { has_completed_focus = QIE_the_reluctant_two_leaders }
+                QIE_ws_qian_neng_xun = { promote_character = yes }
+            }
+            QIE_ws_adv_zhou_zhenlin = { retire = yes }
+            QIE_ws_armchair_of_lv_dongbin = { retire = yes }
+        }
     }
 }
