@@ -1375,7 +1375,7 @@ defined_text = {
 		localization_key = china_faction_alignment_name_independent
 	}
 	text = { # WSS / Traditionalist China
-		trigger = { var:country_leader = { china_alignment_traditionalist_china = yes } }
+		trigger = { check_variable = { china_alignment_leader = QIE } }
 		localization_key = china_faction_alignment_name_traditionalist_china
 	}
 	text = {
@@ -1437,14 +1437,14 @@ defined_text = {
 	name = ChinaGetAlignmentTenetsImage
 	text = { # WSS / Traditionalist China (alignment-driven)
 		trigger = {
-			var:country_leader = { china_alignment_traditionalist_china = yes }
-			check_variable = { china_alignment_leader = CHN }
+			check_variable = { china_alignment_leader = QIE }
+			ROOT = { original_tag = QIE }
 		}
 		localization_key = "GFX_china_traditionalist_CHN"
 	}
 	text = { # WSS / Traditionalist China (alignment-driven)
 		trigger = {
-			var:country_leader = { china_alignment_traditionalist_china = yes }
+			check_variable = { china_alignment_leader = QIE }
 		}
 		localization_key = "GFX_china_traditionalist"
 	}
@@ -1563,7 +1563,7 @@ defined_text = {
 defined_text = {
 	name = ChinaGetAlignmentTenetsTitle
 	text = { # WSS / Traditionalist China (alignment-driven)
-		trigger = { var:country_leader = { china_alignment_traditionalist_china = yes } }
+		trigger = { check_variable = { china_alignment_leader = QIE } }
 		localization_key = china_faction_tenets_title_traditionalist_china
 	}
 	text = {
@@ -1582,7 +1582,7 @@ defined_text = {
 defined_text = {
 	name = ChinaGetAlignmentTenetsDesc
 	text = { # WSS / Traditionalist China (alignment-driven)
-		trigger = { var:country_leader = { china_alignment_traditionalist_china = yes } }
+		trigger = { check_variable = { china_alignment_leader = QIE } }
 		localization_key = china_faction_tenets_traditionalist_china_desc
 	}
 	text = {

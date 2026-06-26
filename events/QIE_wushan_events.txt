@@ -2955,7 +2955,7 @@ country_event = { # Unlock Jiang's focus
     is_triggered_only = yes
     hidden = yes
     timeout_days = 7
-    option = {
+    option = { #自动解锁江线关键国策
         name = QIE_ws_hidden_events.1.a
         ai_chance = { factor = 1 }
         complete_national_focus = QIE_beijing_mingjing_society
@@ -2971,14 +2971,14 @@ country_event = { # Unlock Wu's focus
     is_triggered_only = yes
     hidden = yes
     timeout_days = 7
-    option = {
+    option = { #自动解锁吴线关键国策
         name = QIE_ws_hidden_events.2.a
         ai_chance = { factor = 1 }
         complete_national_focus = QIE_seek_japanese_sympathy
     }
 }
 
-country_event = { # QIE_ws_hidden_events.3
+country_event = { # Unlock the seances focus
     id = QIE_ws_hidden_events.3
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_hidden_events.3" }
     title = QIE_ws_hidden_events.3.t
@@ -2987,9 +2987,10 @@ country_event = { # QIE_ws_hidden_events.3
     is_triggered_only = yes
     hidden = yes
     timeout_days = 14
-    option = { # 新选项 A
+    option = { # 自动解锁乩坛
         name = QIE_ws_hidden_events.3.a
-        ai_chance = { factor = 1 }
+        ai_chance = { factor = 1 }、
+        complete_national_focus = QIE_seances_restart_in_beijing
     }
 }
 
