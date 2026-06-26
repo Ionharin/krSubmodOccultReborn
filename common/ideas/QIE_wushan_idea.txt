@@ -163,7 +163,7 @@ ideas ={
 					add_ideas = QIE_wushan_east_hua_west_xia
 				}
 			}
-			picture = RAJ_partition_chaos_bad
+			picture = DEN_occupation_laws
 			allowed = { always = no }
 			modifier = {
 				stability_weekly = 0.001
@@ -172,7 +172,7 @@ ideas ={
 		}
 		QIE_wushan_east_hua_west_xia = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_east_hua_west_xia" }
-			picture = qie_ideas_ws_huayi_distinction
+			picture = JAP_buddhist_socialism
 			allowed = { always = no }
 			modifier = {
 				stability_weekly = -0.001
@@ -180,17 +180,6 @@ ideas ={
 				war_stability_factor = 0.20
 				weekly_casualties_war_support = 0.002
 				conscription_factor = 0.10
-			}
-		}
-		QIE_wushan_daben_donation = {
-			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_daben_donation" }
-			picture = generic_trade
-			allowed = { always = no }
-			on_add = {
-				add_offsite_building = { type = industrial_complex level = 2 }
-			}
-			modifier = {
-				offmap_civilian_factories_tooltip = 2
 			}
 		}
 		QIE_wushan_theocratic_authority_1 = {
@@ -234,18 +223,6 @@ ideas ={
 				local_resources_factor = 0.10
 			}
 		}
-		QIE_wushan_chaotic_big_tent = {
-			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_chaotic_big_tent" }
-			picture = qie_ideas_ws_chaotic_big_tent
-			allowed = { always = no }
-			modifier = {
-				army_org_regain = -0.10
-				experience_gain_factor = -0.15
-				planning_speed = -0.20
-				max_command_power = -30
-				command_power_gain_mult = 0.05
-			}
-		}
 		QIE_wushan_fiscal_reorganization = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_fiscal_reorganization" }
 			picture = ARG_political_corruption_modifier
@@ -258,7 +235,7 @@ ideas ={
 		}
 		QIE_wushan_relief_finance_bureau = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_relief_finance_bureau" }
-			picture = ARG_political_corruption_modifier
+			picture = SIA_redirected_military_funds
 			allowed = { always = no }
 			modifier = {
 				political_power_gain = -0.05
@@ -323,26 +300,14 @@ ideas ={
 		}
 		QIE_wang_jinghui_academy = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wang_jinghui_academy" }
-			picture = generic_research_bonus
-			allowed = { always = no }
-			modifier = {
-				research_speed_factor = 0.03
-			}
-			research_bonus = {
-				industry = 0.05
-				electronics = 0.05
-			}
-		}
-		QIE_wang_jinghui_academy_upgrade = {
-			on_add = { log = "[GetLogRoot]: add idea QIE_wang_jinghui_academy_upgrade" }
 			picture = jap_duplicate_research
 			allowed = { always = no }
 			modifier = {
-				research_speed_factor = 0.05
+				research_speed_factor = 0.07
 			}
 			research_bonus = {
-				industry = 0.07
-				electronics = 0.07
+				industry = 0.10
+				electronics = 0.10
 			}
 		}
 		QIE_inner_sage = {
@@ -370,7 +335,7 @@ ideas ={
 			picture = qie_ideas_ws_madan_spirit
 			allowed = { always = no }
 			modifier = {
-				initiative_factor = 0.05
+				combat_width_factor = -0.10
 				land_reinforce_rate = 0.05
 				army_attack_factor = 0.075
 				army_defence_factor = -0.05
@@ -464,7 +429,7 @@ ideas ={
 				supply_consumption_factor = -0.10
 				supply_node_range = 0.10
 				army_attack_speed_factor = 0.05
-				initiative_factor = 0.05
+				combat_width_factor = -0.10
 				land_reinforce_rate = 0.05
 				planning_speed = 0.10
 				army_attack_factor = 0.075
@@ -489,7 +454,7 @@ ideas ={
 				acclimatization_hot_climate_gain_factor = 0.10
 				dig_in_speed_factor = 0.05
 				max_dig_in = 3
-				initiative_factor = 0.05
+				combat_width_factor = -0.10
 				land_reinforce_rate = 0.05
 				planning_speed = 0.10
 				army_attack_factor = 0.075
@@ -525,14 +490,14 @@ ideas ={
 		}
 		QIE_wushan_salvationist_legal_code = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_salvationist_legal_code" }
-			picture = generic_social_reforms
+			picture = hol_the_foundations_of_defense
 			allowed = { always = no }
 			modifier = {
 				stability_factor = 0.05
 				conscription_factor = -0.05
 				defensive_war_stability_factor = 0.30
 				offensive_war_stability_factor = 0.10
-				production_factory_efficiency_gain_factor = -0.05
+				production_factory_efficiency_gain_factor = 0.05
 			}
 		}
 		QIE_wushan_revived_enyin_system = {
@@ -540,8 +505,9 @@ ideas ={
 			picture = ROM_king_carol_ii_hedonist
 			allowed = { always = no }
 			modifier = {
-				stability_factor = 0.05
-				political_power_factor = -0.03
+				stability_factor = -0.01
+				political_power_factor = 0.03
+				party_popularity_stability_factor = 0.05
 			}
 		}
 		QIE_wushan_rebuild_enyin_temporary = {
@@ -680,7 +646,7 @@ ideas ={
 		}
 		QIE_wushan_full_power_chawei_commissioner = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_full_power_chawei_commissioner" }
-			picture = generic_spy_coup
+			picture = generic_spy_intel
 			allowed = { always = no }
 			modifier = {
 				operative_slot = 1
@@ -691,7 +657,7 @@ ideas ={
 		}
 		QIE_wushan_special_mandate_chawei_commissioner = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_special_mandate_chawei_commissioner" }
-			picture = generic_spy_political
+			picture = generic_spy_intel
 			allowed = { always = no }
 			modifier = {
 				operative_slot = 1
@@ -768,7 +734,7 @@ ideas ={
 		}
 		QIE_wushan_sunrise = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_sunrise" }
-			picture = generic_propaganda
+			picture = SOV_restoration_and_development_idea_ccp_sov_compatibility
 			allowed = { always = no }
 			modifier = {
 				political_power_factor = 0.15
@@ -799,7 +765,7 @@ ideas ={
 		}
 		QIE_wushan_rapid_supply_hub_construction = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_rapid_supply_hub_construction" }
-			picture = ARG_construction_guilds
+			picture = generic_production_bonus
 			allowed = { always = no }
 			modifier = {
 				production_speed_supply_node_factor = 6.00
@@ -814,6 +780,19 @@ ideas ={
 				stability_factor = 0.05
 			}
 		}
+		QIE_wushan_jiang_as_vice_master_1 = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_jiang_as_vice_master_1" }
+			picture = qie_ideas_ws_jiang_chao_zong_as_vice_founder
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.05
+				global_building_slots_factor = 0.10
+				line_change_production_efficiency_factor = 0.10
+				production_factory_efficiency_gain_factor = 0.10
+				research_speed_factor = 0.05
+			}
+		}
 		QIE_wushan_wu_as_vice_master = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_wu_as_vice_master" }
 			picture = qie_ideas_ws_wu_pei_fu_as_vice_founder
@@ -821,6 +800,19 @@ ideas ={
 			modifier = {
 				political_power_gain = 0.15
 				war_support_factor = 0.05
+			}
+		}
+		QIE_wushan_wu_as_vice_master_1 = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_wu_as_vice_master_1" }
+			picture = qie_ideas_ws_wu_pei_fu_as_vice_founder
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.15
+				war_support_factor = 0.05
+				org_loss_when_moving = -0.10
+				army_attack_factor = 0.05
+				initiative_factor = 0.05
+				combat_width_factor  = -0.10
 			}
 		}
 		QIE_wushan_pharmacy_anatomy_act = {
@@ -913,31 +905,30 @@ ideas ={
 			}
 		}
 	### United Temporary Ideas
-	QIE_wushan_celebration_for_the_end_of_war = {
+		QIE_wushan_celebration_for_the_end_of_war = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_celebration_for_the_end_of_war" }
 			picture = generic_victors_of_ww1
 			modifier = {
 				stability_weekly = 0.0015
-				national_populist_drift = 0.02
-				political_power_gain = 0.4
+				political_power_gain = 0.6
 			}
 		}
-	QIE_wushan_the_fear_of_peace_broken = {
+		QIE_wushan_the_fear_of_peace_broken = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_the_fear_of_peace_broken" }
 			picture = SPR_political_violence
 			modifier = {
 				stability_weekly = -0.008
 				war_support_weekly = 0.001
 				political_power_factor = -0.88
-				social_democrat_drift = -0.03
-				social_liberal_drift = -0.03
-				market_liberal_drift = -0.03
-				social_conservative_drift = -0.03
-				authoritarian_democrat_drift = -0.03
-				paternal_autocrat_drift = -0.03
+				social_democrat_drift = -0.06
+				social_liberal_drift = -0.06
+				market_liberal_drift = -0.06
+				social_conservative_drift = -0.06
+				authoritarian_democrat_drift = -0.06
+				paternal_autocrat_drift = -0.06
 			}
 		}
-	QIE_wushan_mass_arrests = {
+		QIE_wushan_mass_arrests = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_mass_arrests" }
 			picture = generic_prisoner
 			modifier = {
@@ -951,6 +942,7 @@ ideas ={
 			}
 		}
 	}
+
 	hidden_ideas = {
 		QIE_wushan_luoyang_arsenal_zhili_research = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_luoyang_arsenal_zhili_research" }
