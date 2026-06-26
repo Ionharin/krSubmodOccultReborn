@@ -28,6 +28,7 @@ country_event = { # 救世新教提请集资捐助
                 id = QIE_wushan_events.2
                 days = 3
             }
+            set_country_flag = QIE_ws_start_wushan_pathway
             complete_national_focus = {
                 focus = QIE_secret_meeting
                 use_side_message = yes
@@ -375,10 +376,16 @@ country_event = { # 在大殿之外
     option = { # 不急，且待他们两败俱伤
         name = QIE_wushan_events.17.a
         ai_chance = { factor = 99 }
+        custom_effect_tooltip = QIE_wushan_events.17.at
+        custom_effect_tooltip = QIE_wushan_events.17.tt
+        country_event = { id = qing_coup_events.21 days = 3 }
     }
     option = { # 两支叛匪正在乾清宫内交战!
         name = QIE_wushan_events.17.b
         ai_chance = { factor = 1 }
+        set_country_flag = QIE_ws_wushan_pathway
+        custom_effect_tooltip = QIE_wushan_events.17.tt
+        country_event = { id = qing_coup_events.21 days = 3 }
     }
 }
 
@@ -394,6 +401,7 @@ country_event = { # 救世新教之胜
     option = { # 九年了，终于又见到你了，智玄。
         name = QIE_wushan_events.18.a
         ai_chance = { factor = 1 }
+        clr_country_flag = QIE_ws_wushan_pathway
         complete_national_focus = QIE_handling_the_disintegration
         complete_national_focus = QIE_the_seances_of_master_lv
         custom_effect_tooltip = QIE_wushan_events.18.tt
@@ -416,6 +424,7 @@ country_event = { # 救世新教之胜
     option = { # 安息吧，保定王。
         name = QIE_wushan_events.18.b
         ai_chance = { factor = 1 }
+        clr_country_flag = QIE_ws_wushan_pathway
         complete_national_focus = QIE_handling_the_disintegration
         complete_national_focus = QIE_the_seances_of_master_lv
         custom_effect_tooltip = QIE_wushan_events.18.tt
@@ -451,9 +460,9 @@ country_event = { # 反贴邮票的信件
         ai_chance = { factor = 1 }
         custom_effect_tooltip = QIE_ws_event11_tt
         hidden_effect = {
-            country_event = {
-                id = QIE_wushan_events.14
-                days = 3
+            if = {
+                limit = { has_country_flag = QIE_ws_start_wushan_pathway }
+                country_event = { id = QIE_wushan_events.14 days = 3 }
             }
         }
     }
@@ -462,9 +471,9 @@ country_event = { # 反贴邮票的信件
         ai_chance = { factor = 1 }
         custom_effect_tooltip = QIE_ws_event11_tt
         hidden_effect = {
-            country_event = {
-                id = QIE_wushan_events.14
-                days = 3
+            if = {
+                limit = { has_country_flag = QIE_ws_start_wushan_pathway }
+                country_event = { id = QIE_wushan_events.14 days = 3 }
             }
         }
     }
@@ -473,9 +482,9 @@ country_event = { # 反贴邮票的信件
         ai_chance = { factor = 1 }
         custom_effect_tooltip = QIE_ws_event11_tt
         hidden_effect = {
-            country_event = {
-                id = QIE_wushan_events.14
-                days = 3
+            if = {
+                limit = { has_country_flag = QIE_ws_start_wushan_pathway }
+                country_event = { id = QIE_wushan_events.14 days = 3 }
             }
         }
     }

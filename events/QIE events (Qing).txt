@@ -3895,11 +3895,18 @@ country_event = {
 		log = "[GetLogInfo]: event qing_coup_events.20 option qing_coup_events.20.a"
 		name = qing_coup_events.20.a #They enter the hall...
 		hidden_effect = {
-			country_event = {
-				id = qing_coup_events.21
-				days = 3 #wushan change
+			#country_event = {
+			#	id = qing_coup_events.21
+			#	days = 3 #wushan change
+			#}
+			if = {
+				limit = { has_country_flag = QIE_ws_start_wushan_pathway }
+				country_event = QIE_wushan_events.17
 			}
-			country_event = QIE_wushan_events.17
+			else_if = {
+				limit = { NOT = { has_country_flag = QIE_ws_start_wushan_pathway } }
+				country_event = qing_coup_events.21
+			}
 		}
 	}
 }
@@ -3958,6 +3965,7 @@ country_event = {
 		log = "[GetLogInfo]: event qing_coup_events.21 option qing_coup_events.21.c"
 		name = qing_coup_events.21.c
 		ai_chance = { base = 1 }
+		trigger = { has_country_flag = QIE_ws_wushan_pathway }
 		country_event = QIE_wushan_events.18
 	}
 }

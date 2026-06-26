@@ -115,9 +115,9 @@ focus_tree = {
 			log = "[GetLogRoot]: Focus Completed QIE_emergency_meeting_of_the_cabinet"
 			country_event = qing_focus_events.2
 			hidden_effect = {
-				country_event = {
-					id = QIE_wushan_events.12
-					days = 2
+				if = {
+					limit = { has_country_flag = QIE_ws_start_wushan_pathway }
+					country_event = { id = QIE_wushan_events.12 days = 2 }
 				}
 			}
 		}
@@ -4711,6 +4711,7 @@ focus_tree = {
 					has_country_flag = QIE_coup_failed
 			}
 			}
+			has_country_flag = QIE_ws_start_wushan_pathway
 		}
 		mutually_exclusive = {
 			focus = QIE_let_the_five_banner_flag_fly
