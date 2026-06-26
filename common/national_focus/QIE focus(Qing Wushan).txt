@@ -38,7 +38,7 @@ focus_tree = {
 				days = 2
 			}
 			set_variable = {
-				QIE_ws_crisis_response_funding = 200
+				QIE_ws_crisis_response_funding = 90
 			}
 		}
 		completion_reward = {
@@ -756,7 +756,7 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -100
 			add_manpower = -1000
-			add_stability = -0.15
+			add_stability = -0.05
 			custom_effect_tooltip = QIE_respond_the_sichuan_famine_tt
 			SZC = {
 				SZC_reduce_famine_medium = yes
@@ -767,6 +767,7 @@ focus_tree = {
 				}
 			}
 			hidden_effect = {
+				add_to_variable = { QIE_ws_crisis_response_funding = 40 }
 				country_event = { id = QIE_ws_leader.23 days = 5 }
 				activate_targeted_decision = { target = SZC decision = QIE_wushan_special_budget_for_sichuan }
 				activate_targeted_decision = { target = SZC decision = QIE_wushan_sichuan_relief_grain }
@@ -3096,9 +3097,17 @@ focus_tree = {
 						}
 					}
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = midasia_puppet_state_flag
+						value = 1
+					}
 				}
 				418 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = midasia_puppet_state_flag
+						value = 1
+					}
 				}
 			}
 			if = {
@@ -3119,9 +3128,17 @@ focus_tree = {
 						}
 					}
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = midasia_puppet_state_flag
+						value = 1
+					}
 				}
 				418 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = midasia_puppet_state_flag
+						value = 1
+					}
 				}
 			}
 			if = {
@@ -3141,30 +3158,66 @@ focus_tree = {
 						}
 					}
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				750 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				826 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				856 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				286 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				827 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				670 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				671 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				857 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 			}
 			if = {
@@ -3185,30 +3238,66 @@ focus_tree = {
 						}
 					}
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				750 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				826 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				856 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				286 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				827 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				670 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				671 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 				857 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = southasia_puppet_state_flag
+						value = 1
+					}
 				}
 			}
 			if = {
@@ -3226,8 +3315,16 @@ focus_tree = {
 						}
 					}
 					add_core_of = ROOT
-					524 = {
-						add_core_of = ROOT
+					set_state_flag = {
+						flag = jap_puppet_state_flag
+						value = 1
+					}
+				}
+				524 = {
+					add_core_of = ROOT
+					set_state_flag = {
+						flag = jap_puppet_state_flag
+						value = 1
 					}
 				}
 			}
@@ -3247,8 +3344,16 @@ focus_tree = {
 						}
 					}
 					add_claim_by = ROOT
-					524 = {
-						add_claim_by = ROOT
+					set_state_flag = {
+						flag = jap_puppet_state_flag
+						value = 1
+					}
+				}
+				524 = {
+					add_claim_by = ROOT
+					set_state_flag = {
+						flag = jap_puppet_state_flag
+						value = 1
 					}
 				}
 			}
@@ -3261,33 +3366,73 @@ focus_tree = {
 				add_stability = -0.1
 				454 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				2 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				26 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				112 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				161 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				87 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				277 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				992 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				453 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				753 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 			}
 			if = {
@@ -3300,33 +3445,73 @@ focus_tree = {
 				custom_effect_tooltip = QIE_jesus_shed_his_blood_has_complete_claim.tt
 				454 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				2 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				26 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				112 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				161 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				87 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				277 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				992 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				453 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 				753 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = christ_puppet_state_flag
+						value = 1
+					}
 				}
 			}
 			if = {
@@ -3351,45 +3536,101 @@ focus_tree = {
 						}
 					}
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				443 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				444 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				445 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				805 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				513 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				459 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				865 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				460 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				458 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				665 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				452 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				446 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				447 = {
 					add_core_of = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 			}
 			if = {
@@ -3415,45 +3656,101 @@ focus_tree = {
 						}
 					}
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				443 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				444 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				445 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				805 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				513 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				459 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				865 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				460 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				458 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				665 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				452 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				446 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 				447 = {
 					add_claim_by = ROOT
+					set_state_flag = {
+						flag = arab_puppet_state_flag
+						value = 1
+					}
 				}
 			}
 		}

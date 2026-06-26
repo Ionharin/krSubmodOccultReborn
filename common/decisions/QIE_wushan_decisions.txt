@@ -313,6 +313,7 @@ QIE_wushan_refugee_crisis_category = { # LEP crisis and SZC famine crisis decisi
 				exists = yes
 				NOT = { has_dynamic_modifier = { modifier = SZC_major_famine } }
 				NOT = { is_subject_of = QIE }
+				NOT = { has_war_with = QIE }
 			}
 		}
 		complete_effect = {
@@ -501,20 +502,19 @@ QIE_wushan_refugee_crisis_category = { # LEP crisis and SZC famine crisis decisi
 		fire_only_once = yes
 		days_remove = 30
 		fire_only_once = yes
+		custom_cost_text = QIE_wushan_a_secret_remittance_tooltip
+		custom_cost_trigger = { NOT = { check_variable = { QIE_ws_crisis_response_funding < 40 } } }
 		visible = { has_completed_focus = QIE_charitable_share_bank }
 		available = { has_completed_focus = QIE_charitable_share_bank }
 		remove_effect = {
-			while = {
-				limit = {
-					check_variable = {
-						QIE_ws_crisis_response_funding >= 40
-					}
-				}
-				subtract_from_variable = {
-					QIE_ws_crisis_response_funding = 40
-				}
-				add_political_power = 60
-			}
+			custom_effect_tooltip = QIE_wushan_a_secret_remittance.tt
+    		while_loop_effect = {
+        		limit = {
+            		check_variable = { QIE_ws_crisis_response_funding > 39 }
+        		}
+        		subtract_from_variable = { QIE_ws_crisis_response_funding = 40 }
+        		add_political_power = 60
+    		}
 		}
 	}
 }

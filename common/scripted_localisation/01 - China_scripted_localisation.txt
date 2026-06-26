@@ -1,6 +1,8 @@
 ##############
 ### States ###
 ##############
+### Wushan ###
+##############
 
 defined_text = {
 	name = ChinaGetStateProvinceTitle
@@ -124,6 +126,26 @@ defined_text = {
 		trigger = { has_state_flag = tibet_province_state }
 		localization_key = tibet_province_state
 	}
+	text = { # wushan mod puppet god circle Con
+		trigger = { has_state_flag = jap_puppet_state_flag }
+		localization_key = japan_province_state
+	}
+	text = { # wushan mod puppet god circle Laozu
+		trigger = { has_state_flag = midasia_puppet_state_flag }
+		localization_key = midasia_province_state
+	}
+	text = { # wushan mod puppet god circle Buddha
+		trigger = { has_state_flag = southasia_puppet_state_flag }
+		localization_key = southasia_province_state
+	}
+	text = { # wushan mod puppet god circle Jesus
+		trigger = { has_state_flag = christ_puppet_state_flag }
+		localization_key = christ_province_state
+	}
+	text = { # wushan mod puppet god circle Moham
+		trigger = { has_state_flag = arab_puppet_state_flag }
+		localization_key = arab_province_state
+	}
 	text = {
 		localization_key = "BUG - STATE TARGETED IS NOT PART OF CHINA"
 	}
@@ -131,6 +153,12 @@ defined_text = {
 
 defined_text = {
 	name = ChinaGetStateRegionType
+	text = {
+		trigger = {
+			QIE_wushan_has_overseas_state_of_interest_flag = yes # Check wushan mod's state flag
+		}
+		localization_key = "[THIS.QIEWushanGetOverseasStateRegionType]"
+	}
 	text = {
 		trigger = {
 			has_dynamic_modifier = {

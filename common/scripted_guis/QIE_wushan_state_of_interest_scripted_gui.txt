@@ -1,0 +1,27 @@
+scripted_gui = {
+	QIE_wushan_state_of_interest_gui = {
+		context_type = selected_state_context
+		window_name = KR_state_of_interest
+		parent_window_token = selected_state_view
+
+		ai_enabled = { always = no }
+
+		visible = {
+			is_controlled_by = QIE
+			QIE_wushan_has_overseas_state_of_interest_flag = yes
+		}
+	}
+
+	QIE_wushan_state_of_interest_chinese_province = {
+		context_type = selected_state_context
+		window_name = KR_state_of_interest_chinese_province
+		parent_window_token = selected_state_view
+
+		ai_enabled = { always = no }
+
+		visible = {
+			is_controlled_by = QIE
+			QIE_wushan_has_overseas_state_of_interest_flag = yes
+		}
+	}
+}
