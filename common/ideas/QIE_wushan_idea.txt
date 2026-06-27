@@ -86,11 +86,11 @@ ideas ={
 			}
 			on_remove = {
 				add_ideas = QIE_wushan_unite_against_external_enemies
-				country_event = QIE_wushan_events.24
+				country_event = QIE_ws_normal_events.15
 			}
 			modifier = {
 				conscription_factor = -0.03
-				production_speed_buildings_factor = 0.03
+				production_speed_buildings_factor = 0.10
 				consumer_goods_factor = -0.05
 			}
 		}
@@ -188,9 +188,9 @@ ideas ={
 			allowed = { always = no }
 			modifier = {
 				political_power_gain = -0.20
-				stability_factor = -0.30
+				stability_factor = -0.35
 				party_popularity_stability_factor = -0.10
-				war_support_factor = -0.20
+				war_support_factor = -0.35
 				mobilization_speed = -0.35
 			
 			}
@@ -201,10 +201,9 @@ ideas ={
 			allowed = { always = no }
 			modifier = {
 				political_power_gain = 0.20
-				stability_factor = -0.10
-				war_support_factor = -0.10
-				mobilization_speed = -0.1
-				supply_consumption_factor = -0.05
+				stability_factor = 0.10
+				war_support_factor = 0.15
+				mobilization_speed = -0.05
 			}
 		}
 		QIE_wushan_theocratic_authority_3 = {
@@ -212,15 +211,15 @@ ideas ={
 			picture = qie_eight_mighty_dragon_scripture
 			allowed = { always = no }
 			modifier = {
-				political_power_gain = 0.40
-				stability_factor = 0.20
-				party_popularity_stability_factor = 0.10
-				war_support_factor = 0.20
+				political_power_gain = 0.50
+				stability_factor = 0.35
+				party_popularity_stability_factor = 0.20
+				war_support_factor = 0.35
 				compliance_gain = 0.03
-				supply_consumption_factor = -0.05
-				production_factory_max_efficiency_factor = 0.10
+				supply_consumption_factor = 0.10
+				production_factory_max_efficiency_factor = 0.15
 				industrial_capacity_factory = 0.10
-				local_resources_factor = 0.10
+				local_resources_factor = 0.20
 			}
 		}
 		QIE_wushan_fiscal_reorganization = {
@@ -238,13 +237,12 @@ ideas ={
 			picture = SIA_redirected_military_funds
 			allowed = { always = no }
 			modifier = {
-				political_power_gain = -0.05
-				stability_factor = 0.05
-				consumer_goods_factor = -0.10
-				production_speed_buildings_factor = 0.10
-				industry_free_repair_factor = 0.10
+				stability_factor = 0.10
+				consumer_goods_factor = -0.20
+				production_speed_buildings_factor = 0.15
+				industry_free_repair_factor = 0.20
 				economy_cost_factor = -0.10
-				cic_construction_boost_factor = 0.10
+				cic_construction_boost_factor = 0.15
 			}
 		}
 		QIE_tangdi_zhihua = {
@@ -252,8 +250,11 @@ ideas ={
 			picture = CHI_a_new_middle_kingdom
 			allowed = { always = no }
 			modifier = {
-				army_attack_against_minor_factor = 0.1
-				army_defence_against_minor_factor = 0.1
+				army_attack_against_minor_factor = 0.12
+				army_defence_against_minor_factor = 0.12
+				required_garrison_factor = -0.25
+				resistance_growth = -0.15
+				resistance_target = -0.15
 			}
 		}
 		QIE_eight_mighty_dragon_scripture = {
@@ -531,7 +532,7 @@ ideas ={
 			}
 			on_remove = {
 				add_ideas = QIE_wushan_belligerent_government
-				country_event = QIE_wushan_events.24
+				country_event = QIE_ws_normal_events.15
 			}
 			modifier = {
 				party_popularity_stability_factor = 0.05
@@ -560,6 +561,7 @@ ideas ={
 			allowed = { always = no }
 			modifier = {
 				research_speed_factor = 0.03
+				stability_factor = 0.05
 			}
 		}
 		QIE_wushan_rooster_devours_vermin = {
@@ -822,7 +824,8 @@ ideas ={
 			modifier = {
 				weekly_manpower = -10
 				research_speed_factor = 0.1
-				casualty_trickleback = 0.06
+				acclimatization_hot_climate_gain_factor = 0.10
+				acclimatization_cold_climate_gain_factor = 0.10
 				experience_loss_factor = -0.05
 			}
 		}
@@ -1009,7 +1012,7 @@ ideas ={
 		QIE_wushan_jiangnan_shipyard_bonus = {
 			allowed = { always = no }
 			modifier = {
-				experience_gain_navy = 0.80
+				experience_gain_navy = 0.60
 			}
 		}
 	}

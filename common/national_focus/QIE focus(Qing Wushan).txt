@@ -74,18 +74,22 @@ focus_tree = {
 					logistics_skill = 1
 				}
 			}
-			LEP = {
-				country_event = {
-					id = QIE_wushan_events.34
-				}
-			}
-			SHD = {
-				country_event = {
-					id = QIE_wushan_events.35
-				}
-			}
 			hidden_effect = {
 				country_event = { id = QIE_ws_hidden_events.3 days = 7 }
+				country_event = {
+					id = QIE_ws_normal_events.9
+					days = 180
+				}
+				LEP = {
+					country_event = {
+						id = QIE_wushan_events.34
+					}
+				}
+				SHD = {
+					country_event = {
+						id = QIE_wushan_events.35
+					}
+				}
 				set_country_flag = QIE_wushan_refugee_crisis_unlocked
 				set_cosmetic_tag = QIE_wushan_cosmetic_tag
 				set_global_flag = QIE_wushan_events70_trigger
@@ -240,39 +244,41 @@ focus_tree = {
 					modifier = QIE_seeked_japanese_sympathy
 				}
 			}
-			if = {
-				limit = {
-					has_country_flag = QIE_ws_leader_stories_jiang
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = QIE_ws_leader_stories_jiang
+					}
+					# choose jiang then jiang view
+					country_event = {
+						id = QIE_ws_leader.7
+					}
+					country_event = {
+						id = QIE_ws_leader.13
+						days = 3
+					}
 				}
-				# choose jiang then jiang view
-				country_event = {
-					id = QIE_ws_leader.7
+				else_if = {
+					limit = {
+						has_country_flag = QIE_ws_leader_stories_wu
+					}
+					# choose wu then wu view
+					country_event = {
+						id = QIE_ws_leader.9
+					}
+					country_event = {
+						id = QIE_ws_leader.11
+						days = 3
+					}
 				}
-				country_event = {
-					id = QIE_ws_leader.13
-					days = 3
-				}
-			}
-			else_if = {
-				limit = {
-					has_country_flag = QIE_ws_leader_stories_wu
-				}
-				# choose wu then wu view
-				country_event = {
-					id = QIE_ws_leader.9
-				}
-				country_event = {
-					id = QIE_ws_leader.11
-					days = 3
-				}
-			}
-			else_if = {
-				limit = {
-					has_country_flag = QIE_ws_leader_stories_qian
-				}
-				# choose qian then view
-				country_event = {
-					id = QIE_ws_leader.7
+				else_if = {
+					limit = {
+						has_country_flag = QIE_ws_leader_stories_qian
+					}
+					# choose qian then view
+					country_event = {
+						id = QIE_ws_leader.7
+					}
 				}
 			}
 		}
@@ -294,39 +300,41 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -30
 			add_stability = 0.03
-			if = {
-				limit = {
-					has_country_flag = QIE_ws_leader_stories_jiang
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = QIE_ws_leader_stories_jiang
+					}
+					# choose jiang then jiang view
+					country_event = {
+						id = QIE_ws_leader.14
+					}
+					country_event = {
+						id = QIE_ws_leader.6
+						days = 3
+					}
 				}
-				# choose jiang then jiang view
-				country_event = {
-					id = QIE_ws_leader.14
+				else_if = {
+					limit = {
+						has_country_flag = QIE_ws_leader_stories_wu
+					}
+					# choose wu then wu view
+					country_event = {
+						id = QIE_ws_leader.12
+					}
+					country_event = {
+						id = QIE_ws_leader.8
+						days = 3
+					}
 				}
-				country_event = {
-					id = QIE_ws_leader.6
-					days = 3
-				}
-			}
-			else_if = {
-				limit = {
-					has_country_flag = QIE_ws_leader_stories_wu
-				}
-				# choose wu then wu view
-				country_event = {
-					id = QIE_ws_leader.12
-				}
-				country_event = {
-					id = QIE_ws_leader.8
-					days = 3
-				}
-			}
-			else_if = {
-				limit = {
-					has_country_flag = QIE_ws_leader_stories_qian
-				}
-				# choose qian then view
-				country_event = {
-					id = QIE_ws_leader.12
+				else_if = {
+					limit = {
+						has_country_flag = QIE_ws_leader_stories_qian
+					}
+					# choose qian then view
+					country_event = {
+						id = QIE_ws_leader.12
+					}
 				}
 			}
 		}
@@ -780,6 +788,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_political_power = 30
+			add_stability = 0.05
 			add_timed_idea = {
 				idea = QIE_rooting_out_corruption
 				days = 100
@@ -990,7 +999,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_political_power = -50
-			add_war_support = -0.1
 			if = {
 				limit = {
 					has_completed_focus = QIE_decide_adopt_forced_producing_plan
@@ -1210,6 +1218,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_research_slot = 1
 			add_ideas = QIE_wang_jinghui_academy
 		}
 	}
@@ -1300,6 +1309,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			army_experience = 25
+			add_war_support = 0.05
 			add_doctrine_cost_reduction = {
 				name = QIE_old_army_new_life
 				cost_reduction = 0.5
@@ -1534,6 +1544,10 @@ focus_tree = {
 		icon = GFX_focus_qie_ws_union_the_world_as_the_country
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		select_effect = {
+			log = "[GetLogRoot]: Select Focus QIE_union_the_world_as_the_country"
+			country_event = { id = QIE_ws_normal_events.16 days = 24 }
+		}
 		available = {
 			has_completed_focus = QIE_wushan_china_united_again_lower_phase
 			NOT = {
@@ -2105,6 +2119,7 @@ focus_tree = {
 			focus = QIE_old_army_new_life
 		}
 		completion_reward = {
+			add_war_support = 0.05
 			607 = {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
@@ -2127,10 +2142,14 @@ focus_tree = {
 			focus = QIE_old_army_new_life
 		}
 		completion_reward = {
-			add_war_support = -0.05
+			add_war_support = 0.05
 			add_command_power = 25
-			every_unit_leader = {
+			every_army_leader = {
 				gain_xp = 300
+				if = {
+					limit = { has_trait = QIE_wushan_wushanshe_member }
+					gain_xp = 200
+				}
 			}
 		}
 	}
@@ -2320,8 +2339,9 @@ focus_tree = {
 			focus = QIE_iron_tank_law
 		}
 		completion_reward = {
+			add_war_support = 0.10
 			every_unit_leader = {
-				add_planning = 1
+				add_planning = 2
 				add_logistics = 1
 			}
 		}
@@ -2504,10 +2524,10 @@ focus_tree = {
 			}
 			1062 = {
 				set_state_category = six
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = arms_factory
-					level = 3
+					level = 4
 					instant_build = yes
 				}
 				set_building_level = {
@@ -2516,11 +2536,11 @@ focus_tree = {
 				}
 				add_resource = {
 					type = steel
-					amount = 4
+					amount = 8
 				}
 				add_resource = {
 					type = coal
-					amount = 1
+					amount = 4
 				}
 				add_dynamic_modifier = {
 					modifier = QIE_wushan_zhili_arsenal_state_modifier
@@ -2930,7 +2950,7 @@ focus_tree = {
 				ideology = social_conservative
 				popularity = 0.1
 			}
-			add_stability = -0.05
+			add_stability = 0.05
 			set_temp_variable = {
 				coalition_partner_var = token:social_conservative
 			}
@@ -2958,7 +2978,7 @@ focus_tree = {
 				ideology = social_democrat
 				popularity = 0.1
 			}
-			add_stability = -0.05
+			add_stability = 0.05
 			set_temp_variable = {
 				coalition_partner_var = token:social_democrat
 			}
@@ -2986,7 +3006,7 @@ focus_tree = {
 				ideology = authoritarian_democrat
 				popularity = 0.1
 			}
-			add_stability = -0.05
+			add_stability = 0.05
 			set_temp_variable = {
 				coalition_partner_var = token:authoritarian_democrat
 			}
@@ -3013,14 +3033,17 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_wushan_china_united_again_lower_phase"
 			custom_effect_tooltip = QIE_wushan_china_united_again_next_step_tt
+			custom_effect_tooltip = tooltip_white_line
 			reduce_focus_completion_cost = {
 				focus = {
 					QIE_wushan_only_one_light_in_this_dark_world
 				}
 				cost = 93
 			}
-			unlock_national_focus = QIE_old_chinese_beliefs_reborn
-			unlock_national_focus = QIE_and_new_beliefs_live_in_here
+			hidden_effect = {
+				unlock_national_focus = QIE_old_chinese_beliefs_reborn
+				unlock_national_focus = QIE_and_new_beliefs_live_in_here
+			}
 		}
 	}
 	focus = {
@@ -3046,7 +3069,7 @@ focus_tree = {
 		x = 6
 		y = 15
 		cost = 1111
-		icon = GFX_focus_RAJ_tryst_with_destiny_hand
+		icon = GFX_qie_ws_we_step_into_madness
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		available = {
@@ -4446,8 +4469,9 @@ focus_tree = {
 						is_controlled_by = GEA
 					}
 				}
-				GEA = {
-					country_event = { id = QIE_ws_normal_events.11 days = 1 }
+				country_event = {
+					id = QIE_ws_normal_events.13
+					days = 3
 				}
 			}
 		}
@@ -4711,6 +4735,7 @@ focus_tree = {
 			focus = QIE_against_tanks
 		}
 		completion_reward = {
+			add_war_support = 0.15
 			if = {
 				limit = {
 					has_country_flag = QIE_wushan_speed_tactic_pending_flag
@@ -5221,6 +5246,8 @@ focus_tree = {
 			focus = QIE_become_CERA_shadow
 		}
 		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.15
 			set_temp_variable = {
 				coalition_partner_var = token:social_democrat
 			}
@@ -5250,6 +5277,9 @@ focus_tree = {
 			focus = QIE_become_YCP_shadow
 		}
 		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.10
+			add_cic = 1000
 			set_temp_variable = {
 				coalition_partner_var = token:authoritarian_democrat
 			}
@@ -5279,6 +5309,10 @@ focus_tree = {
 			focus = QIE_become_MP_shadow
 		}
 		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.10
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
 			set_temp_variable = {
 				coalition_partner_var = token:social_conservative
 			}
@@ -5440,14 +5474,14 @@ focus_tree = {
 			focus = QIE_seize_german_assets
 		}
 		completion_reward = {
-			add_cic = 600
 			add_political_power = -30
+			add_cic = 900
 			add_ideas = QIE_wushan_fiscal_reorganization
 			custom_effect_tooltip = QIE_wushan_fiscal_reorg_tt
 			hidden_effect = {
 				country_event = {
 					id = QIE_wushan_events.10
-					days = 180
+					days = 93
 				}
 			}
 		}
@@ -5469,9 +5503,11 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -30
 			custom_effect_tooltip = QIE_forced_producing_plan_tt
-			country_event = {
-				id = QIE_ws_leader.28
-				days = 30
+			hidden_effect = {
+				country_event = {
+					id = QIE_ws_leader.28
+					days = 21
+				}
 			}
 		}
 	}
@@ -5492,9 +5528,11 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -30
 			custom_effect_tooltip = QIE_247_producing_plan_tt
-			country_event = {
-				id = QIE_ws_leader.27
-				days = 30
+			hidden_effect = {
+				country_event = {
+					id = QIE_ws_leader.27
+					days = 21
+				}
 			}
 		}
 	}
@@ -5515,6 +5553,8 @@ focus_tree = {
 			focus = QIE_german_technology
 		}
 		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
 			set_country_flag = QIE_wushan_black_diamond_decisions_unlocked
 			custom_effect_tooltip = QIE_black_diamond_unlock_tt
 			set_variable = {
@@ -5825,9 +5865,11 @@ focus_tree = {
 				}
 			}
 			add_ideas = QIE_wushan_scriptural_police
-			country_event = {
-				id = QIE_ws_leader.40
-				days = 14
+			hidden_effect = {
+				country_event = {
+					id = QIE_ws_leader.40
+					days = 14
+				}
 			}
 		}
 	}
@@ -5960,9 +6002,11 @@ focus_tree = {
 				}
 			}
 			add_ideas = QIE_wushan_blades_sigils_and_thunderfire
-			country_event = {
-				id = QIE_ws_leader.39
-				days = 14
+			hidden_effect = {
+				country_event = {
+					id = QIE_ws_leader.39
+					days = 14
+				}
 			}
 		}
 	}
@@ -6086,7 +6130,6 @@ focus_tree = {
 			}
 			add_country_leader_trait = QIE_four_nots_scholar
 			unlock_national_focus = QIE_wushan_dead_leader_live_country
-			add_research_slot = 1
 			country_event = {
 				id = QIE_ws_leader.46
 				days = 2
@@ -6254,7 +6297,6 @@ focus_tree = {
 			}
 			add_country_leader_trait = QIE_ws_spring_and_autumn_correct_morality
 			unlock_national_focus = QIE_wushan_dead_leader_live_country
-			add_research_slot = 1
 			country_event = {
 				id = QIE_ws_leader.45
 				days = 2
@@ -6968,12 +7010,13 @@ focus_tree = {
 			focus = QIE_wushan_long_honed_tactics
 		}
 		completion_reward = {
+			add_war_support = 0.05
+			enable_tech_anti_fortification_artillery = yes
+			custom_effect_tooltip = tooltip_white_line
 			add_timed_idea = {
 				idea = QIE_wushan_continuation_of_xiaozhan_spirit
 				days = 730
 			}
-			enable_tech_anti_fortification_artillery = yes
-			custom_effect_tooltip = tooltip_white_line
 		}
 	}
 	focus = {
@@ -7032,6 +7075,7 @@ focus_tree = {
 			focus = QIE_embrace_new_tactics
 		}
 		completion_reward = {
+			add_war_support = 0.05
 			enable_tech_improved_recon_units = yes
 			add_equipment_to_stockpile = {
 				type = support_equipment
@@ -7812,7 +7856,7 @@ focus_tree = {
 		x = 6
 		y = 13
 		cost = 8
-		icon = GFX_HOL_crackdown_syndie
+		icon = GFX_qie_ws_wushan_punish_those_syndicalistic_thugs
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		available = {
@@ -8255,7 +8299,7 @@ focus_tree = {
 				idea = QIE_wushan_unexpected_budget
 				days = 180
 			}
-			mio:QIE_luoyang_714_arsenal_organisation = {
+			mio:QIE_wushan_luoyang_airport_organisation = {
 				add_mio_funds = 10000
 			}
 		}
@@ -9283,7 +9327,6 @@ focus_tree = {
 					add_idea = QIE_wushan_theocratic_authority_3
 				}
 				add_country_leader_trait = QIE_ws_benevolent_dead
-				add_research_slot = 1
 				country_event = {
 					id = QIE_ws_leader.36
 					days = 2
@@ -9338,6 +9381,7 @@ focus_tree = {
 			mark_focus_tree_layout_dirty = yes
 			hidden_effect = {
 				set_cosmetic_tag = QIE_united_china_ws_final_phase
+				country_event = { id = QIE_ws_united.24 days = 10 }
 			}
 		}
 	}
