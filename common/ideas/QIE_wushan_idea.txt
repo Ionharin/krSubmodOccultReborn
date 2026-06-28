@@ -43,27 +43,26 @@ ideas ={
 				production_speed_buildings_factor = -0.05
 			}
 		}
-		QIE_work_for_rice = {
+		QIE_work_for_rice = { # Base on RAJ focus Productivity Mandate
 			on_add = { log = "[GetLogRoot]: add idea QIE_work_for_rice" }
 			picture = qie_ideas_forced_labor_in_factory
 			allowed = { always = no }
 			modifier = {
-				consumer_goods_factor = 0.05
+				production_factory_max_efficiency_factor = -0.05
+				production_factory_efficiency_gain_factor = -0.02
 				stability_factor = 0.02
 				production_factory_start_efficiency_factor = 0.05
-				production_factory_max_efficiency_factor = -0.05
 			}
 		}
-		QIE_work_for_247_rice = {
+		QIE_work_for_247_rice = { # Base on RAJ focus Night Shifts
 			on_add = { log = "[GetLogRoot]: add idea QIE_work_for_247_rice" }
 			picture = qie_ideas_work_from_day_to_night
 			allowed = { always = no }
 			modifier = {
-				consumer_goods_factor = 0.05
+				consumer_goods_factor = 0.10
 				stability_factor = 0.02
 				industrial_capacity_factory = 0.05
 				industrial_capacity_dockyard = 0.05
-				line_change_production_efficiency_factor = -0.05
 			}
 		}
 		QIE_wushan_charity_relief = {
@@ -881,8 +880,8 @@ ideas ={
 				}
 			}
 			modifier = {
-				production_speed_air_base_factor = 0.10
-				production_speed_dockyard_factor = 0.10
+				production_speed_air_base_factor = 0.03
+				production_speed_dockyard_factor = 0.03
 			}
 		}
 		QIE_wushan_from_sky_to_ocean_1 = {
@@ -891,27 +890,27 @@ ideas ={
 			allowed = { always = no }
 			equipment_bonus = {
 				ship_hull_submarine = {
-					build_cost_ic = -0.15 instant = yes
+					build_cost_ic = -0.10 instant = yes
 				}
 				ship_hull_light = {
-					build_cost_ic = -0.15 instant = yes
+					build_cost_ic = -0.10 instant = yes
 				}
 				ship_hull_cruiser = {
-					build_cost_ic = -0.15 instant = yes
+					build_cost_ic = -0.10 instant = yes
 				}
 				ship_hull_heavy = {
-					build_cost_ic = -0.15 instant = yes
+					build_cost_ic = -0.10 instant = yes
 				}
 				ship_hull_carrier = {
-					build_cost_ic = -0.15 instant = yes
+					build_cost_ic = -0.10 instant = yes
 				}
 				mio_cat_eq_all_aircraft = {
-					build_cost_ic = -0.15 instant = yes
+					build_cost_ic = -0.10 instant = yes
 				}
 			}
 			modifier = {
-				production_speed_air_base_factor = 0.10
-				production_speed_dockyard_factor = 0.10
+				production_speed_air_base_factor = 0.05
+				production_speed_dockyard_factor = 0.05
 				nuclear_production_factor = 0.20
 				air_bombing_targetting = 0.10
 				ground_attack_factor = 0.10
