@@ -19,6 +19,16 @@ ideas ={
 		QIE_hate_of_wushan = {
             on_add = { log = "[GetLogRoot]: add idea QIE_hate_of_wushan" }
 			picture = RAJ_partition_chaos_bad
+			available = {
+				NOT = {
+					OR = {
+						has_completed_focus = QIE_let_the_five_banner_flag_fly
+						has_completed_focus = QIE_restoration
+						has_country_flag = wu_intervenes_proANQ
+						has_country_flag = wu_intervenes_proLEP
+					}
+				}
+			}
 			allowed = { always = no }
 			modifier = {
 				stability_factor = -0.10
@@ -201,8 +211,8 @@ ideas ={
 			allowed = { always = no }
 			modifier = {
 				political_power_gain = 0.20
-				stability_factor = 0.10
-				war_support_factor = 0.15
+				stability_factor = 0.05
+				war_support_factor = 0.10
 				mobilization_speed = -0.05
 			}
 		}

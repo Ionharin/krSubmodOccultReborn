@@ -116,7 +116,17 @@ focus_tree = {
 			country_event = qing_focus_events.2
 			hidden_effect = {
 				if = {
-					limit = { has_country_flag = QIE_ws_start_wushan_pathway }
+					limit = { 
+						has_country_flag = QIE_ws_start_wushan_pathway
+						NOT = { 
+							OR = {
+								has_completed_focus = QIE_let_the_five_banner_flag_fly
+								has_completed_focus = QIE_restoration
+								has_country_flag = wu_intervenes_proANQ
+								has_country_flag = wu_intervenes_proLEP
+							}
+						 }
+					}
 					country_event = { id = QIE_wushan_events.12 days = 2 }
 				}
 			}

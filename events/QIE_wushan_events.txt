@@ -280,10 +280,7 @@ country_event = { # 在瓦解之前
         }
         custom_effect_tooltip = QIE_ws_event11_tt
         hidden_effect = {
-            country_event = {
-            id = QIE_wushan_events.13
-            days = 10
-            }
+			country_event = { id = QIE_ws_hidden_events.5 days = 10 }  
         }
     }
 }
@@ -3226,7 +3223,7 @@ country_event = { # Get core of hungary land after 3 months
     }
 }
 
-country_event = { # QIE_ws_hidden_events.5
+country_event = { # Check the normal zhili country flag
     id = QIE_ws_hidden_events.5
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_hidden_events.5" }
     title = QIE_ws_hidden_events.5.t
@@ -3235,9 +3232,22 @@ country_event = { # QIE_ws_hidden_events.5
     is_triggered_only = yes
     hidden = yes
     timeout_days = 14
-    option = { # 新选项 A
+    option = { # 确保支持华东混战时不会触发政变事件
         name = QIE_ws_hidden_events.5.a
         ai_chance = { factor = 1 }
+        if = {
+			limit = { 
+				NOT = { 
+					OR = {
+						has_completed_focus = QIE_let_the_five_banner_flag_fly
+						has_completed_focus = QIE_restoration
+						has_country_flag = wu_intervenes_proANQ
+						has_country_flag = wu_intervenes_proLEP
+					}
+				}
+			}
+            country_event = { id = QIE_wushan_events.13 days = 1 }
+        }
     }
 }
 
