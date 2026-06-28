@@ -793,24 +793,18 @@ focus_tree = {
 				days = 100
 			}
 			if = {
-				limit = {
-					has_idea = QIE_wushan_theocratic_authority_1
-				}
+				limit = { has_idea = QIE_wushan_theocratic_authority_1 }
 				swap_ideas = {
 					remove_idea = QIE_wushan_theocratic_authority_1
 					add_idea = QIE_wushan_theocratic_authority_2
 				}
 			}
 			else_if = {
-				limit = {
-					NOT = {
-						has_idea = QIE_wushan_theocratic_authority_2
-					}
-					NOT = {
-						has_idea = QIE_wushan_theocratic_authority_3
-					}
+				limit = { has_idea = QIE_wushan_theocratic_authority_2 }
+				swap_ideas = {
+					remove_idea = QIE_wushan_theocratic_authority_2
+					add_idea = QIE_wushan_theocratic_authority_3
 				}
-				add_ideas = QIE_wushan_theocratic_authority_2
 			}
 			country_event = {
 				id = QIE_ws_normal_events.1
@@ -6121,9 +6115,19 @@ focus_tree = {
 			focus = QIE_wushan_jiang_fanatics_militia_for_master
 		}
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = QIE_wushan_theocratic_authority_2
-				add_idea = QIE_wushan_theocratic_authority_3
+			if = {
+				limit = { has_idea = QIE_wushan_theocratic_authority_1 }
+				swap_ideas = {
+					remove_idea = QIE_wushan_theocratic_authority_1
+					add_idea = QIE_wushan_theocratic_authority_2
+				}
+			}
+			else_if = {
+				limit = { has_idea = QIE_wushan_theocratic_authority_2 }
+				swap_ideas = {
+					remove_idea = QIE_wushan_theocratic_authority_2
+					add_idea = QIE_wushan_theocratic_authority_3
+				}
 			}
 			add_country_leader_trait = QIE_four_nots_scholar
 			unlock_national_focus = QIE_wushan_dead_leader_live_country
@@ -6288,9 +6292,19 @@ focus_tree = {
 			focus = QIE_wushan_wu_enforcing_ethics_through_military_orders
 		}
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = QIE_wushan_theocratic_authority_2
-				add_idea = QIE_wushan_theocratic_authority_3
+			if = {
+				limit = { has_idea = QIE_wushan_theocratic_authority_1 }
+				swap_ideas = {
+					remove_idea = QIE_wushan_theocratic_authority_1
+					add_idea = QIE_wushan_theocratic_authority_2
+				}
+			}
+			else_if = {
+				limit = { has_idea = QIE_wushan_theocratic_authority_2 }
+				swap_ideas = {
+					remove_idea = QIE_wushan_theocratic_authority_2
+					add_idea = QIE_wushan_theocratic_authority_3
+				}
 			}
 			add_country_leader_trait = QIE_ws_spring_and_autumn_correct_morality
 			unlock_national_focus = QIE_wushan_dead_leader_live_country
@@ -9279,13 +9293,27 @@ focus_tree = {
 			add_political_power = 50
 			if = {
 				limit = {
-					has_country_leader = {
-						character = QIE_ws_qian_neng_xun
-					}
+					has_country_leader = { character = QIE_ws_qian_neng_xun }
+					has_idea = QIE_wushan_theocratic_authority_2
 				}
 				swap_ideas = {
 					remove_idea = QIE_wushan_theocratic_authority_2
 					add_idea = QIE_wushan_theocratic_authority_3
+				}
+				add_country_leader_trait = QIE_ws_benevolent_dead
+				country_event = {
+					id = QIE_ws_leader.36
+					days = 2
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_leader = { character = QIE_ws_qian_neng_xun }
+					has_idea = QIE_wushan_theocratic_authority_1
+				}
+				swap_ideas = {
+					remove_idea = QIE_wushan_theocratic_authority_1
+					add_idea = QIE_wushan_theocratic_authority_2
 				}
 				add_country_leader_trait = QIE_ws_benevolent_dead
 				country_event = {
