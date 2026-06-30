@@ -1,0 +1,758 @@
+﻿	shared_focus = {
+		id = MCO_the_legacy_of_kang_youwei
+		x = 4
+		y = 1
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = MCO_follow_the_duke_yansheng
+			focus = MCO_worship_lv_dongbin
+		}
+		prerequisite = {
+			focus = MCO_the_born_of_shanrendao
+		}
+		relative_position_id = MCO_the_born_of_shanrendao
+	}
+
+	shared_focus = {
+		id = MCO_follow_the_duke_yansheng
+		x = -4
+		y = 1
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = MCO_the_legacy_of_kang_youwei
+			focus = MCO_worship_lv_dongbin
+		}
+		prerequisite = {
+			focus = MCO_the_born_of_shanrendao
+		}
+		relative_position_id = MCO_the_born_of_shanrendao
+	}
+
+	shared_focus = {
+		id = MCO_worship_lv_dongbin
+		x = 0
+		y = 1
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = MCO_follow_the_duke_yansheng
+			focus = MCO_the_legacy_of_kang_youwei
+		}
+		prerequisite = {
+			focus = MCO_the_born_of_shanrendao
+		}
+		relative_position_id = MCO_the_born_of_shanrendao
+	}
+
+	shared_focus = {
+		id = MCO_return_of_jiang_xizhang
+		x = -1
+		y = 1
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = MCO_control_of_du_yannian
+		}
+		prerequisite = {
+			focus = MCO_the_legacy_of_kang_youwei
+		}
+		relative_position_id = MCO_the_legacy_of_kang_youwei
+	}
+
+	shared_focus = {
+		id = MCO_control_of_du_yannian
+		x = 2
+		y = 0
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = MCO_return_of_jiang_xizhang
+		}
+		prerequisite = {
+			focus = MCO_the_legacy_of_kang_youwei
+		}
+		relative_position_id = MCO_return_of_jiang_xizhang
+	}
+
+	shared_focus = {
+		id = MCO_select_kong_decheng
+		x = -1
+		y = 1
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = MCO_welcoming_hiroyasu
+		}
+		prerequisite = {
+			focus = MCO_follow_the_duke_yansheng
+		}
+		relative_position_id = MCO_follow_the_duke_yansheng
+	}
+
+	shared_focus = {
+		id = MCO_focus_on_shandong
+		x = -1
+		y = 1
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = MCO_focus_on_beijing
+		}
+		prerequisite = {
+			focus = MCO_worship_lv_dongbin
+		}
+		relative_position_id = MCO_worship_lv_dongbin
+	}
+
+	shared_focus = {
+		id = MCO_focus_on_beijing
+		x = 2
+		y = 0
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = MCO_focus_on_shandong
+		}
+		prerequisite = {
+			focus = MCO_worship_lv_dongbin
+		}
+		relative_position_id = MCO_focus_on_shandong
+	}
+
+	shared_focus = {
+		id = MCO_the_born_of_shanrendao
+		x = 23
+		y = 17
+		cost = 7
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+
+	shared_focus = {
+		id = MCO_welcoming_hiroyasu
+		x = 2
+		y = 0
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = MCO_select_kong_decheng
+		}
+		prerequisite = {
+			focus = MCO_follow_the_duke_yansheng
+		}
+		relative_position_id = MCO_select_kong_decheng
+	}
+
+	shared_focus = {
+		id = MCO_shanrendao_begin_to_operate
+		x = 0
+		y = 3
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = MCO_select_kong_decheng
+			focus = MCO_welcoming_hiroyasu
+			focus = MCO_return_of_jiang_xizhang
+			focus = MCO_control_of_du_yannian
+			focus = MCO_focus_on_shandong
+			focus = MCO_focus_on_beijing
+		}
+		relative_position_id = MCO_worship_lv_dongbin
+	}
+
+	shared_focus = {
+		id = new_focus_74
+		x = 0
+		y = 1
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = MCO_shanrendao_begin_to_operate
+		}
+		relative_position_id = MCO_shanrendao_begin_to_operate
+	}
+
+	shared_focus = {
+		id = new_focus_75
+		x = -3
+		y = 1
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_74
+		}
+		relative_position_id = new_focus_74
+	}
+
+	shared_focus = {
+		id = new_focus_76
+		x = 3
+		y = 0
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_74
+		}
+		relative_position_id = new_focus_75
+	}
+
+	shared_focus = {
+		id = new_focus_77
+		x = 6
+		y = 0
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_74
+		}
+		relative_position_id = new_focus_75
+	}
+
+	shared_focus = {
+		id = new_focus_78
+		x = 0
+		y = 1
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_76
+		}
+		relative_position_id = new_focus_76
+	}
+
+	shared_focus = {
+		id = new_focus_79
+		x = 2
+		y = 0
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_78
+		}
+		relative_position_id = new_focus_84
+	}
+
+	shared_focus = {
+		id = new_focus_80
+		x = 2
+		y = 0
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_78
+		}
+		relative_position_id = new_focus_79
+	}
+
+	shared_focus = {
+		id = new_focus_81
+		x = 0
+		y = 2
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_85
+			focus = new_focus_89
+		}
+		prerequisite = {
+			focus = new_focus_79
+		}
+		prerequisite = {
+			focus = new_focus_80
+		}
+		relative_position_id = new_focus_78
+	}
+
+	shared_focus = {
+		id = new_focus_82
+		x = -4
+		y = 0
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_75
+		}
+		relative_position_id = new_focus_78
+	}
+
+	shared_focus = {
+		id = new_focus_83
+		x = -2
+		y = 0
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_75
+		}
+		relative_position_id = new_focus_78
+	}
+
+	shared_focus = {
+		id = new_focus_84
+		x = 0
+		y = 2
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_82
+		}
+		prerequisite = {
+			focus = new_focus_83
+		}
+		relative_position_id = new_focus_75
+	}
+
+	shared_focus = {
+		id = new_focus_85
+		x = 0
+		y = 1
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_81
+			focus = new_focus_89
+		}
+		prerequisite = {
+			focus = new_focus_84
+		}
+		relative_position_id = new_focus_84
+	}
+
+	shared_focus = {
+		id = new_focus_86
+		x = 2
+		y = 0
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_77
+		}
+		relative_position_id = new_focus_78
+	}
+
+	shared_focus = {
+		id = new_focus_87
+		x = 4
+		y = 0
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_77
+		}
+		relative_position_id = new_focus_78
+	}
+
+	shared_focus = {
+		id = new_focus_88
+		x = 6
+		y = 0
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_86
+		}
+		prerequisite = {
+			focus = new_focus_87
+		}
+		relative_position_id = new_focus_84
+	}
+
+	shared_focus = {
+		id = new_focus_89
+		x = 0
+		y = 1
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_81
+			focus = new_focus_85
+		}
+		prerequisite = {
+			focus = new_focus_88
+		}
+		relative_position_id = new_focus_88
+	}
+
+	shared_focus = {
+		id = new_focus_90
+		x = 0
+		y = 1
+		cost = 8
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_85
+			focus = new_focus_81
+			focus = new_focus_89
+		}
+		relative_position_id = new_focus_81
+	}
+
+	shared_focus = {
+		id = new_focus_91
+		x = 10
+		y = 0
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = MCO_shanrendao_begin_to_operate
+		}
+		relative_position_id = new_focus_74
+	}
+
+	shared_focus = {
+		id = new_focus_92
+		x = -2
+		y = 0
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_91
+		}
+		relative_position_id = new_focus_94
+	}
+
+	shared_focus = {
+		id = new_focus_93
+		x = 2
+		y = 0
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_91
+		}
+		relative_position_id = new_focus_94
+	}
+
+	shared_focus = {
+		id = new_focus_94
+		x = 0
+		y = 2
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_91
+		}
+		relative_position_id = new_focus_91
+	}
+
+	shared_focus = {
+		id = new_focus_95
+		x = 0
+		y = 1
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_94
+			focus = new_focus_92
+			focus = new_focus_93
+		}
+		relative_position_id = new_focus_94
+	}
+
+	shared_focus = {
+		id = new_focus_96
+		x = -4
+		y = 0
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_97
+		}
+		prerequisite = {
+			focus = new_focus_94
+		}
+		relative_position_id = new_focus_95
+	}
+
+	shared_focus = {
+		id = new_focus_97
+		x = -2
+		y = 0
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_96
+		}
+		prerequisite = {
+			focus = new_focus_94
+		}
+		relative_position_id = new_focus_95
+	}
+
+	shared_focus = {
+		id = new_focus_98
+		x = 2
+		y = 0
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_99
+		}
+		prerequisite = {
+			focus = new_focus_94
+		}
+		relative_position_id = new_focus_95
+	}
+
+	shared_focus = {
+		id = new_focus_99
+		x = 4
+		y = 0
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_98
+		}
+		prerequisite = {
+			focus = new_focus_94
+		}
+		relative_position_id = new_focus_95
+	}
+
+	shared_focus = {
+		id = new_focus_100
+		x = -1
+		y = 2
+		cost = 8
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_101
+		}
+		prerequisite = {
+			focus = new_focus_97
+			focus = new_focus_96
+			focus = new_focus_98
+			focus = new_focus_99
+		}
+		relative_position_id = new_focus_95
+	}
+
+	shared_focus = {
+		id = new_focus_101
+		x = 2
+		y = 0
+		cost = 8
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_100
+		}
+		prerequisite = {
+			focus = new_focus_96
+			focus = new_focus_97
+			focus = new_focus_98
+			focus = new_focus_99
+		}
+		relative_position_id = new_focus_100
+	}
+
+	shared_focus = {
+		id = new_focus_102
+		x = -10
+		y = 0
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = MCO_shanrendao_begin_to_operate
+		}
+		relative_position_id = new_focus_74
+	}
+
+	shared_focus = {
+		id = new_focus_103
+		x = -2
+		y = 1
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_102
+		}
+		relative_position_id = new_focus_102
+	}
+
+	shared_focus = {
+		id = new_focus_104
+		x = 4
+		y = 0
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_102
+		}
+		relative_position_id = new_focus_103
+	}
+
+	shared_focus = {
+		id = new_focus_105
+		x = -1
+		y = 1
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_103
+		}
+		relative_position_id = new_focus_103
+	}
+
+	shared_focus = {
+		id = new_focus_106
+		x = 1
+		y = 1
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_104
+		}
+		relative_position_id = new_focus_104
+	}
+
+	shared_focus = {
+		id = new_focus_107
+		x = 0
+		y = 3
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_103
+		}
+		prerequisite = {
+			focus = new_focus_104
+		}
+		relative_position_id = new_focus_102
+	}
+
+	shared_focus = {
+		id = new_focus_108
+		x = -1
+		y = 1
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_107
+		}
+		relative_position_id = new_focus_107
+	}
+
+	shared_focus = {
+		id = new_focus_109
+		x = 2
+		y = 0
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_107
+		}
+		relative_position_id = new_focus_108
+	}
+
+	shared_focus = {
+		id = new_focus_110
+		x = 0
+		y = 2
+		cost = 8
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_108
+		}
+		prerequisite = {
+			focus = new_focus_109
+		}
+		relative_position_id = new_focus_107
+	}
+
+	shared_focus = {
+		id = new_focus_111
+		x = -2
+		y = 1
+		cost = 10
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_90
+		}
+		prerequisite = {
+			focus = new_focus_110
+		}
+		relative_position_id = new_focus_90
+	}
+
+	shared_focus = {
+		id = new_focus_112
+		x = 2
+		y = 1
+		cost = 10
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_90
+		}
+		prerequisite = {
+			focus = new_focus_100
+			focus = new_focus_101
+		}
+		relative_position_id = new_focus_90
+	}
+
+	shared_focus = {
+		id = new_focus_113
+		x = 0
+		y = 2
+		cost = 10
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_111
+		}
+		prerequisite = {
+			focus = new_focus_112
+		}
+		relative_position_id = new_focus_90
+	}

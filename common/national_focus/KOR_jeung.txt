@@ -1,0 +1,878 @@
+focus_tree = {
+	id = KOR_jeung
+	country = {
+		factor = 0
+		modifier = {
+			add = 100
+			tag = KOR
+		}
+	}
+	default = no
+	focus = {
+		id = KOR_pnr_select_Daesoonjinrihoe
+		x = -10
+		y = 4
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_select_Bocheonism
+			focus = KOR_pnr_select_Jeungsanbeop
+		}
+		prerequisite = {
+			focus = KOR_pnr_born_in_Jeollabuk_do
+		}
+	}
+	focus = {
+		id = KOR_pnr_select_Bocheonism
+		x = -20
+		y = 4
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_select_Daesoonjinrihoe
+			focus = KOR_pnr_select_Jeungsanbeop
+		}
+		prerequisite = {
+			focus = KOR_pnr_born_in_Jeollabuk_do
+		}
+	}
+	focus = {
+		id = KOR_pnr_select_Jeungsanbeop
+		x = 1
+		y = 4
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_select_Bocheonism
+			focus = KOR_pnr_select_Daesoonjinrihoe
+		}
+		prerequisite = {
+			focus = KOR_pnr_born_in_Jeollabuk_do
+		}
+	}
+	focus = {
+		id = KOR_pnr_at_the_top_of_Jeungsan
+		x = -10
+		y = 1
+		cost = 9
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = KOR_pnr_born_in_Jeollabuk_do
+		x = -10
+		y = 2
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_at_the_top_of_Jeungsan
+		}
+	}
+	focus = {
+		id = new_focus_2
+		x = -21
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Bocheonism
+		}
+	}
+	focus = {
+		id = new_focus_3
+		x = -19
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Bocheonism
+		}
+	}
+	focus = {
+		id = new_focus_4
+		x = -15
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Bocheonism
+			focus = KOR_pnr_select_Daesoonjinrihoe
+		}
+	}
+	focus = {
+		id = new_focus_5
+		x = -20
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_6
+		}
+		prerequisite = {
+			focus = new_focus_2
+		}
+		prerequisite = {
+			focus = new_focus_3
+		}
+	}
+	focus = {
+		id = new_focus_6
+		x = -20
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Bocheonism
+		}
+	}
+	focus = {
+		id = new_focus_7
+		x = -23
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_8
+		}
+		prerequisite = {
+			focus = new_focus_5
+		}
+	}
+	focus = {
+		id = new_focus_8
+		x = -15
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_7
+		}
+		prerequisite = {
+			focus = new_focus_5
+		}
+	}
+	focus = {
+		id = new_focus_9
+		x = -15
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_23
+		}
+	}
+	focus = {
+		id = new_focus_10
+		x = -24
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_7
+		}
+	}
+	focus = {
+		id = new_focus_11
+		x = -25
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_10
+		}
+	}
+	focus = {
+		id = new_focus_12
+		x = -23
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_10
+		}
+	}
+	focus = {
+		id = new_focus_13
+		x = -25
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_11
+		}
+	}
+	focus = {
+		id = new_focus_14
+		x = -23
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_12
+		}
+	}
+	focus = {
+		id = new_focus_15
+		x = -21
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_10
+		}
+	}
+	focus = {
+		id = new_focus_16
+		x = -20
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_15
+			focus = new_focus_20
+		}
+	}
+	focus = {
+		id = new_focus_17
+		x = -24
+		y = 13
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_10
+		}
+	}
+	focus = {
+		id = new_focus_18
+		x = -16
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_19
+		}
+		prerequisite = {
+			focus = new_focus_8
+		}
+	}
+	focus = {
+		id = new_focus_19
+		x = -14
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_18
+		}
+		prerequisite = {
+			focus = new_focus_8
+		}
+	}
+	focus = {
+		id = new_focus_20
+		x = -19
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_18
+		}
+	}
+	focus = {
+		id = new_focus_21
+		x = -20
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_16
+		}
+	}
+	focus = {
+		id = new_focus_22
+		x = -15
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_8
+		}
+	}
+	focus = {
+		id = new_focus_23
+		x = -15
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_22
+		}
+	}
+	focus = {
+		id = new_focus_24
+		x = -17
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_23
+		}
+	}
+	focus = {
+		id = new_focus_25
+		x = -13
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_23
+		}
+	}
+	focus = {
+		id = new_focus_26
+		x = -15
+		y = 13
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_24
+		}
+		prerequisite = {
+			focus = new_focus_9
+		}
+		prerequisite = {
+			focus = new_focus_25
+		}
+	}
+	focus = {
+		id = new_focus_27
+		x = -11
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Daesoonjinrihoe
+		}
+	}
+	focus = {
+		id = new_focus_28
+		x = -9
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Daesoonjinrihoe
+		}
+	}
+	focus = {
+		id = new_focus_29
+		x = -10
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Daesoonjinrihoe
+		}
+	}
+	focus = {
+		id = new_focus_30
+		x = -12
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_27
+		}
+	}
+	focus = {
+		id = new_focus_31
+		x = -8
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_28
+		}
+	}
+	focus = {
+		id = new_focus_32
+		x = -10
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_29
+		}
+	}
+	focus = {
+		id = new_focus_33
+		x = 3
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_55
+		}
+	}
+	focus = {
+		id = new_focus_34
+		x = -10
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_36
+		}
+		prerequisite = {
+			focus = new_focus_32
+		}
+	}
+	focus = {
+		id = new_focus_36
+		x = -4
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_34
+		}
+		prerequisite = {
+			focus = new_focus_32
+		}
+	}
+	focus = {
+		id = new_focus_37
+		x = -12
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_34
+		}
+	}
+	focus = {
+		id = new_focus_38
+		x = -13
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_19
+			focus = new_focus_37
+		}
+	}
+	focus = {
+		id = new_focus_40
+		x = -11
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_43
+		}
+		prerequisite = {
+			focus = new_focus_37
+			focus = new_focus_41
+		}
+	}
+	focus = {
+		id = new_focus_41
+		x = -10
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_34
+		}
+	}
+	focus = {
+		id = new_focus_42
+		x = -10
+		y = 13
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_41
+		}
+		prerequisite = {
+			focus = new_focus_40
+			focus = new_focus_43
+		}
+	}
+	focus = {
+		id = new_focus_43
+		x = -9
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_40
+		}
+		prerequisite = {
+			focus = new_focus_41
+			focus = new_focus_45
+		}
+	}
+	focus = {
+		id = new_focus_45
+		x = -8
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_34
+		}
+	}
+	focus = {
+		id = new_focus_47
+		x = -6
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_45
+			focus = new_focus_50
+		}
+	}
+	focus = {
+		id = new_focus_50
+		x = -4
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_36
+		}
+	}
+	focus = {
+		id = new_focus_51
+		x = -5
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_50
+		}
+	}
+	focus = {
+		id = new_focus_52
+		x = -3
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_50
+		}
+	}
+	focus = {
+		id = new_focus_53
+		x = -4
+		y = 13
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_51
+		}
+		prerequisite = {
+			focus = new_focus_52
+		}
+	}
+	focus = {
+		id = new_focus_54
+		x = -2
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Jeungsanbeop
+		}
+	}
+	focus = {
+		id = new_focus_55
+		x = 4
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Jeungsanbeop
+		}
+	}
+	focus = {
+		id = new_focus_56
+		x = 1
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_57
+			focus = new_focus_58
+		}
+	}
+	focus = {
+		id = new_focus_57
+		x = 0
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Jeungsanbeop
+		}
+	}
+	focus = {
+		id = new_focus_58
+		x = 2
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Jeungsanbeop
+		}
+	}
+	focus = {
+		id = new_focus_59
+		x = -5
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Daesoonjinrihoe
+			focus = KOR_pnr_select_Jeungsanbeop
+		}
+	}
+	focus = {
+		id = new_focus_62
+		x = 1
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_1
+		}
+		prerequisite = {
+			focus = new_focus_33
+		}
+	}
+	focus = {
+		id = new_focus_63
+		x = 0
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_64
+		}
+		prerequisite = {
+			focus = new_focus_62
+		}
+	}
+	focus = {
+		id = new_focus_64
+		x = 2
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = new_focus_63
+		}
+		prerequisite = {
+			focus = new_focus_62
+		}
+	}
+	focus = {
+		id = new_focus_65
+		x = 1
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_63
+			focus = new_focus_64
+		}
+	}
+	focus = {
+		id = new_focus_66
+		x = 1
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_65
+		}
+	}
+	focus = {
+		id = new_focus_67
+		x = -1
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_63
+		}
+	}
+	focus = {
+		id = new_focus_68
+		x = -1
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_67
+		}
+		prerequisite = {
+			focus = new_focus_65
+		}
+	}
+	focus = {
+		id = new_focus_69
+		x = -1
+		y = 13
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_68
+		}
+		prerequisite = {
+			focus = new_focus_66
+		}
+	}
+	focus = {
+		id = new_focus_70
+		x = 3
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_64
+		}
+	}
+	focus = {
+		id = new_focus_71
+		x = 3
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_70
+		}
+		prerequisite = {
+			focus = new_focus_65
+		}
+	}
+	focus = {
+		id = new_focus_72
+		x = 3
+		y = 13
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_71
+		}
+		prerequisite = {
+			focus = new_focus_66
+		}
+	}
+	focus = {
+		id = new_focus_74
+		x = -2
+		y = 15
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_53
+			focus = new_focus_69
+			focus = new_focus_72
+		}
+	}
+	focus = {
+		id = new_focus_73
+		x = -18
+		y = 15
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_17
+			focus = new_focus_26
+			focus = new_focus_42
+		}
+	}
+	focus = {
+		id = new_focus_1
+		x = -1
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = new_focus_54
+		}
+	}
+}
