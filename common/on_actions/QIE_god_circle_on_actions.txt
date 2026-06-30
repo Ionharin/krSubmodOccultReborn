@@ -1,7 +1,7 @@
 on_actions = {
 	on_daily = {
 		effect = {
-			if = {
+			if = { # Owen Lattimore coming!
 				limit = {
 					tag = QIE
 					date > 1936.11.1
@@ -11,7 +11,7 @@ on_actions = {
 				set_country_flag = QIE_ws_leader_30_triggered
 				country_event = { id = QIE_ws_leader.30 days = 0 }
 			}
-			if = {
+			if = { # In fact, Hungary is Shanxi,right?
 				limit = {
 					tag = QIE
 					NOT = { has_country_flag = QIE_ws_normal_event_10_triggered }
@@ -24,7 +24,7 @@ on_actions = {
 				set_country_flag = QIE_ws_normal_event_10_triggered
 				country_event = { id = QIE_ws_normal_events.10 days = 0 }
 			}
-			if = {
+			if = { # Analyze seances status
 				limit = {
 					tag = QIE
 					has_completed_focus = QIE_seances_restart_in_beijing

@@ -1,0 +1,225 @@
+### To the person reading this: This file is used to override some events, and achieve the goal without affecting the original KR file structure.
+### So the error is normal, but indeed, it may cause a crash.
+### I hope Paradox can support overwriting the individual event in the future.
+
+### NAMESPACE ###
+add_namespace = annexation_events
+add_namespace = UPC.chinademocraticleague
+
+###########
+### QIE ###
+###########
+
+country_event = { #Fate of Korea # Wushan submod change this!
+	id = annexation_events.3017
+	title = annexation_525
+	desc = annexation_525_desc
+	picture = GFX_report_event_generic_conference2
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			KOR = { drop_cosmetic_tag = yes }
+			if = {
+				limit = {
+					original_tag = JAP
+					has_socialist_government = no
+				}
+				save_event_target_as = can_annex
+			}
+			if = {
+				limit = {
+					is_chinese_tag = no
+					JAP = {
+						ROOT_can_grant_land = yes
+						OR = {
+							has_socialist_government = no
+							is_subject = no
+						}
+					}
+				}
+				JAP = { save_event_target_as = japan add_to_array = { ROOT.potential_grant_targets = THIS } }
+			}
+		}
+	}
+
+	option = { #Liberate Korea as a Republic
+		log = "[GetLogInfo]: event annexation_events.3017 option annexation_events.3017.a"
+		name = annexation_events.3017.a
+		trigger = {
+			is_subject = no
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				annexations_can_annex = yes
+			}
+		}
+		set_temp_variable = { tag_to_release = KOR }
+		release_targeted_tag = yes
+		KOR_return_of_the_provisional_government = yes
+	}
+
+	option = { #Liberate Korea as a Monarchy
+		log = "[GetLogInfo]: event annexation_events.3017 option annexation_events.3017.b"
+		name = annexation_events.3017.b
+		trigger = {
+			OR = {
+				is_subject = no
+				is_monarchy = yes
+				has_cosmetic_tag = QIE_wushan_cosmetic_tag
+				has_cosmetic_tag = QIE_united_china_ws
+				has_cosmetic_tag = QIE_united_china_ws_final_phase
+			}
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				annexations_can_annex = yes
+			}
+			modifier = {
+				factor = 1
+				has_elected_government = yes
+			}
+			modifier = {
+				factor = 4
+				has_authoritarian_government = yes
+			}
+		}
+		set_temp_variable = { tag_to_release = KOR }
+		release_targeted_tag = yes
+		KOR_return_of_the_provisional_government = yes
+		hidden_effect = { KOR_monarchist_government = yes }
+	}
+
+	option = { #Give it to Japan
+		log = "[GetLogInfo]: event annexation_events.3017 option annexation_events.give_to_japan"
+		name = annexation_events.give_to_japan
+		trigger = {
+			has_event_target = japan
+		}
+		ai_chance = { base = 0 }
+		set_temp_variable = { tag_to_release = event_target:japan }
+		KOR = { set_transfer_target_cores = yes }
+		transfer_targeted_territory = yes
+	}
+
+	option = { #Give to overlord
+		log = "[GetLogInfo]: event annexation_events.3017 option annexation_events.give_to_overlord"
+		name = annexation_events.give_to_overlord
+		trigger = {
+			annexations_should_give_lands_to_overlord = yes
+		}
+		set_temp_variable = { tag_to_release = overlord }
+		KOR = { set_transfer_target_cores = yes }
+		transfer_targeted_territory = yes
+	}
+
+	option = { #Annex
+		log = "[GetLogInfo]: event annexation_events.3017 option annexation_events.integration"
+		name = annexation_events.integration
+		trigger = {
+			OR = {
+				annexations_can_annex = yes
+				has_cosmetic_tag = QIE_wushan_cosmetic_tag
+				has_cosmetic_tag = QIE_united_china_ws
+				has_cosmetic_tag = QIE_united_china_ws_final_phase
+			}
+		}
+		KOR = { add_claim_of_ROOT_on_valid_cores = yes }
+	}
+
+	option = { #Cancel
+		log = "[GetLogInfo]: event annexation_events.3017 option annexation_events.cancel"
+		name = annexation_events.cancel
+		ai_chance = { base = 0 }
+	}
+
+	after = {
+		recheck_annexations = yes
+	}
+}
+
+country_event = { # Wushan submod change this!
+	id = UPC.chinademocraticleague.003 #Trial of the Seven Gentlemen
+	title = UPC.chinademocraticleague.003.t
+	desc = {
+		text = UPC.chinademocraticleague.003.d.manchu
+		trigger = {
+			OR = { china_is_aligned_with_manchu = yes }
+		}
+	}
+	desc = {
+		text = UPC.chinademocraticleague.003.d.zhili
+		trigger = {
+			china_is_aligned_with_manchu = no
+			china_is_aligned_with_traditionalist_china = no
+		}
+	}
+	desc = {
+		text = UPC.chinademocraticleague.003.d.wushan
+		trigger = { china_is_aligned_with_traditionalist_china = yes }
+	}
+	picture = GFX_report_event_CHN_china_QIE_seven_gentlemen
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event UPC.chinademocraticleague.003 option UPC.chinademocraticleague.003.a.manchu"
+		name = UPC.chinademocraticleague.003.a.manchu #Popular pressure forces the Royalists to concede.
+		trigger = {
+			OR = { china_is_aligned_with_manchu = yes }
+		}
+		add_political_power = -25
+		add_war_support = 0.05
+	}
+	option = {
+		log = "[GetLogInfo]: event UPC.chinademocraticleague.003 option UPC.chinademocraticleague.003.b.manchu"
+		name = UPC.chinademocraticleague.003.b.manchu #You can hardly expect such rabblerousers to stay out of trouble.
+		trigger = {
+			OR = { china_is_aligned_with_manchu = yes }
+		}
+		add_stability = 0.05
+		set_temp_variable = { ideology_change_var = -0.10 }
+		change_ruling_party_popularity = yes
+	}
+	option = {
+		log = "[GetLogInfo]: event UPC.chinademocraticleague.003 option UPC.chinademocraticleague.003.a.zhili"
+		name = UPC.chinademocraticleague.003.a.zhili #Bai Jianwu and Political Affairs push for their release!
+		trigger = {
+			china_is_aligned_with_manchu = no
+			china_is_aligned_with_traditionalist_china = no
+		}
+		add_political_power = 30
+		set_temp_variable = { ideology_change_var = -0.10 }
+		change_ruling_party_popularity = yes
+	}
+	option = {
+		log = "[GetLogInfo]: event UPC.chinademocraticleague.003 option UPC.chinademocraticleague.003.b.zhili"
+		name = UPC.chinademocraticleague.003.b.zhili #The Tianjin-Baoding Group rally for their continued detainment.
+		trigger = {
+			china_is_aligned_with_manchu = no
+			china_is_aligned_with_traditionalist_china = no
+		}
+		add_command_power = 25
+		add_stability = 0.05
+	}
+    option = {
+		log = "[GetLogInfo]: event UPC.chinademocraticleague.003 option UPC.chinademocraticleague.003.a.zhili"
+		name = UPC.chinademocraticleague.003.a.wushan # Shen Junru could be released.
+		trigger = { china_is_aligned_with_traditionalist_china = yes }
+		add_stability = 0.05
+		set_temp_variable = { ideology_change_var = -0.05 }
+		change_ruling_party_popularity = yes
+	}
+	option = {
+		log = "[GetLogInfo]: event UPC.chinademocraticleague.003 option UPC.chinademocraticleague.003.b.zhili"
+		name = UPC.chinademocraticleague.003.b.wushan #Why we need to control them?
+		trigger = { china_is_aligned_with_traditionalist_china = yes }
+		add_political_power = -10
+        add_war_support = 0.05
+	}
+}
