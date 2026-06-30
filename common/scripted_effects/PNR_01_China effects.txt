@@ -50,7 +50,17 @@ CHN_calculate_china_alignment_gui_effect = {
 	if = { # Wushan Traditionalists
 		limit = {
 			country_exists = QIE
-			QIE = { china_is_aligned_with_traditionalist_china = yes }
+			QIE = {
+				OR = {
+					china_is_aligned_with_traditionalist_china = yes
+					has_country_leader = { character = QIE_ws_jiang_chao_zong }
+					has_country_leader = { character = QIE_ws_wu_pei_fu }
+					has_country_leader = { character = QIE_ws_luanwu_yuan }
+					has_country_leader = { character = QIE_ws_qian_neng_xun }
+					has_country_leader = { character = QIE_ws_tang_er_he }
+					has_country_leader = { character = QIE_ws_armchair_of_lv_dongbin }
+				}
+			}
 		}
 		QIE = { CHN_build_faction_alignment_array = yes }
 	}

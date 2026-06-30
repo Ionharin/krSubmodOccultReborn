@@ -4,7 +4,7 @@ add_namespace = QIE_ws_god_circle_events
 add_namespace = QIE_ws_leader
 add_namespace = QIE_ws_united
 add_namespace = QIE_ws_hidden_events
-add_namespace = QIE_ws_debug_events
+#add_namespace = QIE_ws_debug_events
 
 country_event = { # 救世新教提请集资捐助
     id = QIE_wushan_events.1
@@ -1090,6 +1090,8 @@ country_event = { # QIE demands more
             transfer_state = 857
             transfer_state = 671
         }
+        857 = { add_core_of = QIE }
+        671 = { add_core_of = QIE }
     }
 }
 
@@ -3085,74 +3087,74 @@ country_event = { # 合作共赢
 }
 
 #debug event
-country_event = { # debug
-    id = QIE_ws_debug_events.1
-    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.9" }
-    title = QIE_ws_debug_events.1.t
-    desc = QIE_ws_debug_events.1.desc
-    picture = GFX_report_event_generic_army_marching
-    is_triggered_only = yes
-    hidden = no
-    timeout_days = 14
-    option = { # debug annex all core zone
-        name = QIE_ws_debug_events.1.a
-        ai_chance = { factor = 1 }
-        every_state = {
-			limit = {
-				is_core_of = ROOT
-				NOT = { is_controlled_by = ROOT }
-			}
-        ROOT = {
-            transfer_state = PREV
-        }
-		}
-    }
-}				
+#country_event = { # debug
+    #id = QIE_ws_debug_events.1
+    #immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_debug_events.1" }
+    #title = QIE_ws_debug_events.1.t
+    #desc = QIE_ws_debug_events.1.desc
+    #picture = GFX_report_event_generic_army_marching
+    #is_triggered_only = yes
+    #hidden = no
+    #timeout_days = 14
+    #option = { # debug annex all core zone
+        #name = QIE_ws_debug_events.1.a
+        #ai_chance = { factor = 1 }
+        #every_state = {
+			#limit = {
+				#is_core_of = ROOT
+				#NOT = { is_controlled_by = ROOT }
+			#}
+        #ROOT = {
+            #transfer_state = PREV
+        #}
+		#}
+    #}
+#}				
 
-country_event = { # debug annex not core of wushan
-    id = QIE_ws_debug_events.2
-    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.10" }
-    title = QIE_ws_debug_events.2.t
-    desc = QIE_ws_debug_events.2.desc
-    picture = GFX_report_event_generic_army_marching
-    is_triggered_only = yes
-    hidden = no
-    timeout_days = 14
-    option = { # debug annex all core zone
-        name = QIE_ws_debug_events.2.a
-        ai_chance = { factor = 1 }
-        every_state = {
-			limit = {
-                NOT = { is_core_of = QIE }
-                NOT = { is_controlled_by = QIE }
-			}
-        ROOT = {
-            transfer_state = PREV
-        }
-		}
-    }
-}
+#country_event = { # debug annex not core of wushan
+    #id = QIE_ws_debug_events.2
+    #immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_debug_events.2" }
+    #title = QIE_ws_debug_events.2.t
+    #desc = QIE_ws_debug_events.2.desc
+    #picture = GFX_report_event_generic_army_marching
+    #is_triggered_only = yes
+    #hidden = no
+    #timeout_days = 14
+    #option = { # debug annex all core zone
+        #name = QIE_ws_debug_events.2.a
+        #ai_chance = { factor = 1 }
+        #every_state = {
+			#limit = {
+                #NOT = { is_core_of = QIE }
+                #NOT = { is_controlled_by = QIE }
+			#}
+        #ROOT = {
+            #transfer_state = PREV
+        #}
+		#}
+    #}
+#}
 
-country_event = { # debug set states flag
-    id = QIE_ws_debug_events.3
-    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.10" }
-    title = QIE_ws_debug_events.3.t
-    desc = QIE_ws_debug_events.3.desc
-    picture = GFX_report_event_generic_army_marching
-    is_triggered_only = yes
-    hidden = no
-    timeout_days = 14
-    option = { # debug set jap to fusang
-        name = QIE_ws_debug_events.3.a
-        ai_chance = { factor = 1 }
-        282 = {
-            set_state_flag = { 
-                flag = jap_puppet_state_flag
-                value = 1
-            }
-        }
-    }
-}
+#country_event = { # debug set states flag
+    #id = QIE_ws_debug_events.3
+    #immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_debug_events.3" }
+    #title = QIE_ws_debug_events.3.t
+    #desc = QIE_ws_debug_events.3.desc
+    #picture = GFX_report_event_generic_army_marching
+    #is_triggered_only = yes
+    #hidden = no
+    #timeout_days = 14
+    #option = { # debug set jap to fusang
+        #name = QIE_ws_debug_events.3.a
+        #ai_chance = { factor = 1 }
+        #282 = {
+            #set_state_flag = { 
+                #flag = jap_puppet_state_flag
+                #value = 1
+            #}
+        #}
+    #}
+#}
 
 ### Hidden Events for some special mechanisms ###
 

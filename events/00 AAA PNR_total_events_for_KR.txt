@@ -5,6 +5,8 @@
 ### NAMESPACE ###
 add_namespace = annexation_events
 add_namespace = UPC.chinademocraticleague
+add_namespace = china_events
+add_namespace = qing_coup_events
 
 ###########
 ### QIE ###
@@ -221,5 +223,287 @@ country_event = { # Wushan submod change this!
 		trigger = { china_is_aligned_with_traditionalist_china = yes }
 		add_political_power = -10
         add_war_support = 0.05
+	}
+}
+
+country_event = { #National Day of the Republic of China # Wushan submod change this!
+	id = china_events.70
+	title = china_events.70.t
+	desc = {
+		text = china_events.70.d.zhili_monarchy
+		trigger = {
+			OR = {
+				is_monarchy = yes
+				AND = {
+					is_subject_of = QIE
+					QIE = { is_monarchy = yes }
+				}
+			}
+		}
+	}
+	desc = {
+		text = china_events.70.d.other_monarchy
+		trigger = {
+			OR = {
+				is_monarchy = yes
+				AND = {
+					is_subject_of = SHD
+					SHD = { is_monarchy = yes }
+				}
+			}
+			NOT = {
+				china_alignment_northern_zhili = yes
+				china_alignment_southern_zhili = yes
+			}
+		}
+	}
+	desc = {
+		text = china_events.70.d.kuomintang_republic
+		trigger = {
+			OR = {
+				china_alignment_right_kuomintang = yes
+				china_alignment_left_kuomintang = yes
+			}
+		}
+	}
+	desc = {
+		text = china_events.70.d.other_republic
+		trigger = {
+			NOT = {
+				is_monarchy = yes
+				OVERLORD = { is_monarchy = yes }
+				OR = {
+				has_country_leader = { character = QIE_ws_jiang_chao_zong }
+				has_country_leader = { character = QIE_ws_wu_pei_fu }
+				has_country_leader = { character = QIE_ws_luanwu_yuan }
+				has_country_leader = { character = QIE_ws_qian_neng_xun }
+			}
+			}
+			NOT = {
+				china_alignment_right_kuomintang = yes
+				china_alignment_left_kuomintang = yes
+			}
+		}
+	}
+	desc = {
+		text = china_events.70.d.wushan
+		trigger = {
+			OR = {
+				has_country_leader = { character = QIE_ws_jiang_chao_zong }
+				has_country_leader = { character = QIE_ws_wu_pei_fu }
+				has_country_leader = { character = QIE_ws_luanwu_yuan }
+				has_country_leader = { character = QIE_ws_qian_neng_xun }
+			}
+		}
+	}
+
+	picture = GFX_report_event_CHI_military_parade
+
+	is_triggered_only = yes #Triggered by history files + yearly cycle.
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = china_events.70 days = 365 } #Yearly Holiday
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event china_events.70 option china_events.70.a"
+		name = china_events.70.a #Zhonghua Minguo Wansui!
+		trigger = {
+			NOT = {
+				is_monarchy = yes
+				OR = {
+					has_country_leader = { character = QIE_ws_jiang_chao_zong }
+					has_country_leader = { character = QIE_ws_wu_pei_fu }
+					has_country_leader = { character = QIE_ws_luanwu_yuan }
+					has_country_leader = { character = QIE_ws_qian_neng_xun }
+				}
+				AND = {
+					is_subject_of = QIE
+					QIE = { is_monarchy = yes }
+					NOT = { has_global_flag = china_united }
+				}
+			}
+		}
+		add_political_power = 10
+	}
+
+	option = {
+		log = "[GetLogInfo]: event china_events.70 option china_events.70.b"
+		name = china_events.70.b #Zhonghua Minguo Wansui...
+		trigger = {
+			OR = {
+				is_monarchy = yes
+				AND = {
+					is_subject_of = QIE
+					QIE = { is_monarchy = yes }
+				}
+			}
+			OR = {
+				china_alignment_northern_zhili = yes
+				china_alignment_southern_zhili = yes
+			}
+		}
+		add_political_power = -5
+	}
+
+	option = {
+		log = "[GetLogInfo]: event china_events.70 option china_events.70.c"
+		name = china_events.70.c #Let October 10th fade from memory!
+		trigger = {
+			OR = {
+				is_monarchy = yes
+				AND = {
+					is_subject_of = QIE
+					QIE = { is_monarchy = yes }
+				}
+				AND = {
+					is_subject_of = SHD
+					SHD = { is_monarchy = yes }
+				}
+			}
+			NOT = {
+				china_alignment_northern_zhili = yes
+				china_alignment_southern_zhili = yes
+			}
+		}
+		if = {
+			limit = { has_global_flag = china_united }
+			add_political_power = 10
+		}
+		else = {
+			add_political_power = -10
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event china_events.70 option china_events.70.option.d"
+		name = china_events.70.option.d #Fortunately, we have gotten rid of it.
+		trigger = {
+			OR = {
+				has_country_leader = { character = QIE_ws_jiang_chao_zong }
+				has_country_leader = { character = QIE_ws_wu_pei_fu }
+				has_country_leader = { character = QIE_ws_luanwu_yuan }
+				has_country_leader = { character = QIE_ws_qian_neng_xun }
+			}
+		}
+		add_political_power = 5
+	}
+}
+
+### Those events are modified coup events chain.
+
+country_event = { # Wushan submod change this!
+	id = qing_coup_events.18 #people start to go AWOL and propaganda starts to pop up
+	title = qing_coup_events.18.t
+	desc = qing_coup_events.18.d
+	picture = GFX_report_event_CHI_labour_rally
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qing_coup_events.18 option qing_coup_events.18.a"
+		name = qing_coup_events.18.a #what's going on here?
+		add_command_power = -10
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.075
+		}
+		hidden_effect = {
+			country_event = { id = qing_coup_events.19 days = 15 }
+			country_event = {
+				id = QIE_wushan_events.20
+				days = 10
+			}
+		}
+	}
+}
+
+country_event = { # Wushan submod change this!
+	id = qing_coup_events.20 #wu and cao go to meeting
+	title = qing_coup_events.20.t
+	desc = qing_coup_events.20.d
+	picture = GFX_report_event_QIE_cao_kun_military
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qing_coup_events.20 option qing_coup_events.20.a"
+		name = qing_coup_events.20.a #They enter the hall...
+		hidden_effect = {
+			#country_event = {
+			#	id = qing_coup_events.21
+			#	days = 3 #wushan change
+			#}
+			if = {
+				limit = { has_country_flag = QIE_ws_start_wushan_pathway }
+				country_event = QIE_wushan_events.17
+			}
+			else_if = {
+				limit = { NOT = { has_country_flag = QIE_ws_start_wushan_pathway } }
+				country_event = qing_coup_events.21
+			}
+		}
+	}
+}
+
+country_event = { # Wushan submod change this!
+	id = qing_coup_events.21 #Puyi flees the room and guards rush in to arrest them!
+	title = qing_coup_events.21.t
+	desc = qing_coup_events.21.d
+	picture = GFX_report_event_QIE_puyi_and_generals
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qing_coup_events.21 option qing_coup_events.21.a"
+		name = qing_coup_events.21.a #Wu and Cao are killed! the coup succeeds!
+		ai_chance = {
+			base = 6178
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = QIE_path option = QIE_PATH_SHIH_AUTDEM }
+					has_game_rule = { rule = QIE_path option = QIE_PATH_KOO_AUTDEM }
+				}
+			}
+		}
+		QIE_wu_peifu = { kill_character = yes }
+		QIE_cao_kun = { kill_character = yes }
+		clr_global_flag = SHX_deal_QIE
+		country_event = qing_coup_events.22
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = QIE_yan_backs_coup }
+				SHX = { country_event = { id = shanxi_manchu_coup_events.2 days = 7 } } #The Invasion Begins, will show for both QIE and SHX
+			}
+		}
+	}
+	option = { #wu's bodyguards manage to rush in and kill the Manchu bodyguards!
+		log = "[GetLogInfo]: event qing_coup_events.21 option qing_coup_events.21.b"
+		name = qing_coup_events.21.b
+		ai_chance = {
+			base = 3821
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = QIE_path option = QIE_PATH_PATAUT }
+					has_game_rule = { rule = QIE_path option = QIE_PATH_MANCHU_AUTDEM }
+					has_game_rule = { rule = QIE_path option = QIE_PATH_SOCCON }
+					has_game_rule = { rule = QIE_path option = QIE_PATH_SOCDEM }
+				}
+			}
+		}
+		country_event = qing_coup_events.24
+	}
+	
+	option = { #jiang and wushan come into the palace!
+		log = "[GetLogInfo]: event qing_coup_events.21 option qing_coup_events.21.c"
+		name = qing_coup_events.21.c
+		ai_chance = { base = 1 }
+		trigger = { has_country_flag = QIE_ws_wushan_pathway }
+		country_event = QIE_wushan_events.18
 	}
 }

@@ -67,31 +67,165 @@ focus_tree = {
 				}
 				cost = 93
 			}
-			QIE_ws_adv_gong_xinzhan = { set_nationality = QIE }
-			QIE_ws_adv_tang_erhe = { set_nationality = QIE }
-			QIE_ws_adv_yuan_yonglian = { set_nationality = QIE }
-			QIE_ws_adv_zhong_shiming = { set_nationality = QIE }
-			QIE_ws_adv_zhuang_rensong = { set_nationality = QIE }
-			QIE_ws_adv_zhou_zhenlin = { set_nationality = QIE }
-			QIE_zhang_yanqing = { set_nationality = QIE }
-			QIE_tong_jixu = { set_nationality = QIE }
-			QIE_ws_jiang_chao_zong = {
-				add_corps_commander_role = {
-					traits = {
-						QIE_wushan_wushanshe_member
-						irregulars_officer
-						cavalry_officer
-						trait_reckless
-						old_guard
-					}
-					skill = 2
-					attack_skill = 2
-					defense_skill = 4
-					planning_skill = 3
-					logistics_skill = 3
-				}
-			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = QIE_wushan_power.tt
 			hidden_effect = {
+				QIE_ws_adv_gong_xinzhan = { set_nationality = QIE }
+				QIE_ws_adv_tang_erhe = { set_nationality = QIE }
+				QIE_ws_adv_yuan_yonglian = { set_nationality = QIE }
+				QIE_ws_adv_zhong_shiming = { set_nationality = QIE }
+				QIE_ws_adv_zhuang_rensong = { set_nationality = QIE }
+				QIE_ws_adv_zhou_zhenlin = { set_nationality = QIE }
+				QIE_zhang_yanqing = { set_nationality = QIE }
+				QIE_tong_jixu = { set_nationality = QIE }
+				QIE_ws_jiang_chao_zong = {
+					add_corps_commander_role = {
+						desc = QIE_ws_jiang_chaozong_advisor_desc
+						traits = {
+							QIE_wushan_wushanshe_member
+							irregulars_officer
+							cavalry_officer
+							trait_reckless
+							old_guard
+						}
+						skill = 2
+						attack_skill = 2
+						defense_skill = 4
+						planning_skill = 3
+						logistics_skill = 3
+					}
+				}
+				QIE_ws_chen_huan = {
+					add_corps_commander_role = {
+						desc = QIE_ws_chen_huan_desc
+						traits = {
+							QIE_wushan_wushanshe_member
+							politically_connected
+							trait_cautious
+							trait_mountaineer
+						}
+						skill = 3
+						attack_skill = 3
+						defense_skill = 4
+						planning_skill = 2
+						logistics_skill = 2
+					}
+				}
+				QIE_ws_cheng_zikai = {
+					add_corps_commander_role = {
+						desc = QIE_ws_cheng_zikai_desc
+						traits = {
+							hidden_sympathies
+							war_hero
+							trait_reckless
+						}
+						skill = 2
+						attack_skill = 3
+						defense_skill = 4
+						planning_skill = 1
+						logistics_skill = 2
+					}
+				}
+				QIE_ws_dong_zhengguo = {
+					add_corps_commander_role = {
+						desc = QIE_ws_dong_zhengguo_desc
+						traits = {
+							QIE_wushan_wushanshe_member
+							politically_connected
+							cavalry_officer
+							cavalry_leader
+							urban_assault_specialist
+							trait_organizer
+						}
+						skill = 3
+						attack_skill = 4
+						defense_skill = 2
+						planning_skill = 2
+						logistics_skill = 2
+					}
+				}
+				QIE_ws_feng_gengguang = {
+					add_corps_commander_role = {
+						desc = QIE_ws_feng_gengguang_desc
+						traits = {
+							media_personality
+							politically_connected
+							rising_star
+						}
+						skill = 1
+						attack_skill = 1
+						defense_skill = 1
+						planning_skill = 3
+						logistics_skill = 3
+					}
+				}
+				QIE_ws_jiang_zuobin = {
+					add_corps_commander_role = {
+						desc = QIE_ws_jiang_zuobin_desc
+						traits = {
+							media_personality
+							trait_engineer
+							engineer_officer
+							hidden_sympathies
+						}
+						skill = 3
+						attack_skill = 4
+						defense_skill = 1
+						planning_skill = 3
+						logistics_skill = 3
+					}
+				}
+				QIE_ws_li_jichun = {
+					add_corps_commander_role = {
+						desc = QIE_ws_li_jichun_desc
+						traits = {
+							QIE_wushan_wushanshe_member
+							war_hero
+							organizer
+							trickster
+							aggressive_assaulter
+							offensive_doctrine
+							cavalry_leader
+							cavalry_officer
+						}
+						skill = 3
+						attack_skill = 5
+						defense_skill = 2
+						planning_skill = 3
+						logistics_skill = 3
+					}
+				}
+				QIE_ws_xue_zhiheng = {
+					add_corps_commander_role = {
+						desc = QIE_ws_xue_zhiheng_desc
+						traits = {
+							brilliant_strategist
+							career_officer
+							infantry_officer
+						}
+						skill = 2
+						attack_skill = 2
+						defense_skill = 3
+						planning_skill = 1
+						logistics_skill = 1
+					}
+				}
+				QIE_ws_yue_weijun = {
+					add_corps_commander_role = {
+						desc = QIE_ws_yue_weijun_desc
+						traits = {
+							trait_reckless
+							career_officer
+							irregulars_officer
+							old_guard
+						}
+						skill = 3
+						attack_skill = 4
+						defense_skill = 2
+						planning_skill = 2
+						logistics_skill = 2
+					}
+				}
 				country_event = { id = QIE_ws_hidden_events.3 days = 7 }
 				country_event = {
 					id = QIE_ws_normal_events.9
@@ -503,6 +637,7 @@ focus_tree = {
 			hidden_effect = {
 				QIE_ws_jiang_chao_zong = {
 					promote_character = yes
+					promote_to_field_marshal = yes
 				}
 			}
 			if = {
@@ -6339,6 +6474,9 @@ focus_tree = {
 		icon = GFX_goal_dam
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			has_country_flag = QIE_wushan_orthodoxy_set_flag
+		}
 		prerequisite = {
 			focus = QIE_restart_beijing_charity_society
 		}

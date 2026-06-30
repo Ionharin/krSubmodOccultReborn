@@ -7,7 +7,15 @@ china_character_is_traditionalist_china = { # wushan
 china_alignment_traditionalist_china = { #wushan
     custom_override_tooltip = {
         tooltip = china_alignment_traditionalist_china
-        var:country_leader = { china_character_is_traditionalist_china = yes }
+        OR = {
+            var:country_leader = { china_character_is_traditionalist_china = yes }
+            has_country_leader = { character = QIE_ws_jiang_chao_zong }
+            has_country_leader = { character = QIE_ws_wu_pei_fu }
+            has_country_leader = { character = QIE_ws_luanwu_yuan }
+            has_country_leader = { character = QIE_ws_qian_neng_xun }
+            has_country_leader = { character = QIE_ws_tang_er_he }
+            has_country_leader = { character = QIE_ws_armchair_of_lv_dongbin }
+        }
     }
 }
 
