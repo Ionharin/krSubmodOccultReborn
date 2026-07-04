@@ -8,11 +8,13 @@ focus_tree = {
 		}
 	}
 	default = no
+	shared_focus = MCO_the_born_of_shanrendao
 	focus = {
 		id = KOR_pnr_select_Daesoonjinrihoe
 		x = -10
 		y = 4
 		cost = 4
+		icon = GFX_kor_select_Daesoonjinrihoe
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
@@ -28,6 +30,7 @@ focus_tree = {
 		x = -20
 		y = 4
 		cost = 4
+		icon = GFX_kor_select_Bocheonism
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
@@ -40,9 +43,10 @@ focus_tree = {
 	}
 	focus = {
 		id = KOR_pnr_select_Jeungsanbeop
-		x = 1
+		x = 0
 		y = 4
 		cost = 4
+		icon = GFX_kor_select_Jeungsanbeop
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
@@ -57,15 +61,23 @@ focus_tree = {
 		id = KOR_pnr_at_the_top_of_Jeungsan
 		x = -10
 		y = 1
-		cost = 9
+		cost = 8
+		icon = GFX_kor_at_the_top_of_Jeungsan
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_stay_in_land_your_birth
+		}
+		prerequisite = {
+			focus = KOR_pnr_the_japanese_who_returned
+		}
 	}
 	focus = {
 		id = KOR_pnr_born_in_Jeollabuk_do
 		x = -10
 		y = 2
-		cost = 6
+		cost = 12
+		icon = GFX_kor_born_in_Jeollabuk_do
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -73,10 +85,41 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = new_focus_2
+		id = KOR_pnr_the_retinue_army_system
+		x = -14
+		y = 12
+		cost = 0
+		icon = GFX_focus_AFG_royal_guard
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_unfinished_works_of_kwangmu_reform
+		}
+	}
+	focus = {
+		id = KOR_pnr_the_cultural_renaissance_of_the_korean_empire
+		x = -16
+		y = 13
+		cost = 0
+		icon = GFX_kor_the_cultural_renaissance_of_the_korean_empire
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_grant_the_capitalist_class_aristocratic_status
+		}
+		prerequisite = {
+			focus = KOR_pnr_the_retinue_army_system
+		}
+		prerequisite = {
+			focus = KOR_pnr_land_measurement_and_new_deeds
+		}
+	}
+	focus = {
+		id = KOR_pnr_return_to_jeolla_do
 		x = -21
 		y = 6
-		cost = 0
+		cost = 4
+		icon = GFX_goal_ENG_back_to_the_masses
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -84,10 +127,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = new_focus_3
+		id = KOR_pnr_national_household_registration
 		x = -19
 		y = 6
-		cost = 0
+		cost = 4
+		icon = GFX_goal_generic_investigate_corruption
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -95,39 +139,29 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = new_focus_4
-		x = -15
-		y = 5
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOR_pnr_select_Bocheonism
-			focus = KOR_pnr_select_Daesoonjinrihoe
-		}
-	}
-	focus = {
-		id = new_focus_5
+		id = KOR_pnr_discussion_on_the_country_system
 		x = -20
 		y = 7
 		cost = 0
+		icon = GFX_focus_AUS_lawmaking_leniency
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = new_focus_6
+			focus = KOR_pnr_heaven_kingdom_begins_underfoot
 		}
 		prerequisite = {
-			focus = new_focus_2
+			focus = KOR_pnr_return_to_jeolla_do
 		}
 		prerequisite = {
-			focus = new_focus_3
+			focus = KOR_pnr_national_household_registration
 		}
 	}
 	focus = {
-		id = new_focus_6
+		id = KOR_pnr_heaven_kingdom_begins_underfoot
 		x = -20
 		y = 5
-		cost = 0
+		cost = 6
+		icon = GFX_focus_AUS_agriculture
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -135,744 +169,1595 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = new_focus_7
+		id = KOR_pnr_guidance_of_the_aspirant
 		x = -23
 		y = 8
 		cost = 0
+		icon = GFX_kor_guidance_of_the_aspirant
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
-			focus = new_focus_8
+			focus = KOR_pnr_destiny_of_cha_kyungseok
 		}
 		prerequisite = {
-			focus = new_focus_5
+			focus = KOR_pnr_discussion_on_the_country_system
 		}
 	}
 	focus = {
-		id = new_focus_8
-		x = -15
+		id = KOR_pnr_destiny_of_cha_kyungseok
+		x = -16
 		y = 8
 		cost = 0
+		icon = GFX_kor_destiny_of_cha_kyungseok
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
-			focus = new_focus_7
+			focus = KOR_pnr_guidance_of_the_aspirant
 		}
 		prerequisite = {
-			focus = new_focus_5
+			focus = KOR_pnr_discussion_on_the_country_system
 		}
 	}
 	focus = {
-		id = new_focus_9
-		x = -15
-		y = 12
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_23
-		}
-	}
-	focus = {
-		id = new_focus_10
+		id = KOR_pnr_innovation_and_review_committee
 		x = -24
 		y = 9
 		cost = 0
+		icon = GFX_focus_generic_commission
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = new_focus_7
+			focus = KOR_pnr_guidance_of_the_aspirant
 		}
 	}
 	focus = {
-		id = new_focus_11
+		id = KOR_pnr_land_reform_law
 		x = -25
 		y = 10
 		cost = 0
+		icon = GFX_focus_PRC_land_revolution_expedited
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = new_focus_10
+			focus = KOR_pnr_innovation_and_review_committee
 		}
 	}
 	focus = {
-		id = new_focus_12
+		id = KOR_pnr_cultural_renaissance
 		x = -23
 		y = 10
 		cost = 0
+		icon = GFX_kor_cultural_renaissance
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = new_focus_10
+			focus = KOR_pnr_innovation_and_review_committee
 		}
 	}
 	focus = {
-		id = new_focus_13
-		x = -25
-		y = 11
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_11
-		}
-	}
-	focus = {
-		id = new_focus_14
+		id = KOR_pnr_benefit_to_the_people
 		x = -23
 		y = 11
 		cost = 0
+		icon = GFX_kor_benefit_to_the_people
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = new_focus_12
+			focus = KOR_pnr_cultural_renaissance
 		}
 	}
 	focus = {
-		id = new_focus_15
+		id = KOR_pnr_korean_literacy_education
 		x = -21
 		y = 10
 		cost = 0
+		icon = GFX_focus_generic_military_academy
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = new_focus_10
+			focus = KOR_pnr_innovation_and_review_committee
 		}
 	}
 	focus = {
-		id = new_focus_16
-		x = -20
-		y = 11
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_15
-			focus = new_focus_20
-		}
-	}
-	focus = {
-		id = new_focus_17
+		id = KOR_npr_all_people_live_in_peace
 		x = -24
 		y = 13
 		cost = 0
+		icon = GFX_kor_all_people_live_in_peace
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = new_focus_10
+			focus = KOR_pnr_innovation_and_review_committee
 		}
 	}
 	focus = {
-		id = new_focus_18
-		x = -16
+		id = KOR_pnr_thirteen_roads_imperial_tours
+		x = -17
 		y = 9
 		cost = 0
+		icon = GFX_focus_AFG_retire_the_uncles
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
-			focus = new_focus_19
+			focus = KOR_pnr_the_coronation_ceremony_again
 		}
 		prerequisite = {
-			focus = new_focus_8
+			focus = KOR_pnr_destiny_of_cha_kyungseok
 		}
 	}
 	focus = {
-		id = new_focus_19
+		id = KOR_pnr_the_coronation_ceremony_again
 		x = -14
 		y = 9
 		cost = 0
+		icon = GFX_focus_JAP_sea_the_showa_restoration
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
-			focus = new_focus_18
+			focus = KOR_pnr_thirteen_roads_imperial_tours
 		}
 		prerequisite = {
-			focus = new_focus_8
+			focus = KOR_pnr_destiny_of_cha_kyungseok
 		}
 	}
 	focus = {
-		id = new_focus_20
+		id = KOR_pnr_the_consensus_of_the_korean_people
 		x = -19
 		y = 10
 		cost = 0
+		icon = GFX_focus_JAP_joshi_teishin_tai
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = new_focus_18
+			focus = KOR_pnr_thirteen_roads_imperial_tours
 		}
 	}
 	focus = {
-		id = new_focus_21
-		x = -20
-		y = 12
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_16
-		}
-	}
-	focus = {
-		id = new_focus_22
-		x = -15
-		y = 10
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_8
-		}
-	}
-	focus = {
-		id = new_focus_23
-		x = -15
-		y = 11
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_22
-		}
-	}
-	focus = {
-		id = new_focus_24
-		x = -17
-		y = 12
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_23
-		}
-	}
-	focus = {
-		id = new_focus_25
-		x = -13
-		y = 12
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_23
-		}
-	}
-	focus = {
-		id = new_focus_26
-		x = -15
-		y = 13
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_24
-		}
-		prerequisite = {
-			focus = new_focus_9
-		}
-		prerequisite = {
-			focus = new_focus_25
-		}
-	}
-	focus = {
-		id = new_focus_27
-		x = -11
-		y = 5
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOR_pnr_select_Daesoonjinrihoe
-		}
-	}
-	focus = {
-		id = new_focus_28
-		x = -9
-		y = 5
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOR_pnr_select_Daesoonjinrihoe
-		}
-	}
-	focus = {
-		id = new_focus_29
-		x = -10
-		y = 6
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOR_pnr_select_Daesoonjinrihoe
-		}
-	}
-	focus = {
-		id = new_focus_30
-		x = -12
-		y = 6
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_27
-		}
-	}
-	focus = {
-		id = new_focus_31
-		x = -8
-		y = 6
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_28
-		}
-	}
-	focus = {
-		id = new_focus_32
-		x = -10
-		y = 7
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_29
-		}
-	}
-	focus = {
-		id = new_focus_33
-		x = 3
-		y = 6
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_55
-		}
-	}
-	focus = {
-		id = new_focus_34
-		x = -10
-		y = 8
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = new_focus_36
-		}
-		prerequisite = {
-			focus = new_focus_32
-		}
-	}
-	focus = {
-		id = new_focus_36
-		x = -4
-		y = 8
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = new_focus_34
-		}
-		prerequisite = {
-			focus = new_focus_32
-		}
-	}
-	focus = {
-		id = new_focus_37
-		x = -12
-		y = 9
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_34
-		}
-	}
-	focus = {
-		id = new_focus_38
-		x = -13
-		y = 10
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_19
-			focus = new_focus_37
-		}
-	}
-	focus = {
-		id = new_focus_40
-		x = -11
-		y = 12
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = new_focus_43
-		}
-		prerequisite = {
-			focus = new_focus_37
-			focus = new_focus_41
-		}
-	}
-	focus = {
-		id = new_focus_41
-		x = -10
-		y = 9
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_34
-		}
-	}
-	focus = {
-		id = new_focus_42
-		x = -10
-		y = 13
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_41
-		}
-		prerequisite = {
-			focus = new_focus_40
-			focus = new_focus_43
-		}
-	}
-	focus = {
-		id = new_focus_43
-		x = -9
-		y = 12
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = new_focus_40
-		}
-		prerequisite = {
-			focus = new_focus_41
-			focus = new_focus_45
-		}
-	}
-	focus = {
-		id = new_focus_45
-		x = -8
-		y = 9
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_34
-		}
-	}
-	focus = {
-		id = new_focus_47
-		x = -6
-		y = 10
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_45
-			focus = new_focus_50
-		}
-	}
-	focus = {
-		id = new_focus_50
-		x = -4
-		y = 9
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_36
-		}
-	}
-	focus = {
-		id = new_focus_51
-		x = -5
-		y = 12
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_50
-		}
-	}
-	focus = {
-		id = new_focus_52
-		x = -3
-		y = 12
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_50
-		}
-	}
-	focus = {
-		id = new_focus_53
-		x = -4
-		y = 13
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_51
-		}
-		prerequisite = {
-			focus = new_focus_52
-		}
-	}
-	focus = {
-		id = new_focus_54
-		x = -2
-		y = 5
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOR_pnr_select_Jeungsanbeop
-		}
-	}
-	focus = {
-		id = new_focus_55
-		x = 4
-		y = 5
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOR_pnr_select_Jeungsanbeop
-		}
-	}
-	focus = {
-		id = new_focus_56
-		x = 1
-		y = 6
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_57
-			focus = new_focus_58
-		}
-	}
-	focus = {
-		id = new_focus_57
-		x = 0
-		y = 5
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOR_pnr_select_Jeungsanbeop
-		}
-	}
-	focus = {
-		id = new_focus_58
-		x = 2
-		y = 5
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOR_pnr_select_Jeungsanbeop
-		}
-	}
-	focus = {
-		id = new_focus_59
-		x = -5
-		y = 5
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOR_pnr_select_Daesoonjinrihoe
-			focus = KOR_pnr_select_Jeungsanbeop
-		}
-	}
-	focus = {
-		id = new_focus_62
-		x = 1
-		y = 7
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_1
-		}
-		prerequisite = {
-			focus = new_focus_33
-		}
-	}
-	focus = {
-		id = new_focus_63
-		x = 0
-		y = 8
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = new_focus_64
-		}
-		prerequisite = {
-			focus = new_focus_62
-		}
-	}
-	focus = {
-		id = new_focus_64
-		x = 2
-		y = 8
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = new_focus_63
-		}
-		prerequisite = {
-			focus = new_focus_62
-		}
-	}
-	focus = {
-		id = new_focus_65
-		x = 1
-		y = 10
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_63
-			focus = new_focus_64
-		}
-	}
-	focus = {
-		id = new_focus_66
-		x = 1
-		y = 12
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_65
-		}
-	}
-	focus = {
-		id = new_focus_67
-		x = -1
-		y = 9
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_63
-		}
-	}
-	focus = {
-		id = new_focus_68
-		x = -1
-		y = 11
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_67
-		}
-		prerequisite = {
-			focus = new_focus_65
-		}
-	}
-	focus = {
-		id = new_focus_69
-		x = -1
-		y = 13
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_68
-		}
-		prerequisite = {
-			focus = new_focus_66
-		}
-	}
-	focus = {
-		id = new_focus_70
-		x = 3
-		y = 9
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_64
-		}
-	}
-	focus = {
-		id = new_focus_71
-		x = 3
-		y = 11
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_70
-		}
-		prerequisite = {
-			focus = new_focus_65
-		}
-	}
-	focus = {
-		id = new_focus_72
-		x = 3
-		y = 13
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_71
-		}
-		prerequisite = {
-			focus = new_focus_66
-		}
-	}
-	focus = {
-		id = new_focus_74
-		x = -2
-		y = 15
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = new_focus_53
-			focus = new_focus_69
-			focus = new_focus_72
-		}
-	}
-	focus = {
-		id = new_focus_73
+		id = KOR_pnr_korea_is_a_fierce_tiger
 		x = -18
 		y = 15
 		cost = 0
+		icon = GFX_focus_PRC_stoke_the_flames
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = new_focus_17
-			focus = new_focus_26
-			focus = new_focus_42
+			focus = KOR_npr_all_people_live_in_peace
+			focus = KOR_pnr_the_cultural_renaissance_of_the_korean_empire
+			focus = KOR_pnr_the_eastern_celestial_world
 		}
 	}
 	focus = {
-		id = new_focus_1
-		x = -1
-		y = 6
+		id = KOR_pnr_the_hibiscus_blooms
+		x = -10
+		y = -1
+		cost = 8
+		icon = GFX_kor_the_hibiscus_blooms
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = KOR_pnr_the_japanese_who_returned
+		x = -9
+		y = 0
+		cost = 4
+		icon = GFX_focus_JAP_propaganda
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_stay_in_land_your_birth
+		}
+		prerequisite = {
+			focus = KOR_pnr_the_hibiscus_blooms
+		}
+	}
+	focus = {
+		id = KOR_pnr_stay_in_land_your_birth
+		x = -11
+		y = 0
+		cost = 4
+		icon = GFX_focus_generic_immigration
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_the_japanese_who_returned
+		}
+		prerequisite = {
+			focus = KOR_pnr_the_hibiscus_blooms
+		}
+	}
+	focus = {
+		id = KOR_pnr_promote_the_ilminism
+		x = -15
+		y = 5
 		cost = 0
+		icon = GFX_focus_JAP_ignite_the_korean_peninsula
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = new_focus_54
+			focus = KOR_pnr_select_Bocheonism
+			focus = KOR_pnr_select_Daesoonjinrihoe
+		}
+	}
+	focus = {
+		id = KOR_pnr_unfinished_works_of_kwangmu_reform
+		x = -16
+		y = 11
+		cost = 0
+		icon = GFX_focus_JAP_embrace_kokutai
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_repair_sibiljeon
+		}
+	}
+	focus = {
+		id = KOR_pnr_grant_the_capitalist_class_aristocratic_status
+		x = -16
+		y = 12
+		cost = 0
+		icon = GFX_focus_AFG_promote_the_counter_elite
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_unfinished_works_of_kwangmu_reform
+		}
+	}
+	focus = {
+		id = KOR_pnr_land_measurement_and_new_deeds
+		x = -18
+		y = 12
+		cost = 0
+		icon = GFX_focus_generic_land_redistribution
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_unfinished_works_of_kwangmu_reform
+		}
+	}
+	focus = {
+		id = KOR_pnr_encourage_the_korean_youth_league
+		x = -20
+		y = 11
+		cost = 0
+		icon = GFX_focus_RAJ_seek_allies_with_the_muslim_league
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_korean_literacy_education
+			focus = KOR_pnr_the_consensus_of_the_korean_people
+		}
+	}
+	focus = {
+		id = KOR_pnr_seoul_normal_school
+		x = -20
+		y = 12
+		cost = 0
+		icon = GFX_goal_KTG_Educate_natives
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_encourage_the_korean_youth_league
+		}
+	}
+	focus = {
+		id = KOR_pnr_repair_sibiljeon
+		x = -16
+		y = 10
+		cost = 0
+		icon = GFX_kor_repair_sibiljeon
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_thirteen_roads_imperial_tours
+			focus = KOR_pnr_the_coronation_ceremony_again
+		}
+	}
+	focus = {
+		id = KOR_pnr_peace_between_yin_and_yang
+		x = -11
+		y = 5
+		cost = 0
+		icon = GFX_goal_generic_taoism
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Daesoonjinrihoe
+		}
+	}
+	focus = {
+		id = KOR_pnr_resolving_grievances
+		x = -9
+		y = 5
+		cost = 0
+		icon = GFX_kor_resolving_grievances
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Daesoonjinrihoe
+		}
+	}
+	focus = {
+		id = KOR_pnr_seek_the_broadest_consensus
+		x = -10
+		y = 6
+		cost = 0
+		icon = GFX_goal_generic_solidarity
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Daesoonjinrihoe
+		}
+	}
+	focus = {
+		id = KOR_pnr_comfort_the_victim
+		x = -12
+		y = 6
+		cost = 0
+		icon = GFX_focus_generic_diverse_army
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_peace_between_yin_and_yang
+		}
+	}
+	focus = {
+		id = KOR_pnr_compulsory_reeducation
+		x = -8
+		y = 6
+		cost = 0
+		icon = GFX_goal_PAN_Create_the_Universidad_de_Panama
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_resolving_grievances
+		}
+	}
+	focus = {
+		id = KOR_pnr_raise_the_torch
+		x = -10
+		y = 7
+		cost = 0
+		icon = GFX_kor_raise_the_torch
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_seek_the_broadest_consensus
+		}
+	}
+	focus = {
+		id = KOR_pnr_the_vision_of_jo_jeong_san
+		x = -10
+		y = 8
+		cost = 0
+		icon = GFX_kor_the_vision_of_jo_jeong_san
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_the_dream_of_park_han_gyeong
+		}
+		prerequisite = {
+			focus = KOR_pnr_raise_the_torch
+		}
+	}
+	focus = {
+		id = KOR_pnr_the_dream_of_park_han_gyeong
+		x = -6
+		y = 8
+		cost = 0
+		icon = GFX_kor_the_dream_of_park_han_gyeong
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_the_vision_of_jo_jeong_san
+		}
+		prerequisite = {
+			focus = KOR_pnr_raise_the_torch
+		}
+	}
+	focus = {
+		id = KOR_pnr_radio_speech
+		x = -8
+		y = 9
+		cost = 0
+		icon = GFX_focus_SWE_radiotjanst
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_vision_of_jo_jeong_san
+			focus = KOR_pnr_the_dream_of_park_han_gyeong
+		}
+	}
+	focus = {
+		id = KOR_pnr_build_sungkyunkwan_university
+		x = -13
+		y = 10
+		cost = 0
+		icon = GFX_goal_KTG_Bookstack
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_coronation_ceremony_again
+		}
+		prerequisite = {
+			focus = KOR_pnr_emphasize_the_national_spirit
+		}
+	}
+	focus = {
+		id = KOR_pnr_welfare_state
+		x = -10
+		y = 10
+		cost = 0
+		icon = GFX_focus_generic_welfare
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_national_health_plan
+		}
+	}
+	focus = {
+		id = KOR_pnr_emphasize_the_national_spirit
+		x = -12
+		y = 9
+		cost = 0
+		icon = GFX_focus_AFG_telegraph
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_vision_of_jo_jeong_san
+		}
+	}
+	focus = {
+		id = KOR_pnr_people_born_in_the_land_of_the_country
+		x = -6
+		y = 5
+		cost = 0
+		icon = GFX_goal_agrarian_soldiers
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Daesoonjinrihoe
+			focus = KOR_pnr_select_Jeungsanbeop
+		}
+	}
+	focus = {
+		id = KOR_pnr_daejin_university
+		x = -7
+		y = 10
+		cost = 0
+		icon = GFX_focus_ARG_universidad_de_buenos_aires
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_radio_speech
+		}
+	}
+	focus = {
+		id = KOR_pnr_declare_a_state_of_emergency
+		x = -9
+		y = 12
+		cost = 0
+		icon = GFX_focus_BRA_repeale_national_security_law
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_the_authority_of_father
+		}
+		prerequisite = {
+			focus = KOR_pnr_radio_speech
+		}
+		prerequisite = {
+			focus = KOR_pnr_welfare_state
+		}
+	}
+	focus = {
+		id = KOR_pnr_agricultural_collaboration
+		x = -25
+		y = 11
+		cost = 0
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_land_reform_law
+		}
+	}
+	focus = {
+		id = KOR_pnr_national_health_plan
+		x = -10
+		y = 9
+		cost = 0
+		icon = GFX_focus_SWE_bofors_fly_swatter
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_vision_of_jo_jeong_san
+		}
+	}
+	focus = {
+		id = KOR_pnr_establish_the_integrity_supervision_committee
+		x = -6
+		y = 11
+		cost = 0
+		icon = GFX_focus_generic_reduce_unneccessary_expenditure
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_establish_the_order_administration
+		}
+	}
+	focus = {
+		id = KOR_pnr_the_member_of_asia_order
+		x = -5
+		y = 13
+		cost = 0
+		icon = GFX_focus_JAP_promote_pan_asianism
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_three_major_business_budgets
+		}
+		prerequisite = {
+			focus = KOR_pnr_establish_civilian_government
+		}
+	}
+	focus = {
+		id = KOR_pnr_swear_to_continue_the_legacy
+		x = 2
+		y = 6
+		cost = 0
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_establishing_the_holy_land
+		}
+	}
+	focus = {
+		id = KOR_pnr_the_eastern_celestial_world
+		x = -10
+		y = 13
+		cost = 0
+		icon = GFX_kor_the_eastern_celestial_world
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_authority_of_father
+			focus = KOR_pnr_declare_a_state_of_emergency
+		}
+	}
+	focus = {
+		id = KOR_pnr_establish_the_order_administration
+		x = -5
+		y = 9
+		cost = 0
+		icon = GFX_focus_CHI_registry_of_property
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_dream_of_park_han_gyeong
+		}
+	}
+	focus = {
+		id = KOR_pnr_three_major_business_budgets
+		x = -6
+		y = 12
+		cost = 0
+		icon = GFX_focus_INS_peg_indies_guilder_to_dutch_guilder
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_establish_the_integrity_supervision_committee
+		}
+	}
+	focus = {
+		id = KOR_pnr_establish_civilian_government
+		x = -4
+		y = 12
+		cost = 0
+		icon = GFX_focus_GER_strengthen_the_proletarian_international
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_disarm_the_restoration_army
+		}
+	}
+	focus = {
+		id = KOR_pnr_registered_believers
+		x = -3
+		y = 5
+		cost = 0
+		icon = GFX_focus_SIA_the_duty_of_the_thai_people_during_the_war_act
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Jeungsanbeop
+		}
+	}
+	focus = {
+		id = KOR_pnr_establishing_the_holy_land
+		x = 3
+		y = 5
+		cost = 0
+		icon = GFX_focus_PRC_petition_for_freedom
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Jeungsanbeop
+		}
+	}
+	focus = {
+		id = KOR_pnr_second_jeungsan_conference
+		x = 0
+		y = 6
+		cost = 0
+		icon = GFX_focus_generic_phone
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_respectfully_request_remains_of_the_patriarch
+			focus = KOR_pnr_compile_the_scriptures_of_various_schools
+		}
+	}
+	focus = {
+		id = KOR_pnr_respectfully_request_remains_of_the_patriarch
+		x = -1
+		y = 5
+		cost = 0
+		icon = GFX_kor_respectfully_request_remains_of_the_patriarch
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Jeungsanbeop
+		}
+	}
+	focus = {
+		id = KOR_pnr_compile_the_scriptures_of_various_schools
+		x = 1
+		y = 5
+		cost = 0
+		icon = GFX_goal_civil_service
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_select_Jeungsanbeop
+		}
+	}
+	focus = {
+		id = KOR_pnr_third_jeungsan_conference
+		x = 0
+		y = 8
+		cost = 0
+		icon = GFX_kor_third_jeungsan_conference
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_second_jeungsan_conference
+		}
+		prerequisite = {
+			focus = KOR_pnr_power_to_the_local
+		}
+		prerequisite = {
+			focus = KOR_pnr_swear_to_continue_the_legacy
+		}
+	}
+	focus = {
+		id = KOR_pnr_as_the_coordinator
+		x = -1
+		y = 9
+		cost = 0
+		icon = GFX_kor_as_the_coordinator
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_as_the_assistant
+		}
+		prerequisite = {
+			focus = KOR_pnr_third_jeungsan_conference
+		}
+	}
+	focus = {
+		id = KOR_pnr_as_the_assistant
+		x = 1
+		y = 9
+		cost = 0
+		icon = GFX_kor_as_the_assistant_0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_as_the_coordinator
+		}
+		prerequisite = {
+			focus = KOR_pnr_third_jeungsan_conference
+		}
+	}
+	focus = {
+		id = KOR_pnr_reconciliation_with_the_restoration_army
+		x = 0
+		y = 10
+		cost = 0
+		icon = GFX_focus_POL_beck_ribbentrop
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_as_the_coordinator
+			focus = KOR_pnr_as_the_assistant
+		}
+	}
+	focus = {
+		id = KOR_pnr_defense_policy
+		x = 0
+		y = 12
+		cost = 0
+		icon = GFX_focus_SIA_built_to_withstand_every_flame
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_reconciliation_with_the_restoration_army
+		}
+	}
+	focus = {
+		id = KOR_pnr_re_establish_the_township_compact
+		x = -2
+		y = 10
+		cost = 0
+		icon = GFX_focus_ICE_embrace_the_workers_revolution
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_as_the_coordinator
+		}
+	}
+	focus = {
+		id = KOR_pnr_redemption_of_land
+		x = -2
+		y = 12
+		cost = 0
+		icon = GFX_focus_JAP_central_agricultural_association
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_re_establish_the_township_compact
+		}
+		prerequisite = {
+			focus = KOR_pnr_reconciliation_with_the_restoration_army
+		}
+	}
+	focus = {
+		id = KOR_pnr_rurals_community
+		x = -2
+		y = 13
+		cost = 0
+		icon = GFX_kor_rurals_community
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_redemption_of_land
+		}
+		prerequisite = {
+			focus = KOR_pnr_defense_policy
+		}
+	}
+	focus = {
+		id = KOR_pnr_seek_consultant_support
+		x = 2
+		y = 10
+		cost = 0
+		icon = GFX_focus_generic_industrial_experts
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_as_the_assistant
+		}
+	}
+	focus = {
+		id = KOR_pnr_model_village
+		x = 2
+		y = 12
+		cost = 0
+		icon = GFX_focus_SIA_thai_rice_company
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_seek_consultant_support
+		}
+		prerequisite = {
+			focus = KOR_pnr_reconciliation_with_the_restoration_army
+		}
+	}
+	focus = {
+		id = KOR_pnr_the_granary_of_east_asia
+		x = 2
+		y = 13
+		cost = 0
+		icon = GFX_kor_the_granary_of_east_asia
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_model_village
+		}
+		prerequisite = {
+			focus = KOR_pnr_defense_policy
+		}
+	}
+	focus = {
+		id = KOR_pnr_power_to_the_local
+		x = -2
+		y = 6
+		cost = 0
+		icon = GFX_focus_generic_monarchist_sentiment
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_registered_believers
+		}
+	}
+	focus = {
+		id = KOR_pnr_the_authority_of_father
+		x = -11
+		y = 12
+		cost = 0
+		icon = GFX_focus_SWI_dissolve_the_federal_council
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_declare_a_state_of_emergency
+		}
+		prerequisite = {
+			focus = KOR_pnr_emphasize_the_national_spirit
+		}
+		prerequisite = {
+			focus = KOR_pnr_welfare_state
+		}
+	}
+	focus = {
+		id = KOR_pnr_disarm_the_restoration_army
+		x = -4
+		y = 11
+		cost = 0
+		icon = GFX_focus_generic_crush_the_military
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_establish_the_order_administration
+		}
+	}
+	focus = {
+		id = KOR_pnr_army_restructuring
+		x = -31
+		y = 4
+		cost = 0
+		icon = GFX_focus_RAJ_military_into_the_workforce
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_born_in_Jeollabuk_do
+		}
+	}
+	focus = {
+		id = KOR_pnr_the_giant_on_the_ocean
+		x = -35
+		y = 10
+		cost = 0
+		icon = GFX_goal_generic_naval_carrier2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_emphasizing_offshore_self_defense
+		}
+	}
+	focus = {
+		id = KOR_pnr_hermit_kingdom
+		x = -2
+		y = 15
+		cost = 0
+		icon = GFX_kor_hermit_kingdom
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_member_of_asia_order
+			focus = KOR_pnr_rurals_community
+			focus = KOR_pnr_the_granary_of_east_asia
+		}
+	}
+	focus = {
+		id = KOR_pnr_towards_independence
+		x = -12
+		y = 16
+		cost = 0
+		icon = GFX_focus_RAJ_a_tiger_unchained
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_follow_our_lord
+		}
+		prerequisite = {
+			focus = KOR_pnr_korea_is_a_fierce_tiger
+			focus = KOR_pnr_hermit_kingdom
+		}
+	}
+	focus = {
+		id = KOR_pnr_follow_our_lord
+		x = -8
+		y = 16
+		cost = 0
+		icon = GFX_kor_follow_our_lord
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_towards_independence
+		}
+		prerequisite = {
+			focus = KOR_pnr_korea_is_a_fierce_tiger
+			focus = KOR_pnr_hermit_kingdom
+		}
+	}
+	focus = {
+		id = KOR_pnr_start_five_year_project
+		x = 16
+		y = 5
+		cost = 0
+		icon = GFX_goal_generic_cash_stimulus_plan
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_zhanhou_chongjian_weiiyuanhui
+		}
+	}
+	focus = {
+		id = KOR_pnr_zhanhou_chongjian_weiiyuanhui
+		x = 11
+		y = 4
+		cost = 0
+		icon = GFX_goal_syndicalist_workers
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_born_in_Jeollabuk_do
+		}
+	}
+	focus = {
+		id = KOR_pnr_huifu_yinhang
+		x = 14
+		y = 5
+		cost = 0
+		icon = GFX_goal_generic_banking_legislation
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_zhanhou_chongjian_weiiyuanhui
+		}
+	}
+	focus = {
+		id = KOR_pnr_outside_funds
+		x = 14
+		y = 7
+		cost = 0
+		icon = BAT_charity_propaganda
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_independent_developing
+		}
+		prerequisite = {
+			focus = KOR_pnr_globalized_economy
+		}
+	}
+	focus = {
+		id = KOR_pnr_independent_developing
+		x = 16
+		y = 7
+		cost = 0
+		icon = GFX_focus_generic_industry_investment
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_outside_funds
+		}
+		prerequisite = {
+			focus = KOR_pnr_globalized_economy
+		}
+	}
+	focus = {
+		id = KOR_pnr_revitalization_small_and_medium-sized_industries
+		x = 17
+		y = 8
+		cost = 0
+		icon = GFX_focus_generic_full_employment
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_independent_developing
+		}
+	}
+	focus = {
+		id = KOR_pnr_tendency_toward_large_enterprises
+		x = 13
+		y = 8
+		cost = 0
+		icon = GFX_focus_generic_industrialists
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_outside_funds
+		}
+	}
+	focus = {
+		id = KOR_pnr_the_birth_of_the_chaebol
+		x = 12
+		y = 9
+		cost = 0
+		icon = GFX_goal_capitalist_system
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_tendency_toward_large_enterprises
+		}
+	}
+	focus = {
+		id = KOR_pnr_the_sound_industrial_supply_chain
+		x = 18
+		y = 9
+		cost = 0
+		icon = GFX_focus_generic_central_planning
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_revitalization_small_and_medium-sized_industries
+		}
+	}
+	focus = {
+		id = KOR_pnr_globalized_economy
+		x = 15
+		y = 6
+		cost = 0
+		icon = GFX_focus_generic_devaluation
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_start_five_year_project
+		}
+		prerequisite = {
+			focus = KOR_pnr_huifu_yinhang
+		}
+	}
+	focus = {
+		id = KOR_pnr_the_legacy_of_japanese
+		x = 9
+		y = 5
+		cost = 0
+		icon = GFX_focus_JAP_the_fate_of_the_imperial_family
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_zhanhou_chongjian_weiiyuanhui
+		}
+	}
+	focus = {
+		id = KOR_pnr_military_prior
+		x = 16
+		y = 9
+		cost = 0
+		icon = GFX_focus_generic_reorient_production
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_light_industry_first
+		}
+		prerequisite = {
+			focus = KOR_pnr_build_beautiful_future
+		}
+	}
+	focus = {
+		id = KOR_the_miracle_of_economy
+		x = 13
+		y = 11
+		cost = 0
+		icon = GFX_kor_the_miracle_of_economy
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_first_light_bulb
+		}
+		prerequisite = {
+			focus = KOR_pnr_a_long_history
+		}
+		prerequisite = {
+			focus = KOR_railway_of_all_country
+		}
+		prerequisite = {
+			focus = KOR_pnr_encourage_innovation
+		}
+	}
+	focus = {
+		id = KOR_pnr_weapon_development_department
+		x = -32
+		y = 8
+		cost = 0
+		icon = GFX_goal_generic_artillery_factories
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_loyal_to_the_country
+		}
+	}
+	focus = {
+		id = KOR_pnr_the_experience_of_national_restoration
+		x = -30
+		y = 8
+		cost = 0
+		icon = GFX_focus_CHI_political_advisors_in_every_division
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_loyal_to_the_country
+		}
+	}
+	focus = {
+		id = KOR_pnr_focus_on_logistics
+		x = -33
+		y = 9
+		cost = 0
+		icon = GFX_focus_generic_truck
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_weapon_development_department
+		}
+	}
+	focus = {
+		id = KOR_pnr_mechnical_military
+		x = -31
+		y = 10
+		cost = 0
+		icon = GFX_focus_generic_purchase_mechanized_equipment
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_focus_on_logistics
+		}
+		prerequisite = {
+			focus = KOR_pnr_superior_firepower
+		}
+		prerequisite = {
+			focus = KOR_pnr_unyielding_will
+		}
+	}
+	focus = {
+		id = KOR_pnr_superior_firepower
+		x = -31
+		y = 9
+		cost = 0
+		icon = GFX_focus_SWE_let_fly_all_guns
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_experience_of_national_restoration
+		}
+		prerequisite = {
+			focus = KOR_pnr_weapon_development_department
+		}
+	}
+	focus = {
+		id = KOR_pnr_unyielding_will
+		x = -29
+		y = 9
+		cost = 0
+		icon = GFX_focus_generic_support_the_left_right
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_experience_of_national_restoration
+		}
+	}
+	focus = {
+		id = KOR_pnr_establish_the_military_academy
+		x = -31
+		y = 5
+		cost = 0
+		icon = GFX_goal_KOR_Army
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_army_restructuring
+		}
+	}
+	focus = {
+		id = KOR_pnr_fly_onto_the_sky
+		x = -27
+		y = 5
+		cost = 0
+		icon = GFX_goal_KOR_Airforce
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_army_restructuring
+		}
+	}
+	focus = {
+		id = KOR_pnr_ground_support
+		x = -26
+		y = 8
+		cost = 0
+		icon = GFX_goal_generic_air_bomber
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_air_dominator
+		}
+		prerequisite = {
+			focus = KOR_pnr_airport_safe
+		}
+	}
+	focus = {
+		id = KOR_pnr_air_dominator
+		x = -28
+		y = 8
+		cost = 0
+		icon = GFX_goal_generic_air_fighter
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_ground_support
+		}
+		prerequisite = {
+			focus = KOR_pnr_airport_safe
+		}
+	}
+	focus = {
+		id = KOR_pnr_learning_from_foreign_experience
+		x = -32
+		y = 6
+		cost = 0
+		icon = GFX_goal_generic_army_doctrines
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_establish_the_military_academy
+		}
+	}
+	focus = {
+		id = KOR_pnr_general_staff_department
+		x = -30
+		y = 6
+		cost = 0
+		icon = GFX_SOV_muster_the_old_guard_ccp_2d_sov_compatibility
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_establish_the_military_academy
+		}
+	}
+	focus = {
+		id = KOR_pnr_special_command_headquarters
+		x = -31
+		y = 11
+		cost = 0
+		icon = GFX_goal_KOR_secret_agency
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_mechnical_military
+		}
+		prerequisite = {
+			focus = KOR_pnr_golden_eagle_jet_airport
+		}
+		prerequisite = {
+			focus = KOR_pnr_the_giant_on_the_ocean
+		}
+	}
+	focus = {
+		id = KOR_pnr_loyal_to_the_country
+		x = -31
+		y = 7
+		cost = 0
+		icon = GFX_focus_CHI_decisive_battles
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_learning_from_foreign_experience
+		}
+		prerequisite = {
+			focus = KOR_pnr_general_staff_department
+		}
+	}
+	focus = {
+		id = KOR_pnr_southern_project
+		x = 9
+		y = 6
+		cost = 0
+		icon = GFX_kor_the_southern_project
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_legacy_of_japanese
+		}
+	}
+	focus = {
+		id = KOR_pnr_the_nascent_textile_industry
+		x = 10
+		y = 7
+		cost = 0
+		icon = GFX_focus_CHL_enlarge_the_textile_industries
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_southern_project
+		}
+	}
+	focus = {
+		id = KOR_pnr_build_beautiful_future
+		x = 15
+		y = 8
+		cost = 0
+		icon = GFX_focus_SWE_hygienic_housing
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_outside_funds
+			focus = KOR_pnr_independent_developing
+		}
+	}
+	focus = {
+		id = KOR_pnr_light_industry_first
+		x = 14
+		y = 9
+		cost = 0
+		icon = GFX_goal_generic_construct_civ_factory
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOR_pnr_military_prior
+		}
+		prerequisite = {
+			focus = KOR_pnr_build_beautiful_future
+		}
+		prerequisite = {
+			focus = KOR_pnr_tendency_toward_large_enterprises
+			focus = KOR_pnr_revitalization_small_and_medium-sized_industries
+		}
+	}
+	focus = {
+		id = KOR_pnr_a_long_history
+		x = 13
+		y = 10
+		cost = 0
+		icon = GFX_Goal_YUN_Promote_Tourism
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_light_industry_first
+			focus = KOR_pnr_military_prior
+		}
+	}
+	focus = {
+		id = KOR_railway_of_all_country
+		x = 15
+		y = 10
+		cost = 0
+		icon = GFX_goal_generic_railway_construction
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_light_industry_first
+			focus = KOR_pnr_military_prior
+		}
+	}
+	focus = {
+		id = KOR_pnr_encourage_innovation
+		x = 17
+		y = 10
+		cost = 0
+		icon = GFX_goal_generic_secret_documents
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_light_industry_first
+			focus = KOR_pnr_military_prior
+		}
+	}
+	focus = {
+		id = KOR_pnr_mechanised_agriculture
+		x = 11
+		y = 8
+		cost = 0
+		icon = GFX_focus_generic_modernizing_agriculture
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_nascent_textile_industry
+		}
+		prerequisite = {
+			focus = KOR_pnr_addictive_crops
+		}
+	}
+	focus = {
+		id = KOR_pnr_the_northern_project
+		x = 7
+		y = 6
+		cost = 0
+		icon = GFX_kor_the_northern_project
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_legacy_of_japanese
+		}
+	}
+	focus = {
+		id = KOR_pnr_restructuring_heavy_industry
+		x = 8
+		y = 7
+		cost = 0
+		icon = GFX_focus_SOV_merge_plants
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_northern_project
+		}
+	}
+	focus = {
+		id = KOR_pnr_ensure_industrial_raw_materials
+		x = 6
+		y = 7
+		cost = 0
+		icon = GFX_focus_PER_increase_oil_sales
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_northern_project
+		}
+	}
+	focus = {
+		id = KOR_pnr_from_the_future
+		x = 7
+		y = 8
+		cost = 0
+		icon = GFX_focus_JAP_the_five_great_cities
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_the_northern_project
+		}
+	}
+	focus = {
+		id = KOR_pnr_changjin_river_dam
+		x = 9
+		y = 8
+		cost = 0
+		icon = GFX_focus_generic_hydroelectric_energy
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_southern_project
+		}
+	}
+	focus = {
+		id = KOR_pnr_the_first_light_bulb
+		x = 9
+		y = 10
+		cost = 0
+		icon = GFX_focus_ARG_develop_the_electricity_sector
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_changjin_river_dam
+		}
+		prerequisite = {
+			focus = KOR_pnr_from_the_future
+		}
+		prerequisite = {
+			focus = KOR_pnr_mechanised_agriculture
+		}
+	}
+	focus = {
+		id = KOR_pnr_addictive_crops
+		x = 12
+		y = 7
+		cost = 0
+		icon = GFX_goal_generic_prohibition
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_southern_project
+		}
+	}
+	focus = {
+		id = KOR_pnr_remember_lee_shunchen
+		x = -35
+		y = 5
+		cost = 0
+		icon = GFX_goal_KOR_Navy
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_army_restructuring
+		}
+	}
+	focus = {
+		id = KOR_pnr_modified_transport_ship
+		x = -35
+		y = 8
+		cost = 0
+		icon = GFX_focus_generic_refit_civilian_ships
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_repair_japanese_ships
+		}
+		prerequisite = {
+			focus = KOR_pnr_expand_the_port
+		}
+	}
+	focus = {
+		id = KOR_pnr_emphasizing_offshore_self_defense
+		x = -35
+		y = 9
+		cost = 0
+		icon = GFX_focus_SWE_coastal_support
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_modified_transport_ship
+		}
+	}
+	focus = {
+		id = KOR_pnr_repair_japanese_ships
+		x = -36
+		y = 7
+		cost = 0
+		icon = GFX_focus_JAP_naval_armaments_program
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_remember_lee_shunchen
+		}
+	}
+	focus = {
+		id = KOR_pnr_expand_the_port
+		x = -34
+		y = 7
+		cost = 0
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_remember_lee_shunchen
+		}
+	}
+	focus = {
+		id = KOR_pnr_airport_base_building
+		x = -27
+		y = 6
+		cost = 0
+		icon = GFX_focus_PRC_pilot_training
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_fly_onto_the_sky
+		}
+	}
+	focus = {
+		id = KOR_pnr_airport_safe
+		x = -27
+		y = 7
+		cost = 0
+		icon = GFX_focus_CHI_formalise_training_regime
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_airport_base_building
+		}
+	}
+	focus = {
+		id = KOR_pnr_golden_eagle_jet_airport
+		x = -27
+		y = 10
+		cost = 0
+		icon = GFX_focus_generic_jet_planes
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOR_pnr_air_dominator
+			focus = KOR_pnr_ground_support
 		}
 	}
 }

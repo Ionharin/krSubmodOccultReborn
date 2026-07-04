@@ -1197,6 +1197,22 @@ country_event = { # 天下大同
     }
 }
 
+country_event = { # 一个疯子
+    id = QIE_ws_normal_events.17
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.17" }
+    title = QIE_ws_normal_events.17.t
+    desc = QIE_ws_normal_events.17.desc
+    picture = GFX_report_event_CHI_national_labor_university_rubber_factory
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 以安全为计，麻烦你们把她赶出去。
+        name = QIE_ws_normal_events.17.a
+        ai_chance = { factor = 1 }
+        add_political_power = -5
+    }
+}
+
 # Wushan God Circle Events
 
 country_event = { # 燕京纯阳宫内
@@ -2309,6 +2325,40 @@ country_event = { # 二仙降坛
         add_political_power = -10
         army_experience = 5
         add_war_support = 0.05
+    }
+}
+
+country_event = { # 教统降乩
+    id = QIE_ws_leader.48
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.48" }
+    title = QIE_ws_leader.48.t
+    desc = QIE_ws_leader.48.desc
+    picture = GFX_QIE_ws_leader_48
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 小仙今日临坛……
+        name = QIE_ws_leader.48.a
+        ai_chance = { factor = 1 }
+        add_political_power = 5
+    }
+}
+
+country_event = { # 神仙助农
+    id = QIE_ws_leader.49
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_leader.49" }
+    title = QIE_ws_leader.49.t
+    desc = QIE_ws_leader.49.desc
+    picture = GFX_QIE_ws_leader_49
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 嗬，今日可让我瞅见真神仙了。
+        name = QIE_ws_leader.49.a
+        ai_chance = { factor = 1 }
+        add_political_power = -35
+        add_stability = 0.05
+        add_war_support =0.05
     }
 }
 
