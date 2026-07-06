@@ -1,0 +1,1417 @@
+focus_tree = {
+	id = JAP_pnr_puppet_wushan
+	country = {
+		factor = 0
+	}
+	default = no
+	focus = {
+		id = JAP_ws_mark_of_the_defeated
+		x = 13
+		y = -4
+		cost = 52
+		icon = GFX_focus_SWE_organize_a_putsch
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_puppet_wushan"
+			add_ideas = JAP_pnr_under_the_shadow_of_the_dragon
+			add_ideas = JAP_pnr_governor_not_yet_arrived
+		}
+	}
+	focus = {
+		id = JAP_pnr_sheli_tuoguan_weiyuanhui
+		x = 13
+		y = 0
+		cost = 4
+		icon = GFX_focus_generic_improve_the_administration
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_ws_mark_of_the_defeated
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_sheli_tuoguan_weiyuanhui"
+			add_political_power = 50
+			JAP_replace_wartime_cabinet_effect = yes
+			custom_effect_tooltip = tooltip_white_line
+			set_party_name = {
+				ideology = social_democrat
+				long_name = JAP_nihon_shakaito_long
+				name = JAP_nihon_shakaito
+			}
+			set_party_name = {
+				ideology = market_liberal
+				long_name = JAP_nihon_jiyuto_long
+				name = JAP_nihon_jiyuto
+			}
+			set_party_name = {
+				ideology = social_conservative
+				long_name = JAP_nihon_minshuto_long
+				name = JAP_nihon_minshuto
+			}
+			set_party_name = {
+				ideology = paternal_autocrat
+				long_name = JAP_pnr_siwen_society_long
+				name = JAP_pnr_siwen_society
+			}
+			set_party_name = {
+				ideology = authoritarian_democrat
+				long_name = JAP_pnr_court_clique_long
+				name = JAP_pnr_court_clique
+			}
+			set_party_name = {
+				ideology = national_populist
+				long_name = JAP_pnr_dongyi_jimi_governorate_long
+				name = JAP_pnr_dongyi_jimi_governorate
+			}
+			if = {
+				limit = {
+					has_country_flag = JAP_liberal_puppet_flag
+				}
+				custom_effect_tooltip = tooltip_white_line
+				custom_effect_tooltip = JAP_elections_in_four_months_tt
+				hidden_effect = {
+					meta_effect = {
+						text = {
+							set_politics = {
+								ruling_party = var:current_party_ideology_group
+								last_election = "[CURRENT_DATE]"
+								election_frequency = 4
+								elections_allowed = yes
+							}
+						}
+						CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_solve_hyperinflation
+		x = 15
+		y = 1
+		cost = 7
+		icon = GFX_focus_generic_agricultural_subsidies
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_sheli_tuoguan_weiyuanhui
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_solve_hyperinflation"
+			JAP_shattered_people_effect = yes
+		}
+	}
+	focus = {
+		id = JAP_pnr_repatriation_resettlement_crisis
+		x = 13
+		y = 1
+		cost = 7
+		icon = GFX_focus_generic_immigration
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_sheli_tuoguan_weiyuanhui
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = JAP_pnr_overseas_japanese_repatriated
+				days = 1095
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_full_scale_reconstruction
+		x = 13
+		y = 2
+		cost = 6
+		icon = GFX_focus_JAP_develop_the_yen_block
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_the_problem_of_orphan
+		}
+		prerequisite = {
+			focus = JAP_pnr_solve_hyperinflation
+		}
+		prerequisite = {
+			focus = JAP_pnr_repatriation_resettlement_crisis
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_full_scale_reconstruction"
+			add_stability = 0.05
+			add_timed_idea = {
+				idea = JAP_emergency_relief_idea
+				days = 100
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_electricity_supply_and_demand_regulation_act
+		x = 12
+		y = 3
+		cost = 5
+		icon = GFX_focus_ARG_develop_the_electricity_sector
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_full_scale_reconstruction
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_electricity_supply_and_demand_regulation_act"
+			set_country_flag = QIE_wushan_electrification_spread_enabled
+			set_variable = {
+				QIE_wushan_electrification_spread_timer = 0
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = QIE_after_wushan_control_whole_china_qingzhou_building.tt
+			custom_effect_tooltip = tooltip_white_line
+			282 = {
+				add_dynamic_modifier = {
+					modifier = QIE_wushan_electrification_modifier
+				}
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_medical_intervention
+		x = 14
+		y = 3
+		cost = 5
+		icon = GFX_focus_generic_field_hostpital
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_full_scale_reconstruction
+		}
+		completion_reward = {
+			add_stability = 0.10
+		}
+	}
+	focus = {
+		id = JAP_npr_decide_on_the_new_governor_general
+		x = 13
+		y = 4
+		cost = 6
+		icon = GFX_focus_JAP_the_crysanthemum_throne
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_electricity_supply_and_demand_regulation_act
+		}
+		prerequisite = {
+			focus = JAP_pnr_medical_intervention
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_npr_decide_on_the_new_governor_general"
+			if = {
+				limit = {
+					has_country_flag = JAP_hirohito_abdicated
+				}
+				custom_effect_tooltip = JAP_question_of_the_imperial_family_hirohito_abdicated_tt
+			}
+			else_if = {
+				limit = {
+					has_idea = JAP_depolicization_of_the_throne_idea
+				}
+				custom_effect_tooltip = JAP_question_of_the_imperial_family_hirohito_stayed_tt
+			}
+			else_if = {
+				limit = {
+					has_cosmetic_tag = JAP_republic
+				}
+				custom_effect_tooltip = JAP_question_of_the_imperial_family_abolished_tt
+				swap_ideas = {
+					remove_idea = JAP_unpopular_republic_idea_1
+					add_idea = JAP_unpopular_republic_idea_2
+				}
+			}
+			else = {
+				custom_effect_tooltip = JAP_question_of_the_imperial_family_default_tt
+			}
+			if = {
+				limit = {
+					has_country_flag = JAP_nonKMT_chinese_puppet_flag
+					NOT = {
+						has_country_flag = JAP_hirohito_abdicated
+					}
+				}
+				activate_advisor = JAP_okamura_yasuji_sic
+			}
+			else_if = {
+				limit = {
+					has_country_flag = JAP_authoritarian_puppet_flag
+					NOT = {
+						has_country_flag = JAP_hirohito_abdicated
+					}
+				}
+				activate_advisor = JAP_kishi_nobusuke_sic
+			}
+			if = {
+				limit = {
+					has_cosmetic_tag = JAP_republic
+				}
+				swap_ideas = {
+					remove_idea = JAP_unpopular_republic_idea_2
+					add_idea = JAP_unpopular_republic_idea_3
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = JAP_showa_tree
+				}
+				add_political_power = 100
+				add_popularity = {
+					ideology = national_populist
+					popularity = -0.15
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = JAP_milcentralism_tree
+				}
+				add_political_power = 100
+				add_popularity = {
+					ideology = paternal_autocrat
+					popularity = -0.15
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = JAP_dem_tree
+				}
+				add_political_power = 100
+				add_stability = 0.1
+			}
+			hidden_effect = {
+				add_stability = -0.05
+				if = {
+					limit = {
+						has_country_leader = {
+							character = JAP_hirohito
+						}
+					}
+					JAP_puppet_hirohito_followup_trait_effect = yes
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_cosmetic_tag = JAP_republic
+						}
+					}
+					news_event = {
+						id = japan_news_events.5
+						days = 1
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_invite_the_duke_yansheng
+		x = 8
+		y = 5
+		cost = 4
+		icon = GFX_JAP_pnr_invite_the_duke_yansheng
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_new_shindojo
+		}
+		prerequisite = {
+			focus = JAP_npr_decide_on_the_new_governor_general
+		}
+		completion_reward = {
+			remove_ideas = JAP_pnr_under_the_shadow_of_the_dragon
+			set_cosmetic_tag = JAP_pnr_confucius
+			set_politics = {
+				ruling_party = authoritarian_democrat
+			}
+			set_party_name = {
+				ideology = authoritarian_democrat
+				long_name = JAP_pnr_confucius_party_long
+				name = JAP_pnr_confucius_party
+			}
+			set_temp_variable = {
+				coalition_partner_var = token:national_populist
+			}
+			add_to_coalition = yes
+			JAP_puppet_economy_reconstruction_effect = yes
+			hidden_effect = {
+				JAP_pnr_kong_decheng = {
+					promote_character = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_new_shindojo
+		x = 18
+		y = 5
+		cost = 4
+		icon = GFX_JAP_pnr_new_shindojo
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_invite_the_duke_yansheng
+		}
+		prerequisite = {
+			focus = JAP_npr_decide_on_the_new_governor_general
+		}
+		completion_reward = {
+			remove_ideas = JAP_pnr_under_the_shadow_of_the_dragon
+			set_cosmetic_tag = JAP_pnr_oomoto
+			set_politics = {
+				ruling_party = national_populist
+			}
+			set_party_name = {
+				ideology = national_populist
+				long_name = JAP_pnr_oomoto_party_long
+				name = JAP_pnr_oomoto_party
+			}
+			JAP_puppet_economy_reconstruction_effect = yes
+			hidden_effect = {
+				JAP_pnr_onisaburo = {
+					promote_character = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_kuninotokotachi_belief
+		x = 15
+		y = 8
+		cost = 6
+		icon = GFX_JAP_sakura_tree
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_taichio_nichinichi_shinbun_puppet
+		}
+		completion_reward = {
+			JAP_shattered_people_effect = yes
+			add_ideas = JAP_pnr_kuninotokotachi_faith
+		}
+	}
+	focus = {
+		id = JAP_npr_and_the_sunrise_again
+		x = 13
+		y = 10
+		cost = 10
+		icon = GFX_focus_ETH_the_lion_and_the_sun
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_confucian_mencian_orthodoxy
+		}
+		prerequisite = {
+			focus = JAP_pnr_improved_writing_system
+		}
+		prerequisite = {
+			focus = JAP_pnr_possession_by_a_deity
+			focus = JAP_pnr_the_speech_begins
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_npr_and_the_sunrise_again"
+			if = {
+				limit = { has_idea = JAP_narrow_rail }
+				add_timed_idea = {
+					idea = JAP_change_rail
+					days = 180
+				}
+				custom_effect_tooltip = tooltip_white_line
+				custom_effect_tooltip = after_idea_expires
+				effect_tooltip = {
+					remove_ideas = JAP_narrow_rail
+					add_ideas = JAP_railway_expansion_idea
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = train_equipment
+					amount = 30
+				}
+				add_ideas = JAP_railway_expansion_idea
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_sheild_society
+		x = 21
+		y = 6
+		cost = 7
+		icon = GFX_JAP_pnr_sheild_society
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_second_mongolian_expedition
+		}
+		prerequisite = {
+			focus = JAP_pnr_new_shindojo
+		}
+		completion_reward = {
+			set_cosmetic_tag = JAP_pnr_shield
+			set_politics = {
+				ruling_party = national_populist
+			}
+			set_party_name = {
+				ideology = national_populist
+				long_name = JAP_pnr_shield_party_long
+				name = JAP_pnr_shield_party
+			}
+			hidden_effect = {
+				JAP_pnr_mishima = {
+					promote_character = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_the_speech_begins
+		x = 21
+		y = 9
+		cost = 8
+		icon = GFX_goal_JAP_samurai
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_possession_by_a_deity
+		}
+		prerequisite = {
+			focus = JAP_pnr_ensure_the_safety_of_the_ichigaya_building
+		}
+		available = {
+			has_completed_focus = JAP_pnr_kuninotokotachi_belief
+		}
+		completion_reward = {
+			remove_ideas = JAP_pnr_kuninotokotachi_faith
+			add_ideas = JAP_pnr_forty_seven_ronin
+		}
+	}
+	focus = {
+		id = JAP_the_problem_of_orphan
+		x = 11
+		y = 1
+		cost = 7
+		icon = GFX_focus_generic_court
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_sheli_tuoguan_weiyuanhui
+		}
+		completion_reward = {
+			add_stability = 0.10
+		}
+	}
+	focus = {
+		id = JAP_pnr_visit_yushima_seido
+		x = 7
+		y = 6
+		cost = 5
+		icon = GFX_goal_QIE_forbiddenpalace
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_invite_the_duke_yansheng
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_research_slot_until_five = yes
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = JAP_pnr_the_infallible_sage
+		x = 7
+		y = 8
+		cost = 5
+		icon = GFX_goal_generic_propaganda_film
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_visit_yushima_seido
+		}
+		completion_reward = {
+			add_stability = 0.20
+		}
+	}
+	focus = {
+		id = JAP_pnr_siwen_society_help
+		x = 9
+		y = 6
+		cost = 5
+		icon = GFX_goal_champagne_diplomacy
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_invite_the_duke_yansheng
+		}
+		completion_reward = {
+			set_temp_variable = { coalition_partner_var = token:paternal_autocrat }
+			add_to_coalition = yes
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = JAP_pnr_collaboration_with_kyoto
+		x = 10
+		y = 7
+		cost = 6
+		icon = GFX_focus_generic_phone
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_siwen_society_help
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.10
+			}
+			add_ideas = JAP_pnr_new_confucianism
+		}
+	}
+	focus = {
+		id = JAP_pnr_loyalty_and_filial_piety
+		x = 11
+		y = 8
+		cost = 6
+		icon = GFX_focus_SWE_form_rfsu
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_collaboration_with_kyoto
+		}
+		completion_reward = {
+			JAP_shattered_people_effect = yes
+		}
+	}
+	focus = {
+		id = JAP_pnr_confucian_mencian_orthodoxy
+		x = 9
+		y = 9
+		cost = 8
+		icon = GFX_goal_QIE_confucianism
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_infallible_sage
+		}
+		prerequisite = {
+			focus = JAP_pnr_loyalty_and_filial_piety
+		}
+		completion_reward = {
+			remove_ideas = JAP_pnr_new_confucianism
+			add_ideas = JAP_pnr_rule_of_the_duke_yansheng
+		}
+	}
+	focus = {
+		id = JAP_pnr_neo_shindojo
+		x = 17
+		y = 6
+		cost = 6
+		icon = GFX_focus_jap_spiritual_mobilization
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_new_shindojo
+		}
+		completion_reward = {
+			set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+			add_to_coalition = yes
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = JAP_pnr_the_lunar_mountain_is_fuji
+		x = 19
+		y = 8
+		cost = 5
+		icon = GFX_focus_GRE_a_land_of_mountains
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_second_mongolian_expedition
+		}
+		completion_reward = {
+			add_stability = 0.20
+		}
+	}
+	focus = {
+		id = JAP_pnr_taichio_nichinichi_shinbun_puppet
+		x = 16
+		y = 7
+		cost = 7
+		icon = GFX_focus_generic_printing_press
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_neo_shindojo
+		}
+		completion_reward = {
+			add_stability = 0.10
+			add_research_slot_until_five = yes
+		}
+	}
+	focus = {
+		id = JAP_pnr_second_mongolian_expedition
+		x = 19
+		y = 6
+		cost = 16
+		icon = GFX_focus_JAP_incorporate_buddhist_socialism
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_sheild_society
+		}
+		prerequisite = {
+			focus = JAP_pnr_new_shindojo
+		}
+	}
+	focus = {
+		id = JAP_pnr_possession_by_a_deity
+		x = 17
+		y = 9
+		cost = 8
+		icon = GFX_focus_JAP_sea_the_showa_restoration
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_the_speech_begins
+		}
+		prerequisite = {
+			focus = JAP_pnr_the_lunar_mountain_is_fuji
+		}
+		prerequisite = {
+			focus = JAP_pnr_kuninotokotachi_belief
+		}
+		completion_reward = {
+			remove_ideas = JAP_pnr_kuninotokotachi_faith
+			add_ideas = JAP_pnr_unity_of_man_and_god
+		}
+	}
+	focus = {
+		id = JAP_pnr_land_reform
+		x = 13
+		y = 6
+		cost = 4
+		icon = GFX_focus_PRC_land_revolution_expedited
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_invite_the_duke_yansheng
+			focus = JAP_pnr_new_shindojo
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_redistribution_of_land"
+			## 農地解放, emancipation of farming land
+			add_stability = 0.05
+			if = {
+				limit = {
+					has_idea = JAP_bad_land
+				}
+				unlock_decision_category_tooltip = JAP_land_reform
+				hidden_effect = {
+					JAP_open_JAP_land_reform = yes
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					prioritize = {
+						532
+					}
+					add_extra_state_shared_building_slots = 2
+				}
+				random_owned_controlled_state = {
+					prioritize = {
+						1102
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_controlled_state = {
+					prioritize = {
+						533
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_controlled_state = {
+					prioritize = {
+						534
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_subsidize_light_industry
+		x = 12
+		y = 7
+		cost = 6
+		icon = GFX_focus_DEN_no_regulations
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_land_reform
+		}
+		completion_reward = {
+			JAP_puppet_economy_reconstruction_effect = yes
+			add_tech_bonus = {
+				name = JAP_pnr_subsidize_light_industry
+				bonus = 1
+				uses = 2
+				category = industry
+			}
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+		}
+	}
+	focus = {
+		id = JAP_pnr_subsidize_agriculture
+		x = 14
+		y = 7
+		cost = 6
+		icon = GFX_focus_SIA_irrigation
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_land_reform
+		}
+		completion_reward = {
+			JAP_puppet_economy_reconstruction_effect = yes
+			add_ideas = JAP_pnr_avoid_the_second_rice_riots
+		}
+	}
+	focus = {
+		id = JAP_pnr_women_liberation
+		x = 13
+		y = 8
+		cost = 5
+		icon = GFX_goal_the_gender_issue
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_subsidize_light_industry
+		}
+		prerequisite = {
+			focus = JAP_pnr_subsidize_agriculture
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_women_liberation"
+			JAP_shattered_people_effect = yes
+			add_ideas = JAP_emancipation_of_women_idea
+		}
+	}
+	focus = {
+		id = JAP_pnr_improved_writing_system
+		x = 13
+		y = 9
+		cost = 9
+		icon = GFX_goal_KTG_Bookstack
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_women_liberation
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_improved_writing_system"
+			add_research_slot_until_five = yes
+			add_ideas = JAP_independency_from_foreign_research_idea
+		}
+	}
+	focus = {
+		id = JAP_the_military_after_defeat_war
+		x = 2
+		y = 0
+		cost = 4
+		icon = GFX_focus_generic_crush_the_military
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_ws_mark_of_the_defeated
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_the_military_after_defeat_war"
+			army_experience = 35
+			JAP_create_the_national_police_reserve_effect = yes
+		}
+	}
+	focus = {
+		id = JAP_pnr_revitalize_the_national_defense_industry
+		x = 0
+		y = 2
+		cost = 5
+		icon = GFX_focus_AFG_scavenging
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_rebuild_the_command_system
+		}
+		prerequisite = {
+			focus = JAP_pnr_prevent_sabotage_activities
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_revitalize_the_national_defense_industry"
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = JAP_self_defense_corps_idea_1
+					add_idea = JAP_self_defense_corps_idea_3
+				}
+			}
+			hidden_effect = {
+				JAP_self_defense_corps_effect = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = {
+					531
+				}
+				limit = {
+					is_valid_state_for_development = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = {
+					282
+				}
+				limit = {
+					is_valid_state_for_development = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_rebuild_the_command_system
+		x = 3
+		y = 1
+		cost = 6
+		icon = GFX_focus_SIA_steel_arteries
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_the_military_after_defeat_war
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_rebuild_the_command_system"
+			JAP_self_defense_corps_effect = yes
+			add_command_power = 40
+		}
+	}
+	focus = {
+		id = JAP_pnr_military_alliance
+		x = 4
+		y = 2
+		cost = 5
+		icon = GFX_goal_mass_concentration_of_army
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_prevent_sabotage_activities
+		}
+		prerequisite = {
+			focus = JAP_pnr_rebuild_the_command_system
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_military_alliance"
+			add_doctrine_cost_reduction = {
+				name = JAP_pnr_military_alliance
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = JAP_self_defense_corps_idea_1
+					add_idea = JAP_self_defense_corps_idea_2
+				}
+			}
+			hidden_effect = {
+				JAP_self_defense_corps_effect = yes
+			}
+			custom_effect_tooltip = tooltip_white_line
+			overlord = {
+				country_event = japan_foreign_events.550
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_prevent_sabotage_activities
+		x = 1
+		y = 1
+		cost = 5
+		icon = GFX_goal_secret_agents
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_the_military_after_defeat_war
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_prevent_sabotage_activities"
+			add_political_power = 35
+			if = {
+				limit = {
+					has_dlc_lar = no
+				}
+				add_ideas = JAP_subversive_activities_prevention_law_idea
+			}
+			else_if = {
+				limit = {
+					has_intelligence_agency = no
+				}
+				create_intelligence_agency = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_done_agency_upgrade = upgrade_form_department
+					}
+				}
+				upgrade_intelligence_agency = upgrade_form_department
+			}
+			else = {
+				gain_random_agency_upgrade = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_done_agency_upgrade = upgrade_psycho_warfare
+					}
+				}
+				upgrade_intelligence_agency = upgrade_psycho_warfare
+			}
+			else = {
+				gain_random_agency_upgrade = yes
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_learn_from_the_lesson
+		x = 2
+		y = 2
+		cost = 5
+		icon = GFX_focus_AUS_frontmiliz_focus
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_the_military_after_defeat_war
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_learn_from_the_lesson"
+			add_doctrine_cost_reduction = {
+				name = JAP_pnr_learn_from_the_lesson
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_self_defense_forces
+		x = 2
+		y = 4
+		cost = 5
+		icon = GFX_goal_japanese_officer
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_revitalize_the_national_defense_industry
+		}
+		prerequisite = {
+			focus = JAP_pnr_military_alliance
+		}
+		prerequisite = {
+			focus = JAP_pnr_learn_from_the_lesson
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_self_defense_forces"
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = JAP_self_defense_corps_idea_4
+					add_idea = JAP_self_defense_corps_idea_5
+				}
+			}
+			hidden_effect = {
+				JAP_self_defense_corps_effect = yes
+			}
+			add_command_power = 50
+		}
+	}
+	focus = {
+		id = JAP_pnr_blue_force
+		x = 23
+		y = 0
+		cost = 5
+		icon = GFX_focus_SMB_blue_water_fleet
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_ws_mark_of_the_defeated
+		}
+	}
+	focus = {
+		id = JAP_pnr_the_birth_of_air_force_self_defense
+		x = 20
+		y = 1
+		cost = 4
+		icon = GFX_goal_air_armada
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_blue_force
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_the_birth_of_air_force_self_defense"
+			air_experience = 35
+			add_doctrine_cost_reduction = {
+				name = JAP_pnr_the_birth_of_air_force_self_defense
+				cost_reduction = 0.75
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_focus_on_agility
+		x = 19
+		y = 2
+		cost = 4
+		icon = GFX_focus_jap_zero
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_focus_on_distances
+		}
+		prerequisite = {
+			focus = JAP_pnr_the_birth_of_air_force_self_defense
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_focus_on_agility"
+			add_tech_bonus = {
+				name = JAP_pnr_focus_on_agility
+				bonus = 1
+				uses = 1
+				category = light_fighter
+				category = cat_heavy_fighter
+			}
+			add_ideas = JAP_modern_air_force_11
+		}
+	}
+	focus = {
+		id = JAP_pnr_focus_on_distances
+		x = 21
+		y = 2
+		cost = 4
+		icon = GFX_goal_generic_air_heavy_fighter_new
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_focus_on_agility
+		}
+		prerequisite = {
+			focus = JAP_pnr_the_birth_of_air_force_self_defense
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_focus_on_distances"
+			add_tech_bonus = {
+				name = JAP_pnr_focus_on_distances
+				bonus = 1
+				uses = 1
+				category = tactical_bomber
+				category = cat_strategic_bomber
+			}
+			add_ideas = JAP_modern_air_force_12
+		}
+	}
+	focus = {
+		id = JAP_pnr_the_air_war_from_future
+		x = 20
+		y = 4
+		cost = 5
+		icon = GFX_goal_generic_air_jet_2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_focus_on_distances
+			focus = JAP_pnr_focus_on_agility
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_the_air_war_from_future"
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.5
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_tech_bonus = {
+				name = JAP_the_air_war_of_future
+				bonus = 1
+				uses = 1
+				category = jet_technology
+			}
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = {
+					has_idea = JAP_modern_air_force_11
+				}
+				swap_ideas = {
+					remove_idea = JAP_modern_air_force_11
+					add_idea = JAP_modern_air_force_21
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = JAP_modern_air_force_12
+					add_idea = JAP_modern_air_force_22
+				}
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_the_coast_self_defense
+		x = 26
+		y = 1
+		cost = 5
+		icon = GFX_goal_navy_hat_ships
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_blue_force
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_the_coast_self_defense"
+			navy_experience = 35
+			JAP_maritime_sdf_effect = yes
+		}
+	}
+	focus = {
+		id = JAP_pnr_protect_our_ocean_lines
+		x = 26
+		y = 3
+		cost = 4
+		icon = GFX_goal_generic_naval_destroyer2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_transport_ship_first
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_protect_our_ocean_lines"
+			add_tech_bonus = {
+				name = JAP_pnr_protect_our_ocean_lines
+				bonus = 1
+				uses = 1
+				category = naval_mines
+			}
+			add_tech_bonus = {
+				name = JAP_doctrine_of_coastal_protection
+				bonus = 0.5
+				uses = 1
+				category = dd_tech
+			}
+			add_doctrine_cost_reduction = {
+				name = JAP_doctrine_of_coastal_protection
+				cost_reduction = 0.75
+				uses = 1
+				category = naval_doctrine
+			}
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = JAP_maritime_sdf_idea_2
+					add_idea = JAP_maritime_sdf_idea_3
+				}
+			}
+			hidden_effect = {
+				JAP_maritime_sdf_effect = yes
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_transport_ship_first
+		x = 26
+		y = 2
+		cost = 3
+		icon = GFX_goal_generic_transports
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_coast_self_defense
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_transport_ship_first"
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					is_valid_state_for_development = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_tech = mtg_tank_landing_craft
+					}
+				}
+				add_tech_bonus = {
+					name = JAP_pnr_transport_ship_first
+					bonus = 1
+					uses = 1
+					category = tp_tech
+				}
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 50
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 100
+				}
+			}
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = JAP_maritime_sdf_idea_1
+					add_idea = JAP_maritime_sdf_idea_2
+				}
+			}
+			hidden_effect = {
+				JAP_maritime_sdf_effect = yes
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_mutual_defense_agreement
+		x = 26
+		y = 4
+		cost = 6
+		icon = GFX_goal_JAP_Navy
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_protect_our_ocean_lines
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed JAP_pnr_mutual_defense_agreement"
+			add_tech_bonus = {
+				name = JAP_pnr_mutual_defense_agreement
+				bonus = 1
+				uses = 2
+				category = naval_equipment
+			}
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = JAP_maritime_sdf_idea_3
+					add_idea = JAP_maritime_sdf_idea_4
+				}
+			}
+			hidden_effect = {
+				JAP_maritime_sdf_effect = yes
+			}
+		}
+	}
+	focus = {
+		id = JAP_pnr_recruit_comrades
+		x = 20
+		y = 7
+		cost = 8
+		icon = GFX_goal_Japanese_Glory
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_sheild_society
+		}
+		completion_reward = {
+			add_ideas = JAP_pnr_voice_of_yamato_patriots
+		}
+	}
+	focus = {
+		id = JAP_pnr_awaken_the_public
+		x = 22
+		y = 7
+		cost = 8
+		icon = GFX_focus_JAP_expand_the_irago_proving_ground
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_sheild_society
+		}
+		completion_reward = {
+			add_army_experience = 25
+			add_war_support = 0.10
+		}
+	}
+	focus = {
+		id = JAP_pnr_ensure_the_safety_of_the_ichigaya_building
+		x = 21
+		y = 8
+		cost = 5
+		icon = GFX_focus_JAP_crush_the_internal_factions
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_recruit_comrades
+		}
+		prerequisite = {
+			focus = JAP_pnr_awaken_the_public
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = JAP_pnr_crack_down_on_the_black_market
+		x = 16
+		y = 2
+		cost = 4
+		icon = GFX_focus_generic_turning_a_blind_eye
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_solve_hyperinflation
+		}
+		completion_reward = {
+			add_cic = 7500
+		}
+	}
+	focus = {
+		id = JAP_pnr_solve_the_mafia
+		x = 10
+		y = 2
+		cost = 4
+		icon = GFX_focus_FIN_oy_alkoholiliike
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_the_problem_of_orphan
+		}
+		completion_reward = {
+			add_ideas = JAP_pnr_cooperation_with_boryokudan
+		}
+	}
+}

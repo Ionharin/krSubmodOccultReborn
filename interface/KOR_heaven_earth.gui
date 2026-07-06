@@ -1,0 +1,225 @@
+guiTypes = {
+	containerWindowType = {
+		name = "KOR_heaven_earth_open_button_window"
+		position = { x = 0 y = -115 }
+		size = { width = 77 height = 77 }
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_equipment_role_selector_tiled_window"
+		}
+
+		background = {
+			name = "Background2"
+			quadTextureSprite = "GFX_tiled_research_bg"
+		}
+
+		buttonType = {
+			name = "KOR_heaven_earth_open_button"
+			position = { x = 8 y = 4 }
+			quadTextureSprite = "GFX_KOR_heaven_earth_button"
+			clicksound = click_ok
+			oversound = ui_menu_over
+			pdx_tooltip = KOR_heaven_earth_open_button_tt
+			pdx_tooltip_delayed = KOR_heaven_earth_open_button_desc
+		}
+	}
+
+	containerWindowType = {
+		name = "KOR_heaven_earth_window"
+		position = { x = -400 y = -250 }
+		size = { width = 850 height = 530 }
+
+		hide_position = { x = -400 y = 200 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 600
+
+		moveable = yes
+		show_sound = menu_open_window
+		hide_sound = menu_close_window
+		click_to_front = yes
+		orientation = center
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_plain_bg"
+		}
+
+		iconType = {
+			name = "header_bg"
+			spriteType = "GFX_header_extra_wide_bg"
+			position = { x = 5 y = 5 }
+			orientation = upper_left
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "title"
+			position = { x = 0 y = 10 }
+			font = "hoi_36header"
+			borderSize = { x = 0 y = 0 }
+			text = KOR_heaven_earth_title
+			maxWidth = 850
+			format = center
+		}
+
+		buttonType = {
+			name = "KOR_heaven_earth_close_button"
+			position = { x = -45 y = 7 }
+			spriteType = "GFX_closebutton"
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+			shortcut = "ESCAPE"
+			orientation = upper_right
+		}
+
+		iconType = {
+			name = "KOR_heaven_earth_map_image"
+			spriteType = "GFX_KOR_heaven_earth_map"
+			position = { x = 20 y = 58 }
+			scale = 1
+		}
+
+		iconType = {
+			name = "KOR_heaven_earth_all_complete"
+			spriteType = "GFX_KOR_heaven_earth_all_complete"
+			position = { x = 170 y = 130 }
+			scale = 0.8
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "KOR_heaven_earth_zone_1"
+			position = { x = 268 y = 133 }
+			spriteType = "GFX_KOR_heaven_earth_zone_1"
+			pdx_tooltip = KOR_heaven_earth_zone_1_tt
+		}
+
+		iconType = {
+			name = "KOR_heaven_earth_zone_1_selected"
+			spriteType = "GFX_KOR_heaven_earth_zone_1_selected"
+			position = { x = 268 y = 133 }
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "KOR_heaven_earth_zone_2"
+			position = { x = 352 y = 142 }
+			spriteType = "GFX_KOR_heaven_earth_zone_2"
+			pdx_tooltip = KOR_heaven_earth_zone_2_tt
+		}
+
+		iconType = {
+			name = "KOR_heaven_earth_zone_2_selected"
+			spriteType = "GFX_KOR_heaven_earth_zone_2_selected"
+			position = { x = 352 y = 142 }
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "KOR_heaven_earth_zone_3"
+			position = { x = 403 y = 97 }
+			spriteType = "GFX_KOR_heaven_earth_zone_3"
+			pdx_tooltip = KOR_heaven_earth_zone_3_tt
+		}
+
+		iconType = {
+			name = "KOR_heaven_earth_zone_3_selected"
+			spriteType = "GFX_KOR_heaven_earth_zone_3_selected"
+			position = { x = 403 y = 97 }
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "KOR_heaven_earth_zone_4"
+			position = { x = 447 y = 171 }
+			spriteType = "GFX_KOR_heaven_earth_zone_4"
+			pdx_tooltip = KOR_heaven_earth_zone_4_tt
+		}
+
+		iconType = {
+			name = "KOR_heaven_earth_zone_4_selected"
+			spriteType = "GFX_KOR_heaven_earth_zone_4_selected"
+			position = { x = 447 y = 171 }
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "KOR_heaven_earth_help_text"
+			position = { x = 270 y = 350 }
+			font = "hoi_18mbs"
+			text = KOR_heaven_earth_help_text
+			format = center
+			maxWidth = 300
+		}
+
+		instantTextBoxType = {
+			name = "KOR_heaven_earth_points_header"
+			position = { x = 35 y = 420 }
+			font = "hoi_20b"
+			text = KOR_heaven_earth_points_header
+			format = left
+			maxWidth = 180
+		}
+
+		instantTextBoxType = {
+			name = "KOR_heaven_earth_points_value"
+			position = { x = 35 y = 448 }
+			font = "hoi_20b"
+			text = KOR_heaven_earth_points_value_text
+			format = left
+			maxWidth = 220
+		}
+
+		instantTextBoxType = {
+			name = "KOR_heaven_earth_level_header"
+			position = { x = 650 y = 420 }
+			font = "hoi_20b"
+			text = KOR_heaven_earth_level_header
+			format = right
+			maxWidth = 160
+		}
+
+		instantTextBoxType = {
+			name = "KOR_heaven_earth_level_value"
+			position = { x = 590 y = 448 }
+			font = "hoi_20b"
+			text = KOR_heaven_earth_level_value_text
+			format = right
+			maxWidth = 220
+		}
+
+		buttonType = {
+			name = "KOR_heaven_earth_option_1"
+			position = { x = 150 y = 430 }
+			spriteType = "GFX_KOR_heaven_earth_new_factory_select"
+			scale = 1.2
+			pdx_tooltip = KOR_heaven_earth_option_1_tt
+		}
+
+		buttonType = {
+			name = "KOR_heaven_earth_option_2"
+			position = { x = 300 y = 430 }
+			spriteType = "GFX_KOR_heaven_earth_max_factory_select"
+			scale = 1.2
+			pdx_tooltip = KOR_heaven_earth_option_2_tt
+		}
+
+		buttonType = {
+			name = "KOR_heaven_earth_option_3"
+			position = { x = 450 y = 430 }
+			spriteType = "GFX_KOR_heaven_earth_industry_speed_select"
+			scale = 1.2
+			pdx_tooltip = KOR_heaven_earth_option_3_tt
+		}
+
+		buttonType = {
+			name = "KOR_heaven_earth_option_4"
+			position = { x = 600 y = 430 }
+			spriteType = "GFX_KOR_heaven_earth_research_bonus_select"
+			scale = 1.2
+			pdx_tooltip = KOR_heaven_earth_option_4_tt
+		}
+	}
+}

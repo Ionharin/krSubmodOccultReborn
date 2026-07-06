@@ -103,7 +103,10 @@ on_actions = {
 			}
 			if = { # electrification spreads to neighbouring core states
 				limit = {
-					tag = QIE
+					OR = {
+						tag = QIE
+						tag = JAP
+					}
 					has_country_flag = QIE_wushan_electrification_spread_enabled
 				}
 				add_to_variable = { QIE_wushan_electrification_spread_timer = 1 }
@@ -177,6 +180,18 @@ on_actions = {
 					value = 1
 				}
 				QIE_update_god_circle_tier = yes
+			}
+			if = { # Refresh Heaven Earth GUI availability after cosmetic tag changes
+				limit = {
+					OR = {
+						original_tag = KOR
+						has_cosmetic_tag = KOR_pnr_pocheongyo
+						has_cosmetic_tag = KOR_pnr_taegeukdo
+						has_cosmetic_tag = KOR_pnr_jeungsanbeop
+						has_country_flag = KOR_heaven_earth_interface_open
+					}
+				}
+				KOR_heaven_earth_update_gui = yes
 			}
 		}
 	}

@@ -20,8 +20,8 @@ autonomy_state = {
 		autonomy_manpower_share = 2.00
 		extra_trade_to_overlord_factor = 1.00
 		overlord_trade_cost_factor = -0.50
-		cic_to_overlord_factor = 0.65
-		mic_to_overlord_factor = 0.65
+		cic_to_overlord_factor = 0.50
+		mic_to_overlord_factor = 0.50
 		can_master_build_for_us = 0
 		autonomy_gain_global_factor = -0.80
 		peace_score_ratio_transferred_to_overlord = 1.00
@@ -36,19 +36,23 @@ autonomy_state = {
 	}
 
 	allowed = {
-		always = yes
+		always = no
+	}
+
+	allowed_levels_filter = {
+		autonomy_pnr_jimi_zhou
 	}
 
 	can_take_level = {
 		custom_override_tooltip = {
-			tooltip = can_raise_autonomy_level
+			tooltip = cannot_change_autonomy_manually
 			always = no
 		}
 	}
 
 	can_lose_level = {
 		custom_override_tooltip = {
-			tooltip = can_lower_autonomy_level
+			tooltip = cannot_change_autonomy_manually
 			always = no
 		}
 	}

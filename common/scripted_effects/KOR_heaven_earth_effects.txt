@@ -1,0 +1,250 @@
+KOR_heaven_earth_update_gui = {
+	set_variable_to_random = global.KOR_heaven_earth_update
+}
+
+KOR_heaven_earth_initialize_values = {
+	if = {
+		limit = { NOT = { has_variable = KOR_heaven_earth_points_var } }
+		set_variable = { KOR_heaven_earth_points_var = 16 }
+	}
+	if = {
+		limit = { NOT = { has_variable = KOR_heaven_earth_level_var } }
+		set_variable = { KOR_heaven_earth_level_var = 0 }
+	}
+	if = {
+		limit = { NOT = { has_variable = KOR_heaven_earth_zone_1_upgrade_count } }
+		set_variable = { KOR_heaven_earth_zone_1_upgrade_count = 0 }
+	}
+	if = {
+		limit = { NOT = { has_variable = KOR_heaven_earth_zone_2_upgrade_count } }
+		set_variable = { KOR_heaven_earth_zone_2_upgrade_count = 0 }
+	}
+	if = {
+		limit = { NOT = { has_variable = KOR_heaven_earth_zone_3_upgrade_count } }
+		set_variable = { KOR_heaven_earth_zone_3_upgrade_count = 0 }
+	}
+	if = {
+		limit = { NOT = { has_variable = KOR_heaven_earth_zone_4_upgrade_count } }
+		set_variable = { KOR_heaven_earth_zone_4_upgrade_count = 0 }
+	}
+}
+
+KOR_heaven_earth_clear_zone_selection = {
+	clr_country_flag = KOR_heaven_earth_zone_1_selected
+	clr_country_flag = KOR_heaven_earth_zone_2_selected
+	clr_country_flag = KOR_heaven_earth_zone_3_selected
+	clr_country_flag = KOR_heaven_earth_zone_4_selected
+}
+
+KOR_heaven_earth_select_zone_1 = {
+	KOR_heaven_earth_clear_zone_selection = yes
+	set_country_flag = KOR_heaven_earth_zone_1_selected
+	KOR_heaven_earth_update_gui = yes
+}
+
+KOR_heaven_earth_select_zone_2 = {
+	KOR_heaven_earth_clear_zone_selection = yes
+	set_country_flag = KOR_heaven_earth_zone_2_selected
+	KOR_heaven_earth_update_gui = yes
+}
+
+KOR_heaven_earth_select_zone_3 = {
+	KOR_heaven_earth_clear_zone_selection = yes
+	set_country_flag = KOR_heaven_earth_zone_3_selected
+	KOR_heaven_earth_update_gui = yes
+}
+
+KOR_heaven_earth_select_zone_4 = {
+	KOR_heaven_earth_clear_zone_selection = yes
+	set_country_flag = KOR_heaven_earth_zone_4_selected
+	KOR_heaven_earth_update_gui = yes
+}
+
+KOR_heaven_earth_check_zone_1_completion = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = KOR_heaven_earth_zone_1_completed }
+			check_variable = { KOR_heaven_earth_zone_1_upgrade_count > 3 }
+		}
+		set_country_flag = KOR_heaven_earth_zone_1_completed
+		add_to_variable = { KOR_heaven_earth_level_var = 1 }
+	}
+}
+
+KOR_heaven_earth_check_zone_2_completion = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = KOR_heaven_earth_zone_2_completed }
+			check_variable = { KOR_heaven_earth_zone_2_upgrade_count > 3 }
+		}
+		set_country_flag = KOR_heaven_earth_zone_2_completed
+		add_to_variable = { KOR_heaven_earth_level_var = 1 }
+	}
+}
+
+KOR_heaven_earth_check_zone_3_completion = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = KOR_heaven_earth_zone_3_completed }
+			check_variable = { KOR_heaven_earth_zone_3_upgrade_count > 3 }
+		}
+		set_country_flag = KOR_heaven_earth_zone_3_completed
+		add_to_variable = { KOR_heaven_earth_level_var = 1 }
+	}
+}
+
+KOR_heaven_earth_check_zone_4_completion = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = KOR_heaven_earth_zone_4_completed }
+			check_variable = { KOR_heaven_earth_zone_4_upgrade_count > 3 }
+		}
+		set_country_flag = KOR_heaven_earth_zone_4_completed
+		add_to_variable = { KOR_heaven_earth_level_var = 1 }
+	}
+}
+
+KOR_heaven_earth_apply_option_1 = {
+	if = {
+		limit = { KOR_heaven_earth_can_use_option_1 = yes }
+		subtract_from_variable = { KOR_heaven_earth_points_var = 1 }
+		if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_1_selected }
+			set_country_flag = KOR_heaven_earth_zone_1_option_1
+			add_to_variable = { KOR_heaven_earth_zone_1_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_1_completion = yes
+		}
+		else_if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_2_selected }
+			set_country_flag = KOR_heaven_earth_zone_2_option_1
+			add_to_variable = { KOR_heaven_earth_zone_2_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_2_completion = yes
+		}
+		else_if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_3_selected }
+			set_country_flag = KOR_heaven_earth_zone_3_option_1
+			add_to_variable = { KOR_heaven_earth_zone_3_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_3_completion = yes
+		}
+		else_if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_4_selected }
+			set_country_flag = KOR_heaven_earth_zone_4_option_1
+			add_to_variable = { KOR_heaven_earth_zone_4_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_4_completion = yes
+		}
+		KOR_heaven_earth_update_gui = yes
+	}
+}
+
+KOR_heaven_earth_apply_option_2 = {
+	if = {
+		limit = { KOR_heaven_earth_can_use_option_2 = yes }
+		subtract_from_variable = { KOR_heaven_earth_points_var = 1 }
+		if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_1_selected }
+			set_country_flag = KOR_heaven_earth_zone_1_option_2
+			add_to_variable = { KOR_heaven_earth_zone_1_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_1_completion = yes
+		}
+		else_if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_2_selected }
+			set_country_flag = KOR_heaven_earth_zone_2_option_2
+			add_to_variable = { KOR_heaven_earth_zone_2_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_2_completion = yes
+		}
+		else_if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_3_selected }
+			set_country_flag = KOR_heaven_earth_zone_3_option_2
+			add_to_variable = { KOR_heaven_earth_zone_3_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_3_completion = yes
+		}
+		else_if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_4_selected }
+			set_country_flag = KOR_heaven_earth_zone_4_option_2
+			add_to_variable = { KOR_heaven_earth_zone_4_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_4_completion = yes
+		}
+		KOR_heaven_earth_update_gui = yes
+	}
+}
+
+KOR_heaven_earth_apply_option_3 = {
+	if = {
+		limit = { KOR_heaven_earth_can_use_option_3 = yes }
+		subtract_from_variable = { KOR_heaven_earth_points_var = 1 }
+		if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_1_selected }
+			set_country_flag = KOR_heaven_earth_zone_1_option_3
+			add_to_variable = { KOR_heaven_earth_zone_1_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_1_completion = yes
+		}
+		else_if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_2_selected }
+			set_country_flag = KOR_heaven_earth_zone_2_option_3
+			add_to_variable = { KOR_heaven_earth_zone_2_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_2_completion = yes
+		}
+		else_if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_3_selected }
+			set_country_flag = KOR_heaven_earth_zone_3_option_3
+			add_to_variable = { KOR_heaven_earth_zone_3_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_3_completion = yes
+		}
+		else_if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_4_selected }
+			set_country_flag = KOR_heaven_earth_zone_4_option_3
+			add_to_variable = { KOR_heaven_earth_zone_4_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_4_completion = yes
+		}
+		KOR_heaven_earth_update_gui = yes
+	}
+}
+
+KOR_heaven_earth_apply_option_4 = {
+	if = {
+		limit = { KOR_heaven_earth_can_use_option_4 = yes }
+		subtract_from_variable = { KOR_heaven_earth_points_var = 1 }
+		if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_1_selected }
+			set_country_flag = KOR_heaven_earth_zone_1_option_4
+			add_to_variable = { KOR_heaven_earth_zone_1_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_1_completion = yes
+		}
+		else_if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_2_selected }
+			set_country_flag = KOR_heaven_earth_zone_2_option_4
+			add_to_variable = { KOR_heaven_earth_zone_2_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_2_completion = yes
+		}
+		else_if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_3_selected }
+			set_country_flag = KOR_heaven_earth_zone_3_option_4
+			add_to_variable = { KOR_heaven_earth_zone_3_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_3_completion = yes
+		}
+		else_if = {
+			limit = { has_country_flag = KOR_heaven_earth_zone_4_selected }
+			set_country_flag = KOR_heaven_earth_zone_4_option_4
+			add_to_variable = { KOR_heaven_earth_zone_4_upgrade_count = 1 }
+			KOR_heaven_earth_check_zone_4_completion = yes
+		}
+		KOR_heaven_earth_update_gui = yes
+	}
+}
+
+KOR_heaven_earth_open_panel = {
+	if = {
+		limit = { KOR_heaven_earth_interface_is_open = no }
+		KOR_heaven_earth_initialize_values = yes
+		set_country_flag = KOR_heaven_earth_interface_open
+		KOR_heaven_earth_update_gui = yes
+	}
+}
+
+KOR_heaven_earth_close_panel = {
+	if = {
+		limit = { KOR_heaven_earth_interface_is_open = yes }
+		clr_country_flag = KOR_heaven_earth_interface_open
+		KOR_heaven_earth_update_gui = yes
+	}
+}
