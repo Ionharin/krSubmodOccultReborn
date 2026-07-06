@@ -7426,11 +7426,11 @@ focus_tree = {
 		prerequisite = {
 			focus = QIE_wushan_china_united_again_lower_phase
 		}
+		available = {
+			num_subjects > 0
+		}
 		completion_reward = {
-			activate_targeted_decision = {
-				decision = CHN_found_our_faction_decision
-				target = ROOT
-			}
+			create_faction_from_template = faction_template_china_wushan
 			reduce_focus_completion_cost = {
 				focus = {
 					QIE_wushan_our_rockets_our_victory

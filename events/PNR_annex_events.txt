@@ -1,0 +1,14 @@
+add_namespace = QIE_wushan_annex_events
+
+country_event = {
+	id = QIE_wushan_annex_events.1
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_cosmetic_tag = JAP_state
+		load_focus_tree = { tree = JAP_pnr_puppet_wushan keep_completed = no }
+		load_oob = "JAP_wushan_puppet"
+		mark_focus_tree_layout_dirty = yes
+	}
+}

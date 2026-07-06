@@ -3,11 +3,51 @@ scripted_gui = {
 		context_type = player_context
 		window_name = "QIE_shanrendao_politics_button_window"
 		parent_window_token = politics_tab
+		dirty = global.QIE_shanrendao_update
 
 		ai_enabled = { always = no }
 
 		visible = {
-			tag = QIE
+			always = no
+		}
+
+		effects = {
+			QIE_shanrendao_politics_button_click = {
+				if = {
+					limit = { has_country_flag = QIE_shanrendao_interface_is_open }
+					QIE_shanrendao_close_panel = yes
+				}
+				else = {
+					QIE_shanrendao_open_panel = yes
+				}
+			}
+		}
+	}
+
+	QIE_shanrendao_window_gui = {
+		context_type = player_context
+		window_name = "QIE_shanrendao_window"
+		dirty = global.QIE_shanrendao_update
+
+		ai_enabled = { always = no }
+
+		visible = {
+			always = no
+		}
+
+		triggers = {
+			QIE_shanrendao_authority_button_click_enabled = {
+				check_variable = { QIE_shanrendao_authority > 1 }
+			}
+		}
+
+		effects = {
+			QIE_shanrendao_close_button_click = {
+				QIE_shanrendao_close_panel = yes
+			}
+			QIE_shanrendao_authority_button_click = {
+				QIE_shanrendao_spend_authority = yes
+			}
 		}
 	}
 }

@@ -1,0 +1,33 @@
+QIE_shanrendao_update_gui = {
+	set_variable_to_random = global.QIE_shanrendao_update
+}
+
+QIE_shanrendao_initialize_values = {
+	if = {
+		limit = { NOT = { has_variable = QIE_shanrendao_authority } }
+		set_variable = { QIE_shanrendao_authority = 2 }
+	}
+}
+
+QIE_shanrendao_open_panel = {
+	QIE_shanrendao_initialize_values = yes
+	set_country_flag = QIE_shanrendao_interface_is_open
+	QIE_shanrendao_update_gui = yes
+}
+
+QIE_shanrendao_close_panel = {
+	clr_country_flag = QIE_shanrendao_interface_is_open
+	QIE_shanrendao_update_gui = yes
+}
+
+QIE_shanrendao_spend_authority = {
+	QIE_shanrendao_initialize_values = yes
+	if = {
+		limit = {
+			check_variable = { QIE_shanrendao_authority > 1 }
+		}
+		# Placeholder for future agenda effects triggered by spending authority.
+		subtract_from_variable = { QIE_shanrendao_authority = 1 }
+	}
+	QIE_shanrendao_update_gui = yes
+}

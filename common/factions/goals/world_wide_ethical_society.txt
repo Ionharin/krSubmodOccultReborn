@@ -1,0 +1,25 @@
+faction_manifest_world_wide_ethical_society = {
+	name = faction_manifest_world_wide_ethical_society_name
+	description = faction_manifest_world_wide_ethical_society_desc
+	is_manifest = yes
+	ratio_progress = {
+		total_amount_collection = game:all_countries
+		completed_amount_collection = collection:faction_members
+		scale = {
+			cic_to_overlord_factor = 0.30
+			mic_to_overlord_factor = 0.30
+			resources_to_overlord_factor = 0.2
+		}
+
+		progress_sections = {
+			manifest_fulfilled = {
+				min = 0.51
+
+				modifier = {
+					extra_trade_to_overlord_factor = 0.25
+					production_speed_buildings_factor = 0.25
+				}
+			}
+		}
+	}
+}
