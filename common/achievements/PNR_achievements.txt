@@ -1,0 +1,33 @@
+unique_id = penglai_achievements
+
+QIE_therefore_the_Kalki_descends_achievement = {
+	possible = {
+		tag = QIE
+	}
+
+	happened = {
+		if = {
+			limit = {
+				NOT = { has_global_flag = disallow_achievements_flag }
+				OR = {
+					NOT = { has_global_flag = on_startup_completed }
+					is_ai = no
+				}
+			}
+			has_country_flag = qie_wushan_has_control_china
+		}
+		else_if = {
+			limit = { has_global_flag = disallow_achievements_flag }
+			custom_override_tooltip = {
+				tooltip = achievements_disabled
+				always = no
+			}
+		}
+		else = {
+			custom_override_tooltip = {
+				tooltip = achievements_disabled_observer
+				always = no
+			}
+		}
+	}
+}

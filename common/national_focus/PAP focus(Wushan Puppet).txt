@@ -9,11 +9,18 @@ focus_tree = {
 		x = 4
 		y = 0
 		cost = 8
-		icon = GFX_focus_generic_pope
+		icon = GFX_goal_PAP_crusade
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = PAP_pnr_overcoming_and_overcoming
+		}
+		completion_reward = {
+			set_party_name = {
+				ideology = national_populist
+				name = PAP_pnr_daqin_jimi_governorate
+				long_name = PAP_pnr_daqin_jimi_governorate_long
+			}
 		}
 	}
 	focus = {
@@ -24,8 +31,22 @@ focus_tree = {
 		icon = GFX_focus_PAP_pnr_portugal_governor_general
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			always = no
+		}
 		prerequisite = {
 			focus = PAP_pnr_inheritor_of_the_true_god
+		}
+		completion_reward = {
+			set_cosmetic_tag = PAP_pnr_cerejeira_puppet
+			set_politics = {
+				ruling_party = national_populist
+			}
+			hidden_effect = {
+				PAP_pnr_manuel_goncalves_cerejeira = {
+					promote_character = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -36,8 +57,22 @@ focus_tree = {
 		icon = GFX_focus_PAP_pnr_mexico_governor_general
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			always = no
+		}
 		prerequisite = {
 			focus = PAP_pnr_inheritor_of_the_true_god
+		}
+		completion_reward = {
+			set_cosmetic_tag = PAP_pnr_martinez_puppet
+			set_politics = {
+				ruling_party = national_populist
+			}
+			hidden_effect = {
+				PAP_pnr_luis_maria_martinez = {
+					promote_character = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -48,8 +83,22 @@ focus_tree = {
 		icon = GFX_focus_PAP_pnr_francian_governor_general
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			always = no
+		}
 		prerequisite = {
 			focus = PAP_pnr_inheritor_of_the_true_god
+		}
+		completion_reward = {
+			set_cosmetic_tag = PAP_pnr_baudrillart_puppet
+			set_politics = {
+				ruling_party = national_populist
+			}
+			hidden_effect = {
+				PAP_pnr_alfred_baudrillart = {
+					promote_character = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -60,8 +109,22 @@ focus_tree = {
 		icon = GFX_focus_PAP_pnr_germanian_governor_general
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			always = no
+		}
 		prerequisite = {
 			focus = PAP_pnr_inheritor_of_the_true_god
+		}
+		completion_reward = {
+			set_cosmetic_tag = PAP_pnr_faulhaber_puppet
+			set_politics = {
+				ruling_party = national_populist
+			}
+			hidden_effect = {
+				PAP_pnr_michael_von_faulhaber = {
+					promote_character = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -72,8 +135,22 @@ focus_tree = {
 		icon = GFX_focus_PAP_pnr_a_chinese_governor_general
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			always = no
+		}
 		prerequisite = {
 			focus = PAP_pnr_inheritor_of_the_true_god
+		}
+		completion_reward = {
+			set_cosmetic_tag = PAP_pnr_zhengxiang_puppet
+			set_politics = {
+				ruling_party = national_populist
+			}
+			hidden_effect = {
+				PAP_pnr_lu_zhengxiang = {
+					promote_character = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -87,6 +164,9 @@ focus_tree = {
 		prerequisite = {
 			focus = PAP_pnr_portugal_governor_general
 		}
+		completion_reward = {
+			add_stability = 0.2
+		}
 	}
 	focus = {
 		id = PAP_pnr_eu_sou_zumarraga
@@ -98,6 +178,10 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = PAP_pnr_mexico_governor_general
+		}
+		completion_reward = {
+			add_stability = 0.15
+			add_war_support = 0.05
 		}
 	}
 	focus = {
@@ -111,6 +195,10 @@ focus_tree = {
 		prerequisite = {
 			focus = PAP_pnr_a_chinese_governor_general
 		}
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.1
+		}
 	}
 	focus = {
 		id = PAP_pnr_racial_tolerance
@@ -123,6 +211,10 @@ focus_tree = {
 		prerequisite = {
 			focus = PAP_pnr_germanian_governor_general
 		}
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.15
+		}
 	}
 	focus = {
 		id = PAP_pnr_choice_desire_and_obey
@@ -134,6 +226,9 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = PAP_pnr_francian_governor_general
+		}
+		completion_reward = {
+			add_war_support = 0.2
 		}
 	}
 	focus = {
@@ -148,6 +243,9 @@ focus_tree = {
 			focus = PAP_pnr_bitter_split
 			focus = PAP_pnr_eu_sou_zumarraga
 		}
+		completion_reward = {
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = PAP_pnr_democracy_is_a_gift_from_god
@@ -157,8 +255,25 @@ focus_tree = {
 		icon = GFX_focus_NOR_restore_public_trust_in_the_storting
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = PAP_pnr_the_mighty_will_fall
+		}
 		prerequisite = {
 			focus = PAP_pnr_a_bridge_between_two_worlds
+		}
+		completion_reward = {
+			set_temp_variable = {
+				coalition_partner_var = token:social_conservative
+			}
+			add_to_coalition = yes
+			set_temp_variable = {
+				coalition_partner_var = token:social_democrat
+			}
+			add_to_coalition = yes
+			set_temp_variable = {
+				coalition_partner_var = token:authoritarian_democrat
+			}
+			add_to_coalition = yes
 		}
 	}
 	focus = {
@@ -173,6 +288,9 @@ focus_tree = {
 			focus = PAP_pnr_eu_sou_zumarraga
 			focus = PAP_pnr_two_identities_two_choices
 		}
+		completion_reward = {
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = PAP_pnr_the_mighty_will_fall
@@ -182,8 +300,25 @@ focus_tree = {
 		icon = GFX_focus_RAJ_union_busting
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = PAP_pnr_democracy_is_a_gift_from_god
+		}
 		prerequisite = {
 			focus = PAP_pnr_sacred_patriotism
+		}
+		completion_reward = {
+			set_temp_variable = {
+				coalition_partner_var = token:paternal_autocrat
+			}
+			add_to_coalition = yes
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.1
+			}
 		}
 	}
 	focus = {
@@ -198,6 +333,9 @@ focus_tree = {
 			focus = PAP_pnr_two_identities_two_choices
 			focus = PAP_pnr_racial_tolerance
 		}
+		completion_reward = {
+			add_stability = 0.1
+		}
 	}
 	focus = {
 		id = PAP_pnr_divine_right_of_kings
@@ -207,8 +345,14 @@ focus_tree = {
 		icon = GFX_focus_generic_royal_wedding
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = PAP_pnr_the_sovereign_of_the_spiritual_realm
+		}
 		prerequisite = {
 			focus = PAP_pnr_mit_brennender_sorge
+		}
+		completion_reward = {
+			add_war_support = 0.05
 		}
 	}
 	focus = {
@@ -216,12 +360,15 @@ focus_tree = {
 		x = 7
 		y = 3
 		cost = 6
-		icon = GFX_goal_agrarian_soldiers
+		icon = GFX_PAP_holy_war
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = PAP_pnr_racial_tolerance
 			focus = PAP_pnr_choice_desire_and_obey
+		}
+		completion_reward = {
+			add_war_support = 0.1
 		}
 	}
 	focus = {
@@ -232,8 +379,17 @@ focus_tree = {
 		icon = GFX_focus_generic_catholic_dominion
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = PAP_pnr_divine_right_of_kings
+		}
 		prerequisite = {
 			focus = PAP_pnr_against_modernism
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.3
+			}
 		}
 	}
 	focus = {
@@ -244,14 +400,25 @@ focus_tree = {
 		icon = GFX_focus_spr_torchbearers_of_tomorrow
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = pnr_chinese_empire_has_broken_tt
+				has_global_flag = pnr_chinese_empire_has_broken
+			}
+		}
 		mutually_exclusive = {
 			focus = PAP_pnr_listen_to_the_distant_holy_words
 		}
 		prerequisite = {
 			focus = PAP_pnr_democracy_is_a_gift_from_god
-		}
-		prerequisite = {
 			focus = PAP_pnr_the_mighty_will_fall
+		}
+		completion_reward = {
+			add_ideas = PAP_pnr_final_battle
+			add_timed_idea = {
+				idea = PAP_pnr_saint_polycarp_of_smyrna
+				days = 365
+			}
 		}
 	}
 	focus = {
@@ -267,9 +434,10 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = PAP_pnr_divine_right_of_kings
-		}
-		prerequisite = {
 			focus = PAP_pnr_the_sovereign_of_the_spiritual_realm
+		}
+		completion_reward = {
+			add_ideas = PAP_pnr_eastern_apostle
 		}
 	}
 	focus = {
@@ -277,11 +445,14 @@ focus_tree = {
 		x = 16
 		y = 0
 		cost = 0
-		icon = GFX_focus_CZE_army_reform
+		icon = GFX_PAP_legionary_spirit
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = PAP_pnr_overcoming_and_overcoming
+		}
+		completion_reward = {
+			add_war_support = 0.05
 		}
 	}
 	focus = {
@@ -289,11 +460,44 @@ focus_tree = {
 		x = 16
 		y = 1
 		cost = 5
-		icon = GFX_focus_generic_improve_the_administration
+		icon = GFX_PAP_roman_army
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = PAP_pnr_army_across_the_world
+		}
+		completion_reward = {
+			add_war_support = 0.05
+			454 = {
+				add_manpower = 35800
+			}
+			2 = {
+				add_manpower = 35800
+			}
+			26 = {
+				add_manpower = 35800
+			}
+			112 = {
+				add_manpower = 35800
+			}
+			161 = {
+				add_manpower = 35800
+			}
+			87 = {
+				add_manpower = 35800
+			}
+			277 = {
+				add_manpower = 35800
+			}
+			992 = {
+				add_manpower = 35800
+			}
+			453 = {
+				add_manpower = 35800
+			}
+			753 = {
+				add_manpower = 35800
+			}
 		}
 	}
 	focus = {
@@ -307,6 +511,93 @@ focus_tree = {
 		prerequisite = {
 			focus = PAP_pnr_the_state_within_a_state
 		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed PAP_pnr_seeking_military_assistance"
+			custom_override_tooltip = {
+				tooltip = {
+					localization_key = tooltip_create_division_template
+					NAME = "2a Guardia Palatina"
+					LINE_1 = {
+						localization_key = line_battalion_tt
+						NAME = infantry
+						ICON = GFX_unit_infantry_icon_small
+						COUNT = 9
+					}
+				}
+				if = {
+					limit = {
+						has_template = "2a Guardia Palatina"
+					}
+					delete_unit_template_and_units = {
+						division_template = "2a Guardia Palatina"
+						disband = yes
+					}
+					#no cheating
+				}
+				division_template = {
+					name = "2a Guardia Palatina"
+					division_names_group = ITAL_INF_01
+					regiments = {
+						infantry = {
+							x = 0
+							y = 0
+						}
+						infantry = {
+							x = 0
+							y = 1
+						}
+						infantry = {
+							x = 0
+							y = 2
+						}
+						infantry = {
+							x = 1
+							y = 0
+						}
+						infantry = {
+							x = 1
+							y = 1
+						}
+						infantry = {
+							x = 1
+							y = 2
+						}
+						infantry = {
+							x = 2
+							y = 0
+						}
+						infantry = {
+							x = 2
+							y = 1
+						}
+						infantry = {
+							x = 2
+							y = 2
+						}
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = {
+					2
+				}
+				limit = {
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = tooltip_spawn_units
+						COUNT = 3
+						TYPE = "2a Guardia Palatina"
+					}
+					create_unit = {
+						division = "division_template = \"2a Guardia Palatina\" start_experience_factor = 0.1"
+						owner = ROOT
+						count = 3
+					}
+				}
+			}
+		}
 	}
 	focus = {
 		id = PAP_pnr_establish_the_combined_chiefs_of_staff
@@ -318,6 +609,10 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = PAP_pnr_seeking_military_assistance
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed PAP_pnr_establish_the_combined_chiefs_of_staff"
+			add_ideas = PAP_foreign_officers
 		}
 	}
 	focus = {
@@ -331,6 +626,91 @@ focus_tree = {
 		prerequisite = {
 			focus = PAP_pnr_establish_the_combined_chiefs_of_staff
 		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed PAP_pnr_divine_will"
+			add_manpower = 10000
+			custom_override_tooltip = {
+				tooltip = {
+					localization_key = tooltip_create_division_template
+					NAME = "Zuavi Pontifici"
+					LINE_1 = {
+						localization_key = line_battalion_tt
+						NAME = infantry
+						ICON = GFX_unit_infantry_icon_small
+						COUNT = 4
+					}
+					SUPPORT_1 = {
+						localization_key = support_battalion_tt
+						NAME = engineer
+						ICON = GFX_unit_engineer_icon_small
+					}
+					SUPPORT_2 = {
+						localization_key = support_battalion_tt
+						NAME = artillery
+						ICON = GFX_unit_artillery_icon_small
+					}
+				}
+				if = {
+					limit = {
+						has_template = "Zuavi Pontifici"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Zuavi Pontifici"
+						disband = yes
+					}
+					#no cheating
+				}
+				division_template = {
+					name = "Zuavi Pontifici"
+					division_names_group = ITAL_MIL_01
+					regiments = {
+						infantry = {
+							x = 0
+							y = 0
+						}
+						infantry = {
+							x = 0
+							y = 1
+						}
+						infantry = {
+							x = 1
+							y = 0
+						}
+						infantry = {
+							x = 1
+							y = 1
+						}
+					}
+					support = {
+						engineer = {
+							x = 0
+							y = 0
+						}
+						artillery = {
+							x = 0
+							y = 1
+						}
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = {
+					2
+				}
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = tooltip_spawn_units
+						COUNT = 6
+						TYPE = "Zuavi Pontifici"
+					}
+					create_unit = {
+						division = "division_template = \"Zuavi Pontifici\" start_experience_factor = 0.2"
+						owner = ROOT
+						count = 6
+					}
+				}
+			}
+		}
 	}
 	focus = {
 		id = PAP_pnr_seeking_finance_assistance
@@ -342,6 +722,11 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = PAP_pnr_the_state_within_a_state
+		}
+		completion_reward = {
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
 		}
 	}
 	focus = {
@@ -355,6 +740,11 @@ focus_tree = {
 		prerequisite = {
 			focus = PAP_pnr_seeking_finance_assistance
 		}
+		completion_reward = {
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+		}
 	}
 	focus = {
 		id = PAP_pnr_ensure_wartime_supplies
@@ -366,6 +756,16 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = PAP_pnr_central_bank
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_ideas = PAP_ASF
+			add_tech_bonus = {
+				name = PAP_pnr_ensure_wartime_supplies
+				bonus = 1
+				uses = 1
+				category = industry
+			}
 		}
 	}
 	focus = {
@@ -382,6 +782,9 @@ focus_tree = {
 		prerequisite = {
 			focus = PAP_pnr_ensure_wartime_supplies
 		}
+		completion_reward = {
+			add_ideas = PAP_pnr_saint_bernard_of_clairvaux
+		}
 	}
 	focus = {
 		id = PAP_pnr_small_scale_navy
@@ -393,6 +796,11 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = PAP_pnr_army_across_the_world
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed PAP_pnr_small_scale_navy"
+			add_ideas = PAP_romanindustry
+			navy_experience = 50
 		}
 	}
 	focus = {
@@ -406,6 +814,9 @@ focus_tree = {
 		prerequisite = {
 			focus = PAP_pnr_small_scale_navy
 		}
+		completion_reward = {
+			add_ideas = PAP_navy_idea
+		}
 	}
 	focus = {
 		id = PAP_pnr_submarine_warfare
@@ -418,6 +829,10 @@ focus_tree = {
 		prerequisite = {
 			focus = PAP_pnr_harassment_priority
 		}
+		completion_reward = {
+			remove_ideas = PAP_navy_idea
+			add_ideas = PAP_navy_idea_sub
+		}
 	}
 	focus = {
 		id = PAP_pnr_lease_dock
@@ -429,6 +844,12 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = PAP_pnr_harassment_priority
+		}
+		completion_reward = {
+			add_offsite_building = {
+				type = dockyard
+				level = 4
+			}
 		}
 	}
 	focus = {
@@ -445,6 +866,9 @@ focus_tree = {
 		prerequisite = {
 			focus = PAP_pnr_lease_dock
 		}
+		completion_reward = {
+			add_ideas = PAP_pnr_saint_john_of_nepomuk
+		}
 	}
 	focus = {
 		id = PAP_pnr_flight_squad
@@ -456,6 +880,15 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = PAP_pnr_army_across_the_world
+		}
+		completion_reward = {
+			air_experience = 50
+			add_tech_bonus = {
+				name = PAP_pnr_flight_squad
+				bonus = 0.5
+				uses = 1
+				category = air_equipment
+			}
 		}
 	}
 	focus = {
@@ -469,6 +902,14 @@ focus_tree = {
 		prerequisite = {
 			focus = PAP_pnr_flight_squad
 		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = PAP_pnr_ensure_the_safety_of_the_sky
+				bonus = 1
+				uses = 2
+				category = light_fighter
+			}
+		}
 	}
 	focus = {
 		id = PAP_pnr_enemy_aircraft_warning
@@ -480,6 +921,30 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = PAP_pnr_ensure_the_safety_of_the_sky
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						is_special_project_completed = sp:sp_air_radar
+					}
+				}
+				complete_special_project = {
+					project = sp:sp_air_radar
+				}
+			}
+			every_controlled_state = {
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -493,6 +958,9 @@ focus_tree = {
 		prerequisite = {
 			focus = PAP_pnr_ensure_the_safety_of_the_sky
 		}
+		completion_reward = {
+			add_ideas = PAP_pnr_saint_joseph_of_cupertino
+		}
 	}
 	focus = {
 		id = PAP_pnr_overcoming_and_overcoming
@@ -502,5 +970,8 @@ focus_tree = {
 		icon = GFX_focus_ARG_state_atheism
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			always = no
+		}
 	}
 }

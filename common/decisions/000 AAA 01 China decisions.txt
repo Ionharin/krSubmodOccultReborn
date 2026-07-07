@@ -838,6 +838,7 @@
 		}
 		visible = {
 			has_completed_focus = QIE_wushan_only_one_light_in_this_dark_world
+			has_completed_focus = QIE_spring_and_autumn_ritual
 			OR = {
 				NOT = {
 					any_state = {
@@ -934,6 +935,583 @@
 						country_event = { id = QIE_wushan_annex_events.1 days = 1 }
 					}
 				}
+			}
+			if = {
+				limit = {
+					537 = { is_controlled_by = JAP }
+				}
+				transfer_state = 537
+				537 = {
+					add_core_of = QIE
+				}
+			}
+		}
+	}
+
+	QIE_wushan_establish_papal_jimi_zhou = {
+		icon = generic_form_nation
+		allowed = {
+			tag = QIE
+		}
+		visible = {
+			has_completed_focus = QIE_wushan_only_one_light_in_this_dark_world
+			has_completed_focus = QIE_jesus_shed_his_blood
+			PAP = { exists = no }
+			NOT = {
+				any_state = {
+					has_state_flag = christ_puppet_state_flag
+					NOT = {
+						OR = {
+							is_controlled_by = ROOT
+							AND = {
+								is_controlled_by = IRQ
+								IRQ = {
+									exists = yes
+									is_subject_of = ROOT
+								}
+							}
+						}
+					}
+				}
+			}
+			any_state = {
+				has_state_flag = christ_puppet_state_flag
+			}
+		}
+		available = {
+			has_completed_focus = QIE_wushan_only_one_light_in_this_dark_world
+			PAP = { exists = no }
+			NOT = {
+				any_state = {
+					has_state_flag = christ_puppet_state_flag
+					NOT = {
+						OR = {
+							is_controlled_by = ROOT
+							AND = {
+								is_controlled_by = IRQ
+								IRQ = {
+									exists = yes
+									is_subject_of = ROOT
+								}
+							}
+						}
+					}
+				}
+			}
+			any_state = {
+				has_state_flag = christ_puppet_state_flag
+			}
+		}
+		cost = 0
+		fire_only_once = yes
+		complete_effect = {
+			every_state = {
+				limit = {
+					has_state_flag = christ_puppet_state_flag
+				}
+				remove_core_of = QIE
+				remove_claim_by = QIE
+				add_core_of = PAP
+			}
+			release = PAP
+			set_autonomy = {
+				target = PAP
+				autonomy_state = autonomy_pnr_jimi_zhou
+				end_wars = yes
+				end_civil_wars = yes
+			}
+			every_state = {
+				limit = {
+					has_state_flag = christ_puppet_state_flag
+				}
+				PAP = { transfer_state = PREV }
+			}
+			PAP = {
+				set_cosmetic_tag = PAP_pnr_no_pope_puppet
+				load_focus_tree = PAP_pnr_puppet_wushan
+				complete_national_focus = PAP_pnr_overcoming_and_overcoming
+				set_politics = { ruling_party = national_populist }
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
+	}
+
+	QIE_wushan_establish_turkestan_jimi_zhou = {
+		icon = generic_form_nation
+		allowed = {
+			tag = QIE
+		}
+		visible = {
+			has_completed_focus = QIE_wushan_only_one_light_in_this_dark_world
+			has_completed_focus = QIE_seize_the_great_game
+			NOT = {
+				any_state = {
+					has_state_flag = midasia_puppet_state_flag
+					NOT = {
+						OR = {
+							is_controlled_by = ROOT
+							AND = {
+								is_controlled_by = IRQ
+								IRQ = {
+									exists = yes
+									is_subject_of = ROOT
+								}
+							}
+						}
+					}
+				}
+			}
+			any_state = {
+				has_state_flag = midasia_puppet_state_flag
+			}
+			OR = {
+				TRK = { exists = no }
+				TRK = {
+					exists = yes
+					is_subject_of = ROOT
+				}
+			}
+		}
+		available = {
+			has_completed_focus = QIE_wushan_only_one_light_in_this_dark_world
+			NOT = {
+				any_state = {
+					has_state_flag = midasia_puppet_state_flag
+					NOT = {
+						OR = {
+							is_controlled_by = ROOT
+							AND = {
+								is_controlled_by = IRQ
+								IRQ = {
+									exists = yes
+									is_subject_of = ROOT
+								}
+							}
+						}
+					}
+				}
+			}
+			any_state = {
+				has_state_flag = midasia_puppet_state_flag
+			}
+			OR = {
+				TRK = { exists = no }
+				TRK = {
+					exists = yes
+					is_subject_of = ROOT
+				}
+			}
+		}
+		cost = 0
+		fire_only_once = yes
+		complete_effect = {
+			every_state = {
+				limit = {
+					has_state_flag = midasia_puppet_state_flag
+				}
+				remove_core_of = QIE
+				remove_claim_by = QIE
+				add_core_of = TRK
+			}
+			if = {
+				limit = {
+					TRK = { exists = no }
+				}
+				release = TRK
+				set_autonomy = {
+					target = TRK
+					autonomy_state = autonomy_pnr_jimi_zhou
+					end_wars = yes
+					end_civil_wars = yes
+				}
+				every_state = {
+					limit = {
+						has_state_flag = midasia_puppet_state_flag
+					}
+					TRK = {
+						transfer_state = PREV
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					TRK = {
+						exists = yes
+						is_subject_of = ROOT
+					}
+				}
+				every_state = {
+					limit = {
+						has_state_flag = midasia_puppet_state_flag
+					}
+					TRK = {
+						transfer_state = PREV
+					}
+				}
+				set_autonomy = {
+					target = TRK
+					autonomy_state = autonomy_pnr_jimi_zhou
+					end_wars = yes
+					end_civil_wars = yes
+				}
+			}
+			TRK = {
+				set_cosmetic_tag = TRK_pnr_wushan_puppet
+				set_politics = {
+					ruling_party = national_populist
+				}
+				load_focus_tree = generic_focus
+				mark_focus_tree_layout_dirty = yes
+				TRK_pnr_nanasatta_thera = { promote_character = yes }
+			}
+		}
+	}
+
+	QIE_wushan_establish_arab_jimi_zhou = {
+		icon = generic_form_nation
+		allowed = {
+			tag = QIE
+		}
+		visible = {
+			has_completed_focus = QIE_wushan_only_one_light_in_this_dark_world
+			NOT = {
+				any_state = {
+					has_state_flag = arab_puppet_state_flag
+					NOT = {
+						OR = {
+							is_controlled_by = ROOT
+							AND = {
+								is_controlled_by = PAP
+								PAP = {
+									exists = yes
+									is_subject_of = ROOT
+								}
+							}
+							AND = {
+								is_controlled_by = TRK
+								TRK = {
+									exists = yes
+									is_subject_of = ROOT
+								}
+							}
+						}
+					}
+				}
+			}
+			any_state = {
+				has_state_flag = arab_puppet_state_flag
+			}
+			OR = {
+				IRQ = { exists = no }
+				IRQ = {
+					exists = yes
+					is_subject_of = ROOT
+				}
+			}
+		}
+		available = {
+			has_completed_focus = QIE_wushan_only_one_light_in_this_dark_world
+			NOT = {
+				any_state = {
+					has_state_flag = arab_puppet_state_flag
+					NOT = {
+						OR = {
+							is_controlled_by = ROOT
+							AND = {
+								is_controlled_by = PAP
+								PAP = {
+									exists = yes
+									is_subject_of = ROOT
+								}
+							}
+							AND = {
+								is_controlled_by = TRK
+								TRK = {
+									exists = yes
+									is_subject_of = ROOT
+								}
+							}
+						}
+					}
+				}
+			}
+			any_state = {
+				has_state_flag = arab_puppet_state_flag
+			}
+			OR = {
+				IRQ = { exists = no }
+				IRQ = {
+					exists = yes
+					is_subject_of = ROOT
+				}
+			}
+		}
+		cost = 0
+		fire_only_once = yes
+		complete_effect = {
+			every_state = {
+				limit = {
+					has_state_flag = arab_puppet_state_flag
+				}
+				remove_core_of = QIE
+				remove_claim_by = QIE
+				add_core_of = IRQ
+			}
+			if = {
+				limit = {
+					IRQ = { exists = no }
+				}
+				release = IRQ
+				set_autonomy = {
+					target = IRQ
+					autonomy_state = autonomy_pnr_jimi_zhou
+					end_wars = yes
+					end_civil_wars = yes
+				}
+				every_state = {
+					limit = {
+						has_state_flag = arab_puppet_state_flag
+					}
+					IRQ = {
+						transfer_state = PREV
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					IRQ = {
+						exists = yes
+						is_subject_of = ROOT
+					}
+				}
+				every_state = {
+					limit = {
+						has_state_flag = arab_puppet_state_flag
+					}
+					IRQ = {
+						transfer_state = PREV
+					}
+				}
+				set_autonomy = {
+					target = IRQ
+					autonomy_state = autonomy_pnr_jimi_zhou
+					end_wars = yes
+					end_civil_wars = yes
+				}
+			}
+			IRQ = {
+				set_cosmetic_tag = IRQ_pnr_wushan_puppet
+				set_politics = {
+					ruling_party = national_populist
+				}
+				load_focus_tree = generic_focus
+				mark_focus_tree_layout_dirty = yes
+				IRQ_pnr_wang_zengshan = { promote_character = yes }
+			}
+			if = {
+				limit = {
+					PAP = { exists = no }
+				}
+				transfer_state = 454
+				454 = {
+					add_core_of = QIE
+				}
+			}
+			else_if = {
+				limit = {
+					PAP = { exists = yes }
+				}
+				PAP = {
+					transfer_state = 454
+				}
+				454 = {
+					add_core_of = PAP
+				}
+			}
+		}
+	}
+
+	QIE_wushan_establish_southasia_jimi_zhou = {
+		icon = generic_form_nation
+		allowed = {
+			tag = QIE
+		}
+		visible = {
+			has_completed_focus = QIE_wushan_only_one_light_in_this_dark_world
+			has_completed_focus = QIE_into_samadhi
+			882 = { is_controlled_by = ROOT }
+			750 = { is_controlled_by = ROOT }
+			826 = { is_controlled_by = ROOT }
+			856 = { is_controlled_by = ROOT }
+			286 = { is_controlled_by = ROOT }
+			827 = { is_controlled_by = ROOT }
+			670 = { is_controlled_by = ROOT }
+			NOT = {
+				any_state = {
+					OR = {
+						is_core_of = SIA
+						is_core_of = BRM
+						is_core_of = BHU
+						is_core_of = NEP
+					}
+					NOT = {
+						state = 1111
+					}
+					NOT = {
+						state = 857
+					}
+					NOT = {
+						state = 671
+					}
+					NOT = {
+						is_controlled_by = ROOT
+					}
+				}
+			}
+			OR = {
+				BHU = { exists = no }
+				BHU = {
+					exists = yes
+					is_subject_of = ROOT
+				}
+			}
+		}
+		available = {
+			has_completed_focus = QIE_wushan_only_one_light_in_this_dark_world
+			882 = { is_controlled_by = ROOT }
+			750 = { is_controlled_by = ROOT }
+			826 = { is_controlled_by = ROOT }
+			856 = { is_controlled_by = ROOT }
+			286 = { is_controlled_by = ROOT }
+			827 = { is_controlled_by = ROOT }
+			670 = { is_controlled_by = ROOT }
+			NOT = {
+				any_state = {
+					OR = {
+						is_core_of = SIA
+						is_core_of = BRM
+						is_core_of = BHU
+						is_core_of = NEP
+					}
+					NOT = {
+						state = 1111
+					}
+					NOT = {
+						state = 857
+					}
+					NOT = {
+						state = 671
+					}
+					NOT = {
+						is_controlled_by = ROOT
+					}
+				}
+			}
+			OR = {
+				BHU = { exists = no }
+				BHU = {
+					exists = yes
+					is_subject_of = ROOT
+				}
+			}
+		}
+		cost = 0
+		fire_only_once = yes
+		complete_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = SIA
+						is_core_of = BRM
+						is_core_of = BHU
+						is_core_of = NEP
+					}
+					NOT = {
+						state = 1111
+					}
+					NOT = {
+						state = 857
+					}
+					NOT = {
+						state = 671
+					}
+				}
+				remove_core_of = QIE
+				remove_claim_by = QIE
+				add_core_of = BHU
+			}
+			882 = { remove_core_of = QIE remove_claim_by = QIE add_core_of = BHU }
+			750 = { remove_core_of = QIE remove_claim_by = QIE add_core_of = BHU }
+			826 = { remove_core_of = QIE remove_claim_by = QIE add_core_of = BHU }
+			856 = { remove_core_of = QIE remove_claim_by = QIE add_core_of = BHU }
+			286 = { remove_core_of = QIE remove_claim_by = QIE add_core_of = BHU }
+			827 = { remove_core_of = QIE remove_claim_by = QIE add_core_of = BHU }
+			670 = { remove_core_of = QIE remove_claim_by = QIE add_core_of = BHU }
+			if = {
+				limit = {
+					BHU = { exists = no }
+				}
+				release = BHU
+				set_autonomy = {
+					target = BHU
+					autonomy_state = autonomy_pnr_jimi_zhou
+					end_wars = yes
+					end_civil_wars = yes
+				}
+			}
+			else_if = {
+				limit = {
+					BHU = {
+						exists = yes
+						is_subject_of = ROOT
+					}
+				}
+				every_state = {
+					limit = {
+						OR = {
+							is_core_of = SIA
+							is_core_of = BRM
+							is_core_of = BHU
+							is_core_of = NEP
+						}
+						NOT = {
+							state = 1111
+						}
+						NOT = {
+							state = 857
+						}
+						NOT = {
+							state = 671
+						}
+					}
+					BHU = {
+						transfer_state = PREV
+					}
+				}
+				BHU = {
+					transfer_state = 882
+					transfer_state = 750
+					transfer_state = 826
+					transfer_state = 856
+					transfer_state = 286
+					transfer_state = 827
+					transfer_state = 670
+				}
+				set_autonomy = {
+					target = BHU
+					autonomy_state = autonomy_pnr_jimi_zhou
+					end_wars = yes
+					end_civil_wars = yes
+				}
+			}
+			BHU = {
+				set_cosmetic_tag = BHU_pnr_wushan_puppet
+				set_politics = {
+					ruling_party = national_populist
+				}
+				load_focus_tree = generic_focus
+				mark_focus_tree_layout_dirty = yes
+				BHU_pnr_salvatore_cioffi = { promote_character = yes }
 			}
 		}
 	}

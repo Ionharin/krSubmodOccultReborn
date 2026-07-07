@@ -1226,7 +1226,12 @@ country_event = { # 燕京纯阳宫内
     timeout_days = 14
     option = { # 尊道贵德
         name = QIE_ws_god_circle_events.1.a
+        ai_chance = { factor = 99 }
+    }
+    option = { # 请告诉我更多（关于特殊机制）
+        name = QIE_ws_god_circle_events.1.b
         ai_chance = { factor = 1 }
+        country_event = QIE_ws_god_circle_events.12
     }
 }
 
@@ -1376,6 +1381,21 @@ country_event = { # 回祖线第二阶段
     timeout_days = 14
     option = { # 他们所称之为天园的，实则是火狱。
         name = QIE_ws_god_circle_events.11.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 乩坛系统介绍
+    id = QIE_ws_god_circle_events.12
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_god_circle_events.12" }
+    title = QIE_ws_god_circle_events.12.t
+    desc = QIE_ws_god_circle_events.12.desc
+    picture = GFX_report_event_wushan_seance
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我大概理解了。
+        name = QIE_ws_god_circle_events.12.a
         ai_chance = { factor = 1 }
     }
 }
@@ -3121,18 +3141,61 @@ country_event = { # 泥土与草甸
     }
 }
 
-country_event = { # 合作共赢
+country_event = { # 救世新教：神仙重归宝座
     id = QIE_ws_united.27
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.27" }
     title = QIE_ws_united.27.t
     desc = QIE_ws_united.27.desc
-    picture = GFX_QIE_ws_united_26
+    picture = GFX_QIE_ws_united_27
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # 谁说不是呢？哈-哈-
+    option = { # 我看到一位国王，一位“转轮者”，一位凯旋之人。
         name = QIE_ws_united.27.a
         ai_chance = { factor = 1 }
+        custom_effect_tooltip = QIE_ws_united.29.tt
+    }
+}
+
+country_event = { # 救世新教：未遇蓬莱
+    id = QIE_ws_united.28
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.28" }
+    title = QIE_ws_united.28.t
+    desc = QIE_ws_united.28.desc
+    picture = GFX_QIE_ws_united_28
+    fire_only_once = yes
+    trigger = {
+        tag = QIE
+        JAP = {
+            exists = yes
+            is_subject_of = ROOT
+        }
+        PAP = {
+            exists = yes
+            is_subject_of = ROOT
+        }
+        IRQ = {
+            exists = yes
+            is_subject_of = ROOT
+        }
+        BHU = {
+            exists = yes
+            is_subject_of = ROOT
+        }
+        TRK = {
+            exists = yes
+            is_subject_of = ROOT
+        }
+    }
+    mean_time_to_happen = {
+        days = 1
+    }
+    hidden = no
+    timeout_days = 14
+    option = { # 而统治就会这样持续下去吗？
+        name = QIE_ws_united.28.a
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = QIE_ws_united.28.tt
     }
 }
 

@@ -1028,7 +1028,7 @@ focus_tree = {
 		id = QIE_economic_stability
 		x = 15
 		y = 2
-		cost = 2
+		cost = 3
 		icon = GFX_focus_generic_expropriate_industrialist
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1071,7 +1071,7 @@ focus_tree = {
 		id = QIE_debt_negotiation
 		x = 14
 		y = 4
-		cost = 3
+		cost = 4
 		icon = GFX_goal_COS_German_Bailout
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1129,7 +1129,7 @@ focus_tree = {
 		id = QIE_cancel_completely
 		x = 16
 		y = 4
-		cost = 2
+		cost = 3
 		icon = GFX_goal_treaty_fails
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3234,7 +3234,7 @@ focus_tree = {
 		id = QIE_become_MP_shadow
 		x = 17
 		y = 3
-		cost = 8
+		cost = 9
 		icon = GFX_goal_QIE_manchu_symbol
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3261,7 +3261,7 @@ focus_tree = {
 		id = QIE_become_CERA_shadow
 		x = 15
 		y = 3
-		cost = 8
+		cost = 9
 		icon = GFX_goal_QIE_cera
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3288,7 +3288,7 @@ focus_tree = {
 		id = QIE_become_YCP_shadow
 		x = 13
 		y = 3
-		cost = 8
+		cost = 9
 		icon = GFX_goal_QIE_ycp
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -4678,7 +4678,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_cross_the_dai_river"
 			add_popularity = {
-				ideology = authoritarian_democrat
+				ideology = national_populist
 				popularity = 0.05
 			}
 			if = {
@@ -7336,6 +7336,8 @@ focus_tree = {
 				amount = 300
 				producer = QIE
 			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = QIE_wushan_the_war_of_sciences.tt		
 		}
 	}
 	focus = {
@@ -9650,6 +9652,10 @@ focus_tree = {
 				country_event = {
 					id = QIE_ws_united.24
 					days = 10
+				}
+				country_event = {  
+					id = QIE_ws_united.27
+					days = 1
 				}
 			}
 		}
