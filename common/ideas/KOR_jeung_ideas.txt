@@ -1,0 +1,389 @@
+ideas = {
+	country = {
+		KOR_pnr_expel_japanese_residents = {
+			picture = SPR_political_violence
+			allowed = { always = no }
+			modifier = {
+				monthly_population = -0.15
+				stability_weekly = 0.0001
+			}
+		}
+
+		KOR_pnr_promote_co_prosperity = {
+			picture = generic_immigration
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = -0.05
+				monthly_population = 0.05
+			}
+		}
+
+		KOR_pnr_land_reform_in_progress = {
+			picture = CHI_neglected_countryside
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.05
+				offensive_war_stability_factor = -0.15
+				defensive_war_stability_factor = -0.15
+				consumer_goods_factor = -0.10
+				global_building_slots_factor = 0.05
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+		KOR_pnr_korean_agricultural_cooperative = {
+			picture = qie_ideas_ws_labor_cooperative
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.10
+				industrial_capacity_factory = 0.05
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
+
+		KOR_legitimacy_idea_pnr_khg = {
+			picture = generic_constitutional_guarantees
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.15
+				war_support_factor = 0.25
+				production_speed_buildings_factor = 0.15
+				industrial_capacity_factory = 0.10
+				industrial_capacity_dockyard = 0.10
+				national_populist_drift = 0.02
+			}
+		}
+
+		KOR_pnr_education_reform = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = -0.15
+				consumer_goods_factor = 0.10
+				research_speed_factor = 0.10
+			}
+		}
+
+		KOR_pnr_korean_youth_league = {
+			picture = qie_ideas_ws_madan_spirit
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.10
+				production_factory_efficiency_gain_factor = 0.10
+				production_speed_buildings_factor = 0.10
+				economy_cost_factor = -0.20
+				combat_width_factor = -0.10
+			}
+		}
+
+		KOR_pnr_seoul_normal_school_idea = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.15
+				research_speed_factor = 0.20
+			}
+		}
+
+		KOR_pnr_hwaebaek_conference = {
+			picture = generic_constitutional_guarantees
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.10
+				political_power_gain = -0.15
+				industrial_capacity_factory = 0.05
+				production_factory_efficiency_gain_factor = 0.05
+			}
+		}
+
+		KOR_pnr_destined_monarch = {
+			picture = CHI_the_political_tutelage_dm
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.10
+				war_support_factor = -0.10
+				consumer_goods_factor = -0.05
+				national_populist_drift = 0.02
+				paternal_autocrat_drift = 0.02
+			}
+		}
+
+		KOR_pnr_winner_takes_all = {
+			picture = generic_medium_industry
+			allowed = { always = no }
+			modifier = {
+				production_speed_buildings_factor = -0.10
+				industrial_concern_cost_factor = -0.33
+				global_building_slots_factor = 0.15
+				industrial_capacity_factory = 0.10
+			}
+		}
+
+		KOR_legitimacy_idea_pnr_cks = {
+			picture = generic_constitutional_guarantees
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.15
+				war_support_factor = 0.25
+				industrial_capacity_factory = 0.25
+				national_populist_drift = 0.02
+			}
+		}
+
+		KOR_pnr_licking_wounds = {
+			picture = generic_strike_at_democracy
+			allowed = { always = no }
+			modifier = {
+				stability_weekly = 0.0005
+				national_populist_drift = 0.03
+			}
+		}
+
+		KOR_pnr_korea_our_consensus = {
+			picture = generic_strike_at_democracy
+			allowed = { always = no }
+			modifier = {
+				production_factory_max_efficiency_factor = 0.06
+				production_factory_start_efficiency_factor = 0.06
+				production_factory_efficiency_gain_factor = 0.06
+				production_speed_buildings_factor = 0.10
+				industrial_capacity_factory = 0.10
+				industrial_capacity_dockyard = 0.10
+			}
+		}
+
+		KOR_pnr_cultural_revival_idea = {
+			picture = generic_national_unity
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.10
+				stability_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.05
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+			}
+		}
+
+		KOR_pnr_ministry_of_healthcare = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.05
+				conscription = 0.005
+				experience_loss_factor = -0.10
+				army_org_regain = 0.05
+				global_building_slots_factor = 0.15
+				production_speed_industrial_complex_factor = 0.10
+			}
+		}
+
+		KOR_pnr_state_of_emergency_idea = {
+			picture = generic_political_violence
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.10
+				training_time_factor = -0.10
+				political_power_gain = -0.50
+				war_support_factor = 0.20
+				production_speed_arms_factory_factor = 0.15
+			}
+		}
+
+		KOR_legitimacy_idea_pnr_jjs = {
+			picture = generic_constitutional_guarantees
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.15
+				stability_factor = 0.10
+				war_support_factor = 0.15
+				global_building_slots_factor = 0.25
+				mobilization_speed = 0.25
+				national_populist_drift = 0.02
+			}
+		}
+
+		KOR_pnr_beware_of_corruption = {
+			picture = ARG_political_corruption_modifier
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.05
+				political_power_gain = -0.20
+				consumer_goods_factor = -0.05
+				production_factory_max_efficiency_factor = 0.10
+			}
+		}
+
+		KOR_pnr_ideal_paradise = {
+			picture = generic_welfare
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.20
+				political_power_factor = 0.17
+				monthly_population = 0.30
+				stability_factor = 0.25
+				production_speed_buildings_factor = 0.17
+				production_factory_max_efficiency_factor = 0.17
+				production_factory_efficiency_gain_factor = 0.17
+				industrial_capacity_factory = 0.17
+				industrial_capacity_dockyard = 0.17
+				industry_repair_factor = 0.17
+				factory_energy_consumption = -0.35
+			}
+		}
+
+		KOR_pnr_daejin_university_idea = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.10
+				stability_factor = 0.05
+				mobilization_speed = 0.15
+			}
+		}
+
+		KOR_pnr_three_major_business_budgets_idea = {
+			picture = generic_welfare
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.10
+				political_power_gain = -0.15
+				research_speed_factor = 0.15
+				production_speed_buildings_factor = 0.15
+				production_factory_max_efficiency_factor = 0.15
+				factory_energy_consumption = -0.15
+			}
+		}
+
+		KOR_legitimacy_idea_pnr_phg = {
+			picture = generic_constitutional_guarantees
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.15
+				stability_factor = 0.15
+				war_support_factor = 0.10
+				production_factory_max_efficiency_factor = 0.25
+				mobilization_speed = 0.25
+				national_populist_drift = 0.02
+			}
+		}
+
+		KOR_pnr_rural_autonomy = {
+			picture = CHI_neglected_countryside
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.10
+				stability_factor = 0.10
+				research_speed_factor = -0.05
+				production_speed_industrial_complex_factor = 0.07
+			}
+		}
+
+		KOR_pnr_relics_of_kang_il_sun = {
+			picture = generic_national_unity
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.10
+				political_power_factor = 0.05
+				mobilization_speed = 0.10
+			}
+		}
+
+		KOR_pnr_balance_of_heaven_and_earth = {
+			picture = generic_national_unity
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.10
+				supply_consumption_factor = -0.10
+			}
+		}
+
+		KOR_pnr_follow_the_forerunner = {
+			picture = generic_national_unity
+			allowed = { always = no }
+			modifier = {
+				party_popularity_stability_factor = 0.15
+				production_speed_buildings_factor = 0.20
+				consumer_goods_factor = -0.15
+			}
+		}
+
+		KOR_pnr_armed_defense = {
+			picture = generic_strike_at_democracy
+			allowed = { always = no }
+			modifier = {
+				supply_consumption_factor = -0.10
+				enemy_army_bonus_air_superiority_factor = -0.10
+				cas_damage_reduction = 0.10
+				army_org_regain = 0.05
+				land_reinforce_rate = 0.02
+				pocket_penalty = -0.20
+				combat_width_factor = -0.10
+				no_supply_grace = 144
+			}
+		}
+
+		KOR_legitimacy_idea_pnr_ksi0 = {
+			picture = generic_constitutional_guarantees
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.15
+				stability_factor = 0.25
+				production_factory_start_efficiency_factor = 0.25
+				national_populist_drift = 0.02
+			}
+		}
+
+		KOR_legitimacy_idea_pnr_ksi1 = {
+			picture = generic_constitutional_guarantees
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.15
+				stability_factor = 0.25
+				consumer_goods_factor = -0.35
+				production_speed_buildings_factor = -0.10
+				national_populist_drift = 0.02
+			}
+		}
+
+		KOR_pnr_hermit_kingdom_idea = {
+			picture = generic_strike_at_democracy
+			allowed = { always = no }
+			modifier = {
+				army_core_defence_factor = 0.25
+				defensive_war_stability_factor = 0.40
+				air_detection = 0.15
+				army_defence_factor = 0.10
+				army_org_regain = 0.15
+				supply_consumption_factor = -0.05
+			}
+		}
+
+		KOR_pnr_coastal_batteries = {
+			picture = generic_coastal_navy
+			allowed = { always = no }
+			modifier = {
+				shore_bombardment_bonus = 0.15
+			}
+		}
+
+		KOR_pnr_focus_on_light_industry = {
+			picture = generic_medium_industry
+			allowed = { always = no }
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				production_speed_industrial_complex_factor = 0.15
+				consumer_goods_factor = -0.10
+			}
+		}
+
+		KOR_pnr_focus_on_heavy_industry = {
+			picture = generic_medium_industry
+			allowed = { always = no }
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				production_speed_arms_factory_factor = 0.15
+				consumer_goods_factor = -0.10
+			}
+		}
+	}
+}

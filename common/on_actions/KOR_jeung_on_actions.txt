@@ -1,0 +1,15 @@
+on_actions = {
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = KOR_pnr_dysfunctional_government }
+						has_dynamic_modifier = { modifier = KOR_pnr_metropole_patronage }
+					}
+				}
+				KOR_refresh_jeung_dynamic_modifiers = yes
+			}
+		}
+	}
+}

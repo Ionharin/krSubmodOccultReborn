@@ -1,0 +1,27 @@
+KOR_refresh_jeung_dynamic_modifiers = {
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = KOR_pnr_dysfunctional_government }
+		}
+		set_variable = { KOR_pnr_dysfunctional_government_penalty = KOR.party_popularity@authoritarian_democrat }
+		add_to_variable = { KOR_pnr_dysfunctional_government_penalty = KOR.party_popularity@social_conservative }
+		add_to_variable = { KOR_pnr_dysfunctional_government_penalty = KOR.party_popularity@social_liberal }
+		add_to_variable = { KOR_pnr_dysfunctional_government_penalty = KOR.party_popularity@social_democrat }
+		multiply_variable = { KOR_pnr_dysfunctional_government_penalty = -0.333333 }
+	}
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = KOR_pnr_metropole_patronage }
+		}
+		set_variable = { KOR_pnr_metropole_patronage_overlord_factory_var = 0 }
+		set_variable = { KOR_pnr_metropole_patronage_consumer_goods_var = 0 }
+		if = {
+			limit = { has_variable = KOR_pnr_metropole_intervention_count }
+			set_variable = { KOR_pnr_metropole_patronage_overlord_factory_var = KOR_pnr_metropole_intervention_count }
+			multiply_variable = { KOR_pnr_metropole_patronage_overlord_factory_var = 0.05 }
+			set_variable = { KOR_pnr_metropole_patronage_consumer_goods_var = KOR_pnr_metropole_intervention_count }
+			multiply_variable = { KOR_pnr_metropole_patronage_consumer_goods_var = -0.02 }
+		}
+	}
+	force_update_dynamic_modifier = yes
+}
