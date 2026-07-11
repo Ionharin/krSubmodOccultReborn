@@ -384,7 +384,10 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = KOR_pnr_innovation_and_review_committee
+			focus = KOR_pnr_agricultural_collaboration
+		}
+		prerequisite = {
+			focus = KOR_pnr_benefit_to_the_people
 		}
 		completion_reward = {
 			swap_ideas = {
@@ -938,7 +941,7 @@ focus_tree = {
 		x = -12
 		y = 9
 		cost = 4
-		icon = GFX_focus_AFG_telegraph
+		icon = GFX_focus_PHI_utang_na_loob
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1291,42 +1294,54 @@ focus_tree = {
 		}
 		completion_reward = {
 			if = {
-				limit = { has_idea = scraping_the_barrel }
+				limit = {
+					has_idea = scraping_the_barrel
+				}
 				swap_ideas = {
 					remove_idea = scraping_the_barrel
 					add_idea = disarmed_nation
 				}
 			}
 			else_if = {
-				limit = { has_idea = all_adults_serve }
+				limit = {
+					has_idea = all_adults_serve
+				}
 				swap_ideas = {
 					remove_idea = all_adults_serve
 					add_idea = disarmed_nation
 				}
 			}
 			else_if = {
-				limit = { has_idea = service_by_requirement }
+				limit = {
+					has_idea = service_by_requirement
+				}
 				swap_ideas = {
 					remove_idea = service_by_requirement
 					add_idea = disarmed_nation
 				}
 			}
 			else_if = {
-				limit = { has_idea = extensive_conscription }
+				limit = {
+					has_idea = extensive_conscription
+				}
 				swap_ideas = {
 					remove_idea = extensive_conscription
 					add_idea = disarmed_nation
 				}
 			}
 			else_if = {
-				limit = { has_idea = limited_conscription }
+				limit = {
+					has_idea = limited_conscription
+				}
 				swap_ideas = {
 					remove_idea = limited_conscription
 					add_idea = disarmed_nation
 				}
 			}
 			else_if = {
-				limit = { has_idea = volunteer_only }
+				limit = {
+					has_idea = volunteer_only
+				}
 				swap_ideas = {
 					remove_idea = volunteer_only
 					add_idea = disarmed_nation
@@ -1847,10 +1862,20 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = KOR_neither_china_nor_japan
-			JAP = { add_opinion_modifier = { target = ROOT modifier = KR_outraged } }
+			JAP = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = KR_outraged
+				}
+			}
 			every_other_country = {
-				limit = { is_chinese_tag = yes }
-				add_opinion_modifier = { target = ROOT modifier = KR_outraged }
+				limit = {
+					is_chinese_tag = yes
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = KR_outraged
+				}
 			}
 		}
 	}
@@ -1870,7 +1895,14 @@ focus_tree = {
 			focus = KOR_pnr_hermit_kingdom
 		}
 		completion_reward = {
-			
+			overlord = {
+				set_autonomy = {
+					target = KOR
+					autonomy_state = autonomy_pnr_jimi_zhou
+					end_wars = yes
+					end_civil_wars = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -2004,7 +2036,7 @@ focus_tree = {
 			focus = KOR_pnr_tendency_toward_large_enterprises
 		}
 		completion_reward = {
-			add_stability = -0.10
+			add_stability = -0.1
 			add_one_random_civilian_factory = yes
 			add_one_random_civilian_factory = yes
 			add_one_random_civilian_factory = yes
@@ -3209,9 +3241,6 @@ focus_tree = {
 		prerequisite = {
 			focus = KOR_pnr_airport_base_building
 		}
-		completion_reward = {
-			
-		}
 	}
 	focus = {
 		id = KOR_pnr_golden_eagle_jet_airport
@@ -3239,5 +3268,16 @@ focus_tree = {
 				}
 			}
 		}
+	}
+	focus = {
+		id = KOR_pnr_government_collapse
+		x = -10
+		y = 17
+		cost = 1042
+		icon = GFX_goal_skull_treaty2
+		continue_if_invalid = no
+		cancel_if_invalid = no
+		cancelable = no
+		allow_branch = { always = no }
 	}
 }

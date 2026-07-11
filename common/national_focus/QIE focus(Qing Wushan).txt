@@ -4133,9 +4133,7 @@ focus_tree = {
 		icon = GFX_qie_ws_seances_restart_in_beijing
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		select_effect = {
-			log = "[GetLogRoot]: Select Focus QIE_seances_restart_in_beijing"
-		}
+		available = { always = no }
 		completion_reward = {
 			custom_effect_tooltip = QIE_ws_focus_it_will_increase_maddness.tt
 			custom_effect_tooltip = QIE_seances_restart_in_beijing.tt
@@ -4156,9 +4154,12 @@ focus_tree = {
 				set_variable = {
 					god_circle_tier = 0
 				}
+				set_variable = {
+					god_circle_days_until_next_upgrade = 49
+				}
 				set_country_flag = {
 					flag = QIE_recently_changed_god_circle_focus
-					days = 70
+					days = 49
 					value = 1
 				}
 				add_dynamic_modifier = {

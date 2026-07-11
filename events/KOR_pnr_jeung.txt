@@ -1,0 +1,860 @@
+add_namespace = KOR_pnr_puppet
+
+country_event = { #另一个选择
+	id = KOR_pnr_puppet.1
+	title = KOR_pnr_puppet.1.t
+	desc = KOR_pnr_puppet.1.desc
+	picture = GFX_report_event_pnr_KOR_kang_il_soon2
+	is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+	option = { # 相信他们
+		name = KOR_pnr_puppet.1.a
+		KOR = {
+			load_focus_tree = { tree = KOR_jeung keep_completed = no }
+			complete_national_focus = KOR_pnr_the_hibiscus_blooms
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+
+	option = { # 还是算了
+		name = KOR_pnr_puppet.1.b
+	}
+}
+country_event = { # 三千里江山之歧路
+    id = KOR_pnr_puppet.2
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.2" }
+    title = KOR_pnr_puppet.2.t
+    desc = KOR_pnr_puppet.2.desc
+    picture = GFX_report_event_pnr_KOR_liberation_army
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们的新邻居会是谁？
+        name = KOR_pnr_puppet.2.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 普天教希望得到支持
+    id = KOR_pnr_puppet.3
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.3" }
+    title = KOR_pnr_puppet.3.t
+    desc = KOR_pnr_puppet.3.desc
+    picture = GFX_report_event_pnr_KOR_pocheongyo
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 7
+    option = { # 农民君主和革命者，这是什么组合？
+        name = KOR_pnr_puppet.3.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 太极道希望得到支持
+    id = KOR_pnr_puppet.4
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.4" }
+    title = KOR_pnr_puppet.4.t
+    desc = KOR_pnr_puppet.4.desc
+    picture = GFX_report_event_pnr_KOR_park_han_gyeong
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 7
+    option = { # 美好的新国家，嗯……
+        name = KOR_pnr_puppet.4.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 甑山法教希望得到支持
+    id = KOR_pnr_puppet.5
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.5" }
+    title = KOR_pnr_puppet.5.t
+    desc = KOR_pnr_puppet.5.desc
+    picture = GFX_report_event_pnr_KOR_kang_soon_im
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 在这个时代还强调正统地位吗？
+        name = KOR_pnr_puppet.5.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 我们的决定
+    id = KOR_pnr_puppet.6
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.6" }
+    title = KOR_pnr_puppet.6.t
+    desc = KOR_pnr_puppet.6.desc
+    picture = GFX_report_event_generic_diplomacy3
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 支持普天教。
+        name = KOR_pnr_puppet.6.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 支持太极道。
+        name = KOR_pnr_puppet.6.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 支持甑山法教。
+        name = KOR_pnr_puppet.6.c
+        ai_chance = { factor = 1 }
+    }
+    option = { # 放着不管。
+        name = KOR_pnr_puppet.6.d
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 来自汉城的紧急电报
+    id = KOR_pnr_puppet.7
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.7" }
+    title = KOR_pnr_puppet.7.t
+    desc = KOR_pnr_puppet.7.desc
+    picture = GFX_report_event_pnr_KOR_donghak
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 对[KOR.GetName]施加外交压力。
+        name = KOR_pnr_puppet.7.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 调动边境军队，做好武装胁迫的准备。
+        name = KOR_pnr_puppet.7.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 既然输了，那么就接受结局。
+        name = KOR_pnr_puppet.7.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 道喜
+    id = KOR_pnr_puppet.8
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.8" }
+    title = KOR_pnr_puppet.8.t
+    desc = KOR_pnr_puppet.8.desc
+    picture = GFX_report_event_generic_diplomacy1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 这是我们的举手之劳。
+        name = KOR_pnr_puppet.8.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 夺取圣物
+    id = KOR_pnr_puppet.9
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.9" }
+    title = KOR_pnr_puppet.9.t
+    desc = KOR_pnr_puppet.9.desc
+    picture = GFX_report_event_pnr_KOR_kang_il_soon1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 抢夺尸体，他们在干什么？
+        name = KOR_pnr_puppet.9.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 太极道的癔症证明他们不值得信任。
+        name = KOR_pnr_puppet.9.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 或许让正统派提前出局比较好……
+        name = KOR_pnr_puppet.9.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # [KOR.GetName]领袖已经确认
+    id = KOR_pnr_puppet.10
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.10" }
+    title = KOR_pnr_puppet.10.t
+    desc = KOR_pnr_puppet.10.desc
+    picture = GFX_report_event_pnr_KOR_wongudan
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 让我们拭目以待。
+        name = KOR_pnr_puppet.10.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 农地改革受阻
+    id = KOR_pnr_puppet.11
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.11" }
+    title = KOR_pnr_puppet.11.t
+    desc = KOR_pnr_puppet.11.desc
+    picture = GFX_report_event_pnr_KOR_land_reform
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 让他们搞无偿分配，我们可以提供补贴。
+        name = KOR_pnr_puppet.11.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 如果他们缺对付地主的子弹，我们有很多。
+        name = KOR_pnr_puppet.11.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 让他们自己摸索自己的道路。
+        name = KOR_pnr_puppet.11.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 囊中羞涩
+    id = KOR_pnr_puppet.12
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.12" }
+    title = KOR_pnr_puppet.12.t
+    desc = KOR_pnr_puppet.12.desc
+    picture = GFX_report_event_pnr_KOR_consumer_goods
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们有很多储备的粮食和消费品。
+        name = KOR_pnr_puppet.12.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 如果你们需要更多钱的话，就说个数。说起来你们有测试过日本人留下的采矿机器还能用吗？
+        name = KOR_pnr_puppet.12.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 我想韩国人民总能找到自己的出路的。
+        name = KOR_pnr_puppet.12.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 制度之抉择
+    id = KOR_pnr_puppet.13
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.13" }
+    title = KOR_pnr_puppet.13.t
+    desc = KOR_pnr_puppet.13.desc
+    picture = GFX_report_event_pnr_KOR_confucius
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我国的法律对他们而言将是一个最好的蓝本！
+        name = KOR_pnr_puppet.13.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 让我们在[KOR.GetName]开始政治试验……
+        name = KOR_pnr_puppet.13.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 沿用旧制，修修补补，有什么不好？
+        name = KOR_pnr_puppet.13.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 我们邻居的国防问题
+    id = KOR_pnr_puppet.14
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.14" }
+    title = KOR_pnr_puppet.14.t
+    desc = KOR_pnr_puppet.14.desc
+    picture = GFX_report_event_pnr_KOR_military_base
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 当然，我们会建立军事基地。
+        name = KOR_pnr_puppet.14.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 有限的治安维持协助就够了。
+        name = KOR_pnr_puppet.14.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 光复军自己难道不行吗？
+        name = KOR_pnr_puppet.14.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 教育与思想
+    id = KOR_pnr_puppet.15
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.15" }
+    title = KOR_pnr_puppet.15.t
+    desc = KOR_pnr_puppet.15.desc
+    picture = GFX_report_event_pnr_KOR_radio_and_telephone
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 帮他们印一批传单。
+        name = KOR_pnr_puppet.15.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 如果能控制[KOR.GetName]的媒体的话……
+        name = KOR_pnr_puppet.15.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 这种事还要来询问我们吗？
+        name = KOR_pnr_puppet.15.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 技术援助
+    id = KOR_pnr_puppet.16
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.16" }
+    title = KOR_pnr_puppet.16.t
+    desc = KOR_pnr_puppet.16.desc
+    picture = GFX_report_event_pnr_KOR_technical_assistance
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 给他们引进一些成熟的民用技术是应该的。
+        name = KOR_pnr_puppet.16.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 除了技术，还应该投资设立研究所才好。
+        name = KOR_pnr_puppet.16.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 教会徒弟，饿死师傅。
+        name = KOR_pnr_puppet.16.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # [KOR.GetName]希望商定市场准入
+    id = KOR_pnr_puppet.17
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.17" }
+    title = KOR_pnr_puppet.17.t
+    desc = KOR_pnr_puppet.17.desc
+    picture = GFX_report_event_generic_diplomacy1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 有限的让利有助于实现他们的经济发展战略。
+        name = KOR_pnr_puppet.17.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 或许可以借此让他们更依赖[ROOT.GetName]的市场。
+        name = KOR_pnr_puppet.17.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 别想拿走一分钱。
+        name = KOR_pnr_puppet.17.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 偏离经济计划
+    id = KOR_pnr_puppet.18
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.18" }
+    title = KOR_pnr_puppet.18.t
+    desc = KOR_pnr_puppet.18.desc
+    picture = GFX_report_event_pnr_KOR_Sawmill
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 通过非正规渠道劝说他们。
+        name = KOR_pnr_puppet.18.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 直接正式告知他们削减下季度的预算。
+        name = KOR_pnr_puppet.18.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 他们爱干什么干什么。
+        name = KOR_pnr_puppet.18.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 韩民族运动抬头
+    id = KOR_pnr_puppet.19
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.19" }
+    title = KOR_pnr_puppet.19.t
+    desc = KOR_pnr_puppet.19.desc
+    picture = GFX_report_event_pnr_KOR_kim_du_han
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 向[KOR.GetName]发送外交抗议。
+        name = KOR_pnr_puppet.19.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 你们手里的东西是烧火棍吗？
+        name = KOR_pnr_puppet.19.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 这是作为宗主国所必然面对的问题……
+        name = KOR_pnr_puppet.19.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # [ROOT.GetName]-[KOR.GetName]人才交流计划
+    id = KOR_pnr_puppet.20
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.20" }
+    title = KOR_pnr_puppet.20.t
+    desc = KOR_pnr_puppet.20.desc
+    picture = GFX_report_event_pnr_KOR_frank_schofield
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 这是个培养人才的好计划。
+        name = KOR_pnr_puppet.20.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 要不要再领略一下[ROOT.GetName]的人文风光和舒适生活呢？
+        name = KOR_pnr_puppet.20.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 我们现在不具有接待他们的条件。
+        name = KOR_pnr_puppet.20.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 作战指挥权问题
+    id = KOR_pnr_puppet.21
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.21" }
+    title = KOR_pnr_puppet.21.t
+    desc = KOR_pnr_puppet.21.desc
+    picture = GFX_report_event_generic_towar
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 这还需要更谨慎地评估。
+        name = KOR_pnr_puppet.21.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 上次他们输给了日本人，这次又想输给谁？
+        name = KOR_pnr_puppet.21.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 他们想要，就给他们。
+        name = KOR_pnr_puppet.21.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 称帝？
+    id = KOR_pnr_puppet.22
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.22" }
+    title = KOR_pnr_puppet.22.t
+    desc = KOR_pnr_puppet.22.desc
+    picture = GFX_report_event_pnr_KOR_the_eleven_palaces
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们会暗示我们支持你。
+        name = KOR_pnr_puppet.22.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 如果你需要一支暂时的禁卫军，这里有。
+        name = KOR_pnr_puppet.22.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 我们会再做商讨。
+        name = KOR_pnr_puppet.22.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 购物清单
+    id = KOR_pnr_puppet.23
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.23" }
+    title = KOR_pnr_puppet.23.t
+    desc = KOR_pnr_puppet.23.desc
+    picture = GFX_report_event_pnr_KOR_post_war_reconstruction
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 帮他把这份“购物清单”改得更像“战略”。
+        name = KOR_pnr_puppet.23.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 给他采购想要的。
+        name = KOR_pnr_puppet.23.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 他是不是把我们当成市场了。
+        name = KOR_pnr_puppet.23.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 烧毁真老虎
+    id = KOR_pnr_puppet.24
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.24" }
+    title = KOR_pnr_puppet.24.t
+    desc = KOR_pnr_puppet.24.desc
+    picture = GFX_report_event_pnr_KOR_liberation_army1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们会安排一次线路检修。
+        name = KOR_pnr_puppet.24.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 除掉他们对我们进一步干涉有利。
+        name = KOR_pnr_puppet.24.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 这风险太大。
+        name = KOR_pnr_puppet.24.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 乡村抗议
+    id = KOR_pnr_puppet.25
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.25" }
+    title = KOR_pnr_puppet.25.t
+    desc = KOR_pnr_puppet.25.desc
+    picture = GFX_report_event_pnr_KOR_poor_peasant
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 或许我们逼得太紧了。
+        name = KOR_pnr_puppet.25.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 磋商农业援助换矿物开发。
+        name = KOR_pnr_puppet.25.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 这些开发是基于一开始的协定的。
+        name = KOR_pnr_puppet.25.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 兵痞丑闻
+    id = KOR_pnr_puppet.26
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.26" }
+    title = KOR_pnr_puppet.26.t
+    desc = KOR_pnr_puppet.26.desc
+    picture = GFX_report_event_pnr_KOR_rape_soilder
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 怎么会发生，还被报道了这种事？
+        name = KOR_pnr_puppet.26.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 无赖的命运
+    id = KOR_pnr_puppet.27
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.27" }
+    title = KOR_pnr_puppet.27.t
+    desc = KOR_pnr_puppet.27.desc
+    picture = GFX_report_event_pnr_KOR_deoksugung
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 为什么不直接就地审判这两个卑鄙残忍的混蛋？
+        name = KOR_pnr_puppet.27.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 这两个人渣！但他们必须在祖国接受判决。
+        name = KOR_pnr_puppet.27.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # [KOR.GetName]爆发抗议游行
+    id = KOR_pnr_puppet.28
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.28" }
+    title = KOR_pnr_puppet.28.t
+    desc = KOR_pnr_puppet.28.desc
+    picture = GFX_report_event_pnr_KOR_strike_and_riot
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # [KOR.GetName]政府在做什么？
+        name = KOR_pnr_puppet.28.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 让我们的驻[KOR.GetName]士兵准备好催泪弹。
+        name = KOR_pnr_puppet.28.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 意料之中，但能奈我何？
+        name = KOR_pnr_puppet.28.c
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 经济崩溃
+    id = KOR_pnr_puppet.29
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.29" }
+    title = KOR_pnr_puppet.29.t
+    desc = KOR_pnr_puppet.29.desc
+    picture = GFX_report_event_pnr_KOR_financial_crisis
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我有一种不祥的预感……
+        name = KOR_pnr_puppet.29.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 社会秩序崩溃
+    id = KOR_pnr_puppet.30
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.30" }
+    title = KOR_pnr_puppet.30.t
+    desc = KOR_pnr_puppet.30.desc
+    picture = GFX_report_event_generic_riot3
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 为什么会这样？
+        name = KOR_pnr_puppet.30.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 朝露之命
+    id = KOR_pnr_puppet.31
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.31" }
+    title = KOR_pnr_puppet.31.t
+    desc = KOR_pnr_puppet.31.desc
+    picture = GFX_report_event_pnr_KOR_government_collapase
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 喂，这里是[ROOT.GetName]外交部，喂，有人在吗——
+        name = KOR_pnr_puppet.31.a
+        ai_chance = { factor = 1 }
+        hidden_effect = {
+            load_oob = "QIE_wushan_democracy"
+            country_event = { id = QIE_ws_united.1 days = 7 }
+        }
+    }
+}
+
+country_event = { # 安身清心，敬天克己
+    id = KOR_pnr_puppet.32
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.32" }
+    title = KOR_pnr_puppet.32.t
+    desc = KOR_pnr_puppet.32.desc
+    picture = GFX_report_event_pnr_KOR_social_democrate1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 槿花朝落又朝开，无穷生机自古来。
+        name = KOR_pnr_puppet.32.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 后天开辟，已成现实
+    id = KOR_pnr_puppet.33
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.33" }
+    title = KOR_pnr_puppet.33.t
+    desc = KOR_pnr_puppet.33.desc
+    picture = GFX_report_event_pnr_KOR_syndicalism
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 松树千年终是朽，槿花一日自为荣。
+        name = KOR_pnr_puppet.33.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 无穷花开，东国永延
+    id = KOR_pnr_puppet.34
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.34" }
+    title = KOR_pnr_puppet.34.t
+    desc = KOR_pnr_puppet.34.desc
+    picture = GFX_report_event_pnr_KOR_monarchy
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 百花六月皆凡木，木槿自言唯我独。
+        name = KOR_pnr_puppet.34.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 阴阳和谐，道通真境
+    id = KOR_pnr_puppet.35
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.35" }
+    title = KOR_pnr_puppet.35.t
+    desc = KOR_pnr_puppet.35.desc
+    picture = GFX_report_event_pnr_KOR_social_democrate
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 愿作贞松千岁古，谁论芳槿一朝新。
+        name = KOR_pnr_puppet.35.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 神檀树下，祈祷不绝
+    id = KOR_pnr_puppet.36
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.36" }
+    title = KOR_pnr_puppet.36.t
+    desc = KOR_pnr_puppet.36.desc
+    picture = GFX_report_event_pnr_KOR_traditional
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 夹路疏篱锦作堆，朝开暮落复朝开。
+        name = KOR_pnr_puppet.36.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 时和岁丰，天下太平
+    id = KOR_pnr_puppet.37
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.37" }
+    title = KOR_pnr_puppet.37.t
+    desc = KOR_pnr_puppet.37.desc
+    picture = GFX_report_event_pnr_KOR_traditional1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 风露凄凄秋景繁，可怜荣落在朝昏。
+        name = KOR_pnr_puppet.37.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 开火！
+    id = KOR_pnr_puppet.38
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.38" }
+    title = KOR_pnr_puppet.38.t
+    desc = KOR_pnr_puppet.38.desc
+    picture = GFX_report_event_pnr_KOR_against_riot
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 把我们帮助平乱的账单寄给[KOR.GetName]。
+        name = KOR_pnr_puppet.38.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 大邱危机
+    id = KOR_pnr_puppet.39
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.39" }
+    title = KOR_pnr_puppet.39.t
+    desc = KOR_pnr_puppet.39.desc
+    picture = GFX_report_event_wushan_famine_woman
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 情况不容乐观。
+        name = KOR_pnr_puppet.39.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 这是暴乱，是暴乱！
+        name = KOR_pnr_puppet.39.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 工团分子的阴谋？
+    id = KOR_pnr_puppet.40
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.40" }
+    title = KOR_pnr_puppet.40.t
+    desc = KOR_pnr_puppet.40.desc
+    picture = GFX_report_event_HOL_syndicalist_nas
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 要警惕这些无孔不入的老鼠。
+        name = KOR_pnr_puppet.40.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 劳工问题
+    id = KOR_pnr_puppet.41
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.41" }
+    title = KOR_pnr_puppet.41.t
+    desc = KOR_pnr_puppet.41.desc
+    picture = GFX_report_event_pnr_KOR_western_princess
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们允许他们过来不是为了搞沦落行为。
+        name = KOR_pnr_puppet.41.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 这也是他们求生的一种选择。
+        name = KOR_pnr_puppet.41.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 东明王的冒险
+    id = KOR_pnr_puppet.42
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.42" }
+    title = KOR_pnr_puppet.42.t
+    desc = KOR_pnr_puppet.42.desc
+    picture = GFX_report_event_pnr_KOR_korean_youth_corps
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 小子们，把铁管烧红了我们就出发！
+        name = KOR_pnr_puppet.42.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 农民冲击政府
+    id = KOR_pnr_puppet.43
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.43" }
+    title = KOR_pnr_puppet.43.t
+    desc = KOR_pnr_puppet.43.desc
+    picture = GFX_report_event_pnr_KOR_poor_peasant1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 或许我们确实要调整政策。
+        name = KOR_pnr_puppet.43.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 吃饱了就开始骂我们？
+        name = KOR_pnr_puppet.43.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 混乱蔓延
+    id = KOR_pnr_puppet.44
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.44" }
+    title = KOR_pnr_puppet.44.t
+    desc = KOR_pnr_puppet.44.desc
+    picture = GFX_report_event_pnr_KOR_liberation_celebration
+    fire_only_once = yes
+	trigger = {
+		OR = {
+            tag = QIE
+            tag = CHI
+            tag = 
+        }
+		KOR = {
+			exists = yes
+			is_subject_of = ROOT
+		}
+		OR = {
+			has_cosmetic_tag = QIE_wushan_cosmetic_tag
+			has_cosmetic_tag = QIE_united_china_ws
+			has_cosmetic_tag = QIE_united_china_ws_final_phase
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+    timeout_days = 14
+    option = { # 只能共苦，不能同甘的一群人。
+        name = KOR_pnr_puppet.44.a
+        ai_chance = { factor = 1 }
+    }
+}
+

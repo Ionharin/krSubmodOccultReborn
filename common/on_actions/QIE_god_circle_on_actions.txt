@@ -166,6 +166,17 @@ on_actions = {
 				limit = {
 					tag = QIE
 					has_completed_focus = QIE_seances_restart_in_beijing
+					has_variable = god_circle_days_until_next_upgrade
+					check_variable = { god_circle_days_until_next_upgrade > 0 }
+				}
+				add_to_variable = {
+					god_circle_days_until_next_upgrade = -1
+				}
+			}
+			if = { # Analyze seances status
+				limit = {
+					tag = QIE
+					has_completed_focus = QIE_seances_restart_in_beijing
 					has_variable = god_circle_focus_var
 					check_variable = { god_circle_tier < 3 }
 					NOT = {
@@ -175,10 +186,17 @@ on_actions = {
 				add_to_variable = {
 					god_circle_tier = 1
 				}
-				set_country_flag = {
-					flag = QIE_recently_changed_god_circle_focus
-					days = 49
-					value = 1
+				if = {
+					limit = { check_variable = { god_circle_tier < 3 } }
+					set_variable = { god_circle_days_until_next_upgrade = 49 }
+					set_country_flag = {
+						flag = QIE_recently_changed_god_circle_focus
+						days = 49
+						value = 1
+					}
+				}
+				else = {
+					set_variable = { god_circle_days_until_next_upgrade = 0 }
 				}
 				QIE_update_god_circle_tier = yes
 			}

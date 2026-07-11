@@ -216,3 +216,46 @@ QIE_update_god_circle_tier = {
 
 	QIE_refresh_god_circle_dynamic_modifiers = yes
 }
+
+QIE_apply_god_circle_final_focus_floor = {
+	if = {
+		limit = {
+			check_variable = { god_circle_focus_var = 0 }
+			has_completed_focus = QIE_spring_and_autumn_ritual
+		}
+		set_variable = { god_circle_tier = 3 }
+		set_variable = { god_circle_days_until_next_upgrade = 0 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { god_circle_focus_var = 1 }
+			has_completed_focus = QIE_seize_the_great_game
+		}
+		set_variable = { god_circle_tier = 3 }
+		set_variable = { god_circle_days_until_next_upgrade = 0 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { god_circle_focus_var = 2 }
+			has_completed_focus = QIE_into_samadhi
+		}
+		set_variable = { god_circle_tier = 3 }
+		set_variable = { god_circle_days_until_next_upgrade = 0 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { god_circle_focus_var = 3 }
+			has_completed_focus = QIE_raise_the_long_blade
+		}
+		set_variable = { god_circle_tier = 3 }
+		set_variable = { god_circle_days_until_next_upgrade = 0 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { god_circle_focus_var = 4 }
+			has_completed_focus = QIE_jesus_shed_his_blood
+		}
+		set_variable = { god_circle_tier = 3 }
+		set_variable = { god_circle_days_until_next_upgrade = 0 }
+	}
+}
