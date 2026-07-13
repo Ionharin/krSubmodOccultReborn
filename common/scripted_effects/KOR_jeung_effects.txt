@@ -7,20 +7,64 @@ KOR_refresh_jeung_dynamic_modifiers = {
 		add_to_variable = { KOR_pnr_dysfunctional_government_penalty = KOR.party_popularity@social_conservative }
 		add_to_variable = { KOR_pnr_dysfunctional_government_penalty = KOR.party_popularity@social_liberal }
 		add_to_variable = { KOR_pnr_dysfunctional_government_penalty = KOR.party_popularity@social_democrat }
-		multiply_variable = { KOR_pnr_dysfunctional_government_penalty = -0.333333 }
+		add_to_variable = { KOR_pnr_dysfunctional_government_penalty = KOR.party_popularity@radical_socialist }
+		add_to_variable = { KOR_pnr_dysfunctional_government_penalty = KOR.party_popularity@syndicalist }
+		multiply_variable = { KOR_pnr_dysfunctional_government_penalty = -0.826 }
 	}
 	if = {
 		limit = {
 			has_dynamic_modifier = { modifier = KOR_pnr_metropole_patronage }
 		}
 		set_variable = { KOR_pnr_metropole_patronage_overlord_factory_var = 0 }
-		set_variable = { KOR_pnr_metropole_patronage_consumer_goods_var = 0 }
+		set_variable = { KOR_pnr_metropole_patronage_production_speed_buildings_var = 0 }
+		set_variable = { KOR_pnr_metropole_patronage_extra_trade_to_overlord_var = 0 }
+		set_variable = { KOR_pnr_metropole_patronage_overlord_trade_cost_var = 0 }
 		if = {
-			limit = { has_variable = KOR_pnr_metropole_intervention_count }
-			set_variable = { KOR_pnr_metropole_patronage_overlord_factory_var = KOR_pnr_metropole_intervention_count }
-			multiply_variable = { KOR_pnr_metropole_patronage_overlord_factory_var = 0.05 }
-			set_variable = { KOR_pnr_metropole_patronage_consumer_goods_var = KOR_pnr_metropole_intervention_count }
-			multiply_variable = { KOR_pnr_metropole_patronage_consumer_goods_var = -0.02 }
+			limit = {
+				KOR = {
+					exists = yes
+					has_variable = KOR_pnr_peninsula_profits_var
+				}
+			}
+			set_variable = { KOR_pnr_metropole_patronage_overlord_factory_var = KOR.KOR_pnr_peninsula_profits_var }
+			multiply_variable = { KOR_pnr_metropole_patronage_overlord_factory_var = 0.04 }
+			set_variable = { KOR_pnr_metropole_patronage_production_speed_buildings_var = KOR.KOR_pnr_peninsula_profits_var }
+			multiply_variable = { KOR_pnr_metropole_patronage_production_speed_buildings_var = 0.025 }
+			set_variable = { KOR_pnr_metropole_patronage_extra_trade_to_overlord_var = KOR.KOR_pnr_peninsula_profits_var }
+			multiply_variable = { KOR_pnr_metropole_patronage_extra_trade_to_overlord_var = 0.025 }
+			set_variable = { KOR_pnr_metropole_patronage_overlord_trade_cost_var = KOR.KOR_pnr_peninsula_profits_var }
+			multiply_variable = { KOR_pnr_metropole_patronage_overlord_trade_cost_var = -0.025 }
+		}
+	}
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = KOR_pnr_peninsula_profits_modifer }
+		}
+		set_variable = { KOR_pnr_peninsula_profits_consumer_goods_var = 0 }
+		set_variable = { KOR_pnr_peninsula_profits_local_resources_var = 0 }
+		set_variable = { KOR_pnr_peninsula_profits_industrial_capacity_factory_var = 0 }
+		set_variable = { KOR_pnr_peninsula_profits_industrial_capacity_dockyard_var = 0 }
+		set_variable = { KOR_pnr_peninsula_profits_production_speed_buildings_var = 0 }
+		set_variable = { KOR_pnr_peninsula_profits_cic_construction_boost_var = 0 }
+		if = {
+			limit = {
+				KOR = {
+					exists = yes
+					has_variable = KOR_pnr_peninsula_profits_var
+				}
+			}
+			set_variable = { KOR_pnr_peninsula_profits_consumer_goods_var = KOR.KOR_pnr_peninsula_profits_var }
+			multiply_variable = { KOR_pnr_peninsula_profits_consumer_goods_var = -0.04112 }
+			set_variable = { KOR_pnr_peninsula_profits_local_resources_var = KOR.KOR_pnr_peninsula_profits_var }
+			multiply_variable = { KOR_pnr_peninsula_profits_local_resources_var = 0.03835 }
+			set_variable = { KOR_pnr_peninsula_profits_industrial_capacity_factory_var = KOR.KOR_pnr_peninsula_profits_var }
+			multiply_variable = { KOR_pnr_peninsula_profits_industrial_capacity_factory_var = 0.03443 }
+			set_variable = { KOR_pnr_peninsula_profits_industrial_capacity_dockyard_var = KOR.KOR_pnr_peninsula_profits_var }
+			multiply_variable = { KOR_pnr_peninsula_profits_industrial_capacity_dockyard_var = 0.03443 }
+			set_variable = { KOR_pnr_peninsula_profits_production_speed_buildings_var = KOR.KOR_pnr_peninsula_profits_var }
+			multiply_variable = { KOR_pnr_peninsula_profits_production_speed_buildings_var = 0.03255 }
+			set_variable = { KOR_pnr_peninsula_profits_cic_construction_boost_var = KOR.KOR_pnr_peninsula_profits_var }
+			multiply_variable = { KOR_pnr_peninsula_profits_cic_construction_boost_var = 0.05069 }
 		}
 	}
 	force_update_dynamic_modifier = yes

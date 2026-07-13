@@ -1,0 +1,189 @@
+KOR_pnr_military_base_catalog = {
+	KOR_pnr_daegu_crisis_countdown = {
+		icon = GFX_decision_revolt
+		days_mission_timeout = 180
+		priority = 100
+		is_good = no
+		visible = {
+			KOR = {
+				exists = yes
+				is_subject_of = ROOT
+				has_country_flag = KOR_pnr_daegu_standoff_ongoing
+			}
+		}
+		activation = {
+			KOR = {
+				exists = yes
+				is_subject_of = ROOT
+				has_country_flag = KOR_pnr_daegu_standoff_ongoing
+			}
+		}
+		available = {
+			KOR = {
+				NOT = { has_country_flag = KOR_pnr_daegu_standoff_ongoing }
+			}
+		}
+		remove_trigger = {
+			OR = {
+				KOR = { exists = no }
+				NOT = {
+					KOR = { is_subject_of = ROOT }
+				}
+			}
+		}
+		timeout_effect = {
+			KOR = {
+				add_stability = -0.20
+				add_war_support = -0.20
+				add_political_power = -100
+				add_to_variable = { KOR_pnr_peninsula_collapse_var = 1 }
+				subtract_from_variable = { KOR_pnr_peninsula_profits_var = 1 }
+				1099 = {
+					damage_building = { type = industrial_complex damage = 0.8 }
+					if = {
+						limit = { arms_factory > 0 }
+						damage_building = { type = arms_factory damage = 0.8 }
+					}
+				}
+			}
+		}
+	}
+
+	KOR_pnr_ensure_the_suppression_plan = {
+		icon = GFX_decision_generic_construct_infrastructure
+		allowed = { always = no }
+		fire_only_once = yes
+		cost = 30
+		days_remove = 21
+		visible = {
+			KOR = {
+				exists = yes
+				is_subject_of = ROOT
+				has_country_flag = KOR_pnr_daegu_standoff_ongoing
+			}
+		}
+		available = {
+			KOR = {
+				exists = yes
+				is_subject_of = ROOT
+				has_country_flag = KOR_pnr_daegu_standoff_ongoing
+			}
+		}
+		remove_trigger = {
+			OR = {
+				KOR = { exists = no }
+				NOT = {
+					KOR = { is_subject_of = ROOT }
+				}
+			}
+		}
+		complete_effect = {
+			add_command_power = -15
+			add_equipment_to_stockpile = { type = infantry_equipment amount = -300 }
+			
+		}
+		remove_effect = {
+			set_country_flag = KOR_pnr_daegu_suppression_plan_finished
+			KOR = {
+				1099 = { set_demilitarized_zone = no }
+			}
+		}
+	}
+
+	KOR_pnr_operation_taeguk_tiger = {
+		icon = GFX_decision_generic_small_arms_production
+		allowed = { always = no }
+		fire_only_once = yes
+		cost = 30
+		days_remove = 30
+		visible = {
+			has_country_flag = KOR_pnr_daegu_suppression_plan_finished
+			KOR = {
+				exists = yes
+				is_subject_of = ROOT
+				has_country_flag = KOR_pnr_daegu_standoff_ongoing
+			}
+		}
+		available = {
+			has_country_flag = KOR_pnr_daegu_suppression_plan_finished
+			num_divisions_in_states = {
+				count > 1
+				states = { 1099 }
+			}
+			KOR = {
+				exists = yes
+				is_subject_of = ROOT
+				has_country_flag = KOR_pnr_daegu_standoff_ongoing
+			}
+		}
+		remove_trigger = {
+			OR = {
+				KOR = { exists = no }
+				NOT = {
+					KOR = { is_subject_of = ROOT }
+				}
+			}
+		}
+		remove_effect = {
+			clr_country_flag = KOR_pnr_daegu_suppression_plan_finished
+			KOR = {
+				clr_country_flag = KOR_pnr_daegu_standoff_ongoing
+				1099 = {
+					damage_building = { type = infrastructure damage = 1 }
+					damage_building = { type = rail_way damage = 1 }
+				}
+			}
+			hidden_effect = { country_event = { id = KOR_pnr_puppet.40 days = 14 } }
+		}
+	}
+
+	KOR_pnr_namwon_month_riot_countdown = {
+		icon = GFX_decision_revolt
+		days_mission_timeout = 90
+		priority = 100
+		is_good = no
+		visible = {
+			KOR = {
+				exists = yes
+				is_subject_of = ROOT
+				has_country_flag = KOR_pnr_hamhung_situation_out_of_control
+			}
+		}
+		activation = {
+			KOR = {
+				exists = yes
+				is_subject_of = ROOT
+				has_country_flag = KOR_pnr_hamhung_situation_out_of_control
+			}
+		}
+		available = {
+			KOR = {
+				NOT = { has_country_flag = KOR_pnr_hamhung_situation_out_of_control }
+			}
+		}
+		remove_trigger = {
+			OR = {
+				KOR = { exists = no }
+				NOT = {
+					KOR = { is_subject_of = ROOT }
+				}
+			}
+		}
+		timeout_effect = {
+			KOR = {
+				add_stability = -0.20
+				add_war_support = -0.20
+				add_political_power = -100
+				add_to_variable = { KOR_pnr_peninsula_collapse_var = 1 }
+				subtract_from_variable = { KOR_pnr_peninsula_profits_var = 1 }
+				1100 = {
+					damage_building = { type = industrial_complex damage = 0.8 }
+					if = {
+						limit = { arms_factory > 0 }
+						damage_building = { type = arms_factory damage = 0.8 }
+					}
+				}
+			}
+		}
+	}
+}

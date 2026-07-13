@@ -1,0 +1,49 @@
+ideas = {
+	country = {
+		PNR_provide_assistance = {
+			allowed = { always = no }
+			picture = generic_devalue_currency
+			modifier = {
+				consumer_goods_factor = 0.10
+				political_power_factor = -0.05
+			}
+		}
+		PNR_political_chaos = {
+			allowed = { always = no }
+			picture = chi_wargaming_division
+			modifier = {
+				political_power_factor = -0.10
+			}
+		}
+		PNR_local_goods_disrupted = {
+			allowed = { always = no }
+			picture = RAJ_debt_relief
+			modifier = {
+				stability_factor = -0.15 
+				consumer_goods_factor = 0.05
+				industrial_capacity_factory = -0.03
+				production_factory_start_efficiency_factor = -0.03
+			}
+		}
+		PNR_research_bonus = {
+			allowed = { always = no }
+			picture = jap_supremacy_of_will
+			modifier = {
+				research_speed_factor = 0.18
+			}
+		}
+		PNR_temporary_research_slot = {
+			allowed = { always = no }
+			picture = generic_research_increase
+			on_add = {
+				add_temporary_research_slot = yes
+			}
+			on_remove = {
+				remove_temporary_research_slot = yes
+			}
+			modifier = {
+				custom_modifier_tooltip = GER_temporary_research_slot_tt
+			}
+		}
+	}
+}

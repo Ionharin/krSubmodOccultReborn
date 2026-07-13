@@ -10,15 +10,36 @@ country_event = { #另一个选择
     timeout_days = 14
 	option = { # 相信他们
 		name = KOR_pnr_puppet.1.a
+        ai_chance = { factor = 0 }
 		KOR = {
-			load_focus_tree = { tree = KOR_jeung keep_completed = no }
 			complete_national_focus = KOR_pnr_the_hibiscus_blooms
 			mark_focus_tree_layout_dirty = yes
 		}
+        country_event = { id = KOR_pnr_puppet.2 days = 10 }
+        hidden_effect = {
+            KOR = { 
+                set_country_flag = KOR_goverment_reborn
+                load_focus_tree = { tree = KOR_jeung keep_completed = yes }
+                set_popularities = {
+	                totalist = 5
+	                radical_socialist = 8
+	                syndicalist = 5
+	                social_democrat = 12
+	                social_liberal = 5
+	                market_liberal = 9
+	                social_conservative = 12
+	                authoritarian_democrat = 16
+	                paternal_autocrat = 18
+	                national_populist = 10
+                }
+            }
+        }
 	}
 
 	option = { # 还是算了
 		name = KOR_pnr_puppet.1.b
+        ai_chance = { factor = 1 }
+        KOR = { set_country_flag = KOR_goverment_reborn }
 	}
 }
 country_event = { # 三千里江山之歧路
@@ -33,6 +54,10 @@ country_event = { # 三千里江山之歧路
     option = { # 我们的新邻居会是谁？
         name = KOR_pnr_puppet.2.a
         ai_chance = { factor = 1 }
+        add_dynamic_modifier = { modifier = KOR_pnr_peninsula_profits_modifer }
+        hidden_effect = {
+            KOR = { clr_country_flag = KOR_goverment_reborn }
+        }
     }
 }
 
@@ -48,6 +73,10 @@ country_event = { # 普天教希望得到支持
     option = { # 农民君主和革命者，这是什么组合？
         name = KOR_pnr_puppet.3.a
         ai_chance = { factor = 1 }
+        add_political_power = 5
+        hidden_effect = {
+            country_event = { id = KOR_pnr_puppet.4 days = 7 }
+        }
     }
 }
 
@@ -63,6 +92,10 @@ country_event = { # 太极道希望得到支持
     option = { # 美好的新国家，嗯……
         name = KOR_pnr_puppet.4.a
         ai_chance = { factor = 1 }
+        add_political_power = 5
+        hidden_effect = {
+            country_event = { id = KOR_pnr_puppet.5 days = 13 }
+        }
     }
 }
 
@@ -78,6 +111,7 @@ country_event = { # 甑山法教希望得到支持
     option = { # 在这个时代还强调正统地位吗？
         name = KOR_pnr_puppet.5.a
         ai_chance = { factor = 1 }
+        add_political_power = 5
     }
 }
 
@@ -93,18 +127,52 @@ country_event = { # 我们的决定
     option = { # 支持普天教。
         name = KOR_pnr_puppet.6.a
         ai_chance = { factor = 1 }
+        add_political_power = -20
+        clr_global_flag = kor_overlord_ignore_sectarianism
+        clr_global_flag = kor_overlord_support_daesoonjinrihoe
+        clr_global_flag = kor_overlord_support_jeungsanbeop
+        set_global_flag = kor_overlord_support_bocheonism
+        hidden_effect = {
+            country_event = { id = KOR_pnr_puppet.9 days = 3 }
+            KOR = { country_event = { id = KOR_pnr_puppet.45 days = 21 } }
+        }
     }
     option = { # 支持太极道。
         name = KOR_pnr_puppet.6.b
         ai_chance = { factor = 1 }
+        add_political_power = -20
+        clr_global_flag = kor_overlord_ignore_sectarianism
+        clr_global_flag = kor_overlord_support_bocheonism
+        clr_global_flag = kor_overlord_support_jeungsanbeop
+        set_global_flag = kor_overlord_support_daesoonjinrihoe
+        hidden_effect = {
+            country_event = { id = KOR_pnr_puppet.9 days = 3 }
+            KOR = { country_event = { id = KOR_pnr_puppet.45 days = 21 } }
+        }
     }
     option = { # 支持甑山法教。
         name = KOR_pnr_puppet.6.c
         ai_chance = { factor = 1 }
+        add_political_power = -20
+        clr_global_flag = kor_overlord_ignore_sectarianism
+        clr_global_flag = kor_overlord_support_bocheonism
+        clr_global_flag = kor_overlord_support_daesoonjinrihoe
+        set_global_flag = kor_overlord_support_jeungsanbeop
+        hidden_effect = {
+            country_event = { id = KOR_pnr_puppet.9 days = 3 }
+            KOR = { country_event = { id = KOR_pnr_puppet.45 days = 21 } }
+        }
     }
     option = { # 放着不管。
         name = KOR_pnr_puppet.6.d
         ai_chance = { factor = 1 }
+        clr_global_flag = kor_overlord_support_bocheonism
+        clr_global_flag = kor_overlord_support_daesoonjinrihoe
+        clr_global_flag = kor_overlord_support_jeungsanbeop
+        set_global_flag = kor_overlord_ignore_sectarianism
+        hidden_effect = {
+            KOR = { country_event = { id = KOR_pnr_puppet.45 days = 2 } }
+        }
     }
 }
 
@@ -120,14 +188,60 @@ country_event = { # 来自汉城的紧急电报
     option = { # 对[KOR.GetName]施加外交压力。
         name = KOR_pnr_puppet.7.a
         ai_chance = { factor = 1 }
+        add_political_power = -15
+        set_global_flag = kor_overlord_advise_the_result
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        hidden_effect = {
+           KOR = {
+            country_event = { id = KOR_pnr_puppet.46 days = 1 }
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.5 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.5 }
+           }    
+        }
     }
     option = { # 调动边境军队，做好武装胁迫的准备。
         name = KOR_pnr_puppet.7.b
         ai_chance = { factor = 1 }
+        add_political_power = -35
+        add_manpower = -3000
+        KOR = {
+            clr_country_flag = KOR_daesoonjinrihoe_win
+            clr_country_flag = KOR_bocheonism_win
+            clr_country_flag = KOR_jeungsanbeop_win
+        }
+        if = {
+            limit = { has_global_flag = kor_overlord_support_bocheonism }
+            KOR = { set_country_flag = KOR_bocheonism_win }
+        }
+        if = {
+            limit = { has_global_flag = kor_overlord_support_daesoonjinrihoe }
+            KOR = { set_country_flag = KOR_daesoonjinrihoe_win }
+        }
+        if = {
+            limit = { has_global_flag = kor_overlord_support_jeungsanbeop }
+            KOR = { set_country_flag = KOR_jeungsanbeop_win }
+        }
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_medium_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        hidden_effect = {
+            country_event = { id = KOR_pnr_puppet.8 days = 16 }
+            KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 1 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 1 }
+            } 
+        }
     }
     option = { # 既然输了，那么就接受结局。
         name = KOR_pnr_puppet.7.c
         ai_chance = { factor = 1 }
+        KOR = { complete_national_focus = KOR_pnr_born_in_Jeollabuk_do }
     }
 }
 
@@ -143,6 +257,8 @@ country_event = { # 道喜
     option = { # 这是我们的举手之劳。
         name = KOR_pnr_puppet.8.a
         ai_chance = { factor = 1 }
+        add_political_power = 30
+        KOR = { complete_national_focus = KOR_pnr_born_in_Jeollabuk_do }
     }
 }
 
@@ -158,14 +274,25 @@ country_event = { # 夺取圣物
     option = { # 抢夺尸体，他们在干什么？
         name = KOR_pnr_puppet.9.a
         ai_chance = { factor = 1 }
+        add_political_power = 5
     }
     option = { # 太极道的癔症证明他们不值得信任。
         name = KOR_pnr_puppet.9.b
+        trigger = { has_global_flag = kor_overlord_support_daesoonjinrihoe }
         ai_chance = { factor = 1 }
+        add_political_power = 10
+        clr_global_flag = kor_overlord_support_daesoonjinrihoe
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_overlord_withdraw_support
     }
     option = { # 或许让正统派提前出局比较好……
         name = KOR_pnr_puppet.9.c
+        trigger = { has_global_flag = kor_overlord_support_jeungsanbeop }
         ai_chance = { factor = 1 }
+        add_political_power = 10
+        clr_global_flag = kor_overlord_support_jeungsanbeop
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_overlord_withdraw_support
     }
 }
 
@@ -196,14 +323,36 @@ country_event = { # 农地改革受阻
     option = { # 让他们搞无偿分配，我们可以提供补贴。
         name = KOR_pnr_puppet.11.a
         ai_chance = { factor = 1 }
+        add_political_power = -85
+        add_timed_idea = { idea = PNR_provide_assistance days = 100 }
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.5 }
+            subtract_from_variable = { KOR_pnr_peninsula_economic_health_var = 0.25 }
+        }
     }
     option = { # 如果他们缺对付地主的子弹，我们有很多。
         name = KOR_pnr_puppet.11.b
         ai_chance = { factor = 1 }
+        add_political_power = -20
+        add_equipment_to_stockpile = { type = infantry_equipment amount = -500 }
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.7 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.5 }
+        }
     }
     option = { # 让他们自己摸索自己的道路。
         name = KOR_pnr_puppet.11.c
         ai_chance = { factor = 1 }
+        add_political_power = 25
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_no_assistance
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_economic_health_var = 0.5 }
+        }
     }
 }
 
@@ -219,14 +368,43 @@ country_event = { # 囊中羞涩
     option = { # 我们有很多储备的粮食和消费品。
         name = KOR_pnr_puppet.12.a
         ai_chance = { factor = 1 }
+        add_political_power = -40
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.5 }
+            subtract_from_variable = { KOR_pnr_peninsula_collapse_var = 0.5 }
+            subtract_from_variable = { KOR_pnr_peninsula_economic_health_var = 0.5 }
+        }
+        hidden_effect = { country_event = { id = KOR_pnr_puppet.43 days = 25 } }
     }
     option = { # 如果你们需要更多钱的话，就说个数。说起来你们有测试过日本人留下的采矿机器还能用吗？
         name = KOR_pnr_puppet.12.b
         ai_chance = { factor = 1 }
+        add_political_power = -60
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_medium_profits
+        add_timed_idea = { idea = PNR_provide_assistance days = 30 }
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 1 }
+            subtract_from_variable = { KOR_pnr_peninsula_economic_health_var = 0.7 }
+        }
+        hidden_effect = { country_event = { id = KOR_pnr_puppet.43 days = 25 } }
     }
     option = { # 我想韩国人民总能找到自己的出路的。
         name = KOR_pnr_puppet.12.c
         ai_chance = { factor = 1 }
+        add_political_power = 25
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_no_assistance
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_economic_health_var = 0.7 }
+        }
     }
 }
 
@@ -242,14 +420,41 @@ country_event = { # 制度之抉择
     option = { # 我国的法律对他们而言将是一个最好的蓝本！
         name = KOR_pnr_puppet.13.a
         ai_chance = { factor = 1 }
+        add_political_power = 25
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.3 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.5 }
+        }
     }
     option = { # 让我们在[KOR.GetName]开始政治试验……
         name = KOR_pnr_puppet.13.b
         ai_chance = { factor = 1 }
+        add_political_power = 40
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_timed_idea = { idea = PNR_political_chaos days = 365 }
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.5 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 1 }
+        }
     }
     option = { # 沿用旧制，修修补补，有什么不好？
         name = KOR_pnr_puppet.13.c
         ai_chance = { factor = 1 }
+        add_political_power = 25
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_no_assistance
+        KOR = {
+            add_political_power = -99
+        }
     }
 }
 
@@ -265,14 +470,43 @@ country_event = { # 我们邻居的国防问题
     option = { # 当然，我们会建立军事基地。
         name = KOR_pnr_puppet.14.a
         ai_chance = { factor = 1 }
+        add_political_power = -35
+        add_manpower = -15000
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_huge_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_special_option_warning
+        KOR = {
+            set_country_flag = KOR_pnr_setup_military_base  #This will raise the collapse threshold at settlement
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 1.4 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 1 }
+        }
     }
     option = { # 有限的治安维持协助就够了。
         name = KOR_pnr_puppet.14.b
         ai_chance = { factor = 1 }
+        add_political_power = -15
+        add_manpower = -2000
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.4 }
+        }
     }
     option = { # 光复军自己难道不行吗？
         name = KOR_pnr_puppet.14.c
         ai_chance = { factor = 1 }
+        add_political_power = 25
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_no_assistance
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.2 }
+        }
     }
 }
 
@@ -288,14 +522,43 @@ country_event = { # 教育与思想
     option = { # 帮他们印一批传单。
         name = KOR_pnr_puppet.15.a
         ai_chance = { factor = 1 }
+        add_political_power = -50
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.5 }
+            subtract_from_variable = { KOR_pnr_peninsula_economic_health_var = 0.2 }
+        }
     }
     option = { # 如果能控制[KOR.GetName]的媒体的话……
         name = KOR_pnr_puppet.15.b
         ai_chance = { factor = 1 }
+        add_political_power = -80
+        add_stability = 0.07
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_medium_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_stability = 0.05
+            add_war_support = 0.05
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 1 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.35 }
+        }
     }
     option = { # 这种事还要来询问我们吗？
         name = KOR_pnr_puppet.15.c
         ai_chance = { factor = 1 }
+        add_political_power = 25
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_no_assistance
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.15 }
+            add_to_variable = { KOR_pnr_peninsula_economic_health_var = 0.3 }
+        }
     }
 }
 
@@ -311,14 +574,47 @@ country_event = { # 技术援助
     option = { # 给他们引进一些成熟的民用技术是应该的。
         name = KOR_pnr_puppet.16.a
         ai_chance = { factor = 1 }
+        add_political_power = -35
+        add_timed_idea = { idea = PNR_provide_assistance days = 81 }
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.5 }
+            subtract_from_variable = { KOR_pnr_peninsula_economic_health_var = 0.5 }
+        }
+        hidden_effect = { country_event = { id = KOR_pnr_puppet.41 days = 66 } }
     }
     option = { # 除了技术，还应该投资设立研究所才好。
         name = KOR_pnr_puppet.16.b
         ai_chance = { factor = 1 }
+        add_political_power = -150
+        add_timed_idea = { idea = PNR_provide_assistance days = 169 }
+        add_timed_idea = { idea = PNR_temporary_research_slot days = 365 }
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_medium_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+        KOR = {
+            add_timed_idea = { idea = PNR_temporary_research_slot days = 720 }
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 1 }
+            subtract_from_variable = { KOR_pnr_peninsula_collapse_var = 0.25 }
+            subtract_from_variable = { KOR_pnr_peninsula_economic_health_var = 1 }
+        }
+        hidden_effect = { country_event = { id = KOR_pnr_puppet.41 days = 66 } }
     }
     option = { # 教会徒弟，饿死师傅。
         name = KOR_pnr_puppet.16.c
         ai_chance = { factor = 1 }
+        add_political_power = 25
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_no_assistance
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.4 }
+            add_to_variable = { KOR_pnr_peninsula_economic_health_var = 1 }
+        }
     }
 }
 
@@ -334,14 +630,43 @@ country_event = { # [KOR.GetName]希望商定市场准入
     option = { # 有限的让利有助于实现他们的经济发展战略。
         name = KOR_pnr_puppet.17.a
         ai_chance = { factor = 1 }
+        add_political_power = -25
+        add_timed_idea = { idea = PNR_local_goods_disrupted days = 93 }
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.5 }
+            subtract_from_variable = { KOR_pnr_peninsula_economic_health_var = 1 }
+        }
     }
     option = { # 或许可以借此让他们更依赖[ROOT.GetName]的市场。
         name = KOR_pnr_puppet.17.b
         ai_chance = { factor = 1 }
+        add_political_power = -80
+        add_stability = -0.05
+        add_timed_idea = { idea = PNR_local_goods_disrupted days = 150 }
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_huge_profits
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 1.6 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.2 }
+            subtract_from_variable = { KOR_pnr_peninsula_economic_health_var = 0.5 }
+        }
     }
     option = { # 别想拿走一分钱。
         name = KOR_pnr_puppet.17.c
         ai_chance = { factor = 1 }
+        add_political_power = 25
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_no_assistance
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.5 }
+            add_to_variable = { KOR_pnr_peninsula_economic_health_var = 1 }
+        }
     }
 }
 
@@ -357,14 +682,45 @@ country_event = { # 偏离经济计划
     option = { # 通过非正规渠道劝说他们。
         name = KOR_pnr_puppet.18.a
         ai_chance = { factor = 1 }
+        add_political_power = -15
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_lose_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            subtract_from_variable = { KOR_pnr_peninsula_profits_var = 0.2 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.6 }
+            subtract_from_variable = { KOR_pnr_peninsula_economic_health_var = 0.5 }
+        }
     }
     option = { # 直接正式告知他们削减下季度的预算。
         name = KOR_pnr_puppet.18.b
         ai_chance = { factor = 1 }
+        add_political_power = -25
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_medium_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.8 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 1.2 }
+            subtract_from_variable = { KOR_pnr_peninsula_economic_health_var = 0.5 }
+        }
     }
     option = { # 他们爱干什么干什么。
         name = KOR_pnr_puppet.18.c
         ai_chance = { factor = 1 }
+        custom_effect_tooltip = KOR_pnr_puppet_no_assistance
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_lose_profits
+        custom_effect_tooltip = KOR_special_option_warning
+        KOR = {
+            set_country_flag = KOR_pnr_ignore_financial_crisis  #This will greatly increase the likelihood of an economic collapse
+            subtract_from_variable = { KOR_pnr_peninsula_collapse_var = 0.7 }
+            add_to_variable = { KOR_pnr_peninsula_economic_health_var = 1.5 }
+        }
     }
 }
 
@@ -380,14 +736,43 @@ country_event = { # 韩民族运动抬头
     option = { # 向[KOR.GetName]发送外交抗议。
         name = KOR_pnr_puppet.19.a
         ai_chance = { factor = 1 }
+        add_political_power = -25
+        add_stability = -0.10
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.5 }
+        }
     }
     option = { # 你们手里的东西是烧火棍吗？
         name = KOR_pnr_puppet.19.b
         ai_chance = { factor = 1 }
+        add_political_power = -15
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.5 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 1 }
+        }
     }
     option = { # 这是作为宗主国所必然面对的问题……
         name = KOR_pnr_puppet.19.c
         ai_chance = { factor = 1 }
+        add_political_power = -50
+        add_stability = -0.20
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_no_assistance
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_lose_profits
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.3 }
+            subtract_from_variable = { KOR_pnr_peninsula_collapse_var = 0.5 }
+        }
     }
 }
 
@@ -403,14 +788,42 @@ country_event = { # [ROOT.GetName]-[KOR.GetName]人才交流计划
     option = { # 这是个培养人才的好计划。
         name = KOR_pnr_puppet.20.a
         ai_chance = { factor = 1 }
+        add_political_power = -45
+        add_timed_idea = { idea = PNR_research_bonus days = 180 }
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_medium_profits
+        KOR = {
+            add_timed_idea = { idea = PNR_research_bonus days = 180 }
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.7 }
+            subtract_from_variable = { KOR_pnr_peninsula_economic_health_var = 0.5 }
+        }
     }
     option = { # 要不要再领略一下[ROOT.GetName]的人文风光和舒适生活呢？
         name = KOR_pnr_puppet.20.b
         ai_chance = { factor = 1 }
+        add_political_power = -95
+        add_timed_idea = { idea = PNR_research_bonus days = 450 }
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_huge_profits
+        KOR = {
+            add_timed_idea = { idea = PNR_research_bonus days = 450 }
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 1.5 }
+            add_to_variable = { KOR_pnr_peninsula_economic_health_var = 1 }
+        }
     }
     option = { # 我们现在不具有接待他们的条件。
         name = KOR_pnr_puppet.20.c
         ai_chance = { factor = 1 }
+        add_political_power = 25
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_no_assistance
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_economic_health_var = 0.5 }
+        }
     }
 }
 
@@ -426,14 +839,44 @@ country_event = { # 作战指挥权问题
     option = { # 这还需要更谨慎地评估。
         name = KOR_pnr_puppet.21.a
         ai_chance = { factor = 1 }
+        add_political_power = 25
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_medium_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 1 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.5 }
+        }
     }
     option = { # 上次他们输给了日本人，这次又想输给谁？
         name = KOR_pnr_puppet.21.b
         ai_chance = { factor = 1 }
+        add_political_power = 45
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_huge_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 1.5 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 1.8 }
+        }
     }
     option = { # 他们想要，就给他们。
         name = KOR_pnr_puppet.21.c
         ai_chance = { factor = 1 }
+        add_political_power = -15
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_lose_profits
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+        KOR = {
+            clr_country_flag = KOR_pnr_setup_military_base # remove military base flag
+            subtract_from_variable = { KOR_pnr_peninsula_profits_var = 0.6 }
+            subtract_from_variable = { KOR_pnr_peninsula_collapse_var = 1 }
+        }
     }
 }
 
@@ -449,14 +892,37 @@ country_event = { # 称帝？
     option = { # 我们会暗示我们支持你。
         name = KOR_pnr_puppet.22.a
         ai_chance = { factor = 1 }
+        add_political_power = -25
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_medium_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 1 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.4 }
+        }
     }
     option = { # 如果你需要一支暂时的禁卫军，这里有。
         name = KOR_pnr_puppet.22.b
         ai_chance = { factor = 1 }
+        add_political_power = -50
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_huge_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 1.5 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 2 }
+        }
     }
     option = { # 我们会再做商讨。
         name = KOR_pnr_puppet.22.c
         ai_chance = { factor = 1 }
+        add_political_power = 10
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_no_assistance
     }
 }
 
@@ -472,14 +938,45 @@ country_event = { # 购物清单
     option = { # 帮他把这份“购物清单”改得更像“战略”。
         name = KOR_pnr_puppet.23.a
         ai_chance = { factor = 1 }
+        add_political_power = -20
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.5 }
+            subtract_from_variable = { KOR_pnr_peninsula_collapse_var = 0.5 }
+            subtract_from_variable = { KOR_pnr_peninsula_economic_health_var = 0.5 }
+        }
     }
     option = { # 给他采购想要的。
         name = KOR_pnr_puppet.23.b
         ai_chance = { factor = 1 }
+        add_political_power = -75
+        add_timed_idea = { idea = PNR_provide_assistance days = 90 }
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_medium_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 1 }
+            subtract_from_variable = { KOR_pnr_peninsula_collapse_var = 1 }
+            subtract_from_variable = { KOR_pnr_peninsula_economic_health_var = 1 }
+        }
     }
     option = { # 他是不是把我们当成市场了。
         name = KOR_pnr_puppet.23.c
         ai_chance = { factor = 1 }
+        add_political_power = 10
+        custom_effect_tooltip = KOR_pnr_puppet_no_assistance
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.5 }
+            add_to_variable = { KOR_pnr_peninsula_economic_health_var = 0.5 }
+        }
     }
 }
 
@@ -495,14 +992,36 @@ country_event = { # 烧毁真老虎
     option = { # 我们会安排一次线路检修。
         name = KOR_pnr_puppet.24.a
         ai_chance = { factor = 1 }
+        add_political_power = -45
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.8 }
+        }
     }
     option = { # 除掉他们对我们进一步干涉有利。
         name = KOR_pnr_puppet.24.b
         ai_chance = { factor = 1 }
+        add_political_power = -90
+        add_manpower = -4000
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_huge_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 1.5 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 1 }
+        }
     }
     option = { # 这风险太大。
         name = KOR_pnr_puppet.24.c
         ai_chance = { factor = 1 }
+        add_political_power = 10
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_no_assistance
     }
 }
 
@@ -518,14 +1037,45 @@ country_event = { # 乡村抗议
     option = { # 或许我们逼得太紧了。
         name = KOR_pnr_puppet.25.a
         ai_chance = { factor = 1 }
+        add_political_power = 24
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_lose_profits
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+        KOR = {
+            subtract_from_variable = { KOR_pnr_peninsula_profits_var = 0.6 }
+            subtract_from_variable = { KOR_pnr_peninsula_collapse_var = 0.5 }
+            add_to_variable = { KOR_pnr_peninsula_economic_health_var = 1 }
+        }
     }
     option = { # 磋商农业援助换矿物开发。
         name = KOR_pnr_puppet.25.b
         ai_chance = { factor = 1 }
+        add_political_power = 15
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_lose_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+        KOR = {
+            subtract_from_variable = { KOR_pnr_peninsula_profits_var = 0.2 }
+            subtract_from_variable = { KOR_pnr_peninsula_collapse_var = 0.3 }
+        }
     }
     option = { # 这些开发是基于一开始的协定的。
         name = KOR_pnr_puppet.25.c
         ai_chance = { factor = 1 }
+        add_political_power = -50
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_huge_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 1 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 1 }
+            add_to_variable = { KOR_pnr_peninsula_economic_health_var = 0.5 }
+        }
     }
 }
 
@@ -541,6 +1091,15 @@ country_event = { # 兵痞丑闻
     option = { # 怎么会发生，还被报道了这种事？
         name = KOR_pnr_puppet.26.a
         ai_chance = { factor = 1 }
+        add_political_power = -10
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_lose_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            subtract_from_variable = { KOR_pnr_peninsula_profits_var = 0.2 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.8 }
+        }
+        hidden_effect = { country_event = { id = KOR_pnr_puppet.27 days = 8 } }
     }
 }
 
@@ -556,10 +1115,24 @@ country_event = { # 无赖的命运
     option = { # 为什么不直接就地审判这两个卑鄙残忍的混蛋？
         name = KOR_pnr_puppet.27.a
         ai_chance = { factor = 1 }
+        add_political_power = -15
+        add_stability = -0.10
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+        KOR = {
+            subtract_from_variable = { KOR_pnr_peninsula_collapse_var = 1.6 }
+        }
     }
     option = { # 这两个人渣！但他们必须在祖国接受判决。
         name = KOR_pnr_puppet.27.b
         ai_chance = { factor = 1 }
+        add_political_power = 5
+        hidden_effect = { country_event = { id = KOR_pnr_puppet.28 days = 19 } }
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 1.2 }
+        }
     }
 }
 
@@ -575,14 +1148,44 @@ country_event = { # [KOR.GetName]爆发抗议游行
     option = { # [KOR.GetName]政府在做什么？
         name = KOR_pnr_puppet.28.a
         ai_chance = { factor = 1 }
+        add_political_power = -15
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_guide_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_small_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_stability = -0.10
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.4 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.6 }
+        }
     }
     option = { # 让我们的驻[KOR.GetName]士兵准备好催泪弹。
         name = KOR_pnr_puppet.28.b
+        trigger = {
+            KOR = {
+                has_country_flag = KOR_pnr_setup_military_base
+            }
+        }
         ai_chance = { factor = 1 }
+        add_political_power = -45
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_interference_warning
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_special_option_warning
+        hidden_effect = { country_event = { id = KOR_pnr_puppet.38 days = 4 } }
     }
     option = { # 意料之中，但能奈我何？
         name = KOR_pnr_puppet.28.c
         ai_chance = { factor = 1 }
+        add_political_power = -5
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_lose_profits
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            subtract_from_variable = { KOR_pnr_peninsula_profits_var = 0.2 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.6 }
+        }
     }
 }
 
@@ -628,10 +1231,7 @@ country_event = { # 朝露之命
     option = { # 喂，这里是[ROOT.GetName]外交部，喂，有人在吗——
         name = KOR_pnr_puppet.31.a
         ai_chance = { factor = 1 }
-        hidden_effect = {
-            load_oob = "QIE_wushan_democracy"
-            country_event = { id = QIE_ws_united.1 days = 7 }
-        }
+        hidden_effect = { load_oob = "KOR_pnr_bad_end" }
     }
 }
 
@@ -647,6 +1247,12 @@ country_event = { # 安身清心，敬天克己
     option = { # 槿花朝落又朝开，无穷生机自古来。
         name = KOR_pnr_puppet.32.a
         ai_chance = { factor = 1 }
+        add_political_power = 5
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_huge_profits
+        KOR = {
+            multiply_variable = { KOR_pnr_peninsula_profits_var = 1.3 }
+        }
     }
 }
 
@@ -662,6 +1268,12 @@ country_event = { # 后天开辟，已成现实
     option = { # 松树千年终是朽，槿花一日自为荣。
         name = KOR_pnr_puppet.33.a
         ai_chance = { factor = 1 }
+        add_political_power = 5
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_huge_profits
+        KOR = {
+            multiply_variable = { KOR_pnr_peninsula_profits_var = 1.3 }
+        }
     }
 }
 
@@ -677,6 +1289,12 @@ country_event = { # 无穷花开，东国永延
     option = { # 百花六月皆凡木，木槿自言唯我独。
         name = KOR_pnr_puppet.34.a
         ai_chance = { factor = 1 }
+        add_political_power = 5
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_huge_profits
+        KOR = {
+            multiply_variable = { KOR_pnr_peninsula_profits_var = 1.3 }
+        }
     }
 }
 
@@ -692,6 +1310,12 @@ country_event = { # 阴阳和谐，道通真境
     option = { # 愿作贞松千岁古，谁论芳槿一朝新。
         name = KOR_pnr_puppet.35.a
         ai_chance = { factor = 1 }
+        add_political_power = 5
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_huge_profits
+        KOR = {
+            multiply_variable = { KOR_pnr_peninsula_profits_var = 1.3 }
+        }
     }
 }
 
@@ -707,6 +1331,12 @@ country_event = { # 神檀树下，祈祷不绝
     option = { # 夹路疏篱锦作堆，朝开暮落复朝开。
         name = KOR_pnr_puppet.36.a
         ai_chance = { factor = 1 }
+        add_political_power = 5
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_huge_profits
+        KOR = {
+            multiply_variable = { KOR_pnr_peninsula_profits_var = 1.3 }
+        }
     }
 }
 
@@ -722,6 +1352,12 @@ country_event = { # 时和岁丰，天下太平
     option = { # 风露凄凄秋景繁，可怜荣落在朝昏。
         name = KOR_pnr_puppet.37.a
         ai_chance = { factor = 1 }
+        add_political_power = 5
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_huge_profits
+        KOR = {
+            multiply_variable = { KOR_pnr_peninsula_profits_var = 1.3 }
+        }
     }
 }
 
@@ -737,33 +1373,164 @@ country_event = { # 开火！
     option = { # 把我们帮助平乱的账单寄给[KOR.GetName]。
         name = KOR_pnr_puppet.38.a
         ai_chance = { factor = 1 }
+        custom_effect_tooltip = KOR_pnr_puppet_medium_profits
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_stability = -0.20
+            add_war_support = -0.20
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.8 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 2.8 }
+        }
     }
 }
 
 country_event = { # 大邱危机
     id = KOR_pnr_puppet.39
-    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.39" }
+    immediate = {
+        log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.39"
+        KOR = {
+            set_country_flag = KOR_pnr_daegu_standoff_ongoing
+        }
+    }
     title = KOR_pnr_puppet.39.t
-    desc = KOR_pnr_puppet.39.desc
-    picture = GFX_report_event_wushan_famine_woman
+    desc = {
+		text = KOR_pnr_puppet.39.desc
+		trigger = {
+            ROOT = {
+                NOT = {
+                    OR = {
+                        has_government = totalist
+                        has_government = radical_socialist
+                        has_government = syndicalist
+                    }
+                }
+            }
+        }
+	}
+    desc = {
+		text = KOR_pnr_puppet.39.desc2
+		trigger = {
+            ROOT = {
+                OR = {
+                    has_government = totalist
+                    has_government = radical_socialist
+                    has_government = syndicalist
+                }
+            }
+        }
+	}
+    picture = GFX_report_event_pnr_KOR_strike_and_riot2
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 情况不容乐观。
         name = KOR_pnr_puppet.39.a
         ai_chance = { factor = 1 }
+        add_political_power = -150
+        add_manpower = -800
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_lose_profits
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+        KOR = {
+            clr_country_flag = KOR_pnr_daegu_standoff_ongoing
+            add_stability = 0.05
+            subtract_from_variable = { KOR_pnr_peninsula_profits_var = 0.3 }
+            subtract_from_variable = { KOR_pnr_peninsula_collapse_var = 1 }
+        }
     }
     option = { # 这是暴乱，是暴乱！
         name = KOR_pnr_puppet.39.b
         ai_chance = { factor = 1 }
+        add_political_power = -30
+        add_manpower = -3000
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_special_option_warning
+        KOR = {
+            1099 = { set_demilitarized_zone = yes }
+            add_stability = -0.05
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.2 }
+        }
+        activate_targeted_decision = {
+                target = KOR
+                decision = KOR_pnr_ensure_the_suppression_plan
+            }
+            activate_targeted_decision = {
+                target = KOR
+                decision = KOR_pnr_operation_taeguk_tiger
+            }
+    }
+    option = { # 额，和我们无关。
+        name = KOR_pnr_puppet.39.c
+        ai_chance = { factor = 1 }
+        add_political_power = 25
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_no_assistance
+        add_to_variable = { KOR_pnr_peninsula_economic_health_var = 0.5 }
+        KOR = {
+            clr_country_flag = KOR_pnr_daegu_standoff_ongoing
+        }
     }
 }
 
 country_event = { # 工团分子的阴谋？
     id = KOR_pnr_puppet.40
     immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.40" }
-    title = KOR_pnr_puppet.40.t
-    desc = KOR_pnr_puppet.40.desc
+    title = {
+        text = KOR_pnr_puppet.40.t
+        trigger = {
+            ROOT = {
+                NOT = {
+                    OR = {
+                        has_government = totalist
+                        has_government = radical_socialist
+                        has_government = syndicalist
+                    }
+                }
+            }
+        }
+    }
+    title = {
+        text = KOR_pnr_puppet.40.t2
+        trigger = {
+            ROOT = {
+                OR = {
+                    has_government = totalist
+                    has_government = radical_socialist
+                    has_government = syndicalist
+                }
+            }
+        }
+    }
+    desc = {
+        text = KOR_pnr_puppet.40.desc
+        trigger = {
+            ROOT = {
+                NOT = {
+                    OR = {
+                        has_government = totalist
+                        has_government = radical_socialist
+                        has_government = syndicalist
+                    }
+                }
+            }
+        }
+    }
+    desc = {
+        text = KOR_pnr_puppet.40.desc2
+        trigger = {
+            ROOT = {
+                OR = {
+                    has_government = totalist
+                    has_government = radical_socialist
+                    has_government = syndicalist
+                }
+            }
+        }
+    }
     picture = GFX_report_event_HOL_syndicalist_nas
     is_triggered_only = yes
     hidden = no
@@ -771,6 +1538,27 @@ country_event = { # 工团分子的阴谋？
     option = { # 要警惕这些无孔不入的老鼠。
         name = KOR_pnr_puppet.40.a
         ai_chance = { factor = 1 }
+        add_political_power = 10
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.3 }
+        }
+    }
+    option = { # 借此机会发动清洗
+        name = KOR_pnr_puppet.40.b
+        ai_chance = { factor = 1 }
+        add_political_power = -25
+        add_manpower = -3000
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_huge_profits
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_stability = -0.10
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 1.2 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 1.3 }
+        }
     }
 }
 
@@ -786,10 +1574,30 @@ country_event = { # 劳工问题
     option = { # 我们允许他们过来不是为了搞沦落行为。
         name = KOR_pnr_puppet.41.a
         ai_chance = { factor = 1 }
+        add_political_power = -10
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_lose_profits
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_political_power = -40
+            subtract_from_variable = { KOR_pnr_peninsula_profits_var = 0.5 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.4 }
+        }
     }
     option = { # 这也是他们求生的一种选择。
         name = KOR_pnr_puppet.41.b
         ai_chance = { factor = 1 }
+        add_political_power = 25
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_political_power = 100
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.5 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.8 }
+        }
     }
 }
 
@@ -805,6 +1613,12 @@ country_event = { # 东明王的冒险
     option = { # 小子们，把铁管烧红了我们就出发！
         name = KOR_pnr_puppet.42.a
         ai_chance = { factor = 1 }
+        add_political_power = 10
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.3 }
+        }
     }
 }
 
@@ -820,10 +1634,29 @@ country_event = { # 农民冲击政府
     option = { # 或许我们确实要调整政策。
         name = KOR_pnr_puppet.43.a
         ai_chance = { factor = 1 }
+        add_political_power = -30
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_lose_profits
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+        KOR = {
+            subtract_from_variable = { KOR_pnr_peninsula_profits_var = 0.5 }
+            subtract_from_variable = { KOR_pnr_peninsula_collapse_var = 0.5 }
+        }
     }
     option = { # 吃饱了就开始骂我们？
         name = KOR_pnr_puppet.43.b
         ai_chance = { factor = 1 }
+        add_political_power = 5
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+        KOR = {
+            add_to_variable = { KOR_pnr_peninsula_profits_var = 0.4 }
+            add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.6 }
+            add_to_variable = { KOR_pnr_peninsula_economic_health_var = 1 }
+        }
     }
 }
 
@@ -835,19 +1668,27 @@ country_event = { # 混乱蔓延
     picture = GFX_report_event_pnr_KOR_liberation_celebration
     fire_only_once = yes
 	trigger = {
+		is_ai = no
 		OR = {
-            tag = QIE
-            tag = CHI
-            tag = 
+            tag = JAP
+            tag = ANQ
+			tag = CHI
+			tag = FNG
+			tag = GXC
+			tag = HNN
+			tag = LEP
+			tag = QIE
+			tag = SHX
+			tag = SIK
+			tag = SHD
+			tag = SZC
+			tag = XSM
+			tag = YUN
+			tag = UPC
         }
 		KOR = {
 			exists = yes
 			is_subject_of = ROOT
-		}
-		OR = {
-			has_cosmetic_tag = QIE_wushan_cosmetic_tag
-			has_cosmetic_tag = QIE_united_china_ws
-			has_cosmetic_tag = QIE_united_china_ws_final_phase
 		}
 	}
 	mean_time_to_happen = { days = 1 }
@@ -855,6 +1696,163 @@ country_event = { # 混乱蔓延
     option = { # 只能共苦，不能同甘的一群人。
         name = KOR_pnr_puppet.44.a
         ai_chance = { factor = 1 }
+        country_event = { id = KOR_pnr_puppet.1 days = 7 }
+        hidden_effect = {
+            KOR = { load_oob = "KOR_pnr_bad_end" }
+        }
     }
 }
+
+country_event = { # [KOR.GetName]忤逆了我们
+    id = KOR_pnr_puppet.47
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.47" }
+    title = KOR_pnr_puppet.47.t
+    desc = KOR_pnr_puppet.47.desc
+    picture = GFX_report_event_generic_diplomacy1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 这就是外交。
+        name = KOR_pnr_puppet.47.a
+        ai_chance = { factor = 1 }
+        KOR = { complete_national_focus = KOR_pnr_born_in_Jeollabuk_do }
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_lose_profits
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+        hidden_effect = {
+           KOR = {
+            subtract_from_variable = { KOR_pnr_peninsula_profits_var = 0.2 }
+            subtract_from_variable = { KOR_pnr_peninsula_collapse_var = 0.9 }
+           }    
+        }
+    }
+}
+
+### AI KOR will receive ###
+
+country_event = { # 甑山教领袖推举
+    id = KOR_pnr_puppet.45
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.45" }
+    title = KOR_pnr_puppet.45.t
+    desc = KOR_pnr_puppet.45.desc
+    picture = GFX_KOR_pnr_puppet_45
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 普天教
+        name = KOR_pnr_puppet.45.a
+        ai_chance = {
+            factor = 33
+            modifier = {
+                factor = 2
+                has_global_flag = kor_overlord_support_bocheonism
+            }
+        }
+        if = {
+            limit = { has_global_flag = kor_overlord_support_bocheonism }
+            overlord = { country_event = { id = KOR_pnr_puppet.8 days = 21 } }
+        }
+        set_country_flag = KOR_bocheonism_win
+        hidden_effect = {
+            if = {
+                limit = {
+                    NOT = { has_global_flag = kor_overlord_support_bocheonism }
+                    NOT = { has_global_flag = kor_overlord_ignore_sectarianism }
+                    overlord = { is_ai = no }
+                }
+                overlord = { country_event = { id = KOR_pnr_puppet.7 days = 5 } }
+            }
+        }
+    }
+    option = { # 太极道
+        name = KOR_pnr_puppet.45.b
+        ai_chance = {
+            factor = 33
+            modifier = {
+                factor = 2
+                has_global_flag = kor_overlord_support_daesoonjinrihoe
+            }
+        }
+        if = {
+            limit = { has_global_flag = kor_overlord_support_daesoonjinrihoe }
+            overlord = { country_event = { id = KOR_pnr_puppet.8 days = 21 } }
+        }
+        set_country_flag = KOR_daesoonjinrihoe_win
+        hidden_effect = {
+            if = {
+                limit = {
+                    NOT = { has_global_flag = kor_overlord_support_daesoonjinrihoe }
+                    NOT = { has_global_flag = kor_overlord_ignore_sectarianism }
+                    overlord = { is_ai = no }
+                }
+                overlord = { country_event = { id = KOR_pnr_puppet.7 days = 5 } }
+            }
+        }
+    }
+    option = { # 甑山法教
+        name = KOR_pnr_puppet.45.c
+        ai_chance = {
+            factor = 33
+            modifier = {
+                factor = 2
+                has_global_flag = kor_overlord_support_jeungsanbeop
+            }
+        }
+        if = {
+            limit = { has_global_flag = kor_overlord_support_jeungsanbeop }
+            overlord = { country_event = { id = KOR_pnr_puppet.8 days = 21 } }
+        }
+        set_country_flag = KOR_jeungsanbeop_win
+        hidden_effect = {
+            if = {
+                limit = {
+                    NOT = { has_global_flag = kor_overlord_support_jeungsanbeop }
+                    NOT = { has_global_flag = kor_overlord_ignore_sectarianism }
+                    overlord = { is_ai = no }
+                }
+                overlord = { country_event = { id = KOR_pnr_puppet.7 days = 5 } }
+            }
+        }
+    }
+}
+
+country_event = { # 要求重新考虑
+    id = KOR_pnr_puppet.46
+    immediate = { log = "[GetDateText]: [Root.GetName]: event KOR_pnr_puppet.46" }
+    title = KOR_pnr_puppet.46.t
+    desc = KOR_pnr_puppet.46.desc
+    picture = GFX_KOR_pnr_puppet_46
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们别无选择。
+        name = KOR_pnr_puppet.46.a
+        ai_chance = { factor = 70 }
+        KOR = {
+            clr_country_flag = KOR_daesoonjinrihoe_win
+            clr_country_flag = KOR_bocheonism_win
+            clr_country_flag = KOR_jeungsanbeop_win
+        }
+        if = {
+            limit = { has_global_flag = kor_overlord_support_bocheonism }
+            KOR = { set_country_flag = KOR_bocheonism_win }
+        }
+        if = {
+            limit = { has_global_flag = kor_overlord_support_daesoonjinrihoe }
+            KOR = { set_country_flag = KOR_daesoonjinrihoe_win }
+        }
+        if = {
+            limit = { has_global_flag = kor_overlord_support_jeungsanbeop }
+            KOR = { set_country_flag = KOR_jeungsanbeop_win }
+        }
+        overlord = { country_event = { id = KOR_pnr_puppet.8 days = 4 } }
+    }
+    option = { # 不，这是赤裸裸的干涉内政！
+        name = KOR_pnr_puppet.46.b
+        ai_chance = { factor = 30 }
+        overlord = { country_event = { id = KOR_pnr_puppet.47 days = 4 } }
+    }
+}
+
 
