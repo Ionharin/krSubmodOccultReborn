@@ -1,6 +1,8 @@
 KOR_pnr_military_base_catalog = {
-	icon = GFX_decision_category_military
+	icon = GFX_decision_category_gre_investment_decisions
+	picture = GFX_decisions_picture_pnr_KOR_oriental_development_company
 	priority = 90
+	visible_when_empty = yes
 	allowed = {
 		KOR = {
 			exists = yes
@@ -8,16 +10,9 @@ KOR_pnr_military_base_catalog = {
 		}
 	}
 	visible = {
-		OR = {
-			KOR = {
-				exists = yes
-				is_subject_of = ROOT
-				OR = {
-					has_country_flag = KOR_pnr_daegu_standoff_ongoing
-					has_country_flag = KOR_pnr_hamhung_situation_out_of_control
-				}
-			}
-			has_country_flag = KOR_pnr_daegu_suppression_plan_finished
+		KOR = {
+			exists = yes
+			is_subject_of = ROOT
 		}
 	}
 }

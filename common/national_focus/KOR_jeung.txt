@@ -8,7 +8,7 @@ focus_tree = {
 		id = KOR_pnr_select_Daesoonjinrihoe
 		x = -10
 		y = 4
-		cost = 4
+		cost = 2
 		icon = GFX_kor_select_Daesoonjinrihoe
 		available = { has_country_flag = KOR_daesoonjinrihoe_win }
 		continue_if_invalid = no
@@ -28,7 +28,7 @@ focus_tree = {
 		id = KOR_pnr_select_Bocheonism
 		x = -20
 		y = 4
-		cost = 4
+		cost = 2
 		icon = GFX_kor_select_Bocheonism
 		available = { has_country_flag = KOR_bocheonism_win }
 		continue_if_invalid = no
@@ -48,7 +48,7 @@ focus_tree = {
 		id = KOR_pnr_select_Jeungsanbeop
 		x = 0
 		y = 4
-		cost = 4
+		cost = 2
 		icon = GFX_kor_select_Jeungsanbeop
 		available = { has_country_flag = KOR_jeungsanbeop_win }
 		continue_if_invalid = no
@@ -68,12 +68,21 @@ focus_tree = {
 		id = KOR_pnr_at_the_top_of_Jeungsan
 		x = -10
 		y = 1
-		cost = 5
+		cost = 4
 		icon = GFX_kor_at_the_top_of_Jeungsan
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		select_effect = { # Order Introductions
-			overlord = { country_event = { id = KOR_pnr_puppet.3 days = 3 } }
+		select_effect = {
+			# Order Introductions
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.3
+					days = 3
+				}
+			}
+		}
+		ai_will_do = {
+			base = 500
 		}
 		prerequisite = {
 			focus = KOR_pnr_stay_in_land_your_birth
@@ -91,12 +100,20 @@ focus_tree = {
 		id = KOR_pnr_born_in_Jeollabuk_do
 		x = -10
 		y = 2
-		cost = 30
+		cost = 20
 		icon = GFX_kor_born_in_Jeollabuk_do
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		select_effect = {
-			overlord = { country_event = { id = KOR_pnr_puppet.6 days = 20 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.6
+					days = 20
+				}
+			}
+		}
+		ai_will_do = {
+			base = 500
 		}
 		prerequisite = {
 			focus = KOR_pnr_at_the_top_of_Jeungsan
@@ -128,7 +145,12 @@ focus_tree = {
 			}
 			KOR_improve_legitimacy_effect = yes
 			hidden_effect = {
-				overlord = { country_event = { id = KOR_pnr_puppet.14 days = 70 } }
+				overlord = {
+					country_event = {
+						id = KOR_pnr_puppet.14
+						days = 70
+					}
+				}
 			}
 		}
 	}
@@ -136,7 +158,7 @@ focus_tree = {
 		id = KOR_pnr_the_retinue_army_system
 		x = -14
 		y = 12
-		cost = 5
+		cost = 3
 		icon = GFX_focus_AFG_royal_guard
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -152,17 +174,18 @@ focus_tree = {
 		id = KOR_pnr_the_cultural_renaissance_of_the_korean_empire
 		x = -16
 		y = 13
-		cost = 8
+		cost = 3
 		icon = GFX_kor_the_cultural_renaissance_of_the_korean_empire
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		ai_will_do = {
-			base = 9999
+			base = 0
 			modifier = {
-				factor = 0
-				NOT = {
+				add = 9999
+				AND = {
 					has_country_flag = kor_pnr_army_focus_all_done
 					has_country_flag = kor_pnr_financial_focus_all_done
+					has_country_flag = kor_pnr_research_focus_done
 				}
 			}
 		}
@@ -189,7 +212,7 @@ focus_tree = {
 		id = KOR_pnr_return_to_jeolla_do
 		x = -21
 		y = 6
-		cost = 5
+		cost = 2
 		icon = GFX_goal_ENG_back_to_the_masses
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -205,7 +228,7 @@ focus_tree = {
 		id = KOR_pnr_national_household_registration
 		x = -19
 		y = 6
-		cost = 5
+		cost = 2
 		icon = GFX_goal_generic_investigate_corruption
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -222,11 +245,18 @@ focus_tree = {
 		id = KOR_pnr_discussion_on_the_country_system
 		x = -20
 		y = 7
-		cost = 5
+		cost = 3
 		icon = GFX_focus_AUS_lawmaking_leniency
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		select_effect = { overlord = { country_event = { id = KOR_pnr_puppet.13 days = 7 } } }
+		select_effect = {
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.13
+					days = 20
+				}
+			}
+		}
 		prerequisite = {
 			focus = KOR_pnr_heaven_kingdom_begins_underfoot
 		}
@@ -244,7 +274,7 @@ focus_tree = {
 		id = KOR_pnr_heaven_kingdom_begins_underfoot
 		x = -20
 		y = 5
-		cost = 5
+		cost = 2
 		icon = GFX_focus_AUS_agriculture
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -260,10 +290,13 @@ focus_tree = {
 		id = KOR_pnr_guidance_of_the_aspirant
 		x = -23
 		y = 8
-		cost = 5
+		cost = 3
 		icon = GFX_kor_guidance_of_the_aspirant
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 600
+		}
 		mutually_exclusive = {
 			focus = KOR_pnr_destiny_of_cha_kyungseok
 		}
@@ -272,12 +305,16 @@ focus_tree = {
 		}
 		completion_reward = {
 			KOR_improve_legitimacy_effect = yes
-			set_politics = {
-				ruling_party = national_populist
-			}
 			hidden_effect = {
-				overlord = { country_event = { id = KOR_pnr_puppet.10 days = 3 } }
-				KOR_pnr_kim_hong_gyu = { promote_character = national_populist_subtype }
+				overlord = {
+					country_event = {
+						id = KOR_pnr_puppet.10
+						days = 3
+					}
+				}
+				KOR_pnr_kim_hong_gyu = {
+					promote_character = national_populist_subtype
+				}
 			}
 		}
 	}
@@ -285,10 +322,13 @@ focus_tree = {
 		id = KOR_pnr_destiny_of_cha_kyungseok
 		x = -16
 		y = 8
-		cost = 5
+		cost = 3
 		icon = GFX_kor_destiny_of_cha_kyungseok
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 600
+		}
 		mutually_exclusive = {
 			focus = KOR_pnr_guidance_of_the_aspirant
 		}
@@ -297,13 +337,22 @@ focus_tree = {
 		}
 		completion_reward = {
 			KOR_improve_legitimacy_effect = yes
-			set_politics = {
-				ruling_party = national_populist
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.22
+					days = 45
+				}
 			}
-			overlord = { country_event = { id = KOR_pnr_puppet.22 days = 70 } }
 			hidden_effect = {
-				overlord = { country_event = { id = KOR_pnr_puppet.10 days = 3 } }
-				KOR_pnr_cha_kyung_seok = { promote_character = yes }
+				overlord = {
+					country_event = {
+						id = KOR_pnr_puppet.10
+						days = 3
+					}
+				}
+				KOR_pnr_cha_kyung_seok = {
+					promote_character = yes
+				}
 			}
 		}
 	}
@@ -311,7 +360,7 @@ focus_tree = {
 		id = KOR_pnr_innovation_and_review_committee
 		x = -24
 		y = 9
-		cost = 5
+		cost = 3
 		icon = GFX_focus_generic_commission
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -328,7 +377,7 @@ focus_tree = {
 		id = KOR_pnr_land_reform_law
 		x = -25
 		y = 10
-		cost = 5
+		cost = 3
 		icon = GFX_focus_PRC_land_revolution_expedited
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -348,14 +397,19 @@ focus_tree = {
 				idea = KOR_pnr_land_reform_in_progress
 				days = 1825
 			}
-			overlord = { country_event = { id = KOR_pnr_puppet.11 days = 30 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.11
+					days = 30
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_cultural_renaissance
 		x = -23
 		y = 10
-		cost = 5
+		cost = 3
 		icon = GFX_kor_cultural_renaissance
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -368,14 +422,19 @@ focus_tree = {
 				ideology = national_populist
 				popularity = 0.05
 			}
-			overlord = { country_event = { id = KOR_pnr_puppet.21 days = 19 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.21
+					days = 19
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_benefit_to_the_people
 		x = -23
 		y = 11
-		cost = 5
+		cost = 3
 		icon = GFX_kor_benefit_to_the_people
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -391,7 +450,7 @@ focus_tree = {
 		id = KOR_pnr_korean_literacy_education
 		x = -21
 		y = 10
-		cost = 5
+		cost = 2
 		icon = GFX_focus_generic_military_academy
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -400,24 +459,30 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = KOR_pnr_education_reform
-			overlord = { country_event = { id = KOR_pnr_puppet.15 days = 4 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.15
+					days = 14
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_npr_all_people_live_in_peace
 		x = -24
 		y = 13
-		cost = 8
+		cost = 3
 		icon = GFX_kor_all_people_live_in_peace
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		ai_will_do = {
-			base = 9999
+			base = 0
 			modifier = {
-				factor = 0
-				NOT = {
+				add = 9999
+				AND = {
 					has_country_flag = kor_pnr_army_focus_all_done
 					has_country_flag = kor_pnr_financial_focus_all_done
+					has_country_flag = kor_pnr_research_focus_done
 				}
 			}
 		}
@@ -435,16 +500,33 @@ focus_tree = {
 			remove_dynamic_modifier = {
 				modifier = KOR_pnr_dysfunctional_government
 			}
+			hidden_effect = {
+				country_event = {
+					id = KOR_pnr_puppet.49
+					days = 2
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_thirteen_roads_imperial_tours
 		x = -17
 		y = 9
-		cost = 7
+		cost = 5
 		icon = GFX_focus_AFG_retire_the_uncles
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 300
+			modifier = {
+				add = -250
+				has_country_flag = KOR_pnr_cks_get_support
+			}
+			modifier = {
+				add = -300
+				has_country_flag = KOR_pnr_cks_get_army
+			}
+		}
 		mutually_exclusive = {
 			focus = KOR_pnr_the_coronation_ceremony_again
 		}
@@ -472,16 +554,29 @@ focus_tree = {
 			remove_dynamic_modifier = {
 				modifier = KOR_pnr_dysfunctional_government
 			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+			subtract_from_variable = {
+				KOR_pnr_peninsula_collapse_var = 0.25
+			}
+			KOR_refresh_jeung_dynamic_modifiers = yes
 		}
 	}
 	focus = {
 		id = KOR_pnr_the_coronation_ceremony_again
 		x = -14
 		y = 9
-		cost = 7
+		cost = 5
 		icon = GFX_focus_JAP_sea_the_showa_restoration
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 50
+			modifier = {
+				add = 300
+				has_country_flag = KOR_pnr_cks_get_army
+			}
+		}
 		mutually_exclusive = {
 			focus = KOR_pnr_thirteen_roads_imperial_tours
 		}
@@ -502,13 +597,19 @@ focus_tree = {
 				popularity = 0.05
 			}
 			add_ideas = KOR_pnr_destined_monarch
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+			add_to_variable = {
+				KOR_pnr_peninsula_collapse_var = 0.35
+			}
+			KOR_refresh_jeung_dynamic_modifiers = yes
 		}
 	}
 	focus = {
 		id = KOR_pnr_the_consensus_of_the_korean_people
 		x = -19
 		y = 10
-		cost = 5
+		cost = 2
 		icon = GFX_focus_JAP_joshi_teishin_tai
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -517,17 +618,28 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = KOR_pnr_education_reform
-			overlord = { country_event = { id = KOR_pnr_puppet.15 days = 4 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.15
+					days = 14
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_korea_is_a_fierce_tiger
 		x = -18
 		y = 15
-		cost = 10
+		cost = 7
 		icon = GFX_focus_PRC_stoke_the_flames
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		select_effect = {
+			country_event = {
+				id = KOR_pnr_puppet.50
+				days = 1
+			}
+		}
 		prerequisite = {
 			focus = KOR_npr_all_people_live_in_peace
 			focus = KOR_pnr_the_cultural_renaissance_of_the_korean_empire
@@ -554,10 +666,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_political_power = 100
-			set_variable = { KOR_pnr_peninsula_collapse_var = 0 }
-			set_variable = { KOR_pnr_peninsula_profits_var = 0 }
-			set_variable = { KOR_pnr_peninsula_economic_health_var = 13 }
-			add_dynamic_modifier = { modifier = KOR_pnr_metropole_patronage }
+			set_variable = {
+				KOR_pnr_peninsula_collapse_var = 0
+			}
+			set_variable = {
+				KOR_pnr_peninsula_profits_var = 0
+			}
+			set_variable = {
+				KOR_pnr_peninsula_economic_health_var = 13
+			}
+			add_dynamic_modifier = {
+				modifier = KOR_pnr_metropole_patronage
+			}
 			KOR_refresh_jeung_dynamic_modifiers = yes
 		}
 	}
@@ -565,10 +685,13 @@ focus_tree = {
 		id = KOR_pnr_the_japanese_who_returned
 		x = -9
 		y = 0
-		cost = 3
+		cost = 1
 		icon = GFX_focus_JAP_propaganda
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 300
+		}
 		mutually_exclusive = {
 			focus = KOR_pnr_stay_in_land_your_birth
 		}
@@ -588,10 +711,13 @@ focus_tree = {
 		id = KOR_pnr_stay_in_land_your_birth
 		x = -11
 		y = 0
-		cost = 3
+		cost = 1
 		icon = GFX_focus_generic_immigration
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 200
+		}
 		mutually_exclusive = {
 			focus = KOR_pnr_the_japanese_who_returned
 		}
@@ -605,17 +731,25 @@ focus_tree = {
 				idea = KOR_pnr_promote_co_prosperity
 				days = 970
 			}
-			add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.5 } # increase peninsula collapse
+			add_to_variable = {
+				KOR_pnr_peninsula_collapse_var = 0.5
+			}
+			# increase peninsula collapse
+			KOR_refresh_jeung_dynamic_modifiers = yes
 		}
 	}
 	focus = {
 		id = KOR_pnr_promote_the_ilminism
 		x = -15
 		y = 5
-		cost = 4
+		cost = 3
 		icon = GFX_focus_JAP_ignite_the_korean_peninsula
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+		}
+		available = { NOT = { has_completed_focus = KOR_pnr_people_born_in_the_land_of_the_country } }
 		prerequisite = {
 			focus = KOR_pnr_select_Bocheonism
 			focus = KOR_pnr_select_Daesoonjinrihoe
@@ -640,7 +774,7 @@ focus_tree = {
 		id = KOR_pnr_unfinished_works_of_kwangmu_reform
 		x = -16
 		y = 11
-		cost = 5
+		cost = 4
 		icon = GFX_focus_JAP_embrace_kokutai
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -657,7 +791,7 @@ focus_tree = {
 		id = KOR_pnr_grant_the_capitalist_class_aristocratic_status
 		x = -16
 		y = 12
-		cost = 6
+		cost = 4
 		icon = GFX_focus_AFG_promote_the_counter_elite
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -672,7 +806,7 @@ focus_tree = {
 		id = KOR_pnr_land_measurement_and_new_deeds
 		x = -18
 		y = 12
-		cost = 5
+		cost = 3
 		icon = GFX_focus_generic_land_redistribution
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -687,14 +821,19 @@ focus_tree = {
 				idea = KOR_pnr_land_reform_in_progress
 				days = 1825
 			}
-			overlord = { country_event = { id = KOR_pnr_puppet.11 days = 30 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.11
+					days = 30
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_encourage_the_korean_youth_league
 		x = -20
 		y = 11
-		cost = 5
+		cost = 3
 		icon = GFX_goal_QIE_ycp
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -704,16 +843,25 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = KOR_pnr_korean_youth_league
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+			add_to_variable = {
+				KOR_pnr_peninsula_collapse_var = 0.2
+			}
+			KOR_refresh_jeung_dynamic_modifiers = yes
 		}
 	}
 	focus = {
 		id = KOR_pnr_seoul_normal_school
 		x = -20
 		y = 12
-		cost = 5
+		cost = 3
 		icon = GFX_goal_KTG_Educate_natives
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 300
+		}
 		prerequisite = {
 			focus = KOR_pnr_encourage_the_korean_youth_league
 		}
@@ -722,14 +870,20 @@ focus_tree = {
 				remove_idea = KOR_pnr_education_reform
 				add_idea = KOR_pnr_seoul_normal_school_idea
 			}
-			overlord = { country_event = { id = KOR_pnr_puppet.20 days = 5 } }
+			set_country_flag = kor_pnr_research_focus_done
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.20
+					days = 5
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_repair_sibiljeon
 		x = -16
 		y = 10
-		cost = 5
+		cost = 3
 		icon = GFX_kor_repair_sibiljeon
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -756,7 +910,7 @@ focus_tree = {
 		id = KOR_pnr_peace_between_yin_and_yang
 		x = -11
 		y = 5
-		cost = 4
+		cost = 2
 		icon = GFX_goal_generic_taoism
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -775,7 +929,7 @@ focus_tree = {
 		id = KOR_pnr_resolving_grievances
 		x = -9
 		y = 5
-		cost = 4
+		cost = 2
 		icon = GFX_kor_resolving_grievances
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -785,13 +939,19 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.1
 			add_war_support = -0.05
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+			subtract_from_variable = {
+				KOR_pnr_peninsula_collapse_var = 0.25
+			}
+			KOR_refresh_jeung_dynamic_modifiers = yes
 		}
 	}
 	focus = {
 		id = KOR_pnr_seek_the_broadest_consensus
 		x = -10
 		y = 6
-		cost = 4
+		cost = 2
 		icon = GFX_goal_generic_solidarity
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -810,7 +970,7 @@ focus_tree = {
 		id = KOR_pnr_comfort_the_victim
 		x = -12
 		y = 6
-		cost = 5
+		cost = 2
 		icon = GFX_focus_generic_diverse_army
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -828,7 +988,7 @@ focus_tree = {
 		id = KOR_pnr_compulsory_reeducation
 		x = -8
 		y = 6
-		cost = 5
+		cost = 2
 		icon = GFX_goal_PAN_Create_the_Universidad_de_Panama
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -844,11 +1004,18 @@ focus_tree = {
 		id = KOR_pnr_raise_the_torch
 		x = -10
 		y = 7
-		cost = 5
+		cost = 3
 		icon = GFX_kor_raise_the_torch
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		select_effect = { overlord = { country_event = { id = KOR_pnr_puppet.13 days = 3 } } }
+		select_effect = {
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.13
+					days = 20
+				}
+			}
+		}
 		prerequisite = {
 			focus = KOR_pnr_seek_the_broadest_consensus
 		}
@@ -860,10 +1027,13 @@ focus_tree = {
 		id = KOR_pnr_the_vision_of_jo_jeong_san
 		x = -10
 		y = 8
-		cost = 5
+		cost = 3
 		icon = GFX_kor_the_vision_of_jo_jeong_san
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 600
+		}
 		mutually_exclusive = {
 			focus = KOR_pnr_the_dream_of_park_han_gyeong
 		}
@@ -872,12 +1042,16 @@ focus_tree = {
 		}
 		completion_reward = {
 			KOR_improve_legitimacy_effect = yes
-			set_politics = {
-				ruling_party = national_populist
-			}
 			hidden_effect = {
-				overlord = { country_event = { id = KOR_pnr_puppet.10 days = 3 } }
-				KOR_pnr_jo_jeong_san = { promote_character = yes }
+				overlord = {
+					country_event = {
+						id = KOR_pnr_puppet.10
+						days = 3
+					}
+				}
+				KOR_pnr_jo_jeong_san = {
+					promote_character = yes
+				}
 			}
 		}
 	}
@@ -885,10 +1059,13 @@ focus_tree = {
 		id = KOR_pnr_the_dream_of_park_han_gyeong
 		x = -6
 		y = 8
-		cost = 5
+		cost = 3
 		icon = GFX_kor_the_dream_of_park_han_gyeong
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 600
+		}
 		mutually_exclusive = {
 			focus = KOR_pnr_the_vision_of_jo_jeong_san
 		}
@@ -897,12 +1074,16 @@ focus_tree = {
 		}
 		completion_reward = {
 			KOR_improve_legitimacy_effect = yes
-			set_politics = {
-				ruling_party = national_populist
-			}
 			hidden_effect = {
-				overlord = { country_event = { id = KOR_pnr_puppet.10 days = 3 } }
-				KOR_pnr_park_han_gyeong = { promote_character = yes }
+				overlord = {
+					country_event = {
+						id = KOR_pnr_puppet.10
+						days = 3
+					}
+				}
+				KOR_pnr_park_han_gyeong = {
+					promote_character = yes
+				}
 			}
 		}
 	}
@@ -910,7 +1091,7 @@ focus_tree = {
 		id = KOR_pnr_radio_speech
 		x = -8
 		y = 9
-		cost = 5
+		cost = 2
 		icon = GFX_focus_SWE_radiotjanst
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -953,14 +1134,19 @@ focus_tree = {
 					gain_random_agency_upgrade = yes
 				}
 			}
-			overlord = { country_event = { id = KOR_pnr_puppet.15 days = 4 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.15
+					days = 14
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_build_sungkyunkwan_university
 		x = -13
 		y = 10
-		cost = 5
+		cost = 3
 		icon = GFX_goal_KTG_Bookstack
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -972,13 +1158,17 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_research_slot = 1
+			if = {
+				limit = { has_completed_focus = KOR_pnr_the_coronation_ceremony_again }
+				set_country_flag = kor_pnr_research_focus_done
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_welfare_state
 		x = -10
 		y = 10
-		cost = 5
+		cost = 3
 		icon = GFX_focus_generic_welfare
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -987,14 +1177,19 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = KOR_pnr_ideal_paradise
-			overlord = { country_event = { id = KOR_pnr_puppet.23 days = 6 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.23
+					days = 6
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_emphasize_the_national_spirit
 		x = -12
 		y = 9
-		cost = 4
+		cost = 2
 		icon = GFX_focus_PHI_utang_na_loob
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1003,17 +1198,26 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = KOR_pnr_cultural_revival_idea
-			overlord = { country_event = { id = KOR_pnr_puppet.11 days = 30 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.11
+					days = 30
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_people_born_in_the_land_of_the_country
 		x = -6
 		y = 5
-		cost = 4
+		cost = 3
 		icon = GFX_goal_agrarian_soldiers
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 100
+		}
+		available = { NOT = { has_completed_focus = KOR_pnr_promote_the_ilminism } }
 		prerequisite = {
 			focus = KOR_pnr_select_Daesoonjinrihoe
 			focus = KOR_pnr_select_Jeungsanbeop
@@ -1031,7 +1235,7 @@ focus_tree = {
 		id = KOR_pnr_daejin_university
 		x = -7
 		y = 10
-		cost = 5
+		cost = 3
 		icon = GFX_focus_ARG_universidad_de_buenos_aires
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1044,14 +1248,20 @@ focus_tree = {
 				remove_idea = KOR_pnr_education_reform
 				add_idea = KOR_pnr_daejin_university_idea
 			}
-			overlord = { country_event = { id = KOR_pnr_puppet.20 days = 5 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.20
+					days = 5
+				}
+			}
+			set_country_flag = kor_pnr_research_focus_done
 		}
 	}
 	focus = {
 		id = KOR_pnr_declare_a_state_of_emergency
 		x = -9
 		y = 12
-		cost = 5
+		cost = 4
 		icon = GFX_focus_BRA_repeale_national_security_law
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1072,13 +1282,19 @@ focus_tree = {
 			}
 			add_ideas = KOR_pnr_state_of_emergency_idea
 			increase_economic_mobilisation = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+			add_to_variable = {
+				KOR_pnr_peninsula_collapse_var = 0.4
+			}
+			KOR_refresh_jeung_dynamic_modifiers = yes
 		}
 	}
 	focus = {
 		id = KOR_pnr_agricultural_collaboration
 		x = -25
 		y = 11
-		cost = 5
+		cost = 3
 		icon = GFX_focus_ITA_grande_rivolta_rurale
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1093,7 +1309,7 @@ focus_tree = {
 		id = KOR_pnr_national_health_plan
 		x = -10
 		y = 9
-		cost = 5
+		cost = 3
 		icon = GFX_focus_SWE_bofors_fly_swatter
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1114,7 +1330,7 @@ focus_tree = {
 		id = KOR_pnr_establish_the_integrity_supervision_committee
 		x = -6
 		y = 11
-		cost = 4
+		cost = 2
 		icon = GFX_focus_generic_reduce_unneccessary_expenditure
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1125,23 +1341,33 @@ focus_tree = {
 			add_political_power = 30
 			add_stability = 0.05
 			add_ideas = KOR_pnr_beware_of_corruption
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+			subtract_from_variable = {
+				KOR_pnr_peninsula_economic_health_var = 0.15
+			}
+			subtract_from_variable = {
+				KOR_pnr_peninsula_collapse_var = 0.2
+			}
+			KOR_refresh_jeung_dynamic_modifiers = yes
 		}
 	}
 	focus = {
 		id = KOR_pnr_the_member_of_asia_order
 		x = -5
 		y = 13
-		cost = 8
+		cost = 3
 		icon = GFX_focus_JAP_promote_pan_asianism
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		ai_will_do = {
-			base = 9999
+			base = 0
 			modifier = {
-				factor = 0
-				NOT = {
+				add = 9999
+				AND = {
 					has_country_flag = kor_pnr_army_focus_all_done
 					has_country_flag = kor_pnr_financial_focus_all_done
+					has_country_flag = kor_pnr_research_focus_done
 				}
 			}
 		}
@@ -1162,7 +1388,7 @@ focus_tree = {
 		id = KOR_pnr_swear_to_continue_the_legacy
 		x = 2
 		y = 6
-		cost = 4
+		cost = 2
 		icon = GFX_focus_eng_concessions_to_the_trade_unions
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1178,17 +1404,18 @@ focus_tree = {
 		id = KOR_pnr_the_eastern_celestial_world
 		x = -10
 		y = 13
-		cost = 8
+		cost = 3
 		icon = GFX_kor_the_eastern_celestial_world
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		ai_will_do = {
-			base = 9999
+			base = 0
 			modifier = {
-				factor = 0
-				NOT = {
+				add = 9999
+				AND = {
 					has_country_flag = kor_pnr_army_focus_all_done
 					has_country_flag = kor_pnr_financial_focus_all_done
+					has_country_flag = kor_pnr_research_focus_done
 				}
 			}
 		}
@@ -1210,7 +1437,7 @@ focus_tree = {
 		id = KOR_pnr_establish_the_order_administration
 		x = -5
 		y = 9
-		cost = 5
+		cost = 3
 		icon = GFX_focus_CHI_registry_of_property
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1223,14 +1450,19 @@ focus_tree = {
 				ideology = national_populist
 				popularity = 0.05
 			}
-			overlord = { country_event = { id = KOR_pnr_puppet.24 days = 9 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.24
+					days = 9
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_three_major_business_budgets
 		x = -6
 		y = 12
-		cost = 6
+		cost = 3
 		icon = GFX_focus_INS_peg_indies_guilder_to_dutch_guilder
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1242,14 +1474,19 @@ focus_tree = {
 				idea = KOR_pnr_three_major_business_budgets_idea
 				days = 1460
 			}
-			overlord = { country_event = { id = KOR_pnr_puppet.11 days = 30 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.11
+					days = 30
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_establish_civilian_government
 		x = -4
 		y = 12
-		cost = 5
+		cost = 2
 		icon = GFX_focus_GER_strengthen_the_proletarian_international
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1265,7 +1502,7 @@ focus_tree = {
 		id = KOR_pnr_registered_believers
 		x = -3
 		y = 5
-		cost = 4
+		cost = 2
 		icon = GFX_focus_SIA_the_duty_of_the_thai_people_during_the_war_act
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1292,7 +1529,7 @@ focus_tree = {
 		id = KOR_pnr_establishing_the_holy_land
 		x = 3
 		y = 5
-		cost = 4
+		cost = 2
 		icon = GFX_focus_PRC_petition_for_freedom
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1310,7 +1547,7 @@ focus_tree = {
 		id = KOR_pnr_second_jeungsan_conference
 		x = 0
 		y = 6
-		cost = 5
+		cost = 1
 		icon = GFX_focus_generic_phone
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1323,7 +1560,7 @@ focus_tree = {
 		id = KOR_pnr_respectfully_request_remains_of_the_patriarch
 		x = -1
 		y = 5
-		cost = 3
+		cost = 2
 		icon = GFX_kor_respectfully_request_remains_of_the_patriarch
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1342,7 +1579,7 @@ focus_tree = {
 		id = KOR_pnr_compile_the_scriptures_of_various_schools
 		x = 1
 		y = 5
-		cost = 3
+		cost = 2
 		icon = GFX_goal_civil_service
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1357,11 +1594,18 @@ focus_tree = {
 		id = KOR_pnr_third_jeungsan_conference
 		x = 0
 		y = 8
-		cost = 5
+		cost = 3
 		icon = GFX_kor_third_jeungsan_conference
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		select_effect = { overlord = { country_event = { id = KOR_pnr_puppet.13 days = 3 } } }
+		select_effect = {
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.13
+					days = 20
+				}
+			}
+		}
 		prerequisite = {
 			focus = KOR_pnr_second_jeungsan_conference
 		}
@@ -1427,13 +1671,16 @@ focus_tree = {
 				}
 			}
 			KOR_improve_legitimacy_effect = yes
-			set_cosmetic_tag = KOR_pnr_jeungsanbeop
-			set_politics = {
-				ruling_party = national_populist
-			}
 			hidden_effect = {
-				overlord = { country_event = { id = KOR_pnr_puppet.10 days = 3 } }
-				KOR_pnr_kang_soon_im = { promote_character = yes }
+				overlord = {
+					country_event = {
+						id = KOR_pnr_puppet.10
+						days = 3
+					}
+				}
+				KOR_pnr_kang_soon_im = {
+					promote_character = yes
+				}
 			}
 		}
 	}
@@ -1441,10 +1688,13 @@ focus_tree = {
 		id = KOR_pnr_as_the_coordinator
 		x = -1
 		y = 9
-		cost = 4
+		cost = 3
 		icon = GFX_kor_as_the_coordinator
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 600
+		}
 		mutually_exclusive = {
 			focus = KOR_pnr_as_the_assistant
 		}
@@ -1458,17 +1708,25 @@ focus_tree = {
 				popularity = 0.05
 			}
 			add_ideas = KOR_pnr_balance_of_heaven_and_earth
-			overlord = { country_event = { id = KOR_pnr_puppet.15 days = 4 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.15
+					days = 14
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_as_the_assistant
 		x = 1
 		y = 9
-		cost = 4
+		cost = 3
 		icon = GFX_kor_as_the_assistant_0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 600
+		}
 		mutually_exclusive = {
 			focus = KOR_pnr_as_the_coordinator
 		}
@@ -1482,14 +1740,19 @@ focus_tree = {
 				popularity = 0.05
 			}
 			add_ideas = KOR_pnr_follow_the_forerunner
-			overlord = { country_event = { id = KOR_pnr_puppet.15 days = 4 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.15
+					days = 14
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_reconciliation_with_the_restoration_army
 		x = 0
 		y = 10
-		cost = 5
+		cost = 3
 		icon = GFX_focus_POL_beck_ribbentrop
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1520,14 +1783,19 @@ focus_tree = {
 				modifier = KOR_pnr_dysfunctional_government
 			}
 			add_ideas = KOR_antisocialist
-			overlord = { country_event = { id = KOR_pnr_puppet.25 days = 36 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.25
+					days = 36
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_defense_policy
 		x = 0
 		y = 12
-		cost = 5
+		cost = 3
 		icon = GFX_focus_SIA_built_to_withstand_every_flame
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1547,7 +1815,7 @@ focus_tree = {
 		id = KOR_pnr_re_establish_the_township_compact
 		x = -2
 		y = 10
-		cost = 4
+		cost = 2
 		icon = GFX_focus_ICE_embrace_the_workers_revolution
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1557,14 +1825,19 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.1
 			add_political_power = 30
-			overlord = { country_event = { id = KOR_pnr_puppet.11 days = 30 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.11
+					days = 30
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_redemption_of_land
 		x = -2
 		y = 12
-		cost = 5
+		cost = 3
 		icon = GFX_focus_JAP_central_agricultural_association
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1580,24 +1853,30 @@ focus_tree = {
 				popularity = 0.1
 			}
 			add_ideas = KOR_pnr_korean_agricultural_cooperative
-			overlord = { country_event = { id = KOR_pnr_puppet.20 days = 5 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.20
+					days = 5
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_rurals_community
 		x = -2
 		y = 13
-		cost = 8
+		cost = 3
 		icon = GFX_kor_rurals_community
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		ai_will_do = {
-			base = 9999
+			base = 0
 			modifier = {
-				factor = 0
-				NOT = {
+				add = 9999
+				AND = {
 					has_country_flag = kor_pnr_army_focus_all_done
 					has_country_flag = kor_pnr_financial_focus_all_done
+					has_country_flag = kor_pnr_research_focus_done
 				}
 			}
 		}
@@ -1618,7 +1897,7 @@ focus_tree = {
 		id = KOR_pnr_seek_consultant_support
 		x = 2
 		y = 10
-		cost = 4
+		cost = 2
 		icon = GFX_focus_generic_industrial_experts
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1635,14 +1914,19 @@ focus_tree = {
 				idea = KOR_pnr_land_reform_in_progress
 				days = 1825
 			}
-			overlord = { country_event = { id = KOR_pnr_puppet.20 days = 5 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.20
+					days = 5
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_model_village
 		x = 2
 		y = 12
-		cost = 5
+		cost = 3
 		icon = GFX_focus_SIA_thai_rice_company
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1693,24 +1977,30 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			overlord = { country_event = { id = KOR_pnr_puppet.11 days = 5 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.11
+					days = 5
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_the_granary_of_east_asia
 		x = 2
 		y = 13
-		cost = 8
+		cost = 3
 		icon = GFX_kor_the_granary_of_east_asia
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		ai_will_do = {
-			base = 9999
+			base = 0
 			modifier = {
-				factor = 0
-				NOT = {
+				add = 9999
+				AND = {
 					has_country_flag = kor_pnr_army_focus_all_done
 					has_country_flag = kor_pnr_financial_focus_all_done
+					has_country_flag = kor_pnr_research_focus_done
 				}
 			}
 		}
@@ -1731,7 +2021,7 @@ focus_tree = {
 		id = KOR_pnr_power_to_the_local
 		x = -2
 		y = 6
-		cost = 4
+		cost = 2
 		icon = GFX_focus_generic_monarchist_sentiment
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1745,13 +2035,19 @@ focus_tree = {
 				popularity = 0.05
 			}
 			add_ideas = KOR_pnr_rural_autonomy
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+			subtract_from_variable = {
+				KOR_pnr_peninsula_collapse_var = 0.25
+			}
+			KOR_refresh_jeung_dynamic_modifiers = yes
 		}
 	}
 	focus = {
 		id = KOR_pnr_the_authority_of_father
 		x = -11
 		y = 12
-		cost = 5
+		cost = 4
 		icon = GFX_focus_SWI_dissolve_the_federal_council
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1779,7 +2075,7 @@ focus_tree = {
 		id = KOR_pnr_disarm_the_restoration_army
 		x = -4
 		y = 11
-		cost = 5
+		cost = 3
 		icon = GFX_focus_generic_crush_the_military
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1819,7 +2115,7 @@ focus_tree = {
 		id = KOR_pnr_army_restructuring
 		x = -31
 		y = 4
-		cost = 4
+		cost = 2
 		icon = GFX_focus_RAJ_military_into_the_workforce
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1911,8 +2207,18 @@ focus_tree = {
 				}
 			}
 			hidden_effect = {
-				overlord = { country_event = { id = KOR_pnr_puppet.26 days = 285 } }
-				overlord = { country_event = { id = KOR_pnr_puppet.39 days = 100 } }
+				overlord = {
+					country_event = {
+						id = KOR_pnr_puppet.26
+						days = 415
+					}
+				}
+				overlord = {
+					country_event = {
+						id = KOR_pnr_puppet.39
+						days = 208
+					}
+				}
 			}
 		}
 	}
@@ -1920,7 +2226,7 @@ focus_tree = {
 		id = KOR_pnr_the_giant_on_the_ocean
 		x = -35
 		y = 10
-		cost = 5
+		cost = 1
 		icon = GFX_goal_generic_naval_carrier2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1941,10 +2247,16 @@ focus_tree = {
 		id = KOR_pnr_hermit_kingdom
 		x = -2
 		y = 15
-		cost = 10
+		cost = 7
 		icon = GFX_kor_hermit_kingdom
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		select_effect = {
+			country_event = {
+				id = KOR_pnr_puppet.50
+				days = 1
+			}
+		}
 		prerequisite = {
 			focus = KOR_pnr_the_member_of_asia_order
 			focus = KOR_pnr_rurals_community
@@ -1962,6 +2274,28 @@ focus_tree = {
 		icon = GFX_focus_RAJ_a_tiger_unchained
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		cancel = {
+			has_completed_focus = KOR_pnr_follow_our_lord
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 5000
+				check_variable = {
+					var = KOR_pnr_peninsula_collapse_var
+					value = 11
+					compare = greater_than_or_equals
+				}
+			}
+		}
+		select_effect = {
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.51
+					days = 3
+				}
+			}
+		}
 		mutually_exclusive = {
 			focus = KOR_pnr_follow_our_lord
 		}
@@ -1996,6 +2330,9 @@ focus_tree = {
 		icon = GFX_kor_follow_our_lord
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = {
+			base = 50
+		}
 		mutually_exclusive = {
 			focus = KOR_pnr_towards_independence
 		}
@@ -2004,13 +2341,34 @@ focus_tree = {
 			focus = KOR_pnr_hermit_kingdom
 		}
 		completion_reward = {
+			set_temp_variable = { KOR_pnr_pre_puppet_ruling_party_var = current_party_ideology_group }
 			overlord = {
-				set_autonomy = {
-					target = KOR
-					autonomy_state = autonomy_pnr_jimi_zhou
-					end_wars = yes
-					end_civil_wars = yes
+				if = {
+					limit = {
+						OR = {
+							has_cosmetic_tag = QIE_wushan_cosmetic_tag
+							has_cosmetic_tag = QIE_united_china_ws
+							has_cosmetic_tag = QIE_united_china_ws_final_phase
+						}
+					}
+					set_autonomy = {
+						target = KOR
+						autonomy_state = autonomy_pnr_jimi_zhou
+						end_wars = yes
+						end_civil_wars = yes
+					}
 				}
+				else = {
+					set_autonomy = {
+						target = KOR
+						autonomy_state = autonomous_territory
+						end_wars = yes
+						end_civil_wars = yes
+					}
+				}
+			}
+			set_politics = {
+				ruling_party = var:KOR_pnr_pre_puppet_ruling_party_var
 			}
 		}
 	}
@@ -2018,7 +2376,7 @@ focus_tree = {
 		id = KOR_pnr_start_five_year_project
 		x = 16
 		y = 5
-		cost = 3
+		cost = 2
 		icon = GFX_goal_generic_cash_stimulus_plan
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2027,17 +2385,28 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_stability = -0.05
+			subtract_from_variable = {
+				KOR_pnr_peninsula_economic_health_var = 0.25
+			}
+			KOR_refresh_jeung_dynamic_modifiers = yes
 		}
 	}
 	focus = {
 		id = KOR_pnr_zhanhou_chongjian_weiiyuanhui
 		x = 11
 		y = 4
-		cost = 4
+		cost = 1
 		icon = GFX_goal_syndicalist_workers
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		select_effect = { overlord = { country_event = { id = KOR_pnr_puppet.12 days = 5 } } }
+		select_effect = {
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.12
+					days = 55
+				}
+			}
+		}
 		prerequisite = {
 			focus = KOR_pnr_born_in_Jeollabuk_do
 		}
@@ -2051,7 +2420,7 @@ focus_tree = {
 		id = KOR_pnr_huifu_yinhang
 		x = 14
 		y = 5
-		cost = 3
+		cost = 2
 		icon = GFX_goal_generic_banking_legislation
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2059,17 +2428,22 @@ focus_tree = {
 			focus = KOR_pnr_zhanhou_chongjian_weiiyuanhui
 		}
 		completion_reward = {
-			overlord = { country_event = { id = KOR_pnr_puppet.16 days = 6 } }
+			custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+			subtract_from_variable = {
+				KOR_pnr_peninsula_economic_health_var = 0.5
+			}
+			KOR_refresh_jeung_dynamic_modifiers = yes
 		}
 	}
 	focus = {
 		id = KOR_pnr_outside_funds
 		x = 14
 		y = 7
-		cost = 4
+		cost = 1
 		icon = BAT_charity_propaganda
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = { base = 100 }
 		mutually_exclusive = {
 			focus = KOR_pnr_independent_developing
 		}
@@ -2088,10 +2462,11 @@ focus_tree = {
 		id = KOR_pnr_independent_developing
 		x = 16
 		y = 7
-		cost = 4
+		cost = 1
 		icon = GFX_focus_generic_industry_investment
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = { base = 50 }
 		mutually_exclusive = {
 			focus = KOR_pnr_outside_funds
 		}
@@ -2109,7 +2484,7 @@ focus_tree = {
 		id = KOR_pnr_revitalization_small_and_medium-sized_industries
 		x = 17
 		y = 8
-		cost = 4
+		cost = 2
 		icon = GFX_focus_generic_full_employment
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2124,7 +2499,7 @@ focus_tree = {
 		id = KOR_pnr_tendency_toward_large_enterprises
 		x = 13
 		y = 8
-		cost = 4
+		cost = 2
 		icon = GFX_focus_generic_industrialists
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2141,7 +2516,7 @@ focus_tree = {
 		id = KOR_pnr_the_birth_of_the_chaebol
 		x = 12
 		y = 9
-		cost = 5
+		cost = 2
 		icon = GFX_goal_capitalist_system
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2153,13 +2528,19 @@ focus_tree = {
 			add_one_random_civilian_factory = yes
 			add_one_random_civilian_factory = yes
 			add_one_random_civilian_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+			add_to_variable = { KOR_pnr_peninsula_profits_var = 0.13 }
+			add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.1 }
 		}
 	}
 	focus = {
 		id = KOR_pnr_the_sound_industrial_supply_chain
 		x = 18
 		y = 9
-		cost = 5
+		cost = 2
 		icon = GFX_focus_generic_central_planning
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2169,13 +2550,21 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = KOR_autarkic_state
 			add_one_random_civilian_factory = yes
+			custom_effect_tooltip = KOR_pnr_puppet_social_collapse_down
+			subtract_from_variable = {
+				KOR_pnr_peninsula_economic_health_var = 0.15
+			}
+			subtract_from_variable = {
+				KOR_pnr_peninsula_collapse_var = 0.1
+			}
+			KOR_refresh_jeung_dynamic_modifiers = yes
 		}
 	}
 	focus = {
 		id = KOR_pnr_globalized_economy
 		x = 15
 		y = 6
-		cost = 5
+		cost = 2
 		icon = GFX_focus_generic_devaluation
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2214,9 +2603,19 @@ focus_tree = {
 					province = 4052
 				}
 			}
-			overlord = { country_event = { id = KOR_pnr_puppet.17 days = 1 } }
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.17
+					days = 8
+				}
+			}
 			hidden_effect = {
-				overlord = { country_event = { id = KOR_pnr_puppet.18 days = 93 } }
+				overlord = {
+					country_event = {
+						id = KOR_pnr_puppet.18
+						days = 144
+					}
+				}
 			}
 		}
 	}
@@ -2224,7 +2623,7 @@ focus_tree = {
 		id = KOR_pnr_the_legacy_of_japanese
 		x = 9
 		y = 5
-		cost = 2
+		cost = 1
 		icon = GFX_focus_JAP_the_fate_of_the_imperial_family
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2234,13 +2633,19 @@ focus_tree = {
 		completion_reward = {
 			add_one_random_civilian_factory = yes
 			add_one_random_military_factory = yes
+			overlord = {
+				country_event = {
+					id = KOR_pnr_puppet.16
+					days = 13
+				}
+			}
 		}
 	}
 	focus = {
 		id = KOR_pnr_military_prior
 		x = 16
 		y = 9
-		cost = 5
+		cost = 3
 		icon = GFX_focus_generic_reorient_production
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2258,7 +2663,7 @@ focus_tree = {
 		id = KOR_the_miracle_of_economy
 		x = 13
 		y = 11
-		cost = 5
+		cost = 2
 		icon = GFX_kor_the_miracle_of_economy
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2285,7 +2690,7 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = KOR_bright_future_tt
 			custom_effect_tooltip = tooltip_white_line
-			add_research_slot_until_five = yes
+			add_research_slot = 1
 			custom_effect_tooltip = tooltip_white_line
 			if = {
 				limit = {
@@ -2312,13 +2717,21 @@ focus_tree = {
 					KOR_agriculture
 				}
 			}
+			custom_effect_tooltip = KOR_pnr_puppet_gain_medium_profits
+			add_to_variable = {
+				KOR_pnr_peninsula_profits_var = 0.7
+			}
+			subtract_from_variable = {
+				KOR_pnr_peninsula_economic_health_var = 0.5
+			}
+			KOR_refresh_jeung_dynamic_modifiers = yes
 		}
 	}
 	focus = {
 		id = KOR_pnr_weapon_development_department
 		x = -32
 		y = 8
-		cost = 3
+		cost = 1
 		icon = GFX_goal_generic_artillery_factories
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2369,7 +2782,7 @@ focus_tree = {
 		id = KOR_pnr_the_experience_of_national_restoration
 		x = -30
 		y = 8
-		cost = 3
+		cost = 1
 		icon = GFX_focus_CHI_political_advisors_in_every_division
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2385,7 +2798,7 @@ focus_tree = {
 		id = KOR_pnr_focus_on_logistics
 		x = -33
 		y = 9
-		cost = 4
+		cost = 1
 		icon = GFX_focus_generic_truck
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2410,7 +2823,7 @@ focus_tree = {
 		id = KOR_pnr_mechnical_military
 		x = -31
 		y = 10
-		cost = 5
+		cost = 1
 		icon = GFX_focus_generic_purchase_mechanized_equipment
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2438,7 +2851,7 @@ focus_tree = {
 		id = KOR_pnr_superior_firepower
 		x = -31
 		y = 9
-		cost = 4
+		cost = 1
 		icon = GFX_focus_SWE_let_fly_all_guns
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2461,7 +2874,7 @@ focus_tree = {
 		id = KOR_pnr_unyielding_will
 		x = -29
 		y = 9
-		cost = 4
+		cost = 1
 		icon = GFX_focus_generic_support_the_left_right
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2477,7 +2890,7 @@ focus_tree = {
 		id = KOR_pnr_establish_the_military_academy
 		x = -31
 		y = 5
-		cost = 4
+		cost = 1
 		icon = GFX_goal_KOR_Army
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2494,7 +2907,7 @@ focus_tree = {
 		id = KOR_pnr_fly_onto_the_sky
 		x = -27
 		y = 5
-		cost = 3
+		cost = 1
 		icon = GFX_goal_KOR_Airforce
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2517,7 +2930,7 @@ focus_tree = {
 		id = KOR_pnr_ground_support
 		x = -26
 		y = 8
-		cost = 5
+		cost = 1
 		icon = GFX_goal_generic_air_bomber
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2553,7 +2966,7 @@ focus_tree = {
 		id = KOR_pnr_air_dominator
 		x = -28
 		y = 8
-		cost = 5
+		cost = 1
 		icon = GFX_goal_generic_air_fighter
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2589,7 +3002,7 @@ focus_tree = {
 		id = KOR_pnr_learning_from_foreign_experience
 		x = -32
 		y = 6
-		cost = 5
+		cost = 1
 		icon = GFX_goal_generic_army_doctrines
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2611,7 +3024,7 @@ focus_tree = {
 		id = KOR_pnr_general_staff_department
 		x = -30
 		y = 6
-		cost = 5
+		cost = 1
 		icon = GFX_focus_generic_military_mission
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2627,7 +3040,7 @@ focus_tree = {
 		id = KOR_pnr_special_command_headquarters
 		x = -31
 		y = 11
-		cost = 6
+		cost = 2
 		icon = GFX_goal_KOR_secret_agency
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2690,7 +3103,7 @@ focus_tree = {
 		id = KOR_pnr_loyal_to_the_country
 		x = -31
 		y = 7
-		cost = 5
+		cost = 1
 		icon = GFX_focus_CHI_decisive_battles
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2710,7 +3123,7 @@ focus_tree = {
 		id = KOR_pnr_southern_project
 		x = 11
 		y = 6
-		cost = 4
+		cost = 2
 		icon = GFX_kor_the_southern_project
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2750,7 +3163,7 @@ focus_tree = {
 		id = KOR_pnr_the_nascent_textile_industry
 		x = 10
 		y = 7
-		cost = 3
+		cost = 1
 		icon = GFX_focus_CHL_enlarge_the_textile_industries
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2776,7 +3189,7 @@ focus_tree = {
 		id = KOR_pnr_build_beautiful_future
 		x = 15
 		y = 8
-		cost = 3
+		cost = 2
 		icon = GFX_focus_SWE_hygienic_housing
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2805,7 +3218,7 @@ focus_tree = {
 		id = KOR_pnr_light_industry_first
 		x = 14
 		y = 9
-		cost = 5
+		cost = 3
 		icon = GFX_goal_generic_construct_civ_factory
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2827,7 +3240,7 @@ focus_tree = {
 		id = KOR_pnr_a_long_history
 		x = 13
 		y = 10
-		cost = 4
+		cost = 1
 		icon = GFX_Goal_YUN_Promote_Tourism
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2856,7 +3269,7 @@ focus_tree = {
 		id = KOR_railway_of_all_country
 		x = 15
 		y = 10
-		cost = 4
+		cost = 1
 		icon = GFX_goal_generic_railway_construction
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2949,7 +3362,7 @@ focus_tree = {
 		id = KOR_pnr_encourage_innovation
 		x = 17
 		y = 10
-		cost = 4
+		cost = 1
 		icon = GFX_goal_generic_secret_documents
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -2978,7 +3391,7 @@ focus_tree = {
 		id = KOR_pnr_mechanised_agriculture
 		x = 11
 		y = 8
-		cost = 4
+		cost = 1
 		icon = GFX_focus_generic_modernizing_agriculture
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3013,7 +3426,7 @@ focus_tree = {
 		id = KOR_pnr_the_northern_project
 		x = 7
 		y = 6
-		cost = 4
+		cost = 2
 		icon = GFX_kor_the_northern_project
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3053,7 +3466,7 @@ focus_tree = {
 		id = KOR_pnr_restructuring_heavy_industry
 		x = 8
 		y = 7
-		cost = 3
+		cost = 1
 		icon = GFX_focus_SOV_merge_plants
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3096,7 +3509,7 @@ focus_tree = {
 		id = KOR_pnr_ensure_industrial_raw_materials
 		x = 6
 		y = 7
-		cost = 3
+		cost = 1
 		icon = GFX_focus_PER_increase_oil_sales
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3116,7 +3529,7 @@ focus_tree = {
 		id = KOR_pnr_from_the_future
 		x = 7
 		y = 8
-		cost = 4
+		cost = 1
 		icon = GFX_focus_JAP_the_five_great_cities
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3145,7 +3558,7 @@ focus_tree = {
 		id = KOR_pnr_changjin_river_dam
 		x = 9
 		y = 9
-		cost = 4
+		cost = 2
 		icon = GFX_focus_generic_hydroelectric_energy
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3176,7 +3589,7 @@ focus_tree = {
 		id = KOR_pnr_the_first_light_bulb
 		x = 9
 		y = 10
-		cost = 5
+		cost = 2
 		icon = GFX_focus_ARG_develop_the_electricity_sector
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3211,7 +3624,7 @@ focus_tree = {
 		id = KOR_pnr_addictive_crops
 		x = 12
 		y = 7
-		cost = 3
+		cost = 1
 		icon = GFX_goal_generic_prohibition
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3239,7 +3652,7 @@ focus_tree = {
 		id = KOR_pnr_remember_lee_shunchen
 		x = -35
 		y = 5
-		cost = 3
+		cost = 1
 		icon = GFX_goal_KOR_Navy
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3254,7 +3667,7 @@ focus_tree = {
 		id = KOR_pnr_modified_transport_ship
 		x = -35
 		y = 8
-		cost = 4
+		cost = 1
 		icon = GFX_focus_generic_refit_civilian_ships
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3276,7 +3689,7 @@ focus_tree = {
 		id = KOR_pnr_emphasizing_offshore_self_defense
 		x = -35
 		y = 9
-		cost = 4
+		cost = 1
 		icon = GFX_focus_SWE_coastal_support
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3291,7 +3704,7 @@ focus_tree = {
 		id = KOR_pnr_repair_japanese_ships
 		x = -36
 		y = 7
-		cost = 4
+		cost = 1
 		icon = GFX_focus_JAP_naval_armaments_program
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3306,7 +3719,7 @@ focus_tree = {
 		id = KOR_pnr_expand_the_port
 		x = -34
 		y = 7
-		cost = 4
+		cost = 1
 		icon = GFX_focus_POL_develop_polish_shipbuilding
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3322,7 +3735,7 @@ focus_tree = {
 		id = KOR_pnr_airport_base_building
 		x = -27
 		y = 6
-		cost = 4
+		cost = 1
 		icon = GFX_focus_PRC_pilot_training
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3351,7 +3764,7 @@ focus_tree = {
 		id = KOR_pnr_airport_safe
 		x = -27
 		y = 7
-		cost = 4
+		cost = 1
 		icon = GFX_focus_CHI_formalise_training_regime
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3363,7 +3776,7 @@ focus_tree = {
 		id = KOR_pnr_golden_eagle_jet_airport
 		x = -27
 		y = 10
-		cost = 5
+		cost = 1
 		icon = GFX_focus_generic_jet_planes
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3387,7 +3800,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOR_pnr_government_collapse
+		id = KOR_pnr_goal_government_collapse
 		x = -10
 		y = 17
 		cost = 1042
@@ -3395,7 +3808,11 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = no
 		cancelable = no
-		allow_branch = { always = no }
-		cancel = { has_country_flag = KOR_goverment_reborn }
+		allow_branch = {
+			always = no
+		}
+		cancel = {
+			has_country_flag = KOR_goverment_reborn
+		}
 	}
 }

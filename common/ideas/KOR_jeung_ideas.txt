@@ -1,7 +1,7 @@
 ideas = {
 	country = {
 		KOR_pnr_expel_japanese_residents = {
-			picture = SPR_political_violence
+			picture = PRC_land_revolution_halted
 			allowed = { always = no }
 			modifier = {
 				monthly_population = -0.15
@@ -32,7 +32,7 @@ ideas = {
 		}
 
 		KOR_pnr_korean_agricultural_cooperative = {
-			picture = qie_ideas_ws_labor_cooperative
+			picture = FRA_liberte_egalite_solidarite
 			allowed = { always = no }
 			modifier = {
 				consumer_goods_factor = -0.10
@@ -65,7 +65,7 @@ ideas = {
 		}
 
 		KOR_pnr_korean_youth_league = {
-			picture = qie_ideas_ws_madan_spirit
+			picture = FRA_national_mobilization_focus
 			allowed = { always = no }
 			modifier = {
 				stability_factor = -0.10
@@ -153,7 +153,7 @@ ideas = {
 		}
 
 		KOR_pnr_cultural_revival_idea = {
-			picture = generic_national_unity
+			picture = generic_intel_bonus
 			allowed = { always = no }
 			modifier = {
 				political_power_factor = 0.10
@@ -178,7 +178,7 @@ ideas = {
 		}
 
 		KOR_pnr_state_of_emergency_idea = {
-			picture = generic_political_violence
+			picture = SWE_neither_death_nor_dishonor
 			allowed = { always = no }
 			modifier = {
 				consumer_goods_factor = -0.10
@@ -214,7 +214,7 @@ ideas = {
 		}
 
 		KOR_pnr_ideal_paradise = {
-			picture = generic_welfare
+			picture = COG_the_invisible_roof
 			allowed = { always = no }
 			modifier = {
 				consumer_goods_factor = 0.20
@@ -242,7 +242,7 @@ ideas = {
 		}
 
 		KOR_pnr_three_major_business_budgets_idea = {
-			picture = generic_welfare
+			picture = ARG_social_welfare_fund_ns
 			allowed = { always = no }
 			modifier = {
 				consumer_goods_factor = 0.10
@@ -383,6 +383,23 @@ ideas = {
 				production_speed_buildings_factor = 0.05
 				production_speed_arms_factory_factor = 0.15
 				consumer_goods_factor = -0.10
+			}
+		}
+
+		KOR_government_totally_collapse = {
+			picture = chi_war_of_resistance3
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = -0.99
+				research_speed_factor = -0.99
+				disabled_ideas = 1
+				justify_war_goal_time = 2.0
+				enemy_justify_war_goal_time = 3.0
+			}
+			rule = {
+    			can_join_factions = no
+				can_not_declare_war = yes
+				can_access_market = no
 			}
 		}
 	}

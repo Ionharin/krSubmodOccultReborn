@@ -6,9 +6,62 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		set_cosmetic_tag = JAP_state
-		load_focus_tree = { tree = JAP_pnr_puppet_wushan keep_completed = no }
-		load_oob = "JAP_wushan_puppet"
-		mark_focus_tree_layout_dirty = yes
+		clr_country_flag = QIE_wushan_japanese_jimi_zhou_setup_pending
+		if = {
+			limit = {
+				tag = JAP
+				NOT = { has_country_flag = QIE_wushan_japanese_jimi_zhou_setup_done }
+				is_subject_of = QIE
+				overlord = {
+					tag = QIE
+					OR = {
+						has_cosmetic_tag = QIE_wushan_cosmetic_tag
+						has_cosmetic_tag = QIE_united_china_ws
+						has_cosmetic_tag = QIE_united_china_ws_final_phase
+					}
+				}
+			}
+			set_country_flag = QIE_wushan_japanese_jimi_zhou_setup_done
+			overlord = {
+				set_autonomy = {
+					target = JAP
+					autonomy_state = autonomy_pnr_jimi_zhou
+					end_wars = yes
+					end_civil_wars = yes
+				}
+			}
+			526 = { remove_core_of = QIE remove_claim_by = QIE }
+			645 = { remove_core_of = QIE remove_claim_by = QIE }
+			648 = { remove_core_of = QIE remove_claim_by = QIE }
+			1102 = { remove_core_of = QIE remove_claim_by = QIE }
+			528 = { remove_core_of = QIE remove_claim_by = QIE }
+			530 = { remove_core_of = QIE remove_claim_by = QIE }
+			1103 = { remove_core_of = QIE remove_claim_by = QIE }
+			529 = { remove_core_of = QIE remove_claim_by = QIE }
+			1104 = { remove_core_of = QIE remove_claim_by = QIE }
+			531 = { remove_core_of = QIE remove_claim_by = QIE }
+			532 = { remove_core_of = QIE remove_claim_by = QIE }
+			535 = { remove_core_of = QIE remove_claim_by = QIE }
+			1105 = { remove_core_of = QIE remove_claim_by = QIE }
+			534 = { remove_core_of = QIE remove_claim_by = QIE }
+			1101 = { remove_core_of = QIE remove_claim_by = QIE }
+			282 = { remove_core_of = QIE remove_claim_by = QIE }
+			533 = { remove_core_of = QIE remove_claim_by = QIE }
+			1106 = { remove_core_of = QIE remove_claim_by = QIE }
+			536 = { remove_core_of = QIE remove_claim_by = QIE }
+			555 = { remove_core_of = QIE remove_claim_by = QIE }
+			JAP_puppet_setup = yes
+			set_cosmetic_tag = JAP_state
+			load_focus_tree = { tree = JAP_pnr_puppet_wushan keep_completed = no }
+			load_oob = "JAP_wushan_puppet"
+			mark_focus_tree_layout_dirty = yes
+			if = {
+				limit = {
+					537 = { is_controlled_by = JAP }
+				}
+				QIE = { transfer_state = 537 }
+				537 = { add_core_of = QIE }
+			}
+		}
 	}
 }

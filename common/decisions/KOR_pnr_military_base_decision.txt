@@ -1,7 +1,9 @@
 KOR_pnr_military_base_catalog = {
 	KOR_pnr_daegu_crisis_countdown = {
-		icon = GFX_decision_revolt
+		icon = GFX_decision_generic_civil_support
 		days_mission_timeout = 180
+		allowed = { always = no }
+		fire_only_once = yes
 		priority = 100
 		is_good = no
 		visible = {
@@ -36,8 +38,14 @@ KOR_pnr_military_base_catalog = {
 				add_stability = -0.20
 				add_war_support = -0.20
 				add_political_power = -100
-				add_to_variable = { KOR_pnr_peninsula_collapse_var = 1 }
-				subtract_from_variable = { KOR_pnr_peninsula_profits_var = 1 }
+				custom_effect_tooltip = tooltip_white_line
+        		custom_effect_tooltip = KOR_pnr_puppet_lose_profits
+        		custom_effect_tooltip = tooltip_white_line
+        		custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+				custom_effect_tooltip = tooltip_white_line
+				add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.2 }
+				add_to_variable = { KOR_pnr_peninsula_economic_health_var = 0.9 }
+				subtract_from_variable = { KOR_pnr_peninsula_profits_var = 0.7 }
 				1099 = {
 					damage_building = { type = industrial_complex damage = 0.8 }
 					if = {
@@ -50,7 +58,7 @@ KOR_pnr_military_base_catalog = {
 	}
 
 	KOR_pnr_ensure_the_suppression_plan = {
-		icon = GFX_decision_generic_construct_infrastructure
+		icon = GFX_decision_hol_draw_up_staff_plans
 		allowed = { always = no }
 		fire_only_once = yes
 		cost = 30
@@ -91,7 +99,7 @@ KOR_pnr_military_base_catalog = {
 	}
 
 	KOR_pnr_operation_taeguk_tiger = {
-		icon = GFX_decision_generic_small_arms_production
+		icon = GFX_decision_generic_police_action
 		allowed = { always = no }
 		fire_only_once = yes
 		cost = 30
@@ -106,9 +114,14 @@ KOR_pnr_military_base_catalog = {
 		}
 		available = {
 			has_country_flag = KOR_pnr_daegu_suppression_plan_finished
-			num_divisions_in_states = {
-				count > 1
-				states = { 1099 }
+			divisions_in_state = {
+				state = 1099
+				size > 1
+			}
+			divisions_in_state = {
+				state = 1099
+				size > 0
+				type = armor
 			}
 			KOR = {
 				exists = yes
@@ -138,8 +151,10 @@ KOR_pnr_military_base_catalog = {
 	}
 
 	KOR_pnr_namwon_month_riot_countdown = {
-		icon = GFX_decision_revolt
+		icon = GFX_decision_generic_civil_support
 		days_mission_timeout = 90
+		allowed = { always = no }
+		fire_only_once = yes
 		priority = 100
 		is_good = no
 		visible = {
@@ -174,8 +189,13 @@ KOR_pnr_military_base_catalog = {
 				add_stability = -0.20
 				add_war_support = -0.20
 				add_political_power = -100
-				add_to_variable = { KOR_pnr_peninsula_collapse_var = 1 }
-				subtract_from_variable = { KOR_pnr_peninsula_profits_var = 1 }
+				custom_effect_tooltip = tooltip_white_line
+        		custom_effect_tooltip = KOR_pnr_puppet_lose_profits
+        		custom_effect_tooltip = tooltip_white_line
+        		custom_effect_tooltip = KOR_pnr_puppet_social_collapse
+				custom_effect_tooltip = tooltip_white_line
+				add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.4 }
+				subtract_from_variable = { KOR_pnr_peninsula_profits_var = 0.7 }
 				1100 = {
 					damage_building = { type = industrial_complex damage = 0.8 }
 					if = {
@@ -184,6 +204,105 @@ KOR_pnr_military_base_catalog = {
 					}
 				}
 			}
+		}
+	}
+
+	KOR_pnr_cut_off_namwon_supply_lines = {
+		icon = GFX_decision_generic_train
+		allowed = { always = no }
+		fire_only_once = yes
+		cost = 40
+		days_remove = 14
+		visible = {
+			KOR = {
+				exists = yes
+				is_subject_of = ROOT
+				has_country_flag = KOR_pnr_hamhung_situation_out_of_control
+			}
+		}
+		available = {
+			KOR = {
+				exists = yes
+				is_subject_of = ROOT
+				has_country_flag = KOR_pnr_hamhung_situation_out_of_control
+			}
+		}
+		remove_trigger = {
+			OR = {
+				KOR = { exists = no }
+				NOT = {
+					KOR = { is_subject_of = ROOT }
+				}
+			}
+		}
+		complete_effect = {
+			add_command_power = -20
+			add_equipment_to_stockpile = { type = infantry_equipment amount = -1000 }
+		}
+		remove_effect = {
+			set_country_flag = KOR_pnr_namwon_supply_lines_cut
+			KOR = {
+				1100 = {
+					set_demilitarized_zone = no
+					damage_building = { type = infrastructure damage = 2 }
+					damage_building = { type = rail_way damage = 2 }
+				}
+			}
+		}
+	}
+
+	KOR_pnr_month_blitz_operation = {
+		icon = GFX_decision_generic_arrest
+		allowed = { always = no }
+		fire_only_once = yes
+		cost = 40
+		days_remove = 14
+		visible = {
+			has_country_flag = KOR_pnr_namwon_supply_lines_cut
+			KOR = {
+				exists = yes
+				is_subject_of = ROOT
+				has_country_flag = KOR_pnr_hamhung_situation_out_of_control
+			}
+		}
+		available = {
+			has_country_flag = KOR_pnr_namwon_supply_lines_cut
+			divisions_in_state = {
+				state = 1100
+				size > 2
+			}
+			divisions_in_state = {
+				state = 1100
+				size > 0
+				type = armor
+			}
+			KOR = {
+				exists = yes
+				is_subject_of = ROOT
+				has_country_flag = KOR_pnr_hamhung_situation_out_of_control
+			}
+		}
+		remove_trigger = {
+			OR = {
+				KOR = { exists = no }
+				NOT = {
+					KOR = { is_subject_of = ROOT }
+				}
+			}
+		}
+		remove_effect = {
+			clr_country_flag = KOR_pnr_namwon_supply_lines_cut
+			KOR = {
+				clr_country_flag = KOR_pnr_hamhung_situation_out_of_control
+				1100 = {
+					damage_building = { type = industrial_complex damage = 0.4 }
+					if = {
+						limit = { arms_factory > 0 }
+						damage_building = { type = arms_factory damage = 0.4 }
+					}
+				}
+			}
+			hidden_effect = { country_event = { id = KOR_pnr_puppet.38 days = 14 } }
 		}
 	}
 }

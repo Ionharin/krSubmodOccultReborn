@@ -1,8 +1,9 @@
-﻿add_namespace = QIE_wushan_events
+add_namespace = QIE_wushan_events
 add_namespace = QIE_ws_normal_events
 add_namespace = QIE_ws_god_circle_events
 add_namespace = QIE_ws_leader
 add_namespace = QIE_ws_united
+add_namespace = QIE_pnr_ws_puppet
 add_namespace = QIE_ws_hidden_events
 #add_namespace = QIE_ws_debug_events
 
@@ -109,7 +110,7 @@ news_event = { # QIE_wushan_news_events.1
     }
 }
 
-country_event = { # test event wip
+country_event = { # 沉没成本
     id = QIE_wushan_events.5
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_wushan_events.5" }
     title = QIE_wushan_events.5.t
@@ -118,9 +119,10 @@ country_event = { # test event wip
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # test event wip
+    option = { # 小小的挫折
         name = QIE_wushan_events.5.a
         ai_chance = { factor = 1 }
+        add_political_power = 5
     }
 }
 
@@ -889,7 +891,7 @@ country_event = { # 援助的代价
     timeout_days = 14
     option = { # 我从没收到过
         name = QIE_ws_normal_events.4.a
-        ai_chance = { factor = 90 }
+        ai_chance = { base = 95 }
         QIE = {
             country_event = { id = QIE_ws_normal_events.6 days = 3 }
         }
@@ -897,39 +899,49 @@ country_event = { # 援助的代价
     option = { # 我们不是忘恩负义的人
         name = QIE_ws_normal_events.4.b
         ai_chance = {
-            factor = 10
-            modifier = {
-                add = 80
+            base = 5
+            modifier = { #30%
+                add = 35
                 QIE = {
                     has_completed_focus = QIE_respond_the_sichuan_famine
                 }
             }
-            modifier = {
-                factor = 14
+            modifier = { #40%
+                add = 60
                 QIE = {
                     has_country_flag = QIE_ws_help_szc_famine_0
                 }
             }
-            modifier = {
-                factor = 21
+            modifier = { #60%
+                add = 140
                 QIE = {
                     has_country_flag = QIE_ws_help_szc_famine_1
                 }
             }
-            modifier = {
-                factor = 81
+            modifier = { #70%
+                add = 206
                 QIE = {
                     has_country_flag = QIE_ws_help_szc_famine_2
                 }
             }
         }
-        every_core_state = {
-            add_core_of = FROM
-        }
-        FROM = {
-            annex_country = {
-                target = ROOT
-                transfer_troops = yes
+        random_list = {
+            50 = { # annex SZC
+                every_core_state = {
+                    add_core_of = QIE
+                }
+                QIE = {
+                    annex_country = {
+                        target = SZC
+                        transfer_troops = yes
+                    }
+                }
+            }
+            50 = { # puppet SZC
+                QIE = {
+                    set_temp_variable = { target = SZC }
+                    china_puppet_TARGET_effect = yes
+                }
             }
         }
         QIE = {
@@ -2668,7 +2680,12 @@ country_event = { # 活神仙
 
 country_event = { # 最美好的前途
     id = QIE_ws_united.13
-    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.13" }
+    immediate = {
+        log = "[GetDateText]: [Root.GetName]: event QIE_ws_united.13"
+        hidden_effect = {
+            play_song = "pnr_bad_end"
+        }
+        }
     title = QIE_ws_united.13.t
     desc = QIE_ws_united.13.desc
     picture = GFX_report_event_wushan_tang_erhe_portrait
@@ -3196,6 +3213,177 @@ country_event = { # 救世新教：未遇蓬莱
         name = QIE_ws_united.28.a
         ai_chance = { factor = 1 }
         custom_effect_tooltip = QIE_ws_united.28.tt
+    }
+}
+
+country_event = { # 决定[JAP.GetName]的总督
+    id = QIE_pnr_ws_puppet.1
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_pnr_ws_puppet.1" }
+    title = QIE_pnr_ws_puppet.1.t
+    desc = QIE_pnr_ws_puppet.1.desc
+    picture = GFX_report_event_pnr_JAP_onisanburo_to_kong_decheng
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 既然如此，把孔德成丢给他们。
+        name = QIE_pnr_ws_puppet.1.a
+        ai_chance = { factor = 1 }
+        add_political_power = -10
+        JAP = {
+            set_country_flag = jap_pnr_qie_choose_kong_decheng
+        }
+    }
+    option = { # 鬼三郎不是一直幻想着这个吗？
+        name = QIE_pnr_ws_puppet.1.b
+        ai_chance = { factor = 1 }
+        add_political_power = -10
+        JAP = {
+            set_country_flag = jap_pnr_qie_choose_onisanburo
+        }
+    }
+}
+
+country_event = { # 第二次香巴拉探险
+    id = QIE_pnr_ws_puppet.2
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_pnr_ws_puppet.2" }
+    title = QIE_pnr_ws_puppet.2.t
+    desc = QIE_pnr_ws_puppet.2.desc
+    picture = GFX_report_event_pnr_JAP_onisanburo_female_cloth
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 当然当然，给他点防身武器。
+        name = QIE_pnr_ws_puppet.2.a
+        ai_chance = { factor = 1 }
+        add_political_power = -25
+        add_equipment_to_stockpile = { type = infantry_equipment amount = -200 }
+        hidden_effect = { country_event = { id = QIE_pnr_ws_puppet.3 days = 30 } }
+    }
+    option = { # 这疯子真相信有世外桃源啊……
+        name = QIE_pnr_ws_puppet.2.b
+        ai_chance = { factor = 1 }
+        JAP = {
+            set_country_flag = jap_pnr_onisanburo_will_died
+        }
+        hidden_effect = { country_event = { id = QIE_pnr_ws_puppet.3 days = 30 } }
+    }
+}
+
+country_event = { # 深入腹地
+    id = QIE_pnr_ws_puppet.3
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_pnr_ws_puppet.3" }
+    title = QIE_pnr_ws_puppet.3.t
+    desc = QIE_pnr_ws_puppet.3.desc
+    picture = GFX_report_event_CHN_honghuzi
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 开枪射击！
+        name = QIE_pnr_ws_puppet.3.a
+        ai_chance = { factor = 1 }
+        trigger = {
+            JAP = {
+                NOT = { has_country_flag = jap_pnr_onisanburo_will_died }
+            }
+        }
+    }
+    option = { # 分开逃跑！
+        name = QIE_pnr_ws_puppet.3.b
+        ai_chance = { factor = 1 }
+        hidden_effect = {
+            country_event = { id = QIE_pnr_ws_puppet.4 days = 15 }
+        }
+    }
+}
+
+country_event = { # 五彩绚烂的世界
+    id = QIE_pnr_ws_puppet.4
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_pnr_ws_puppet.4" }
+    title = QIE_pnr_ws_puppet.4.t
+    desc = QIE_pnr_ws_puppet.4.desc
+    picture = GFX_report_event_pnr_JAP_michael_against_devil
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 那我们走吧。
+        name = QIE_pnr_ws_puppet.4.a
+        ai_chance = { factor = 1 }
+        hidden_effect = {
+            country_event = { id = QIE_pnr_ws_puppet.5 days = 12 }
+        }
+    }
+}
+
+country_event = { # 新灵界物语
+    id = QIE_pnr_ws_puppet.5
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_pnr_ws_puppet.5" }
+    title = QIE_pnr_ws_puppet.5.t
+    desc = QIE_pnr_ws_puppet.5.desc
+    picture = GFX_report_event_pnr_JAP_against_zeus
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我只到此，不再越过。
+        name = QIE_pnr_ws_puppet.5.a
+        ai_chance = { factor = 1 }
+        add_political_power = 5
+    }
+    option = { # 我听到了清朗的笛音。
+        name = QIE_pnr_ws_puppet.5.b
+        ai_chance = { factor = 1 }
+        JAP = {
+            JAP_pnr_onisaburo = { kill_character = yes }
+            custom_effect_tooltip = tooltip_white_line
+            set_country_flag = kor_pnr_onisanburo_become_the_angel 
+            complete_national_focus = JAP_pnr_sheild_society
+            mark_focus_tree_layout_dirty = yes
+        }
+    }
+}
+
+country_event = { # 新“教皇”，或称为圣地管理人
+    id = QIE_pnr_ws_puppet.6
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_pnr_ws_puppet.6" }
+    title = QIE_pnr_ws_puppet.6.t
+    desc = QIE_pnr_ws_puppet.6.desc
+    picture = GFX_report_event_ITA_pope
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 阿尔弗雷德·鲍德里亚尔，法国枢机。
+        name = QIE_pnr_ws_puppet.6.a
+        ai_chance = { factor = 1 }
+        PAP = {
+            complete_national_focus = PAP_pnr_francian_governor_general
+        }
+    }
+    option = { # 路易斯·玛丽亚·马丁内斯，来自墨西哥。
+        name = QIE_pnr_ws_puppet.6.b
+        ai_chance = { factor = 1 }
+        PAP = {
+            complete_national_focus = PAP_pnr_mexico_governor_general
+        }
+    }
+    option = { # 曼努埃尔·贡萨尔维斯·塞雷热拉，葡萄牙枢机。
+        name = QIE_pnr_ws_puppet.6.c
+        ai_chance = { factor = 1 }
+        PAP = {
+            complete_national_focus = PAP_pnr_portugal_governor_general
+        }
+    }
+    option = { # 米歇尔·冯·福尔哈伯，德国枢机。
+        name = QIE_pnr_ws_puppet.6.d
+        ai_chance = { factor = 1 }
+        PAP = {
+            complete_national_focus = PAP_pnr_germanian_governor_general
+        }
+    }
+    option = { # 皮埃尔·赛列斯汀——我们的老同事。
+        name = QIE_pnr_ws_puppet.6.e
+        ai_chance = { factor = 1 }
+        PAP = {
+            complete_national_focus = PAP_pnr_a_chinese_governor_general
+        }
     }
 }
 

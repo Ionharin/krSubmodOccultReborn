@@ -26,6 +26,7 @@ focus_tree = {
 		icon = GFX_focus_generic_improve_the_administration
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		ai_will_do = { base = 300 }
 		prerequisite = {
 			focus = JAP_ws_mark_of_the_defeated
 		}
@@ -92,6 +93,7 @@ focus_tree = {
 		y = 1
 		cost = 7
 		icon = GFX_focus_generic_agricultural_subsidies
+		ai_will_do = { base = 300 }
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -108,6 +110,7 @@ focus_tree = {
 		y = 1
 		cost = 7
 		icon = GFX_focus_generic_immigration
+		ai_will_do = { base = 300 }
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -126,6 +129,7 @@ focus_tree = {
 		y = 2
 		cost = 6
 		icon = GFX_focus_JAP_develop_the_yen_block
+		ai_will_do = { base = 300 }
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -152,6 +156,7 @@ focus_tree = {
 		y = 3
 		cost = 5
 		icon = GFX_focus_ARG_develop_the_electricity_sector
+		ai_will_do = { base = 300 }
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -179,6 +184,7 @@ focus_tree = {
 		y = 3
 		cost = 5
 		icon = GFX_focus_generic_field_hostpital
+		ai_will_do = { base = 300 }
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -194,8 +200,12 @@ focus_tree = {
 		y = 4
 		cost = 6
 		icon = GFX_focus_JAP_the_crysanthemum_throne
+		ai_will_do = { base = 900 }
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		select_effect = {
+			overlord = { country_event = { id = QIE_pnr_ws_puppet.1 days = 21 } }
+		}
 		prerequisite = {
 			focus = JAP_pnr_electricity_supply_and_demand_regulation_act
 		}
@@ -315,6 +325,7 @@ focus_tree = {
 		icon = GFX_JAP_pnr_invite_the_duke_yansheng
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = { has_country_flag = jap_pnr_qie_choose_kong_decheng }
 		mutually_exclusive = {
 			focus = JAP_pnr_new_shindojo
 		}
@@ -352,6 +363,7 @@ focus_tree = {
 		icon = GFX_JAP_pnr_new_shindojo
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = { has_country_flag = jap_pnr_qie_choose_onisanburo }
 		mutually_exclusive = {
 			focus = JAP_pnr_invite_the_duke_yansheng
 		}
@@ -443,6 +455,9 @@ focus_tree = {
 		icon = GFX_JAP_pnr_sheild_society
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		allow_branch = {
+			has_country_flag = kor_pnr_onisanburo_become_the_angel
+		}
 		mutually_exclusive = {
 			focus = JAP_pnr_second_mongolian_expedition
 		}
@@ -494,6 +509,7 @@ focus_tree = {
 		y = 1
 		cost = 7
 		icon = GFX_focus_generic_court
+		ai_will_do = { base = 300 }
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -659,15 +675,22 @@ focus_tree = {
 		id = JAP_pnr_second_mongolian_expedition
 		x = 19
 		y = 6
-		cost = 16
+		cost = 30
 		icon = GFX_focus_JAP_incorporate_buddhist_socialism
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = { NOT = { has_completed_focus = JAP_pnr_sheild_society } }
+		select_effect = {
+			overlord = { country_event = { id = QIE_pnr_ws_puppet.2 days = 10 } }
+		}
 		mutually_exclusive = {
 			focus = JAP_pnr_sheild_society
 		}
 		prerequisite = {
 			focus = JAP_pnr_new_shindojo
+		}
+		completion_reward = {
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -1390,6 +1413,7 @@ focus_tree = {
 		y = 2
 		cost = 4
 		icon = GFX_focus_generic_turning_a_blind_eye
+		ai_will_do = { base = 50 }
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1405,6 +1429,7 @@ focus_tree = {
 		y = 2
 		cost = 4
 		icon = GFX_focus_FIN_oy_alkoholiliike
+		ai_will_do = { base = 50 }
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {

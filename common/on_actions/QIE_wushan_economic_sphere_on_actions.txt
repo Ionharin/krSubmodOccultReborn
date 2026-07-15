@@ -1,0 +1,15 @@
+on_actions = {
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					tag = QIE
+					is_economic_sphere_leader = yes
+					has_dynamic_modifier = { modifier = QIE_wushan_world_moral_association }
+				}
+				QIE_refresh_world_moral_association_members = yes
+				QIE_recalculate_world_moral_association_economic_integration = yes
+			}
+		}
+	}
+}

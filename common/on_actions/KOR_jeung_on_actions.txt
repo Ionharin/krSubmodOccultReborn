@@ -1,6 +1,32 @@
 on_actions = {
 	on_daily = {
 		effect = {
+			KOR = {
+				if = {
+					limit = {
+						exists = yes
+						is_subject = yes
+						check_variable = { KOR_pnr_peninsula_collapse_var > 5 }
+						NOT = { has_country_flag = KOR_pnr_peninsula_collapse_over_5_event_fired }
+					}
+					set_country_flag = KOR_pnr_peninsula_collapse_over_5_event_fired
+					overlord = {
+						country_event = { id = KOR_pnr_puppet.19 }
+					}
+				}
+				if = {
+					limit = {
+						exists = yes
+						is_subject = yes
+						check_variable = { KOR_pnr_peninsula_collapse_var > 9 }
+						NOT = { has_country_flag = KOR_pnr_peninsula_collapse_over_9_event_fired }
+					}
+					set_country_flag = KOR_pnr_peninsula_collapse_over_9_event_fired
+					overlord = {
+						country_event = { id = KOR_pnr_puppet.42 }
+					}
+				}
+			}
 			if = {
 				limit = {
 					OR = {

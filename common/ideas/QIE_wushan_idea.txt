@@ -259,8 +259,8 @@ ideas ={
 			picture = CHI_a_new_middle_kingdom
 			allowed = { always = no }
 			modifier = {
-				army_attack_against_minor_factor = 0.12
-				army_defence_against_minor_factor = 0.12
+				army_attack_against_minor_factor = 0.10
+				army_defence_against_minor_factor = 0.10
 				required_garrison_factor = -0.25
 				resistance_growth = -0.15
 				resistance_target = -0.15
@@ -441,6 +441,7 @@ ideas ={
 			picture = qie_ideas_ws_jingchun_army_bureau_tank_upgraded_2
 			allowed = { always = no }
 			modifier = {
+				army_strength_factor = 0.1
 				army_org_factor = 0.05
 				experience_gain_army = 0.40
 				war_support_factor = 0.10
@@ -467,6 +468,7 @@ ideas ={
 			picture = qie_ideas_ws_jingchun_army_bureau_upgraded_2
 			allowed = { always = no }
 			modifier = {
+				army_strength_factor = 0.1
 				army_org_factor = 0.05
 				experience_gain_army = 0.40
 				war_support_factor = 0.10
@@ -803,9 +805,8 @@ ideas ={
 			picture = GER_Iron_Front
 			allowed = { always = no }
 			modifier = {
-				army_attack_against_major_factor = 0.15
-				army_defence_against_major_factor = 0.15
-				max_dig_in_factor = 0.05
+				army_attack_against_major_factor = 0.05
+				army_defence_against_major_factor = 0.05
 				grant_medal_cost_factor = -0.25
 			}
 		}
@@ -993,7 +994,7 @@ ideas ={
 		}
 		QIE_wushan_economic_department = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_economic_department" }
-			picture = BRA_dasp
+			picture = GER_wirtschaftswunder
 			allowed = { always = no }
 			modifier = {
 				consumer_goods_factor = -0.10
@@ -1004,7 +1005,7 @@ ideas ={
 		}
 		QIE_wushan_economic_department_1 = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_economic_department_1" }
-			picture = BRA_dasp
+			picture = GER_wirtschaftswunder
 			allowed = { always = no }
 			modifier = {
 				industrial_capacity_factory = 0.10
@@ -1012,6 +1013,20 @@ ideas ={
 				production_factory_efficiency_gain_factor = 0.05
 				local_building_slots_factor = 0.05
 				political_power_gain = -0.50
+			}
+		}
+		QIE_wushan_hoping_japan_repents = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_hoping_japan_repents" }
+			picture = GER_proud_eagle_that_ate_the_sun
+			allowed = { always = no }
+			modifier = {
+				surrender_limit = 0.20
+			}
+			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = 0.10
+				breakthrough_bonus_against = 0.10
+				defense_bonus_against = 0.10
 			}
 		}
 	### United Temporary Ideas
@@ -1042,13 +1057,11 @@ ideas ={
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_mass_arrests" }
 			picture = generic_prisoner
 			modifier = {
-				political_power_gain = 0.3
+				political_power_gain = 0.4
 				weekly_manpower = -100
-				stability_factor = 0.25
-				war_support_factor = 0.25
-				production_factory_max_efficiency_factor = 0.10
-				industrial_capacity_factory = 0.10
-				industrial_capacity_dockyard = 0.10
+				stability_factor = 0.10
+				war_support_factor = 0.10
+				production_factory_max_efficiency_factor = 0.05
 			}
 		}
 	}

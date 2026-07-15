@@ -1,0 +1,50 @@
+on_actions = {
+	on_release_as_puppet = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						tag = JAP
+						NOT = { has_country_flag = QIE_wushan_japanese_jimi_zhou_setup_pending }
+						NOT = { has_country_flag = QIE_wushan_japanese_jimi_zhou_setup_done }
+					}
+					FROM = {
+						tag = QIE
+						OR = {
+							has_cosmetic_tag = QIE_wushan_cosmetic_tag
+							has_cosmetic_tag = QIE_united_china_ws
+							has_cosmetic_tag = QIE_united_china_ws_final_phase
+						}
+					}
+				}
+				ROOT = {
+					set_country_flag = QIE_wushan_japanese_jimi_zhou_setup_pending
+					country_event = { id = QIE_wushan_annex_events.1 days = 1 }
+				}
+			}
+		}
+	}
+
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					tag = JAP
+					is_subject_of = QIE
+					NOT = { has_country_flag = QIE_wushan_japanese_jimi_zhou_setup_pending }
+					NOT = { has_country_flag = QIE_wushan_japanese_jimi_zhou_setup_done }
+					overlord = {
+						tag = QIE
+						OR = {
+							has_cosmetic_tag = QIE_wushan_cosmetic_tag
+							has_cosmetic_tag = QIE_united_china_ws
+							has_cosmetic_tag = QIE_united_china_ws_final_phase
+						}
+					}
+				}
+				set_country_flag = QIE_wushan_japanese_jimi_zhou_setup_pending
+				country_event = { id = QIE_wushan_annex_events.1 days = 1 }
+			}
+		}
+	}
+}

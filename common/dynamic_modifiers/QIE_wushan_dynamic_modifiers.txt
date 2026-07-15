@@ -116,3 +116,26 @@ QIE_wushan_electrification_modifier = {
 	local_resources_factor = 0.15
 	state_production_speed_industrial_complex_factor = 0.10
 }
+QIE_wushan_world_moral_association = {
+	icon = "GFX_idea_qie_ws_world_moral_association"
+
+	remove_trigger = {
+		is_economic_sphere_leader = no
+	}
+
+	industrial_capacity_factory = global.QIE_wushan_world_moral_industry_boost
+	industrial_capacity_dockyard = global.QIE_wushan_world_moral_industry_boost
+	consumer_goods_factor = global.QIE_wushan_world_moral_goods_boost
+}
+
+QIE_wushan_world_moral_association_member = {
+	icon = "GFX_idea_qie_ws_world_moral_association"
+
+	remove_trigger = {
+		QIE = { is_leader_of_economic_sphere_of_ROOT = no }
+	}
+
+	production_speed_buildings_factor = 0.20
+	local_resources_factor = global.QIE_wushan_world_moral_resources_boost_member
+	consumer_goods_factor = global.QIE_wushan_world_moral_goods_boost_member
+}

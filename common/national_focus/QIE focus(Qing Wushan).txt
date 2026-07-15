@@ -1098,10 +1098,10 @@ focus_tree = {
 				custom_effect_tooltip = QIE_debt_negotiation_mp_env_tt
 				add_popularity = {
 					ideology = national_populist
-					popularity = 0.05
+					popularity = 0.03
 				}
 				add_one_random_civilian_factory = yes
-				add_one_random_military_factory = yes
+				add_one_random_civilian_factory = yes
 			}
 			swap_ideas = {
 				remove_idea = QIE_big_debt
@@ -1149,9 +1149,9 @@ focus_tree = {
 				custom_effect_tooltip = QIE_cancel_completely_ycp_resolve_tt
 				add_popularity = {
 					ideology = national_populist
-					popularity = 0.05
+					popularity = 0.03
 				}
-				add_one_random_civilian_factory = yes
+				add_one_random_military_factory = yes
 				add_one_random_military_factory = yes
 			}
 			if = {
@@ -2671,13 +2671,13 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = QIE_the_heavy_footsteps_of_the_iron_behemoth
-				bonus = 1
-				uses = 1
+				bonus = 1.5
+				uses = 2
 				category = armor
 			}
 			add_tech_bonus = {
 				name = QIE_the_heavy_footsteps_of_the_iron_behemoth
-				bonus = 1
+				bonus = 1.5
 				uses = 1
 				category = motorized_equipment
 			}
@@ -4133,7 +4133,9 @@ focus_tree = {
 		icon = GFX_qie_ws_seances_restart_in_beijing
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		available = { always = no }
+		available = {
+			always = no
+		}
 		completion_reward = {
 			custom_effect_tooltip = QIE_ws_focus_it_will_increase_maddness.tt
 			custom_effect_tooltip = QIE_seances_restart_in_beijing.tt
@@ -4170,9 +4172,9 @@ focus_tree = {
 	}
 	focus = {
 		id = QIE_restore_the_order_behind_shanhaiguan
-		x = 14
+		x = 15
 		y = 7
-		cost = 3
+		cost = 5
 		icon = GFX_focus_campaign_plan_for_fengtian
 		continue_if_invalid = yes
 		cancel_if_invalid = no
@@ -4204,7 +4206,7 @@ focus_tree = {
 			china_enable_non_main_government_demand_submission_decisions = yes
 			add_timed_idea = {
 				idea = QIE_tangdi_zhihua
-				days = 730
+				days = 600
 			}
 			hidden_effect = {
 				add_collaboration = {
@@ -4249,7 +4251,7 @@ focus_tree = {
 	focus = {
 		id = QIE_eliminate_traitors_in_the_south
 		x = 13
-		y = 9
+		y = 8
 		cost = 4
 		icon = GFX_goal_generic_attack_upc
 		continue_if_invalid = no
@@ -4363,7 +4365,7 @@ focus_tree = {
 			log = "[GetLogRoot]: Select Focus QIE_eliminate_traitors_in_the_south"
 		}
 		prerequisite = {
-			focus = QIE_seize_the_gold_mine
+			focus = QIE_restore_the_order_behind_shanhaiguan
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_eliminate_traitors_in_the_south"
@@ -4476,7 +4478,7 @@ focus_tree = {
 	focus = {
 		id = QIE_destory_the_red_flag
 		x = 17
-		y = 9
+		y = 8
 		cost = 4
 		icon = GFX_goal_generic_attack_kmt
 		continue_if_invalid = no
@@ -4548,7 +4550,7 @@ focus_tree = {
 			log = "[GetLogRoot]: Select Focus QIE_eliminate_traitors_in_the_south"
 		}
 		prerequisite = {
-			focus = QIE_seize_the_gold_mine
+			focus = QIE_restore_the_order_behind_shanhaiguan
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_destory_the_red_flag"
@@ -4641,7 +4643,7 @@ focus_tree = {
 	focus = {
 		id = QIE_advance_to_the_shanhaiguan
 		x = 16
-		y = 7
+		y = 9
 		cost = 3
 		icon = GFX_goal_generic_attack_fengtian
 		continue_if_invalid = no
@@ -4669,12 +4671,7 @@ focus_tree = {
 		will_lead_to_war_with = MAN
 		will_lead_to_war_with = JAP
 		prerequisite = {
-			focus = QIE_collaborate_with_german_companies
-			focus = QIE_german_technology
-		}
-		prerequisite = {
-			focus = QIE_industry_focus_rely_on_foreigner_country
-			focus = QIE_industry_focus_independent_planned_economy
+			focus = QIE_seize_the_gold_mine
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_cross_the_dai_river"
@@ -4709,9 +4706,9 @@ focus_tree = {
 	}
 	focus = {
 		id = QIE_revenge_for_1928
-		x = 15
+		x = 14
 		y = 9
-		cost = 4
+		cost = 3
 		icon = GFX_goal_QIE_destroy_LEC
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -4813,6 +4810,7 @@ focus_tree = {
 		}
 		available = {
 			is_subject = no
+			china_is_the_unifier_of_china_trigger = yes
 		}
 		bypass = {
 			NOT = {
@@ -4832,13 +4830,10 @@ focus_tree = {
 			}
 		}
 		prerequisite = {
-			focus = QIE_eliminate_traitors_in_the_south
-		}
-		prerequisite = {
 			focus = QIE_revenge_for_1928
 		}
 		prerequisite = {
-			focus = QIE_destory_the_red_flag
+			focus = QIE_advance_to_the_shanhaiguan
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_the_dawn_of_loong_the_dusk_of_thieves"
@@ -4929,7 +4924,7 @@ focus_tree = {
 		id = QIE_industry_focus_rely_on_foreigner_country
 		x = 12
 		y = 6
-		cost = 2
+		cost = 3
 		icon = GFX_focus_CHI_planned_economy
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -5590,7 +5585,7 @@ focus_tree = {
 		id = QIE_industry_focus_independent_planned_economy
 		x = 18
 		y = 6
-		cost = 2
+		cost = 3
 		icon = GFX_focus_generic_currency_reforms
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -5729,7 +5724,7 @@ focus_tree = {
 				614 = {
 					add_resource = {
 						type = steel
-						amount = 10
+						amount = 20
 					}
 				}
 			}
@@ -5741,7 +5736,7 @@ focus_tree = {
 				1048 = {
 					add_resource = {
 						type = steel
-						amount = 4
+						amount = 10
 					}
 				}
 			}
@@ -5766,7 +5761,7 @@ focus_tree = {
 				615 = {
 					add_resource = {
 						type = tungsten
-						amount = 5
+						amount = 10
 					}
 				}
 			}
@@ -5778,7 +5773,7 @@ focus_tree = {
 				799 = {
 					add_resource = {
 						type = tungsten
-						amount = 2
+						amount = 6
 					}
 				}
 			}
@@ -5794,7 +5789,6 @@ focus_tree = {
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = QIE_restore_the_order_behind_shanhaiguan
-			focus = QIE_advance_to_the_shanhaiguan
 		}
 		completion_reward = {
 			add_political_power = 30
@@ -6341,7 +6335,10 @@ focus_tree = {
 				}
 			}
 			hidden_effect = {
-				country_event = { id = QIE_ws_leader.49 days = 3 }
+				country_event = {
+					id = QIE_ws_leader.49
+					days = 3
+				}
 			}
 		}
 	}
@@ -6530,7 +6527,7 @@ focus_tree = {
 		id = QIE_wushan_prepare_blow_up_the_dam
 		x = 29
 		y = 2
-		cost = 3
+		cost = 4
 		icon = GFX_goal_dam
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -7331,8 +7328,15 @@ focus_tree = {
 				amount = 300
 				producer = QIE
 			}
+			add_tech_bonus = {
+				name = QIE_wushan_the_war_of_sciences
+				bonus = 2
+				uses = 1
+				category = motorized_equipment
+				category = armor
+			}
 			custom_effect_tooltip = tooltip_white_line
-			custom_effect_tooltip = QIE_wushan_the_war_of_sciences.tt		
+			custom_effect_tooltip = QIE_wushan_the_war_of_sciences.tt
 		}
 	}
 	focus = {
@@ -7417,17 +7421,18 @@ focus_tree = {
 		icon = GFX_qie_ws_great_loong_stand_on_east
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			num_subjects > 1
+		}
 		mutually_exclusive = {
 			focus = QIE_wushan_union_between_loong_eagle
 		}
 		prerequisite = {
 			focus = QIE_wushan_china_united_again_lower_phase
 		}
-		available = {
-			num_subjects > 1
-		}
 		completion_reward = {
 			create_faction_from_template = faction_template_china_wushan
+			QIE_create_world_moral_association_economic_sphere = yes
 			reduce_focus_completion_cost = {
 				focus = {
 					QIE_wushan_our_rockets_our_victory
@@ -7527,7 +7532,7 @@ focus_tree = {
 	focus = {
 		id = QIE_wushan_the_project_of_yi
 		x = 29
-		y = 3
+		y = 4
 		cost = 7
 		icon = GFX_focus_JAP_the_fate_of_the_imperial_family
 		continue_if_invalid = no
@@ -7543,14 +7548,17 @@ focus_tree = {
 			log = "[GetLogRoot]: Select Focus QIE_wushan_the_project_of_yi"
 		}
 		prerequisite = {
-			focus = QIE_wushan_prepare_blow_up_the_dam
+			focus = QIE_invasion_from_sea
+		}
+		prerequisite = {
+			focus = QIE_wushan_the_project_code_jianzhen
 		}
 		completion_reward = {
 			navy_experience = 25
 			air_experience = 25
 			add_timed_idea = {
 				idea = QIE_wushan_rooster_devours_vermin
-				days = 730
+				days = 500
 			}
 			524 = {
 				add_claim_by = ROOT
@@ -7560,60 +7568,49 @@ focus_tree = {
 	focus = {
 		id = QIE_invasion_from_sea
 		x = 28
-		y = 4
+		y = 3
 		cost = 6
-		icon = GFX_focus_smiling_buddha
+		icon = GFX_JAP_sakura_tree
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = QIE_invasion_from_sky
+		available = {
+			is_subject = no
+			has_war_with = JAP
+		}
+		bypass = {
+			OR = {
+				NOT = { country_exists = JAP }
+				JAP = { is_subject_of = QIE }
+				AND = {
+					country_exists = JAP
+					has_truce_with = JAP
+				}
+			}
 		}
 		prerequisite = {
-			focus = QIE_wushan_the_project_of_yi
+			focus = QIE_wushan_prepare_blow_up_the_dam
 		}
 		completion_reward = {
-			if = {
-				limit = {
-					controls_state = 1099
-				}
-				1099 = {
-					add_building_construction = {
-						type = naval_base
-						level = 3
-						province = 4056
-						instant_build = yes
-					}
-				}
+			add_timed_idea = {
+				idea = QIE_wushan_hoping_japan_repents
+				days = 365
 			}
-			else = {
-				598 = {
-					add_building_construction = {
-						type = naval_base
-						level = 3
-						province = 4091
-						instant_build = yes
-					}
+			every_army_leader = {
+				add_timed_unit_leader_trait = {
+					trait = trait_determined
+					days = 160
 				}
-			}
-			add_tech_bonus = {
-				name = QIE_invasion_from_sea
-				bonus = 3
-				uses = 1
-				category = marine_tech
 			}
 		}
 	}
 	focus = {
 		id = QIE_invasion_from_sky
-		x = 30
-		y = 4
-		cost = 6
+		x = 29
+		y = 5
+		cost = 7
 		icon = GFX_focus_generic_swooping_falcon
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = QIE_invasion_from_sea
-		}
 		prerequisite = {
 			focus = QIE_wushan_the_project_of_yi
 		}
@@ -7649,28 +7646,76 @@ focus_tree = {
 	}
 	focus = {
 		id = QIE_wushan_the_project_code_jianzhen
-		x = 28
-		y = 5
-		cost = 9
-		icon = GFX_focus_generic_large_navy
+		x = 30
+		y = 3
+		cost = 6
+		icon = GFX_focus_GER_factories_for_resources
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			is_subject = no
+			date > 1937.6.1
+			country_exists = FNG
+			FNG = {
+				has_war_support > 0.49
+			}
+		}
+		bypass = {
+			OR = {
+				NOT = { country_exists = FNG }
+				FNG = { is_subject_of = QIE }
+			}
+		}
 		prerequisite = {
-			focus = QIE_invasion_from_sea
+			focus = QIE_wushan_prepare_blow_up_the_dam
 		}
 		completion_reward = {
-			add_equipment_to_stockpile = {
-				type = convoy_1
-				amount = 100
-				producer = USA
+			608 = {
+				remove_building = {
+					type = industrial_complex
+					level = 2
+				}
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
 			}
-			add_doctrine_cost_reduction = {
-				name = QIE_wushan_the_project_code_jianzhen
-				cost_reduction = 0.5
-				uses = 1
-				category = naval_doctrine
+			614 = {
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
 			}
-			custom_effect_tooltip = QIE_wushan_prepare_the_pink_plan_tt
+			1058 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIE_adopt_start_steel_producing_search
+				}
+				614 = {
+					add_resource = {
+						type = steel
+						amount = -20
+					}
+				}
+				1058 = {
+					add_resource = {
+						type = steel
+						amount = 20
+					}
+				}
+			}
 		}
 	}
 	focus = {
@@ -7694,7 +7739,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = QIE_wushan_prepare_the_pink_plan
-			focus = QIE_wushan_the_project_code_jianzhen
 		}
 		completion_reward = {
 			diplomatic_relation = {
@@ -7713,8 +7757,8 @@ focus_tree = {
 	}
 	focus = {
 		id = QIE_wushan_prepare_the_pink_plan
-		x = 30
-		y = 5
+		x = 29
+		y = 6
 		cost = 9
 		icon = GFX_focus_SWE_marauder_bombers
 		continue_if_invalid = no
@@ -9648,7 +9692,7 @@ focus_tree = {
 					id = QIE_ws_united.24
 					days = 10
 				}
-				country_event = {  
+				country_event = {
 					id = QIE_ws_united.27
 					days = 1
 				}
@@ -10107,7 +10151,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_stability = 0.03
-			country_event = { id = QIE_ws_leader.48 days = 7 }
+			country_event = {
+				id = QIE_ws_leader.48
+				days = 7
+			}
 			if = {
 				limit = {
 					has_completed_focus = QIE_wushan_reassess_the_financial_situation
