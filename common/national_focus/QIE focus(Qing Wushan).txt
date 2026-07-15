@@ -4209,6 +4209,8 @@ focus_tree = {
 				days = 600
 			}
 			hidden_effect = {
+				537 = { enable_state_integration_80_compliance = yes }
+				add_state_claim = 537
 				add_collaboration = {
 					target = SHX
 					value = 0.2
@@ -4837,7 +4839,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed QIE_the_dawn_of_loong_the_dusk_of_thieves"
+			set_country_flag = QIE_limiting_war_begonia_leaf_unlocked
+			for_each_scope_loop = {
+				array = begonia_leaf_states
+				enable_state_integration_80_compliance = yes
+			}
 			china_enable_outskirts_decisions = yes
+			custom_effect_tooltip = limiting_war_begonia_leaf_cat_tt
 			custom_effect_tooltip = QIE_burma_territory_tt
 			hidden_effect = {
 				if = {
@@ -5460,31 +5468,43 @@ focus_tree = {
 			NOT = {
 				JAP = {
 					exists = yes
+						NOT = { is_subject_of = QIE }
+						NOT = { is_in_faction_with = QIE }
 				}
 			}
 			NOT = {
 				RUS = {
 					exists = yes
+						NOT = { is_subject_of = QIE }
+						NOT = { is_in_faction_with = QIE }
 				}
 			}
 			NOT = {
 				GER = {
 					exists = yes
+						NOT = { is_subject_of = QIE }
+						NOT = { is_in_faction_with = QIE }
 				}
 			}
 			NOT = {
 				USA = {
 					exists = yes
+						NOT = { is_subject_of = QIE }
+						NOT = { is_in_faction_with = QIE }
 				}
 			}
 			NOT = {
 				IMP = {
 					exists = yes
+						NOT = { is_subject_of = QIE }
+						NOT = { is_in_faction_with = QIE }
 				}
 			}
 			NOT = {
 				AUS = {
 					exists = yes
+						NOT = { is_subject_of = QIE }
+						NOT = { is_in_faction_with = QIE }
 				}
 			}
 		}
@@ -5496,88 +5516,79 @@ focus_tree = {
 				limit = {
 					JAP = {
 						exists = yes
+						NOT = { is_subject_of = QIE }
+						NOT = { is_in_faction_with = QIE }
 					}
 				}
 				create_wargoal = {
 					target = JAP
-					type = annex_everything
+					type = topple_government
 				}
 			}
 			if = {
 				limit = {
 					RUS = {
 						exists = yes
+						NOT = { is_subject_of = QIE }
+						NOT = { is_in_faction_with = QIE }
 					}
 				}
 				create_wargoal = {
 					target = RUS
-					type = annex_everything
+					type = topple_government
 				}
 			}
 			if = {
 				limit = {
 					GER = {
 						exists = yes
+						NOT = { is_subject_of = QIE }
+						NOT = { is_in_faction_with = QIE }
 					}
 				}
 				create_wargoal = {
 					target = GER
-					type = annex_everything
+					type = topple_government
 				}
 			}
 			if = {
 				limit = {
 					USA = {
 						exists = yes
+						NOT = { is_subject_of = QIE }
+						NOT = { is_in_faction_with = QIE }
 					}
 				}
 				create_wargoal = {
 					target = USA
-					type = annex_everything
+					type = topple_government
 				}
 			}
 			if = {
 				limit = {
 					IMP = {
 						exists = yes
+						NOT = { is_subject_of = QIE }
+						NOT = { is_in_faction_with = QIE }
 					}
 				}
 				create_wargoal = {
 					target = IMP
-					type = annex_everything
+					type = topple_government
 				}
 			}
 			if = {
 				limit = {
 					AUS = {
 						exists = yes
+						NOT = { is_subject_of = QIE }
+						NOT = { is_in_faction_with = QIE }
 					}
 				}
 				create_wargoal = {
 					target = AUS
-					type = annex_everything
+					type = topple_government
 				}
-			}
-			560 = {
-				add_core_of = ROOT
-			}
-			561 = {
-				add_core_of = ROOT
-			}
-			657 = {
-				add_core_of = ROOT
-			}
-			408 = {
-				add_core_of = ROOT
-			}
-			409 = {
-				add_core_of = ROOT
-			}
-			577 = {
-				add_core_of = ROOT
-			}
-			537 = {
-				add_core_of = ROOT
 			}
 		}
 	}
@@ -7541,6 +7552,8 @@ focus_tree = {
 			is_subject = no
 			JAP = {
 				exists = yes
+						NOT = { is_subject_of = QIE }
+						NOT = { is_in_faction_with = QIE }
 			}
 			has_truce_with = JAP
 		}

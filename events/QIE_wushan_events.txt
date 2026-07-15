@@ -5,6 +5,7 @@ add_namespace = QIE_ws_leader
 add_namespace = QIE_ws_united
 add_namespace = QIE_pnr_ws_puppet
 add_namespace = QIE_ws_hidden_events
+add_namespace = limiting_war_events
 #add_namespace = QIE_ws_debug_events
 
 country_event = { # 救世新教提请集资捐助
@@ -1102,8 +1103,6 @@ country_event = { # QIE demands more
             transfer_state = 857
             transfer_state = 671
         }
-        857 = { add_core_of = QIE }
-        671 = { add_core_of = QIE }
     }
 }
 
@@ -1147,6 +1146,10 @@ country_event = { # 给德属东亚的电报
         ai_chance = { factor = 99 }
         add_political_power = -10
         GEA = { country_event = { id = QIE_ws_normal_events.11 days = 5 } }
+        857 = { add_claim_by = QIE }
+        857 = { enable_state_integration_80_compliance = yes }
+        671 = { add_claim_by = QIE }
+        671 = { enable_state_integration_80_compliance = yes }
     }
     option = { # 这地方有什么宣称的价值吗？
         name = QIE_ws_normal_events.13.b
@@ -1222,6 +1225,21 @@ country_event = { # 一个疯子
         name = QIE_ws_normal_events.17.a
         ai_chance = { factor = 1 }
         add_political_power = -5
+    }
+}
+
+country_event = { # 老虎和绵羊
+    id = QIE_ws_normal_events.18
+    immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_normal_events.18" }
+    title = QIE_ws_normal_events.18.t
+    desc = QIE_ws_normal_events.18.desc
+    picture = GFX_report_event_generic_army_marching
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 然后上刺刀！
+        name = QIE_ws_normal_events.18.a
+        ai_chance = { factor = 1 }
     }
 }
 
@@ -3385,6 +3403,283 @@ country_event = { # 新“教皇”，或称为圣地管理人
             complete_national_focus = PAP_pnr_a_chinese_governor_general
         }
     }
+}
+
+### Limit War Event ###
+
+country_event = {
+	id = limiting_war_events.1
+	title = limiting_war_events.1.t
+	desc = limiting_war_events.1.desc
+	picture = GFX_report_event_CHN_China_soldier_horse_demoralised
+	is_triggered_only = yes
+
+	option = {
+		name = limiting_war_events.1.a
+		ai_chance = { base = 1 }
+		if = {
+			limit = { RUS = { exists = yes } }
+			RUS = { country_event = { id = limiting_war_events.2 hours = 2 } }
+		}
+		else = {
+			limiting_war_peace_out = yes
+			set_rule = { can_join_factions = yes }
+			limiting_war_re_add_to_old_faction = yes
+			limiting_war_clear_begonia_leaf_variables = yes
+		}
+	}
+
+	option = {
+		name = limiting_war_events.1.b
+		ai_chance = { base = 0 }
+		if = {
+			limit = {
+				RUS = {
+					exists = yes
+					has_capitulated = no
+				}
+			}
+			RUS = { country_event = { id = limiting_war_events.4 hours = 2 } }
+		}
+		add_war_support = 0.1
+		limiting_war_clear_begonia_leaf_variables = yes
+	}
+}
+
+country_event = {
+	id = limiting_war_events.2
+	title = limiting_war_events.2.t
+	desc = limiting_war_events.2.desc
+	picture = GFX_report_event_PRC_new_fourth_army_incident_start
+	is_triggered_only = yes
+
+	option = {
+		name = limiting_war_events.2.a
+		ai_chance = { base = 1 }
+		FROM = { country_event = { id = limiting_war_events.3 hours = 2 } }
+		if = {
+			limit = { has_country_flag = limiting_war_could_join_factions }
+			set_rule = { can_join_factions = yes }
+			clr_country_flag = limiting_war_could_join_factions
+		}
+	}
+
+	option = {
+		name = limiting_war_events.2.b
+		ai_chance = { base = 0 }
+		add_stability = -0.75
+		add_war_support = -0.75
+		FROM = {
+			country_event = { id = limiting_war_events.9 hours = 2 }
+			set_rule = { can_join_factions = yes }
+		}
+		if = {
+			limit = { has_country_flag = limiting_war_could_join_factions }
+			set_rule = { can_join_factions = yes }
+			clr_country_flag = limiting_war_could_join_factions
+		}
+	}
+}
+
+country_event = {
+	id = limiting_war_events.3
+	title = limiting_war_events.3.t
+	desc = limiting_war_events.3.desc
+	picture = GFX_report_event_generic_big_city
+	is_triggered_only = yes
+
+	option = {
+		name = limiting_war_events.3.a
+		ai_chance = { base = 1 }
+
+		limiting_war_peace_out = yes
+		set_rule = { can_join_factions = yes }
+		for_each_scope_loop = {
+			array = limiting_war_begonia_leaf_states
+			owner = {
+				if = {
+					limit = { FROM = { NOT = { is_in_array = { array = limiting_war_lost_states_due_to_limiting_war value = PREV.PREV } } } }
+					FROM = { add_to_array = { array = limiting_war_lost_states_due_to_limiting_war value = PREV.PREV } }
+				}
+			}
+			transfer_state_to = ROOT
+		}
+
+		limiting_war_re_add_to_old_faction = yes
+		limiting_war_clear_begonia_leaf_variables = yes
+
+		hidden_effect = {
+			for_each_scope_loop = {
+				array = FROM.countries_that_guaranteed_me_pre_limiting_war
+				FROM = {
+					diplomatic_relation = {
+						country = PREV
+						relation = guarantee
+						active = yes
+					}
+				}
+			}
+			FROM = {
+				if = {
+					limit = { has_country_flag = limiting_war_could_join_factions }
+					set_rule = { can_join_factions = yes }
+					clr_country_flag = limiting_war_could_join_factions
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = limiting_war_events.4
+	title = limiting_war_events.4.t
+	desc = limiting_war_events.4.desc
+	picture = GFX_report_event_generic_tanks
+	is_triggered_only = yes
+
+	option = {
+		name = limiting_war_events.4.a
+		ai_chance = { base = 1 }
+	}
+}
+
+country_event = {
+	id = limiting_war_events.5
+	title = limiting_war_events.5.t
+	desc = limiting_war_events.5.desc
+	picture = GFX_report_event_generic_tanks
+	is_triggered_only = yes
+
+	option = {
+		name = limiting_war_events.5.a
+		ai_chance = { base = 1 }
+		QIE = { country_event = { id = limiting_war_events.6 hours = 2 } }
+	}
+
+	option = {
+		name = limiting_war_events.5.b
+		ai_chance = { base = 0 }
+		QIE = { country_event = { id = limiting_war_events.8 hours = 2 } }
+	}
+}
+
+country_event = {
+	id = limiting_war_events.6
+	title = limiting_war_events.6.t
+	desc = limiting_war_events.6.desc
+	picture = GFX_report_event_CHN_China_soldier_defeated
+	is_triggered_only = yes
+
+	option = {
+		name = limiting_war_events.6.a
+		ai_chance = { base = 1 }
+
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						check_variable = { limiting_war_lost_states_due_to_limiting_war^num > 0 }
+						any_allied_country = { check_variable = { limiting_war_lost_states_due_to_limiting_war^num > 0 } }
+					}
+				}
+			}
+			FROM = {
+				if = {
+					limit = { check_variable = { limiting_war_lost_states_due_to_limiting_war^num > 0 } }
+					for_each_scope_loop = {
+						array = limiting_war_lost_states_due_to_limiting_war
+						transfer_state_to = PREV
+					}
+					clear_array = limiting_war_lost_states_due_to_limiting_war
+				}
+				every_allied_country = {
+					if = {
+						limit = { check_variable = { limiting_war_lost_states_due_to_limiting_war^num > 0 } }
+						for_each_scope_loop = {
+							array = limiting_war_lost_states_due_to_limiting_war
+							transfer_state_to = PREV
+						}
+						clear_array = limiting_war_lost_states_due_to_limiting_war
+					}
+				}
+			}
+		}
+		else = {
+			add_stability = -0.3
+			add_war_support = -0.3
+			random_core_state = {
+				limit = { arms_factory > 0 }
+				add_building_construction = {
+					type = arms_factory
+					level = -1
+					instant_build = yes
+				}
+			}
+		}
+
+		limiting_war_peace_out = yes
+		limiting_war_re_add_to_old_faction = yes
+		limiting_war_clear_begonia_leaf_variables = yes
+	}
+
+	option = {
+		name = limiting_war_events.6.b
+		ai_chance = { base = 0 }
+		FROM = { country_event = { id = limiting_war_events.7 hours = 2 } }
+		limiting_war_re_add_to_old_faction = yes
+		limiting_war_clear_begonia_leaf_variables = yes
+	}
+}
+
+country_event = {
+	id = limiting_war_events.7
+	title = limiting_war_events.7.t
+	desc = limiting_war_events.7.desc
+	picture = GFX_report_event_generic_tanks
+	is_triggered_only = yes
+
+	option = {
+		name = limiting_war_events.7.a
+		ai_chance = { base = 1 }
+		add_war_support = 0.2
+	}
+}
+
+country_event = {
+	id = limiting_war_events.8
+	title = limiting_war_events.8.t
+	desc = limiting_war_events.8.desc
+	picture = GFX_report_event_generic_tanks
+	is_triggered_only = yes
+
+	option = {
+		name = limiting_war_events.8.a
+		ai_chance = { base = 1 }
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_0
+			amount = 2000
+			producer = QIE
+		}
+		add_war_support = 0.2
+		limiting_war_re_add_to_old_faction = yes
+		limiting_war_clear_begonia_leaf_variables = yes
+	}
+}
+country_event = {
+	id = limiting_war_events.9
+	title = limiting_war_events.9.t
+	desc = limiting_war_events.9.desc
+	picture = GFX_report_event_generic_tanks
+	is_triggered_only = yes
+
+	option = {
+		name = limiting_war_events.9.a
+		ai_chance = { base = 1 }
+		add_war_support = 0.1
+		set_rule = { can_join_factions = yes }
+		limiting_war_re_add_to_old_faction = yes
+		limiting_war_clear_begonia_leaf_variables = yes
+	}
 }
 
 #debug event

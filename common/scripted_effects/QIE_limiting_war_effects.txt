@@ -1,0 +1,45 @@
+limiting_war_clear_begonia_leaf_variables = {
+	hidden_effect = {
+		clear_variable = QIE.limiting_war_lost_state_concession
+		clear_array = QIE.limiting_war_begonia_leaf_states
+		clear_array = QIE.limiting_war_target_allies
+		clear_variable = QIE.pre_limiting_war_faction_leader
+		clear_variable = QIE.limiting_war_target
+		set_rule = { can_join_factions = yes }
+	}
+}
+
+limiting_war_re_add_to_old_faction = {
+	if = {
+		limit = {
+			has_variable = pre_limiting_war_faction_leader
+			NOT = { has_war_with = var:pre_limiting_war_faction_leader }
+			var:pre_limiting_war_faction_leader = {
+				exists = yes
+				is_subject = no
+				has_capitulated = no
+				is_faction_leader = yes
+			}
+		}
+		set_rule = { can_join_factions = yes }
+		var:pre_limiting_war_faction_leader = { add_to_faction = ROOT }
+	}
+}
+
+limiting_war_peace_out = {
+	for_each_scope_loop = {
+		array = QIE.limiting_war_target_allies
+		if = {
+			limit = { has_war_with = QIE }
+			white_peace = { tag = QIE }
+			every_subject_country = {
+				limit = { has_war_with = QIE }
+				white_peace = { tag = QIE }
+			}
+		}
+	}
+	if = {
+		limit = { QIE = { has_variable = limiting_war_target } }
+		white_peace = { tag = var:QIE.limiting_war_target }
+	}
+}

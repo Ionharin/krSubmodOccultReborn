@@ -2669,3 +2669,209 @@ QIE_wushan_recover_from_war_category = {
 		}
 	}
 }
+
+limiting_war_begonia_leaf_cat = {
+	limiting_war_start_begonia_leaf = {
+		icon = GFX_decision_generic_nationalism
+		allowed = { tag = QIE }
+
+		visible = {
+			has_country_flag = QIE_limiting_war_begonia_leaf_unlocked
+			RUS = { exists = yes }
+			any_of_scopes = {
+				array = ROOT.begonia_leaf_states
+				is_controlled_by = RUS
+			}
+		}
+
+		available = {
+			RUS = { exists = yes }
+			NOT = {
+				is_ally_with = RUS
+				has_war_with = RUS
+				has_non_aggression_pact_with = RUS
+				RUS = { is_guaranteed_by = ROOT }
+			}
+			OR = {
+				fighting_army_strength_ratio = {
+					tag = RUS
+					ratio > 0.75
+				}
+				AND = {
+					RUS = { has_war = yes }
+					fighting_army_strength_ratio = {
+						tag = RUS
+						ratio > 0.5
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = is_not_engaged_in_a_limited_war
+				NOT = { has_variable = limiting_war_target }
+			}
+			any_of_scopes = {
+				array = ROOT.begonia_leaf_states
+				is_controlled_by = RUS
+			}
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				is_in_array = { array = ROOT.begonia_leaf_states value = THIS }
+				is_controlled_by = RUS
+			}
+		}
+
+		cost = 80
+
+		complete_effect = {
+			custom_effect_tooltip = limiting_war_start_begonia_leaf_tt_main
+			clear_variable = pre_limiting_war_faction_leader
+
+			if = {
+				limit = {
+					is_in_faction = yes
+					is_faction_leader = no
+				}
+				faction_leader = { set_variable = { ROOT.pre_limiting_war_faction_leader = THIS } }
+				leave_faction = yes
+				custom_effect_tooltip = QIE_start_limited_war_rejoin_faction
+				custom_effect_tooltip = tooltip_white_line
+			}
+
+			custom_effect_tooltip = tooltip_white_line
+			set_rule = { can_join_factions = no }
+
+			clear_array = limiting_war_begonia_leaf_states
+			clear_variable = limiting_war_target
+			clear_array = limiting_war_target_allies
+
+			for_each_scope_loop = {
+				array = begonia_leaf_states
+				if = {
+					limit = { is_controlled_by = RUS }
+					add_to_array = { array = ROOT.limiting_war_begonia_leaf_states value = THIS }
+				}
+			}
+
+			set_variable = { limiting_war_target = RUS }
+
+			if = {
+				limit = { RUS = { is_subject = yes } }
+				RUS = {
+					overlord = {
+						add_to_array = { array = ROOT.limiting_war_target_allies value = THIS }
+					}
+				}
+			}
+
+			hidden_effect = {
+				RUS = {
+					if = {
+						limit = { is_in_faction = yes }
+						every_allied_country = {
+							limit = {
+								NOT = { is_in_array = { array = ROOT.limiting_war_target_allies value = THIS } }
+							}
+							add_to_array = { array = ROOT.limiting_war_target_allies value = THIS }
+						}
+					}
+				}
+			}
+
+			RUS = { clear_array = countries_that_guaranteed_me_pre_limiting_war }
+			every_country = {
+				limit = { has_guaranteed = RUS }
+				add_to_array = { array = RUS.countries_that_guaranteed_me_pre_limiting_war value = THIS }
+				diplomatic_relation = {
+					country = RUS
+					relation = guarantee
+					active = no
+				}
+			}
+
+			declare_war_on = {
+				target = RUS
+				type = annex_everything
+			}
+
+			activate_mission = limiting_war_begonia_leaf_mission
+
+			RUS = {
+				if = {
+					limit = { is_in_faction = no }
+					if = {
+						limit = { has_rule = can_join_factions }
+						set_country_flag = limiting_war_could_join_factions
+					}
+					set_rule = { can_join_factions = no }
+				}
+			}
+		}
+
+		ai_will_do = { base = 0 }
+	}
+
+	limiting_war_begonia_leaf_mission = {
+		icon = GFX_decision_generic_nationalism
+		visible = { always = yes }
+		is_good = no
+
+		highlight_states = {
+			highlight_states_trigger = {
+				is_in_array = { array = ROOT.limiting_war_begonia_leaf_states value = THIS }
+				NOT = { is_controlled_by = ROOT }
+			}
+		}
+
+		available = {
+			all_of_scopes = {
+				array = ROOT.limiting_war_begonia_leaf_states
+				is_controlled_by = ROOT
+			}
+		}
+
+		activation = { always = no }
+
+		cancel_trigger = {
+			OR = {
+				exists = no
+				has_capitulated = yes
+				surrender_progress > 0.1
+				RUS = { has_capitulated = yes }
+				RUS = { exists = no }
+			}
+		}
+
+		days_mission_timeout = 180
+
+		complete_effect = {
+			country_event = { id = limiting_war_events.1 hours = 2 }
+		}
+
+		cancel_effect = {
+			if = {
+				limit = {
+					RUS = {
+						OR = {
+							has_capitulated = yes
+							exists = no
+						}
+					}
+				}
+				limiting_war_peace_out = yes
+				set_rule = { can_join_factions = yes }
+				limiting_war_re_add_to_old_faction = yes
+				limiting_war_clear_begonia_leaf_variables = yes
+			}
+			if = {
+				limit = { surrender_progress > 0.1 }
+				RUS = { country_event = { id = limiting_war_events.5 hours = 2 } }
+			}
+		}
+
+		timeout_effect = {
+			RUS = { country_event = { id = limiting_war_events.5 hours = 2 } }
+		}
+	}
+}

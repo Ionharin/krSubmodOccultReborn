@@ -70,3 +70,17 @@ QIE_wushan_recover_from_war_category = {
 		has_completed_focus = QIE_construction_after_chinese_unification
 	}
 }
+limiting_war_begonia_leaf_cat = {
+	icon = GFX_decision_category_usa_intervention_mandate
+	picture = GFX_decision_cat_picture_generic_border_conflicts
+	priority = 120
+	allowed = {
+		tag = QIE
+	}
+	visible = {
+		OR = {
+			has_country_flag = QIE_limiting_war_begonia_leaf_unlocked
+			has_variable = limiting_war_target
+		}
+	}
+}
