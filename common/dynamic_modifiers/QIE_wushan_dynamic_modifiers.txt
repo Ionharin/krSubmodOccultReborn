@@ -21,6 +21,7 @@ QIE_wushan_kunpeng_plan_modifier = {
 
 QIE_wushan_lvzu_chunyang_throne_modifier = {
 	icon = "GFX_idea_MAN_the_kangde_emperor"
+	custom_modifier_tooltip = QIE_god_circle_dynamic_status_tt
 	stability_factor = QIE_wushan_god_circle_shizu_stability_factor
 	defensive_war_stability_factor = QIE_wushan_god_circle_laozu_war_stability_factor
 	offensive_war_stability_factor = QIE_wushan_god_circle_laozu_war_stability_factor
@@ -100,4 +101,41 @@ QIE_wushan_dual_ocean_commission_modifer = {
 	critical_receive_chance = QIE_wushan_dual_ocean_commission_critical_receive_chance
 	sp_tag_submarine_speed_factor = QIE_wushan_dual_ocean_commission_sp_tag_submarine_speed_factor
 	sp_tag_surface_ship_speed_factor = QIE_wushan_dual_ocean_commission_sp_tag_surface_ship_speed_factor
+}
+QIE_wushan_small_hydropower_station_modifier = {
+	icon = "GFX_decision_hol_drain_water_lines"
+	local_factories = 0.05
+	factory_energy_consumption = -0.30
+	state_production_speed_buildings_factor = 0.10
+}
+
+QIE_wushan_electrification_modifier = {
+	icon = "GFX_decision_generic_electricity"
+	local_building_slots_factor = 0.15
+	state_production_speed_buildings_factor = 0.10
+	local_resources_factor = 0.15
+	state_production_speed_industrial_complex_factor = 0.10
+}
+QIE_wushan_world_moral_association = {
+	icon = "GFX_idea_qie_ws_world_moral_association"
+
+	remove_trigger = {
+		is_economic_sphere_leader = no
+	}
+
+	industrial_capacity_factory = global.QIE_wushan_world_moral_industry_boost
+	industrial_capacity_dockyard = global.QIE_wushan_world_moral_industry_boost
+	consumer_goods_factor = global.QIE_wushan_world_moral_goods_boost
+}
+
+QIE_wushan_world_moral_association_member = {
+	icon = "GFX_idea_qie_ws_world_moral_association"
+
+	remove_trigger = {
+		QIE = { is_leader_of_economic_sphere_of_ROOT = no }
+	}
+
+	production_speed_buildings_factor = 0.20
+	local_resources_factor = global.QIE_wushan_world_moral_resources_boost_member
+	consumer_goods_factor = global.QIE_wushan_world_moral_goods_boost_member
 }

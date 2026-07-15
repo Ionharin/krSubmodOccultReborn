@@ -1,0 +1,161 @@
+china_set_character_alignment_traditionalist_china = { # Wushan
+	event_target:system = { china_alignment_traditionalist_china = { set_variable = { PREV.PREV.china_alignment = THIS } } }
+}
+
+CHN_calculate_china_alignment_gui_effect = {
+	CHN_clear_china_alignment_gui = yes
+
+	### Check which factions exist add them to the leader array as well as their alignment token
+    ### Just add more factions in here.
+	if = {
+		limit = {
+			country_exists = NZH #North Zhili
+			NOT = {
+				QIE = { china_alignment_traditionalist_china = yes }
+			}
+		}
+		NZH = { CHN_build_faction_alignment_array = yes }
+	}
+	if = {
+		limit = {
+			country_exists = SZH #South Zhili
+			SZH = { is_subject = no } #account for LEP joining QIE
+		}
+		SZH = { CHN_build_faction_alignment_array = yes }
+	}
+	if = {
+		limit = { country_exists = MCU } #Restorationists
+		MCU = { CHN_build_faction_alignment_array = yes }
+	}
+	if = {
+		limit = { country_exists = AGJ } #Anguojun
+		AGJ = { CHN_build_faction_alignment_array = yes }
+	}
+	if = {
+		limit = { country_exists = UPC } #Federalists
+		UPC = { CHN_build_faction_alignment_array = yes }
+	}
+	if = {
+		limit = { country_exists = LKT } #Left Kuomintang
+		LKT = { CHN_build_faction_alignment_array = yes }
+	}
+	if = {
+		limit = { country_exists = RKT } #Right Kuomintang
+		RKT = { CHN_build_faction_alignment_array = yes }
+	}
+	if = {
+		limit = { country_exists = NPA } #National Protection Alliance
+		NPA = { CHN_build_faction_alignment_array = yes }
+	}
+	if = { # Wushan Traditionalists
+		limit = {
+			country_exists = QIE
+			QIE = { china_alignment_traditionalist_china = yes }
+		}
+		QIE = { CHN_build_faction_alignment_array = yes }
+	}
+	if = {
+		limit = { country_exists = RGC } #GEACPS (Japan)
+		RGC = { CHN_build_faction_alignment_array = yes }
+		### To account for MAN being a Japanese puppet ###
+		if = {
+			limit = { MAN = { is_ally_with = JAP } }
+			add_to_array = { RGC.china_alignment_members = THIS }
+		}
+	}
+
+	### Build non-aligned tag array ###
+	for_each_scope_loop = {
+		array = global.china_tags_array
+		if = {
+			limit = {
+				exists = yes
+				check_variable = { aligned_@THIS < 1 }
+			}
+			add_to_array = { event_target:system.china_alignment_members = THIS } #Independent Cliques
+		}
+	}
+
+	### Account for KUM not being a chinese tag ###
+	KUM = {
+		if = {
+			limit = {
+				NOT = { has_country_flag = KUM_is_chinese_tag }
+				exists = yes
+				check_variable = { aligned_@THIS < 1 }
+			}
+			add_to_array = { event_target:system.china_alignment_members = THIS } #Independent Cliques
+		}
+	}
+
+	### Check to see if there are any Independent Cliques ###
+	if = {
+		limit = { check_variable = { event_target:system.china_alignment_members^num > 0 } }
+		add_to_array = { PREV.china_alignment_leaders = event_target:system } #Independent Cliques
+	}
+}
+QIE_wushan_enable_yanzhou_textile_decisions = {
+	set_country_flag = QIE_wushan_yanzhou_textile_decisions_unlocked
+	effect_tooltip = {
+		activate_targeted_decision = { decision = QIE_wushan_reorganise_shanghai_dakang_cotton_mill target = 743 }
+		activate_targeted_decision = { decision = QIE_wushan_reorganise_naigai_wata_cotton_company target = 744 }
+		activate_targeted_decision = { decision = QIE_wushan_reorganise_nenjiang_textile_mill target = 716 }
+		activate_targeted_decision = { decision = QIE_wushan_reorganise_shanghai_tongxing_cotton_mill target = 743 }
+	}
+}
+QIE_wushan_enable_jizhou_military_industry_decisions = {
+	set_country_flag = QIE_wushan_jizhou_military_industry_decisions_unlocked
+	effect_tooltip = {
+		activate_targeted_decision = { decision = QIE_wushan_expand_guangdong_pajiang_artillery_factory target = 593 }
+		activate_targeted_decision = { decision = QIE_wushan_expand_kunming_arsenal target = 325 }
+		activate_targeted_decision = { decision = QIE_wushan_expand_chongqing_arsenal target = 650 }
+		activate_targeted_decision = { decision = QIE_wushan_establish_dading_tank_factory target = 603 }
+		activate_targeted_decision = { decision = QIE_wushan_establish_shaoguan_aircraft_factory target = 800 }
+	}
+}
+QIE_wushan_enable_qingzhou_industrial_decisions = {
+	set_country_flag = QIE_wushan_qingzhou_industrial_decisions_unlocked
+	effect_tooltip = {
+		activate_targeted_decision = { decision = QIE_wushan_changjiang_inspectorate_electric_lamp_factory target = 1047 }
+		activate_targeted_decision = { decision = QIE_wushan_jinan_chemical_factory target = 597 }
+		activate_targeted_decision = { decision = QIE_wushan_huaihai_chemical_research_institute target = 1075 }
+		activate_targeted_decision = { decision = QIE_wushan_east_china_coal_company target = 598 }
+		activate_targeted_decision = { decision = QIE_wushan_xingnan_company target = 1014 }
+		activate_targeted_decision = { decision = QIE_wushan_yancheng_fertilizer_factory target = 598 }
+		activate_targeted_decision = { decision = QIE_wushan_ningbo_soda_factory target = 746 }
+		activate_targeted_decision = { decision = QIE_wushan_dezhou_tobacco_company target = 1063 }
+	}
+}
+QIE_wushan_enable_yuzhou_chemical_industry_decisions = {
+	set_country_flag = QIE_wushan_yuzhou_chemical_industry_decisions_unlocked
+	effect_tooltip = {
+		activate_targeted_decision = { decision = QIE_wushan_xinyang_fertilizer_factory target = 1058 }
+		activate_targeted_decision = { decision = QIE_wushan_kaifeng_phosphoric_acid_factory target = 1059 }
+		activate_targeted_decision = { decision = QIE_wushan_jicheng_three_acids_factory target = 799 }
+		activate_targeted_decision = { decision = QIE_wushan_minxing_soy_sauce_factory target = 602 }
+		activate_targeted_decision = { decision = QIE_wushan_xining_chemical_factory target = 1045 }
+	}
+}
+QIE_wushan_enable_small_medium_size_dam_decisions = {
+	set_country_flag = QIE_wushan_small_medium_size_dam_decisions_unlocked
+	effect_tooltip = {
+		activate_targeted_decision = { decision = QIE_wushan_xiadong_hydropower_station target = 650 }
+		activate_targeted_decision = { decision = QIE_wushan_rangduhe_hydropower_station target = 605 }
+		activate_targeted_decision = { decision = QIE_wushan_taohuaxi_hydropower_station target = 661 }
+		activate_targeted_decision = { decision = QIE_wushan_dieshuihe_hydropower_station target = 816 }
+		activate_targeted_decision = { decision = QIE_wushan_shilongba_hydropower_station target = 325 }
+	}
+}
+QIE_wushan_enable_nine_ding_recovery_decisions = {
+	effect_tooltip = {
+		unlock_decision_tooltip = QIE_wushan_cast_jiangling_jingzhou_ding
+		unlock_decision_tooltip = QIE_wushan_cast_jiangdu_yangzhou_ding
+		unlock_decision_tooltip = QIE_wushan_cast_chengdu_liangzhou_ding
+		unlock_decision_tooltip = QIE_wushan_cast_dongyuan_xuzhou_ding
+		unlock_decision_tooltip = QIE_wushan_cast_shengong_yuzhou_ding
+		unlock_decision_tooltip = QIE_wushan_cast_riguan_yanzhou_ding
+		unlock_decision_tooltip = QIE_wushan_cast_wuxing_jizhou_ding
+		unlock_decision_tooltip = QIE_wushan_cast_changan_yongzhou_ding
+		unlock_decision_tooltip = QIE_wushan_cast_shaoyang_qingzhou_ding
+	}
+}

@@ -53,6 +53,20 @@ QIE_wushan_submitting_to_the_king_category = {
 		tag = QIE
 	}
 	visible = {
-		has_completed_focus = QIE_restore_the_order_behind_shanhaiguan
+		OR = {
+			has_completed_focus = QIE_restore_the_order_behind_shanhaiguan
+			has_completed_focus = QIE_advance_to_the_shanhaiguan
+		}
+	}
+}
+QIE_wushan_recover_from_war_category = {
+	icon = GFX_RAJ_decision_investment_civs_icon
+	visible_when_empty = yes
+	priority = 83
+	allowed = {
+		tag = QIE
+	}
+	visible = {
+		has_completed_focus = QIE_construction_after_chinese_unification
 	}
 }

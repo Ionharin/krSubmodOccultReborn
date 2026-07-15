@@ -1,7 +1,7 @@
 on_actions = {
 	on_daily = {
 		effect = {
-			if = {
+			if = { # Owen Lattimore coming!
 				limit = {
 					tag = QIE
 					date > 1936.11.1
@@ -11,7 +11,7 @@ on_actions = {
 				set_country_flag = QIE_ws_leader_30_triggered
 				country_event = { id = QIE_ws_leader.30 days = 0 }
 			}
-			if = {
+			if = { # In fact, Hungary is Shanxi,right?
 				limit = {
 					tag = QIE
 					NOT = { has_country_flag = QIE_ws_normal_event_10_triggered }
@@ -24,7 +24,156 @@ on_actions = {
 				set_country_flag = QIE_ws_normal_event_10_triggered
 				country_event = { id = QIE_ws_normal_events.10 days = 0 }
 			}
-			if = {
+			if = { # industry building post-war industrial promotion
+				limit = {
+					tag = QIE
+					has_idea = QIE_wushan_jiangzhou_industrial_promotion
+				}
+				add_to_variable = { QIE_wushan_jiangzhou_factory_timer = 1 }
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								has_country_flag = QIE_wushan_jiangzhou_industrial_promotion_upgraded
+								check_variable = { QIE_wushan_jiangzhou_factory_timer > 79 }
+							}
+							AND = {
+								NOT = { has_country_flag = QIE_wushan_jiangzhou_industrial_promotion_upgraded }
+								check_variable = { QIE_wushan_jiangzhou_factory_timer > 61 }
+							}
+						}
+						any_core_state = {
+							is_controlled_by = PREV
+							free_building_slots = { building = industrial_complex size > 0 include_locked = no }
+							is_valid_state_for_development = yes
+						}
+					}
+					set_variable = { QIE_wushan_jiangzhou_factory_timer = 0 }
+					if = {
+						limit = { has_country_flag = QIE_wushan_jiangzhou_industrial_promotion_upgraded }
+						random_controlled_state = {
+							limit = {
+								is_core_of = PREV
+								free_building_slots = { building = industrial_complex size > 0 include_locked = no }
+								is_valid_state_for_development = yes
+							}
+							random_list = {
+								50 = {
+									add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+								}
+								50 = {
+									add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+								}
+							}
+						}
+						random_controlled_state = {
+							limit = {
+								is_core_of = PREV
+								free_building_slots = { building = industrial_complex size > 0 include_locked = no }
+								is_valid_state_for_development = yes
+							}
+							random_list = {
+								50 = {
+									add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+								}
+								50 = {
+									add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+								}
+							}
+						}
+					}
+					else = {
+						random_controlled_state = {
+							limit = {
+								is_core_of = PREV
+								free_building_slots = { building = industrial_complex size > 0 include_locked = no }
+								is_valid_state_for_development = yes
+							}
+							random_list = {
+								50 = {
+									add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+								}
+								50 = {
+									add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+								}
+							}
+						}
+					}
+				}
+			}
+			if = { # electrification spreads to neighbouring core states
+				limit = {
+					OR = {
+						tag = QIE
+						tag = KOR
+						tag = JAP
+					}
+					has_country_flag = QIE_wushan_electrification_spread_enabled
+				}
+				add_to_variable = { QIE_wushan_electrification_spread_timer = 1 }
+				if = {
+					limit = {
+						check_variable = { QIE_wushan_electrification_spread_timer > 89 }
+						any_controlled_state = {
+							has_dynamic_modifier = {
+								modifier = QIE_wushan_electrification_modifier
+							}
+							any_neighbor_state = {
+								is_controlled_by = ROOT
+								is_core_of = ROOT
+								NOT = {
+									has_dynamic_modifier = {
+										modifier = QIE_wushan_electrification_modifier
+									}
+								}
+							}
+						}
+					}
+					set_variable = { QIE_wushan_electrification_spread_timer = 0 }
+					random_controlled_state = {
+						limit = {
+							has_dynamic_modifier = {
+								modifier = QIE_wushan_electrification_modifier
+							}
+							any_neighbor_state = {
+								is_controlled_by = ROOT
+								is_core_of = ROOT
+								NOT = {
+									has_dynamic_modifier = {
+										modifier = QIE_wushan_electrification_modifier
+									}
+								}
+							}
+						}
+						random_neighbor_state = {
+							limit = {
+								is_controlled_by = ROOT
+								is_core_of = ROOT
+								NOT = {
+									has_dynamic_modifier = {
+										modifier = QIE_wushan_electrification_modifier
+									}
+								}
+							}
+							add_dynamic_modifier = {
+								modifier = QIE_wushan_electrification_modifier
+							}
+						}
+					}
+				}
+			}
+			if = { # Analyze seances status
+				limit = {
+					tag = QIE
+					has_completed_focus = QIE_seances_restart_in_beijing
+					has_variable = god_circle_days_until_next_upgrade
+					check_variable = { god_circle_days_until_next_upgrade > 0 }
+				}
+				add_to_variable = {
+					god_circle_days_until_next_upgrade = -1
+				}
+			}
+			if = { # Analyze seances status
 				limit = {
 					tag = QIE
 					has_completed_focus = QIE_seances_restart_in_beijing
@@ -37,12 +186,31 @@ on_actions = {
 				add_to_variable = {
 					god_circle_tier = 1
 				}
-				set_country_flag = {
-					flag = QIE_recently_changed_god_circle_focus
-					days = 70
-					value = 1
+				if = {
+					limit = { check_variable = { god_circle_tier < 3 } }
+					set_variable = { god_circle_days_until_next_upgrade = 49 }
+					set_country_flag = {
+						flag = QIE_recently_changed_god_circle_focus
+						days = 49
+						value = 1
+					}
+				}
+				else = {
+					set_variable = { god_circle_days_until_next_upgrade = 0 }
 				}
 				QIE_update_god_circle_tier = yes
+			}
+			if = { # Refresh Heaven Earth GUI availability after cosmetic tag changes
+				limit = {
+					OR = {
+						original_tag = KOR
+						has_cosmetic_tag = KOR_pnr_pocheongyo
+						has_cosmetic_tag = KOR_pnr_taegeukdo
+						has_cosmetic_tag = KOR_pnr_jeungsanbeop
+						has_country_flag = KOR_heaven_earth_interface_open
+					}
+				}
+				KOR_heaven_earth_update_gui = yes
 			}
 		}
 	}

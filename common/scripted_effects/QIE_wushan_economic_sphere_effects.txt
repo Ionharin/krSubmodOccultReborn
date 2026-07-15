@@ -1,0 +1,163 @@
+QIE_update_world_moral_association_economic_sphere_display = {
+	if = {
+		limit = { has_variable = economic_sphere }
+		var:economic_sphere = {
+			set_character_name = QIE_wushan_world_moral_association
+			set_character_flag = has_custom_script_handle
+			var:icon = { set_character_name = "GFX_qie_ws_shanrendao_icon" }
+			var:desc = { set_character_name = QIE_wushan_world_moral_association_desc }
+			set_variable = { red = 0.278 }
+			set_variable = { green = 0.741 }
+			set_variable = { blue = 0.659 }
+		}
+	}
+}
+QIE_create_world_moral_association_economic_sphere = {
+	if = {
+		limit = { NOT = { is_economic_sphere_leader = yes } }
+		create_economic_sphere = yes
+		var:economic_sphere = {
+			set_character_name = QIE_wushan_world_moral_association
+			set_character_flag = has_custom_script_handle
+			var:icon = { set_character_name = "GFX_qie_ws_shanrendao_icon" }
+			var:desc = { set_character_name = QIE_wushan_world_moral_association_desc }
+			set_variable = { red = 0.278 }
+			set_variable = { green = 0.741 }
+			set_variable = { blue = 0.659 }
+		}
+	}
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = QIE_wushan_world_moral_association } } }
+		add_dynamic_modifier = { modifier = QIE_wushan_world_moral_association }
+	}
+	if = {
+		limit = { NOT = { is_in_tech_sharing_group = QIE_wushan_world_moral_research } }
+		add_to_tech_sharing_group = QIE_wushan_world_moral_research
+	}
+	QIE_update_world_moral_association_economic_sphere_display = yes
+	QIE_refresh_world_moral_association_members = yes
+	QIE_recalculate_world_moral_association_economic_integration = yes
+}
+
+QIE_add_to_world_moral_association_economic_sphere = {
+	if = {
+		limit = {
+			NOT = { tag = QIE }
+			QIE = { is_economic_sphere_leader = yes }
+		}
+		if = {
+			limit = {
+				is_in_economic_sphere = yes
+				QIE = { is_leader_of_economic_sphere_of_PREV = no }
+			}
+			leave_economic_sphere = yes
+		}
+		if = {
+			limit = { QIE = { is_leader_of_economic_sphere_of_PREV = no } }
+			set_temp_variable = { sphere_target = THIS }
+			QIE = { add_to_economic_sphere = yes }
+		}
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = QIE_wushan_world_moral_association_member } } }
+			add_dynamic_modifier = { modifier = QIE_wushan_world_moral_association_member }
+		}
+		if = {
+			limit = { NOT = { is_in_tech_sharing_group = QIE_wushan_world_moral_research } }
+			add_to_tech_sharing_group = QIE_wushan_world_moral_research
+		}
+		QIE = { QIE_recalculate_world_moral_association_economic_integration = yes }
+	}
+}
+
+QIE_remove_from_world_moral_association_economic_sphere = {
+	if = {
+		limit = { QIE = { is_leader_of_economic_sphere_of_PREV = yes } }
+		leave_economic_sphere = yes
+		if = {
+			limit = { has_dynamic_modifier = { modifier = QIE_wushan_world_moral_association_member } }
+			remove_dynamic_modifier = { modifier = QIE_wushan_world_moral_association_member }
+		}
+		if = {
+			limit = { is_in_tech_sharing_group = QIE_wushan_world_moral_research }
+			remove_from_tech_sharing_group = QIE_wushan_world_moral_research
+		}
+		QIE = { QIE_recalculate_world_moral_association_economic_integration = yes }
+	}
+}
+
+QIE_refresh_world_moral_association_members = {
+	if = {
+		limit = { is_economic_sphere_leader = yes }
+		if = {
+			limit = { NOT = { is_in_tech_sharing_group = QIE_wushan_world_moral_research } }
+			add_to_tech_sharing_group = QIE_wushan_world_moral_research
+		}
+		QIE_update_world_moral_association_economic_sphere_display = yes
+		for_each_scope_loop = {
+			array = QIE.economic_sphere:members
+			if = {
+				limit = { NOT = { is_in_tech_sharing_group = QIE_wushan_world_moral_research } }
+				add_to_tech_sharing_group = QIE_wushan_world_moral_research
+			}
+			if = {
+				limit = {
+					NOT = { tag = QIE }
+					NOT = { is_subject_of = QIE }
+					NOT = { is_in_faction_with = QIE }
+				}
+				QIE_remove_from_world_moral_association_economic_sphere = yes
+			}
+		}
+		every_subject_country = {
+			limit = {
+				exists = yes
+				NOT = { tag = QIE }
+			}
+			QIE_add_to_world_moral_association_economic_sphere = yes
+		}
+		every_other_country = {
+			limit = {
+				exists = yes
+				is_in_faction_with = QIE
+				NOT = { tag = QIE }
+			}
+			QIE_add_to_world_moral_association_economic_sphere = yes
+		}
+	}
+}
+
+QIE_recalculate_world_moral_association_economic_integration = {
+	if = {
+		limit = { is_economic_sphere_leader = yes }
+		hidden_effect = {
+			set_temp_variable = { QIE_wushan_world_moral_sphere_factories = 0 }
+			for_each_scope_loop = {
+				array = QIE.economic_sphere:members
+				add_to_temp_variable = { QIE_wushan_world_moral_sphere_factories = THIS.num_of_civilian_factories }
+			}
+
+			set_variable = { global.QIE_wushan_world_moral_goods_boost_member = QIE_wushan_world_moral_sphere_factories }
+			clamp_variable = { var = global.QIE_wushan_world_moral_goods_boost_member max = 100 min = 0 }
+			multiply_variable = { global.QIE_wushan_world_moral_goods_boost_member = -0.003 }
+
+			set_variable = { global.QIE_wushan_world_moral_resources_boost_member = QIE_wushan_world_moral_sphere_factories }
+			clamp_variable = { var = global.QIE_wushan_world_moral_resources_boost_member max = 100 min = 0 }
+			multiply_variable = { global.QIE_wushan_world_moral_resources_boost_member = 0.002 }
+
+			subtract_from_temp_variable = { QIE_wushan_world_moral_sphere_factories = QIE.num_of_civilian_factories }
+
+			set_variable = { global.QIE_wushan_world_moral_industry_boost = QIE_wushan_world_moral_sphere_factories }
+			clamp_variable = { var = global.QIE_wushan_world_moral_industry_boost max = 60 min = 0 }
+			multiply_variable = { global.QIE_wushan_world_moral_industry_boost = 0.005 }
+
+			set_variable = { global.QIE_wushan_world_moral_goods_boost = QIE_wushan_world_moral_sphere_factories }
+			clamp_variable = { var = global.QIE_wushan_world_moral_goods_boost max = 100 min = 0 }
+			multiply_variable = { global.QIE_wushan_world_moral_goods_boost = 1.5 }
+			multiply_variable = { global.QIE_wushan_world_moral_goods_boost = -0.003 }
+		}
+		for_each_scope_loop = {
+			array = QIE.economic_sphere:members
+			force_update_dynamic_modifier = yes
+		}
+	}
+}

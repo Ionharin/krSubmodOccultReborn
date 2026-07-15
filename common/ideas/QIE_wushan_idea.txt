@@ -43,27 +43,26 @@ ideas ={
 				production_speed_buildings_factor = -0.05
 			}
 		}
-		QIE_work_for_rice = {
+		QIE_work_for_rice = { # Base on RAJ focus Productivity Mandate
 			on_add = { log = "[GetLogRoot]: add idea QIE_work_for_rice" }
 			picture = qie_ideas_forced_labor_in_factory
 			allowed = { always = no }
 			modifier = {
-				consumer_goods_factor = 0.05
+				production_factory_max_efficiency_factor = -0.05
+				production_factory_efficiency_gain_factor = -0.02
 				stability_factor = 0.02
 				production_factory_start_efficiency_factor = 0.05
-				production_factory_max_efficiency_factor = -0.05
 			}
 		}
-		QIE_work_for_247_rice = {
+		QIE_work_for_247_rice = { # Base on RAJ focus Night Shifts
 			on_add = { log = "[GetLogRoot]: add idea QIE_work_for_247_rice" }
 			picture = qie_ideas_work_from_day_to_night
 			allowed = { always = no }
 			modifier = {
-				consumer_goods_factor = 0.05
+				consumer_goods_factor = 0.10
 				stability_factor = 0.02
 				industrial_capacity_factory = 0.05
 				industrial_capacity_dockyard = 0.05
-				line_change_production_efficiency_factor = -0.05
 			}
 		}
 		QIE_wushan_charity_relief = {
@@ -189,7 +188,7 @@ ideas ={
 				war_support_weekly = 0.001
 				war_stability_factor = 0.20
 				weekly_casualties_war_support = 0.002
-				conscription_factor = 0.10
+				conscription_factor = 0.20
 			}
 		}
 		QIE_wushan_theocratic_authority_1 = {
@@ -260,8 +259,8 @@ ideas ={
 			picture = CHI_a_new_middle_kingdom
 			allowed = { always = no }
 			modifier = {
-				army_attack_against_minor_factor = 0.12
-				army_defence_against_minor_factor = 0.12
+				army_attack_against_minor_factor = 0.10
+				army_defence_against_minor_factor = 0.10
 				required_garrison_factor = -0.25
 				resistance_growth = -0.15
 				resistance_target = -0.15
@@ -314,11 +313,24 @@ ideas ={
 			picture = jap_duplicate_research
 			allowed = { always = no }
 			modifier = {
-				research_speed_factor = 0.07
+				research_speed_factor = 0.03
 			}
 			research_bonus = {
-				industry = 0.10
-				electronics = 0.10
+				industry = 0.06
+				electronics = 0.06
+			}
+		}
+		QIE_wushan_national_beijing_science_institute = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_national_beijing_science_institute" }
+			picture = jap_duplicate_research
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.10
+				political_power_gain = -0.20
+			}
+			research_bonus = {
+				industry = 0.20
+				electronics = 0.20
 			}
 		}
 		QIE_inner_sage = {
@@ -429,6 +441,7 @@ ideas ={
 			picture = qie_ideas_ws_jingchun_army_bureau_tank_upgraded_2
 			allowed = { always = no }
 			modifier = {
+				army_strength_factor = 0.1
 				army_org_factor = 0.05
 				experience_gain_army = 0.40
 				war_support_factor = 0.10
@@ -455,6 +468,7 @@ ideas ={
 			picture = qie_ideas_ws_jingchun_army_bureau_upgraded_2
 			allowed = { always = no }
 			modifier = {
+				army_strength_factor = 0.1
 				army_org_factor = 0.05
 				experience_gain_army = 0.40
 				war_support_factor = 0.10
@@ -572,6 +586,70 @@ ideas ={
 			modifier = {
 				research_speed_factor = 0.03
 				stability_factor = 0.05
+			}
+		}
+		QIE_wushan_top_down_land_reform = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_top_down_land_reform" }
+			picture = PRC_land_revolution_expedited
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.02
+				consumer_goods_factor = -0.02
+				conscription_factor = 0.10
+				production_speed_buildings_factor = 0.05
+				repair_speed_factor = 0.05
+			}
+		}
+		QIE_wushan_expert_governance = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_expert_governance" }
+			picture = AST_cabinet_trust1_idea
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = -0.05
+				consumer_goods_factor = -0.15
+				research_speed_factor = 0.05
+				local_resources_factor = 0.10
+			}
+		}
+		QIE_wushan_expert_governance_1 = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_expert_governance_1" }
+			picture = AST_cabinet_trust3_idea
+			allowed = { always = no }
+			modifier = {
+				monthly_population = 0.10
+				political_power_factor = -0.10
+				consumer_goods_factor = -0.10
+				research_speed_factor = 0.05
+				local_resources_factor = 0.10
+				stability_factor = 0.10
+			}
+		}
+		QIE_wushan_expert_governance_2 = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_expert_governance_2" }
+			picture = AST_cabinet_trust5_idea
+			allowed = { always = no }
+			modifier = {
+				monthly_population = 0.10
+				political_power_factor = -0.10
+				consumer_goods_factor = -0.10
+				research_speed_factor = 0.05
+				local_resources_factor = 0.10
+				stability_factor = 0.15
+				production_factory_max_efficiency_factor = 0.10
+				industrial_capacity_factory = 0.10
+				production_factory_start_efficiency_factor = 0.05
+			}
+		}
+		QIE_wushan_clique_politics = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_clique_politics" }
+			picture = AST_liberty_loans
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = -0.10
+				party_popularity_stability_factor = 0.15
+				production_speed_buildings_factor = 0.10
+				industry_repair_factor = 0.05
+				industrial_capacity_factory = 0.05
 			}
 		}
 		QIE_wushan_rooster_devours_vermin = {
@@ -727,9 +805,8 @@ ideas ={
 			picture = GER_Iron_Front
 			allowed = { always = no }
 			modifier = {
-				army_attack_against_major_factor = 0.15
-				army_defence_against_major_factor = 0.15
-				max_dig_in_factor = 0.05
+				army_attack_against_major_factor = 0.05
+				army_defence_against_major_factor = 0.05
 				grant_medal_cost_factor = -0.25
 			}
 		}
@@ -788,8 +865,8 @@ ideas ={
 			picture = qie_ideas_ws_jiang_chao_zong_as_vice_founder
 			allowed = { always = no }
 			modifier = {
-				political_power_gain = 0.15
-				stability_factor = 0.05
+				political_power_gain = 0.05
+				stability_factor = 0.02
 			}
 		}
 		QIE_wushan_jiang_as_vice_master_1 = {
@@ -798,7 +875,6 @@ ideas ={
 			allowed = { always = no }
 			modifier = {
 				political_power_gain = 0.15
-				stability_factor = 0.05
 				global_building_slots_factor = 0.10
 				line_change_production_efficiency_factor = 0.10
 				production_factory_efficiency_gain_factor = 0.10
@@ -810,8 +886,8 @@ ideas ={
 			picture = qie_ideas_ws_wu_pei_fu_as_vice_founder
 			allowed = { always = no }
 			modifier = {
-				political_power_gain = 0.15
-				war_support_factor = 0.05
+				political_power_gain = 0.05
+				war_support_factor = 0.02
 			}
 		}
 		QIE_wushan_wu_as_vice_master_1 = {
@@ -820,7 +896,6 @@ ideas ={
 			allowed = { always = no }
 			modifier = {
 				political_power_gain = 0.15
-				war_support_factor = 0.05
 				org_loss_when_moving = -0.10
 				army_attack_factor = 0.05
 				initiative_factor = 0.05
@@ -881,8 +956,8 @@ ideas ={
 				}
 			}
 			modifier = {
-				production_speed_air_base_factor = 0.10
-				production_speed_dockyard_factor = 0.10
+				production_speed_air_base_factor = 0.03
+				production_speed_dockyard_factor = 0.03
 			}
 		}
 		QIE_wushan_from_sky_to_ocean_1 = {
@@ -891,30 +966,67 @@ ideas ={
 			allowed = { always = no }
 			equipment_bonus = {
 				ship_hull_submarine = {
-					build_cost_ic = -0.15 instant = yes
+					build_cost_ic = -0.10 instant = yes
 				}
 				ship_hull_light = {
-					build_cost_ic = -0.15 instant = yes
+					build_cost_ic = -0.10 instant = yes
 				}
 				ship_hull_cruiser = {
-					build_cost_ic = -0.15 instant = yes
+					build_cost_ic = -0.10 instant = yes
 				}
 				ship_hull_heavy = {
-					build_cost_ic = -0.15 instant = yes
+					build_cost_ic = -0.10 instant = yes
 				}
 				ship_hull_carrier = {
-					build_cost_ic = -0.15 instant = yes
+					build_cost_ic = -0.10 instant = yes
 				}
 				mio_cat_eq_all_aircraft = {
-					build_cost_ic = -0.15 instant = yes
+					build_cost_ic = -0.10 instant = yes
 				}
 			}
 			modifier = {
-				production_speed_air_base_factor = 0.10
-				production_speed_dockyard_factor = 0.10
+				production_speed_air_base_factor = 0.05
+				production_speed_dockyard_factor = 0.05
 				nuclear_production_factor = 0.20
 				air_bombing_targetting = 0.10
 				ground_attack_factor = 0.10
+			}
+		}
+		QIE_wushan_economic_department = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_economic_department" }
+			picture = GER_wirtschaftswunder
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.10
+				industrial_capacity_factory = 0.05
+				production_speed_buildings_factor = 0.05
+				political_power_gain = -0.30
+			}
+		}
+		QIE_wushan_economic_department_1 = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_economic_department_1" }
+			picture = GER_wirtschaftswunder
+			allowed = { always = no }
+			modifier = {
+				industrial_capacity_factory = 0.10
+				production_speed_buildings_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.05
+				local_building_slots_factor = 0.05
+				political_power_gain = -0.50
+			}
+		}
+		QIE_wushan_hoping_japan_repents = {
+			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_hoping_japan_repents" }
+			picture = GER_proud_eagle_that_ate_the_sun
+			allowed = { always = no }
+			modifier = {
+				surrender_limit = 0.20
+			}
+			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = 0.10
+				breakthrough_bonus_against = 0.10
+				defense_bonus_against = 0.10
 			}
 		}
 	### United Temporary Ideas
@@ -945,18 +1057,100 @@ ideas ={
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_mass_arrests" }
 			picture = generic_prisoner
 			modifier = {
-				political_power_gain = 0.3
+				political_power_gain = 0.4
 				weekly_manpower = -100
-				stability_factor = 0.25
-				war_support_factor = 0.25
-				production_factory_max_efficiency_factor = 0.10
-				industrial_capacity_factory = 0.10
-				industrial_capacity_dockyard = 0.10
+				stability_factor = 0.10
+				war_support_factor = 0.10
+				production_factory_max_efficiency_factor = 0.05
 			}
 		}
 	}
-
+	industrial_concern = {
+		QIE_ws_theo_china_bank = {
+			picture = qie_ideas_ws_chinese_bank
+			allowed = { original_tag = QIE }
+			visible = { 
+				has_country_flag = QIE_ws_financial_bank_advisors_unlocked 
+				NOT = { has_country_flag = QIE_ws_financial_bank_advisors_upgraded }
+				}
+			available = {
+				has_country_flag = QIE_ws_financial_bank_advisors_unlocked
+				NOT = { has_country_flag = QIE_ws_financial_bank_advisors_upgraded }
+			}
+			on_add = { add_cic = 450 }
+			cost = 150
+			modifier = {
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.05
+				production_speed_industrial_complex_factor = 0.10
+			}
+			research_bonus = {
+				industry = 0.10
+			}
+		}
+		QIE_ws_theo_china_bank_1 = {
+			picture = qie_ideas_ws_chinese_bank
+			allowed = { original_tag = QIE }
+			visible = { has_country_flag = QIE_ws_financial_bank_advisors_upgraded }
+			available = { has_country_flag = QIE_ws_financial_bank_advisors_upgraded }
+			cost = 150
+			modifier = {
+				consumer_goods_factor = -0.15
+				local_resources_factor = 0.15
+				production_speed_industrial_complex_factor = 0.25
+			}
+			research_bonus = {
+				industry = 0.20
+			}
+		}
+		QIE_ws_theo_communication_bank = {
+			picture = qie_ideas_ws_communication_bank
+			allowed = { original_tag = QIE }
+			visible = { 
+				has_country_flag = QIE_ws_financial_bank_advisors_unlocked 
+				NOT = { has_country_flag = QIE_ws_financial_bank_advisors_upgraded }
+				}
+			available = {
+				has_country_flag = QIE_ws_financial_bank_advisors_unlocked
+				NOT = { has_country_flag = QIE_ws_financial_bank_advisors_upgraded }
+			}
+			on_add = { add_cic = 450 }
+			cost = 150
+			modifier = {
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.05
+				production_speed_arms_factory_factor = 0.10
+			}
+			research_bonus = {
+				industry = 0.10
+			}
+		}
+		QIE_ws_theo_communication_bank_1 = {
+			picture = qie_ideas_ws_communication_bank
+			allowed = { original_tag = QIE }
+			visible = { has_country_flag = QIE_ws_financial_bank_advisors_upgraded }
+			available = { has_country_flag = QIE_ws_financial_bank_advisors_upgraded }
+			cost = 150
+			modifier = {
+				consumer_goods_factor = -0.15
+				local_resources_factor = 0.15
+				production_speed_arms_factory_factor = 0.25
+			}
+			research_bonus = {
+				industry = 0.20
+			}
+		}
+	}
 	hidden_ideas = {
+		QIE_wushan_jiangzhou_industrial_promotion = {
+			on_add = {
+				log = "[GetLogRoot]: add idea QIE_wushan_jiangzhou_industrial_promotion"
+				set_variable = { QIE_wushan_jiangzhou_factory_timer = 0 }
+			}
+			picture = generic_medium_industry
+			allowed = { always = no }
+		}
+
 		QIE_wushan_luoyang_arsenal_zhili_research = {
 			on_add = { log = "[GetLogRoot]: add idea QIE_wushan_luoyang_arsenal_zhili_research" }
 			picture = generic_research_bonus
@@ -1014,6 +1208,10 @@ ideas ={
 			allowed = { always = no }
 			equipment_bonus = {
 				motorized_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				mechanized_equipment = {
 					instant = yes
 					build_cost_ic = -0.10
 				}

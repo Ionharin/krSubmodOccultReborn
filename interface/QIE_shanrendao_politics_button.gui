@@ -1,0 +1,192 @@
+guiTypes = {
+	containerWindowType = {
+		name = "QIE_shanrendao_politics_button_window"
+		position = { x = 425 y = 400 }
+		size = { width = 66 height = 72 }
+		clipping = no
+
+		buttonType = {
+			name = "QIE_shanrendao_politics_button"
+			position = { x = 40 y = 14 }
+			quadTextureSprite = "GFX_QIE_shanrendao_politics_button"
+			clicksound = click_ok
+			oversound = ui_menu_over
+			scale = 0.3
+			buttonText = ""
+			buttonFont = "hoi_16mbs"
+			pdx_tooltip = "QIE_shanrendao_politics_button_tt"
+		}
+	}
+
+	containerWindowType = {
+		name = "QIE_shanrendao_window"
+		position = { x = -430 y = -290 }
+		size = { width = 860 height = 600 }
+
+		hide_position = { x = -430 y = 340 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
+
+		moveable = yes
+		show_sound = menu_open_window
+		hide_sound = menu_close_window
+		click_to_front = yes
+		orientation = center
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_plain_bg"
+		}
+
+		iconType = {
+			name = "header_bg"
+			spriteType = "GFX_header_extra_wide_bg"
+			position = { x = 5 y = 5 }
+			orientation = upper_left
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "title"
+			position = { x = 0 y = 10 }
+			font = "hoi_36header"
+			borderSize = { x = 0 y = 0 }
+			text = QIE_shanrendao_gui_title
+			maxWidth = 860
+			format = center
+		}
+
+		buttonType = {
+			name = "QIE_shanrendao_close_button"
+			position = { x = -45 y = 7 }
+			spriteType = "GFX_closebutton"
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+			shortcut = "ESCAPE"
+			orientation = upper_right
+		}
+
+		buttonType = {
+			name = "QIE_shanrendao_authority_button"
+			position = { x = 54 y = 92 }
+			quadTextureSprite = "GFX_QIE_shanrendao_wes_icon"
+			buttonText = ""
+			buttonFont = "hoi_16mbs"
+			scale = 0.75
+			clicksound = click_ok
+			oversound = ui_menu_over
+			pdx_tooltip = QIE_shanrendao_wes_icon_tt
+			pdx_tooltip_delayed = QIE_shanrendao_wes_icon_desc
+		}
+
+		iconType = {
+			name = "QIE_shanrendao_chairman_portrait"
+			quadTextureSprite = "GFX_portrait_qie_ws_tang_er_he"
+			position = { x = 335 y = 40 }
+			scale = 0.60
+			pdx_tooltip = QIE_shanrendao_chairman_tt
+		}
+
+		instantTextBoxType = {
+			name = "QIE_shanrendao_authority_label"
+			position = { x = 520 y = 165 }
+			font = "hoi_18mbs"
+			text = QIE_shanrendao_authority_label
+			format = left
+			maxWidth = 180
+		}
+
+		instantTextBoxType = {
+			name = "QIE_shanrendao_authority_value"
+			position = { x = 705 y = 145 }
+			font = "hoi_36header"
+			text = QIE_shanrendao_authority_value_text
+			format = left
+			maxWidth = 90
+		}
+
+		iconType = {
+			name = "QIE_shanrendao_committee_irq_flag"
+			quadTextureSprite = "GFX_QIE_shanrendao_flag_IRQ"
+			position = { x = 54 y = 243 }
+			scale = 0.58
+			pdx_tooltip = QIE_shanrendao_irq_tt
+		}
+
+		iconType = {
+			name = "QIE_shanrendao_committee_irq"
+			quadTextureSprite = "GFX_portrait_irq_pnr_prince_mohamed_bin_hussein"
+			position = { x = 23 y = 294 }
+			scale = 0.56
+			pdx_tooltip = QIE_shanrendao_irq_tt
+		}
+
+		iconType = {
+			name = "QIE_shanrendao_committee_jap_flag"
+			quadTextureSprite = "GFX_QIE_shanrendao_flag_JAP"
+			position = { x = 214 y = 243 }
+			scale = 0.58
+			pdx_tooltip = QIE_shanrendao_jap_tt
+		}
+
+		iconType = {
+			name = "QIE_shanrendao_committee_jap"
+			quadTextureSprite = "GFX_portrait_jap_pnr_onisaburo"
+			position = { x = 183 y = 294 }
+			scale = 0.56
+			pdx_tooltip = QIE_shanrendao_jap_tt
+		}
+
+		iconType = {
+			name = "QIE_shanrendao_committee_qie_flag"
+			quadTextureSprite = "GFX_QIE_shanrendao_flag_QIE"
+			position = { x = 374 y = 243 }
+			scale = 0.58
+			pdx_tooltip = QIE_shanrendao_qie_tt
+		}
+
+		iconType = {
+			name = "QIE_shanrendao_committee_qie"
+			quadTextureSprite = "GFX_portrait_qie_ws_luanwu_yuan"
+			position = { x = 343 y = 294 }
+			scale = 0.56
+			context_aware_tooltip = {
+				localization_key = QIE_shanrendao_qie_dynamic_tt
+				Leader = [QIE.GetLeader]
+			}
+		}
+
+		iconType = {
+			name = "QIE_shanrendao_committee_pap_flag"
+			quadTextureSprite = "GFX_QIE_shanrendao_flag_PAP"
+			position = { x = 534 y = 243 }
+			scale = 0.58
+			pdx_tooltip = QIE_shanrendao_pap_tt
+		}
+
+		iconType = {
+			name = "QIE_shanrendao_committee_pap"
+			quadTextureSprite = "GFX_portrait_pap_pnr_lu_zhengxiang"
+			position = { x = 503 y = 294 }
+			scale = 0.56
+			pdx_tooltip = QIE_shanrendao_pap_tt
+		}
+
+		iconType = {
+			name = "QIE_shanrendao_committee_trk_flag"
+			quadTextureSprite = "GFX_QIE_shanrendao_flag_TRK"
+			position = { x = 694 y = 243 }
+			scale = 0.58
+			pdx_tooltip = QIE_shanrendao_trk_tt
+		}
+
+		iconType = {
+			name = "QIE_shanrendao_committee_trk"
+			quadTextureSprite = "GFX_portrait_trk_pnr_nanasatta_thera"
+			position = { x = 663 y = 294 }
+			scale = 0.56
+			pdx_tooltip = QIE_shanrendao_trk_tt
+		}
+	}
+}
