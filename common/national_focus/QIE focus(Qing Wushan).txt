@@ -123,6 +123,9 @@ focus_tree = {
 				QIE_ws_adv_zhou_zhenlin = {
 					set_nationality = QIE
 				}
+				QIE_ws_zhang_guangjian = {
+					set_nationality = QIE
+				}
 				QIE_zhang_yanqing = {
 					set_nationality = QIE
 				}
@@ -250,7 +253,6 @@ focus_tree = {
 					add_corps_commander_role = {
 						desc = QIE_ws_xue_zhiheng_desc
 						traits = {
-							brilliant_strategist
 							career_officer
 							infantry_officer
 						}
@@ -274,6 +276,24 @@ focus_tree = {
 						attack_skill = 4
 						defense_skill = 2
 						planning_skill = 2
+						logistics_skill = 2
+					}
+				}
+				QIE_ws_zhang_guangjian = {
+					add_corps_commander_role = {
+						desc = QIE_ws_zhang_guangjian_desc
+						traits = {
+							QIE_wushan_wushanshe_member
+							trait_reckless
+							career_officer
+							cavalry_leader
+							cavalry_officer
+							old_guard
+						}
+						skill = 1
+						attack_skill = 2
+						defense_skill = 1
+						planning_skill = 1
 						logistics_skill = 2
 					}
 				}
@@ -5407,7 +5427,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_political_power = 100
-			add_cic = 1000
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
 			set_temp_variable = {
 				coalition_partner_var = token:authoritarian_democrat
 			}
@@ -7573,8 +7594,10 @@ focus_tree = {
 				idea = QIE_wushan_rooster_devours_vermin
 				days = 500
 			}
-			524 = {
-				add_claim_by = ROOT
+			# 524 = { add_claim_by = ROOT }
+			526 = { add_claim_by = ROOT }
+			hidden_effect = {
+				526 = { enable_state_integration_80_compliance = yes }
 			}
 		}
 	}
@@ -7763,9 +7786,7 @@ focus_tree = {
 				target = JAP
 				type = annex_everything
 			}
-			524 = {
-				add_core_of = ROOT
-			}
+			# 524 = { add_core_of = ROOT }
 		}
 	}
 	focus = {
