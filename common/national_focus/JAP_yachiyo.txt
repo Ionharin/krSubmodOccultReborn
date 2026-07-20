@@ -1,0 +1,488 @@
+focus_tree = {
+	id = JAP_pnr_yachiyo
+	country = {
+		factor = 0
+	}
+	default = no
+	reset_on_civilwar = no
+	focus = {
+		id = JAP_pnr_the_shadow_of_war
+		x = -15
+		y = 1
+		cost = 0
+		icon = GFX_focus_JAP_the_imperial_defense_plan
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_special_military_exercise
+		x = -1
+		y = 1
+		cost = 0
+		icon = GFX_focus_jap_pacific_guardian
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_shadow_of_war
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_elder_brother_in_east_asia
+		x = -7
+		y = -7
+		cost = 0
+		icon = GFX_focus_JAP_a_red_dawn_over_asia
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_phasianus_versicolor
+		x = 0
+		y = 1
+		cost = 0
+		icon = GFX_focus_JAP_embrace_kokutai
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_peace_of_asia
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_japanese_aitake
+		x = -9
+		y = 2
+		cost = 0
+		icon = GFX_focus_JAP_new_order_in_east_asia
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_phasianus_versicolor
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_68th_sessions_imperial_diet
+		x = -38
+		y = -7
+		cost = 3
+		icon = GFX_focus_JAP_minpon_shugi
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_asian_solidarity_agreement
+		x = 3
+		y = -7
+		cost = 4
+		icon = GFX_focus_JAP_konoes_first_cabinet
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_navy_special_exercise
+		x = 1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_shadow_of_war
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_the_new_order_of_aisa
+		x = 3
+		y = -5
+		cost = 0
+		icon = GFX_focus_jap_manchurian_project
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_the_great_asia_conference
+		x = 3
+		y = -3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_pax_nipponica
+		x = -25
+		y = 8
+		cost = 0
+		icon = GFX_focus_generic_world_peace
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_reassess_mainland_policy
+		x = -4
+		y = 1
+		cost = 0
+		icon = GFX_focus_PRC_peaceful_reunification
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_elder_brother_in_east_asia
+		}
+		relative_position_id = JAP_pnr_elder_brother_in_east_asia
+	}
+	focus = {
+		id = JAP_pnr_the_russo_japanese_treaty
+		x = -5
+		y = 2
+		cost = 0
+		icon = GFX_goal_russian_cooperation
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reassess_mainland_policy
+		}
+		relative_position_id = JAP_pnr_elder_brother_in_east_asia
+	}
+	focus = {
+		id = JAP_pnr_support_the_princely_federation
+		x = 4
+		y = 1
+		cost = 0
+		icon = GFX_focus_RAJ_pruna_swaraj
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_elder_brother_in_east_asia
+		}
+		relative_position_id = JAP_pnr_elder_brother_in_east_asia
+	}
+	focus = {
+		id = JAP_pnr_the_united_states_is_stuck_in_the_quagmire
+		x = 0
+		y = 1
+		cost = 0
+		icon = GFX_focus_generic_attack_usa
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_elder_brother_in_east_asia
+		}
+		relative_position_id = JAP_pnr_elder_brother_in_east_asia
+	}
+	focus = {
+		id = JAP_pnr_control_the_mad_dog
+		x = -2
+		y = 2
+		cost = 0
+		icon = GFX_focus_CHI_avoid_another_crisis
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reassess_mainland_policy
+		}
+		relative_position_id = JAP_pnr_elder_brother_in_east_asia
+	}
+	focus = {
+		id = JAP_pnr_the_great_game_in_nanyang
+		x = 7
+		y = 1
+		cost = 0
+		icon = GFX_focus_SIA_recover_indochina
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_elder_brother_in_east_asia
+		}
+		relative_position_id = JAP_pnr_elder_brother_in_east_asia
+	}
+	focus = {
+		id = JAP_pnr_the_problem_of_glanders
+		x = -11
+		y = -4
+		cost = 0
+		icon = GFX_focus_generic_horse_studs
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_russo_japanese_treaty
+		}
+	}
+	focus = {
+		id = JAP_pnr_operation_trapped_rider
+		x = -12
+		y = -3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_problem_of_glanders
+		}
+		prerequisite = {
+			focus = JAP_pnr_northern_breakwater
+		}
+	}
+	focus = {
+		id = JAP_pnr_the_peace_of_asia
+		x = -25
+		y = 1
+		cost = 0
+		icon = GFX_focus_JAP_greater_east_asian_co_properity_sphere
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_prepare_continental_warfare
+		x = -9
+		y = 0
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_support_the_chinese_federalism
+			focus = JAP_pnr_operation_morokoshi
+			focus = JAP_pnr_smash_the_legation_city
+		}
+	}
+	focus = {
+		id = JAP_pnr_support_fengtian_only
+		x = -9
+		y = -2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_divide_and_rule
+			focus = JAP_pnr_using_korea_as_the_forward_base
+		}
+		prerequisite = {
+			focus = JAP_pnr_our_strategy_toward_china
+		}
+	}
+	focus = {
+		id = JAP_pnr_divide_and_rule
+		x = -11
+		y = -2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_support_fengtian_only
+			focus = JAP_pnr_using_korea_as_the_forward_base
+		}
+		prerequisite = {
+			focus = JAP_pnr_our_strategy_toward_china
+		}
+	}
+	focus = {
+		id = JAP_pnr_support_the_chinese_federalism
+		x = -11
+		y = -1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_divide_and_rule
+		}
+	}
+	focus = {
+		id = JAP_pnr_our_strategy_toward_china
+		x = -9
+		y = -4
+		cost = 0
+		icon = GFX_focus_PRC_towards_one_china
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_control_the_mad_dog
+		}
+	}
+	focus = {
+		id = JAP_pnr_tianjin_conference
+		x = -8
+		y = -3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_our_strategy_toward_china
+		}
+	}
+	focus = {
+		id = JAP_pnr_operation_morokoshi
+		x = -9
+		y = -1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_support_fengtian_only
+		}
+	}
+	focus = {
+		id = JAP_pnr_using_korea_as_the_forward_base
+		x = -7
+		y = -2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_support_fengtian_only
+			focus = JAP_pnr_divide_and_rule
+		}
+		prerequisite = {
+			focus = JAP_pnr_our_strategy_toward_china
+		}
+	}
+	focus = {
+		id = JAP_pnr_smash_the_legation_city
+		x = -7
+		y = -1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_using_korea_as_the_forward_base
+		}
+	}
+	focus = {
+		id = JAP_pnr_oil_begins_to_flow
+		x = -6
+		y = -4
+		cost = 0
+		icon = GFX_focus_PER_invite_oil_nations
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_united_states_is_stuck_in_the_quagmire
+		}
+	}
+	focus = {
+		id = JAP_pnr_blockade_of_german_east_asia
+		x = 1
+		y = -5
+		cost = 0
+		icon = GFX_goal_JAP_target_gea
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_great_game_in_nanyang
+		}
+	}
+	focus = {
+		id = JAP_pnr_cultivate_siam
+		x = -1
+		y = -5
+		cost = 0
+		icon = GFX_focus_generic_befriend_siam
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_great_game_in_nanyang
+		}
+	}
+	focus = {
+		id = JAP_pnr_gatekeeper_of_andaman_sea
+		x = -2
+		y = -4
+		cost = 0
+		icon = flag_burma
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_support_the_princely_federation
+			focus = JAP_operation_spartacus
+		}
+		prerequisite = {
+			focus = JAP_pnr_cultivate_siam
+		}
+	}
+	focus = {
+		id = JAP_pnr_operation_night_sakura
+		x = 1
+		y = -3
+		cost = 0
+		icon = GFX_JAP_sakura_tree
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_blockade_of_german_east_asia
+		}
+	}
+	focus = {
+		id = JAP_pnr_cut_off_australasia_lifeline
+		x = -1
+		y = -2
+		cost = 0
+		icon = GFX_goal_JAP_target_australasia
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_operation_night_sakura
+		}
+	}
+	focus = {
+		id = JAP_pnr_drink_poison_to_quench_first
+		x = 2
+		y = 1
+		cost = 0
+		icon = GFX_focus_generic_communist_asia
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_elder_brother_in_east_asia
+		}
+		relative_position_id = JAP_pnr_elder_brother_in_east_asia
+	}
+	focus = {
+		id = JAP_operation_spartacus
+		x = -5
+		y = -5
+		cost = 0
+		icon = GFX_goal_syndicalism
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_drink_poison_to_quench_first
+		}
+	}
+	focus = {
+		id = JAP_pnr_dancing_with_the_bear
+		x = -15
+		y = -4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_northern_breakwater
+		}
+		prerequisite = {
+			focus = JAP_pnr_the_russo_japanese_treaty
+		}
+	}
+	focus = {
+		id = JAP_pnr_northern_breakwater
+		x = -13
+		y = -4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_dancing_with_the_bear
+		}
+		prerequisite = {
+			focus = JAP_pnr_the_russo_japanese_treaty
+		}
+	}
+	focus = {
+		id = JAP_pnr_invade_mongolia
+		x = -15
+		y = -3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_dancing_with_the_bear
+		}
+	}
+}

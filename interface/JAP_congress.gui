@@ -1,0 +1,423 @@
+guiTypes = {
+	containerWindowType = {
+		name = "JAP_congress_open_button_window"
+		position = {
+			x = 0
+			y = -115
+		}
+		size = {
+			width = 77
+			height = 77
+		}
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_equipment_role_selector_tiled_window"
+		}
+		background = {
+			name = "Background2"
+			quadTextureSprite = "GFX_tiled_research_bg"
+		}
+		buttonType = {
+			name = "JAP_congress_open_button"
+			position = {
+				x = 8
+				y = 8
+			}
+			quadTextureSprite = "GFX_jap_congress_open_btn"
+			clicksound = click_ok
+			oversound = ui_menu_over
+			pdx_tooltip = JAP_congress_open_button_tt
+			pdx_tooltip_delayed = JAP_congress_open_button_desc
+			scale = 0.6
+		}
+	}
+
+	containerWindowType = {
+		name = "JAP_congress_window"
+		position = {
+			x = -400
+			y = -250
+		}
+		size = {
+			width = 850
+			height = 530
+		}
+		hide_position = {
+			x = -400
+			y = 200
+		}
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 600
+		moveable = yes
+		show_sound = menu_open_window
+		hide_sound = menu_close_window
+		click_to_front = yes
+		orientation = center
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_plain_bg"
+		}
+		iconType = {
+			name = "header_bg"
+			spriteType = "GFX_header_extra_wide_bg"
+			position = {
+				x = 5
+				y = 5
+			}
+			orientation = upper_left
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "title"
+			position = {
+				x = 0
+				y = 10
+			}
+			font = "hoi_36header"
+			borderSize = {
+				x = 0
+				y = 0
+			}
+			text = JAP_congress_title
+			maxWidth = 850
+			format = center
+		}
+		buttonType = {
+			name = "JAP_congress_close_button"
+			position = {
+				x = -45
+				y = 7
+			}
+			spriteType = "GFX_closebutton"
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+			shortcut = "ESCAPE"
+			orientation = upper_right
+		}
+		containerWindowType = {
+			name = "JAP_congress_seats_window"
+			position = {
+				x = 75
+				y = 75
+			}
+			size = {
+				width = 700
+				height = 365
+			}
+			background = {
+				name = "Background"
+				quadTextureSprite = "GFX_tiled_decisions_bg_small"
+			}
+			gridboxtype = {
+				name = "JAP_congress_seats_gridbox"
+				position = {
+					x = 85
+					y = 30
+				}
+				size = {
+					width = 680
+					height = 300
+				}
+				slotsize = {
+					width = 100%%
+					height = 0
+				}
+				max_slots_horizontal = 1
+				add_horizontal = no
+				format = "UPPER_LEFT"
+			}
+		}
+		instantTextBoxType = {
+			name = "JAP_congress_total_seats"
+			position = {
+				x = 0
+				y = 448
+			}
+			font = "hoi_20b"
+			borderSize = {
+				x = 0
+				y = 0
+			}
+			text = JAP_congress_total_seats_text
+			maxWidth = 850
+			format = center
+		}
+		instantTextBoxType = {
+			name = "JAP_congress_house_name"
+			position = {
+				x = 0
+				y = 475
+			}
+			font = "hoi_24header"
+			borderSize = {
+				x = 0
+				y = 0
+			}
+			text = JAP_congress_house_name
+			maxWidth = 850
+			format = center
+		}
+		buttonType = {
+			name = "JAP_congress_party_detail_toggle_button"
+			position = {
+				x = 662
+				y = 452
+			}
+			spriteType = "GFX_chart_history_type_button"
+			clicksound = click_ok
+			oversound = ui_menu_over
+			buttonFont = "hoi_18mbs"
+			text = JAP_congress_party_detail_button_text
+			pdx_tooltip = JAP_congress_party_detail_button_tt
+		}
+		buttonType = {
+			name = "JAP_congress_collapse_test_button"
+			position = {
+				x = 35
+				y = 452
+			}
+			quadTextureSprite = "GFX_button_123x34"
+			clicksound = click_ok
+			oversound = ui_menu_over
+			buttonFont = "hoi_18mbs"
+			text = JAP_congress_collapse_test_button_text
+			pdx_tooltip = JAP_congress_collapse_test_button_tt
+		}
+		buttonType = {
+			name = "JAP_congress_broken_test_button"
+			position = {
+				x = 35
+				y = 500
+			}
+			quadTextureSprite = "GFX_button_123x34"
+			clicksound = click_ok
+			oversound = ui_menu_over
+			buttonFont = "hoi_18mbs"
+			text = JAP_congress_broken_test_button_text
+			pdx_tooltip = JAP_congress_broken_test_button_tt
+		}
+		buttonType = {
+			name = "JAP_congress_reselect_test_button"
+			position = {
+				x = 200
+				y = 452
+			}
+			quadTextureSprite = "GFX_button_123x34"
+			clicksound = click_ok
+			oversound = ui_menu_over
+			buttonFont = "hoi_18mbs"
+			text = JAP_congress_reselect_test_button_text
+			pdx_tooltip = JAP_congress_reselect_test_button_tt
+		}
+	}
+
+	containerWindowType = {
+		name = "JAP_congress_party_detail_panel"
+		position = {
+			x = 455
+			y = -245
+		}
+		size = {
+			width = 270
+			height = 300
+		}
+		orientation = center
+		moveable = yes
+		click_to_front = yes
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_decisions_bg_small"
+		}
+		instantTextBoxType = {
+			name = "JAP_congress_party_detail_title"
+			position = { x = 10 y = 10 }
+			font = "hoi_18mbs"
+			borderSize = { x = 0 y = 0 }
+			text = JAP_congress_party_detail_title
+			maxWidth = 250
+			format = center
+		}
+		instantTextBoxType = {
+			name = "JAP_congress_party_detail_1"
+			position = { x = 15 y = 40 }
+			font = "hoi_18mbs"
+			borderSize = { x = 0 y = 0 }
+			text = JAP_congress_party_detail_1_text
+			maxWidth = 240
+			format = left
+		}
+		instantTextBoxType = {
+			name = "JAP_congress_party_detail_2"
+			position = { x = 15 y = 65 }
+			font = "hoi_18mbs"
+			borderSize = { x = 0 y = 0 }
+			text = JAP_congress_party_detail_2_text
+			maxWidth = 240
+			format = left
+		}
+		instantTextBoxType = {
+			name = "JAP_congress_party_detail_3"
+			position = { x = 15 y = 90 }
+			font = "hoi_18mbs"
+			borderSize = { x = 0 y = 0 }
+			text = JAP_congress_party_detail_3_text
+			maxWidth = 240
+			format = left
+		}
+		instantTextBoxType = {
+			name = "JAP_congress_party_detail_4"
+			position = { x = 15 y = 115 }
+			font = "hoi_18mbs"
+			borderSize = { x = 0 y = 0 }
+			text = JAP_congress_party_detail_4_text
+			maxWidth = 240
+			format = left
+		}
+		instantTextBoxType = {
+			name = "JAP_congress_party_detail_5"
+			position = { x = 15 y = 140 }
+			font = "hoi_18mbs"
+			borderSize = { x = 0 y = 0 }
+			text = JAP_congress_party_detail_5_text
+			maxWidth = 240
+			format = left
+		}
+		instantTextBoxType = {
+			name = "JAP_congress_party_detail_6"
+			position = { x = 15 y = 165 }
+			font = "hoi_18mbs"
+			borderSize = { x = 0 y = 0 }
+			text = JAP_congress_party_detail_6_text
+			maxWidth = 240
+			format = left
+		}
+		instantTextBoxType = {
+			name = "JAP_congress_party_detail_7"
+			position = { x = 15 y = 190 }
+			font = "hoi_18mbs"
+			borderSize = { x = 0 y = 0 }
+			text = JAP_congress_party_detail_7_text
+			maxWidth = 240
+			format = left
+		}
+		instantTextBoxType = {
+			name = "JAP_congress_party_detail_8"
+			position = { x = 15 y = 215 }
+			font = "hoi_18mbs"
+			borderSize = { x = 0 y = 0 }
+			text = JAP_congress_party_detail_8_text
+			maxWidth = 240
+			format = left
+		}
+		instantTextBoxType = {
+			name = "JAP_congress_party_detail_9"
+			position = { x = 15 y = 240 }
+			font = "hoi_18mbs"
+			borderSize = { x = 0 y = 0 }
+			text = JAP_congress_party_detail_9_text
+			maxWidth = 240
+			format = left
+		}
+		instantTextBoxType = {
+			name = "JAP_congress_party_detail_10"
+			position = { x = 15 y = 265 }
+			font = "hoi_18mbs"
+			borderSize = { x = 0 y = 0 }
+			text = JAP_congress_party_detail_10_text
+			maxWidth = 240
+			format = left
+		}
+	}
+
+	containerWindowType = {
+		name = "JAP_congress_collapse_overlay_window"
+		position = {
+			x = -315
+			y = -165
+		}
+		size = {
+			width = 680
+			height = 300
+		}
+		orientation = center
+		click_to_front = no
+		clipping = no
+		iconType = {
+			name = "JAP_congress_seats_collapse_overlay"
+			position = {
+				x = 0
+				y = 0
+			}
+			spriteType = "GFX_jap_congress_seats_cover_overlay"
+			pdx_tooltip = JAP_congress_collapse_overlay_tt
+		}
+	}
+
+	containerWindowType = {
+		name = "JAP_congress_broken_overlay_window"
+		position = {
+			x = -315
+			y = -165
+		}
+		size = {
+			width = 680
+			height = 300
+		}
+		orientation = center
+		click_to_front = no
+		clipping = no
+		iconType = {
+			name = "JAP_congress_seats_broken_overlay"
+			position = {
+				x = 0
+				y = 0
+			}
+			spriteType = "GFX_jap_congress_seats_broken_overlay"
+			pdx_tooltip = JAP_congress_broken_overlay_tt
+		}
+	}
+
+	containerWindowType = {
+		name = "JAP_congress_reselect_overlay_window"
+		position = {
+			x = -315
+			y = -165
+		}
+		size = {
+			width = 680
+			height = 300
+		}
+		orientation = center
+		click_to_front = no
+		clipping = no
+		iconType = {
+			name = "JAP_congress_seats_reselect_overlay"
+			position = {
+				x = 0
+				y = 0
+			}
+			spriteType = "GFX_jap_congress_seats_reselect_overlay"
+			pdx_tooltip = JAP_congress_reselect_overlay_tt
+		}
+	}
+
+	containerWindowType = {
+		name = "JAP_congress_seat_container"
+		position = { x = 0 y = 0 }
+		size = { width = 18 height = 18 }
+		iconType = {
+			name = "JAP_congress_seat_icon"
+			quadTextureSprite = "GFX_jap_congress_seats_icon"
+			pdx_tooltip = JAP_congress_seat_tt
+			scale = 0.9
+		}
+		buttonType = {
+			name = "JAP_congress_seat_icon_overlay"
+			quadTextureSprite = "GFX_jap_congress_seats_icon_overlay"
+			pdx_tooltip = JAP_congress_seat_tt
+			frame = 3
+			scale = 0.9
+		}
+	}
+}

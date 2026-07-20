@@ -929,7 +929,7 @@ country_event = { # 援助的代价
         random_list = {
             50 = { # annex SZC
                 every_core_state = {
-                    add_core_of = QIE
+                    add_compliance = 20
                 }
                 QIE = {
                     annex_country = {
@@ -1052,6 +1052,11 @@ country_event = { # 洪特与洪洞
         name = QIE_ws_normal_events.10.a
         ai_chance = { factor = 1 }
         trigger = { has_country_flag = QIE_ws_hungary_is_shanxi_flag }
+        every_state = {
+            limit = { is_core_of = HUN }
+            add_claim_by = QIE
+            enable_state_integration_80_compliance = yes
+        }
         hidden_effect = {
             country_event = { id = QIE_ws_hidden_events.4 days = 93 }
         }
@@ -1102,6 +1107,7 @@ country_event = { # QIE demands more
         QIE = { 
             transfer_state = 857
             transfer_state = 671
+            country_event = { id = QIE_ws_normal_events.14 days = 1 }
         }
     }
 }
@@ -3805,7 +3811,7 @@ country_event = { # Unlock the seances focus
     }
 }
 
-country_event = { # Get core of hungary land after 3 months
+country_event = { # Add compliance to Hungarian core states after 3 months
     id = QIE_ws_hidden_events.4
     immediate = { log = "[GetDateText]: [Root.GetName]: event QIE_ws_hidden_events.4" }
     title = QIE_ws_hidden_events.4.t
@@ -3814,12 +3820,12 @@ country_event = { # Get core of hungary land after 3 months
     is_triggered_only = yes
     hidden = yes
     timeout_days = 14
-    option = { # 3个月后获得匈牙利核心
+    option = { # 3 months later, increase compliance in Hungarian core states.
         name = QIE_ws_hidden_events.4.a
         ai_chance = { factor = 1 }
         every_state = {
             limit = { is_core_of = HUN }
-            add_core_of = QIE
+            add_compliance = 20
         }
     }
 }

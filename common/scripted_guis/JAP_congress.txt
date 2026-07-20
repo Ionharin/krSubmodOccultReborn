@@ -1,0 +1,143 @@
+scripted_gui = {
+	JAP_congress_button = {
+		parent_window_name = raid_filter
+		context_type = player_context
+		window_name = "JAP_congress_open_button_window"
+		dirty = global.JAP_congress_update
+
+		visible = {
+			JAP_congress_can_see_button = yes
+		}
+
+		ai_enabled = { always = no }
+
+		triggers = {
+			JAP_congress_open_button_click_enabled = {
+				JAP_congress_can_open = yes
+			}
+		}
+
+		effects = {
+			JAP_congress_open_button_click = {
+				if = {
+					limit = { JAP_congress_interface_is_open = no }
+					JAP_congress_open_panel = yes
+				}
+				else = {
+					JAP_congress_close_panel = yes
+				}
+			}
+		}
+	}
+
+	JAP_congress_window = {
+		context_type = player_context
+		window_name = "JAP_congress_window"
+		dirty = global.JAP_congress_update
+
+		visible = {
+			JAP_congress_interface_is_open = yes
+		}
+
+		ai_enabled = { always = no }
+
+		triggers = {
+			JAP_congress_close_button_click_enabled = { always = yes }
+			JAP_congress_party_detail_toggle_button_click_enabled = { always = yes }
+			JAP_congress_collapse_test_button_click_enabled = { always = yes }
+			JAP_congress_broken_test_button_click_enabled = { always = yes }
+			JAP_congress_reselect_test_button_click_enabled = { always = yes }
+		}
+
+		effects = {
+			JAP_congress_close_button_click = {
+				JAP_congress_close_panel = yes
+			}
+			JAP_congress_party_detail_toggle_button_click = {
+				JAP_congress_toggle_party_detail_panel = yes
+			}
+			JAP_congress_collapse_test_button_click = {
+				JAP_congress_start_collapse_overlay = yes
+			}
+			JAP_congress_broken_test_button_click = {
+				JAP_congress_start_broken_overlay = yes
+			}
+			JAP_congress_reselect_test_button_click = {
+				JAP_congress_start_reselect_overlay = yes
+			}
+		}
+
+		properties = {
+			JAP_congress_seat_icon = {
+				x = JAP_congress_x_array^seat_idx
+				y = JAP_congress_y_array^seat_idx
+				frame = JAP_congress_seats_array^seat_idx
+			}
+			JAP_congress_seat_icon_overlay = {
+				x = JAP_congress_x_array^seat_idx
+				y = JAP_congress_y_array^seat_idx
+			}
+		}
+
+		dynamic_lists = {
+			JAP_congress_seats_gridbox = {
+				array = JAP_congress_seats_array
+				change_scope = no
+				entry_container = JAP_congress_seat_container
+				index = seat_idx
+			}
+		}
+	}
+
+	JAP_congress_party_detail_window = {
+		context_type = player_context
+		window_name = "JAP_congress_party_detail_panel"
+		dirty = global.JAP_congress_update
+
+		visible = {
+			JAP_congress_interface_is_open = yes
+			has_country_flag = JAP_congress_party_detail_panel_open
+		}
+
+		ai_enabled = { always = no }
+	}
+
+	JAP_congress_collapse_overlay_window = {
+		context_type = player_context
+		window_name = "JAP_congress_collapse_overlay_window"
+		dirty = global.JAP_congress_update
+
+		visible = {
+			JAP_congress_interface_is_open = yes
+			has_country_flag = JAP_congress_collapse_overlay_active
+		}
+
+		ai_enabled = { always = no }
+	}
+
+	JAP_congress_broken_overlay_window = {
+		context_type = player_context
+		window_name = "JAP_congress_broken_overlay_window"
+		dirty = global.JAP_congress_update
+
+		visible = {
+			JAP_congress_interface_is_open = yes
+			has_country_flag = JAP_congress_broken_overlay_active
+		}
+
+		ai_enabled = { always = no }
+	}
+
+	JAP_congress_reselect_overlay_window = {
+		context_type = player_context
+		window_name = "JAP_congress_reselect_overlay_window"
+		dirty = global.JAP_congress_update
+
+		visible = {
+			JAP_congress_interface_is_open = yes
+			has_country_flag = JAP_congress_reselect_overlay_active
+		}
+
+		ai_enabled = { always = no }
+	}
+}

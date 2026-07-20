@@ -1,0 +1,26 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			JAP = {
+				if = {
+					limit = { exists = yes }
+					JAP_congress_initialize_values = yes
+				}
+			}
+		}
+	}
+
+	on_daily = {
+		effect = {
+			JAP = {
+				if = {
+					limit = {
+						exists = yes
+						JAP_congress_interface_is_open = yes
+					}
+					JAP_congress_rebuild_seats = yes
+				}
+			}
+		}
+	}
+}

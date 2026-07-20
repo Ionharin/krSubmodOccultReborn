@@ -10,7 +10,9 @@ focus_tree = {
 		y = 4
 		cost = 2
 		icon = GFX_kor_select_Daesoonjinrihoe
-		available = { has_country_flag = KOR_daesoonjinrihoe_win }
+		available = {
+			has_country_flag = KOR_daesoonjinrihoe_win
+		}
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
@@ -30,7 +32,9 @@ focus_tree = {
 		y = 4
 		cost = 2
 		icon = GFX_kor_select_Bocheonism
-		available = { has_country_flag = KOR_bocheonism_win }
+		available = {
+			has_country_flag = KOR_bocheonism_win
+		}
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
@@ -50,7 +54,9 @@ focus_tree = {
 		y = 4
 		cost = 2
 		icon = GFX_kor_select_Jeungsanbeop
-		available = { has_country_flag = KOR_jeungsanbeop_win }
+		available = {
+			has_country_flag = KOR_jeungsanbeop_win
+		}
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
@@ -73,7 +79,6 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		select_effect = {
-			# Order Introductions
 			overlord = {
 				country_event = {
 					id = KOR_pnr_puppet.3
@@ -88,7 +93,9 @@ focus_tree = {
 			focus = KOR_pnr_stay_in_land_your_birth
 			focus = KOR_pnr_the_japanese_who_returned
 		}
-		ai_will_do = { base = 500 }
+		ai_will_do = {
+			base = 500
+		}
 		completion_reward = {
 			add_political_power = 50
 			hidden_effect = {
@@ -118,7 +125,9 @@ focus_tree = {
 		prerequisite = {
 			focus = KOR_pnr_at_the_top_of_Jeungsan
 		}
-		ai_will_do = { base = 500 }
+		ai_will_do = {
+			base = 500
+		}
 		completion_reward = {
 			set_party_name = {
 				ideology = national_populist
@@ -698,7 +707,9 @@ focus_tree = {
 		prerequisite = {
 			focus = KOR_pnr_the_hibiscus_blooms
 		}
-		ai_will_do = { base = 300 }
+		ai_will_do = {
+			base = 300
+		}
 		completion_reward = {
 			add_political_power = 30
 			add_timed_idea = {
@@ -724,7 +735,9 @@ focus_tree = {
 		prerequisite = {
 			focus = KOR_pnr_the_hibiscus_blooms
 		}
-		ai_will_do = { base = 200 }
+		ai_will_do = {
+			base = 200
+		}
 		completion_reward = {
 			add_political_power = 15
 			add_timed_idea = {
@@ -734,7 +747,6 @@ focus_tree = {
 			add_to_variable = {
 				KOR_pnr_peninsula_collapse_var = 0.5
 			}
-			# increase peninsula collapse
 			KOR_refresh_jeung_dynamic_modifiers = yes
 		}
 	}
@@ -749,7 +761,11 @@ focus_tree = {
 		ai_will_do = {
 			base = 100
 		}
-		available = { NOT = { has_completed_focus = KOR_pnr_people_born_in_the_land_of_the_country } }
+		available = {
+			NOT = {
+				has_completed_focus = KOR_pnr_people_born_in_the_land_of_the_country
+			}
+		}
 		prerequisite = {
 			focus = KOR_pnr_select_Bocheonism
 			focus = KOR_pnr_select_Daesoonjinrihoe
@@ -1159,7 +1175,9 @@ focus_tree = {
 		completion_reward = {
 			add_research_slot = 1
 			if = {
-				limit = { has_completed_focus = KOR_pnr_the_coronation_ceremony_again }
+				limit = {
+					has_completed_focus = KOR_pnr_the_coronation_ceremony_again
+				}
 				set_country_flag = kor_pnr_research_focus_done
 			}
 		}
@@ -1217,7 +1235,11 @@ focus_tree = {
 		ai_will_do = {
 			base = 100
 		}
-		available = { NOT = { has_completed_focus = KOR_pnr_promote_the_ilminism } }
+		available = {
+			NOT = {
+				has_completed_focus = KOR_pnr_promote_the_ilminism
+			}
+		}
 		prerequisite = {
 			focus = KOR_pnr_select_Daesoonjinrihoe
 			focus = KOR_pnr_select_Jeungsanbeop
@@ -2192,16 +2214,12 @@ focus_tree = {
 				}
 			}
 			random_owned_controlled_state = {
-				prioritize = {
-					525
-				}
+				prioritize = { 525 }
 				create_unit = {
-					#Make sure the division template lines up with the ones in the setup effect
 					division = "name = \"Korean Constabulary\" division_template = \"Korean Constabulary\" start_experience_factor = 0.60"
 					owner = KOR
 				}
 				create_unit = {
-					#Make sure the division template lines up with the ones in the setup effect
 					division = "name = \"Korean Constabulary\" division_template = \"Korean Constabulary\" start_experience_factor = 0.60"
 					owner = KOR
 				}
@@ -2341,7 +2359,9 @@ focus_tree = {
 			focus = KOR_pnr_hermit_kingdom
 		}
 		completion_reward = {
-			set_temp_variable = { KOR_pnr_pre_puppet_ruling_party_var = current_party_ideology_group }
+			set_temp_variable = {
+				KOR_pnr_pre_puppet_ruling_party_var = current_party_ideology_group
+			}
 			overlord = {
 				if = {
 					limit = {
@@ -2443,7 +2463,9 @@ focus_tree = {
 		icon = BAT_charity_propaganda
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		ai_will_do = { base = 100 }
+		ai_will_do = {
+			base = 100
+		}
 		mutually_exclusive = {
 			focus = KOR_pnr_independent_developing
 		}
@@ -2466,7 +2488,9 @@ focus_tree = {
 		icon = GFX_focus_generic_industry_investment
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		ai_will_do = { base = 50 }
+		ai_will_do = {
+			base = 50
+		}
 		mutually_exclusive = {
 			focus = KOR_pnr_outside_funds
 		}
@@ -2532,8 +2556,12 @@ focus_tree = {
 			custom_effect_tooltip = KOR_pnr_puppet_gain_small_profits
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = KOR_pnr_puppet_social_collapse
-			add_to_variable = { KOR_pnr_peninsula_profits_var = 0.13 }
-			add_to_variable = { KOR_pnr_peninsula_collapse_var = 0.1 }
+			add_to_variable = {
+				KOR_pnr_peninsula_profits_var = 0.13
+			}
+			add_to_variable = {
+				KOR_pnr_peninsula_collapse_var = 0.1
+			}
 		}
 	}
 	focus = {
@@ -2712,10 +2740,7 @@ focus_tree = {
 			}
 			set_country_flag = kor_pnr_financial_focus_all_done
 			hidden_effect = {
-				remove_ideas = {
-					KOR_industry
-					KOR_agriculture
-				}
+				remove_ideas = { KOR_industry KOR_agriculture }
 			}
 			custom_effect_tooltip = KOR_pnr_puppet_gain_medium_profits
 			add_to_variable = {

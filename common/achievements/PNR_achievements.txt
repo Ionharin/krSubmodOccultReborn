@@ -31,3 +31,58 @@ QIE_therefore_the_Kalki_descends_achievement = {
 		}
 	}
 }
+
+KOR_mugunghwa_kkochi_pieot_seumnida_achievement = {
+	possible = {
+			tag = JAP
+            tag = ANQ
+			tag = CHI
+			tag = FNG
+			tag = GXC
+			tag = HNN
+			tag = LEP
+			tag = QIE
+			tag = SHX
+			tag = SIK
+			tag = SHD
+			tag = SZC
+			tag = XSM
+			tag = YUN
+			tag = KUM
+	}
+
+	happened = {
+		if = {
+			limit = {
+				NOT = { has_global_flag = disallow_achievements_flag }
+				OR = {
+					NOT = { has_global_flag = on_startup_completed }
+					is_ai = no
+				}
+			}
+			KOR = {
+				OR = {
+					has_completed_focus = KOR_npr_all_people_live_in_peace
+					has_completed_focus = KOR_pnr_the_cultural_renaissance_of_the_korean_empire
+					has_completed_focus = KOR_pnr_the_eastern_celestial_world
+					has_completed_focus = KOR_pnr_the_member_of_asia_order
+					has_completed_focus = KOR_pnr_rurals_community
+					has_completed_focus = KOR_pnr_the_granary_of_east_asia
+				}
+			}
+		}
+		else_if = {
+			limit = { has_global_flag = disallow_achievements_flag }
+			custom_override_tooltip = {
+				tooltip = achievements_disabled
+				always = no
+			}
+		}
+		else = {
+			custom_override_tooltip = {
+				tooltip = achievements_disabled_observer
+				always = no
+			}
+		}
+	}
+}
