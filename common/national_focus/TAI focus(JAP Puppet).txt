@@ -1,0 +1,308 @@
+############################
+# Taiwan - PNR Focus Tree #
+# By NethopAvis            #
+############################
+focus_tree = {
+	id = TAI_pnr_puppet
+	country = {
+		factor = 0
+	}
+	default = no
+	focus = {
+		id = TAI_pnr_p_1936_situation
+		x = 4
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = TAI_pnr_p_changing_indigenous_policies
+		x = 4
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_1936_situation
+		}
+	}
+	focus = {
+		id = JAP_pnr_p_promote_japanization_education
+		x = 2
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_assimilation
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_assimilation
+		x = 3
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_changing_indigenous_policies
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_national_spiritual_mobilization_movement
+		x = 1
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_p_promote_japanization_education
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_aftermath_of_musha_incident
+		x = 5
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_changing_indigenous_policies
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_searching_for_the_body_of_mona_rudao
+		x = 6
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_aftermath_of_musha_incident
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_police_supervision
+		x = 7
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_searching_for_the_body_of_mona_rudao
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_japans_negative_assets
+		x = 4
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = TAI_pnr_p_nogyo_wa_taiwan
+		x = 4
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_resolve_the_conflict_between_rice_and_sugar
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_industrial_revitalization_plan
+		x = 4
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_expand_the_scope_of_publicly_sold_goods
+		}
+		prerequisite = {
+			focus = TAI_pnr_p_utilizing_the_local_tax_system
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_bank_of_taiwan
+		x = 1
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_industrial_revitalization_plan
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_taiwan_development_company
+		x = 4
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_industrial_revitalization_plan
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_taiwan_power_company
+		x = 7
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_industrial_revitalization_plan
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_nanyang_trade_center
+		x = 0
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_issue_special_taiwan_yen
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_issue_special_taiwan_yen
+		x = 0
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_bank_of_taiwan
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_resolve_the_conflict_between_rice_and_sugar
+		x = 4
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_raw_material_collection_area_system
+		}
+		prerequisite = {
+			focus = TAI_pnr_p_initial_attempts_at_agricultural_collectivization
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_guishan_hydropower_plant
+		x = 8
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_taiwan_power_company
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_construct_a_reservoir
+		x = 8
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_guishan_hydropower_plant
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_continue_to_promote_sugar_industry_reform
+		x = 2
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_taiwan_development_company
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_raw_material_collection_area_system
+		x = 2
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_continue_to_promote_sugar_industry_reform
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_camphor_kingdom
+		x = 4
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_taiwan_development_company
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_introduction_of_the_chemical_synthesis_method_for_camphor
+		x = 4
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_camphor_kingdom
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_expand_the_cultivation_of_penglai_rice
+		x = 6
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_taiwan_development_company
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_initial_attempts_at_agricultural_collectivization
+		x = 6
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_expand_the_cultivation_of_penglai_rice
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_expand_the_scope_of_publicly_sold_goods
+		x = 3
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_japans_negative_assets
+		}
+	}
+	focus = {
+		id = TAI_pnr_p_utilizing_the_local_tax_system
+		x = 5
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_japans_negative_assets
+		}
+	}
+}

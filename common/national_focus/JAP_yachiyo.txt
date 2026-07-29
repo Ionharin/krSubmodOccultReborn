@@ -4,19 +4,46 @@ focus_tree = {
 		factor = 0
 	}
 	default = no
-	reset_on_civilwar = no
 	focus = {
 		id = JAP_pnr_the_shadow_of_war
-		x = -15
-		y = 1
-		cost = 0
+		x = 17
+		y = 3
+		cost = 1
 		icon = GFX_focus_JAP_the_imperial_defense_plan
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		completion_reward = {
+			set_cosmetic_tag = JAP_pnr_oomoto
+			set_politics = {
+				ruling_party = national_populist
+			}
+			set_party_name = {
+				ideology = national_populist
+				long_name = JAP_pnr_oomoto_party_long
+				name = JAP_pnr_oomoto_party
+			}
+			JAP_pnr_onisaburo = { promote_character = yes }
+			JAP_puppet_economy_reconstruction_effect = yes
+			hidden_effect = {
+				set_portraits = {
+            		character = JAP_pnr_onisaburo
+            		civilian = { large = "GFX_portrait_jap_pnr_onisaburo_control_tenno" }
+        		}
+			}			
+		}
+	}
+	focus = {
+		id = JAP_pnr_kasumigaseki_diplomacy
+		x = 32
+		y = -1
+		cost = 0
+		icon = GFX_focus_JAP_purge_the_kodoha_faction
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 	}
 	focus = {
 		id = JAP_pnr_special_military_exercise
-		x = -1
+		x = -6
 		y = 1
 		cost = 0
 		icon = GFX_focus_jap_pacific_guardian
@@ -26,15 +53,6 @@ focus_tree = {
 			focus = JAP_pnr_the_shadow_of_war
 		}
 		relative_position_id = JAP_pnr_the_shadow_of_war
-	}
-	focus = {
-		id = JAP_pnr_elder_brother_in_east_asia
-		x = -7
-		y = -7
-		cost = 0
-		icon = GFX_focus_JAP_a_red_dawn_over_asia
-		continue_if_invalid = no
-		cancel_if_invalid = yes
 	}
 	focus = {
 		id = JAP_pnr_phasianus_versicolor
@@ -51,7 +69,7 @@ focus_tree = {
 	}
 	focus = {
 		id = JAP_pnr_japanese_aitake
-		x = -9
+		x = -6
 		y = 2
 		cost = 0
 		icon = GFX_focus_JAP_new_order_in_east_asia
@@ -64,76 +82,85 @@ focus_tree = {
 	}
 	focus = {
 		id = JAP_pnr_68th_sessions_imperial_diet
-		x = -38
-		y = -7
+		x = -4
+		y = -1
 		cost = 3
+		cancelable = no
 		icon = GFX_focus_JAP_minpon_shugi
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 	}
 	focus = {
 		id = JAP_pnr_asian_solidarity_agreement
-		x = 3
-		y = -7
+		x = 37
+		y = 9
 		cost = 4
 		icon = GFX_focus_JAP_konoes_first_cabinet
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 	}
 	focus = {
-		id = JAP_pnr_navy_special_exercise
-		x = 1
-		y = 1
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = JAP_pnr_the_shadow_of_war
-		}
-		relative_position_id = JAP_pnr_the_shadow_of_war
-	}
-	focus = {
 		id = JAP_pnr_the_new_order_of_aisa
-		x = 3
-		y = -5
+		x = 0
+		y = 8
 		cost = 0
 		icon = GFX_focus_jap_manchurian_project
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_war_that_costs_not_a_single_penny
+			focus = JAP_pnr_shared_prosperity
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
 	}
 	focus = {
 		id = JAP_pnr_the_great_asia_conference
-		x = 3
-		y = -3
+		x = 0
+		y = 3
 		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-	}
-	focus = {
-		id = JAP_pnr_pax_nipponica
-		x = -25
-		y = 8
-		cost = 0
-		icon = GFX_focus_generic_world_peace
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-	}
-	focus = {
-		id = JAP_pnr_reassess_mainland_policy
-		x = -4
-		y = 1
-		cost = 0
-		icon = GFX_focus_PRC_peaceful_reunification
+		icon = GFX_goal_JAP_tokyo_conf
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = JAP_pnr_elder_brother_in_east_asia
+			focus = JAP_pnr_yen_zone
 		}
-		relative_position_id = JAP_pnr_elder_brother_in_east_asia
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_pax_nipponica
+		x = 0
+		y = 7
+		cost = 0
+		icon = GFX_focus_JAP_the_eternal_kingdom
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_nuclear_medicine
+		}
+		prerequisite = {
+			focus = JAP_pnr_mechanized_infantry
+		}
+		prerequisite = {
+			focus = JAP_pnr_execute_plan_maru_roku
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_reassess_mainland_policy
+		x = -5
+		y = 1
+		cost = 0
+		icon = GFX_focus_jap_cast_the_die
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_kasumigaseki_diplomacy
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_the_russo_japanese_treaty
-		x = -5
+		x = -6
 		y = 2
 		cost = 0
 		icon = GFX_goal_russian_cooperation
@@ -142,37 +169,40 @@ focus_tree = {
 		prerequisite = {
 			focus = JAP_pnr_reassess_mainland_policy
 		}
-		relative_position_id = JAP_pnr_elder_brother_in_east_asia
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_support_the_princely_federation
-		x = 4
-		y = 1
+		x = 1
+		y = 2
 		cost = 0
 		icon = GFX_focus_RAJ_pruna_swaraj
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		prerequisite = {
-			focus = JAP_pnr_elder_brother_in_east_asia
+		mutually_exclusive = {
+			focus = JAP_pnr_support_the_azad_hind
 		}
-		relative_position_id = JAP_pnr_elder_brother_in_east_asia
+		prerequisite = {
+			focus = JAP_pnr_our_benefit_in_india
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_the_united_states_is_stuck_in_the_quagmire
-		x = 0
+		x = -2
 		y = 1
 		cost = 0
 		icon = GFX_focus_generic_attack_usa
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = JAP_pnr_elder_brother_in_east_asia
+			focus = JAP_pnr_kasumigaseki_diplomacy
 		}
-		relative_position_id = JAP_pnr_elder_brother_in_east_asia
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_control_the_mad_dog
-		x = -2
+		x = -3
 		y = 2
 		cost = 0
 		icon = GFX_focus_CHI_avoid_another_crisis
@@ -181,51 +211,51 @@ focus_tree = {
 		prerequisite = {
 			focus = JAP_pnr_reassess_mainland_policy
 		}
-		relative_position_id = JAP_pnr_elder_brother_in_east_asia
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_the_great_game_in_nanyang
-		x = 7
+		x = 8
 		y = 1
 		cost = 0
-		icon = GFX_focus_SIA_recover_indochina
+		icon = GFX_focus_jap_strike_south
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = JAP_pnr_elder_brother_in_east_asia
+			focus = JAP_pnr_kasumigaseki_diplomacy
 		}
-		relative_position_id = JAP_pnr_elder_brother_in_east_asia
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_the_problem_of_glanders
-		x = -11
-		y = -4
-		cost = 0
+		x = 1
+		y = 2
+		cost = 20
 		icon = GFX_focus_generic_horse_studs
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = JAP_pnr_the_russo_japanese_treaty
+			focus = JAP_pnr_horse_epidemic_prevention_section
 		}
+		relative_position_id = JAP_pnr_epidemic_prevention_and_water_supply
 	}
 	focus = {
 		id = JAP_pnr_operation_trapped_rider
-		x = -12
-		y = -3
+		x = -5
+		y = 4
 		cost = 0
+		icon = GFX_focus_SIA_and_spring_the_trap
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = JAP_pnr_the_problem_of_glanders
-		}
-		prerequisite = {
 			focus = JAP_pnr_northern_breakwater
 		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_the_peace_of_asia
-		x = -25
-		y = 1
+		x = -2
+		y = 13
 		cost = 0
 		icon = GFX_focus_JAP_greater_east_asian_co_properity_sphere
 		continue_if_invalid = no
@@ -233,62 +263,61 @@ focus_tree = {
 	}
 	focus = {
 		id = JAP_pnr_prepare_continental_warfare
-		x = -9
-		y = 0
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = JAP_pnr_support_the_chinese_federalism
-			focus = JAP_pnr_operation_morokoshi
-			focus = JAP_pnr_smash_the_legation_city
-		}
-	}
-	focus = {
-		id = JAP_pnr_support_fengtian_only
-		x = -9
-		y = -2
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = JAP_pnr_divide_and_rule
-			focus = JAP_pnr_using_korea_as_the_forward_base
-		}
-		prerequisite = {
-			focus = JAP_pnr_our_strategy_toward_china
-		}
-	}
-	focus = {
-		id = JAP_pnr_divide_and_rule
-		x = -11
-		y = -2
+		x = 2
+		y = 6
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
 			focus = JAP_pnr_support_fengtian_only
-			focus = JAP_pnr_using_korea_as_the_forward_base
+			focus = JAP_pnr_divide_and_rule
+			focus = JAP_pnr_yellow_race_stands_united
 		}
 		prerequisite = {
-			focus = JAP_pnr_our_strategy_toward_china
+			focus = JAP_pnr_no_hope_of_reconciliation_remains
 		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
-		id = JAP_pnr_support_the_chinese_federalism
-		x = -11
-		y = -1
+		id = JAP_pnr_support_fengtian_only
+		x = 0
+		y = 6
+		cost = 0
+		icon = GFX_focus_JAP_strenghten_manchukuo_imperial_army
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_prepare_continental_warfare
+			focus = JAP_pnr_divide_and_rule
+			focus = JAP_pnr_yellow_race_stands_united
+		}
+		prerequisite = {
+			focus = JAP_pnr_special_relationship_between_china_and_japan
+			focus = JAP_pnr_no_hope_of_reconciliation_remains
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_divide_and_rule
+		x = -2
+		y = 6
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		prerequisite = {
-			focus = JAP_pnr_divide_and_rule
+		mutually_exclusive = {
+			focus = JAP_pnr_support_fengtian_only
+			focus = JAP_pnr_prepare_continental_warfare
+			focus = JAP_pnr_yellow_race_stands_united
 		}
+		prerequisite = {
+			focus = JAP_pnr_special_relationship_between_china_and_japan
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_our_strategy_toward_china
-		x = -9
-		y = -4
+		x = 0
+		y = 3
 		cost = 0
 		icon = GFX_focus_PRC_towards_one_china
 		continue_if_invalid = no
@@ -296,59 +325,50 @@ focus_tree = {
 		prerequisite = {
 			focus = JAP_pnr_control_the_mad_dog
 		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_tianjin_conference
-		x = -8
-		y = -3
+		x = -1
+		y = 4
 		cost = 0
+		icon = GFX_focus_generic_whispers
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = JAP_pnr_our_strategy_toward_china
 		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_operation_morokoshi
-		x = -9
-		y = -1
+		x = 0
+		y = 8
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = JAP_pnr_support_fengtian_only
+			focus = JAP_pnr_the_decisive_battle_of_zhili
 		}
-	}
-	focus = {
-		id = JAP_pnr_using_korea_as_the_forward_base
-		x = -7
-		y = -2
-		cost = 0
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		mutually_exclusive = {
-			focus = JAP_pnr_support_fengtian_only
-			focus = JAP_pnr_divide_and_rule
-		}
-		prerequisite = {
-			focus = JAP_pnr_our_strategy_toward_china
-		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_smash_the_legation_city
-		x = -7
-		y = -1
+		x = 2
+		y = 7
 		cost = 0
+		icon = GFX_qie_ws_punishment_those_enemies
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = JAP_pnr_using_korea_as_the_forward_base
+			focus = JAP_pnr_prepare_continental_warfare
 		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_oil_begins_to_flow
-		x = -6
-		y = -4
+		x = -1
+		y = 2
 		cost = 0
 		icon = GFX_focus_PER_invite_oil_nations
 		continue_if_invalid = no
@@ -356,23 +376,28 @@ focus_tree = {
 		prerequisite = {
 			focus = JAP_pnr_the_united_states_is_stuck_in_the_quagmire
 		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_blockade_of_german_east_asia
-		x = 1
-		y = -5
+		x = 7
+		y = 5
 		cost = 0
 		icon = GFX_goal_JAP_target_gea
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = JAP_pnr_the_great_game_in_nanyang
+			focus = JAP_pnr_stationing_troops_in_the_indian_ocean
 		}
+		prerequisite = {
+			focus = JAP_pnr_the_fleet_shield_of_the_south_china_sea
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_cultivate_siam
-		x = -1
-		y = -5
+		x = 7
+		y = 2
 		cost = 0
 		icon = GFX_focus_generic_befriend_siam
 		continue_if_invalid = no
@@ -380,27 +405,29 @@ focus_tree = {
 		prerequisite = {
 			focus = JAP_pnr_the_great_game_in_nanyang
 		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_gatekeeper_of_andaman_sea
-		x = -2
-		y = -4
+		x = 3
+		y = 3
 		cost = 0
-		icon = flag_burma
+		icon = GFX_flag_burma
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = JAP_pnr_support_the_princely_federation
-			focus = JAP_operation_spartacus
+			focus = JAP_pnr_support_the_azad_hind
 		}
 		prerequisite = {
 			focus = JAP_pnr_cultivate_siam
 		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_operation_night_sakura
-		x = 1
-		y = -3
+		x = 7
+		y = 6
 		cost = 0
 		icon = GFX_JAP_sakura_tree
 		continue_if_invalid = no
@@ -408,36 +435,25 @@ focus_tree = {
 		prerequisite = {
 			focus = JAP_pnr_blockade_of_german_east_asia
 		}
-	}
-	focus = {
-		id = JAP_pnr_cut_off_australasia_lifeline
-		x = -1
-		y = -2
-		cost = 0
-		icon = GFX_goal_JAP_target_australasia
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = JAP_pnr_operation_night_sakura
-		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_drink_poison_to_quench_first
-		x = 2
+		x = 4
 		y = 1
 		cost = 0
 		icon = GFX_focus_generic_communist_asia
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = JAP_pnr_elder_brother_in_east_asia
+			focus = JAP_pnr_kasumigaseki_diplomacy
 		}
-		relative_position_id = JAP_pnr_elder_brother_in_east_asia
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_operation_spartacus
-		x = -5
-		y = -5
+		x = 5
+		y = 2
 		cost = 0
 		icon = GFX_goal_syndicalism
 		continue_if_invalid = no
@@ -445,12 +461,14 @@ focus_tree = {
 		prerequisite = {
 			focus = JAP_pnr_drink_poison_to_quench_first
 		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_dancing_with_the_bear
-		x = -15
-		y = -4
+		x = -7
+		y = 3
 		cost = 0
+		icon = GFX_focus_eng_expose_the_belly_of_the_bear
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
@@ -459,12 +477,14 @@ focus_tree = {
 		prerequisite = {
 			focus = JAP_pnr_the_russo_japanese_treaty
 		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_northern_breakwater
-		x = -13
-		y = -4
+		x = -5
+		y = 3
 		cost = 0
+		icon = GFX_focus_ger_strike_at_the_source
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
@@ -473,16 +493,6617 @@ focus_tree = {
 		prerequisite = {
 			focus = JAP_pnr_the_russo_japanese_treaty
 		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
 	focus = {
 		id = JAP_pnr_invade_mongolia
-		x = -15
-		y = -3
+		x = -7
+		y = 4
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = JAP_pnr_dancing_with_the_bear
 		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_ensure_the_philippines
+		x = 9
+		y = 2
+		cost = 0
+		icon = GFX_focus_PHI_japanese_advisors
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_great_game_in_nanyang
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_the_imperial_realm_on_the_world
+		x = -1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_peace_of_nakatsukuni
+		}
+		relative_position_id = JAP_pnr_the_peace_of_nakatsukuni
+	}
+	focus = {
+		id = JAP_pnr_the_battle_of_yomotsu_hirasaka
+		x = 0
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_walking_around_the_pillar
+		}
+		prerequisite = {
+			focus = JAP_pnr_cross_jordan_river
+		}
+		relative_position_id = JAP_pnr_the_peace_of_nakatsukuni
+	}
+	focus = {
+		id = JAP_pnr_reborn_of_masumihime
+		x = -3
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_islands_encirclement_operation_FS
+		}
+		relative_position_id = JAP_pnr_the_peace_of_nakatsukuni
+	}
+	focus = {
+		id = JAP_pnr_reborn_of_sumiyohime
+		x = 3
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_wheel_operation_DD
+		}
+		relative_position_id = JAP_pnr_the_peace_of_nakatsukuni
+	}
+	focus = {
+		id = JAP_pnr_cross_jordan_river
+		x = 2
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reborn_of_tatsuyohime
+		}
+		prerequisite = {
+			focus = JAP_pnr_reborn_of_sumiyohime
+		}
+		relative_position_id = JAP_pnr_the_peace_of_nakatsukuni
+	}
+	focus = {
+		id = JAP_pnr_walking_around_the_pillar
+		x = -2
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reborn_of_masumihime
+		}
+		prerequisite = {
+			focus = JAP_pnr_reborn_of_kototamahime
+		}
+		relative_position_id = JAP_pnr_the_peace_of_nakatsukuni
+	}
+	focus = {
+		id = JAP_pnr_jerusalem_liberation_operation
+		x = 0
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_micronesian_sea_march
+		}
+		relative_position_id = JAP_pnr_the_peace_of_nakatsukuni
+	}
+	focus = {
+		id = JAP_pnr_return_of_the_age_of_gods
+		x = 0
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_kinkatsu_kane_no_kami_raisen
+		}
+		relative_position_id = JAP_pnr_the_peace_of_nakatsukuni
+	}
+	focus = {
+		id = JAP_pnr_reborn_of_kototamahime
+		x = -1
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_micronesian_sea_march
+		}
+		relative_position_id = JAP_pnr_the_peace_of_nakatsukuni
+	}
+	focus = {
+		id = JAP_pnr_the_peace_of_nakatsukuni
+		x = 27
+		y = 2
+		cost = 0
+		icon = GFX_focus_JAP_the_national_police_reserve
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_phasianus_versicolor
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_reborn_of_tatsuyohime
+		x = 1
+		y = 3
+		cost = 1
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_micronesian_sea_march
+		}
+		relative_position_id = JAP_pnr_the_peace_of_nakatsukuni
+	}
+	focus = {
+		id = JAP_pnr_save_takateruhime
+		x = 1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_peace_of_nakatsukuni
+		}
+		relative_position_id = JAP_pnr_the_peace_of_nakatsukuni
+	}
+	focus = {
+		id = JAP_pnr_kinkatsu_kane_no_kami_raisen
+		x = 0
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_battle_of_yomotsu_hirasaka
+		}
+		relative_position_id = JAP_pnr_the_peace_of_nakatsukuni
+	}
+	focus = {
+		id = JAP_pnr_islands_encirclement_operation_FS
+		x = -2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_save_takateruhime
+		}
+		prerequisite = {
+			focus = JAP_pnr_the_imperial_realm_on_the_world
+		}
+		relative_position_id = JAP_pnr_the_peace_of_nakatsukuni
+	}
+	focus = {
+		id = JAP_pnr_wheel_operation_DD
+		x = 2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_imperial_realm_on_the_world
+		}
+		prerequisite = {
+			focus = JAP_pnr_save_takateruhime
+		}
+		relative_position_id = JAP_pnr_the_peace_of_nakatsukuni
+	}
+	focus = {
+		id = JAP_pnr_micronesian_sea_march
+		x = 0
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_imperial_realm_on_the_world
+		}
+		prerequisite = {
+			focus = JAP_pnr_save_takateruhime
+		}
+		relative_position_id = JAP_pnr_the_peace_of_nakatsukuni
+	}
+	focus = {
+		id = JAP_pnr_return_to_mount_kiyosumi
+		x = 32
+		y = 2
+		cost = 0
+		icon = GFX_focus_JAP_incorporate_buddhist_socialism
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_phasianus_versicolor
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_establish_the_true_constitution
+		x = -1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_return_to_mount_kiyosumi
+		}
+		relative_position_id = JAP_pnr_return_to_mount_kiyosumi
+	}
+	focus = {
+		id = JAP_pnr_stabilize_the_true_country
+		x = 1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_return_to_mount_kiyosumi
+		}
+		relative_position_id = JAP_pnr_return_to_mount_kiyosumi
+	}
+	focus = {
+		id = JAP_pnr_eliminate_wrong_views
+		x = 0
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_establish_the_true_constitution
+		}
+		prerequisite = {
+			focus = JAP_pnr_stabilize_the_true_country
+		}
+		relative_position_id = JAP_pnr_return_to_mount_kiyosumi
+	}
+	focus = {
+		id = JAP_pnr_prepare_for_the_next_war
+		x = 2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_stabilize_the_true_country
+		}
+		relative_position_id = JAP_pnr_return_to_mount_kiyosumi
+	}
+	focus = {
+		id = JAP_pnr_unified_will
+		x = -2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_establish_the_true_constitution
+		}
+		relative_position_id = JAP_pnr_return_to_mount_kiyosumi
+	}
+	focus = {
+		id = JAP_pnr_neo_kingly_way
+		x = 0
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_unified_will
+		}
+		prerequisite = {
+			focus = JAP_pnr_eliminate_wrong_views
+		}
+		prerequisite = {
+			focus = JAP_pnr_prepare_for_the_next_war
+		}
+		relative_position_id = JAP_pnr_return_to_mount_kiyosumi
+	}
+	focus = {
+		id = JAP_pnr_greater_east_asia_final_mobilization
+		x = -1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_neo_kingly_way
+		}
+		relative_position_id = JAP_pnr_return_to_mount_kiyosumi
+	}
+	focus = {
+		id = JAP_pnr_supranational_headquarters
+		x = 1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_neo_kingly_way
+		}
+		relative_position_id = JAP_pnr_return_to_mount_kiyosumi
+	}
+	focus = {
+		id = JAP_pnr_battle_of_shambhala
+		x = 0
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_greater_east_asia_final_mobilization
+		}
+		prerequisite = {
+			focus = JAP_pnr_supranational_headquarters
+		}
+		relative_position_id = JAP_pnr_return_to_mount_kiyosumi
+	}
+	focus = {
+		id = JAP_pnr_thus_peace_endures_forever
+		x = 0
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_battle_of_shambhala
+		}
+		relative_position_id = JAP_pnr_return_to_mount_kiyosumi
+	}
+	focus = {
+		id = JAP_pnr_dissolution_of_parliament
+		x = 0
+		y = 1
+		cost = 0
+		icon = GFX_focus_generic_vote
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		relative_position_id = JAP_pnr_68th_sessions_imperial_diet
+	}
+	focus = {
+		id = JAP_pnr_stationing_troops_in_the_indian_ocean
+		x = 6
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_gatekeeper_of_andaman_sea
+		}
+		prerequisite = {
+			focus = JAP_pnr_cultivate_siam
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_the_fleet_shield_of_the_south_china_sea
+		x = 8
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_ensure_the_philippines
+		}
+		prerequisite = {
+			focus = JAP_pnr_cultivate_siam
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_our_benefit_in_india
+		x = 2
+		y = 1
+		cost = 0
+		icon = GFX_focus_generic_secret_agent_operative
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_kasumigaseki_diplomacy
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_support_the_azad_hind
+		x = 3
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_support_the_princely_federation
+		}
+		prerequisite = {
+			focus = JAP_pnr_our_benefit_in_india
+		}
+		prerequisite = {
+			focus = JAP_pnr_drink_poison_to_quench_first
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_treaty_of_wuhan
+		x = 4
+		y = 8
+		cost = 0
+		icon = GFX_focus_CHI_cradle_of_civilization
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_sever_the_dragons_head
+		}
+		prerequisite = {
+			focus = JAP_pnr_smash_the_legation_city
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_overcoming_the_one_with_many
+		x = -2
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_divide_and_rule
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_economy_not_military
+		x = -2
+		y = 8
+		cost = 0
+		icon = GFX_focus_PRC_promote_the_silver_dollar
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_overcoming_the_one_with_many
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_Tsingdao_consensus
+		x = 1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_our_strategy_toward_china
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_special_relationship_between_china_and_japan
+		x = -1
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_no_hope_of_reconciliation_remains
+		}
+		prerequisite = {
+			focus = JAP_pnr_tianjin_conference
+		}
+		prerequisite = {
+			focus = JAP_pnr_Tsingdao_consensus
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_no_hope_of_reconciliation_remains
+		x = 1
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_special_relationship_between_china_and_japan
+		}
+		prerequisite = {
+			focus = JAP_pnr_tianjin_conference
+		}
+		prerequisite = {
+			focus = JAP_pnr_Tsingdao_consensus
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_the_decisive_battle_of_zhili
+		x = 0
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_support_fengtian_only
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_sever_the_dragons_head
+		x = 2
+		y = 8
+		cost = 0
+		icon = GFX_focus_JAP_ally_the_dragon_king
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_treaty_of_wuhan
+		}
+		prerequisite = {
+			focus = JAP_pnr_smash_the_legation_city
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_the_light_of_eastern_democracy
+		x = 2
+		y = 2
+		cost = 0
+		icon = GFX_focus_generic_democratic_asia
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_phasianus_versicolor
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_continuation_of_landtag_of_prussia_system
+		x = 4
+		y = 3
+		cost = 0
+		icon = GFX_focus_ger_return_of_the_kaiser
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_light_of_eastern_democracy
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_a_truly_democratic_parliament
+		x = 0
+		y = 3
+		cost = 0
+		icon = GFX_focus_CHI_registry_of_property
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_light_of_eastern_democracy
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_civilian_application_of_military_technology
+		x = 14
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_swords_into_plowshares
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_post_war_elite_troops
+		x = 6
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_military_cost_sharing_agreement
+		}
+		prerequisite = {
+			focus = JAP_pnr_swords_into_plowshares
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_tank_factory_produces_tractors
+		x = 12
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_swords_into_plowshares
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_medical_progress
+		x = 10
+		y = 4
+		cost = 0
+		icon = GFX_focus_generic_field_hostpital
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_civilian_application_of_military_technology
+		}
+		prerequisite = {
+			focus = JAP_pnr_military_cost_sharing_agreement
+			focus = JAP_pnr_post_war_elite_troops
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_herbicides_and_insecticides
+		x = 16
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_civilian_application_of_military_technology
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_computer_miniaturization
+		x = 15
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_herbicides_and_insecticides
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_endless_energy
+		x = 14
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_civilian_application_of_military_technology
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_military_cost_sharing_agreement
+		x = 8
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_post_war_elite_troops
+		}
+		prerequisite = {
+			focus = JAP_pnr_swords_into_plowshares
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_melted_chocolate
+		x = 12
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_civilian_application_of_military_technology
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_nuclear_medicine
+		x = 12
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_medical_progress
+		}
+		prerequisite = {
+			focus = JAP_pnr_endless_energy
+		}
+		prerequisite = {
+			focus = JAP_pnr_computer_miniaturization
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_swords_into_plowshares
+		x = 10
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_phasianus_versicolor
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_pruning_hooks_into_spears
+		x = 21
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_phasianus_versicolor
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_reduce_overcapacity
+		x = 10
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_swords_into_plowshares
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_the_fall_of_the_celestial
+		x = 7
+		y = 5
+		cost = 0
+		icon = GFX_focus_JAP_jet_prototypes
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_standard_operating_procedure
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_standard_operating_procedure
+		x = 7
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_post_war_elite_troops
+		}
+		prerequisite = {
+			focus = JAP_pnr_military_cost_sharing_agreement
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_mechanized_infantry
+		x = 6
+		y = 6
+		cost = 0
+		icon = GFX_focus_generic_purchase_mechanized_equipment
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_fall_of_the_celestial
+		}
+		prerequisite = {
+			focus = JAP_pnr_three_dimensional_warfare
+		}
+		prerequisite = {
+			focus = JAP_pnr_continue_the_mi_to_plan
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_three_dimensional_warfare
+		x = 5
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_standard_operating_procedure
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_execute_plan_maru_roku
+		x = 8
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_fall_of_the_celestial
+		}
+		prerequisite = {
+			focus = JAP_pnr_three_dimensional_warfare
+		}
+		prerequisite = {
+			focus = JAP_pnr_continue_the_mi_to_plan
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_continue_the_mi_to_plan
+		x = 9
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_standard_operating_procedure
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_one_strike_to_eliminate_imperialism
+		x = 18
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_blue_deep_ravine
+		}
+		prerequisite = {
+			focus = JAP_pnr_confronting_the_red_eastern_fortress
+			focus = JAP_pnr_continue_southward
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_extinguish_the_flames_of_the_syndicate
+		x = 19
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_pruning_hooks_into_spears
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_exterminate_the_oppressors
+		x = 20
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_pruning_hooks_into_spears
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_fulfilling_the_promise_of_islam
+		x = 22
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_pruning_hooks_into_spears
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_join_forces_to_oppose_the_third_international
+		x = 19
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_extinguish_the_flames_of_the_syndicate
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_resist_the_tyrannical_monarch
+		x = 20
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_exterminate_the_oppressors
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_continue_southward
+		x = 19
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_resist_the_tyrannical_monarch
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_blue_deep_ravine
+		x = 20
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_one_strike_to_eliminate_imperialism
+		}
+		prerequisite = {
+			focus = JAP_pnr_confronting_the_red_eastern_fortress
+			focus = JAP_pnr_continue_southward
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_confronting_the_red_eastern_fortress
+		x = 18
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_join_forces_to_oppose_the_third_international
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_the_friendship_with_imperial_england
+		x = 0
+		y = 1
+		cost = 0
+		icon = GFX_focus_JAP_propaganda
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_kasumigaseki_diplomacy
+		}
+		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
+	}
+	focus = {
+		id = JAP_pnr_yamata_no_orochi
+		x = -2
+		y = 5
+		cost = 1
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_baden_baden_group_forward
+		x = -4
+		y = 1
+		cost = 2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_yamata_no_orochi
+		}
+		relative_position_id = JAP_pnr_yamata_no_orochi
+	}
+	focus = {
+		id = JAP_pnr_expand_showa_senseikai
+		x = -2
+		y = 1
+		cost = 2
+		icon = GFX_JAP_pnr_new_shindojo
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_yamata_no_orochi
+		}
+		relative_position_id = JAP_pnr_yamata_no_orochi
+	}
+	focus = {
+		id = JAP_pnr_black_dragon_society_is_in_action
+		x = -3
+		y = 2
+		cost = 2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_yamata_no_orochi
+		}
+		relative_position_id = JAP_pnr_yamata_no_orochi
+	}
+	focus = {
+		id = JAP_pnr_stop_cut_navy_spending
+		x = 6
+		y = 1
+		cost = 0
+		icon = GFX_focus_PHI_encourage_japanese_investment
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_shadow_of_war
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_establish_the_military_investigation_committee
+		x = -5
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_special_military_exercise
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_military_industrial_mobilization
+		x = 0
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_establish_the_military_investigation_committee
+		}
+		prerequisite = {
+			focus = JAP_pnr_tokyo_bay_exercise
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_short_term_decisive_battle_doctrine
+		x = -1
+		y = 4
+		cost = 0
+		icon = GFX_focus_SIA_prepare_for_a_short_war
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_prepare_for_total_war
+		}
+		prerequisite = {
+			focus = JAP_pnr_military_industrial_mobilization
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_prepare_for_total_war
+		x = 1
+		y = 4
+		cost = 0
+		icon = GFX_focus_SIA_intermediate_war_preparation
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_short_term_decisive_battle_doctrine
+		}
+		prerequisite = {
+			focus = JAP_pnr_military_industrial_mobilization
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_maru_san_project
+		x = 7
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_stop_cut_navy_spending
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_emergency_wartime_shipbuilding_plan
+		x = 7
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_maru_san_project
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_revise_the_military_manual
+		x = -6
+		y = 3
+		cost = 0
+		icon = GFX_focus_RAJ_military_into_the_workforce
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_establish_the_military_investigation_committee
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_imitate_and_surpass
+		x = -6
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_revise_the_military_manual
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_offensive_doctrine
+		x = -6
+		y = 5
+		cost = 0
+		icon = GFX_focus_JAP_advance_one_hundred_million_fireballs
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_imitate_and_surpass
+		}
+		prerequisite = {
+			focus = JAP_pnr_armor_army
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_emphasize_individual_soldier_quality
+		x = -4
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_imitate_and_surpass
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_strengthen_the_core_staff_system
+		x = -4
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_establish_the_military_investigation_committee
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_ensure_transportation_capacity
+		x = 3
+		y = 1
+		cost = 0
+		icon = GFX_focus_generic_refit_civilian_ships
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_shadow_of_war
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_cage_tactic
+		x = -3
+		y = 2
+		cost = 0
+		icon = GFX_focus_SIA_and_spring_the_trap
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_special_military_exercise
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_medium_wave_radio
+		x = -3
+		y = 1
+		cost = 0
+		icon = GFX_focus_generic_radio_communication
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_shadow_of_war
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_phasing_out_old_rifles
+		x = -7
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_special_military_exercise
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_legacy_of_the_taisho_disarmament
+		x = -8
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_phasing_out_old_rifles
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_armor_army
+		x = -8
+		y = 4
+		cost = 0
+		icon = GFX_focus_SIA_reverse_engineer_allied_tanks
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_legacy_of_the_taisho_disarmament
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_fire_assault
+		x = -4
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_revise_the_military_manual
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_regiment_level_combined_arms
+		x = -2
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_establish_the_military_investigation_committee
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_panzergruppe
+		x = -8
+		y = 5
+		cost = 0
+		icon = GFX_focus_JAP_reform_the_army
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_armor_army
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_limited_resources
+		x = 0
+		y = 1
+		cost = 0
+		icon = GFX_focus_generic_reinforcing_the_supply_network
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_shadow_of_war
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_army_expansion_plan
+		x = -1
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_limited_resources
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_navy_expansion_plan
+		x = 1
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_limited_resources
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_black_monday_arrives_in_the_east
+		x = 4
+		y = -4
+		cost = 1
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_heavy_artillery_production_expansion
+		x = -10
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_legacy_of_the_taisho_disarmament
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_supplies_are_the_lifeline
+		x = -1
+		y = 5
+		cost = 0
+		icon = GFX_focus_generic_reinforcing_the_supply_network
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_short_term_decisive_battle_doctrine
+			focus = JAP_pnr_prepare_for_total_war
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_secure_the_occupied_area
+		x = 1
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_short_term_decisive_battle_doctrine
+			focus = JAP_pnr_prepare_for_total_war
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_varied_terrain
+		x = -5
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_emphasize_individual_soldier_quality
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_tokyo_bay_exercise
+		x = 5
+		y = 2
+		cost = 0
+		icon = GFX_focus_AST_until_the_tide_of_battle_swings
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_stop_cut_navy_spending
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_landing_and_anti_landing
+		x = 3
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_tokyo_bay_exercise
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_maritime_defense_perimeter
+		x = 4
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_landing_and_anti_landing
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_revitalize_the_imperial_navy
+		x = 3
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_ensure_transportation_capacity
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_reassessing_the_oceans
+		x = 6
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_emergency_wartime_shipbuilding_plan
+		}
+		prerequisite = {
+			focus = JAP_pnr_battle_of_tsushima_strait
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_next_form_of_artillery
+		x = -10
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_heavy_artillery_production_expansion
+		}
+		prerequisite = {
+			focus = JAP_pnr_armor_army
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_heavy_cannon_on_water
+		x = 3
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reassessing_the_oceans
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_encourage_the_shipbuilding_industry
+		x = 2
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_heavy_cannon_on_water
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_heavy_artillery_showdown
+		x = 10
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_global_operations
+		}
+		prerequisite = {
+			focus = JAP_pnr_reassessing_the_oceans
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_global_operations
+		x = 6
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_heavy_artillery_showdown
+		}
+		prerequisite = {
+			focus = JAP_pnr_reassessing_the_oceans
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_high_speed_advantage
+		x = 12
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_heavy_artillery_showdown
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_concentrated_firepower
+		x = 10
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_heavy_artillery_showdown
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_maru_yon_plan
+		x = 8
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_emergency_wartime_shipbuilding_plan
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_battle_of_tsushima_strait
+		x = 5
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_tokyo_bay_exercise
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_20_knot_scrap_plan
+		x = 14
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_high_speed_advantage
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_beyond_the_blue_water
+		x = 6
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_global_operations
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_underwater_wolf_pack
+		x = 8
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_global_operations
+			focus = JAP_pnr_heavy_artillery_showdown
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_sulawesi_natuna_encirclement
+		x = 10
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_concentrated_firepower
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_search_for_enemy_ships
+		x = 11
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_sulawesi_natuna_encirclement
+		}
+		prerequisite = {
+			focus = JAP_pnr_forestall_enemy
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_forestall_enemy
+		x = 12
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_high_speed_advantage
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_large_scale_torpedo_warfare
+		x = 8
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_underwater_wolf_pack
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_three_dimensional_joint_operation
+		x = 6
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_beyond_the_blue_water
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_army_naval_aviation
+		x = 17
+		y = 11
+		cost = 3
+		icon = GFX_focus_generic_copy_plane_designs
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_ensure_open_sea_supply
+		x = 5
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_destroy_enemy_supplies
+		}
+		prerequisite = {
+			focus = JAP_pnr_three_dimensional_joint_operation
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_destroy_enemy_supplies
+		x = 4
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_expand_the_naval_base
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_operation_man_eating_shark
+		x = 2
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_expand_the_naval_base
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_expand_the_naval_base
+		x = 4
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_global_operations
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_maru_go_plan
+		x = 8
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_ensure_open_sea_supply
+			focus = JAP_pnr_search_for_enemy_ships
+		}
+		relative_position_id = JAP_pnr_the_shadow_of_war
+	}
+	focus = {
+		id = JAP_pnr_support_the_army_front_line
+		x = -2
+		y = 1
+		cost = 4
+		icon = GFX_goal_JAP_Army_Air
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_army_naval_aviation
+		}
+		relative_position_id = JAP_pnr_army_naval_aviation
+	}
+	focus = {
+		id = JAP_pnr_bomb_the_enemy_ships
+		x = 2
+		y = 1
+		cost = 4
+		icon = GFX_goal_JAP_Navy_Air
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_army_naval_aviation
+		}
+		relative_position_id = JAP_pnr_army_naval_aviation
+	}
+	focus = {
+		id = JAP_pnr_train_pilots
+		x = 0
+		y = 1
+		cost = 0
+		icon = GFX_focus_generic_university_1
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_army_naval_aviation
+		}
+		relative_position_id = JAP_pnr_army_naval_aviation
+	}
+	focus = {
+		id = JAP_pnr_expanded_teishindan
+		x = -1
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_support_the_army_front_line
+		}
+		relative_position_id = JAP_pnr_army_naval_aviation
+	}
+	focus = {
+		id = JAP_pnr_attrition_tactic
+		x = 1
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_bomb_the_enemy_ships
+		}
+		relative_position_id = JAP_pnr_army_naval_aviation
+	}
+	focus = {
+		id = JAP_pnr_Maru
+		x = 3
+		y = 2
+		cost = 0
+		icon = GFX_focus_jap_zero
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_bomb_the_enemy_ships
+		}
+		relative_position_id = JAP_pnr_army_naval_aviation
+	}
+	focus = {
+		id = JAP_pnr_hayabusa
+		x = -3
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_support_the_army_front_line
+		}
+		relative_position_id = JAP_pnr_army_naval_aviation
+	}
+	focus = {
+		id = JAP_pnr_daitoa_kyoeiken
+		x = 1
+		y = 0
+		cost = 0
+		icon = GFX_goal_JAP_co_prosperity_sphere
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_orient_group
+		x = 2
+		y = 0
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_asia_solidarity_alliance
+		x = 3
+		y = 0
+		cost = 0
+		icon = GFX_goal_kmt_contest_the_japanese
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_reassessing_overseas_territories
+		x = -2
+		y = 1
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_asian_solidarity_agreement
+			focus = JAP_pnr_daitoa_kyoeiken
+			focus = JAP_pnr_orient_group
+			focus = JAP_pnr_asia_solidarity_alliance
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_reverse_the_decline_of_the_handicraft
+		x = 0
+		y = 2
+		cost = 2
+		icon = GFX_focus_RAJ_khadi_movement
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_black_monday_arrives_in_the_east
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_abandon_the_gold_standard
+		x = -4
+		y = 2
+		cost = 0
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_jikyoku_kyokyu_jigyo
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_defend_the_gold_standard
+		x = 4
+		y = 2
+		cost = 0
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_fiscal_austerity
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_ensure_the_price_of_agricultural_products
+		x = -2
+		y = 3
+		cost = 2
+		icon = GFX_focus_generic_agricultural_subsidies
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reverse_the_decline_of_the_handicraft
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_reassessing_the_rice_and_grain_act
+		x = 0
+		y = 3
+		cost = 3
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reverse_the_decline_of_the_handicraft
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_new_rural_movement
+		x = 2
+		y = 3
+		cost = 2
+		icon = GFX_focus_generic_farmland
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reverse_the_decline_of_the_handicraft
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_reorganize_the_imperial_agricultural_association
+		x = -1
+		y = 4
+		cost = 2
+		icon = GFX_goal_agrarian_reform
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_ensure_the_price_of_agricultural_products
+		}
+		prerequisite = {
+			focus = JAP_pnr_reassessing_the_rice_and_grain_act
+		}
+		prerequisite = {
+			focus = JAP_pnr_new_rural_movement
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_summon_local_gentry
+		x = 1
+		y = 4
+		cost = 2
+		icon = GFX_focus_generic_industrialists
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_ensure_the_price_of_agricultural_products
+		}
+		prerequisite = {
+			focus = JAP_pnr_reassessing_the_rice_and_grain_act
+		}
+		prerequisite = {
+			focus = JAP_pnr_new_rural_movement
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_new_countryside
+		x = 0
+		y = 5
+		cost = 3
+		icon = GFX_focus_generic_land_redistribution
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_summon_local_gentry
+		}
+		prerequisite = {
+			focus = JAP_pnr_reorganize_the_imperial_agricultural_association
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_chemical_weapons_section
+		x = 4
+		y = 1
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_epidemic_prevention_and_water_supply
+		}
+		relative_position_id = JAP_pnr_epidemic_prevention_and_water_supply
+	}
+	focus = {
+		id = JAP_pnr_operation_516
+		x = 4
+		y = 3
+		cost = 20
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_cha_ichigo
+		}
+		prerequisite = {
+			focus = JAP_pnr_ko_ichigo
+		}
+		relative_position_id = JAP_pnr_epidemic_prevention_and_water_supply
+	}
+	focus = {
+		id = JAP_pnr_operation_100
+		x = 0
+		y = 3
+		cost = 15
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_research_on_red_rust_fungus
+		}
+		prerequisite = {
+			focus = JAP_pnr_the_problem_of_glanders
+		}
+		relative_position_id = JAP_pnr_epidemic_prevention_and_water_supply
+	}
+	focus = {
+		id = JAP_pnr_horse_epidemic_prevention_section
+		x = 0
+		y = 1
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_epidemic_prevention_and_water_supply
+		}
+		relative_position_id = JAP_pnr_epidemic_prevention_and_water_supply
+	}
+	focus = {
+		id = JAP_pnr_operation_731
+		x = -4
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_treatment_of_DM_poisoning
+		}
+		prerequisite = {
+			focus = JAP_pnr_prevention_of_tularemia
+		}
+		relative_position_id = JAP_pnr_epidemic_prevention_and_water_supply
+	}
+	focus = {
+		id = JAP_pnr_institute_for_epidemic_prevention
+		x = -4
+		y = 1
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_epidemic_prevention_and_water_supply
+		}
+		relative_position_id = JAP_pnr_epidemic_prevention_and_water_supply
+	}
+	focus = {
+		id = JAP_pnr_detrick_sharing_program
+		x = -2
+		y = 4
+		cost = 0
+		icon = GFX_focus_research2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_operation_731
+		}
+		prerequisite = {
+			focus = JAP_pnr_operation_100
+		}
+		relative_position_id = JAP_pnr_epidemic_prevention_and_water_supply
+	}
+	focus = {
+		id = JAP_pnr_dovzhansk_sharing_program
+		x = 2
+		y = 4
+		cost = 0
+		icon = GFX_focus_research2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_operation_100
+		}
+		prerequisite = {
+			focus = JAP_pnr_operation_516
+		}
+		relative_position_id = JAP_pnr_epidemic_prevention_and_water_supply
+	}
+	focus = {
+		id = JAP_pnr_cha_ichigo
+		x = 3
+		y = 2
+		cost = 15
+		icon = GFX_focus_JAP_pnr_cha_ichigo
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_chemical_weapons_section
+		}
+		relative_position_id = JAP_pnr_epidemic_prevention_and_water_supply
+	}
+	focus = {
+		id = JAP_pnr_ko_ichigo
+		x = 5
+		y = 2
+		cost = 15
+		icon = GFX_focus_JAP_pnr_ko_ichigo
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_chemical_weapons_section
+		}
+		relative_position_id = JAP_pnr_epidemic_prevention_and_water_supply
+	}
+	focus = {
+		id = JAP_pnr_research_on_red_rust_fungus
+		x = -1
+		y = 2
+		cost = 20
+		icon = GFX_focus_JAP_pnr_research_on_red_rust_fungus
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_horse_epidemic_prevention_section
+		}
+		relative_position_id = JAP_pnr_epidemic_prevention_and_water_supply
+	}
+	focus = {
+		id = JAP_pnr_prevention_of_tularemia
+		x = -3
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_institute_for_epidemic_prevention
+		}
+		relative_position_id = JAP_pnr_epidemic_prevention_and_water_supply
+	}
+	focus = {
+		id = JAP_pnr_treatment_of_DM_poisoning
+		x = -5
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_institute_for_epidemic_prevention
+		}
+		relative_position_id = JAP_pnr_epidemic_prevention_and_water_supply
+	}
+	focus = {
+		id = JAP_pnr_theory_of_land_sea_conflict
+		x = 21
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_pruning_hooks_into_spears
+		}
+		relative_position_id = JAP_pnr_the_peace_of_asia
+	}
+	focus = {
+		id = JAP_pnr_epidemic_prevention_and_water_supply
+		x = -2
+		y = 8
+		cost = 3
+		icon = GFX_focus_generic_bad_medical
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_grain_of_the_co_prosperity_sphere
+		x = 2
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_asian_solidarity_agreement
+			focus = JAP_pnr_daitoa_kyoeiken
+			focus = JAP_pnr_orient_group
+			focus = JAP_pnr_asia_solidarity_alliance
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_all_are_equal_under_the_rising_sun
+		x = -1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_asian_revitalization
+		}
+		prerequisite = {
+			focus = JAP_pnr_the_great_asia_conference
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_asian_revitalization
+		x = 1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_all_are_equal_under_the_rising_sun
+		}
+		prerequisite = {
+			focus = JAP_pnr_the_great_asia_conference
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_yen_zone
+		x = 0
+		y = 2
+		cost = 0
+		icon = GFX_focus_JAP_develop_the_yen_block
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_katsuta_kazue_plan
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_war_that_costs_not_a_single_penny
+		x = -2
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_greater_east_asia_economic_bureau
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_one_yan_two_systems
+		x = -2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reassessing_overseas_territories
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_katsuta_kazue_plan
+		x = 0
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_asian_solidarity_agreement
+			focus = JAP_pnr_daitoa_kyoeiken
+			focus = JAP_pnr_orient_group
+			focus = JAP_pnr_asia_solidarity_alliance
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_unable_to_move_a_single_step
+		x = 6
+		y = 10
+		cost = 0
+		icon = GFX_goal_generic_more_territorial_claims
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_work_to_stop_war
+		x = 0
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_additional_military_budget
+		}
+		prerequisite = {
+			focus = JAP_pnr_reduce_domestic_rations
+		}
+		relative_position_id = JAP_pnr_unable_to_move_a_single_step
+	}
+	focus = {
+		id = JAP_pnr_the_battle_for_global_raw_materials
+		x = -4
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_all_are_equal_under_the_rising_sun
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_shared_prosperity
+		x = 2
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_treasure_ship
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_rush_to_aid_central_asian_allies
+		x = -3
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_great_asia_conference
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_siege_of_the_ottomans
+		x = 3
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_great_asia_conference
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_greater_east_asia_economic_bureau
+		x = -3
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_battle_for_global_raw_materials
+		}
+		prerequisite = {
+			focus = JAP_pnr_squeeze_out_excess_water
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_economic_mutual_assistance_agreement
+		x = 0
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_great_asia_conference
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_global_economic_revolution
+		x = 0
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_economic_mutual_assistance_agreement
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_food_security_red_line
+		x = 2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_grain_of_the_co_prosperity_sphere
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_economic_isolation
+		x = -2
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_one_yan_two_systems
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_cut_through_the_wartime_economic_crisis
+		x = -4
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_one_yan_two_systems
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_avoid_famine
+		x = 4
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_food_security_red_line
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_rice_war
+		x = 2
+		y = 3
+		cost = 0
+		icon = GFX_focus_SIA_thai_rice_company
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_food_security_red_line
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_the_treasure_ship
+		x = 3
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_great_southern_development
+		}
+		prerequisite = {
+			focus = JAP_pnr_technologies_help
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_squeeze_out_excess_water
+		x = -2
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_all_are_equal_under_the_rising_sun
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_great_southern_development
+		x = 2
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_asian_revitalization
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_technologies_help
+		x = 4
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_asian_revitalization
+		}
+		relative_position_id = JAP_pnr_asian_solidarity_agreement
+	}
+	focus = {
+		id = JAP_pnr_last_legacy_of_the_genrou
+		x = -14
+		y = -1
+		cost = 3
+		icon = GFX_focus_JAP_konoes_first_cabinet
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_swim_with_the_tide
+		x = 0
+		y = 1
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_last_legacy_of_the_genrou
+		}
+		relative_position_id = JAP_pnr_last_legacy_of_the_genrou
+	}
+	focus = {
+		id = JAP_pnr_revisiting_the_tenno_kikansetsu
+		x = 1
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_swim_with_the_tide
+		}
+		relative_position_id = JAP_pnr_last_legacy_of_the_genrou
+	}
+	focus = {
+		id = JAP_pnr_approve_special_military_budget
+		x = -1
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_swim_with_the_tide
+		}
+		relative_position_id = JAP_pnr_last_legacy_of_the_genrou
+	}
+	focus = {
+		id = JAP_pnr_rice_grain_debate
+		x = 0
+		y = 3
+		cost = 3
+		icon = GFX_focus_generic_conference
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_approve_special_military_budget
+		}
+		prerequisite = {
+			focus = JAP_pnr_revisiting_the_tenno_kikansetsu
+		}
+		relative_position_id = JAP_pnr_last_legacy_of_the_genrou
+	}
+	focus = {
+		id = JAP_pnr_strengthen_central_authority
+		x = 2
+		y = 3
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_approve_special_military_budget
+		}
+		prerequisite = {
+			focus = JAP_pnr_revisiting_the_tenno_kikansetsu
+		}
+		relative_position_id = JAP_pnr_last_legacy_of_the_genrou
+	}
+	focus = {
+		id = JAP_pnr_zaibatsu_problem
+		x = -2
+		y = 3
+		cost = 3
+		icon = GFX_focus_generic_expropriate_industrialist
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_approve_special_military_budget
+		}
+		prerequisite = {
+			focus = JAP_pnr_revisiting_the_tenno_kikansetsu
+		}
+		relative_position_id = JAP_pnr_last_legacy_of_the_genrou
+	}
+	focus = {
+		id = JAP_pnr_indecisive
+		x = -2
+		y = 6
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_break_the_status_quo
+		}
+		prerequisite = {
+			focus = JAP_pnr_shadow_of_the_genrou
+		}
+		relative_position_id = JAP_pnr_last_legacy_of_the_genrou
+	}
+	focus = {
+		id = JAP_pnr_clarify_the_status_of_agriculture
+		x = 0
+		y = 1
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_indecisive
+		}
+		relative_position_id = JAP_pnr_indecisive
+	}
+	focus = {
+		id = JAP_pnr_strengthen_the_command_economy
+		x = -2
+		y = 1
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_indecisive
+		}
+		relative_position_id = JAP_pnr_indecisive
+	}
+	focus = {
+		id = JAP_pnr_japanese_defense_theory
+		x = -1
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_strengthen_the_command_economy
+		}
+		prerequisite = {
+			focus = JAP_pnr_clarify_the_status_of_agriculture
+		}
+		relative_position_id = JAP_pnr_indecisive
+	}
+	focus = {
+		id = JAP_pnr_expropriation_of_golf_courses
+		x = 1
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_clarify_the_status_of_agriculture
+		}
+		relative_position_id = JAP_pnr_indecisive
+	}
+	focus = {
+		id = JAP_pnr_crush_decadent_hedonism
+		x = -3
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_strengthen_the_command_economy
+		}
+		relative_position_id = JAP_pnr_indecisive
+	}
+	focus = {
+		id = JAP_pnr_true_warriors_of_the_nation
+		x = -2
+		y = 3
+		cost = 4
+		icon = GFX_focus_JAP_national_defense_brotherhood
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_japanese_defense_theory
+		}
+		prerequisite = {
+			focus = JAP_pnr_crush_decadent_hedonism
+		}
+		prerequisite = {
+			focus = JAP_pnr_expropriation_of_golf_courses
+		}
+		relative_position_id = JAP_pnr_indecisive
+	}
+	focus = {
+		id = JAP_pnr_rationing_system
+		x = 0
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_japanese_defense_theory
+		}
+		prerequisite = {
+			focus = JAP_pnr_expropriation_of_golf_courses
+		}
+		prerequisite = {
+			focus = JAP_pnr_crush_decadent_hedonism
+		}
+		relative_position_id = JAP_pnr_indecisive
+	}
+	focus = {
+		id = JAP_pnr_necessary_sacrifice_of_the_holy_war
+		x = -1
+		y = 4
+		cost = 4
+		icon = GFX_focus_generic_japanese_imperial_glory
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_true_warriors_of_the_nation
+		}
+		prerequisite = {
+			focus = JAP_pnr_rationing_system
+		}
+		relative_position_id = JAP_pnr_indecisive
+	}
+	focus = {
+		id = JAP_pnr_break_the_status_quo
+		x = 2
+		y = 6
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_indecisive
+		}
+		prerequisite = {
+			focus = JAP_pnr_shadow_of_the_genrou
+		}
+		relative_position_id = JAP_pnr_last_legacy_of_the_genrou
+	}
+	focus = {
+		id = JAP_pnr_choutouha_no_kokumin_naikaku
+		x = 0
+		y = 1
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_break_the_status_quo
+		}
+		relative_position_id = JAP_pnr_break_the_status_quo
+	}
+	focus = {
+		id = JAP_pnr_retro_and_innovation
+		x = 1
+		y = 2
+		cost = 3
+		icon = GFX_focus_generic_commission
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_choutouha_no_kokumin_naikaku
+		}
+		prerequisite = {
+			focus = JAP_pnr_efforts_for_stability_and_peace
+		}
+		relative_position_id = JAP_pnr_break_the_status_quo
+	}
+	focus = {
+		id = JAP_pnr_neoconservatism
+		x = -1
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_retro_and_innovation
+		}
+		relative_position_id = JAP_pnr_break_the_status_quo
+	}
+	focus = {
+		id = JAP_pnr_end_the_kensei_no_jodo
+		x = 1
+		y = 3
+		cost = 4
+		icon = GFX_focus_INS_eventual_autonomy
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_retro_and_innovation
+		}
+		relative_position_id = JAP_pnr_break_the_status_quo
+	}
+	focus = {
+		id = JAP_pnr_arouse_patriotism
+		x = 3
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_retro_and_innovation
+		}
+		relative_position_id = JAP_pnr_break_the_status_quo
+	}
+	focus = {
+		id = JAP_pnr_imperial_tour_of_inspection
+		x = 2
+		y = 4
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_arouse_patriotism
+		}
+		relative_position_id = JAP_pnr_break_the_status_quo
+	}
+	focus = {
+		id = JAP_pnr_constitutional_amendment
+		x = 0
+		y = 4
+		cost = 5
+		icon = GFX_focus_hol_the_foundations_of_defense
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_zaibatsu_problem
+		}
+		prerequisite = {
+			focus = JAP_pnr_rice_grain_debate
+		}
+		prerequisite = {
+			focus = JAP_pnr_strengthen_central_authority
+		}
+		relative_position_id = JAP_pnr_last_legacy_of_the_genrou
+	}
+	focus = {
+		id = JAP_pnr_shadow_of_the_genrou
+		x = 0
+		y = 5
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_constitutional_amendment
+		}
+		relative_position_id = JAP_pnr_last_legacy_of_the_genrou
+	}
+	focus = {
+		id = JAP_pnr_efforts_for_stability_and_peace
+		x = 2
+		y = 1
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_break_the_status_quo
+		}
+		relative_position_id = JAP_pnr_break_the_status_quo
+	}
+	focus = {
+		id = JAP_pnr_reverse_the_tide_of_time
+		x = 0
+		y = 4
+		cost = 4
+		icon = GFX_focus_SIA_prepare_for_a_long_war
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_neoconservatism
+		}
+		prerequisite = {
+			focus = JAP_pnr_end_the_kensei_no_jodo
+		}
+		relative_position_id = JAP_pnr_break_the_status_quo
+	}
+	focus = {
+		id = JAP_pnr_preserve_the_kokutai
+		x = -1
+		y = 5
+		cost = 5
+		icon = GFX_focus_RAJ_military_into_the_workforce
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_necessary_sacrifice_of_the_holy_war
+		}
+		relative_position_id = JAP_pnr_indecisive
+	}
+	focus = {
+		id = JAP_pnr_william_ii_of_japan
+		x = 1
+		y = 5
+		cost = 5
+		icon = GFX_focus_GER_monarchy_compromise
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reverse_the_tide_of_time
+		}
+		prerequisite = {
+			focus = JAP_pnr_imperial_tour_of_inspection
+		}
+		relative_position_id = JAP_pnr_break_the_status_quo
+	}
+	focus = {
+		id = JAP_pnr_constitution_still_exists
+		x = -23
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+		x = -5
+		y = 1
+		cost = 0
+		icon = GFX_focus_JAP_rikken_seiyukai_victory
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_overcome_difficulties_together
+			focus = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+		}
+		prerequisite = {
+			focus = JAP_pnr_constitution_still_exists
+		}
+		relative_position_id = JAP_pnr_constitution_still_exists
+	}
+	focus = {
+		id = JAP_pnr_overcome_difficulties_together
+		x = 0
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+			focus = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+		}
+		prerequisite = {
+			focus = JAP_pnr_constitution_still_exists
+		}
+		relative_position_id = JAP_pnr_constitution_still_exists
+	}
+	focus = {
+		id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+		x = 5
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+			focus = JAP_pnr_overcome_difficulties_together
+		}
+		prerequisite = {
+			focus = JAP_pnr_constitution_still_exists
+		}
+		relative_position_id = JAP_pnr_constitution_still_exists
+	}
+	focus = {
+		id = JAP_pnr_joint_advance
+		x = -29
+		y = -1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_draw_a_clear_line_with_the_JCP
+		x = -1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_joint_advance
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_true_marxist_vanguard_party
+		x = 1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_joint_advance
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_landlord_take_away_your_whip
+		x = 2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_true_marxist_vanguard_party
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_money_must_obey
+		x = -2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_draw_a_clear_line_with_the_JCP
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_yellow_race_stands_united
+		x = 28
+		y = 5
+		cost = 0
+		icon = GFX_focus_CHI_weaponise_the_faithful
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_divide_and_rule
+			focus = JAP_pnr_support_fengtian_only
+			focus = JAP_pnr_prepare_continental_warfare
+		}
+		prerequisite = {
+			focus = JAP_pnr_special_relationship_between_china_and_japan
+		}
+	}
+	focus = {
+		id = JAP_pnr_ignite_the_embers_of_the_xinhai_revolution
+		x = 28
+		y = 6
+		cost = 0
+		icon = GFX_focus_CHI_strengthening_our_resolve
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_yellow_race_stands_united
+		}
+	}
+	focus = {
+		id = JAP_pnr_no_more_colonial_rule
+		x = 28
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_ignite_the_embers_of_the_xinhai_revolution
+		}
+	}
+	focus = {
+		id = JAP_pnr_great_principle_of_the_unity_of_king_and_buddha
+		x = 0
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_hokkeikki
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_mention_atavaka_again
+		x = -1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_great_principle_of_the_unity_of_king_and_buddha
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_king_of_the_common_people
+		x = 1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_great_principle_of_the_unity_of_king_and_buddha
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_strictly_enforce_the_chian_iji_ho
+		x = 0
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_mention_atavaka_again
+		}
+		prerequisite = {
+			focus = JAP_pnr_king_of_the_common_people
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_transcend_the_kensei_no_jodo
+		x = 0
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_strictly_enforce_the_chian_iji_ho
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_asian_renaissance_avalokitesvara
+		x = 2
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_strictly_enforce_the_chian_iji_ho
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_safeguard_a_peaceful_life
+		x = -1
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_transcend_the_kensei_no_jodo
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_clarify_japanese_status
+		x = 1
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_transcend_the_kensei_no_jodo
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_hokkeikki
+		x = 0
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_joint_advance
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_theory_of_clash_of_east_west_civilizations
+		x = 0
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_safeguard_a_peaceful_life
+		}
+		prerequisite = {
+			focus = JAP_pnr_clarify_japanese_status
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_tenno_should_die
+		x = -1
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_continuous_renewal_of_kokutai
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_so_that_yamato_came_into_being
+		x = 1
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_continuous_renewal_of_kokutai
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_dannunzio_of_tsuruoka
+		x = 0
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_tenno_should_die
+		}
+		prerequisite = {
+			focus = JAP_pnr_so_that_yamato_came_into_being
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_reigniting_the_friendship_of_1898
+		x = 0
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_overcome_difficulties_together
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_the_voice_of_the_countryside
+		x = -1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_fiscal_austerity_policy
+		x = 1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_alleviate_the_urban_rural_divide
+		x = 0
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reform_the_bureaucratic_appointment_system
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_restore_public_confidence
+		x = 2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_fiscal_austerity_policy
+			focus = JAP_pnr_reigniting_the_friendship_of_1898
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_update_national_education
+		x = 2
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_restore_public_confidence
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_reform_the_bureaucratic_appointment_system
+		x = 0
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_voice_of_the_countryside
+		}
+		prerequisite = {
+			focus = JAP_pnr_fiscal_austerity_policy
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_cultivate_political_awareness
+		x = 2
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_update_national_education
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_tear_off_the_mask_of_democracy
+		x = 0
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_co_opt_social_activists
+		}
+		prerequisite = {
+			focus = JAP_pnr_agriculture_is_the_lifeline_of_the_nation
+		}
+		prerequisite = {
+			focus = JAP_pnr_cultivate_political_awareness
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_meeting_with_the_mitsui_zaibatsu
+		x = -2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_voice_of_the_countryside
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_start_the_news_machine
+		x = -1
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_military_discipline_debate
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_contact_with_social_groups
+		x = 1
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_military_discipline_debate
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_lobbying_the_house_of_lords
+		x = -2
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_meeting_with_the_mitsui_zaibatsu
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_co_opt_social_activists
+		x = -2
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_lobbying_the_house_of_lords
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_military_discipline_debate
+		x = 0
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_tear_off_the_mask_of_democracy
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_ensure_the_supremacy_of_the_parliament
+		x = 0
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_demands_of_the_citizens
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_last_embers_of_democracy
+		x = -2
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_start_the_news_machine
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_sons_of_peasant_is_persuaded_by_the_peasant
+		x = 2
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_contact_with_social_groups
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_to_the_one_who_walks_alone
+		x = 0
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_three_pronged_plan_of_military_agriculture_and_industry
+		}
+		prerequisite = {
+			focus = JAP_pnr_ensure_the_supremacy_of_the_parliament
+		}
+		prerequisite = {
+			focus = JAP_pnr_infrastructure_leapfrog_plan
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_seiyukai_the_friend_of_government
+		x = 0
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_to_the_eternal_and_unchanging
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_hand_of_money_politics
+		x = -38
+		y = -1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_inoue_is_a_moron
+		x = 2
+		y = 0
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_triangular_politics
+		x = 1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_hand_of_money_politics
+			focus = JAP_pnr_inoue_is_a_moron
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_expand_funding_for_political_parties
+		x = 0
+		y = 2
+		cost = 0
+		icon = GFX_focus_ETH_adopt_the_lira
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_triangular_politics
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_embryonic_form_of_the_corporate_state
+		x = 2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_triangular_politics
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_strengthen_the_ministry_of_finance
+		x = -1
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_expand_funding_for_political_parties
+		}
+		prerequisite = {
+			focus = JAP_pnr_embryonic_form_of_the_corporate_state
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_support_the_ministry_of_international_trade
+		x = 3
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_expand_funding_for_political_parties
+		}
+		prerequisite = {
+			focus = JAP_pnr_embryonic_form_of_the_corporate_state
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_ensure_the_revolving_door
+		x = 1
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_triangular_politics
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_all_japan_industrial_alliance
+		x = 1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_strengthen_the_ministry_of_finance
+		}
+		prerequisite = {
+			focus = JAP_pnr_ensure_the_revolving_door
+		}
+		prerequisite = {
+			focus = JAP_pnr_support_the_ministry_of_international_trade
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_gears_of_full_power
+		x = -1
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_appease_rural_sentiments
+		}
+		prerequisite = {
+			focus = JAP_pnr_all_japan_industrial_alliance
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_appease_rural_sentiments
+		x = 3
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_gears_of_full_power
+		}
+		prerequisite = {
+			focus = JAP_pnr_all_japan_industrial_alliance
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_investing_in_heavy_and_chemical_industries
+		x = -1
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_gears_of_full_power
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_attract_workers
+		x = -3
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_gears_of_full_power
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_japanese_style_technocracy
+		x = 1
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_all_japan_industrial_alliance
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_a_vertically_integrated_nation
+		x = 0
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_japanese_style_technocracy
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_consolidating_weak_enterprises
+		x = 2
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_japanese_style_technocracy
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_disposal_of_land
+		x = 3
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_appease_rural_sentiments
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_produce_primary_processed_goods_locally
+		x = 5
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_appease_rural_sentiments
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_no_action_without_benefit
+		x = 1
+		y = 8
+		cost = 0
+		icon = GFX_focus_RAJ_crush_the_anathema
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_a_vertically_integrated_nation
+		}
+		prerequisite = {
+			focus = JAP_pnr_consolidating_weak_enterprises
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_efficiently_allocate_resources
+		x = 1
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_no_action_without_benefit
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_the_light_of_prosperity
+		x = 1
+		y = 10
+		cost = 0
+		icon = GFX_focus_RAJ_trickle_down_economics
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_efficiently_allocate_resources
+		}
+		prerequisite = {
+			focus = JAP_pnr_industrial_gratitude_association
+			focus = JAP_pnr_rural_prosperity
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_wrath_of_a_common_man
+		x = -2
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_attract_workers
+		}
+		prerequisite = {
+			focus = JAP_pnr_investing_in_heavy_and_chemical_industries
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_industrial_gratitude_association
+		x = -2
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_wrath_of_a_common_man
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_rural_prosperity
+		x = 4
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_advantages_of_hometown
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_advantages_of_hometown
+		x = 4
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_disposal_of_land
+		}
+		prerequisite = {
+			focus = JAP_pnr_produce_primary_processed_goods_locally
+		}
+		relative_position_id = JAP_pnr_hand_of_money_politics
+	}
+	focus = {
+		id = JAP_pnr_continuous_renewal_of_kokutai
+		x = 0
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_theory_of_clash_of_east_west_civilizations
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_based_in_the_city
+		x = 1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_resolve_tax_issues_at_the_root
+		x = -1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_restructure_public_finances
+		x = -2
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_local_economic_survey_committee
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_local_economic_survey_committee
+		x = -2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_resolve_tax_issues_at_the_root
+			focus = JAP_pnr_reigniting_the_friendship_of_1898
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_emergency_budget_of_the_current_situation
+		x = -2
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_restructure_public_finances
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_emphasize_fairness
+		x = 0
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_resolve_tax_issues_at_the_root
+		}
+		prerequisite = {
+			focus = JAP_pnr_based_in_the_city
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_meeting_with_the_mitsubishi_zaibatsu
+		x = 2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_based_in_the_city
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_ensure_the_financial_industry
+		x = 2
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_meeting_with_the_mitsubishi_zaibatsu
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_salute_to_the_party_members_banner
+		x = 0
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_military_discipline_debate
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_to_the_eternal_and_unchanging
+		x = 0
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_last_embers_of_democracy
+		}
+		prerequisite = {
+			focus = JAP_pnr_salute_to_the_party_members_banner
+		}
+		prerequisite = {
+			focus = JAP_pnr_sons_of_peasant_is_persuaded_by_the_peasant
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_unite_cadres
+		x = 0
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_emphasize_fairness
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_saving_small_business_owners
+		x = 2
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_ensure_the_financial_industry
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_public_opinion_is_the_most_powerful
+		x = 0
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_emergency_budget_of_the_current_situation
+		}
+		prerequisite = {
+			focus = JAP_pnr_partys_self_renewal
+		}
+		prerequisite = {
+			focus = JAP_pnr_saving_small_business_owners
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_three_pronged_plan_of_military_agriculture_and_industry
+		x = -2
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_fiscal_and_economic_consolidation
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_fiscal_and_economic_consolidation
+		x = -1
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_demands_of_the_citizens
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_the_demands_of_the_citizens
+		x = 0
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_public_opinion_is_the_most_powerful
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_minseito_the_friend_of_citizens
+		x = 0
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_to_the_one_who_walks_alone
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_infrastructure_leapfrog_plan
+		x = 2
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_ease_loan_restrictions
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_ease_loan_restrictions
+		x = 1
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_demands_of_the_citizens
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_partys_self_renewal
+		x = 0
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_unite_cadres
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_minseito
+	}
+	focus = {
+		id = JAP_pnr_reform_the_previous_maladministration
+		x = 0
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reigniting_the_friendship_of_1898
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_agriculture_is_the_lifeline_of_the_nation
+		x = 0
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_alleviate_the_urban_rural_divide
+		}
+		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
+	}
+	focus = {
+		id = JAP_pnr_benefit_the_people_not_the_party
+		x = -1
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reform_the_previous_maladministration
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_eliminate_the_lingering_ills_of_bureaucracy
+		x = 1
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reform_the_previous_maladministration
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_replace_local_governors
+		x = 0
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_benefit_the_people_not_the_party
+		}
+		prerequisite = {
+			focus = JAP_pnr_eliminate_the_lingering_ills_of_bureaucracy
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_safety_net_of_unemployment_insurance
+		x = 2
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_replace_local_governors
+		}
+		prerequisite = {
+			focus = JAP_pnr_emergency_budget_of_the_current_situation
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_strive_for_integrity
+		x = 0
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_moderate_defense_spending
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_moderate_defense_spending
+		x = 0
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_replace_local_governors
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_support_the_establishment_of_industries
+		x = 3
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_safety_net_of_unemployment_insurance
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_reduce_surplus_landlord_land
+		x = -3
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_rural_development_budget
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_money_is_the_foundation_of_all_operations
+		x = -1
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_integrity_is_the_call_of_the_people
+		}
+		prerequisite = {
+			focus = JAP_pnr_strive_for_integrity
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_integrity_is_the_call_of_the_people
+		x = 1
+		y = 7
+		cost = 0
+		icon = GFX_focus_ARG_anti_corruption_policies
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_money_is_the_foundation_of_all_operations
+		}
+		prerequisite = {
+			focus = JAP_pnr_strive_for_integrity
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_continuation_of_the_kokutai
+		x = 0
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_money_is_the_foundation_of_all_operations
+			focus = JAP_pnr_integrity_is_the_call_of_the_people
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_new_party_of_alliance
+		x = 0
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_clearing_the_gloom_of_the_news
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_clearing_the_gloom_of_the_news
+		x = 0
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_continuation_of_the_kokutai
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_last_banner_of_japanese_socialism
+		x = -34
+		y = 11
+		cost = 0
+		icon = GFX_focus_JAP_raise_the_red_flag_high
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_announce_a_tax_increase
+		x = 0
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_last_banner_of_japanese_socialism
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_abandon_the_victimhood_view_of_history
+		x = 2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_announce_a_tax_increase
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_calling_for_the_spirit_of_labor
+		x = -2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_announce_a_tax_increase
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_establish_the_leadership_position_of_the_party
+		x = 0
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_announce_a_tax_increase
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_ensure_workers_food_rations
+		x = -1
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_calling_for_the_spirit_of_labor
+		}
+		prerequisite = {
+			focus = JAP_pnr_establish_the_leadership_position_of_the_party
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_stabilize_agricultural_product_prices
+		x = 1
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_establish_the_leadership_position_of_the_party
+		}
+		prerequisite = {
+			focus = JAP_pnr_abandon_the_victimhood_view_of_history
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_agricultural_economic_management_measures
+		x = 2
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_stabilize_agricultural_product_prices
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_promote_industrial_development
+		x = -2
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_ensure_workers_food_rations
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_speak_for_the_people
+		x = 0
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_establish_the_leadership_position_of_the_party
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_eradicate_corrupt_bureaucrats
+		x = -1
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_promote_industrial_development
+		}
+		prerequisite = {
+			focus = JAP_pnr_speak_for_the_people
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_eliminate_reactionaries
+		x = 1
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_speak_for_the_people
+		}
+		prerequisite = {
+			focus = JAP_pnr_agricultural_economic_management_measures
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_remove_the_vestiges_of_feudalism
+		x = 0
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_eradicate_corrupt_bureaucrats
+		}
+		prerequisite = {
+			focus = JAP_pnr_eliminate_reactionaries
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_against_german_imperialism
+		x = -2
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_eradicate_corrupt_bureaucrats
+		}
+		prerequisite = {
+			focus = JAP_pnr_eliminate_reactionaries
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_production_pace_setter_campaign
+		x = 2
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_eradicate_corrupt_bureaucrats
+		}
+		prerequisite = {
+			focus = JAP_pnr_eliminate_reactionaries
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_total_revolutionary_perspective
+		x = 1
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_remove_the_vestiges_of_feudalism
+		}
+		prerequisite = {
+			focus = JAP_pnr_production_pace_setter_campaign
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_fight_across_the_sea_to_the_other_shore
+		x = -1
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_against_german_imperialism
+		}
+		prerequisite = {
+			focus = JAP_pnr_remove_the_vestiges_of_feudalism
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_unite_people_of_the_world
+		x = 0
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_fight_across_the_sea_to_the_other_shore
+		}
+		prerequisite = {
+			focus = JAP_pnr_total_revolutionary_perspective
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_grand_vision
+		x = 0
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_unite_people_of_the_world
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_clean_swept_kokutai
+		x = 0
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_grand_vision
+		}
+		relative_position_id = JAP_pnr_last_banner_of_japanese_socialism
+	}
+	focus = {
+		id = JAP_pnr_sonno_tokan
+		x = -40
+		y = 11
+		cost = 0
+		icon = GFX_focus_JAP_revere_the_emperor_destroy_the_traitors
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_end_the_current_state_of_chaos
+		x = -61
+		y = -1
+		cost = 0
+		icon = GFX_focus_ETH_an_empire_in_the_shade_of_the_sun
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_i_am_everything
+		x = -22
+		y = -1
+		cost = 3
+		icon = GFX_focus_jap_showa_restoration
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_exorcise_resentment
+		x = -61
+		y = 11
+		cost = 0
+		icon = GFX_focus_jap_spiritual_mobilization
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_additional_military_budget
+		x = -1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_unable_to_move_a_single_step
+		}
+		relative_position_id = JAP_pnr_unable_to_move_a_single_step
+	}
+	focus = {
+		id = JAP_pnr_reduce_domestic_rations
+		x = 1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_unable_to_move_a_single_step
+		}
+		relative_position_id = JAP_pnr_unable_to_move_a_single_step
+	}
+	focus = {
+		id = JAP_pnr_end_of_the_great_east_asia_war
+		x = 0
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_work_to_stop_war
+		}
+		relative_position_id = JAP_pnr_unable_to_move_a_single_step
+	}
+	focus = {
+		id = JAP_pnr_mainland_industrial_relocation
+		x = -3
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_leaving_the_island_for_the_mainland
+		}
+		prerequisite = {
+			focus = JAP_pnr_japanese_aitake
+		}
+		relative_position_id = JAP_pnr_japanese_aitake
+	}
+	focus = {
+		id = JAP_pnr_leaving_the_island_for_the_mainland
+		x = -13
+		y = 16
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_mainland_industrial_relocation
+		}
+		prerequisite = {
+			focus = JAP_pnr_japanese_aitake
+		}
+	}
+	focus = {
+		id = JAP_pnr_appoint_elites_from_all_regions
+		x = -12
+		y = 17
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_mainland_industrial_relocation
+		}
+	}
+	focus = {
+		id = JAP_pnr_acquire_strategic_resources
+		x = -10
+		y = 17
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_mainland_industrial_relocation
+		}
+	}
+	focus = {
+		id = JAP_pnr_encourage_basic_processing_industries
+		x = -12
+		y = 18
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_appoint_elites_from_all_regions
+		}
+	}
+	focus = {
+		id = JAP_pnr_rural_development_budget
+		x = -2
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_replace_local_governors
+		}
+		prerequisite = {
+			focus = JAP_pnr_cultivate_political_awareness
+		}
+		relative_position_id = JAP_pnr_overcome_difficulties_together
+	}
+	focus = {
+		id = JAP_pnr_socialist_movement_marches_forward
+		x = -45
+		y = -1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_seize_the_right_to_speak_through_armed_force
+		x = 0
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_socialist_movement_marches_forward
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_centralized_national_economy
+		x = -1
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_seize_the_right_to_speak_through_armed_force
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_public_ownership_of_the_means_of_production
+		x = 1
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_seize_the_right_to_speak_through_armed_force
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_crack_down_hard_on_syndicalism
+		x = -2
+		y = 3
+		cost = 0
+		icon = GFX_focus_spr_crush_the_revolution
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_centralized_national_economy
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_crack_down_hard_on_capitalism
+		x = 2
+		y = 3
+		cost = 0
+		icon = GFX_focus_RAJ_crush_the_anathema
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_public_ownership_of_the_means_of_production
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_pioneer_of_the_excellent_tradition
+		x = 0
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_seize_the_right_to_speak_through_armed_force
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_criticizing_the_red_delusions_of_britain_and_france
+		x = -1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_crack_down_hard_on_syndicalism
+		}
+		prerequisite = {
+			focus = JAP_pnr_pioneer_of_the_excellent_tradition
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_against_german_and_russian_imperialism
+		x = 1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_pioneer_of_the_excellent_tradition
+		}
+		prerequisite = {
+			focus = JAP_pnr_crack_down_hard_on_capitalism
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_socialism_in_one_country
+		x = 0
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_criticizing_the_red_delusions_of_britain_and_france
+		}
+		prerequisite = {
+			focus = JAP_pnr_against_german_and_russian_imperialism
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_sweep_kensei_no_jodo_into_the_trash_heap
+		x = 0
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_socialism_in_one_country
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_fewer_comrades_more_compatriots
+		x = -1
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_sweep_kensei_no_jodo_into_the_trash_heap
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_from_the_nation_to_the_world
+		x = -1
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_fewer_comrades_more_compatriots
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_cultivate_the_hegemonic_spirit_among_citizens
+		x = 1
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_sweep_kensei_no_jodo_into_the_trash_heap
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_condemn_resource_imperialism
+		x = 1
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_cultivate_the_hegemonic_spirit_among_citizens
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_smiling_at_the_enemys_blockade
+		x = -2
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_from_the_nation_to_the_world
+		}
+		prerequisite = {
+			focus = JAP_pnr_condemn_resource_imperialism
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_expand_japans_economic_sphere
+		x = 2
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_from_the_nation_to_the_world
+		}
+		prerequisite = {
+			focus = JAP_pnr_condemn_resource_imperialism
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_we_must_liberate_people_of_color
+		x = -2
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_smiling_at_the_enemys_blockade
+		}
+		prerequisite = {
+			focus = JAP_pnr_expand_japans_economic_sphere
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_we_must_uphold_world_justice
+		x = 2
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_smiling_at_the_enemys_blockade
+		}
+		prerequisite = {
+			focus = JAP_pnr_expand_japans_economic_sphere
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_future_world_will_surely_be_one_of_the_imperial_way
+		x = 0
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_smiling_at_the_enemys_blockade
+		}
+		prerequisite = {
+			focus = JAP_pnr_expand_japans_economic_sphere
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_true_standard_bearer_of_marxism
+		x = 0
+		y = 11
+		cost = 0
+		icon = GFX_focus_spr_unify_the_london_bureau
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_we_must_liberate_people_of_color
+		}
+		prerequisite = {
+			focus = JAP_pnr_future_world_will_surely_be_one_of_the_imperial_way
+		}
+		prerequisite = {
+			focus = JAP_pnr_we_must_uphold_world_justice
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_essence_of_kokutai
+		x = 0
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_true_standard_bearer_of_marxism
+		}
+		relative_position_id = JAP_pnr_socialist_movement_marches_forward
+	}
+	focus = {
+		id = JAP_pnr_burn_the_old_house
+		x = -2
+		y = 6
+		cost = 0
+		icon = GFX_focus_RAJ_crush_the_anathema
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_strictly_enforce_the_chian_iji_ho
+		}
+		relative_position_id = JAP_pnr_joint_advance
+	}
+	focus = {
+		id = JAP_pnr_blueprint_for_the_new_nation
+		x = -53
+		y = -1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_bourgeoisie_great_chaos
+		x = -3
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_blueprint_for_the_new_nation
+		}
+		relative_position_id = JAP_pnr_blueprint_for_the_new_nation
+	}
+	focus = {
+		id = JAP_pnr_contact_overseas_comrades
+		x = -1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_bourgeoisie_great_chaos
+		}
+		relative_position_id = JAP_pnr_bourgeoisie_great_chaos
+	}
+	focus = {
+		id = JAP_pnr_relief_plan_for_workers_and_peasants
+		x = 1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_bourgeoisie_great_chaos
+		}
+		relative_position_id = JAP_pnr_bourgeoisie_great_chaos
+	}
+	focus = {
+		id = JAP_pnr_integration_of_labor_and_capital
+		x = 0
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_contact_overseas_comrades
+		}
+		prerequisite = {
+			focus = JAP_pnr_relief_plan_for_workers_and_peasants
+		}
+		relative_position_id = JAP_pnr_bourgeoisie_great_chaos
+	}
+	focus = {
+		id = JAP_pnr_criticism_of_individual_terrorism
+		x = -1
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_integration_of_labor_and_capital
+		}
+		relative_position_id = JAP_pnr_bourgeoisie_great_chaos
+	}
+	focus = {
+		id = JAP_pnr_contact_with_the_military_headquarters
+		x = 1
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_integration_of_labor_and_capital
+		}
+		relative_position_id = JAP_pnr_bourgeoisie_great_chaos
+	}
+	focus = {
+		id = JAP_pnr_transform_society_transform_nature
+		x = 0
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_criticism_of_individual_terrorism
+		}
+		prerequisite = {
+			focus = JAP_pnr_contact_with_the_military_headquarters
+		}
+		relative_position_id = JAP_pnr_bourgeoisie_great_chaos
+	}
+	focus = {
+		id = JAP_pnr_revolution_with_japanese_characteristics
+		x = 0
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_warm_sun
+		}
+		prerequisite = {
+			focus = JAP_pnr_transform_society_transform_nature
+		}
+		relative_position_id = JAP_pnr_bourgeoisie_great_chaos
+	}
+	focus = {
+		id = JAP_pnr_adhere_to_the_principle_of_the_middle_way
+		x = 3
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_blueprint_for_the_new_nation
+		}
+		relative_position_id = JAP_pnr_blueprint_for_the_new_nation
+	}
+	focus = {
+		id = JAP_pnr_strengthening_union_power
+		x = -1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_adhere_to_the_principle_of_the_middle_way
+		}
+		relative_position_id = JAP_pnr_adhere_to_the_principle_of_the_middle_way
+	}
+	focus = {
+		id = JAP_pnr_beware_of_black_red
+		x = 1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_adhere_to_the_principle_of_the_middle_way
+		}
+		relative_position_id = JAP_pnr_adhere_to_the_principle_of_the_middle_way
+	}
+	focus = {
+		id = JAP_pnr_bond_of_foreign_trade
+		x = 0
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_strengthening_union_power
+		}
+		prerequisite = {
+			focus = JAP_pnr_beware_of_black_red
+		}
+		relative_position_id = JAP_pnr_adhere_to_the_principle_of_the_middle_way
+	}
+	focus = {
+		id = JAP_pnr_condemn_german_economic_colonialism
+		x = 0
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_bond_of_foreign_trade
+		}
+		relative_position_id = JAP_pnr_adhere_to_the_principle_of_the_middle_way
+	}
+	focus = {
+		id = JAP_pnr_re_examining_economic_policy
+		x = -1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_condemn_german_economic_colonialism
+		}
+		relative_position_id = JAP_pnr_adhere_to_the_principle_of_the_middle_way
+	}
+	focus = {
+		id = JAP_pnr_advancing_the_improvement_of_peoples_livelihoods
+		x = 1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_condemn_german_economic_colonialism
+		}
+		relative_position_id = JAP_pnr_adhere_to_the_principle_of_the_middle_way
+	}
+	focus = {
+		id = JAP_pnr_warm_sun
+		x = 0
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_revolution_with_japanese_characteristics
+		}
+		prerequisite = {
+			focus = JAP_pnr_re_examining_economic_policy
+		}
+		prerequisite = {
+			focus = JAP_pnr_advancing_the_improvement_of_peoples_livelihoods
+		}
+		relative_position_id = JAP_pnr_adhere_to_the_principle_of_the_middle_way
+	}
+	focus = {
+		id = JAP_pnr_trade_connects_the_world
+		x = -1
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_japanese_style_monroe_doctrine
+		}
+		relative_position_id = JAP_pnr_blueprint_for_the_new_nation
+	}
+	focus = {
+		id = JAP_pnr_japanese_style_monroe_doctrine
+		x = 0
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_revolution_with_japanese_characteristics
+			focus = JAP_pnr_warm_sun
+		}
+		prerequisite = {
+			focus = JAP_pnr_first_class_social_welfare
+		}
+		relative_position_id = JAP_pnr_blueprint_for_the_new_nation
+	}
+	focus = {
+		id = JAP_pnr_harmonious_diplomacy
+		x = 1
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_japanese_style_monroe_doctrine
+		}
+		relative_position_id = JAP_pnr_blueprint_for_the_new_nation
+	}
+	focus = {
+		id = JAP_pnr_assume_east_asian_responsibilities
+		x = 0
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_trade_connects_the_world
+		}
+		prerequisite = {
+			focus = JAP_pnr_harmonious_diplomacy
+		}
+		relative_position_id = JAP_pnr_blueprint_for_the_new_nation
+	}
+	focus = {
+		id = JAP_pnr_join_hands_with_the_new_womens_association
+		x = -2
+		y = 10
+		cost = 0
+		icon = GFX_focus_ARG_women_in_industry
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_assume_east_asian_responsibilities
+		}
+		relative_position_id = JAP_pnr_blueprint_for_the_new_nation
+	}
+	focus = {
+		id = JAP_pnr_creative_socialism
+		x = 0
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_assume_east_asian_responsibilities
+		}
+		relative_position_id = JAP_pnr_blueprint_for_the_new_nation
+	}
+	focus = {
+		id = JAP_pnr_strikes_are_the_poisonous_legacy_of_capitalism
+		x = 2
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_assume_east_asian_responsibilities
+		}
+		relative_position_id = JAP_pnr_blueprint_for_the_new_nation
+	}
+	focus = {
+		id = JAP_pnr_jointly_build_fengtian
+		x = -1
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_east_asia_could_accommodate_two_suns
+		}
+		prerequisite = {
+			focus = JAP_pnr_join_hands_with_the_new_womens_association
+		}
+		prerequisite = {
+			focus = JAP_pnr_creative_socialism
+		}
+		prerequisite = {
+			focus = JAP_pnr_strikes_are_the_poisonous_legacy_of_capitalism
+		}
+		relative_position_id = JAP_pnr_blueprint_for_the_new_nation
+	}
+	focus = {
+		id = JAP_pnr_east_asia_could_accommodate_two_suns
+		x = 1
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_jointly_build_fengtian
+		}
+		prerequisite = {
+			focus = JAP_pnr_join_hands_with_the_new_womens_association
+		}
+		prerequisite = {
+			focus = JAP_pnr_creative_socialism
+		}
+		prerequisite = {
+			focus = JAP_pnr_strikes_are_the_poisonous_legacy_of_capitalism
+		}
+		relative_position_id = JAP_pnr_blueprint_for_the_new_nation
+	}
+	focus = {
+		id = JAP_pnr_new_life_awaited_by_citizens
+		x = 0
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_integration_of_labor_and_capital
+			focus = JAP_pnr_bond_of_foreign_trade
+		}
+		relative_position_id = JAP_pnr_blueprint_for_the_new_nation
+	}
+	focus = {
+		id = JAP_pnr_first_class_social_welfare
+		x = 0
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_new_life_awaited_by_citizens
+		}
+		relative_position_id = JAP_pnr_blueprint_for_the_new_nation
+	}
+	focus = {
+		id = JAP_pnr_perfection_of_kokutai
+		x = 0
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_jointly_build_fengtian
+			focus = JAP_pnr_east_asia_could_accommodate_two_suns
+		}
+		relative_position_id = JAP_pnr_blueprint_for_the_new_nation
+	}
+	focus = {
+		id = JAP_pnr_state_apparatus_that_transcends_class
+		x = 0
+		y = 13
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_perfection_of_kokutai
+		}
+		relative_position_id = JAP_pnr_blueprint_for_the_new_nation
+	}
+	focus = {
+		id = JAP_pnr_continuation_of_hozumi_yatsuka
+		x = -1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_sonno_tokan
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_clarification_of_the_kokutai
+		x = 1
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_sonno_tokan
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_vigorous_spirit
+		x = 0
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_continuation_of_hozumi_yatsuka
+		}
+		prerequisite = {
+			focus = JAP_pnr_clarification_of_the_kokutai
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_most_loyal_and_courageous_soldier
+		x = 0
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_vigorous_spirit
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_ban_party_politics
+		x = 2
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_vigorous_spirit
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_require_zaibatsu_to_offer_concessions
+		x = -2
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_vigorous_spirit
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_end_urban_decay
+		x = -2
+		y = 4
+		cost = 0
+		icon = GFX_focus_rom_parties_end
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_require_zaibatsu_to_offer_concessions
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_based_on_ones_parents
+		x = 0
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_most_loyal_and_courageous_soldier
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_those_who_cannot_speak
+		x = 2
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_ban_party_politics
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_eliminate_interest_groups
+		x = 1
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_based_on_ones_parents
+		}
+		prerequisite = {
+			focus = JAP_pnr_those_who_cannot_speak
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_national_treasury_is_the_military_treasury
+		x = -1
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_end_urban_decay
+		}
+		prerequisite = {
+			focus = JAP_pnr_based_on_ones_parents
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_relieve_the_people_scorching_heat_through_war
+		x = -2
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_national_treasury_is_the_military_treasury
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_father_protects_child
+		x = 2
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_eliminate_interest_groups
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_boycott_modern_men_and_women
+		x = 0
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_national_treasury_is_the_military_treasury
+		}
+		prerequisite = {
+			focus = JAP_pnr_eliminate_interest_groups
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_mother_of_the_nation
+		x = 0
+		y = 7
+		cost = 0
+		icon = GFX_focus_JAP_joshi_teishin_tai
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_boycott_modern_men_and_women
+		}
+		prerequisite = {
+			focus = JAP_pnr_relieve_the_people_scorching_heat_through_war
+		}
+		prerequisite = {
+			focus = JAP_pnr_father_protects_child
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_strengthen_worker_management
+		x = -1
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_mother_of_the_nation
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_orthodox_autocracy
+		x = 1
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_mother_of_the_nation
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_unity_of_purpose
+		x = 0
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_strengthen_worker_management
+		}
+		prerequisite = {
+			focus = JAP_pnr_orthodox_autocracy
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_tennos_banner
+		x = 0
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_unity_of_purpose
+		}
+		relative_position_id = JAP_pnr_sonno_tokan
+	}
+	focus = {
+		id = JAP_pnr_missing_governor_general_of_korea
+		x = -1
+		y = 2
+		cost = 2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_yamata_no_orochi
+		}
+		relative_position_id = JAP_pnr_yamata_no_orochi
+	}
+	focus = {
+		id = JAP_pnr_march_forward_for_the_renewal_of_society
+		x = 0
+		y = 1
+		cost = 2
+		icon = GFX_focus_PRC_army_command
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_yamata_no_orochi
+		}
+		relative_position_id = JAP_pnr_yamata_no_orochi
+	}
+	focus = {
+		id = JAP_pnr_yasuhito_goes_to_the_tokyo
+		x = 1
+		y = 2
+		cost = 2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_yamata_no_orochi
+		}
+		relative_position_id = JAP_pnr_yamata_no_orochi
+	}
+	focus = {
+		id = JAP_pnr_no_response_from_ijn_signals
+		x = 2
+		y = 1
+		cost = 2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_yamata_no_orochi
+		}
+		relative_position_id = JAP_pnr_yamata_no_orochi
+	}
+	focus = {
+		id = JAP_pnr_meet_with_the_chief_aide_de_camp
+		x = 3
+		y = 2
+		cost = 2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_yamata_no_orochi
+		}
+		relative_position_id = JAP_pnr_yamata_no_orochi
+	}
+	focus = {
+		id = JAP_pnr_suiheisha_calls_for_improvement_of_the_current_situation
+		x = 4
+		y = 1
+		cost = 2
+		icon = GFX_focus_JAP_utilize_ainu_expertise
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_yamata_no_orochi
+		}
+		relative_position_id = JAP_pnr_yamata_no_orochi
+	}
+	focus = {
+		id = JAP_pnr_japan_is_at_its_most_dangerous_moment
+		x = -48
+		y = 11
+		cost = 2
+		icon = GFX_focus_generic_surrender
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_pick_up_the_bamboo_spear
+		x = -49
+		y = 12
+		cost = 3
+		icon = GFX_focus_JAP_rely_on_infantry_charges
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_japan_is_at_its_most_dangerous_moment
+		}
+	}
+	focus = {
+		id = JAP_pnr_sacrifice_private_interests_for_the_public_good
+		x = -47
+		y = 12
+		cost = 3
+		icon = GFX_focus_JAP_national_spiritual_mobilization_movement
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_japan_is_at_its_most_dangerous_moment
+		}
+	}
+	focus = {
+		id = JAP_pnr_suppress_the_non_citizens
+		x = -50
+		y = 13
+		cost = 3
+		icon = GFX_focus_AUS_lawmaking_leniency
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_pick_up_the_bamboo_spear
+		}
+	}
+	focus = {
+		id = JAP_pnr_diet_of_the_resilient_nation
+		x = -46
+		y = 13
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_sacrifice_private_interests_for_the_public_good
+		}
+	}
+	focus = {
+		id = JAP_pnr_awaken_the_pain_of_defeat
+		x = -48
+		y = 13
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_pick_up_the_bamboo_spear
+		}
+		prerequisite = {
+			focus = JAP_pnr_sacrifice_private_interests_for_the_public_good
+		}
+	}
+	focus = {
+		id = JAP_pnr_yuukyuu_no_taigi
+		x = -49
+		y = 14
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_suppress_the_non_citizens
+		}
+		prerequisite = {
+			focus = JAP_pnr_awaken_the_pain_of_defeat
+		}
+	}
+	focus = {
+		id = JAP_pnr_emergency_industrial_evacuation
+		x = -47
+		y = 14
+		cost = 3
+		icon = GFX_focus_DEN_no_regulations
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_awaken_the_pain_of_defeat
+		}
+		prerequisite = {
+			focus = JAP_pnr_diet_of_the_resilient_nation
+		}
+	}
+	focus = {
+		id = JAP_pnr_charge_at_the_enemy_here
+		x = -48
+		y = 15
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_yuukyuu_no_taigi
+		}
+		prerequisite = {
+			focus = JAP_pnr_emergency_industrial_evacuation
+		}
+	}
+	focus = {
+		id = JAP_pnr_promote_soldiers_deeds
+		x = -50
+		y = 16
+		cost = 0
+		icon = GFX_focus_jap_spiritual_mobilization
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_charge_at_the_enemy_here
+		}
+	}
+	focus = {
+		id = JAP_pnr_national_volunteer_combat_corps
+		x = -46
+		y = 16
+		cost = 0
+		icon = GFX_focus_JAP_the_modern_ashigaru
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_charge_at_the_enemy_here
+		}
+	}
+	focus = {
+		id = JAP_pnr_boiling_hot_blood
+		x = -48
+		y = 16
+		cost = 0
+		icon = GFX_focus_JAP_supremacy_of_will
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_charge_at_the_enemy_here
+		}
+	}
+	focus = {
+		id = JAP_pnr_take_over_media_organizations
+		x = -51
+		y = 17
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_promote_soldiers_deeds
+		}
+		prerequisite = {
+			focus = JAP_pnr_suppress_the_non_citizens
+		}
+	}
+	focus = {
+		id = JAP_pnr_theory_of_winning_by_gyokusai
+		x = -45
+		y = 17
+		cost = 0
+		icon = GFX_focus_JAP_advance_one_hundred_million_fireballs
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_national_volunteer_combat_corps
+		}
+		prerequisite = {
+			focus = JAP_pnr_diet_of_the_resilient_nation
+		}
+	}
+	focus = {
+		id = JAP_pnr_unite_around_the_tenno
+		x = -48
+		y = 18
+		cost = 0
+		icon = GFX_focus_jap_showa_restoration
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_take_over_media_organizations
+		}
+		prerequisite = {
+			focus = JAP_pnr_boiling_hot_blood
+		}
+		prerequisite = {
+			focus = JAP_pnr_theory_of_winning_by_gyokusai
+		}
+	}
+	focus = {
+		id = JAP_pnr_throw_enemies_to_the_fish
+		x = -49
+		y = 19
+		cost = 0
+		icon = GFX_focus_JAP_new_order_movement
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_unite_around_the_tenno
+		}
+	}
+	focus = {
+		id = JAP_pnr_fabricating_a_letter_of_surrender
+		x = -47
+		y = 19
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_unite_around_the_tenno
+		}
+	}
+	focus = {
+		id = JAP_pnr_after_suffering_comes_happiness
+		x = -48
+		y = 20
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_throw_enemies_to_the_fish
+		}
+		prerequisite = {
+			focus = JAP_pnr_fabricating_a_letter_of_surrender
+		}
+	}
+	focus = {
+		id = JAP_pnr_banki_shinsai
+		x = 0
+		y = 1
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_i_am_everything
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_benevolent_and_neutral_bureaucrats
+		x = -2
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_banki_shinsai
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_last_bastion_against_partisan_politics
+		x = -61
+		y = 0
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_end_the_current_state_of_chaos
+		}
+	}
+	focus = {
+		id = JAP_pnr_eradicate_the_poison_of_the_party_members
+		x = -62
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_cooperate_with_local_party_members
+		}
+	}
+	focus = {
+		id = JAP_pnr_cooperate_with_local_party_members
+		x = -60
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_eradicate_the_poison_of_the_party_members
+		}
+	}
+	focus = {
+		id = JAP_pnr_precisely_calculate_what_society_needs
+		x = -1
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_benevolent_and_neutral_bureaucrats
+		}
+		prerequisite = {
+			focus = JAP_pnr_trusted_and_entrusted_close_minister
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_party_members_who_bow_to_serve_the_nation
+		x = 2
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_banki_shinsai
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_defend_the_three_sacred_treasures
+		x = 0
+		y = 10
+		cost = 2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_planned_social_reform
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_protect_the_kokutai
+		x = 0
+		y = 11
+		cost = 5
+		icon = GFX_focus_JAP_sea_the_showa_restoration
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_defend_the_three_sacred_treasures
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_trusted_and_entrusted_close_minister
+		x = 0
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_banki_shinsai
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_civilian_control_of_the_military
+		x = -1
+		y = 8
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_amend_the_constitution
+		}
+		prerequisite = {
+			focus = JAP_pnr_dai_gensui_of_army_and_navy
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_exile_radical_officers
+		x = -1
+		y = 5
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reiteration_of_the_gunjin_chokuyu
+		}
+		prerequisite = {
+			focus = JAP_pnr_safeguarding_the_livelihood_of_the_people
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_expand_parliamentary_powers
+		x = 1
+		y = 5
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_reiteration_of_the_gunjin_chokuyu
+		}
+		prerequisite = {
+			focus = JAP_pnr_maintain_political_stability
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_amend_the_constitution
+		x = 0
+		y = 7
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_tennos_virtue_could_not_be_flawless
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_reiteration_of_the_gunjin_chokuyu
+		x = 0
+		y = 4
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_precisely_calculate_what_society_needs
+		}
+		prerequisite = {
+			focus = JAP_pnr_the_true_ruler
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_the_true_ruler
+		x = 1
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_trusted_and_entrusted_close_minister
+		}
+		prerequisite = {
+			focus = JAP_pnr_party_members_who_bow_to_serve_the_nation
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_maintain_political_stability
+		x = 2
+		y = 4
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_the_true_ruler
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_tennos_virtue_could_not_be_flawless
+		x = 0
+		y = 6
+		cost = 2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_exile_radical_officers
+		}
+		prerequisite = {
+			focus = JAP_pnr_expand_parliamentary_powers
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_safeguarding_the_livelihood_of_the_people
+		x = -2
+		y = 4
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_precisely_calculate_what_society_needs
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_monarch_who_reigns_but_does_not_rule
+		x = 1
+		y = 8
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_amend_the_constitution
+		}
+		prerequisite = {
+			focus = JAP_pnr_appointed_member_of_the_house_of_representatives
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_planned_social_reform
+		x = 0
+		y = 9
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_civilian_control_of_the_military
+		}
+		prerequisite = {
+			focus = JAP_pnr_monarch_who_reigns_but_does_not_rule
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_appointed_member_of_the_house_of_representatives
+		x = 2
+		y = 7
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_expand_parliamentary_powers
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_dai_gensui_of_army_and_navy
+		x = -2
+		y = 7
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_exile_radical_officers
+		}
+		relative_position_id = JAP_pnr_i_am_everything
+	}
+	focus = {
+		id = JAP_pnr_fiscal_austerity
+		x = 5
+		y = 1
+		cost = 0
+		icon = GFX_focus_generic_reduce_unneccessary_expenditure
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_jikyoku_kyokyu_jigyo
+		}
+		prerequisite = {
+			focus = JAP_pnr_black_monday_arrives_in_the_east
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_consumer_savings_awareness_campaign
+		x = 4
+		y = 3
+		cost = 0
+		icon = GFX_focus_generic_reduce_unneccessary_expenditure
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_defend_the_gold_standard
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_currency_war
+		x = 6
+		y = 3
+		cost = 0
+		icon = GFX_focus_RAJ_war_taxes
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_no_debt_policy
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_no_debt_policy
+		x = 6
+		y = 2
+		cost = 0
+		icon = GFX_focus_generic_currency_reforms
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_fiscal_austerity
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_expand_exports
+		x = 5
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_consumer_savings_awareness_campaign
+		}
+		prerequisite = {
+			focus = JAP_pnr_currency_war
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_issue_special_government_bonds
+		x = -6
+		y = 3
+		cost = 0
+		icon = GFX_focus_CHI_promote_national_currency
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_large_scale_public_works
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_accommodative_monetary_policy
+		x = -4
+		y = 3
+		cost = 0
+		icon = GFX_focus_mex_privatisation
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_abandon_the_gold_standard
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_jikyoku_kyokyu_jigyo
+		x = -5
+		y = 1
+		cost = 0
+		icon = GFX_focus_AST_liberty_loans
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JAP_pnr_fiscal_austerity
+		}
+		prerequisite = {
+			focus = JAP_pnr_black_monday_arrives_in_the_east
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_large_scale_public_works
+		x = -6
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_jikyoku_kyokyu_jigyo
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_theory_of_gradual_reduction_of_public_debt
+		x = -5
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_issue_special_government_bonds
+		}
+		prerequisite = {
+			focus = JAP_pnr_accommodative_monetary_policy
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_shaking_hands_with_the_zaibatsu
+		x = -5
+		y = 5
+		cost = 0
+		icon = GFX_focus_jap_zaibatsu
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_theory_of_gradual_reduction_of_public_debt
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_deal_a_heavy_blow_to_the_zaibatsu
+		x = 5
+		y = 5
+		cost = 0
+		icon = GFX_focus_JAP_nationalize_zaibatsus
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_expand_exports
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_support_factory_expansion
+		x = -1
+		y = 6
+		cost = 0
+		icon = GFX_focus_generic_reorient_production
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_shaking_hands_with_the_zaibatsu
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_improve_production_efficiency
+		x = -3
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_shaking_hands_with_the_zaibatsu
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_accelerate_natural_exploration
+		x = -5
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_shaking_hands_with_the_zaibatsu
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_railway_plan
+		x = -5
+		y = 7
+		cost = 0
+		icon = GFX_focus_generic_railroad
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_support_factory_expansion
+		}
+		prerequisite = {
+			focus = JAP_pnr_accelerate_natural_exploration
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_industrial_control_law
+		x = 3
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_deal_a_heavy_blow_to_the_zaibatsu
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_searching_for_oil
+		x = 5
+		y = 6
+		cost = 0
+		icon = GFX_focus_generic_resource_extraction
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_deal_a_heavy_blow_to_the_zaibatsu
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_shift_to_light_industry
+		x = 1
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_deal_a_heavy_blow_to_the_zaibatsu
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_standardized_railway
+		x = 5
+		y = 7
+		cost = 0
+		icon = GFX_focus_generic_railroad
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_searching_for_oil
+		}
+		prerequisite = {
+			focus = JAP_pnr_shift_to_light_industry
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_stimulate_colonization
+		x = 0
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_railway_plan
+			focus = JAP_pnr_standardized_railway
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_south_manchuria_railway_company
+		x = -3
+		y = 8
+		cost = 0
+		icon = GFX_focus_jap_manchurian_project
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_railway_plan
+			focus = JAP_pnr_standardized_railway
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
+	}
+	focus = {
+		id = JAP_pnr_oriental_development_company
+		x = 3
+		y = 8
+		cost = 0
+		icon = GFX_focus_JAP_upgrade_the_oriental_development_company
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_railway_plan
+			focus = JAP_pnr_standardized_railway
+		}
+		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
 	}
 }
