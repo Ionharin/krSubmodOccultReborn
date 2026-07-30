@@ -18,3 +18,17 @@ country_event = {
 		JAP_congress_apply_collapse_seats_debug = yes
 	}
 }
+
+country_event = {
+	id = JAP_pnr_event.2
+	title = JAP_pnr_event.2.t
+	desc = JAP_pnr_event.2.d
+	picture = GFX_report_event_japanese_soldiers
+	is_triggered_only = yes
+    hidden = yes
+    timeout_days = 7
+	option = {
+		name = JAP_pnr_event.2.a
+		JAP = { load_oob = "JAP_focus_tree_start" }
+	}
+}

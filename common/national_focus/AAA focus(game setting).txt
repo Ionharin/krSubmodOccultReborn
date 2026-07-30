@@ -1,29 +1,21 @@
-### PNR JAP setting ###
-set_stability = 0.30
-set_war_support = 0.15
-set_fuel_ratio = 0.40
-set_research_slots = 4
-
-set_politics = {
-	ruling_party = social_conservative
-	last_election = "1932.1.23"
-	election_frequency = 48
-	elections_allowed = no
-}
-
-set_popularities = {
-	totalist = 0
-	syndicalist = 1
-	radical_socialist = 0
-	social_democrat = 1
-	social_liberal = 2
-	authoritarian_democrat = 0
-	market_liberal = 31
-	social_conservative = 64
-	paternal_autocrat = 0
-	national_populist = 1
-}
-
+############################
+# Taiwan - PNR Focus Tree #
+# By NethopAvis            #
+############################
+focus_tree = {
+	id = AAA_game_setting
+	country = {
+		factor = 0
+	}
+	default = no
+	focus = {
+		id = AAA_pnr_set_pnr_japan_politics
+		x = 0
+		y = 0
+		cost = 1
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		completion_reward = {
 			set_party_name = {
 				ideology = totalist
 				long_name = JAP_pnr_totalist_party_long
@@ -74,12 +66,6 @@ set_popularities = {
 				long_name = JAP_pnr_national_populist_party_long
 				name = JAP_pnr_national_populist_party
 			}
-
-oob = "JAP_focus_tree_start"
-#complete_national_focus = AAA_pnr_set_pnr_japan_politics
-load_focus_tree = JAP_pnr_yachiyo
-
-recruit_character = JAP_pnr_hiroyasu
-recruit_character = JAP_pnr_mishima
-recruit_character = JAP_pnr_onisaburo
-recruit_character = JAP_pnr_kong_decheng
+		}
+	}
+}
