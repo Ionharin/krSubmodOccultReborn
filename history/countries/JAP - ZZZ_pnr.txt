@@ -24,62 +24,82 @@ set_popularities = {
 	national_populist = 1
 }
 
-			set_party_name = {
-				ideology = totalist
-				long_name = JAP_pnr_totalist_party_long
-				name = JAP_pnr_totalist_party
-			}
-			set_party_name = {
-				ideology = radical_socialist
-				long_name = JAP_pnr_radical_socialist_party_long
-				name = JAP_pnr_radical_socialist_party
-			}
-			set_party_name = {
-				ideology = syndicalist
-				long_name = JAP_pnr_syndicalist_party_long
-				name = JAP_pnr_syndicalist_party
-			}
-			set_party_name = {
-				ideology = social_democrat
-				long_name = JAP_pnr_social_democrat_party_long
-				name = JAP_pnr_social_democrat_party
-			}
-			set_party_name = {
-				ideology = social_liberal
-				long_name = JAP_pnr_social_liberal_party_long
-				name = JAP_pnr_social_liberal_party
-			}
-			set_party_name = {
-				ideology = authoritarian_democrat
-				long_name = JAP_pnr_authoritarian_democrat_party_long
-				name = JAP_pnr_authoritarian_democrat_party
-			}
-			set_party_name = {
-				ideology = market_liberal
-				long_name = JAP_pnr_market_liberal_party_long
-				name = JAP_pnr_market_liberal_party
-			}
-			set_party_name = {
-				ideology = social_conservative
-				long_name = JAP_pnr_social_conservative_party_long
-				name = JAP_pnr_social_conservative_party
-			}
-			set_party_name = {
-				ideology = paternal_autocrat
-				long_name = JAP_pnr_paternal_autocrat_party_long
-				name = JAP_pnr_paternal_autocrat_party
-			}
-			set_party_name = {
-				ideology = national_populist
-				long_name = JAP_pnr_national_populist_party_long
-				name = JAP_pnr_national_populist_party
-			}
+add_ideas = {
+	JAP_pnr_showa_tenno
+	JAP_pnr_housing_finance_agency
+	JAP_pnr_rikken_seiyukai_factional_struggle
+	JAP_pnr_farewell_to_the_lost_decade
+}
+
+set_power_balance = {
+	id = JAP_pnr_poor_reality_bop
+	left_side = JAP_pnr_choshu_no_rikugun
+	right_side = JAP_pnr_satsuma_no_kaigun
+	set_value = -0.40
+}
+
+### JAP Puppet Register ###
+recruit_character = JAP_pnr_hiroyasu
+recruit_character = JAP_pnr_mishima
+recruit_character = JAP_pnr_onisaburo
+recruit_character = JAP_pnr_kong_decheng
+
+### JAP Independ Character Register ###
+recruit_character = JAP_pnr_inukai_tsuyoshi
+
+set_party_name = {
+	ideology = totalist
+	long_name = JAP_pnr_totalist_party_long
+	name = JAP_pnr_totalist_party
+}
+set_party_name = {
+	ideology = radical_socialist
+	long_name = JAP_pnr_radical_socialist_party_long
+	name = JAP_pnr_radical_socialist_party
+}
+set_party_name = {
+	ideology = syndicalist
+	long_name = JAP_pnr_syndicalist_party_long
+	name = JAP_pnr_syndicalist_party
+}
+set_party_name = {
+	ideology = social_democrat
+	long_name = JAP_pnr_social_democrat_party_long
+	name = JAP_pnr_social_democrat_party
+}
+set_party_name = {
+	ideology = social_liberal
+	long_name = JAP_pnr_social_liberal_party_long
+	name = JAP_pnr_social_liberal_party
+}
+set_party_name = {
+	ideology = authoritarian_democrat
+	long_name = JAP_pnr_authoritarian_democrat_party_long
+	name = JAP_pnr_authoritarian_democrat_party
+}
+set_party_name = {
+	ideology = market_liberal
+	long_name = JAP_pnr_market_liberal_party_long
+	name = JAP_pnr_market_liberal_party
+}
+set_party_name = {
+	ideology = social_conservative
+	long_name = JAP_pnr_social_conservative_party_long
+	name = JAP_pnr_social_conservative_party
+}
+set_party_name = {
+	ideology = paternal_autocrat
+	long_name = JAP_pnr_paternal_autocrat_party_long
+	name = JAP_pnr_paternal_autocrat_party
+}
+set_party_name = {
+	ideology = national_populist
+	long_name = JAP_pnr_national_populist_party_long
+	name = JAP_pnr_national_populist_party
+}
 
 oob = "JAP_focus_tree_start"
 #complete_national_focus = AAA_pnr_set_pnr_japan_politics
 load_focus_tree = JAP_pnr_yachiyo
 
-recruit_character = JAP_pnr_hiroyasu
-recruit_character = JAP_pnr_mishima
-recruit_character = JAP_pnr_onisaburo
-recruit_character = JAP_pnr_kong_decheng
+JAP_pnr_inukai_tsuyoshi = { promote_character = social_conservative_subtype }

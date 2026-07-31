@@ -1,0 +1,20 @@
+JAP_pnr_initialize_red_conspiracy = {
+	if = {
+		limit = {
+			tag = JAP
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun }
+		}
+		set_country_flag = JAP_pnr_red_conspiracy_begun
+		set_variable = { JAP_pnr_red_conspiracy_strength = 25 }
+		JAP_pnr_update_red_conspiracy_modifier_values = yes
+		#add_dynamic_modifier = { modifier = JAP_pnr_red_hands_modifier }
+		activate_mission = JAP_pnr_red_conspiracy_escalation
+	}
+}
+
+JAP_pnr_update_red_conspiracy_modifier_values = {
+	set_variable = { JAP_pnr_red_conspiracy_scaled_factor = JAP_pnr_red_conspiracy_strength }
+	multiply_variable = { JAP_pnr_red_conspiracy_scaled_factor = 0.002 }
+	set_variable = { JAP_pnr_red_conspiracy_scaled_factor_negative = JAP_pnr_red_conspiracy_scaled_factor }
+	multiply_variable = { JAP_pnr_red_conspiracy_scaled_factor_negative = -1 }
+}

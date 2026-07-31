@@ -9,3 +9,13 @@ JAP_congress_can_open = {
 JAP_congress_interface_is_open = {
 	has_country_flag = JAP_congress_interface_open
 }
+
+JAP_congress_can_vote_agenda = {
+	if = {
+		limit = { has_country_flag = JAP_congress_agenda_vote_cooldown }
+		custom_override_tooltip = {
+			tooltip = JAP_congress_agenda_vote_cooldown_tt
+			always = no
+		}
+	}
+}

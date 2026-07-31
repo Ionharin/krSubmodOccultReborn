@@ -19,949 +19,982 @@ JAP_congress_initialize_values = {
 		set_variable = { JAP_congress_faction_seats_list^6 = 146 }
 		set_variable = { JAP_congress_faction_seats_list^8 = 16 }
 		set_variable = { JAP_congress_faction_seats_list^9 = 3 }
+		set_variable = { JAP_congress_authority = 0 }
 	}
 
+	if = {
+		limit = { NOT = { has_variable = JAP_congress_authority } }
+		set_variable = { JAP_congress_authority = 0 }
+	}
+
+	if = { limit = { NOT = { has_variable = JAP_congress_faction_seats_list^1 } } set_variable = { JAP_congress_faction_seats_list^1 = 0 } }
+	if = { limit = { NOT = { has_variable = JAP_congress_faction_seats_list^2 } } set_variable = { JAP_congress_faction_seats_list^2 = 0 } }
+	if = { limit = { NOT = { has_variable = JAP_congress_faction_seats_list^3 } } set_variable = { JAP_congress_faction_seats_list^3 = 0 } }
+	if = { limit = { NOT = { has_variable = JAP_congress_faction_seats_list^4 } } set_variable = { JAP_congress_faction_seats_list^4 = 0 } }
+	if = { limit = { NOT = { has_variable = JAP_congress_faction_seats_list^5 } } set_variable = { JAP_congress_faction_seats_list^5 = 0 } }
+	if = { limit = { NOT = { has_variable = JAP_congress_faction_seats_list^6 } } set_variable = { JAP_congress_faction_seats_list^6 = 0 } }
+	if = { limit = { NOT = { has_variable = JAP_congress_faction_seats_list^7 } } set_variable = { JAP_congress_faction_seats_list^7 = 0 } }
+	if = { limit = { NOT = { has_variable = JAP_congress_faction_seats_list^8 } } set_variable = { JAP_congress_faction_seats_list^8 = 0 } }
+	if = { limit = { NOT = { has_variable = JAP_congress_faction_seats_list^9 } } set_variable = { JAP_congress_faction_seats_list^9 = 0 } }
+	if = { limit = { NOT = { has_variable = JAP_congress_faction_seats_list^10 } } set_variable = { JAP_congress_faction_seats_list^10 = 0 } }
+
+	JAP_congress_refresh_agenda_frames = yes
 	JAP_congress_rebuild_seats = yes
+}
+
+JAP_congress_refresh_majority_party = {
+	set_variable = { JAP_congress_majority_party = 1 }
+	set_variable = { JAP_congress_majority_party_seats = JAP_congress_faction_seats_list^1 }
+
+	if = { limit = { check_variable = { JAP_congress_faction_seats_list^2 > JAP_congress_majority_party_seats } } set_variable = { JAP_congress_majority_party = 2 } set_variable = { JAP_congress_majority_party_seats = JAP_congress_faction_seats_list^2 } }
+	if = { limit = { check_variable = { JAP_congress_faction_seats_list^3 > JAP_congress_majority_party_seats } } set_variable = { JAP_congress_majority_party = 3 } set_variable = { JAP_congress_majority_party_seats = JAP_congress_faction_seats_list^3 } }
+	if = { limit = { check_variable = { JAP_congress_faction_seats_list^4 > JAP_congress_majority_party_seats } } set_variable = { JAP_congress_majority_party = 4 } set_variable = { JAP_congress_majority_party_seats = JAP_congress_faction_seats_list^4 } }
+	if = { limit = { check_variable = { JAP_congress_faction_seats_list^5 > JAP_congress_majority_party_seats } } set_variable = { JAP_congress_majority_party = 5 } set_variable = { JAP_congress_majority_party_seats = JAP_congress_faction_seats_list^5 } }
+	if = { limit = { check_variable = { JAP_congress_faction_seats_list^6 > JAP_congress_majority_party_seats } } set_variable = { JAP_congress_majority_party = 6 } set_variable = { JAP_congress_majority_party_seats = JAP_congress_faction_seats_list^6 } }
+	if = { limit = { check_variable = { JAP_congress_faction_seats_list^7 > JAP_congress_majority_party_seats } } set_variable = { JAP_congress_majority_party = 7 } set_variable = { JAP_congress_majority_party_seats = JAP_congress_faction_seats_list^7 } }
+	if = { limit = { check_variable = { JAP_congress_faction_seats_list^8 > JAP_congress_majority_party_seats } } set_variable = { JAP_congress_majority_party = 8 } set_variable = { JAP_congress_majority_party_seats = JAP_congress_faction_seats_list^8 } }
+	if = { limit = { check_variable = { JAP_congress_faction_seats_list^9 > JAP_congress_majority_party_seats } } set_variable = { JAP_congress_majority_party = 9 } set_variable = { JAP_congress_majority_party_seats = JAP_congress_faction_seats_list^9 } }
+	if = { limit = { check_variable = { JAP_congress_faction_seats_list^10 > JAP_congress_majority_party_seats } } set_variable = { JAP_congress_majority_party = 10 } set_variable = { JAP_congress_majority_party_seats = JAP_congress_faction_seats_list^10 } }
 }
 
 JAP_congress_set_seats_position = {
 	clear_array = JAP_congress_x_array
 	clear_array = JAP_congress_y_array
-	add_to_array = { JAP_congress_x_array = 189 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 190 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 194 }
-	add_to_array = { JAP_congress_y_array = 233 }
-	add_to_array = { JAP_congress_x_array = 201 }
-	add_to_array = { JAP_congress_y_array = 220 }
-	add_to_array = { JAP_congress_x_array = 210 }
-	add_to_array = { JAP_congress_y_array = 210 }
-	add_to_array = { JAP_congress_x_array = 220 }
-	add_to_array = { JAP_congress_y_array = 201 }
-	add_to_array = { JAP_congress_x_array = 233 }
-	add_to_array = { JAP_congress_y_array = 194 }
-	add_to_array = { JAP_congress_x_array = 246 }
-	add_to_array = { JAP_congress_y_array = 190 }
-	add_to_array = { JAP_congress_x_array = 260 }
-	add_to_array = { JAP_congress_y_array = 189 }
-	add_to_array = { JAP_congress_x_array = 274 }
-	add_to_array = { JAP_congress_y_array = 190 }
-	add_to_array = { JAP_congress_x_array = 287 }
-	add_to_array = { JAP_congress_y_array = 194 }
-	add_to_array = { JAP_congress_x_array = 300 }
-	add_to_array = { JAP_congress_y_array = 201 }
-	add_to_array = { JAP_congress_x_array = 310 }
-	add_to_array = { JAP_congress_y_array = 210 }
-	add_to_array = { JAP_congress_x_array = 319 }
-	add_to_array = { JAP_congress_y_array = 220 }
-	add_to_array = { JAP_congress_x_array = 326 }
-	add_to_array = { JAP_congress_y_array = 233 }
-	add_to_array = { JAP_congress_x_array = 330 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 331 }
+	add_to_array = { JAP_congress_x_array = 174 }
 	add_to_array = { JAP_congress_y_array = 260 }
 	add_to_array = { JAP_congress_x_array = 175 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 176 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 179 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 185 }
-	add_to_array = { JAP_congress_y_array = 219 }
-	add_to_array = { JAP_congress_x_array = 193 }
-	add_to_array = { JAP_congress_y_array = 208 }
-	add_to_array = { JAP_congress_x_array = 202 }
-	add_to_array = { JAP_congress_y_array = 197 }
-	add_to_array = { JAP_congress_x_array = 213 }
-	add_to_array = { JAP_congress_y_array = 189 }
-	add_to_array = { JAP_congress_x_array = 226 }
-	add_to_array = { JAP_congress_y_array = 182 }
-	add_to_array = { JAP_congress_x_array = 239 }
-	add_to_array = { JAP_congress_y_array = 177 }
-	add_to_array = { JAP_congress_x_array = 253 }
-	add_to_array = { JAP_congress_y_array = 175 }
-	add_to_array = { JAP_congress_x_array = 267 }
-	add_to_array = { JAP_congress_y_array = 175 }
-	add_to_array = { JAP_congress_x_array = 281 }
-	add_to_array = { JAP_congress_y_array = 177 }
-	add_to_array = { JAP_congress_x_array = 294 }
-	add_to_array = { JAP_congress_y_array = 182 }
-	add_to_array = { JAP_congress_x_array = 307 }
-	add_to_array = { JAP_congress_y_array = 189 }
-	add_to_array = { JAP_congress_x_array = 318 }
-	add_to_array = { JAP_congress_y_array = 197 }
-	add_to_array = { JAP_congress_x_array = 327 }
-	add_to_array = { JAP_congress_y_array = 208 }
-	add_to_array = { JAP_congress_x_array = 335 }
-	add_to_array = { JAP_congress_y_array = 219 }
-	add_to_array = { JAP_congress_x_array = 341 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 344 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 345 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 161 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 162 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 165 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 170 }
-	add_to_array = { JAP_congress_y_array = 219 }
-	add_to_array = { JAP_congress_x_array = 176 }
-	add_to_array = { JAP_congress_y_array = 206 }
-	add_to_array = { JAP_congress_x_array = 185 }
-	add_to_array = { JAP_congress_y_array = 195 }
-	add_to_array = { JAP_congress_x_array = 195 }
-	add_to_array = { JAP_congress_y_array = 185 }
-	add_to_array = { JAP_congress_x_array = 206 }
-	add_to_array = { JAP_congress_y_array = 176 }
-	add_to_array = { JAP_congress_x_array = 219 }
-	add_to_array = { JAP_congress_y_array = 170 }
-	add_to_array = { JAP_congress_x_array = 232 }
-	add_to_array = { JAP_congress_y_array = 165 }
-	add_to_array = { JAP_congress_x_array = 246 }
-	add_to_array = { JAP_congress_y_array = 162 }
-	add_to_array = { JAP_congress_x_array = 260 }
-	add_to_array = { JAP_congress_y_array = 161 }
-	add_to_array = { JAP_congress_x_array = 274 }
-	add_to_array = { JAP_congress_y_array = 162 }
-	add_to_array = { JAP_congress_x_array = 288 }
-	add_to_array = { JAP_congress_y_array = 165 }
-	add_to_array = { JAP_congress_x_array = 301 }
-	add_to_array = { JAP_congress_y_array = 170 }
-	add_to_array = { JAP_congress_x_array = 314 }
-	add_to_array = { JAP_congress_y_array = 176 }
-	add_to_array = { JAP_congress_x_array = 325 }
-	add_to_array = { JAP_congress_y_array = 185 }
-	add_to_array = { JAP_congress_x_array = 335 }
-	add_to_array = { JAP_congress_y_array = 195 }
-	add_to_array = { JAP_congress_x_array = 344 }
-	add_to_array = { JAP_congress_y_array = 206 }
-	add_to_array = { JAP_congress_x_array = 350 }
-	add_to_array = { JAP_congress_y_array = 219 }
-	add_to_array = { JAP_congress_x_array = 355 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 358 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 359 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 147 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 148 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 150 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 155 }
-	add_to_array = { JAP_congress_y_array = 218 }
-	add_to_array = { JAP_congress_x_array = 161 }
-	add_to_array = { JAP_congress_y_array = 205 }
-	add_to_array = { JAP_congress_x_array = 168 }
-	add_to_array = { JAP_congress_y_array = 193 }
-	add_to_array = { JAP_congress_x_array = 177 }
-	add_to_array = { JAP_congress_y_array = 182 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 180 }
+	add_to_array = { JAP_congress_y_array = 227 }
 	add_to_array = { JAP_congress_x_array = 188 }
-	add_to_array = { JAP_congress_y_array = 173 }
+	add_to_array = { JAP_congress_y_array = 211 }
 	add_to_array = { JAP_congress_x_array = 199 }
-	add_to_array = { JAP_congress_y_array = 164 }
-	add_to_array = { JAP_congress_x_array = 212 }
-	add_to_array = { JAP_congress_y_array = 157 }
-	add_to_array = { JAP_congress_x_array = 225 }
-	add_to_array = { JAP_congress_y_array = 152 }
-	add_to_array = { JAP_congress_x_array = 239 }
-	add_to_array = { JAP_congress_y_array = 149 }
-	add_to_array = { JAP_congress_x_array = 253 }
-	add_to_array = { JAP_congress_y_array = 147 }
-	add_to_array = { JAP_congress_x_array = 267 }
-	add_to_array = { JAP_congress_y_array = 147 }
-	add_to_array = { JAP_congress_x_array = 281 }
-	add_to_array = { JAP_congress_y_array = 149 }
-	add_to_array = { JAP_congress_x_array = 295 }
-	add_to_array = { JAP_congress_y_array = 152 }
-	add_to_array = { JAP_congress_x_array = 308 }
-	add_to_array = { JAP_congress_y_array = 157 }
-	add_to_array = { JAP_congress_x_array = 321 }
-	add_to_array = { JAP_congress_y_array = 164 }
-	add_to_array = { JAP_congress_x_array = 332 }
-	add_to_array = { JAP_congress_y_array = 173 }
-	add_to_array = { JAP_congress_x_array = 343 }
-	add_to_array = { JAP_congress_y_array = 182 }
-	add_to_array = { JAP_congress_x_array = 352 }
-	add_to_array = { JAP_congress_y_array = 193 }
-	add_to_array = { JAP_congress_x_array = 359 }
-	add_to_array = { JAP_congress_y_array = 205 }
-	add_to_array = { JAP_congress_x_array = 365 }
-	add_to_array = { JAP_congress_y_array = 218 }
-	add_to_array = { JAP_congress_x_array = 370 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 372 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 373 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 133 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 133 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 136 }
-	add_to_array = { JAP_congress_y_array = 233 }
-	add_to_array = { JAP_congress_x_array = 139 }
-	add_to_array = { JAP_congress_y_array = 219 }
-	add_to_array = { JAP_congress_x_array = 144 }
-	add_to_array = { JAP_congress_y_array = 207 }
-	add_to_array = { JAP_congress_x_array = 151 }
-	add_to_array = { JAP_congress_y_array = 194 }
-	add_to_array = { JAP_congress_x_array = 159 }
-	add_to_array = { JAP_congress_y_array = 183 }
-	add_to_array = { JAP_congress_x_array = 168 }
-	add_to_array = { JAP_congress_y_array = 172 }
-	add_to_array = { JAP_congress_x_array = 178 }
-	add_to_array = { JAP_congress_y_array = 163 }
-	add_to_array = { JAP_congress_x_array = 189 }
-	add_to_array = { JAP_congress_y_array = 155 }
-	add_to_array = { JAP_congress_x_array = 200 }
-	add_to_array = { JAP_congress_y_array = 148 }
-	add_to_array = { JAP_congress_x_array = 213 }
-	add_to_array = { JAP_congress_y_array = 142 }
-	add_to_array = { JAP_congress_x_array = 226 }
-	add_to_array = { JAP_congress_y_array = 137 }
-	add_to_array = { JAP_congress_x_array = 239 }
-	add_to_array = { JAP_congress_y_array = 134 }
-	add_to_array = { JAP_congress_x_array = 253 }
-	add_to_array = { JAP_congress_y_array = 133 }
-	add_to_array = { JAP_congress_x_array = 267 }
-	add_to_array = { JAP_congress_y_array = 133 }
-	add_to_array = { JAP_congress_x_array = 281 }
-	add_to_array = { JAP_congress_y_array = 134 }
-	add_to_array = { JAP_congress_x_array = 294 }
-	add_to_array = { JAP_congress_y_array = 137 }
-	add_to_array = { JAP_congress_x_array = 307 }
-	add_to_array = { JAP_congress_y_array = 142 }
-	add_to_array = { JAP_congress_x_array = 320 }
-	add_to_array = { JAP_congress_y_array = 148 }
-	add_to_array = { JAP_congress_x_array = 331 }
-	add_to_array = { JAP_congress_y_array = 155 }
-	add_to_array = { JAP_congress_x_array = 342 }
-	add_to_array = { JAP_congress_y_array = 163 }
-	add_to_array = { JAP_congress_x_array = 352 }
-	add_to_array = { JAP_congress_y_array = 172 }
-	add_to_array = { JAP_congress_x_array = 361 }
-	add_to_array = { JAP_congress_y_array = 183 }
-	add_to_array = { JAP_congress_x_array = 369 }
-	add_to_array = { JAP_congress_y_array = 194 }
-	add_to_array = { JAP_congress_x_array = 376 }
-	add_to_array = { JAP_congress_y_array = 207 }
-	add_to_array = { JAP_congress_x_array = 381 }
-	add_to_array = { JAP_congress_y_array = 219 }
-	add_to_array = { JAP_congress_x_array = 384 }
-	add_to_array = { JAP_congress_y_array = 233 }
-	add_to_array = { JAP_congress_x_array = 387 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 387 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 119 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 119 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 121 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 125 }
-	add_to_array = { JAP_congress_y_array = 219 }
-	add_to_array = { JAP_congress_x_array = 129 }
-	add_to_array = { JAP_congress_y_array = 206 }
-	add_to_array = { JAP_congress_x_array = 135 }
-	add_to_array = { JAP_congress_y_array = 193 }
-	add_to_array = { JAP_congress_x_array = 143 }
-	add_to_array = { JAP_congress_y_array = 181 }
-	add_to_array = { JAP_congress_x_array = 151 }
-	add_to_array = { JAP_congress_y_array = 170 }
-	add_to_array = { JAP_congress_x_array = 160 }
-	add_to_array = { JAP_congress_y_array = 160 }
-	add_to_array = { JAP_congress_x_array = 170 }
-	add_to_array = { JAP_congress_y_array = 151 }
-	add_to_array = { JAP_congress_x_array = 181 }
-	add_to_array = { JAP_congress_y_array = 143 }
-	add_to_array = { JAP_congress_x_array = 193 }
-	add_to_array = { JAP_congress_y_array = 135 }
-	add_to_array = { JAP_congress_x_array = 206 }
-	add_to_array = { JAP_congress_y_array = 129 }
-	add_to_array = { JAP_congress_x_array = 219 }
-	add_to_array = { JAP_congress_y_array = 125 }
-	add_to_array = { JAP_congress_x_array = 232 }
-	add_to_array = { JAP_congress_y_array = 121 }
-	add_to_array = { JAP_congress_x_array = 246 }
-	add_to_array = { JAP_congress_y_array = 119 }
+	add_to_array = { JAP_congress_y_array = 199 }
+	add_to_array = { JAP_congress_x_array = 211 }
+	add_to_array = { JAP_congress_y_array = 188 }
+	add_to_array = { JAP_congress_x_array = 227 }
+	add_to_array = { JAP_congress_y_array = 180 }
+	add_to_array = { JAP_congress_x_array = 243 }
+	add_to_array = { JAP_congress_y_array = 175 }
 	add_to_array = { JAP_congress_x_array = 260 }
-	add_to_array = { JAP_congress_y_array = 119 }
-	add_to_array = { JAP_congress_x_array = 274 }
-	add_to_array = { JAP_congress_y_array = 119 }
-	add_to_array = { JAP_congress_x_array = 288 }
-	add_to_array = { JAP_congress_y_array = 121 }
-	add_to_array = { JAP_congress_x_array = 301 }
-	add_to_array = { JAP_congress_y_array = 125 }
-	add_to_array = { JAP_congress_x_array = 314 }
-	add_to_array = { JAP_congress_y_array = 129 }
-	add_to_array = { JAP_congress_x_array = 327 }
-	add_to_array = { JAP_congress_y_array = 135 }
-	add_to_array = { JAP_congress_x_array = 339 }
-	add_to_array = { JAP_congress_y_array = 143 }
-	add_to_array = { JAP_congress_x_array = 350 }
-	add_to_array = { JAP_congress_y_array = 151 }
-	add_to_array = { JAP_congress_x_array = 360 }
-	add_to_array = { JAP_congress_y_array = 160 }
-	add_to_array = { JAP_congress_x_array = 369 }
-	add_to_array = { JAP_congress_y_array = 170 }
-	add_to_array = { JAP_congress_x_array = 377 }
-	add_to_array = { JAP_congress_y_array = 181 }
-	add_to_array = { JAP_congress_x_array = 385 }
-	add_to_array = { JAP_congress_y_array = 193 }
-	add_to_array = { JAP_congress_x_array = 391 }
-	add_to_array = { JAP_congress_y_array = 206 }
-	add_to_array = { JAP_congress_x_array = 395 }
-	add_to_array = { JAP_congress_y_array = 219 }
-	add_to_array = { JAP_congress_x_array = 399 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 401 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 401 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 105 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 105 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 107 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 110 }
-	add_to_array = { JAP_congress_y_array = 219 }
-	add_to_array = { JAP_congress_x_array = 115 }
-	add_to_array = { JAP_congress_y_array = 205 }
-	add_to_array = { JAP_congress_x_array = 120 }
-	add_to_array = { JAP_congress_y_array = 193 }
-	add_to_array = { JAP_congress_x_array = 127 }
+	add_to_array = { JAP_congress_y_array = 174 }
+	add_to_array = { JAP_congress_x_array = 277 }
+	add_to_array = { JAP_congress_y_array = 175 }
+	add_to_array = { JAP_congress_x_array = 293 }
 	add_to_array = { JAP_congress_y_array = 180 }
-	add_to_array = { JAP_congress_x_array = 134 }
-	add_to_array = { JAP_congress_y_array = 169 }
-	add_to_array = { JAP_congress_x_array = 143 }
-	add_to_array = { JAP_congress_y_array = 158 }
-	add_to_array = { JAP_congress_x_array = 153 }
-	add_to_array = { JAP_congress_y_array = 148 }
-	add_to_array = { JAP_congress_x_array = 163 }
-	add_to_array = { JAP_congress_y_array = 139 }
-	add_to_array = { JAP_congress_x_array = 174 }
-	add_to_array = { JAP_congress_y_array = 130 }
-	add_to_array = { JAP_congress_x_array = 186 }
-	add_to_array = { JAP_congress_y_array = 123 }
-	add_to_array = { JAP_congress_x_array = 199 }
-	add_to_array = { JAP_congress_y_array = 117 }
-	add_to_array = { JAP_congress_x_array = 212 }
-	add_to_array = { JAP_congress_y_array = 112 }
-	add_to_array = { JAP_congress_x_array = 225 }
-	add_to_array = { JAP_congress_y_array = 109 }
-	add_to_array = { JAP_congress_x_array = 239 }
-	add_to_array = { JAP_congress_y_array = 106 }
-	add_to_array = { JAP_congress_x_array = 253 }
-	add_to_array = { JAP_congress_y_array = 105 }
-	add_to_array = { JAP_congress_x_array = 267 }
-	add_to_array = { JAP_congress_y_array = 105 }
-	add_to_array = { JAP_congress_x_array = 281 }
-	add_to_array = { JAP_congress_y_array = 106 }
-	add_to_array = { JAP_congress_x_array = 295 }
-	add_to_array = { JAP_congress_y_array = 109 }
-	add_to_array = { JAP_congress_x_array = 308 }
-	add_to_array = { JAP_congress_y_array = 112 }
+	add_to_array = { JAP_congress_x_array = 309 }
+	add_to_array = { JAP_congress_y_array = 188 }
 	add_to_array = { JAP_congress_x_array = 321 }
-	add_to_array = { JAP_congress_y_array = 117 }
-	add_to_array = { JAP_congress_x_array = 334 }
-	add_to_array = { JAP_congress_y_array = 123 }
+	add_to_array = { JAP_congress_y_array = 199 }
+	add_to_array = { JAP_congress_x_array = 332 }
+	add_to_array = { JAP_congress_y_array = 211 }
+	add_to_array = { JAP_congress_x_array = 340 }
+	add_to_array = { JAP_congress_y_array = 227 }
+	add_to_array = { JAP_congress_x_array = 345 }
+	add_to_array = { JAP_congress_y_array = 243 }
 	add_to_array = { JAP_congress_x_array = 346 }
-	add_to_array = { JAP_congress_y_array = 130 }
-	add_to_array = { JAP_congress_x_array = 357 }
-	add_to_array = { JAP_congress_y_array = 139 }
-	add_to_array = { JAP_congress_x_array = 367 }
-	add_to_array = { JAP_congress_y_array = 148 }
-	add_to_array = { JAP_congress_x_array = 377 }
-	add_to_array = { JAP_congress_y_array = 158 }
-	add_to_array = { JAP_congress_x_array = 386 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = 157 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = 158 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 162 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 169 }
+	add_to_array = { JAP_congress_y_array = 210 }
+	add_to_array = { JAP_congress_x_array = 179 }
+	add_to_array = { JAP_congress_y_array = 197 }
+	add_to_array = { JAP_congress_x_array = 190 }
+	add_to_array = { JAP_congress_y_array = 184 }
+	add_to_array = { JAP_congress_x_array = 203 }
+	add_to_array = { JAP_congress_y_array = 174 }
+	add_to_array = { JAP_congress_x_array = 219 }
+	add_to_array = { JAP_congress_y_array = 165 }
+	add_to_array = { JAP_congress_x_array = 235 }
+	add_to_array = { JAP_congress_y_array = 159 }
+	add_to_array = { JAP_congress_x_array = 252 }
+	add_to_array = { JAP_congress_y_array = 157 }
+	add_to_array = { JAP_congress_x_array = 269 }
+	add_to_array = { JAP_congress_y_array = 157 }
+	add_to_array = { JAP_congress_x_array = 286 }
+	add_to_array = { JAP_congress_y_array = 159 }
+	add_to_array = { JAP_congress_x_array = 301 }
+	add_to_array = { JAP_congress_y_array = 165 }
+	add_to_array = { JAP_congress_x_array = 317 }
+	add_to_array = { JAP_congress_y_array = 174 }
+	add_to_array = { JAP_congress_x_array = 330 }
+	add_to_array = { JAP_congress_y_array = 184 }
+	add_to_array = { JAP_congress_x_array = 341 }
+	add_to_array = { JAP_congress_y_array = 197 }
+	add_to_array = { JAP_congress_x_array = 351 }
+	add_to_array = { JAP_congress_y_array = 210 }
+	add_to_array = { JAP_congress_x_array = 358 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 362 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 363 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = 140 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = 141 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 145 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 151 }
+	add_to_array = { JAP_congress_y_array = 210 }
+	add_to_array = { JAP_congress_x_array = 158 }
+	add_to_array = { JAP_congress_y_array = 194 }
+	add_to_array = { JAP_congress_x_array = 169 }
+	add_to_array = { JAP_congress_y_array = 181 }
+	add_to_array = { JAP_congress_x_array = 181 }
 	add_to_array = { JAP_congress_y_array = 169 }
-	add_to_array = { JAP_congress_x_array = 393 }
-	add_to_array = { JAP_congress_y_array = 180 }
-	add_to_array = { JAP_congress_x_array = 400 }
+	add_to_array = { JAP_congress_x_array = 194 }
+	add_to_array = { JAP_congress_y_array = 158 }
+	add_to_array = { JAP_congress_x_array = 210 }
+	add_to_array = { JAP_congress_y_array = 151 }
+	add_to_array = { JAP_congress_x_array = 226 }
+	add_to_array = { JAP_congress_y_array = 145 }
+	add_to_array = { JAP_congress_x_array = 243 }
+	add_to_array = { JAP_congress_y_array = 141 }
+	add_to_array = { JAP_congress_x_array = 260 }
+	add_to_array = { JAP_congress_y_array = 140 }
+	add_to_array = { JAP_congress_x_array = 277 }
+	add_to_array = { JAP_congress_y_array = 141 }
+	add_to_array = { JAP_congress_x_array = 294 }
+	add_to_array = { JAP_congress_y_array = 145 }
+	add_to_array = { JAP_congress_x_array = 310 }
+	add_to_array = { JAP_congress_y_array = 151 }
+	add_to_array = { JAP_congress_x_array = 326 }
+	add_to_array = { JAP_congress_y_array = 158 }
+	add_to_array = { JAP_congress_x_array = 339 }
+	add_to_array = { JAP_congress_y_array = 169 }
+	add_to_array = { JAP_congress_x_array = 351 }
+	add_to_array = { JAP_congress_y_array = 181 }
+	add_to_array = { JAP_congress_x_array = 362 }
+	add_to_array = { JAP_congress_y_array = 194 }
+	add_to_array = { JAP_congress_x_array = 369 }
+	add_to_array = { JAP_congress_y_array = 210 }
+	add_to_array = { JAP_congress_x_array = 375 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 379 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 380 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = 123 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = 124 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 126 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 133 }
+	add_to_array = { JAP_congress_y_array = 209 }
+	add_to_array = { JAP_congress_x_array = 140 }
 	add_to_array = { JAP_congress_y_array = 193 }
-	add_to_array = { JAP_congress_x_array = 405 }
-	add_to_array = { JAP_congress_y_array = 205 }
-	add_to_array = { JAP_congress_x_array = 410 }
-	add_to_array = { JAP_congress_y_array = 219 }
-	add_to_array = { JAP_congress_x_array = 413 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 415 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 415 }
+	add_to_array = { JAP_congress_x_array = 148 }
+	add_to_array = { JAP_congress_y_array = 179 }
+	add_to_array = { JAP_congress_x_array = 159 }
+	add_to_array = { JAP_congress_y_array = 165 }
+	add_to_array = { JAP_congress_x_array = 173 }
+	add_to_array = { JAP_congress_y_array = 154 }
+	add_to_array = { JAP_congress_x_array = 186 }
+	add_to_array = { JAP_congress_y_array = 143 }
+	add_to_array = { JAP_congress_x_array = 202 }
+	add_to_array = { JAP_congress_y_array = 135 }
+	add_to_array = { JAP_congress_x_array = 218 }
+	add_to_array = { JAP_congress_y_array = 129 }
+	add_to_array = { JAP_congress_x_array = 235 }
+	add_to_array = { JAP_congress_y_array = 125 }
+	add_to_array = { JAP_congress_x_array = 252 }
+	add_to_array = { JAP_congress_y_array = 123 }
+	add_to_array = { JAP_congress_x_array = 269 }
+	add_to_array = { JAP_congress_y_array = 123 }
+	add_to_array = { JAP_congress_x_array = 286 }
+	add_to_array = { JAP_congress_y_array = 125 }
+	add_to_array = { JAP_congress_x_array = 303 }
+	add_to_array = { JAP_congress_y_array = 129 }
+	add_to_array = { JAP_congress_x_array = 318 }
+	add_to_array = { JAP_congress_y_array = 135 }
+	add_to_array = { JAP_congress_x_array = 334 }
+	add_to_array = { JAP_congress_y_array = 143 }
+	add_to_array = { JAP_congress_x_array = 347 }
+	add_to_array = { JAP_congress_y_array = 154 }
+	add_to_array = { JAP_congress_x_array = 361 }
+	add_to_array = { JAP_congress_y_array = 165 }
+	add_to_array = { JAP_congress_x_array = 372 }
+	add_to_array = { JAP_congress_y_array = 179 }
+	add_to_array = { JAP_congress_x_array = 380 }
+	add_to_array = { JAP_congress_y_array = 193 }
+	add_to_array = { JAP_congress_x_array = 388 }
+	add_to_array = { JAP_congress_y_array = 209 }
+	add_to_array = { JAP_congress_x_array = 394 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 396 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 397 }
 	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 91 }
+	add_to_array = { JAP_congress_x_array = 106 }
 	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = 106 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 109 }
+	add_to_array = { JAP_congress_y_array = 227 }
+	add_to_array = { JAP_congress_x_array = 113 }
+	add_to_array = { JAP_congress_y_array = 210 }
+	add_to_array = { JAP_congress_x_array = 119 }
+	add_to_array = { JAP_congress_y_array = 196 }
+	add_to_array = { JAP_congress_x_array = 128 }
+	add_to_array = { JAP_congress_y_array = 180 }
+	add_to_array = { JAP_congress_x_array = 137 }
+	add_to_array = { JAP_congress_y_array = 167 }
+	add_to_array = { JAP_congress_x_array = 148 }
+	add_to_array = { JAP_congress_y_array = 153 }
+	add_to_array = { JAP_congress_x_array = 160 }
+	add_to_array = { JAP_congress_y_array = 142 }
+	add_to_array = { JAP_congress_x_array = 174 }
+	add_to_array = { JAP_congress_y_array = 133 }
+	add_to_array = { JAP_congress_x_array = 187 }
+	add_to_array = { JAP_congress_y_array = 124 }
+	add_to_array = { JAP_congress_x_array = 203 }
+	add_to_array = { JAP_congress_y_array = 117 }
+	add_to_array = { JAP_congress_x_array = 219 }
+	add_to_array = { JAP_congress_y_array = 111 }
+	add_to_array = { JAP_congress_x_array = 235 }
+	add_to_array = { JAP_congress_y_array = 107 }
+	add_to_array = { JAP_congress_x_array = 252 }
+	add_to_array = { JAP_congress_y_array = 106 }
+	add_to_array = { JAP_congress_x_array = 269 }
+	add_to_array = { JAP_congress_y_array = 106 }
+	add_to_array = { JAP_congress_x_array = 286 }
+	add_to_array = { JAP_congress_y_array = 107 }
+	add_to_array = { JAP_congress_x_array = 301 }
+	add_to_array = { JAP_congress_y_array = 111 }
+	add_to_array = { JAP_congress_x_array = 317 }
+	add_to_array = { JAP_congress_y_array = 117 }
+	add_to_array = { JAP_congress_x_array = 333 }
+	add_to_array = { JAP_congress_y_array = 124 }
+	add_to_array = { JAP_congress_x_array = 346 }
+	add_to_array = { JAP_congress_y_array = 133 }
+	add_to_array = { JAP_congress_x_array = 360 }
+	add_to_array = { JAP_congress_y_array = 142 }
+	add_to_array = { JAP_congress_x_array = 372 }
+	add_to_array = { JAP_congress_y_array = 153 }
+	add_to_array = { JAP_congress_x_array = 383 }
+	add_to_array = { JAP_congress_y_array = 167 }
+	add_to_array = { JAP_congress_x_array = 392 }
+	add_to_array = { JAP_congress_y_array = 180 }
+	add_to_array = { JAP_congress_x_array = 401 }
+	add_to_array = { JAP_congress_y_array = 196 }
+	add_to_array = { JAP_congress_x_array = 407 }
+	add_to_array = { JAP_congress_y_array = 210 }
+	add_to_array = { JAP_congress_x_array = 411 }
+	add_to_array = { JAP_congress_y_array = 227 }
+	add_to_array = { JAP_congress_x_array = 414 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 414 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = 89 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = 89 }
+	add_to_array = { JAP_congress_y_array = 243 }
 	add_to_array = { JAP_congress_x_array = 91 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 93 }
-	add_to_array = { JAP_congress_y_array = 232 }
+	add_to_array = { JAP_congress_y_array = 226 }
 	add_to_array = { JAP_congress_x_array = 96 }
-	add_to_array = { JAP_congress_y_array = 218 }
-	add_to_array = { JAP_congress_x_array = 100 }
-	add_to_array = { JAP_congress_y_array = 205 }
-	add_to_array = { JAP_congress_x_array = 105 }
-	add_to_array = { JAP_congress_y_array = 192 }
-	add_to_array = { JAP_congress_x_array = 111 }
+	add_to_array = { JAP_congress_y_array = 210 }
+	add_to_array = { JAP_congress_x_array = 101 }
+	add_to_array = { JAP_congress_y_array = 194 }
+	add_to_array = { JAP_congress_x_array = 108 }
 	add_to_array = { JAP_congress_y_array = 179 }
 	add_to_array = { JAP_congress_x_array = 118 }
-	add_to_array = { JAP_congress_y_array = 167 }
-	add_to_array = { JAP_congress_x_array = 126 }
-	add_to_array = { JAP_congress_y_array = 156 }
-	add_to_array = { JAP_congress_x_array = 135 }
-	add_to_array = { JAP_congress_y_array = 145 }
-	add_to_array = { JAP_congress_x_array = 145 }
-	add_to_array = { JAP_congress_y_array = 135 }
-	add_to_array = { JAP_congress_x_array = 156 }
-	add_to_array = { JAP_congress_y_array = 126 }
-	add_to_array = { JAP_congress_x_array = 167 }
+	add_to_array = { JAP_congress_y_array = 164 }
+	add_to_array = { JAP_congress_x_array = 128 }
+	add_to_array = { JAP_congress_y_array = 151 }
+	add_to_array = { JAP_congress_x_array = 139 }
+	add_to_array = { JAP_congress_y_array = 139 }
+	add_to_array = { JAP_congress_x_array = 151 }
+	add_to_array = { JAP_congress_y_array = 128 }
+	add_to_array = { JAP_congress_x_array = 164 }
 	add_to_array = { JAP_congress_y_array = 118 }
 	add_to_array = { JAP_congress_x_array = 179 }
-	add_to_array = { JAP_congress_y_array = 111 }
-	add_to_array = { JAP_congress_x_array = 192 }
-	add_to_array = { JAP_congress_y_array = 105 }
-	add_to_array = { JAP_congress_x_array = 205 }
-	add_to_array = { JAP_congress_y_array = 100 }
-	add_to_array = { JAP_congress_x_array = 218 }
+	add_to_array = { JAP_congress_y_array = 108 }
+	add_to_array = { JAP_congress_x_array = 194 }
+	add_to_array = { JAP_congress_y_array = 101 }
+	add_to_array = { JAP_congress_x_array = 210 }
 	add_to_array = { JAP_congress_y_array = 96 }
-	add_to_array = { JAP_congress_x_array = 232 }
-	add_to_array = { JAP_congress_y_array = 93 }
-	add_to_array = { JAP_congress_x_array = 246 }
+	add_to_array = { JAP_congress_x_array = 226 }
 	add_to_array = { JAP_congress_y_array = 91 }
+	add_to_array = { JAP_congress_x_array = 243 }
+	add_to_array = { JAP_congress_y_array = 89 }
 	add_to_array = { JAP_congress_x_array = 260 }
+	add_to_array = { JAP_congress_y_array = 89 }
+	add_to_array = { JAP_congress_x_array = 277 }
+	add_to_array = { JAP_congress_y_array = 89 }
+	add_to_array = { JAP_congress_x_array = 294 }
 	add_to_array = { JAP_congress_y_array = 91 }
-	add_to_array = { JAP_congress_x_array = 274 }
-	add_to_array = { JAP_congress_y_array = 91 }
-	add_to_array = { JAP_congress_x_array = 288 }
-	add_to_array = { JAP_congress_y_array = 93 }
-	add_to_array = { JAP_congress_x_array = 302 }
+	add_to_array = { JAP_congress_x_array = 310 }
 	add_to_array = { JAP_congress_y_array = 96 }
-	add_to_array = { JAP_congress_x_array = 315 }
-	add_to_array = { JAP_congress_y_array = 100 }
-	add_to_array = { JAP_congress_x_array = 328 }
-	add_to_array = { JAP_congress_y_array = 105 }
+	add_to_array = { JAP_congress_x_array = 326 }
+	add_to_array = { JAP_congress_y_array = 101 }
 	add_to_array = { JAP_congress_x_array = 341 }
-	add_to_array = { JAP_congress_y_array = 111 }
-	add_to_array = { JAP_congress_x_array = 353 }
+	add_to_array = { JAP_congress_y_array = 108 }
+	add_to_array = { JAP_congress_x_array = 356 }
 	add_to_array = { JAP_congress_y_array = 118 }
-	add_to_array = { JAP_congress_x_array = 364 }
-	add_to_array = { JAP_congress_y_array = 126 }
-	add_to_array = { JAP_congress_x_array = 375 }
-	add_to_array = { JAP_congress_y_array = 135 }
-	add_to_array = { JAP_congress_x_array = 385 }
-	add_to_array = { JAP_congress_y_array = 145 }
-	add_to_array = { JAP_congress_x_array = 394 }
-	add_to_array = { JAP_congress_y_array = 156 }
-	add_to_array = { JAP_congress_x_array = 402 }
-	add_to_array = { JAP_congress_y_array = 167 }
-	add_to_array = { JAP_congress_x_array = 409 }
-	add_to_array = { JAP_congress_y_array = 179 }
-	add_to_array = { JAP_congress_x_array = 415 }
-	add_to_array = { JAP_congress_y_array = 192 }
-	add_to_array = { JAP_congress_x_array = 420 }
-	add_to_array = { JAP_congress_y_array = 205 }
-	add_to_array = { JAP_congress_x_array = 424 }
-	add_to_array = { JAP_congress_y_array = 218 }
-	add_to_array = { JAP_congress_x_array = 427 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 429 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 429 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 77 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 77 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 79 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 82 }
-	add_to_array = { JAP_congress_y_array = 218 }
-	add_to_array = { JAP_congress_x_array = 85 }
-	add_to_array = { JAP_congress_y_array = 205 }
-	add_to_array = { JAP_congress_x_array = 90 }
-	add_to_array = { JAP_congress_y_array = 191 }
-	add_to_array = { JAP_congress_x_array = 96 }
-	add_to_array = { JAP_congress_y_array = 179 }
-	add_to_array = { JAP_congress_x_array = 102 }
-	add_to_array = { JAP_congress_y_array = 166 }
-	add_to_array = { JAP_congress_x_array = 110 }
-	add_to_array = { JAP_congress_y_array = 155 }
-	add_to_array = { JAP_congress_x_array = 119 }
-	add_to_array = { JAP_congress_y_array = 143 }
-	add_to_array = { JAP_congress_x_array = 128 }
-	add_to_array = { JAP_congress_y_array = 133 }
-	add_to_array = { JAP_congress_x_array = 138 }
-	add_to_array = { JAP_congress_y_array = 123 }
-	add_to_array = { JAP_congress_x_array = 149 }
-	add_to_array = { JAP_congress_y_array = 114 }
-	add_to_array = { JAP_congress_x_array = 160 }
-	add_to_array = { JAP_congress_y_array = 106 }
-	add_to_array = { JAP_congress_x_array = 172 }
-	add_to_array = { JAP_congress_y_array = 99 }
-	add_to_array = { JAP_congress_x_array = 185 }
-	add_to_array = { JAP_congress_y_array = 93 }
-	add_to_array = { JAP_congress_x_array = 198 }
-	add_to_array = { JAP_congress_y_array = 87 }
-	add_to_array = { JAP_congress_x_array = 211 }
-	add_to_array = { JAP_congress_y_array = 83 }
-	add_to_array = { JAP_congress_x_array = 225 }
-	add_to_array = { JAP_congress_y_array = 80 }
-	add_to_array = { JAP_congress_x_array = 239 }
-	add_to_array = { JAP_congress_y_array = 78 }
-	add_to_array = { JAP_congress_x_array = 253 }
-	add_to_array = { JAP_congress_y_array = 77 }
-	add_to_array = { JAP_congress_x_array = 267 }
-	add_to_array = { JAP_congress_y_array = 77 }
-	add_to_array = { JAP_congress_x_array = 281 }
-	add_to_array = { JAP_congress_y_array = 78 }
-	add_to_array = { JAP_congress_x_array = 295 }
-	add_to_array = { JAP_congress_y_array = 80 }
-	add_to_array = { JAP_congress_x_array = 309 }
-	add_to_array = { JAP_congress_y_array = 83 }
-	add_to_array = { JAP_congress_x_array = 322 }
-	add_to_array = { JAP_congress_y_array = 87 }
-	add_to_array = { JAP_congress_x_array = 335 }
-	add_to_array = { JAP_congress_y_array = 93 }
-	add_to_array = { JAP_congress_x_array = 348 }
-	add_to_array = { JAP_congress_y_array = 99 }
-	add_to_array = { JAP_congress_x_array = 360 }
-	add_to_array = { JAP_congress_y_array = 106 }
-	add_to_array = { JAP_congress_x_array = 371 }
-	add_to_array = { JAP_congress_y_array = 114 }
-	add_to_array = { JAP_congress_x_array = 382 }
-	add_to_array = { JAP_congress_y_array = 123 }
+	add_to_array = { JAP_congress_x_array = 369 }
+	add_to_array = { JAP_congress_y_array = 128 }
+	add_to_array = { JAP_congress_x_array = 381 }
+	add_to_array = { JAP_congress_y_array = 139 }
 	add_to_array = { JAP_congress_x_array = 392 }
-	add_to_array = { JAP_congress_y_array = 133 }
-	add_to_array = { JAP_congress_x_array = 401 }
-	add_to_array = { JAP_congress_y_array = 143 }
-	add_to_array = { JAP_congress_x_array = 410 }
-	add_to_array = { JAP_congress_y_array = 155 }
-	add_to_array = { JAP_congress_x_array = 418 }
-	add_to_array = { JAP_congress_y_array = 166 }
+	add_to_array = { JAP_congress_y_array = 151 }
+	add_to_array = { JAP_congress_x_array = 402 }
+	add_to_array = { JAP_congress_y_array = 164 }
+	add_to_array = { JAP_congress_x_array = 412 }
+	add_to_array = { JAP_congress_y_array = 179 }
+	add_to_array = { JAP_congress_x_array = 419 }
+	add_to_array = { JAP_congress_y_array = 194 }
 	add_to_array = { JAP_congress_x_array = 424 }
-	add_to_array = { JAP_congress_y_array = 179 }
-	add_to_array = { JAP_congress_x_array = 430 }
-	add_to_array = { JAP_congress_y_array = 191 }
-	add_to_array = { JAP_congress_x_array = 435 }
-	add_to_array = { JAP_congress_y_array = 205 }
-	add_to_array = { JAP_congress_x_array = 438 }
-	add_to_array = { JAP_congress_y_array = 218 }
-	add_to_array = { JAP_congress_x_array = 441 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 443 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 443 }
+	add_to_array = { JAP_congress_y_array = 210 }
+	add_to_array = { JAP_congress_x_array = 429 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 431 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 431 }
 	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 63 }
+	add_to_array = { JAP_congress_x_array = 72 }
 	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 63 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 65 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 67 }
-	add_to_array = { JAP_congress_y_array = 218 }
-	add_to_array = { JAP_congress_x_array = 71 }
-	add_to_array = { JAP_congress_y_array = 204 }
-	add_to_array = { JAP_congress_x_array = 75 }
-	add_to_array = { JAP_congress_y_array = 191 }
-	add_to_array = { JAP_congress_x_array = 81 }
-	add_to_array = { JAP_congress_y_array = 178 }
-	add_to_array = { JAP_congress_x_array = 87 }
-	add_to_array = { JAP_congress_y_array = 165 }
-	add_to_array = { JAP_congress_x_array = 94 }
-	add_to_array = { JAP_congress_y_array = 153 }
-	add_to_array = { JAP_congress_x_array = 102 }
-	add_to_array = { JAP_congress_y_array = 142 }
-	add_to_array = { JAP_congress_x_array = 111 }
-	add_to_array = { JAP_congress_y_array = 131 }
-	add_to_array = { JAP_congress_x_array = 120 }
-	add_to_array = { JAP_congress_y_array = 120 }
-	add_to_array = { JAP_congress_x_array = 131 }
-	add_to_array = { JAP_congress_y_array = 111 }
-	add_to_array = { JAP_congress_x_array = 142 }
-	add_to_array = { JAP_congress_y_array = 102 }
-	add_to_array = { JAP_congress_x_array = 153 }
-	add_to_array = { JAP_congress_y_array = 94 }
-	add_to_array = { JAP_congress_x_array = 165 }
-	add_to_array = { JAP_congress_y_array = 87 }
-	add_to_array = { JAP_congress_x_array = 178 }
-	add_to_array = { JAP_congress_y_array = 81 }
-	add_to_array = { JAP_congress_x_array = 191 }
-	add_to_array = { JAP_congress_y_array = 75 }
-	add_to_array = { JAP_congress_x_array = 204 }
-	add_to_array = { JAP_congress_y_array = 71 }
-	add_to_array = { JAP_congress_x_array = 218 }
-	add_to_array = { JAP_congress_y_array = 67 }
-	add_to_array = { JAP_congress_x_array = 232 }
-	add_to_array = { JAP_congress_y_array = 65 }
-	add_to_array = { JAP_congress_x_array = 246 }
-	add_to_array = { JAP_congress_y_array = 63 }
-	add_to_array = { JAP_congress_x_array = 260 }
-	add_to_array = { JAP_congress_y_array = 63 }
-	add_to_array = { JAP_congress_x_array = 274 }
-	add_to_array = { JAP_congress_y_array = 63 }
-	add_to_array = { JAP_congress_x_array = 288 }
-	add_to_array = { JAP_congress_y_array = 65 }
-	add_to_array = { JAP_congress_x_array = 302 }
-	add_to_array = { JAP_congress_y_array = 67 }
-	add_to_array = { JAP_congress_x_array = 316 }
-	add_to_array = { JAP_congress_y_array = 71 }
-	add_to_array = { JAP_congress_x_array = 329 }
-	add_to_array = { JAP_congress_y_array = 75 }
-	add_to_array = { JAP_congress_x_array = 342 }
-	add_to_array = { JAP_congress_y_array = 81 }
-	add_to_array = { JAP_congress_x_array = 355 }
-	add_to_array = { JAP_congress_y_array = 87 }
-	add_to_array = { JAP_congress_x_array = 367 }
-	add_to_array = { JAP_congress_y_array = 94 }
-	add_to_array = { JAP_congress_x_array = 378 }
-	add_to_array = { JAP_congress_y_array = 102 }
-	add_to_array = { JAP_congress_x_array = 389 }
-	add_to_array = { JAP_congress_y_array = 111 }
-	add_to_array = { JAP_congress_x_array = 400 }
-	add_to_array = { JAP_congress_y_array = 120 }
-	add_to_array = { JAP_congress_x_array = 409 }
-	add_to_array = { JAP_congress_y_array = 131 }
-	add_to_array = { JAP_congress_x_array = 418 }
-	add_to_array = { JAP_congress_y_array = 142 }
-	add_to_array = { JAP_congress_x_array = 426 }
-	add_to_array = { JAP_congress_y_array = 153 }
-	add_to_array = { JAP_congress_x_array = 433 }
-	add_to_array = { JAP_congress_y_array = 165 }
-	add_to_array = { JAP_congress_x_array = 439 }
-	add_to_array = { JAP_congress_y_array = 178 }
-	add_to_array = { JAP_congress_x_array = 445 }
-	add_to_array = { JAP_congress_y_array = 191 }
-	add_to_array = { JAP_congress_x_array = 449 }
-	add_to_array = { JAP_congress_y_array = 204 }
-	add_to_array = { JAP_congress_x_array = 453 }
-	add_to_array = { JAP_congress_y_array = 218 }
-	add_to_array = { JAP_congress_x_array = 455 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 457 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 457 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 49 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 49 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 51 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 53 }
-	add_to_array = { JAP_congress_y_array = 218 }
-	add_to_array = { JAP_congress_x_array = 56 }
-	add_to_array = { JAP_congress_y_array = 204 }
-	add_to_array = { JAP_congress_x_array = 60 }
-	add_to_array = { JAP_congress_y_array = 191 }
-	add_to_array = { JAP_congress_x_array = 65 }
-	add_to_array = { JAP_congress_y_array = 178 }
-	add_to_array = { JAP_congress_x_array = 71 }
-	add_to_array = { JAP_congress_y_array = 165 }
+	add_to_array = { JAP_congress_x_array = 72 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 74 }
+	add_to_array = { JAP_congress_y_array = 226 }
 	add_to_array = { JAP_congress_x_array = 78 }
-	add_to_array = { JAP_congress_y_array = 152 }
-	add_to_array = { JAP_congress_x_array = 86 }
-	add_to_array = { JAP_congress_y_array = 140 }
-	add_to_array = { JAP_congress_x_array = 94 }
-	add_to_array = { JAP_congress_y_array = 129 }
-	add_to_array = { JAP_congress_x_array = 103 }
-	add_to_array = { JAP_congress_y_array = 118 }
-	add_to_array = { JAP_congress_x_array = 113 }
-	add_to_array = { JAP_congress_y_array = 108 }
-	add_to_array = { JAP_congress_x_array = 124 }
-	add_to_array = { JAP_congress_y_array = 99 }
-	add_to_array = { JAP_congress_x_array = 135 }
-	add_to_array = { JAP_congress_y_array = 90 }
-	add_to_array = { JAP_congress_x_array = 146 }
-	add_to_array = { JAP_congress_y_array = 82 }
-	add_to_array = { JAP_congress_x_array = 158 }
-	add_to_array = { JAP_congress_y_array = 75 }
-	add_to_array = { JAP_congress_x_array = 171 }
-	add_to_array = { JAP_congress_y_array = 68 }
-	add_to_array = { JAP_congress_x_array = 184 }
-	add_to_array = { JAP_congress_y_array = 63 }
-	add_to_array = { JAP_congress_x_array = 197 }
-	add_to_array = { JAP_congress_y_array = 58 }
-	add_to_array = { JAP_congress_x_array = 211 }
-	add_to_array = { JAP_congress_y_array = 54 }
-	add_to_array = { JAP_congress_x_array = 225 }
-	add_to_array = { JAP_congress_y_array = 52 }
-	add_to_array = { JAP_congress_x_array = 239 }
-	add_to_array = { JAP_congress_y_array = 50 }
-	add_to_array = { JAP_congress_x_array = 253 }
-	add_to_array = { JAP_congress_y_array = 49 }
-	add_to_array = { JAP_congress_x_array = 267 }
-	add_to_array = { JAP_congress_y_array = 49 }
-	add_to_array = { JAP_congress_x_array = 281 }
-	add_to_array = { JAP_congress_y_array = 50 }
-	add_to_array = { JAP_congress_x_array = 295 }
-	add_to_array = { JAP_congress_y_array = 52 }
-	add_to_array = { JAP_congress_x_array = 309 }
-	add_to_array = { JAP_congress_y_array = 54 }
-	add_to_array = { JAP_congress_x_array = 323 }
-	add_to_array = { JAP_congress_y_array = 58 }
-	add_to_array = { JAP_congress_x_array = 336 }
-	add_to_array = { JAP_congress_y_array = 63 }
-	add_to_array = { JAP_congress_x_array = 349 }
-	add_to_array = { JAP_congress_y_array = 68 }
-	add_to_array = { JAP_congress_x_array = 362 }
-	add_to_array = { JAP_congress_y_array = 75 }
-	add_to_array = { JAP_congress_x_array = 374 }
-	add_to_array = { JAP_congress_y_array = 82 }
-	add_to_array = { JAP_congress_x_array = 385 }
-	add_to_array = { JAP_congress_y_array = 90 }
-	add_to_array = { JAP_congress_x_array = 396 }
-	add_to_array = { JAP_congress_y_array = 99 }
-	add_to_array = { JAP_congress_x_array = 407 }
-	add_to_array = { JAP_congress_y_array = 108 }
-	add_to_array = { JAP_congress_x_array = 417 }
-	add_to_array = { JAP_congress_y_array = 118 }
-	add_to_array = { JAP_congress_x_array = 426 }
-	add_to_array = { JAP_congress_y_array = 129 }
-	add_to_array = { JAP_congress_x_array = 434 }
-	add_to_array = { JAP_congress_y_array = 140 }
-	add_to_array = { JAP_congress_x_array = 442 }
-	add_to_array = { JAP_congress_y_array = 152 }
-	add_to_array = { JAP_congress_x_array = 449 }
-	add_to_array = { JAP_congress_y_array = 165 }
-	add_to_array = { JAP_congress_x_array = 455 }
-	add_to_array = { JAP_congress_y_array = 178 }
-	add_to_array = { JAP_congress_x_array = 460 }
-	add_to_array = { JAP_congress_y_array = 191 }
-	add_to_array = { JAP_congress_x_array = 464 }
-	add_to_array = { JAP_congress_y_array = 204 }
-	add_to_array = { JAP_congress_x_array = 467 }
-	add_to_array = { JAP_congress_y_array = 218 }
-	add_to_array = { JAP_congress_x_array = 469 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 471 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 471 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 35 }
-	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 35 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 36 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 39 }
-	add_to_array = { JAP_congress_y_array = 219 }
-	add_to_array = { JAP_congress_x_array = 42 }
-	add_to_array = { JAP_congress_y_array = 205 }
-	add_to_array = { JAP_congress_x_array = 45 }
-	add_to_array = { JAP_congress_y_array = 192 }
-	add_to_array = { JAP_congress_x_array = 50 }
-	add_to_array = { JAP_congress_y_array = 179 }
-	add_to_array = { JAP_congress_x_array = 55 }
-	add_to_array = { JAP_congress_y_array = 166 }
-	add_to_array = { JAP_congress_x_array = 62 }
-	add_to_array = { JAP_congress_y_array = 153 }
-	add_to_array = { JAP_congress_x_array = 68 }
-	add_to_array = { JAP_congress_y_array = 141 }
-	add_to_array = { JAP_congress_x_array = 76 }
-	add_to_array = { JAP_congress_y_array = 130 }
+	add_to_array = { JAP_congress_y_array = 210 }
 	add_to_array = { JAP_congress_x_array = 84 }
-	add_to_array = { JAP_congress_y_array = 119 }
-	add_to_array = { JAP_congress_x_array = 94 }
-	add_to_array = { JAP_congress_y_array = 108 }
-	add_to_array = { JAP_congress_x_array = 103 }
-	add_to_array = { JAP_congress_y_array = 98 }
-	add_to_array = { JAP_congress_x_array = 113 }
-	add_to_array = { JAP_congress_y_array = 89 }
-	add_to_array = { JAP_congress_x_array = 124 }
-	add_to_array = { JAP_congress_y_array = 80 }
-	add_to_array = { JAP_congress_x_array = 136 }
-	add_to_array = { JAP_congress_y_array = 72 }
-	add_to_array = { JAP_congress_x_array = 147 }
-	add_to_array = { JAP_congress_y_array = 65 }
-	add_to_array = { JAP_congress_x_array = 160 }
-	add_to_array = { JAP_congress_y_array = 58 }
-	add_to_array = { JAP_congress_x_array = 172 }
-	add_to_array = { JAP_congress_y_array = 53 }
-	add_to_array = { JAP_congress_x_array = 185 }
-	add_to_array = { JAP_congress_y_array = 48 }
-	add_to_array = { JAP_congress_x_array = 198 }
-	add_to_array = { JAP_congress_y_array = 43 }
-	add_to_array = { JAP_congress_x_array = 212 }
-	add_to_array = { JAP_congress_y_array = 40 }
-	add_to_array = { JAP_congress_x_array = 225 }
-	add_to_array = { JAP_congress_y_array = 37 }
-	add_to_array = { JAP_congress_x_array = 239 }
-	add_to_array = { JAP_congress_y_array = 36 }
-	add_to_array = { JAP_congress_x_array = 253 }
-	add_to_array = { JAP_congress_y_array = 35 }
-	add_to_array = { JAP_congress_x_array = 267 }
-	add_to_array = { JAP_congress_y_array = 35 }
-	add_to_array = { JAP_congress_x_array = 281 }
-	add_to_array = { JAP_congress_y_array = 36 }
-	add_to_array = { JAP_congress_x_array = 295 }
-	add_to_array = { JAP_congress_y_array = 37 }
-	add_to_array = { JAP_congress_x_array = 308 }
-	add_to_array = { JAP_congress_y_array = 40 }
-	add_to_array = { JAP_congress_x_array = 322 }
-	add_to_array = { JAP_congress_y_array = 43 }
-	add_to_array = { JAP_congress_x_array = 335 }
-	add_to_array = { JAP_congress_y_array = 48 }
-	add_to_array = { JAP_congress_x_array = 348 }
-	add_to_array = { JAP_congress_y_array = 53 }
-	add_to_array = { JAP_congress_x_array = 360 }
-	add_to_array = { JAP_congress_y_array = 58 }
-	add_to_array = { JAP_congress_x_array = 373 }
-	add_to_array = { JAP_congress_y_array = 65 }
-	add_to_array = { JAP_congress_x_array = 384 }
-	add_to_array = { JAP_congress_y_array = 72 }
-	add_to_array = { JAP_congress_x_array = 396 }
-	add_to_array = { JAP_congress_y_array = 80 }
-	add_to_array = { JAP_congress_x_array = 407 }
-	add_to_array = { JAP_congress_y_array = 89 }
-	add_to_array = { JAP_congress_x_array = 417 }
-	add_to_array = { JAP_congress_y_array = 98 }
-	add_to_array = { JAP_congress_x_array = 426 }
-	add_to_array = { JAP_congress_y_array = 108 }
-	add_to_array = { JAP_congress_x_array = 436 }
-	add_to_array = { JAP_congress_y_array = 119 }
-	add_to_array = { JAP_congress_x_array = 444 }
-	add_to_array = { JAP_congress_y_array = 130 }
-	add_to_array = { JAP_congress_x_array = 452 }
-	add_to_array = { JAP_congress_y_array = 141 }
-	add_to_array = { JAP_congress_x_array = 458 }
-	add_to_array = { JAP_congress_y_array = 153 }
-	add_to_array = { JAP_congress_x_array = 465 }
-	add_to_array = { JAP_congress_y_array = 166 }
-	add_to_array = { JAP_congress_x_array = 470 }
+	add_to_array = { JAP_congress_y_array = 193 }
+	add_to_array = { JAP_congress_x_array = 90 }
 	add_to_array = { JAP_congress_y_array = 179 }
-	add_to_array = { JAP_congress_x_array = 475 }
-	add_to_array = { JAP_congress_y_array = 192 }
-	add_to_array = { JAP_congress_x_array = 478 }
-	add_to_array = { JAP_congress_y_array = 205 }
-	add_to_array = { JAP_congress_x_array = 481 }
-	add_to_array = { JAP_congress_y_array = 219 }
-	add_to_array = { JAP_congress_x_array = 484 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 485 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 485 }
+	add_to_array = { JAP_congress_x_array = 99 }
+	add_to_array = { JAP_congress_y_array = 163 }
+	add_to_array = { JAP_congress_x_array = 107 }
+	add_to_array = { JAP_congress_y_array = 150 }
+	add_to_array = { JAP_congress_x_array = 118 }
+	add_to_array = { JAP_congress_y_array = 136 }
+	add_to_array = { JAP_congress_x_array = 130 }
+	add_to_array = { JAP_congress_y_array = 124 }
+	add_to_array = { JAP_congress_x_array = 142 }
+	add_to_array = { JAP_congress_y_array = 113 }
+	add_to_array = { JAP_congress_x_array = 156 }
+	add_to_array = { JAP_congress_y_array = 102 }
+	add_to_array = { JAP_congress_x_array = 170 }
+	add_to_array = { JAP_congress_y_array = 94 }
+	add_to_array = { JAP_congress_x_array = 186 }
+	add_to_array = { JAP_congress_y_array = 86 }
+	add_to_array = { JAP_congress_x_array = 202 }
+	add_to_array = { JAP_congress_y_array = 80 }
+	add_to_array = { JAP_congress_x_array = 218 }
+	add_to_array = { JAP_congress_y_array = 77 }
+	add_to_array = { JAP_congress_x_array = 235 }
+	add_to_array = { JAP_congress_y_array = 73 }
+	add_to_array = { JAP_congress_x_array = 252 }
+	add_to_array = { JAP_congress_y_array = 72 }
+	add_to_array = { JAP_congress_x_array = 269 }
+	add_to_array = { JAP_congress_y_array = 72 }
+	add_to_array = { JAP_congress_x_array = 286 }
+	add_to_array = { JAP_congress_y_array = 73 }
+	add_to_array = { JAP_congress_x_array = 303 }
+	add_to_array = { JAP_congress_y_array = 77 }
+	add_to_array = { JAP_congress_x_array = 318 }
+	add_to_array = { JAP_congress_y_array = 80 }
+	add_to_array = { JAP_congress_x_array = 334 }
+	add_to_array = { JAP_congress_y_array = 86 }
+	add_to_array = { JAP_congress_x_array = 350 }
+	add_to_array = { JAP_congress_y_array = 94 }
+	add_to_array = { JAP_congress_x_array = 364 }
+	add_to_array = { JAP_congress_y_array = 102 }
+	add_to_array = { JAP_congress_x_array = 378 }
+	add_to_array = { JAP_congress_y_array = 113 }
+	add_to_array = { JAP_congress_x_array = 390 }
+	add_to_array = { JAP_congress_y_array = 124 }
+	add_to_array = { JAP_congress_x_array = 402 }
+	add_to_array = { JAP_congress_y_array = 136 }
+	add_to_array = { JAP_congress_x_array = 413 }
+	add_to_array = { JAP_congress_y_array = 150 }
+	add_to_array = { JAP_congress_x_array = 422 }
+	add_to_array = { JAP_congress_y_array = 163 }
+	add_to_array = { JAP_congress_x_array = 430 }
+	add_to_array = { JAP_congress_y_array = 179 }
+	add_to_array = { JAP_congress_x_array = 436 }
+	add_to_array = { JAP_congress_y_array = 193 }
+	add_to_array = { JAP_congress_x_array = 442 }
+	add_to_array = { JAP_congress_y_array = 210 }
+	add_to_array = { JAP_congress_x_array = 446 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 448 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 448 }
 	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 21 }
+	add_to_array = { JAP_congress_x_array = 55 }
 	add_to_array = { JAP_congress_y_array = 260 }
-	add_to_array = { JAP_congress_x_array = 21 }
-	add_to_array = { JAP_congress_y_array = 246 }
-	add_to_array = { JAP_congress_x_array = 22 }
-	add_to_array = { JAP_congress_y_array = 232 }
-	add_to_array = { JAP_congress_x_array = 24 }
-	add_to_array = { JAP_congress_y_array = 218 }
-	add_to_array = { JAP_congress_x_array = 27 }
-	add_to_array = { JAP_congress_y_array = 205 }
-	add_to_array = { JAP_congress_x_array = 31 }
-	add_to_array = { JAP_congress_y_array = 191 }
-	add_to_array = { JAP_congress_x_array = 35 }
-	add_to_array = { JAP_congress_y_array = 178 }
+	add_to_array = { JAP_congress_x_array = 55 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 57 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 61 }
+	add_to_array = { JAP_congress_y_array = 209 }
+	add_to_array = { JAP_congress_x_array = 66 }
+	add_to_array = { JAP_congress_y_array = 193 }
+	add_to_array = { JAP_congress_x_array = 72 }
+	add_to_array = { JAP_congress_y_array = 177 }
+	add_to_array = { JAP_congress_x_array = 79 }
+	add_to_array = { JAP_congress_y_array = 162 }
+	add_to_array = { JAP_congress_x_array = 88 }
+	add_to_array = { JAP_congress_y_array = 147 }
+	add_to_array = { JAP_congress_x_array = 97 }
+	add_to_array = { JAP_congress_y_array = 134 }
+	add_to_array = { JAP_congress_x_array = 108 }
+	add_to_array = { JAP_congress_y_array = 120 }
+	add_to_array = { JAP_congress_x_array = 120 }
+	add_to_array = { JAP_congress_y_array = 108 }
+	add_to_array = { JAP_congress_x_array = 134 }
+	add_to_array = { JAP_congress_y_array = 97 }
+	add_to_array = { JAP_congress_x_array = 147 }
+	add_to_array = { JAP_congress_y_array = 88 }
+	add_to_array = { JAP_congress_x_array = 162 }
+	add_to_array = { JAP_congress_y_array = 79 }
+	add_to_array = { JAP_congress_x_array = 177 }
+	add_to_array = { JAP_congress_y_array = 72 }
+	add_to_array = { JAP_congress_x_array = 193 }
+	add_to_array = { JAP_congress_y_array = 66 }
+	add_to_array = { JAP_congress_x_array = 209 }
+	add_to_array = { JAP_congress_y_array = 61 }
+	add_to_array = { JAP_congress_x_array = 226 }
+	add_to_array = { JAP_congress_y_array = 57 }
+	add_to_array = { JAP_congress_x_array = 243 }
+	add_to_array = { JAP_congress_y_array = 55 }
+	add_to_array = { JAP_congress_x_array = 260 }
+	add_to_array = { JAP_congress_y_array = 55 }
+	add_to_array = { JAP_congress_x_array = 277 }
+	add_to_array = { JAP_congress_y_array = 55 }
+	add_to_array = { JAP_congress_x_array = 294 }
+	add_to_array = { JAP_congress_y_array = 57 }
+	add_to_array = { JAP_congress_x_array = 311 }
+	add_to_array = { JAP_congress_y_array = 61 }
+	add_to_array = { JAP_congress_x_array = 327 }
+	add_to_array = { JAP_congress_y_array = 66 }
+	add_to_array = { JAP_congress_x_array = 343 }
+	add_to_array = { JAP_congress_y_array = 72 }
+	add_to_array = { JAP_congress_x_array = 358 }
+	add_to_array = { JAP_congress_y_array = 79 }
+	add_to_array = { JAP_congress_x_array = 373 }
+	add_to_array = { JAP_congress_y_array = 88 }
+	add_to_array = { JAP_congress_x_array = 386 }
+	add_to_array = { JAP_congress_y_array = 97 }
+	add_to_array = { JAP_congress_x_array = 400 }
+	add_to_array = { JAP_congress_y_array = 108 }
+	add_to_array = { JAP_congress_x_array = 412 }
+	add_to_array = { JAP_congress_y_array = 120 }
+	add_to_array = { JAP_congress_x_array = 423 }
+	add_to_array = { JAP_congress_y_array = 134 }
+	add_to_array = { JAP_congress_x_array = 432 }
+	add_to_array = { JAP_congress_y_array = 147 }
+	add_to_array = { JAP_congress_x_array = 441 }
+	add_to_array = { JAP_congress_y_array = 162 }
+	add_to_array = { JAP_congress_x_array = 448 }
+	add_to_array = { JAP_congress_y_array = 177 }
+	add_to_array = { JAP_congress_x_array = 454 }
+	add_to_array = { JAP_congress_y_array = 193 }
+	add_to_array = { JAP_congress_x_array = 459 }
+	add_to_array = { JAP_congress_y_array = 209 }
+	add_to_array = { JAP_congress_x_array = 463 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 465 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 465 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = 38 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = 38 }
+	add_to_array = { JAP_congress_y_array = 243 }
 	add_to_array = { JAP_congress_x_array = 40 }
-	add_to_array = { JAP_congress_y_array = 165 }
-	add_to_array = { JAP_congress_x_array = 46 }
-	add_to_array = { JAP_congress_y_array = 153 }
-	add_to_array = { JAP_congress_x_array = 53 }
-	add_to_array = { JAP_congress_y_array = 140 }
-	add_to_array = { JAP_congress_x_array = 60 }
-	add_to_array = { JAP_congress_y_array = 129 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 44 }
+	add_to_array = { JAP_congress_y_array = 209 }
+	add_to_array = { JAP_congress_x_array = 48 }
+	add_to_array = { JAP_congress_y_array = 193 }
+	add_to_array = { JAP_congress_x_array = 54 }
+	add_to_array = { JAP_congress_y_array = 176 }
+	add_to_array = { JAP_congress_x_array = 61 }
+	add_to_array = { JAP_congress_y_array = 162 }
+	add_to_array = { JAP_congress_x_array = 68 }
+	add_to_array = { JAP_congress_y_array = 146 }
+	add_to_array = { JAP_congress_x_array = 78 }
+	add_to_array = { JAP_congress_y_array = 133 }
+	add_to_array = { JAP_congress_x_array = 89 }
+	add_to_array = { JAP_congress_y_array = 118 }
+	add_to_array = { JAP_congress_x_array = 100 }
+	add_to_array = { JAP_congress_y_array = 106 }
+	add_to_array = { JAP_congress_x_array = 112 }
+	add_to_array = { JAP_congress_y_array = 94 }
+	add_to_array = { JAP_congress_x_array = 125 }
+	add_to_array = { JAP_congress_y_array = 83 }
+	add_to_array = { JAP_congress_x_array = 139 }
+	add_to_array = { JAP_congress_y_array = 73 }
+	add_to_array = { JAP_congress_x_array = 153 }
+	add_to_array = { JAP_congress_y_array = 65 }
+	add_to_array = { JAP_congress_x_array = 169 }
+	add_to_array = { JAP_congress_y_array = 57 }
+	add_to_array = { JAP_congress_x_array = 185 }
+	add_to_array = { JAP_congress_y_array = 50 }
+	add_to_array = { JAP_congress_x_array = 201 }
+	add_to_array = { JAP_congress_y_array = 45 }
+	add_to_array = { JAP_congress_x_array = 218 }
+	add_to_array = { JAP_congress_y_array = 41 }
+	add_to_array = { JAP_congress_x_array = 235 }
+	add_to_array = { JAP_congress_y_array = 39 }
+	add_to_array = { JAP_congress_x_array = 252 }
+	add_to_array = { JAP_congress_y_array = 38 }
+	add_to_array = { JAP_congress_x_array = 269 }
+	add_to_array = { JAP_congress_y_array = 38 }
+	add_to_array = { JAP_congress_x_array = 286 }
+	add_to_array = { JAP_congress_y_array = 39 }
+	add_to_array = { JAP_congress_x_array = 303 }
+	add_to_array = { JAP_congress_y_array = 41 }
+	add_to_array = { JAP_congress_x_array = 320 }
+	add_to_array = { JAP_congress_y_array = 45 }
+	add_to_array = { JAP_congress_x_array = 335 }
+	add_to_array = { JAP_congress_y_array = 50 }
+	add_to_array = { JAP_congress_x_array = 351 }
+	add_to_array = { JAP_congress_y_array = 57 }
+	add_to_array = { JAP_congress_x_array = 367 }
+	add_to_array = { JAP_congress_y_array = 65 }
+	add_to_array = { JAP_congress_x_array = 381 }
+	add_to_array = { JAP_congress_y_array = 73 }
+	add_to_array = { JAP_congress_x_array = 395 }
+	add_to_array = { JAP_congress_y_array = 83 }
+	add_to_array = { JAP_congress_x_array = 408 }
+	add_to_array = { JAP_congress_y_array = 94 }
+	add_to_array = { JAP_congress_x_array = 420 }
+	add_to_array = { JAP_congress_y_array = 106 }
+	add_to_array = { JAP_congress_x_array = 431 }
+	add_to_array = { JAP_congress_y_array = 118 }
+	add_to_array = { JAP_congress_x_array = 442 }
+	add_to_array = { JAP_congress_y_array = 133 }
+	add_to_array = { JAP_congress_x_array = 452 }
+	add_to_array = { JAP_congress_y_array = 146 }
+	add_to_array = { JAP_congress_x_array = 459 }
+	add_to_array = { JAP_congress_y_array = 162 }
+	add_to_array = { JAP_congress_x_array = 466 }
+	add_to_array = { JAP_congress_y_array = 176 }
+	add_to_array = { JAP_congress_x_array = 473 }
+	add_to_array = { JAP_congress_y_array = 193 }
+	add_to_array = { JAP_congress_x_array = 476 }
+	add_to_array = { JAP_congress_y_array = 209 }
+	add_to_array = { JAP_congress_x_array = 480 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 482 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 482 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = 21 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = 21 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 23 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 26 }
+	add_to_array = { JAP_congress_y_array = 209 }
+	add_to_array = { JAP_congress_x_array = 31 }
+	add_to_array = { JAP_congress_y_array = 192 }
+	add_to_array = { JAP_congress_x_array = 35 }
+	add_to_array = { JAP_congress_y_array = 176 }
+	add_to_array = { JAP_congress_x_array = 43 }
+	add_to_array = { JAP_congress_y_array = 160 }
+	add_to_array = { JAP_congress_x_array = 50 }
+	add_to_array = { JAP_congress_y_array = 145 }
+	add_to_array = { JAP_congress_x_array = 58 }
+	add_to_array = { JAP_congress_y_array = 130 }
 	add_to_array = { JAP_congress_x_array = 68 }
 	add_to_array = { JAP_congress_y_array = 117 }
-	add_to_array = { JAP_congress_x_array = 77 }
-	add_to_array = { JAP_congress_y_array = 106 }
-	add_to_array = { JAP_congress_x_array = 86 }
-	add_to_array = { JAP_congress_y_array = 96 }
-	add_to_array = { JAP_congress_x_array = 96 }
-	add_to_array = { JAP_congress_y_array = 86 }
-	add_to_array = { JAP_congress_x_array = 106 }
-	add_to_array = { JAP_congress_y_array = 77 }
+	add_to_array = { JAP_congress_x_array = 79 }
+	add_to_array = { JAP_congress_y_array = 103 }
+	add_to_array = { JAP_congress_x_array = 90 }
+	add_to_array = { JAP_congress_y_array = 90 }
+	add_to_array = { JAP_congress_x_array = 103 }
+	add_to_array = { JAP_congress_y_array = 79 }
 	add_to_array = { JAP_congress_x_array = 117 }
 	add_to_array = { JAP_congress_y_array = 68 }
-	add_to_array = { JAP_congress_x_array = 129 }
-	add_to_array = { JAP_congress_y_array = 60 }
-	add_to_array = { JAP_congress_x_array = 140 }
-	add_to_array = { JAP_congress_y_array = 53 }
-	add_to_array = { JAP_congress_x_array = 153 }
-	add_to_array = { JAP_congress_y_array = 46 }
-	add_to_array = { JAP_congress_x_array = 165 }
-	add_to_array = { JAP_congress_y_array = 40 }
-	add_to_array = { JAP_congress_x_array = 178 }
+	add_to_array = { JAP_congress_x_array = 130 }
+	add_to_array = { JAP_congress_y_array = 58 }
+	add_to_array = { JAP_congress_x_array = 145 }
+	add_to_array = { JAP_congress_y_array = 50 }
+	add_to_array = { JAP_congress_x_array = 160 }
+	add_to_array = { JAP_congress_y_array = 43 }
+	add_to_array = { JAP_congress_x_array = 176 }
 	add_to_array = { JAP_congress_y_array = 35 }
-	add_to_array = { JAP_congress_x_array = 191 }
+	add_to_array = { JAP_congress_x_array = 192 }
 	add_to_array = { JAP_congress_y_array = 31 }
-	add_to_array = { JAP_congress_x_array = 205 }
-	add_to_array = { JAP_congress_y_array = 27 }
-	add_to_array = { JAP_congress_x_array = 218 }
-	add_to_array = { JAP_congress_y_array = 24 }
-	add_to_array = { JAP_congress_x_array = 232 }
-	add_to_array = { JAP_congress_y_array = 22 }
-	add_to_array = { JAP_congress_x_array = 246 }
+	add_to_array = { JAP_congress_x_array = 209 }
+	add_to_array = { JAP_congress_y_array = 26 }
+	add_to_array = { JAP_congress_x_array = 226 }
+	add_to_array = { JAP_congress_y_array = 23 }
+	add_to_array = { JAP_congress_x_array = 243 }
 	add_to_array = { JAP_congress_y_array = 21 }
 	add_to_array = { JAP_congress_x_array = 260 }
 	add_to_array = { JAP_congress_y_array = 21 }
-	add_to_array = { JAP_congress_x_array = 274 }
+	add_to_array = { JAP_congress_x_array = 277 }
 	add_to_array = { JAP_congress_y_array = 21 }
-	add_to_array = { JAP_congress_x_array = 288 }
-	add_to_array = { JAP_congress_y_array = 22 }
-	add_to_array = { JAP_congress_x_array = 302 }
-	add_to_array = { JAP_congress_y_array = 24 }
-	add_to_array = { JAP_congress_x_array = 315 }
-	add_to_array = { JAP_congress_y_array = 27 }
-	add_to_array = { JAP_congress_x_array = 329 }
+	add_to_array = { JAP_congress_x_array = 294 }
+	add_to_array = { JAP_congress_y_array = 23 }
+	add_to_array = { JAP_congress_x_array = 311 }
+	add_to_array = { JAP_congress_y_array = 26 }
+	add_to_array = { JAP_congress_x_array = 328 }
 	add_to_array = { JAP_congress_y_array = 31 }
-	add_to_array = { JAP_congress_x_array = 342 }
+	add_to_array = { JAP_congress_x_array = 344 }
 	add_to_array = { JAP_congress_y_array = 35 }
-	add_to_array = { JAP_congress_x_array = 355 }
-	add_to_array = { JAP_congress_y_array = 40 }
-	add_to_array = { JAP_congress_x_array = 367 }
-	add_to_array = { JAP_congress_y_array = 46 }
-	add_to_array = { JAP_congress_x_array = 380 }
-	add_to_array = { JAP_congress_y_array = 53 }
-	add_to_array = { JAP_congress_x_array = 391 }
-	add_to_array = { JAP_congress_y_array = 60 }
+	add_to_array = { JAP_congress_x_array = 360 }
+	add_to_array = { JAP_congress_y_array = 43 }
+	add_to_array = { JAP_congress_x_array = 375 }
+	add_to_array = { JAP_congress_y_array = 50 }
+	add_to_array = { JAP_congress_x_array = 390 }
+	add_to_array = { JAP_congress_y_array = 58 }
 	add_to_array = { JAP_congress_x_array = 403 }
 	add_to_array = { JAP_congress_y_array = 68 }
-	add_to_array = { JAP_congress_x_array = 414 }
-	add_to_array = { JAP_congress_y_array = 77 }
-	add_to_array = { JAP_congress_x_array = 424 }
-	add_to_array = { JAP_congress_y_array = 86 }
-	add_to_array = { JAP_congress_x_array = 434 }
-	add_to_array = { JAP_congress_y_array = 96 }
-	add_to_array = { JAP_congress_x_array = 443 }
-	add_to_array = { JAP_congress_y_array = 106 }
+	add_to_array = { JAP_congress_x_array = 417 }
+	add_to_array = { JAP_congress_y_array = 79 }
+	add_to_array = { JAP_congress_x_array = 430 }
+	add_to_array = { JAP_congress_y_array = 90 }
+	add_to_array = { JAP_congress_x_array = 441 }
+	add_to_array = { JAP_congress_y_array = 103 }
 	add_to_array = { JAP_congress_x_array = 452 }
 	add_to_array = { JAP_congress_y_array = 117 }
-	add_to_array = { JAP_congress_x_array = 460 }
-	add_to_array = { JAP_congress_y_array = 129 }
-	add_to_array = { JAP_congress_x_array = 467 }
-	add_to_array = { JAP_congress_y_array = 140 }
-	add_to_array = { JAP_congress_x_array = 474 }
-	add_to_array = { JAP_congress_y_array = 153 }
-	add_to_array = { JAP_congress_x_array = 480 }
-	add_to_array = { JAP_congress_y_array = 165 }
+	add_to_array = { JAP_congress_x_array = 462 }
+	add_to_array = { JAP_congress_y_array = 130 }
+	add_to_array = { JAP_congress_x_array = 470 }
+	add_to_array = { JAP_congress_y_array = 145 }
+	add_to_array = { JAP_congress_x_array = 477 }
+	add_to_array = { JAP_congress_y_array = 160 }
 	add_to_array = { JAP_congress_x_array = 485 }
-	add_to_array = { JAP_congress_y_array = 178 }
-	add_to_array = { JAP_congress_x_array = 489 }
-	add_to_array = { JAP_congress_y_array = 191 }
-	add_to_array = { JAP_congress_x_array = 493 }
-	add_to_array = { JAP_congress_y_array = 205 }
-	add_to_array = { JAP_congress_x_array = 496 }
-	add_to_array = { JAP_congress_y_array = 218 }
-	add_to_array = { JAP_congress_x_array = 498 }
-	add_to_array = { JAP_congress_y_array = 232 }
+	add_to_array = { JAP_congress_y_array = 176 }
+	add_to_array = { JAP_congress_x_array = 490 }
+	add_to_array = { JAP_congress_y_array = 192 }
+	add_to_array = { JAP_congress_x_array = 494 }
+	add_to_array = { JAP_congress_y_array = 209 }
+	add_to_array = { JAP_congress_x_array = 497 }
+	add_to_array = { JAP_congress_y_array = 226 }
 	add_to_array = { JAP_congress_x_array = 499 }
-	add_to_array = { JAP_congress_y_array = 246 }
+	add_to_array = { JAP_congress_y_array = 243 }
 	add_to_array = { JAP_congress_x_array = 499 }
 	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = 4 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = 4 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 6 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 9 }
+	add_to_array = { JAP_congress_y_array = 209 }
+	add_to_array = { JAP_congress_x_array = 12 }
+	add_to_array = { JAP_congress_y_array = 192 }
+	add_to_array = { JAP_congress_x_array = 17 }
+	add_to_array = { JAP_congress_y_array = 176 }
+	add_to_array = { JAP_congress_x_array = 23 }
+	add_to_array = { JAP_congress_y_array = 160 }
+	add_to_array = { JAP_congress_x_array = 31 }
+	add_to_array = { JAP_congress_y_array = 145 }
+	add_to_array = { JAP_congress_x_array = 39 }
+	add_to_array = { JAP_congress_y_array = 129 }
+	add_to_array = { JAP_congress_x_array = 49 }
+	add_to_array = { JAP_congress_y_array = 114 }
+	add_to_array = { JAP_congress_x_array = 58 }
+	add_to_array = { JAP_congress_y_array = 101 }
+	add_to_array = { JAP_congress_x_array = 69 }
+	add_to_array = { JAP_congress_y_array = 88 }
+	add_to_array = { JAP_congress_x_array = 82 }
+	add_to_array = { JAP_congress_y_array = 75 }
+	add_to_array = { JAP_congress_x_array = 95 }
+	add_to_array = { JAP_congress_y_array = 65 }
+	add_to_array = { JAP_congress_x_array = 108 }
+	add_to_array = { JAP_congress_y_array = 54 }
+	add_to_array = { JAP_congress_x_array = 122 }
+	add_to_array = { JAP_congress_y_array = 44 }
+	add_to_array = { JAP_congress_x_array = 136 }
+	add_to_array = { JAP_congress_y_array = 35 }
+	add_to_array = { JAP_congress_x_array = 152 }
+	add_to_array = { JAP_congress_y_array = 27 }
+	add_to_array = { JAP_congress_x_array = 168 }
+	add_to_array = { JAP_congress_y_array = 21 }
+	add_to_array = { JAP_congress_x_array = 184 }
+	add_to_array = { JAP_congress_y_array = 15 }
+	add_to_array = { JAP_congress_x_array = 201 }
+	add_to_array = { JAP_congress_y_array = 10 }
+	add_to_array = { JAP_congress_x_array = 218 }
+	add_to_array = { JAP_congress_y_array = 7 }
+	add_to_array = { JAP_congress_x_array = 235 }
+	add_to_array = { JAP_congress_y_array = 5 }
+	add_to_array = { JAP_congress_x_array = 252 }
+	add_to_array = { JAP_congress_y_array = 4 }
+	add_to_array = { JAP_congress_x_array = 269 }
+	add_to_array = { JAP_congress_y_array = 4 }
+	add_to_array = { JAP_congress_x_array = 286 }
+	add_to_array = { JAP_congress_y_array = 5 }
+	add_to_array = { JAP_congress_x_array = 303 }
+	add_to_array = { JAP_congress_y_array = 7 }
+	add_to_array = { JAP_congress_x_array = 320 }
+	add_to_array = { JAP_congress_y_array = 10 }
+	add_to_array = { JAP_congress_x_array = 337 }
+	add_to_array = { JAP_congress_y_array = 15 }
+	add_to_array = { JAP_congress_x_array = 352 }
+	add_to_array = { JAP_congress_y_array = 21 }
+	add_to_array = { JAP_congress_x_array = 368 }
+	add_to_array = { JAP_congress_y_array = 27 }
+	add_to_array = { JAP_congress_x_array = 384 }
+	add_to_array = { JAP_congress_y_array = 35 }
+	add_to_array = { JAP_congress_x_array = 398 }
+	add_to_array = { JAP_congress_y_array = 44 }
+	add_to_array = { JAP_congress_x_array = 412 }
+	add_to_array = { JAP_congress_y_array = 54 }
+	add_to_array = { JAP_congress_x_array = 425 }
+	add_to_array = { JAP_congress_y_array = 65 }
+	add_to_array = { JAP_congress_x_array = 439 }
+	add_to_array = { JAP_congress_y_array = 75 }
+	add_to_array = { JAP_congress_x_array = 451 }
+	add_to_array = { JAP_congress_y_array = 88 }
+	add_to_array = { JAP_congress_x_array = 462 }
+	add_to_array = { JAP_congress_y_array = 101 }
+	add_to_array = { JAP_congress_x_array = 471 }
+	add_to_array = { JAP_congress_y_array = 114 }
+	add_to_array = { JAP_congress_x_array = 481 }
+	add_to_array = { JAP_congress_y_array = 129 }
+	add_to_array = { JAP_congress_x_array = 490 }
+	add_to_array = { JAP_congress_y_array = 145 }
+	add_to_array = { JAP_congress_x_array = 497 }
+	add_to_array = { JAP_congress_y_array = 160 }
+	add_to_array = { JAP_congress_x_array = 503 }
+	add_to_array = { JAP_congress_y_array = 176 }
+	add_to_array = { JAP_congress_x_array = 508 }
+	add_to_array = { JAP_congress_y_array = 192 }
+	add_to_array = { JAP_congress_x_array = 511 }
+	add_to_array = { JAP_congress_y_array = 209 }
+	add_to_array = { JAP_congress_x_array = 514 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 516 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 516 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = -13 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = -13 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = -12 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = -8 }
+	add_to_array = { JAP_congress_y_array = 210 }
+	add_to_array = { JAP_congress_x_array = -5 }
+	add_to_array = { JAP_congress_y_array = 193 }
+	add_to_array = { JAP_congress_x_array = -1 }
+	add_to_array = { JAP_congress_y_array = 177 }
+	add_to_array = { JAP_congress_x_array = 5 }
+	add_to_array = { JAP_congress_y_array = 162 }
+	add_to_array = { JAP_congress_x_array = 11 }
+	add_to_array = { JAP_congress_y_array = 146 }
+	add_to_array = { JAP_congress_x_array = 20 }
+	add_to_array = { JAP_congress_y_array = 130 }
+	add_to_array = { JAP_congress_x_array = 27 }
+	add_to_array = { JAP_congress_y_array = 116 }
+	add_to_array = { JAP_congress_x_array = 37 }
+	add_to_array = { JAP_congress_y_array = 102 }
+	add_to_array = { JAP_congress_x_array = 46 }
+	add_to_array = { JAP_congress_y_array = 89 }
+	add_to_array = { JAP_congress_x_array = 58 }
+	add_to_array = { JAP_congress_y_array = 75 }
+	add_to_array = { JAP_congress_x_array = 69 }
+	add_to_array = { JAP_congress_y_array = 63 }
+	add_to_array = { JAP_congress_x_array = 82 }
+	add_to_array = { JAP_congress_y_array = 52 }
+	add_to_array = { JAP_congress_x_array = 95 }
+	add_to_array = { JAP_congress_y_array = 41 }
+	add_to_array = { JAP_congress_x_array = 109 }
+	add_to_array = { JAP_congress_y_array = 32 }
+	add_to_array = { JAP_congress_x_array = 123 }
+	add_to_array = { JAP_congress_y_array = 23 }
+	add_to_array = { JAP_congress_x_array = 139 }
+	add_to_array = { JAP_congress_y_array = 15 }
+	add_to_array = { JAP_congress_x_array = 153 }
+	add_to_array = { JAP_congress_y_array = 9 }
+	add_to_array = { JAP_congress_x_array = 169 }
+	add_to_array = { JAP_congress_y_array = 3 }
+	add_to_array = { JAP_congress_x_array = 185 }
+	add_to_array = { JAP_congress_y_array = -4 }
+	add_to_array = { JAP_congress_x_array = 202 }
+	add_to_array = { JAP_congress_y_array = -7 }
+	add_to_array = { JAP_congress_x_array = 218 }
+	add_to_array = { JAP_congress_y_array = -11 }
+	add_to_array = { JAP_congress_x_array = 235 }
+	add_to_array = { JAP_congress_y_array = -12 }
+	add_to_array = { JAP_congress_x_array = 252 }
+	add_to_array = { JAP_congress_y_array = -13 }
+	add_to_array = { JAP_congress_x_array = 269 }
+	add_to_array = { JAP_congress_y_array = -13 }
+	add_to_array = { JAP_congress_x_array = 286 }
+	add_to_array = { JAP_congress_y_array = -12 }
+	add_to_array = { JAP_congress_x_array = 303 }
+	add_to_array = { JAP_congress_y_array = -11 }
+	add_to_array = { JAP_congress_x_array = 318 }
+	add_to_array = { JAP_congress_y_array = -7 }
+	add_to_array = { JAP_congress_x_array = 335 }
+	add_to_array = { JAP_congress_y_array = -4 }
+	add_to_array = { JAP_congress_x_array = 351 }
+	add_to_array = { JAP_congress_y_array = 3 }
+	add_to_array = { JAP_congress_x_array = 367 }
+	add_to_array = { JAP_congress_y_array = 9 }
+	add_to_array = { JAP_congress_x_array = 381 }
+	add_to_array = { JAP_congress_y_array = 15 }
+	add_to_array = { JAP_congress_x_array = 397 }
+	add_to_array = { JAP_congress_y_array = 23 }
+	add_to_array = { JAP_congress_x_array = 411 }
+	add_to_array = { JAP_congress_y_array = 32 }
+	add_to_array = { JAP_congress_x_array = 425 }
+	add_to_array = { JAP_congress_y_array = 41 }
+	add_to_array = { JAP_congress_x_array = 439 }
+	add_to_array = { JAP_congress_y_array = 52 }
+	add_to_array = { JAP_congress_x_array = 451 }
+	add_to_array = { JAP_congress_y_array = 63 }
+	add_to_array = { JAP_congress_x_array = 462 }
+	add_to_array = { JAP_congress_y_array = 75 }
+	add_to_array = { JAP_congress_x_array = 474 }
+	add_to_array = { JAP_congress_y_array = 89 }
+	add_to_array = { JAP_congress_x_array = 483 }
+	add_to_array = { JAP_congress_y_array = 102 }
+	add_to_array = { JAP_congress_x_array = 493 }
+	add_to_array = { JAP_congress_y_array = 116 }
+	add_to_array = { JAP_congress_x_array = 500 }
+	add_to_array = { JAP_congress_y_array = 130 }
+	add_to_array = { JAP_congress_x_array = 509 }
+	add_to_array = { JAP_congress_y_array = 146 }
+	add_to_array = { JAP_congress_x_array = 515 }
+	add_to_array = { JAP_congress_y_array = 162 }
+	add_to_array = { JAP_congress_x_array = 521 }
+	add_to_array = { JAP_congress_y_array = 177 }
+	add_to_array = { JAP_congress_x_array = 525 }
+	add_to_array = { JAP_congress_y_array = 193 }
+	add_to_array = { JAP_congress_x_array = 528 }
+	add_to_array = { JAP_congress_y_array = 210 }
+	add_to_array = { JAP_congress_x_array = 532 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 533 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 533 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = -30 }
+	add_to_array = { JAP_congress_y_array = 260 }
+	add_to_array = { JAP_congress_x_array = -30 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = -29 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = -27 }
+	add_to_array = { JAP_congress_y_array = 209 }
+	add_to_array = { JAP_congress_x_array = -23 }
+	add_to_array = { JAP_congress_y_array = 193 }
+	add_to_array = { JAP_congress_x_array = -18 }
+	add_to_array = { JAP_congress_y_array = 176 }
+	add_to_array = { JAP_congress_x_array = -13 }
+	add_to_array = { JAP_congress_y_array = 160 }
+	add_to_array = { JAP_congress_x_array = -7 }
+	add_to_array = { JAP_congress_y_array = 145 }
+	add_to_array = { JAP_congress_x_array = 0 }
+	add_to_array = { JAP_congress_y_array = 130 }
+	add_to_array = { JAP_congress_x_array = 9 }
+	add_to_array = { JAP_congress_y_array = 114 }
+	add_to_array = { JAP_congress_x_array = 17 }
+	add_to_array = { JAP_congress_y_array = 101 }
+	add_to_array = { JAP_congress_x_array = 27 }
+	add_to_array = { JAP_congress_y_array = 86 }
+	add_to_array = { JAP_congress_x_array = 38 }
+	add_to_array = { JAP_congress_y_array = 73 }
+	add_to_array = { JAP_congress_x_array = 49 }
+	add_to_array = { JAP_congress_y_array = 61 }
+	add_to_array = { JAP_congress_x_array = 61 }
+	add_to_array = { JAP_congress_y_array = 49 }
+	add_to_array = { JAP_congress_x_array = 73 }
+	add_to_array = { JAP_congress_y_array = 38 }
+	add_to_array = { JAP_congress_x_array = 86 }
+	add_to_array = { JAP_congress_y_array = 27 }
+	add_to_array = { JAP_congress_x_array = 101 }
+	add_to_array = { JAP_congress_y_array = 17 }
+	add_to_array = { JAP_congress_x_array = 114 }
+	add_to_array = { JAP_congress_y_array = 9 }
+	add_to_array = { JAP_congress_x_array = 130 }
+	add_to_array = { JAP_congress_y_array = 0 }
+	add_to_array = { JAP_congress_x_array = 145 }
+	add_to_array = { JAP_congress_y_array = -7 }
+	add_to_array = { JAP_congress_x_array = 160 }
+	add_to_array = { JAP_congress_y_array = -13 }
+	add_to_array = { JAP_congress_x_array = 176 }
+	add_to_array = { JAP_congress_y_array = -18 }
+	add_to_array = { JAP_congress_x_array = 193 }
+	add_to_array = { JAP_congress_y_array = -23 }
+	add_to_array = { JAP_congress_x_array = 209 }
+	add_to_array = { JAP_congress_y_array = -27 }
+	add_to_array = { JAP_congress_x_array = 226 }
+	add_to_array = { JAP_congress_y_array = -29 }
+	add_to_array = { JAP_congress_x_array = 243 }
+	add_to_array = { JAP_congress_y_array = -30 }
+	add_to_array = { JAP_congress_x_array = 260 }
+	add_to_array = { JAP_congress_y_array = -30 }
+	add_to_array = { JAP_congress_x_array = 277 }
+	add_to_array = { JAP_congress_y_array = -30 }
+	add_to_array = { JAP_congress_x_array = 294 }
+	add_to_array = { JAP_congress_y_array = -29 }
+	add_to_array = { JAP_congress_x_array = 311 }
+	add_to_array = { JAP_congress_y_array = -27 }
+	add_to_array = { JAP_congress_x_array = 327 }
+	add_to_array = { JAP_congress_y_array = -23 }
+	add_to_array = { JAP_congress_x_array = 344 }
+	add_to_array = { JAP_congress_y_array = -18 }
+	add_to_array = { JAP_congress_x_array = 360 }
+	add_to_array = { JAP_congress_y_array = -13 }
+	add_to_array = { JAP_congress_x_array = 375 }
+	add_to_array = { JAP_congress_y_array = -7 }
+	add_to_array = { JAP_congress_x_array = 390 }
+	add_to_array = { JAP_congress_y_array = 0 }
+	add_to_array = { JAP_congress_x_array = 406 }
+	add_to_array = { JAP_congress_y_array = 9 }
+	add_to_array = { JAP_congress_x_array = 419 }
+	add_to_array = { JAP_congress_y_array = 17 }
+	add_to_array = { JAP_congress_x_array = 434 }
+	add_to_array = { JAP_congress_y_array = 27 }
+	add_to_array = { JAP_congress_x_array = 447 }
+	add_to_array = { JAP_congress_y_array = 38 }
+	add_to_array = { JAP_congress_x_array = 459 }
+	add_to_array = { JAP_congress_y_array = 49 }
+	add_to_array = { JAP_congress_x_array = 471 }
+	add_to_array = { JAP_congress_y_array = 61 }
+	add_to_array = { JAP_congress_x_array = 482 }
+	add_to_array = { JAP_congress_y_array = 73 }
+	add_to_array = { JAP_congress_x_array = 493 }
+	add_to_array = { JAP_congress_y_array = 86 }
+	add_to_array = { JAP_congress_x_array = 503 }
+	add_to_array = { JAP_congress_y_array = 101 }
+	add_to_array = { JAP_congress_x_array = 511 }
+	add_to_array = { JAP_congress_y_array = 114 }
+	add_to_array = { JAP_congress_x_array = 520 }
+	add_to_array = { JAP_congress_y_array = 130 }
+	add_to_array = { JAP_congress_x_array = 527 }
+	add_to_array = { JAP_congress_y_array = 145 }
+	add_to_array = { JAP_congress_x_array = 533 }
+	add_to_array = { JAP_congress_y_array = 160 }
+	add_to_array = { JAP_congress_x_array = 538 }
+	add_to_array = { JAP_congress_y_array = 176 }
+	add_to_array = { JAP_congress_x_array = 543 }
+	add_to_array = { JAP_congress_y_array = 193 }
+	add_to_array = { JAP_congress_x_array = 547 }
+	add_to_array = { JAP_congress_y_array = 209 }
+	add_to_array = { JAP_congress_x_array = 549 }
+	add_to_array = { JAP_congress_y_array = 226 }
+	add_to_array = { JAP_congress_x_array = 550 }
+	add_to_array = { JAP_congress_y_array = 243 }
+	add_to_array = { JAP_congress_x_array = 550 }
+	add_to_array = { JAP_congress_y_array = 260 }
 }
-
 JAP_congress_rebuild_seats = {
+	JAP_congress_refresh_majority_party = yes
 	JAP_congress_set_seats_position = yes
 	clear_array = JAP_congress_seats_array
 	for_each_loop = {
@@ -995,6 +1028,304 @@ JAP_congress_toggle_party_detail_panel = {
 	else = {
 		set_country_flag = JAP_congress_party_detail_panel_open
 	}
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_clear_agenda_effects = {
+	if = { limit = { has_idea = MIT_generic_industrial_projects_idea } remove_ideas = MIT_generic_industrial_projects_idea }
+	if = { limit = { has_idea = MIT_generic_arms_industry_idea } remove_ideas = MIT_generic_arms_industry_idea }
+	if = { limit = { has_idea = MIT_generic_infrastructure_idea } remove_ideas = MIT_generic_infrastructure_idea }
+	if = { limit = { has_idea = MIT_generic_financial_bailout_idea } remove_ideas = MIT_generic_financial_bailout_idea }
+	if = { limit = { has_idea = MIT_generic_industrial_advisors_idea } remove_ideas = MIT_generic_industrial_advisors_idea }
+	if = { limit = { has_idea = MIT_generic_arms_experts_idea } remove_ideas = MIT_generic_arms_experts_idea }
+	if = { limit = { has_idea = MIT_generic_cohesion_fund_idea } remove_ideas = MIT_generic_cohesion_fund_idea }
+	if = { limit = { has_idea = MIT_generic_legal_reform_idea } remove_ideas = MIT_generic_legal_reform_idea }
+	if = { limit = { has_idea = MIT_directive_system_idea } remove_ideas = MIT_directive_system_idea }
+	if = { limit = { has_idea = MIT_consultative_assembly_idea } remove_ideas = MIT_consultative_assembly_idea }
+	if = { limit = { has_idea = MIT_qualified_majority_idea } remove_ideas = MIT_qualified_majority_idea }
+	if = { limit = { has_idea = MIT_assembly_approval_idea } remove_ideas = MIT_assembly_approval_idea }
+	if = { limit = { has_idea = MIT_regulation_system_idea } remove_ideas = MIT_regulation_system_idea }
+	if = { limit = { has_idea = MIT_budget_quota_idea } remove_ideas = MIT_budget_quota_idea }
+	if = { limit = { has_idea = MIT_enforcement_directorate_idea } remove_ideas = MIT_enforcement_directorate_idea }
+	if = { limit = { has_idea = MIT_enlargement_directorate_idea } remove_ideas = MIT_enlargement_directorate_idea }
+	if = { limit = { has_idea = MIT_common_travel_area_idea } remove_ideas = MIT_common_travel_area_idea }
+	if = { limit = { has_idea = MIT_support_local_production_idea } remove_ideas = MIT_support_local_production_idea }
+	if = { limit = { has_idea = MIT_mitteleuropa_loans_idea } remove_ideas = MIT_mitteleuropa_loans_idea }
+	if = { limit = { has_idea = MIT_europamark_idea } remove_ideas = MIT_europamark_idea }
+	if = { limit = { has_idea = MIT_central_europe_bank_idea } remove_ideas = MIT_central_europe_bank_idea }
+	if = { limit = { has_idea = MIT_challenge_leadership_idea } remove_ideas = MIT_challenge_leadership_idea }
+}
+
+JAP_congress_refresh_agenda_frames = {
+	set_variable = { JAP_congress_agenda_1_frame = 1 }
+	set_variable = { JAP_congress_agenda_2_frame = 1 }
+	set_variable = { JAP_congress_agenda_3_frame = 1 }
+	set_variable = { JAP_congress_agenda_4_frame = 1 }
+	set_variable = { JAP_congress_agenda_5_frame = 1 }
+	set_variable = { JAP_congress_agenda_6_frame = 1 }
+	set_variable = { JAP_congress_agenda_7_frame = 1 }
+	set_variable = { JAP_congress_agenda_8_frame = 1 }
+	set_variable = { JAP_congress_agenda_9_frame = 1 }
+	set_variable = { JAP_congress_agenda_10_frame = 1 }
+	set_variable = { JAP_congress_agenda_11_frame = 1 }
+	set_variable = { JAP_congress_agenda_12_frame = 1 }
+	set_variable = { JAP_congress_agenda_13_frame = 1 }
+	set_variable = { JAP_congress_agenda_14_frame = 1 }
+	set_variable = { JAP_congress_agenda_15_frame = 1 }
+	set_variable = { JAP_congress_agenda_16_frame = 1 }
+	set_variable = { JAP_congress_agenda_17_frame = 1 }
+	set_variable = { JAP_congress_agenda_18_frame = 1 }
+	set_variable = { JAP_congress_agenda_19_frame = 1 }
+	set_variable = { JAP_congress_agenda_20_frame = 1 }
+	set_variable = { JAP_congress_agenda_21_frame = 1 }
+	set_variable = { JAP_congress_agenda_22_frame = 1 }
+	if = {
+		limit = { check_variable = { JAP_congress_active_agenda = 1 } }
+		set_variable = { JAP_congress_agenda_1_frame = 2 }
+	}
+	if = {
+		limit = { check_variable = { JAP_congress_active_agenda = 2 } }
+		set_variable = { JAP_congress_agenda_2_frame = 2 }
+	}
+	if = {
+		limit = { check_variable = { JAP_congress_active_agenda = 3 } }
+		set_variable = { JAP_congress_agenda_3_frame = 2 }
+	}
+	if = {
+		limit = { check_variable = { JAP_congress_active_agenda = 4 } }
+		set_variable = { JAP_congress_agenda_4_frame = 2 }
+	}
+	if = {
+		limit = { check_variable = { JAP_congress_active_agenda = 5 } }
+		set_variable = { JAP_congress_agenda_5_frame = 2 }
+	}
+	if = {
+		limit = { check_variable = { JAP_congress_active_agenda = 6 } }
+		set_variable = { JAP_congress_agenda_6_frame = 2 }
+	}
+	if = {
+		limit = { check_variable = { JAP_congress_active_agenda = 7 } }
+		set_variable = { JAP_congress_agenda_7_frame = 2 }
+	}
+	if = {
+		limit = { check_variable = { JAP_congress_active_agenda = 8 } }
+		set_variable = { JAP_congress_agenda_8_frame = 2 }
+	}
+	if = { limit = { check_variable = { JAP_congress_active_agenda = 9 } } set_variable = { JAP_congress_agenda_9_frame = 2 } }
+	if = { limit = { check_variable = { JAP_congress_active_agenda = 10 } } set_variable = { JAP_congress_agenda_10_frame = 2 } }
+	if = { limit = { check_variable = { JAP_congress_active_agenda = 11 } } set_variable = { JAP_congress_agenda_11_frame = 2 } }
+	if = { limit = { check_variable = { JAP_congress_active_agenda = 12 } } set_variable = { JAP_congress_agenda_12_frame = 2 } }
+	if = { limit = { check_variable = { JAP_congress_active_agenda = 13 } } set_variable = { JAP_congress_agenda_13_frame = 2 } }
+	if = { limit = { check_variable = { JAP_congress_active_agenda = 14 } } set_variable = { JAP_congress_agenda_14_frame = 2 } }
+	if = { limit = { check_variable = { JAP_congress_active_agenda = 15 } } set_variable = { JAP_congress_agenda_15_frame = 2 } }
+	if = { limit = { check_variable = { JAP_congress_active_agenda = 16 } } set_variable = { JAP_congress_agenda_16_frame = 2 } }
+	if = { limit = { check_variable = { JAP_congress_active_agenda = 17 } } set_variable = { JAP_congress_agenda_17_frame = 2 } }
+	if = { limit = { check_variable = { JAP_congress_active_agenda = 18 } } set_variable = { JAP_congress_agenda_18_frame = 2 } }
+	if = { limit = { check_variable = { JAP_congress_active_agenda = 19 } } set_variable = { JAP_congress_agenda_19_frame = 2 } }
+	if = { limit = { check_variable = { JAP_congress_active_agenda = 20 } } set_variable = { JAP_congress_agenda_20_frame = 2 } }
+	if = { limit = { check_variable = { JAP_congress_active_agenda = 21 } } set_variable = { JAP_congress_agenda_21_frame = 2 } }
+	if = { limit = { check_variable = { JAP_congress_active_agenda = 22 } } set_variable = { JAP_congress_agenda_22_frame = 2 } }
+}
+
+JAP_congress_apply_agenda_cooldown = {
+	set_country_flag = { flag = JAP_congress_agenda_vote_cooldown days = 180 value = 1 }
+}
+
+JAP_congress_pass_agenda_1 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 1 }
+	add_ideas = MIT_generic_industrial_projects_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_2 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 2 }
+	add_ideas = MIT_generic_arms_industry_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_3 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 3 }
+	add_ideas = MIT_generic_infrastructure_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_4 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 4 }
+	add_ideas = MIT_generic_financial_bailout_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_5 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 5 }
+	add_ideas = MIT_generic_industrial_advisors_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_6 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 6 }
+	add_ideas = MIT_generic_arms_experts_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_7 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 7 }
+	add_ideas = MIT_generic_cohesion_fund_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_8 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 8 }
+	add_ideas = MIT_generic_legal_reform_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_9 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 9 }
+	add_ideas = MIT_directive_system_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_10 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 10 }
+	add_ideas = MIT_consultative_assembly_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_11 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 11 }
+	add_ideas = MIT_qualified_majority_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_12 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 12 }
+	add_ideas = MIT_assembly_approval_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_13 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 13 }
+	add_ideas = MIT_regulation_system_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_14 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 14 }
+	add_ideas = MIT_budget_quota_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_15 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 15 }
+	add_ideas = MIT_enforcement_directorate_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_16 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 16 }
+	add_ideas = MIT_enlargement_directorate_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_17 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 17 }
+	add_ideas = MIT_common_travel_area_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_18 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 18 }
+	add_ideas = MIT_support_local_production_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_19 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 19 }
+	add_ideas = MIT_mitteleuropa_loans_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_20 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 20 }
+	add_ideas = MIT_europamark_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_21 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 21 }
+	add_ideas = MIT_central_europe_bank_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_22 = {
+	JAP_congress_clear_agenda_effects = yes
+	set_variable = { JAP_congress_active_agenda = 22 }
+	add_ideas = MIT_challenge_leadership_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_refresh_agenda_frames = yes
 	JAP_congress_update_gui = yes
 }
 

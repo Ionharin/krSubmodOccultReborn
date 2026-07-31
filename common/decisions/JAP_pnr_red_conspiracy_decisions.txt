@@ -1,0 +1,215 @@
+JAP_pnr_red_conspiracy_category = {
+	JAP_pnr_red_conspiracy_escalation = {
+		icon = GFX_decision_generic_ignite_civil_war
+
+		allowed = { always = no }
+		available = {
+			hidden_trigger = { always = no }
+		}
+		cancel_trigger = {
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun }
+		}
+
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 14
+		priority = 100
+
+		timeout_effect = {
+			add_to_variable = {
+				var = JAP_pnr_red_conspiracy_strength
+				value = 5
+				tooltip = JAP_pnr_red_conspiracy_raised
+			}
+			clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
+			JAP_pnr_update_red_conspiracy_modifier_values = yes
+			activate_mission = JAP_pnr_red_conspiracy_escalation
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_red_conspiracy_curtail_red_press = {
+		icon = GFX_decision_generic_break_treaty
+
+		visible = {
+			has_country_flag = JAP_pnr_red_conspiracy_begun
+		}
+		available = {
+			has_country_flag = JAP_pnr_red_conspiracy_begun
+		}
+		cancel_trigger = {
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun }
+		}
+
+		cost = 0
+		days_remove = 20
+		modifier = {
+			political_power_factor = -0.1
+		}
+
+		remove_effect = {
+			subtract_from_variable = {
+				var = JAP_pnr_red_conspiracy_strength
+				value = 15
+				tooltip = JAP_pnr_red_conspiracy_reduced
+			}
+			clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
+			JAP_pnr_update_red_conspiracy_modifier_values = yes
+		}
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_red_conspiracy_activate_loyal_unions = {
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		visible = {
+			has_country_flag = JAP_pnr_red_conspiracy_begun
+		}
+		available = {
+			has_country_flag = JAP_pnr_red_conspiracy_begun
+		}
+		cancel_trigger = {
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun }
+		}
+
+		cost = 0
+		days_remove = 20
+		modifier = {
+			political_power_factor = -0.1
+		}
+
+		remove_effect = {
+			subtract_from_variable = {
+				var = JAP_pnr_red_conspiracy_strength
+				value = 15
+				tooltip = JAP_pnr_red_conspiracy_reduced
+			}
+			clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
+			JAP_pnr_update_red_conspiracy_modifier_values = yes
+		}
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_red_conspiracy_establish_curfews = {
+		icon = GFX_decision_generic_police_action
+
+		visible = {
+			has_country_flag = JAP_pnr_red_conspiracy_begun
+		}
+		available = {
+			has_country_flag = JAP_pnr_red_conspiracy_begun
+		}
+		cancel_trigger = {
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun }
+		}
+
+		cost = 0
+		days_remove = 20
+		modifier = {
+			political_power_factor = -0.1
+		}
+
+		remove_effect = {
+			subtract_from_variable = {
+				var = JAP_pnr_red_conspiracy_strength
+				value = 15
+				tooltip = JAP_pnr_red_conspiracy_reduced
+			}
+			clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
+			JAP_pnr_update_red_conspiracy_modifier_values = yes
+		}
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_red_conspiracy_arrest_activists = {
+		icon = GFX_decision_generic_arrest
+
+		visible = {
+			has_country_flag = JAP_pnr_red_conspiracy_begun
+		}
+		available = {
+			has_country_flag = JAP_pnr_red_conspiracy_begun
+		}
+		cancel_trigger = {
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun }
+		}
+
+		cost = 0
+		days_remove = 14
+		modifier = {
+			political_power_factor = -0.1
+		}
+
+		remove_effect = {
+			subtract_from_variable = {
+				var = JAP_pnr_red_conspiracy_strength
+				value = 15
+				tooltip = JAP_pnr_red_conspiracy_reduced
+			}
+			clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
+			JAP_pnr_update_red_conspiracy_modifier_values = yes
+		}
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_red_conspiracy_selective_reform = {
+		icon = GFX_decision_eng_trade_unions_support
+
+		visible = {
+			has_country_flag = JAP_pnr_red_conspiracy_begun
+		}
+		available = {
+			has_country_flag = JAP_pnr_red_conspiracy_begun
+		}
+		cancel_trigger = {
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun }
+		}
+
+		cost = 0
+		days_remove = 14
+		modifier = {
+			consumer_goods_factor = 0.3
+		}
+
+		remove_effect = {
+			subtract_from_variable = {
+				var = JAP_pnr_red_conspiracy_strength
+				value = 15
+				tooltip = JAP_pnr_red_conspiracy_reduced
+			}
+			clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
+			JAP_pnr_update_red_conspiracy_modifier_values = yes
+		}
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_red_conspiracy_lapse_on_security = {
+		icon = GFX_decision_generic_political_rally
+
+		visible = {
+			has_country_flag = JAP_pnr_red_conspiracy_begun
+		}
+		available = {
+			has_country_flag = JAP_pnr_red_conspiracy_begun
+		}
+		cancel_trigger = {
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun }
+		}
+
+		cost = 0
+		days_remove = 14
+		modifier = {
+			political_power_factor = 0.25
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				var = JAP_pnr_red_conspiracy_strength
+				value = 15
+				tooltip = JAP_pnr_red_conspiracy_raised
+			}
+			clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
+			JAP_pnr_update_red_conspiracy_modifier_values = yes
+		}
+		fixed_random_seed = no
+	}
+}

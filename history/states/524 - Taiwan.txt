@@ -1,0 +1,50 @@
+state = {
+	id = 524
+	name = "STATE_524"
+	manpower = 5212000
+	state_category = seven
+
+	resources = {
+		oil = 1
+		coal = 8
+	}
+
+	history = {
+		owner = TAI
+		controller = TAI
+		add_core_of = TAI
+		add_claim_by = JAP
+		add_to_array = { state_victory_points = 7186 } #Taipei
+		add_to_array = { state_victory_points = 12068 } #Takow
+
+		victory_points = { 7186 15 } #POP 2 + STRAT 2 + POL 1 = SIG 5
+		victory_points = { 12068 10 } #POP 2 + STRAT 2 + POL 0 = SIG 4
+
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+			arms_factory = 1
+			air_base = 6
+			7186 = { #Taipei
+				naval_base = 6
+			}
+			9955 = { #Karenkou
+				naval_base = 2
+			}
+			12068 = { #Takao
+				naval_base = 10
+				naval_supply_hub = 1
+			}
+		}
+
+		start_resistance = yes
+		set_resistance = 0
+		set_compliance = 100
+		force_disable_resistance = { occupied = JAP } #even if cored, resistance should come from TAI
+	}
+
+	provinces = {
+		1091 1175 4096 7186 7214 9955 11914 11959 12027 12068
+	}
+}
+

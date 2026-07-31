@@ -1,0 +1,90 @@
+types = {
+	JAP_pnr_operation_night_blossom = {
+		days_to_prepare = 30
+
+		category = air_raids
+		custom_map_icon = GFX_raid_type_icon_other_raid
+
+		command_power = 15
+
+		allowed = {
+			tag = JAP
+		}
+
+		visible = {
+			has_completed_focus = JAP_pnr_operation_night_sakura
+		}
+
+		show_target = {
+			var:target_state = {
+				OR = {
+					AND = {
+						state = 285
+						is_controlled_by = AST
+					}
+					AND = {
+						state = 336
+						is_controlled_by = GEA
+					}
+					AND = {
+						state = 431
+						is_controlled_by = HND
+					}
+				}
+			}
+		}
+
+		available = {
+			var:target_state = {
+				OR = {
+					AND = {
+						state = 285
+						is_controlled_by = AST
+					}
+					AND = {
+						state = 336
+						is_controlled_by = GEA
+					}
+					AND = {
+						state = 431
+						is_controlled_by = HND
+					}
+				}
+			}
+		}
+
+		launchable = {
+		}
+
+		target_type = {
+			province = {
+				12406
+				12299
+				4245
+			}
+		}
+		target_icon = GFX_facility_icon
+		launch_sound = raid_launch_air
+
+		arrow = {
+			type = air
+		}
+
+		unit_requirements = {
+			equipment = {
+				type = { strategic_bomber }
+				amount = { min = 1 }
+			}
+		}
+
+		starting_point = {
+			types = { air_base }
+		}
+
+		success_factors = {
+		}
+
+		success_levels = {
+		}
+	}
+}

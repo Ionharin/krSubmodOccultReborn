@@ -2,3 +2,388 @@ focus = {
 	current = "JAP_pnr_68th_sessions_imperial_diet"
 	progress = 10
 }
+
+### Templates ###
+division_template = {
+	name = "Hohei Shidan" #Infantry Division - based on historical Square Divisions used by the IJA
+	division_names_group = JAP_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		infantry = { x = 3 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Dokuritsu Konsei Ryodan" #Independent Mixed Brigade
+	division_names_group = JAP_IMB_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+	}
+}
+
+division_template = {
+	name = "Dokuritsu Konsei Ryodan (Kikaika)"
+	division_names_group = JAP_IMB_01 # Based off of the experimental Kungchuling Mechanized Mixed Brigade
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		light_armor = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+		motorized = { x = 1 y = 3 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+	}
+}
+
+division_template = {
+	name = "Dokuritsu Shubitai" # Independent Garrison
+	division_names_group = JAP_IGU_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	priority = 0
+}
+
+division_template = {
+	name = "Kihei Ryodan" #Cavalry Brigade - based on the 1st, 2nd, 3rd, and 4th Cavalry Brigades, consisting of 3 batallion sized regiments
+	division_names_group = JAP_CAV_02
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Sangakuryohei Shidan" #Mountaineer Division
+	division_names_group = JAP_MTN_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 0 y = 3 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		mountaineers = { x = 1 y = 3 }
+	}
+	priority = 2
+}
+
+division_template = {
+	name = "Tokubetsu Rikusentai" # SNLF
+	division_names_group = JAP_MAR_01
+
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 0 y = 2 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+	priority = 2
+}
+
+division_template = {
+	name = "Jidōsha Shidan" #Based on the 1940 Motor-Type Division reorganization for the 5th, 48th and Guards Divisions
+	division_names_group = JAP_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+		motorized = { x = 2 y = 0 }
+		motorized = { x = 2 y = 1 }
+		motorized = { x = 2 y = 2 }
+		motorized = { x = 3 y = 0 }
+		motorized = { x = 3 y = 1 }
+		motorized = { x = 3 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		mot_recon = { x = 0 y = 2 }
+	}
+}
+
+### Starting Units ###
+
+units = {
+	### Garrisons ###
+	division = {
+		location = 11771 #Shenyang
+		division_template = "Dokuritsu Shubitai"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 7663 #Jilin
+		division_template = "Dokuritsu Shubitai"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 12412 #Harbin
+		division_template = "Dokuritsu Shubitai"
+		start_experience_factor = 0.2
+	}
+
+	### Infantry ###
+	division = {
+		location = 1182
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 11886
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 10125
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 7072
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 1092
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 11925
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 12421
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 6873
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 10032
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 11771
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 4094
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 1025
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 12007
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 1150
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 12097
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 11960
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 7212
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 4164
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 898
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 4052
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 168
+		}
+		location = 1182
+		division_template = "Hohei Shidan"
+		start_experience_factor = 0.8
+	}
+
+	### Armour ###
+	division = {
+		location = 1150
+		division_template = "Dokuritsu Konsei Ryodan (Kikaika)" # "Mechanized Brigade"
+		start_experience_factor = 0.2
+	}
+
+	### Cavalry ###
+	division = {
+		location = 11886
+		division_template = "Kihei Ryodan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 1182
+		division_template = "Kihei Ryodan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 12337
+		division_template = "Kihei Ryodan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 1588
+		division_template = "Kihei Ryodan"
+		start_experience_factor = 0.3
+	}
+
+	### Marines ###
+	division = {
+		division_name = {
+			is_name_ordered = no
+			name_order = 3
+		}
+		location = 1092
+		division_template = "Tokubetsu Rikusentai"
+		start_experience_factor = 0.7
+	}
+
+	### Independent Mixed Brigades ###
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 11
+		}
+		location = 1588
+		division_template = "Dokuritsu Konsei Ryodan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "Taiwan Dokuritsu Konsei Ryodan"
+		location = 1182
+		division_template = "Dokuritsu Konsei Ryodan"
+		start_experience_factor = 0.3
+	}
+}
+
+### Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+		}
+		industrial_manufacturer = mio:JAP_kokura_arsenal_organisation
+		requested_factories = 7
+		progress = 0.82
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+		}
+		industrial_manufacturer = mio:JAP_osaka_army_arsenal_organisation
+		requested_factories = 2
+		progress = 0.83
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+		}
+		industrial_manufacturer = mio:JAP_nagoya_arsenal_organisation
+		progress = 0.44
+		efficiency = 100
+	}
+	if = {
+		limit = { has_dlc_nsb = yes }
+		add_equipment_production = {
+			equipment = {
+				type = light_tank_chassis_1
+				version_name = "Type 95 Ha-Go"
+			}
+			industrial_manufacturer = mio:JAP_nissan_organisation
+			requested_factories = 2
+			progress = 0.59
+			efficiency = 100
+		}
+	}
+	else = {
+		add_equipment_production = {
+			equipment = {
+				type = light_tank_equipment_1
+			}
+			industrial_manufacturer = mio:JAP_nissan_organisation
+			requested_factories = 2
+			progress = 0.59
+			efficiency = 100
+		}
+	}
+}

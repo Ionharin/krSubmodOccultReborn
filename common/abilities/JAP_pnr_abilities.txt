@@ -1,0 +1,32 @@
+ability = {
+	JAP_pnr_special_countermeasures = {
+		name = ABILITY_JAP_PNR_SPECIAL_COUNTERMEASURES
+		desc = ABILITY_JAP_PNR_SPECIAL_COUNTERMEASURES_DESC
+		icon = GFX_ability_jap_pnr_special_countermeasures
+
+		type = army_leader
+		requires_deployed_hq = yes
+
+		allowed = {
+			is_leading_army_group = no
+			is_border_war = no
+			OWNER = {
+				tag = JAP
+				has_completed_focus = JAP_pnr_chemical_weapons_section
+				has_capitulated = no
+			}
+		}
+
+		cost = 0.25
+		duration = 240
+		cooldown = 1440
+
+		one_time_effect = { }
+
+		unit_modifiers = {
+			army_attack_factor = 0.05
+			enemy_army_speed_factor = -0.10
+			enemy_attrition = 0.15
+		}
+	}
+}

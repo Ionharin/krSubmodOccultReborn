@@ -1,0 +1,20 @@
+JAP_pnr_pandemic_modifier = {
+	icon = GFX_decision_generic_cavalry
+	local_building_slots_factor = -0.15
+	local_manpower = -0.60
+	local_org_regain = -0.50
+}
+
+JAP_pnr_red_hands_modifier = {
+	icon = GFX_decision_SWI_consolidate_council_power
+
+	global_building_slots_factor = -0.10
+	consumer_goods_factor = JAP_pnr_red_conspiracy_scaled_factor
+	production_speed_buildings_factor = JAP_pnr_red_conspiracy_scaled_factor_negative
+	local_resources_factor = JAP_pnr_red_conspiracy_scaled_factor_negative
+	production_factory_max_efficiency_factor = JAP_pnr_red_conspiracy_scaled_factor_negative
+
+	#remove_trigger = {
+		#NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun }
+	#}
+}
