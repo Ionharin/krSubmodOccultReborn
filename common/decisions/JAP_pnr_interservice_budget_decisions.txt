@@ -1,0 +1,52 @@
+JAP_pnr_interservice_budget_bop_category = {
+	JAP_pnr_annual_interservice_budget = {
+		icon = GFX_decision_generic_army_support
+
+		visible = {
+			has_power_balance = {
+				id = JAP_pnr_poor_reality_bop
+			}
+		}
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		cost = 0
+		fire_only_once = no
+	}
+
+	JAP_pnr_next_year_interservice_budget_mission = {
+		icon = GFX_decision_generic_prepare_civil_war
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+		cancel_trigger = {
+			NOT = {
+				has_power_balance = {
+					id = JAP_pnr_poor_reality_bop
+				}
+			}
+		}
+
+		selectable_mission = no
+		is_good = yes
+		days_mission_timeout = 365
+		priority = 100
+
+		timeout_effect = {
+			JAP_pnr_add_annual_interservice_budget = yes
+			uncomplete_national_focus = {
+				focus = JAP_pnr_army_expansion_plan
+				uncomplete_children = no
+				refund_political_power = no
+			}
+			uncomplete_national_focus = {
+				focus = JAP_pnr_navy_expansion_plan
+				uncomplete_children = no
+				refund_political_power = no
+			}
+			activate_mission = JAP_pnr_next_year_interservice_budget_mission
+		}
+	}
+}

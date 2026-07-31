@@ -1,0 +1,458 @@
+JAP_pnr_cardgame_initialize = {
+	set_country_flag = JAP_pnr_cardgame_active
+	clr_country_flag = JAP_pnr_cardgame_finished
+	clr_country_flag = JAP_pnr_cardgame_next_mantetsu_fengtian_halved
+
+	set_variable = { JAP_pnr_cardgame_round = 1 }
+	set_variable = { JAP_pnr_cardgame_oil_development = 10 }
+	set_variable = { JAP_pnr_cardgame_japan_control = 20 }
+	set_variable = { JAP_pnr_cardgame_fengtian_alarm = 15 }
+	set_variable = { JAP_pnr_cardgame_russian_alarm = 5 }
+
+	JAP_pnr_cardgame_start_round = yes
+}
+
+JAP_pnr_cardgame_start_round = {
+	set_variable = { JAP_pnr_cardgame_cards_played_this_round = 0 }
+	set_variable = { JAP_pnr_cardgame_last_card = 0 }
+	clr_country_flag = JAP_pnr_cardgame_crisis_handled
+	clr_country_flag = JAP_pnr_cardgame_kwantung_card_played
+	clr_country_flag = JAP_pnr_cardgame_no_kwantung_cards
+	clr_country_flag = JAP_pnr_cardgame_combo_triggered
+	clr_country_flag = JAP_pnr_cardgame_alarm_growth_bonus
+
+	set_variable = { JAP_pnr_cardgame_card_1_in_hand = 0 }
+	set_variable = { JAP_pnr_cardgame_card_2_in_hand = 0 }
+	set_variable = { JAP_pnr_cardgame_card_3_in_hand = 0 }
+	set_variable = { JAP_pnr_cardgame_card_4_in_hand = 0 }
+	set_variable = { JAP_pnr_cardgame_card_5_in_hand = 0 }
+	set_variable = { JAP_pnr_cardgame_card_6_in_hand = 0 }
+	set_variable = { JAP_pnr_cardgame_card_7_in_hand = 0 }
+	set_variable = { JAP_pnr_cardgame_card_8_in_hand = 0 }
+
+	random_list = {
+		17 = { set_variable = { JAP_pnr_cardgame_current_crisis = 1 } }
+		17 = { set_variable = { JAP_pnr_cardgame_current_crisis = 2 } }
+		17 = { set_variable = { JAP_pnr_cardgame_current_crisis = 3 } }
+		17 = { set_variable = { JAP_pnr_cardgame_current_crisis = 4 } }
+		16 = { set_variable = { JAP_pnr_cardgame_current_crisis = 5 } }
+		16 = { set_variable = { JAP_pnr_cardgame_current_crisis = 6 } }
+	}
+
+	set_variable = { JAP_pnr_cardgame_cards_to_draw = 4 }
+	while_loop_effect = {
+		limit = { check_variable = { JAP_pnr_cardgame_cards_to_draw > 0 } }
+		set_temp_variable_to_random = { var = JAP_pnr_cardgame_draw_candidate min = 1 max = 9 integer = yes }
+		if = {
+			limit = {
+				check_variable = { JAP_pnr_cardgame_draw_candidate = 1 }
+				check_variable = { JAP_pnr_cardgame_card_1_in_hand = 0 }
+			}
+			add_to_variable = { JAP_pnr_cardgame_card_1_in_hand = 1 }
+			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { JAP_pnr_cardgame_draw_candidate = 2 }
+				check_variable = { JAP_pnr_cardgame_card_2_in_hand = 0 }
+			}
+			add_to_variable = { JAP_pnr_cardgame_card_2_in_hand = 1 }
+			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { JAP_pnr_cardgame_draw_candidate = 3 }
+				check_variable = { JAP_pnr_cardgame_card_3_in_hand = 0 }
+			}
+			add_to_variable = { JAP_pnr_cardgame_card_3_in_hand = 1 }
+			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { JAP_pnr_cardgame_draw_candidate = 4 }
+				check_variable = { JAP_pnr_cardgame_card_4_in_hand = 0 }
+			}
+			add_to_variable = { JAP_pnr_cardgame_card_4_in_hand = 1 }
+			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { JAP_pnr_cardgame_draw_candidate = 5 }
+				check_variable = { JAP_pnr_cardgame_card_5_in_hand = 0 }
+			}
+			add_to_variable = { JAP_pnr_cardgame_card_5_in_hand = 1 }
+			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { JAP_pnr_cardgame_draw_candidate = 6 }
+				check_variable = { JAP_pnr_cardgame_card_6_in_hand = 0 }
+			}
+			add_to_variable = { JAP_pnr_cardgame_card_6_in_hand = 1 }
+			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { JAP_pnr_cardgame_draw_candidate = 7 }
+				check_variable = { JAP_pnr_cardgame_card_7_in_hand = 0 }
+			}
+			add_to_variable = { JAP_pnr_cardgame_card_7_in_hand = 1 }
+			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { JAP_pnr_cardgame_draw_candidate = 8 }
+				check_variable = { JAP_pnr_cardgame_card_8_in_hand = 0 }
+			}
+			add_to_variable = { JAP_pnr_cardgame_card_8_in_hand = 1 }
+			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+		}
+	}
+
+	if = {
+		limit = { check_variable = { JAP_pnr_cardgame_current_crisis = 4 } }
+		add_to_variable = { JAP_pnr_cardgame_oil_development = 5 }
+		set_country_flag = JAP_pnr_cardgame_alarm_growth_bonus
+	}
+
+	activate_mission = JAP_pnr_cardgame_round_timer
+	JAP_pnr_cardgame_clamp_values = yes
+}
+
+JAP_pnr_cardgame_clamp_values = {
+	clamp_variable = { var = JAP_pnr_cardgame_oil_development min = 0 max = 100 }
+	clamp_variable = { var = JAP_pnr_cardgame_japan_control min = 0 max = 100 }
+	clamp_variable = { var = JAP_pnr_cardgame_fengtian_alarm min = 0 max = 100 }
+	clamp_variable = { var = JAP_pnr_cardgame_russian_alarm min = 0 max = 100 }
+}
+
+JAP_pnr_cardgame_mark_card_played = {
+	add_to_variable = { JAP_pnr_cardgame_cards_played_this_round = 1 }
+	JAP_pnr_cardgame_check_combo = yes
+	set_variable = { JAP_pnr_cardgame_last_card = JAP_pnr_cardgame_current_card }
+	JAP_pnr_cardgame_clamp_values = yes
+	if = {
+		limit = {
+			OR = {
+				check_variable = { JAP_pnr_cardgame_fengtian_alarm > 99 }
+				check_variable = { JAP_pnr_cardgame_russian_alarm > 99 }
+			}
+		}
+		JAP_pnr_cardgame_apply_alarm_crisis = yes
+	}
+	if = {
+		limit = { check_variable = { JAP_pnr_cardgame_oil_development > 99 } }
+		JAP_pnr_cardgame_finish = yes
+	}
+}
+
+JAP_pnr_cardgame_check_combo = {
+	if = {
+		limit = {
+			check_variable = { JAP_pnr_cardgame_last_card = 3 }
+			check_variable = { JAP_pnr_cardgame_current_card = 6 }
+		}
+		set_country_flag = JAP_pnr_cardgame_combo_triggered
+		add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = -6 }
+		set_country_flag = JAP_pnr_cardgame_next_mantetsu_fengtian_halved
+		custom_effect_tooltip = JAP_pnr_cardgame_combo_fengtian_cooperation_tt
+	}
+	if = {
+		limit = {
+			check_variable = { JAP_pnr_cardgame_last_card = 1 }
+			check_variable = { JAP_pnr_cardgame_current_card = 2 }
+		}
+		set_country_flag = JAP_pnr_cardgame_combo_triggered
+		add_to_variable = { JAP_pnr_cardgame_oil_development = 1 }
+		add_to_variable = { JAP_pnr_cardgame_japan_control = 2 }
+		custom_effect_tooltip = JAP_pnr_cardgame_combo_integration_tt
+	}
+	if = {
+		limit = {
+			check_variable = { JAP_pnr_cardgame_last_card = 7 }
+			check_variable = { JAP_pnr_cardgame_current_card = 8 }
+		}
+		set_country_flag = JAP_pnr_cardgame_combo_triggered
+		add_to_variable = { JAP_pnr_cardgame_japan_control = 4 }
+		add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 3 }
+		add_to_variable = { JAP_pnr_cardgame_russian_alarm = 2 }
+		if = {
+			limit = { has_country_flag = JAP_pnr_cardgame_alarm_growth_bonus }
+			add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 0.75 }
+			add_to_variable = { JAP_pnr_cardgame_russian_alarm = 0.5 }
+		}
+		custom_effect_tooltip = JAP_pnr_cardgame_combo_fait_accompli_tt
+	}
+}
+
+JAP_pnr_cardgame_card_1_effect = {
+	subtract_from_variable = { JAP_pnr_cardgame_card_1_in_hand = 1 }
+	set_variable = { JAP_pnr_cardgame_current_card = 1 }
+	add_to_variable = { JAP_pnr_cardgame_oil_development = 4 }
+	add_to_variable = { JAP_pnr_cardgame_japan_control = 2 }
+	if = {
+		limit = { has_country_flag = JAP_pnr_cardgame_next_mantetsu_fengtian_halved }
+		add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 2 }
+		clr_country_flag = JAP_pnr_cardgame_next_mantetsu_fengtian_halved
+		if = {
+			limit = { has_country_flag = JAP_pnr_cardgame_alarm_growth_bonus }
+			add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 0.5 }
+		}
+	}
+	else = {
+		add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 4 }
+		if = {
+			limit = { has_country_flag = JAP_pnr_cardgame_alarm_growth_bonus }
+			add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 1 }
+		}
+	}
+	if = {
+		limit = { check_variable = { JAP_pnr_cardgame_current_crisis = 3 } }
+		add_to_variable = { JAP_pnr_cardgame_oil_development = 0.8 }
+		add_to_variable = { JAP_pnr_cardgame_japan_control = 0.4 }
+		add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 5 }
+		if = {
+			limit = { has_country_flag = JAP_pnr_cardgame_alarm_growth_bonus }
+			add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 1.25 }
+		}
+	}
+	JAP_pnr_cardgame_mark_card_played = yes
+}
+
+JAP_pnr_cardgame_card_2_effect = {
+	subtract_from_variable = { JAP_pnr_cardgame_card_2_in_hand = 1 }
+	set_variable = { JAP_pnr_cardgame_current_card = 2 }
+	add_to_variable = { JAP_pnr_cardgame_oil_development = 3 }
+	add_to_variable = { JAP_pnr_cardgame_japan_control = 6 }
+	if = {
+		limit = { has_country_flag = JAP_pnr_cardgame_next_mantetsu_fengtian_halved }
+		add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 3.5 }
+		clr_country_flag = JAP_pnr_cardgame_next_mantetsu_fengtian_halved
+		if = {
+			limit = { has_country_flag = JAP_pnr_cardgame_alarm_growth_bonus }
+			add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 0.875 }
+		}
+	}
+	else = {
+		add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 7 }
+		if = {
+			limit = { has_country_flag = JAP_pnr_cardgame_alarm_growth_bonus }
+			add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 1.75 }
+		}
+	}
+	if = {
+		limit = { check_variable = { JAP_pnr_cardgame_current_crisis = 3 } }
+		add_to_variable = { JAP_pnr_cardgame_oil_development = 0.6 }
+		add_to_variable = { JAP_pnr_cardgame_japan_control = 1.2 }
+		add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 5 }
+		if = {
+			limit = { has_country_flag = JAP_pnr_cardgame_alarm_growth_bonus }
+			add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 1.25 }
+		}
+	}
+	JAP_pnr_cardgame_mark_card_played = yes
+}
+
+JAP_pnr_cardgame_card_3_effect = {
+	subtract_from_variable = { JAP_pnr_cardgame_card_3_in_hand = 1 }
+	set_variable = { JAP_pnr_cardgame_current_card = 3 }
+	add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = -12 }
+	add_to_variable = { JAP_pnr_cardgame_japan_control = -2 }
+	if = {
+		limit = { check_variable = { JAP_pnr_cardgame_current_crisis = 1 } }
+		set_country_flag = JAP_pnr_cardgame_crisis_handled
+	}
+	JAP_pnr_cardgame_mark_card_played = yes
+}
+
+JAP_pnr_cardgame_card_4_effect = {
+	subtract_from_variable = { JAP_pnr_cardgame_card_4_in_hand = 1 }
+	set_variable = { JAP_pnr_cardgame_current_card = 4 }
+	add_to_variable = { JAP_pnr_cardgame_russian_alarm = -12 }
+	set_country_flag = JAP_pnr_cardgame_no_kwantung_cards
+	if = {
+		limit = { check_variable = { JAP_pnr_cardgame_current_crisis = 2 } }
+		set_country_flag = JAP_pnr_cardgame_crisis_handled
+	}
+	JAP_pnr_cardgame_mark_card_played = yes
+}
+
+JAP_pnr_cardgame_card_5_effect = {
+	subtract_from_variable = { JAP_pnr_cardgame_card_5_in_hand = 1 }
+	set_variable = { JAP_pnr_cardgame_current_card = 5 }
+	add_to_variable = { JAP_pnr_cardgame_oil_development = 4 }
+	add_to_variable = { JAP_pnr_cardgame_japan_control = 1 }
+	if = {
+		limit = { check_variable = { JAP_pnr_cardgame_current_crisis = 1 } }
+		set_country_flag = JAP_pnr_cardgame_crisis_handled
+	}
+	JAP_pnr_cardgame_mark_card_played = yes
+}
+
+JAP_pnr_cardgame_card_6_effect = {
+	subtract_from_variable = { JAP_pnr_cardgame_card_6_in_hand = 1 }
+	set_variable = { JAP_pnr_cardgame_current_card = 6 }
+	add_to_variable = { JAP_pnr_cardgame_oil_development = 2 }
+	add_to_variable = { JAP_pnr_cardgame_japan_control = 4 }
+	add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = -3 }
+	if = {
+		limit = { check_variable = { JAP_pnr_cardgame_current_crisis = 1 } }
+		set_country_flag = JAP_pnr_cardgame_crisis_handled
+	}
+	JAP_pnr_cardgame_mark_card_played = yes
+}
+
+JAP_pnr_cardgame_card_7_effect = {
+	subtract_from_variable = { JAP_pnr_cardgame_card_7_in_hand = 1 }
+	set_variable = { JAP_pnr_cardgame_current_card = 7 }
+	set_country_flag = JAP_pnr_cardgame_kwantung_card_played
+	add_to_variable = { JAP_pnr_cardgame_japan_control = 6 }
+	add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 5 }
+	add_to_variable = { JAP_pnr_cardgame_russian_alarm = 3 }
+	if = {
+		limit = { has_country_flag = JAP_pnr_cardgame_alarm_growth_bonus }
+		add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 1.25 }
+		add_to_variable = { JAP_pnr_cardgame_russian_alarm = 0.75 }
+	}
+	if = {
+		limit = { check_variable = { JAP_pnr_cardgame_current_crisis = 6 } }
+		add_to_variable = { JAP_pnr_cardgame_russian_alarm = 10 }
+		if = {
+			limit = { has_country_flag = JAP_pnr_cardgame_alarm_growth_bonus }
+			add_to_variable = { JAP_pnr_cardgame_russian_alarm = 2.5 }
+		}
+	}
+	JAP_pnr_cardgame_mark_card_played = yes
+}
+
+JAP_pnr_cardgame_card_8_effect = {
+	subtract_from_variable = { JAP_pnr_cardgame_card_8_in_hand = 1 }
+	set_variable = { JAP_pnr_cardgame_current_card = 8 }
+	set_country_flag = JAP_pnr_cardgame_kwantung_card_played
+	add_to_variable = { JAP_pnr_cardgame_oil_development = 1 }
+	add_to_variable = { JAP_pnr_cardgame_japan_control = 8 }
+	add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 7 }
+	add_to_variable = { JAP_pnr_cardgame_russian_alarm = 5 }
+	if = {
+		limit = { has_country_flag = JAP_pnr_cardgame_alarm_growth_bonus }
+		add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 1.75 }
+		add_to_variable = { JAP_pnr_cardgame_russian_alarm = 1.25 }
+	}
+	if = {
+		limit = { check_variable = { JAP_pnr_cardgame_current_crisis = 6 } }
+		add_to_variable = { JAP_pnr_cardgame_russian_alarm = 10 }
+		if = {
+			limit = { has_country_flag = JAP_pnr_cardgame_alarm_growth_bonus }
+			add_to_variable = { JAP_pnr_cardgame_russian_alarm = 2.5 }
+		}
+	}
+	JAP_pnr_cardgame_mark_card_played = yes
+}
+
+JAP_pnr_cardgame_end_round = {
+	remove_mission = JAP_pnr_cardgame_round_timer
+
+	if = {
+		limit = {
+			check_variable = { JAP_pnr_cardgame_current_crisis = 1 }
+			NOT = { has_country_flag = JAP_pnr_cardgame_crisis_handled }
+		}
+		add_to_variable = { JAP_pnr_cardgame_japan_control = -10 }
+	}
+	if = {
+		limit = {
+			check_variable = { JAP_pnr_cardgame_current_crisis = 2 }
+			NOT = { has_country_flag = JAP_pnr_cardgame_crisis_handled }
+		}
+		add_to_variable = { JAP_pnr_cardgame_russian_alarm = 15 }
+	}
+	if = {
+		limit = { check_variable = { JAP_pnr_cardgame_current_crisis = 5 } }
+		if = {
+			limit = { has_country_flag = JAP_pnr_cardgame_kwantung_card_played }
+			add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 10 }
+		}
+		else = {
+			add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = -5 }
+		}
+	}
+
+	if = {
+		limit = {
+			check_variable = { JAP_pnr_cardgame_fengtian_alarm > 69 }
+			check_variable = { JAP_pnr_cardgame_russian_alarm > 69 }
+		}
+		add_to_variable = { JAP_pnr_cardgame_japan_control = -2 }
+		custom_effect_tooltip = JAP_pnr_cardgame_joint_pressure_tt
+	}
+
+	add_to_variable = { JAP_pnr_cardgame_oil_development = 4 }
+	add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = 5 }
+	add_to_variable = { JAP_pnr_cardgame_russian_alarm = 5 }
+	add_to_variable = { JAP_pnr_cardgame_round = 1 }
+	JAP_pnr_cardgame_clamp_values = yes
+
+	if = {
+		limit = {
+			OR = {
+				check_variable = { JAP_pnr_cardgame_fengtian_alarm > 99 }
+				check_variable = { JAP_pnr_cardgame_russian_alarm > 99 }
+			}
+		}
+		JAP_pnr_cardgame_apply_alarm_crisis = yes
+	}
+
+	if = {
+		limit = { check_variable = { JAP_pnr_cardgame_oil_development > 99 } }
+		JAP_pnr_cardgame_finish = yes
+	}
+	else = {
+		JAP_pnr_cardgame_start_round = yes
+	}
+}
+
+JAP_pnr_cardgame_apply_alarm_crisis = {
+	if = {
+		limit = { check_variable = { JAP_pnr_cardgame_fengtian_alarm > 99 } }
+		add_to_variable = { JAP_pnr_cardgame_japan_control = -25 }
+		set_variable = { JAP_pnr_cardgame_fengtian_alarm = 50 }
+		custom_effect_tooltip = JAP_pnr_cardgame_fengtian_crisis_tt
+	}
+	if = {
+		limit = { check_variable = { JAP_pnr_cardgame_russian_alarm > 99 } }
+		add_to_variable = { JAP_pnr_cardgame_japan_control = -15 }
+		set_variable = { JAP_pnr_cardgame_russian_alarm = 50 }
+		custom_effect_tooltip = JAP_pnr_cardgame_russian_crisis_tt
+	}
+	JAP_pnr_cardgame_clamp_values = yes
+}
+
+JAP_pnr_cardgame_finish = {
+	set_country_flag = JAP_pnr_cardgame_finished
+	clr_country_flag = JAP_pnr_cardgame_active
+	clr_country_flag = JAP_pnr_cardgame_next_mantetsu_fengtian_halved
+	remove_mission = JAP_pnr_cardgame_round_timer
+	JAP_pnr_cardgame_clamp_values = yes
+
+	if = {
+		limit = { check_variable = { JAP_pnr_cardgame_japan_control > 89 } }
+		add_political_power = 75
+		custom_effect_tooltip = JAP_pnr_cardgame_result_slam_tt
+	}
+	else_if = {
+		limit = { check_variable = { JAP_pnr_cardgame_japan_control > 74 } }
+		add_political_power = 50
+		custom_effect_tooltip = JAP_pnr_cardgame_result_game_tt
+	}
+	else_if = {
+		limit = { check_variable = { JAP_pnr_cardgame_japan_control > 59 } }
+		add_political_power = 25
+		custom_effect_tooltip = JAP_pnr_cardgame_result_made_tt
+	}
+	else = {
+		add_political_power = 10
+		custom_effect_tooltip = JAP_pnr_cardgame_result_down_tt
+	}
+
+	country_event = { id = JAP_pnr_cardgame_events.2 }
+}

@@ -1,0 +1,10 @@
+JAP_pnr_cardgame_can_play_card = {
+	has_country_flag = JAP_pnr_cardgame_active
+	NOT = { has_country_flag = JAP_pnr_cardgame_finished }
+	check_variable = { JAP_pnr_cardgame_cards_played_this_round < 2 }
+}
+
+JAP_pnr_cardgame_can_end_round = {
+	has_country_flag = JAP_pnr_cardgame_active
+	NOT = { has_country_flag = JAP_pnr_cardgame_finished }
+}

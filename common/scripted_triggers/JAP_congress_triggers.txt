@@ -11,11 +11,28 @@ JAP_congress_interface_is_open = {
 }
 
 JAP_congress_can_vote_agenda = {
-	if = {
-		limit = { has_country_flag = JAP_congress_agenda_vote_cooldown }
-		custom_override_tooltip = {
-			tooltip = JAP_congress_agenda_vote_cooldown_tt
-			always = no
-		}
+	custom_override_tooltip = {
+		tooltip = JAP_congress_agenda_vote_cooldown_tt
+		NOT = { has_country_flag = JAP_congress_agenda_vote_cooldown }
+	}
+	custom_override_tooltip = {
+		tooltip = JAP_congress_agenda_authority_requirement_tt
+		check_variable = { JAP_congress_authority > 433 }
+	}
+}
+
+JAP_congress_has_political_power_for_authority = {
+	custom_override_tooltip = {
+		tooltip = JAP_congress_authority_not_enough_pp_tt
+		NOT = { check_variable = { political_power < JAP_congress_authority_value } }
+	}
+}
+
+JAP_congress_can_recover_authority = {
+	set_temp_variable = { JAP_congress_authority_recoverable = JAP_congress_authority }
+	subtract_from_temp_variable = { JAP_congress_authority_recoverable = JAP_congress_authority_initial }
+	custom_override_tooltip = {
+		tooltip = JAP_congress_authority_at_minimum_tt
+		NOT = { check_variable = { JAP_congress_authority_recoverable < JAP_congress_authority_value } }
 	}
 }

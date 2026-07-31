@@ -1890,6 +1890,15 @@ focus_tree = {
 			focus = JAP_pnr_limited_resources
 		}
 		relative_position_id = JAP_pnr_the_shadow_of_war
+		completion_reward = {
+			custom_effect_tooltip = JAP_pnr_army_expansion_plan_budget_tt
+			hidden_effect = {
+				add_to_variable = {
+					var = JAP_pnr_army_budget_points
+					value = 1
+				}
+			}
+		}
 	}
 	focus = {
 		id = JAP_pnr_navy_expansion_plan
@@ -1902,6 +1911,15 @@ focus_tree = {
 			focus = JAP_pnr_limited_resources
 		}
 		relative_position_id = JAP_pnr_the_shadow_of_war
+		completion_reward = {
+			custom_effect_tooltip = JAP_pnr_navy_expansion_plan_budget_tt
+			hidden_effect = {
+				add_to_variable = {
+					var = JAP_pnr_navy_budget_points
+					value = 1
+				}
+			}
+		}
 	}
 	focus = {
 		id = JAP_pnr_black_monday_arrives_in_the_east
@@ -3093,7 +3111,7 @@ focus_tree = {
 	focus = {
 		id = JAP_pnr_last_legacy_of_the_genrou
 		x = -37
-		y = 24
+		y = 11
 		cost = 3
 		icon = GFX_focus_JAP_konoes_first_cabinet
 		continue_if_invalid = no
@@ -3553,7 +3571,7 @@ focus_tree = {
 	}
 	focus = {
 		id = JAP_pnr_joint_advance
-		x = -20
+		x = -28
 		y = 24
 		cost = 0
 		continue_if_invalid = no
@@ -3938,6 +3956,7 @@ focus_tree = {
 		x = -2
 		y = 2
 		cost = 0
+		icon = GFX_focus_JAP_approach_mitsui
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -4077,6 +4096,7 @@ focus_tree = {
 		x = -43
 		y = -1
 		cost = 0
+		icon = GFX_focus_generic_welfare
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 	}
@@ -4085,6 +4105,7 @@ focus_tree = {
 		x = 2
 		y = 0
 		cost = 0
+		icon = GFX_focus_generic_treaty
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		relative_position_id = JAP_pnr_hand_of_money_politics
@@ -4094,6 +4115,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 0
+		icon = GFX_focus_BRA_cafe_com_leite_politics
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -4120,6 +4142,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		cost = 0
+		icon = GFX_focus_INS_economic_integration
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -4174,6 +4197,7 @@ focus_tree = {
 		x = 1
 		y = 4
 		cost = 0
+		icon = GFX_focus_BRA_cafe_com_leite_politics
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -4493,6 +4517,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		cost = 0
+		icon = GFX_focus_JAP_approach_mitsubishi
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -4799,6 +4824,7 @@ focus_tree = {
 		x = -1
 		y = 7
 		cost = 0
+		icon = GFX_focus_INS_economic_integration
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
@@ -5155,8 +5181,8 @@ focus_tree = {
 	}
 	focus = {
 		id = JAP_pnr_i_am_everything
-		x = -27
-		y = 24
+		x = -57
+		y = 11
 		cost = 3
 		icon = GFX_focus_jap_showa_restoration
 		continue_if_invalid = no
@@ -5164,8 +5190,8 @@ focus_tree = {
 	}
 	focus = {
 		id = JAP_pnr_exorcise_resentment
-		x = -58
-		y = 11
+		x = -21
+		y = 24
 		cost = 0
 		icon = GFX_focus_jap_spiritual_mobilization
 		continue_if_invalid = no
@@ -6068,19 +6094,6 @@ focus_tree = {
 		relative_position_id = JAP_pnr_national_transformation
 	}
 	focus = {
-		id = JAP_pnr_trusts_and_cartels
-		x = -2
-		y = 3
-		cost = 0
-		icon = GFX_focus_jap_zaibatsu
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = JAP_pnr_vigorous_spirit
-		}
-		relative_position_id = JAP_pnr_national_transformation
-	}
-	focus = {
 		id = JAP_pnr_end_urban_decay
 		x = -2
 		y = 4
@@ -6089,7 +6102,7 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = JAP_pnr_trusts_and_cartels
+			focus = JAP_pnr_require_zaibatsu_to_offer_concessions
 		}
 		relative_position_id = JAP_pnr_national_transformation
 	}
@@ -6568,6 +6581,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 3
+		icon = GFX_focus_JAP_approach_sumitomo
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -6798,6 +6812,7 @@ focus_tree = {
 		x = 0
 		y = 6
 		cost = 2
+		icon = GFX_focus_JAP_the_crysanthemum_throne
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -8198,5 +8213,18 @@ focus_tree = {
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JAP_pnr_require_zaibatsu_to_offer_concessions
+		x = -2
+		y = 3
+		cost = 0
+		icon = GFX_focus_jap_zaibatsu
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JAP_pnr_vigorous_spirit
+		}
+		relative_position_id = JAP_pnr_national_transformation
 	}
 }

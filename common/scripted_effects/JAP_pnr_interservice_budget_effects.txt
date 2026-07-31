@@ -1,0 +1,25 @@
+JAP_pnr_initialize_interservice_budget = {
+	if = {
+		limit = {
+			tag = JAP
+			NOT = { has_country_flag = JAP_pnr_interservice_budget_begun }
+		}
+		set_country_flag = JAP_pnr_interservice_budget_begun
+		set_variable = { JAP_pnr_army_budget_points = 2 }
+		set_variable = { JAP_pnr_navy_budget_points = 1 }
+		set_variable = { JAP_pnr_army_budget_yearly_gain = 3 }
+		set_variable = { JAP_pnr_navy_budget_yearly_gain = 2 }
+		activate_mission = JAP_pnr_next_year_interservice_budget_mission
+	}
+}
+
+JAP_pnr_add_annual_interservice_budget = {
+	add_to_variable = {
+		var = JAP_pnr_army_budget_points
+		value = JAP_pnr_army_budget_yearly_gain
+	}
+	add_to_variable = {
+		var = JAP_pnr_navy_budget_points
+		value = JAP_pnr_navy_budget_yearly_gain
+	}
+}

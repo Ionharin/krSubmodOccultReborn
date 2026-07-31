@@ -1,0 +1,178 @@
+JAP_pnr_cardgame_category = {
+	JAP_pnr_cardgame_round_timer = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		priority = 100
+
+		allowed = { always = no }
+		available = { hidden_trigger = { always = no } }
+
+		fixed_random_seed = no
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 45
+
+		timeout_effect = {
+			log = "[GetLogRoot]: Decision timeout JAP_pnr_cardgame_round_timer"
+			JAP_pnr_cardgame_end_round = yes
+		}
+	}
+
+	JAP_pnr_cardgame_start_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_category
+
+		allowed = { original_tag = JAP }
+		visible = {
+			original_tag = JAP
+			NOT = { has_country_flag = JAP_pnr_cardgame_active }
+			NOT = { has_country_flag = JAP_pnr_cardgame_finished }
+		}
+		available = { original_tag = JAP }
+
+		fire_only_once = yes
+		fixed_random_seed = no
+		cost = 0
+
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete JAP_pnr_cardgame_start_decision"
+			JAP_pnr_cardgame_initialize = yes
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_end_round_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+
+		allowed = { original_tag = JAP }
+		visible = { has_country_flag = JAP_pnr_cardgame_active }
+		available = { JAP_pnr_cardgame_can_end_round = yes }
+
+		fixed_random_seed = no
+		cost = 0
+
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete JAP_pnr_cardgame_end_round_decision"
+			JAP_pnr_cardgame_end_round = yes
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_1_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { original_tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_1_in_hand > 0 }
+		}
+		available = { JAP_pnr_cardgame_can_play_card = yes }
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_1_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_2_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { original_tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_2_in_hand > 0 }
+		}
+		available = { JAP_pnr_cardgame_can_play_card = yes }
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_2_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_3_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { original_tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_3_in_hand > 0 }
+		}
+		available = { JAP_pnr_cardgame_can_play_card = yes }
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_3_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_4_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { original_tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_4_in_hand > 0 }
+		}
+		available = { JAP_pnr_cardgame_can_play_card = yes }
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_4_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_5_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { original_tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_5_in_hand > 0 }
+		}
+		available = { JAP_pnr_cardgame_can_play_card = yes }
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_5_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_6_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { original_tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_6_in_hand > 0 }
+		}
+		available = { JAP_pnr_cardgame_can_play_card = yes }
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_6_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_7_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { original_tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_7_in_hand > 0 }
+		}
+		available = {
+			JAP_pnr_cardgame_can_play_card = yes
+			NOT = { has_country_flag = JAP_pnr_cardgame_no_kwantung_cards }
+		}
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_7_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_8_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { original_tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_8_in_hand > 0 }
+		}
+		available = {
+			JAP_pnr_cardgame_can_play_card = yes
+			NOT = { has_country_flag = JAP_pnr_cardgame_no_kwantung_cards }
+		}
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_8_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+}
