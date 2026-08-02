@@ -1,0 +1,63 @@
+JAP_pnr_election_category = {
+	JAP_pnr_election_countdown_decision = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		priority = 100
+
+		allowed = { always = no }
+		available = { hidden_trigger = { always = no } }
+
+		fixed_random_seed = no
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 40
+
+		timeout_effect = {
+			log = "[GetLogRoot]: Decision timeout JAP_pnr_election_countdown_decision"
+			JAP_pnr_election_commit_results = yes
+		}
+	}
+
+	JAP_pnr_election_start_countdown_decision = {
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		allowed = { original_tag = JAP }
+		visible = {
+			original_tag = JAP
+			NOT = { has_country_flag = JAP_pnr_election_in_progress }
+		}
+		available = { original_tag = JAP }
+
+		fixed_random_seed = no
+		cost = 0
+
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete JAP_pnr_election_start_countdown_decision"
+			set_country_flag = JAP_pnr_election_in_progress
+			JAP_pnr_election_initialize_projected_results = yes
+			activate_mission = JAP_pnr_election_countdown_decision
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_election_party_10_test_decision = {
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		allowed = { original_tag = JAP }
+		visible = {
+			original_tag = JAP
+			has_country_flag = JAP_pnr_election_in_progress
+		}
+		available = { original_tag = JAP }
+
+		fixed_random_seed = no
+		cost = 0
+
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete JAP_pnr_election_party_10_test_decision"
+			JAP_pnr_election_party_10_gain_10_seats = yes
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+}

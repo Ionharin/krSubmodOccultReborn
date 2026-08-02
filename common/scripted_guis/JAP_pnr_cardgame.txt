@@ -8,5 +8,26 @@ scripted_gui = {
 				image = "[?JAP_pnr_cardgame_current_crisis.GetJAPPNRCardgameCrisisIcon]"
 			}
 		}
+
+		triggers = {
+			jap_pnr_cardgame_round_exchange_button_visible = {
+				NOT = { has_country_flag = JAP_pnr_cardgame_round_exchange_used }
+			}
+			jap_pnr_cardgame_round_exchange_used_button_visible = {
+				has_country_flag = JAP_pnr_cardgame_round_exchange_used
+			}
+			jap_pnr_cardgame_round_exchange_button_click_enabled = {
+				JAP_pnr_cardgame_can_exchange_round_cards = yes
+			}
+			jap_pnr_cardgame_round_exchange_used_button_click_enabled = {
+				always = no
+			}
+		}
+
+		effects = {
+			jap_pnr_cardgame_round_exchange_button_click = {
+				JAP_pnr_cardgame_exchange_round_cards = yes
+			}
+		}
 	}
 }

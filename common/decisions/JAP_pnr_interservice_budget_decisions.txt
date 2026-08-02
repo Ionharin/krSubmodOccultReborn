@@ -15,6 +15,61 @@ JAP_pnr_interservice_budget_bop_category = {
 		fire_only_once = no
 	}
 
+	JAP_pnr_emergency_army_budget = {
+		icon = GFX_decision_generic_army_support
+
+		visible = {
+			has_power_balance = {
+				id = JAP_pnr_poor_reality_bop
+			}
+		}
+		available = {
+			NOT = { has_country_flag = JAP_pnr_emergency_army_budget_used_this_year }
+			strength_ratio = { tag = RUS ratio < 0.6 }
+		}
+
+		cost = 70
+		days_remove = 40
+
+		remove_effect = {
+			set_country_flag = JAP_pnr_emergency_army_budget_used_this_year
+			custom_effect_tooltip = JAP_pnr_emergency_army_budget_points_tt
+			add_to_variable = { var = JAP_pnr_army_budget_points value = 2 }
+			add_one_random_military_factory = yes
+			add_power_balance_value = {
+				id = JAP_pnr_poor_reality_bop
+				value = 0.15
+			}
+		}
+	}
+
+	JAP_pnr_emergency_shipbuilding_plan = {
+		icon = GFX_decision_generic_naval
+
+		visible = {
+			has_power_balance = {
+				id = JAP_pnr_poor_reality_bop
+			}
+		}
+		available = {
+			NOT = { has_country_flag = JAP_pnr_emergency_shipbuilding_plan_used_this_year }
+		}
+
+		cost = 100
+		days_remove = 40
+
+		remove_effect = {
+			set_country_flag = JAP_pnr_emergency_shipbuilding_plan_used_this_year
+			custom_effect_tooltip = JAP_pnr_emergency_shipbuilding_plan_budget_points_tt
+			add_to_variable = { var = JAP_pnr_navy_budget_points value = 2 }
+			add_one_random_dockyard = yes
+			add_power_balance_value = {
+				id = JAP_pnr_poor_reality_bop
+				value = -0.15
+			}
+		}
+	}
+
 	JAP_pnr_next_year_interservice_budget_mission = {
 		icon = GFX_decision_generic_prepare_civil_war
 
@@ -46,6 +101,8 @@ JAP_pnr_interservice_budget_bop_category = {
 				uncomplete_children = no
 				refund_political_power = no
 			}
+			clr_country_flag = JAP_pnr_emergency_army_budget_used_this_year
+			clr_country_flag = JAP_pnr_emergency_shipbuilding_plan_used_this_year
 			activate_mission = JAP_pnr_next_year_interservice_budget_mission
 		}
 	}

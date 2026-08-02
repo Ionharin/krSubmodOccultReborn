@@ -8,3 +8,10 @@ JAP_pnr_cardgame_can_end_round = {
 	has_country_flag = JAP_pnr_cardgame_active
 	NOT = { has_country_flag = JAP_pnr_cardgame_finished }
 }
+
+JAP_pnr_cardgame_can_exchange_round_cards = {
+	has_country_flag = JAP_pnr_cardgame_active
+	NOT = { has_country_flag = JAP_pnr_cardgame_finished }
+	NOT = { has_country_flag = JAP_pnr_cardgame_round_exchange_used }
+	check_variable = { JAP_pnr_cardgame_cards_played_this_round = 0 }
+}

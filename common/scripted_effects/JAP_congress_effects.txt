@@ -4,21 +4,29 @@ JAP_congress_update_gui = {
 
 JAP_congress_initialize_values = {
 	if = {
-		limit = { NOT = { has_country_flag = JAP_congress_party_setup_v3 } }
-		set_country_flag = JAP_congress_party_setup_v3
+		limit = { NOT = { has_country_flag = JAP_congress_party_setup_v4 } }
+		set_country_flag = JAP_congress_party_setup_v4
 		set_country_flag = JAP_congress_initialized
 		set_variable = { JAP_congress_total_seats = 466 }
 
 		clear_array = JAP_congress_faction_list
-		add_to_array = { JAP_congress_faction_list = 7 }
+		add_to_array = { JAP_congress_faction_list = 2 }
+		add_to_array = { JAP_congress_faction_list = 4 }
+		add_to_array = { JAP_congress_faction_list = 5 }
 		add_to_array = { JAP_congress_faction_list = 6 }
-		add_to_array = { JAP_congress_faction_list = 8 }
-		add_to_array = { JAP_congress_faction_list = 9 }
+		add_to_array = { JAP_congress_faction_list = 7 }
+		add_to_array = { JAP_congress_faction_list = 10 }
 
-		set_variable = { JAP_congress_faction_seats_list^7 = 301 }
-		set_variable = { JAP_congress_faction_seats_list^6 = 146 }
-		set_variable = { JAP_congress_faction_seats_list^8 = 16 }
-		set_variable = { JAP_congress_faction_seats_list^9 = 3 }
+		set_variable = { JAP_congress_faction_seats_list^1 = 0 }
+		set_variable = { JAP_congress_faction_seats_list^2 = 1 }
+		set_variable = { JAP_congress_faction_seats_list^3 = 0 }
+		set_variable = { JAP_congress_faction_seats_list^4 = 11 }
+		set_variable = { JAP_congress_faction_seats_list^5 = 26 }
+		set_variable = { JAP_congress_faction_seats_list^6 = 155 }
+		set_variable = { JAP_congress_faction_seats_list^7 = 255 }
+		set_variable = { JAP_congress_faction_seats_list^8 = 0 }
+		set_variable = { JAP_congress_faction_seats_list^9 = 0 }
+		set_variable = { JAP_congress_faction_seats_list^10 = 18 }
 	}
 
 	if = { limit = { NOT = { has_variable = JAP_congress_faction_seats_list^1 } } set_variable = { JAP_congress_faction_seats_list^1 = 0 } }

@@ -12,6 +12,147 @@ JAP_pnr_cardgame_initialize = {
 	JAP_pnr_cardgame_start_round = yes
 }
 
+JAP_pnr_cardgame_draw_one_card = {
+	random_list = {
+		1 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { JAP_pnr_cardgame_card_1_in_hand > 0 }
+					check_variable = { JAP_pnr_cardgame_card_1_exchange_removed > 0 }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { JAP_pnr_cardgame_card_1_in_hand = 0 }
+					check_variable = { JAP_pnr_cardgame_card_1_exchange_removed = 0 }
+				}
+				set_variable = { JAP_pnr_cardgame_card_1_in_hand = 1 }
+				subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+			}
+		}
+		1 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { JAP_pnr_cardgame_card_2_in_hand > 0 }
+					check_variable = { JAP_pnr_cardgame_card_2_exchange_removed > 0 }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { JAP_pnr_cardgame_card_2_in_hand = 0 }
+					check_variable = { JAP_pnr_cardgame_card_2_exchange_removed = 0 }
+				}
+				set_variable = { JAP_pnr_cardgame_card_2_in_hand = 1 }
+				subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+			}
+		}
+		1 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { JAP_pnr_cardgame_card_3_in_hand > 0 }
+					check_variable = { JAP_pnr_cardgame_card_3_exchange_removed > 0 }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { JAP_pnr_cardgame_card_3_in_hand = 0 }
+					check_variable = { JAP_pnr_cardgame_card_3_exchange_removed = 0 }
+				}
+				set_variable = { JAP_pnr_cardgame_card_3_in_hand = 1 }
+				subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+			}
+		}
+		1 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { JAP_pnr_cardgame_card_4_in_hand > 0 }
+					check_variable = { JAP_pnr_cardgame_card_4_exchange_removed > 0 }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { JAP_pnr_cardgame_card_4_in_hand = 0 }
+					check_variable = { JAP_pnr_cardgame_card_4_exchange_removed = 0 }
+				}
+				set_variable = { JAP_pnr_cardgame_card_4_in_hand = 1 }
+				subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+			}
+		}
+		1 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { JAP_pnr_cardgame_card_5_in_hand > 0 }
+					check_variable = { JAP_pnr_cardgame_card_5_exchange_removed > 0 }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { JAP_pnr_cardgame_card_5_in_hand = 0 }
+					check_variable = { JAP_pnr_cardgame_card_5_exchange_removed = 0 }
+				}
+				set_variable = { JAP_pnr_cardgame_card_5_in_hand = 1 }
+				subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+			}
+		}
+		1 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { JAP_pnr_cardgame_card_6_in_hand > 0 }
+					check_variable = { JAP_pnr_cardgame_card_6_exchange_removed > 0 }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { JAP_pnr_cardgame_card_6_in_hand = 0 }
+					check_variable = { JAP_pnr_cardgame_card_6_exchange_removed = 0 }
+				}
+				set_variable = { JAP_pnr_cardgame_card_6_in_hand = 1 }
+				subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+			}
+		}
+		1 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { JAP_pnr_cardgame_card_7_in_hand > 0 }
+					check_variable = { JAP_pnr_cardgame_card_7_exchange_removed > 0 }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { JAP_pnr_cardgame_card_7_in_hand = 0 }
+					check_variable = { JAP_pnr_cardgame_card_7_exchange_removed = 0 }
+				}
+				set_variable = { JAP_pnr_cardgame_card_7_in_hand = 1 }
+				subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+			}
+		}
+		1 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { JAP_pnr_cardgame_card_8_in_hand > 0 }
+					check_variable = { JAP_pnr_cardgame_card_8_exchange_removed > 0 }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { JAP_pnr_cardgame_card_8_in_hand = 0 }
+					check_variable = { JAP_pnr_cardgame_card_8_exchange_removed = 0 }
+				}
+				set_variable = { JAP_pnr_cardgame_card_8_in_hand = 1 }
+				subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
+			}
+		}
+	}
+}
+
 JAP_pnr_cardgame_start_round = {
 	set_variable = { JAP_pnr_cardgame_cards_played_this_round = 0 }
 	set_variable = { JAP_pnr_cardgame_last_card = 0 }
@@ -20,6 +161,7 @@ JAP_pnr_cardgame_start_round = {
 	clr_country_flag = JAP_pnr_cardgame_no_kwantung_cards
 	clr_country_flag = JAP_pnr_cardgame_combo_triggered
 	clr_country_flag = JAP_pnr_cardgame_alarm_growth_bonus
+	clr_country_flag = JAP_pnr_cardgame_round_exchange_used
 
 	set_variable = { JAP_pnr_cardgame_card_1_in_hand = 0 }
 	set_variable = { JAP_pnr_cardgame_card_2_in_hand = 0 }
@@ -29,6 +171,15 @@ JAP_pnr_cardgame_start_round = {
 	set_variable = { JAP_pnr_cardgame_card_6_in_hand = 0 }
 	set_variable = { JAP_pnr_cardgame_card_7_in_hand = 0 }
 	set_variable = { JAP_pnr_cardgame_card_8_in_hand = 0 }
+
+	set_variable = { JAP_pnr_cardgame_card_1_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_2_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_3_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_4_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_5_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_6_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_7_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_8_exchange_removed = 0 }
 
 	random_list = {
 		17 = { set_variable = { JAP_pnr_cardgame_current_crisis = 1 } }
@@ -42,71 +193,7 @@ JAP_pnr_cardgame_start_round = {
 	set_variable = { JAP_pnr_cardgame_cards_to_draw = 4 }
 	while_loop_effect = {
 		limit = { check_variable = { JAP_pnr_cardgame_cards_to_draw > 0 } }
-		set_temp_variable_to_random = { var = JAP_pnr_cardgame_draw_candidate min = 1 max = 9 integer = yes }
-		if = {
-			limit = {
-				check_variable = { JAP_pnr_cardgame_draw_candidate = 1 }
-				check_variable = { JAP_pnr_cardgame_card_1_in_hand = 0 }
-			}
-			add_to_variable = { JAP_pnr_cardgame_card_1_in_hand = 1 }
-			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
-		}
-		else_if = {
-			limit = {
-				check_variable = { JAP_pnr_cardgame_draw_candidate = 2 }
-				check_variable = { JAP_pnr_cardgame_card_2_in_hand = 0 }
-			}
-			add_to_variable = { JAP_pnr_cardgame_card_2_in_hand = 1 }
-			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
-		}
-		else_if = {
-			limit = {
-				check_variable = { JAP_pnr_cardgame_draw_candidate = 3 }
-				check_variable = { JAP_pnr_cardgame_card_3_in_hand = 0 }
-			}
-			add_to_variable = { JAP_pnr_cardgame_card_3_in_hand = 1 }
-			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
-		}
-		else_if = {
-			limit = {
-				check_variable = { JAP_pnr_cardgame_draw_candidate = 4 }
-				check_variable = { JAP_pnr_cardgame_card_4_in_hand = 0 }
-			}
-			add_to_variable = { JAP_pnr_cardgame_card_4_in_hand = 1 }
-			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
-		}
-		else_if = {
-			limit = {
-				check_variable = { JAP_pnr_cardgame_draw_candidate = 5 }
-				check_variable = { JAP_pnr_cardgame_card_5_in_hand = 0 }
-			}
-			add_to_variable = { JAP_pnr_cardgame_card_5_in_hand = 1 }
-			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
-		}
-		else_if = {
-			limit = {
-				check_variable = { JAP_pnr_cardgame_draw_candidate = 6 }
-				check_variable = { JAP_pnr_cardgame_card_6_in_hand = 0 }
-			}
-			add_to_variable = { JAP_pnr_cardgame_card_6_in_hand = 1 }
-			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
-		}
-		else_if = {
-			limit = {
-				check_variable = { JAP_pnr_cardgame_draw_candidate = 7 }
-				check_variable = { JAP_pnr_cardgame_card_7_in_hand = 0 }
-			}
-			add_to_variable = { JAP_pnr_cardgame_card_7_in_hand = 1 }
-			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
-		}
-		else_if = {
-			limit = {
-				check_variable = { JAP_pnr_cardgame_draw_candidate = 8 }
-				check_variable = { JAP_pnr_cardgame_card_8_in_hand = 0 }
-			}
-			add_to_variable = { JAP_pnr_cardgame_card_8_in_hand = 1 }
-			subtract_from_variable = { JAP_pnr_cardgame_cards_to_draw = 1 }
-		}
+		JAP_pnr_cardgame_draw_one_card = yes
 	}
 
 	if = {
@@ -117,6 +204,109 @@ JAP_pnr_cardgame_start_round = {
 
 	activate_mission = JAP_pnr_cardgame_round_timer
 	JAP_pnr_cardgame_clamp_values = yes
+}
+
+JAP_pnr_cardgame_exchange_round_cards = {
+	set_country_flag = JAP_pnr_cardgame_round_exchange_used
+	set_variable = { JAP_pnr_cardgame_cards_to_exchange = 2 }
+
+	set_variable = { JAP_pnr_cardgame_card_1_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_2_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_3_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_4_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_5_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_6_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_7_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_8_exchange_removed = 0 }
+
+	if = {
+		limit = {
+			check_variable = { JAP_pnr_cardgame_cards_to_exchange > 0 }
+			check_variable = { JAP_pnr_cardgame_card_1_in_hand > 0 }
+		}
+		set_variable = { JAP_pnr_cardgame_card_1_in_hand = 0 }
+		set_variable = { JAP_pnr_cardgame_card_1_exchange_removed = 1 }
+		subtract_from_variable = { JAP_pnr_cardgame_cards_to_exchange = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { JAP_pnr_cardgame_cards_to_exchange > 0 }
+			check_variable = { JAP_pnr_cardgame_card_2_in_hand > 0 }
+		}
+		set_variable = { JAP_pnr_cardgame_card_2_in_hand = 0 }
+		set_variable = { JAP_pnr_cardgame_card_2_exchange_removed = 1 }
+		subtract_from_variable = { JAP_pnr_cardgame_cards_to_exchange = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { JAP_pnr_cardgame_cards_to_exchange > 0 }
+			check_variable = { JAP_pnr_cardgame_card_3_in_hand > 0 }
+		}
+		set_variable = { JAP_pnr_cardgame_card_3_in_hand = 0 }
+		set_variable = { JAP_pnr_cardgame_card_3_exchange_removed = 1 }
+		subtract_from_variable = { JAP_pnr_cardgame_cards_to_exchange = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { JAP_pnr_cardgame_cards_to_exchange > 0 }
+			check_variable = { JAP_pnr_cardgame_card_4_in_hand > 0 }
+		}
+		set_variable = { JAP_pnr_cardgame_card_4_in_hand = 0 }
+		set_variable = { JAP_pnr_cardgame_card_4_exchange_removed = 1 }
+		subtract_from_variable = { JAP_pnr_cardgame_cards_to_exchange = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { JAP_pnr_cardgame_cards_to_exchange > 0 }
+			check_variable = { JAP_pnr_cardgame_card_5_in_hand > 0 }
+		}
+		set_variable = { JAP_pnr_cardgame_card_5_in_hand = 0 }
+		set_variable = { JAP_pnr_cardgame_card_5_exchange_removed = 1 }
+		subtract_from_variable = { JAP_pnr_cardgame_cards_to_exchange = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { JAP_pnr_cardgame_cards_to_exchange > 0 }
+			check_variable = { JAP_pnr_cardgame_card_6_in_hand > 0 }
+		}
+		set_variable = { JAP_pnr_cardgame_card_6_in_hand = 0 }
+		set_variable = { JAP_pnr_cardgame_card_6_exchange_removed = 1 }
+		subtract_from_variable = { JAP_pnr_cardgame_cards_to_exchange = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { JAP_pnr_cardgame_cards_to_exchange > 0 }
+			check_variable = { JAP_pnr_cardgame_card_7_in_hand > 0 }
+		}
+		set_variable = { JAP_pnr_cardgame_card_7_in_hand = 0 }
+		set_variable = { JAP_pnr_cardgame_card_7_exchange_removed = 1 }
+		subtract_from_variable = { JAP_pnr_cardgame_cards_to_exchange = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { JAP_pnr_cardgame_cards_to_exchange > 0 }
+			check_variable = { JAP_pnr_cardgame_card_8_in_hand > 0 }
+		}
+		set_variable = { JAP_pnr_cardgame_card_8_in_hand = 0 }
+		set_variable = { JAP_pnr_cardgame_card_8_exchange_removed = 1 }
+		subtract_from_variable = { JAP_pnr_cardgame_cards_to_exchange = 1 }
+	}
+
+	set_variable = { JAP_pnr_cardgame_cards_to_draw = 2 }
+	while_loop_effect = {
+		limit = { check_variable = { JAP_pnr_cardgame_cards_to_draw > 0 } }
+		JAP_pnr_cardgame_draw_one_card = yes
+	}
+
+	set_variable = { JAP_pnr_cardgame_card_1_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_2_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_3_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_4_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_5_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_6_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_7_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_card_8_exchange_removed = 0 }
+	set_variable = { JAP_pnr_cardgame_cards_to_exchange = 0 }
 }
 
 JAP_pnr_cardgame_clamp_values = {
@@ -153,7 +343,7 @@ JAP_pnr_cardgame_check_combo = {
 			check_variable = { JAP_pnr_cardgame_current_card = 6 }
 		}
 		set_country_flag = JAP_pnr_cardgame_combo_triggered
-		add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = -6 }
+		add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = -3 }
 		set_country_flag = JAP_pnr_cardgame_next_mantetsu_fengtian_halved
 		custom_effect_tooltip = JAP_pnr_cardgame_combo_fengtian_cooperation_tt
 	}
@@ -256,7 +446,7 @@ JAP_pnr_cardgame_card_2_effect = {
 JAP_pnr_cardgame_card_3_effect = {
 	subtract_from_variable = { JAP_pnr_cardgame_card_3_in_hand = 1 }
 	set_variable = { JAP_pnr_cardgame_current_card = 3 }
-	add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = -12 }
+	add_to_variable = { JAP_pnr_cardgame_fengtian_alarm = -7 }
 	add_to_variable = { JAP_pnr_cardgame_japan_control = -2 }
 	if = {
 		limit = { check_variable = { JAP_pnr_cardgame_current_crisis = 1 } }
@@ -268,7 +458,7 @@ JAP_pnr_cardgame_card_3_effect = {
 JAP_pnr_cardgame_card_4_effect = {
 	subtract_from_variable = { JAP_pnr_cardgame_card_4_in_hand = 1 }
 	set_variable = { JAP_pnr_cardgame_current_card = 4 }
-	add_to_variable = { JAP_pnr_cardgame_russian_alarm = -12 }
+	add_to_variable = { JAP_pnr_cardgame_russian_alarm = -7 }
 	set_country_flag = JAP_pnr_cardgame_no_kwantung_cards
 	if = {
 		limit = { check_variable = { JAP_pnr_cardgame_current_crisis = 2 } }
@@ -455,4 +645,49 @@ JAP_pnr_cardgame_finish = {
 	}
 
 	country_event = { id = JAP_pnr_cardgame_events.2 }
+}
+
+JAP_pnr_cardgame_apply_resource_result = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = JAP_pnr_cardgame_resources_claimed }
+		}
+		set_country_flag = JAP_pnr_cardgame_resources_claimed
+
+		714 = {
+			set_temp_variable = {
+				JAP_pnr_cardgame_oil_resource_gain = {
+					value = ROOT.JAP_pnr_cardgame_japan_control
+					multiply = 0.6
+					round = yes
+				}
+			}
+			add_resource = {
+				type = oil
+				amount = var:JAP_pnr_cardgame_oil_resource_gain
+			}
+		}
+
+		FNG = {
+			give_resource_rights = {
+				receiver = JAP
+				state = 714
+				resources = { oil }
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { JAP_pnr_cardgame_japan_control > 89 }
+			}
+			714 = {
+				if = {
+					limit = {
+						NOT = { has_dynamic_modifier = { modifier = JAP_pnr_cardgame_flowing_black_wealth_modifier } }
+					}
+					add_dynamic_modifier = { modifier = JAP_pnr_cardgame_flowing_black_wealth_modifier }
+				}
+			}
+		}
+	}
 }
