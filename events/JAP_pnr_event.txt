@@ -1,4 +1,535 @@
 add_namespace = JAP_pnr_event
+add_namespace = JAP_pnr_normal
+add_namespace = JAP_pnr_jpc
+add_namespace = JAP_pnr_news
+
+country_event = { # 日本共产党分裂
+    id = JAP_pnr_normal.1
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.1" }
+    title = JAP_pnr_normal.1.t
+    desc = JAP_pnr_normal.1.desc
+    picture = GFX_JAP_pnr_normal_1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 切断和这些热衷于破坏党的挑拨离间者的联系。
+        name = JAP_pnr_normal.1.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 切断和自称中央委员会的流氓分子的联系。
+        name = JAP_pnr_normal.1.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 犬养毅国会质询
+    id = JAP_pnr_normal.2
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.2" }
+    title = JAP_pnr_normal.2.t
+    desc = JAP_pnr_normal.2.desc
+    picture = GFX_JAP_pnr_normal_2
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 万岁！万岁！万万岁！（启动大选倒计时）
+        name = JAP_pnr_normal.2.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 1936年日本众议院大选
+    id = JAP_pnr_normal.3
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.3" }
+    title = JAP_pnr_normal.3.t
+    desc = JAP_pnr_normal.3.desc
+    picture = GFX_JAP_pnr_normal_3
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 为了农民和崭新的，科学的日本主义！（民粹主义者）
+        name = JAP_pnr_normal.3.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 为了社会大多数的幸福，为了无产阶级工人和军队势力的联合！（社会大众党）
+        name = JAP_pnr_normal.3.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 唯有继续推行国家掌握的托拉斯和康采恩才能拯救日本！（国民同盟）
+        name = JAP_pnr_normal.3.c
+        ai_chance = { factor = 1 }
+    }
+    option = { # 毫无疑问，作为国会第二大党的我们按政治惯性该取而代之了。（民政党）
+        name = JAP_pnr_normal.3.d
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 1936年第一次选举结果
+    id = JAP_pnr_normal.4
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.4" }
+    title = JAP_pnr_normal.4.t
+    desc = JAP_pnr_normal.4.desc
+    picture = GFX_JAP_pnr_normal_4
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 民主制度仍在运行的铁证！
+        name = JAP_pnr_normal.4.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 国家社会主义研究所介绍
+    id = JAP_pnr_normal.5
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.5" }
+    title = JAP_pnr_normal.5.t
+    desc = JAP_pnr_normal.5.desc
+    picture = GFX_JAP_pnr_normal_5
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 日共元老掀起农民的旗帜！
+        name = JAP_pnr_normal.5.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 社会大众党：两头猛虎
+    id = JAP_pnr_normal.6
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.6" }
+    title = JAP_pnr_normal.6.t
+    desc = JAP_pnr_normal.6.desc
+    picture = GFX_JAP_pnr_normal_6
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 议会斗争和温和路线的典范。
+        name = JAP_pnr_normal.6.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 立宪民政党：宪政常道的守卫
+    id = JAP_pnr_normal.7
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.7" }
+    title = JAP_pnr_normal.7.t
+    desc = JAP_pnr_normal.7.desc
+    picture = GFX_JAP_pnr_normal_7
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 擎炬火，向未来。
+        name = JAP_pnr_normal.7.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 国民同盟：科学经济，科学指令
+    id = JAP_pnr_normal.8
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.8" }
+    title = JAP_pnr_normal.8.t
+    desc = JAP_pnr_normal.8.desc
+    picture = GFX_JAP_pnr_normal_8
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 强有力的国家之手会解决所有问题。
+        name = JAP_pnr_normal.8.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 政友会的金元攻势
+    id = JAP_pnr_normal.9
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.9" }
+    title = JAP_pnr_normal.9.t
+    desc = JAP_pnr_normal.9.desc
+    picture = GFX_JAP_pnr_normal_9
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 这符合民主吗？
+        name = JAP_pnr_normal.9.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 聚光灯之外：宫中
+    id = JAP_pnr_normal.10
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.10" }
+    title = JAP_pnr_normal.10.t
+    desc = JAP_pnr_normal.10.desc
+    picture = GFX_JAP_pnr_normal_10
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 家家有本难念的经
+        name = JAP_pnr_normal.10.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 聚光灯之外：台湾
+    id = JAP_pnr_normal.11
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.11" }
+    title = JAP_pnr_normal.11.t
+    desc = JAP_pnr_normal.11.desc
+    picture = GFX_JAP_pnr_normal_11
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 邓南遮先生此次未能成行，真是太过遗憾了。
+        name = JAP_pnr_normal.11.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 出口王仁三郎吗？真是个彻底的怪人。
+        name = JAP_pnr_normal.11.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 聚光灯之外：列车上
+    id = JAP_pnr_normal.12
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.12" }
+    title = JAP_pnr_normal.12.t
+    desc = JAP_pnr_normal.12.desc
+    picture = GFX_JAP_pnr_normal_12
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 白种人和黄种人的大战近了。
+        name = JAP_pnr_normal.12.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 秋田县的深夜
+    id = JAP_pnr_jpc.1
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_jpc.1" }
+    title = JAP_pnr_jpc.1.t
+    desc = JAP_pnr_jpc.1.desc
+    picture = GFX_JAP_pnr_jpc_1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 你就是三浦俊贞同志？
+        name = JAP_pnr_jpc.1.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 三浦国中生事件
+    id = JAP_pnr_jpc.2
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_jpc.2" }
+    title = JAP_pnr_jpc.2.t
+    desc = JAP_pnr_jpc.2.desc
+    picture = GFX_JAP_pnr_jpc_2
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 严惩这些赤色强盗。
+        name = JAP_pnr_jpc.2.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 理性的说，孩子的家长要负一部分教育的责任……
+        name = JAP_pnr_jpc.2.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 赤色阴谋的另一面
+    id = JAP_pnr_jpc.3
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_jpc.3" }
+    title = JAP_pnr_jpc.3.t
+    desc = JAP_pnr_jpc.3.desc
+    picture = GFX_JAP_pnr_jpc_3
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 敌人不能消失，否则政府就会找到新的敌人（在一个关键的事件发生前，确保赤色阴谋在35-85中间）。
+        name = JAP_pnr_jpc.3.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 赤旗报
+    id = JAP_pnr_jpc.4
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_jpc.4" }
+    title = JAP_pnr_jpc.4.t
+    desc = JAP_pnr_jpc.4.desc
+    picture = GFX_JAP_pnr_jpc_4
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 看来海军也博览群书，批判性阅读啊。
+        name = JAP_pnr_jpc.4.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 是我们吗？
+    id = JAP_pnr_jpc.5
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_jpc.5" }
+    title = JAP_pnr_jpc.5.t
+    desc = JAP_pnr_jpc.5.desc
+    picture = GFX_JAP_pnr_jpc_5
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们应该在赤旗报上声明，这一切都是凶恶政府的阴谋。
+        name = JAP_pnr_jpc.5.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 不，他们似乎没搞清楚自己在操弄些什么……（确保当某个事件发生后，赤色阴谋大于85，就会引发意外的结果……）
+        name = JAP_pnr_jpc.5.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 桃色争议
+    id = JAP_pnr_jpc.6
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_jpc.6" }
+    title = JAP_pnr_jpc.6.t
+    desc = JAP_pnr_jpc.6.desc
+    picture = GFX_JAP_pnr_jpc_6
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 只是每年都会发生的单纯的劳动争议……
+        name = JAP_pnr_jpc.6.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 横须贺工厂怠工事件
+    id = JAP_pnr_jpc.7
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_jpc.7" }
+    title = JAP_pnr_jpc.7.t
+    desc = JAP_pnr_jpc.7.desc
+    picture = GFX_JAP_pnr_jpc_7
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 看来我们的引蛇出洞成功了。
+        name = JAP_pnr_jpc.7.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 毫无疑问，海军肯定和此有关。
+        name = JAP_pnr_jpc.7.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 零星的罢工
+    id = JAP_pnr_jpc.8
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_jpc.8" }
+    title = JAP_pnr_jpc.8.t
+    desc = JAP_pnr_jpc.8.desc
+    picture = GFX_JAP_pnr_jpc_8
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 工团分子正在尝试发动总罢工！通过《治安维持法》刻不容缓！
+        name = JAP_pnr_jpc.8.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 毫无疑问，陆军和政府已经勾结起来。
+        name = JAP_pnr_jpc.8.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 要重新评估拒绝调查的海军。
+        name = JAP_pnr_jpc.8.c
+        ai_chance = { factor = 1 }
+    }
+    option = { # 把印刷机开足马力！
+        name = JAP_pnr_jpc.8.d
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 最后的冲锋
+    id = JAP_pnr_jpc.9
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_jpc.9" }
+    title = JAP_pnr_jpc.9.t
+    desc = JAP_pnr_jpc.9.desc
+    picture = GFX_JAP_pnr_jpc_9
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 匹夫之怒，血溅五步。
+        name = JAP_pnr_jpc.9.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 陆海对峙
+    id = JAP_pnr_jpc.10
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_jpc.10" }
+    title = JAP_pnr_jpc.10.t
+    desc = JAP_pnr_jpc.10.desc
+    picture = GFX_JAP_pnr_jpc_10
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 斗争的时刻到了！怒吼的时刻到了！真相的时刻到了！
+        name = JAP_pnr_jpc.10.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 1分钟前
+    id = JAP_pnr_jpc.11
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_jpc.11" }
+    title = JAP_pnr_jpc.11.t
+    desc = JAP_pnr_jpc.11.desc
+    picture = GFX_JAP_pnr_jpc_11
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 不要向风暴低头。
+        name = JAP_pnr_jpc.11.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 霞关陷入火海
+    id = JAP_pnr_jpc.12
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_jpc.12" }
+    title = JAP_pnr_jpc.12.t
+    desc = JAP_pnr_jpc.12.desc
+    picture = GFX_JAP_pnr_jpc_12
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 日本工团竟已渗透到如此之深……
+        name = JAP_pnr_jpc.12.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 全球工团运动无法抹去的一笔！
+        name = JAP_pnr_jpc.12.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+news_event = { # 政友会延续立宪政治
+    id = JAP_pnr_news.1
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_news.1" }
+    title = JAP_pnr_news.1.t
+    desc = JAP_pnr_news.1.desc
+    picture = GFX_JAP_pnr_news_1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # [JAP.GetName]的宪政再无威胁
+        name = JAP_pnr_news.1.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+news_event = { # 民政党延续立宪政治
+    id = JAP_pnr_news.2
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_news.2" }
+    title = JAP_pnr_news.2.t
+    desc = JAP_pnr_news.2.desc
+    picture = GFX_JAP_pnr_news_2
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 国民必将凭帝国议会为自身发声
+        name = JAP_pnr_news.2.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+news_event = { # 同床异梦的宪政联盟
+    id = JAP_pnr_news.3
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_news.3" }
+    title = JAP_pnr_news.3.t
+    desc = JAP_pnr_news.3.desc
+    picture = GFX_JAP_pnr_news_3
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 这是日本政界的新风，还是朝荣暮落的牵牛？
+        name = JAP_pnr_news.3.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+news_event = { # 人民同盟内阁的诞生
+    id = JAP_pnr_news.4
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_news.4" }
+    title = JAP_pnr_news.4.t
+    desc = JAP_pnr_news.4.desc
+    picture = GFX_report_event_pnr_yamamoto_senji_news
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 那么之前那些传闻都是真的？
+        name = JAP_pnr_news.4.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+news_event = { # 科学的日本主义之胜
+    id = JAP_pnr_news.5
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_news.5" }
+    title = JAP_pnr_news.5.t
+    desc = JAP_pnr_news.5.desc
+    picture = GFX_JAP_pnr_news_5
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 日本无产阶级当以保卫自身民族利益为先
+        name = JAP_pnr_news.5.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+news_event = { # 社会大众党成为第一大党
+    id = JAP_pnr_news.6
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_news.6" }
+    title = JAP_pnr_news.6.t
+    desc = JAP_pnr_news.6.desc
+    picture = GFX_JAP_pnr_news_6
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 但委员长不是书记长的傀儡吗……
+        name = JAP_pnr_news.6.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+news_event = { # 雍仁陛下
+    id = JAP_pnr_news.7
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_news.7" }
+    title = JAP_pnr_news.7.t
+    desc = JAP_pnr_news.7.desc
+    picture = GFX_JAP_pnr_news_7
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 雍仁陛下乃我等首领
+        name = JAP_pnr_news.7.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+news_event = { # 日本的加里波第
+    id = JAP_pnr_news.8
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_news.8" }
+    title = JAP_pnr_news.8.t
+    desc = JAP_pnr_news.8.desc
+    picture = GFX_JAP_pnr_news_8
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我第一次听说“和平”的军事政变
+        name = JAP_pnr_news.8.a
+        ai_chance = { factor = 1 }
+    }
+}
 
 country_event = {
 	id = JAP_pnr_event.1

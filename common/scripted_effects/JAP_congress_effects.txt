@@ -1058,6 +1058,7 @@ JAP_congress_clear_agenda_effects = {
 JAP_congress_refresh_agenda_frames = {
 	set_variable = { JAP_congress_agenda_1_frame = 1 }
 	set_variable = { JAP_congress_agenda_2_frame = 1 }
+	set_variable = { JAP_congress_agenda_3_frame = 1 }
 	if = {
 		limit = { check_variable = { JAP_congress_active_agenda = 1 } }
 		set_variable = { JAP_congress_agenda_1_frame = 2 }
@@ -1108,6 +1109,14 @@ JAP_congress_pass_agenda_2 = {
 	JAP_congress_clear_agenda_effects = yes
 	set_variable = { JAP_congress_active_agenda = 2 }
 	add_ideas = MIT_generic_arms_industry_idea
+	JAP_congress_apply_agenda_cooldown = yes
+	JAP_congress_reset_authority = yes
+	JAP_congress_refresh_agenda_frames = yes
+	JAP_congress_update_gui = yes
+}
+
+JAP_congress_pass_agenda_3 = {
+	set_country_flag = JAP_pnr_flag_lower_voting_age
 	JAP_congress_apply_agenda_cooldown = yes
 	JAP_congress_reset_authority = yes
 	JAP_congress_refresh_agenda_frames = yes

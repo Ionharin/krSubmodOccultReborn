@@ -1,0 +1,844 @@
+@SLOT_WIDTH = 168
+@SLOT_HEIGHT = 70
+@FLAG_X = 47
+@FLAG_Y = 4
+@FLAG_FRAME_X = 42
+@FLAG_FRAME_Y = 0
+@POINTS_X = 52
+@POINTS_Y = 40
+@POINTS_TEXT_X = 10
+@POINTS_TEXT_Y = 6
+
+guiTypes = {
+	containerWindowType = {
+		name = "JAP_pnr_continental_policy_gui"
+		position = { x = 0 y = 0 }
+		size = { width = 510 height = 400 }
+		clipping = no
+
+		containerWindowType = {
+			name = "JAP_pnr_continental_policy_FNG_slot"
+			position = { x = 0 y = 0 }
+			size = { width = @SLOT_WIDTH height = @SLOT_HEIGHT }
+			clipping = no
+
+			iconType = {
+				name = "JAP_pnr_continental_policy_FNG_flag"
+				position = { x = @FLAG_X y = @FLAG_Y }
+				quadTextureSprite = "GFX_flag_small2"
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "JAP_pnr_continental_policy_FNG_select_button"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_diplo_countrylist_flag_frame"
+				Orientation = "UPPER_LEFT"
+				clicksound = click_ok
+				oversound = ui_menu_over
+				buttonText = ""
+				pdx_tooltip = JAP_pnr_continental_policy_FNG_tt
+			}
+			iconType = {
+				name = "JAP_pnr_continental_policy_FNG_disabled_overlay"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_JAP_pnr_continental_policy_disabled_overlay"
+			}
+			containerWindowType = {
+				name = "points"
+				position = { x = @POINTS_X y = @POINTS_Y }
+				size = { width = 32 height = 32 }
+				clipping = no
+
+				iconType = {
+					name = "background"
+					spriteType = "GFX_raid_type_background_round"
+					pdx_tooltip = JAP_pnr_continental_policy_FNG_points_tt
+				}
+
+				instantTextBoxType = {
+					name = "value"
+					position = { x = @POINTS_TEXT_X y = @POINTS_TEXT_Y }
+					font = "hoi_18mbs"
+					text = JAP_pnr_continental_policy_FNG_points
+					maxWidth = 12
+					maxHeight = 12
+					fixedsize = yes
+					format = center
+					alwaystransparent = yes
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_continental_policy_QIE_slot"
+			position = { x = 168 y = 0 }
+			size = { width = @SLOT_WIDTH height = @SLOT_HEIGHT }
+			clipping = no
+
+			iconType = {
+				name = "JAP_pnr_continental_policy_QIE_flag"
+				position = { x = @FLAG_X y = @FLAG_Y }
+				quadTextureSprite = "GFX_flag_small2"
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "JAP_pnr_continental_policy_QIE_select_button"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_diplo_countrylist_flag_frame"
+				Orientation = "UPPER_LEFT"
+				clicksound = click_ok
+				oversound = ui_menu_over
+				buttonText = ""
+				pdx_tooltip = JAP_pnr_continental_policy_QIE_tt
+			}
+			iconType = {
+				name = "JAP_pnr_continental_policy_QIE_disabled_overlay"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_JAP_pnr_continental_policy_disabled_overlay"
+			}
+			containerWindowType = {
+				name = "points"
+				position = { x = @POINTS_X y = @POINTS_Y }
+				size = { width = 32 height = 32 }
+				clipping = no
+
+				iconType = {
+					name = "background"
+					spriteType = "GFX_raid_type_background_round"
+					pdx_tooltip = JAP_pnr_continental_policy_QIE_points_tt
+				}
+
+				instantTextBoxType = {
+					name = "value"
+					position = { x = @POINTS_TEXT_X y = @POINTS_TEXT_Y }
+					font = "hoi_18mbs"
+					text = JAP_pnr_continental_policy_QIE_points
+					maxWidth = 12
+					maxHeight = 12
+					fixedsize = yes
+					format = center
+					alwaystransparent = yes
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_continental_policy_SHX_slot"
+			position = { x = 336 y = 0 }
+			size = { width = @SLOT_WIDTH height = @SLOT_HEIGHT }
+			clipping = no
+
+			iconType = {
+				name = "JAP_pnr_continental_policy_SHX_flag"
+				position = { x = @FLAG_X y = @FLAG_Y }
+				quadTextureSprite = "GFX_flag_small2"
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "JAP_pnr_continental_policy_SHX_select_button"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_diplo_countrylist_flag_frame"
+				Orientation = "UPPER_LEFT"
+				clicksound = click_ok
+				oversound = ui_menu_over
+				buttonText = ""
+				pdx_tooltip = JAP_pnr_continental_policy_SHX_tt
+			}
+			iconType = {
+				name = "JAP_pnr_continental_policy_SHX_disabled_overlay"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_JAP_pnr_continental_policy_disabled_overlay"
+			}
+			containerWindowType = {
+				name = "points"
+				position = { x = @POINTS_X y = @POINTS_Y }
+				size = { width = 32 height = 32 }
+				clipping = no
+
+				iconType = {
+					name = "background"
+					spriteType = "GFX_raid_type_background_round"
+					pdx_tooltip = JAP_pnr_continental_policy_SHX_points_tt
+				}
+
+				instantTextBoxType = {
+					name = "value"
+					position = { x = @POINTS_TEXT_X y = @POINTS_TEXT_Y }
+					font = "hoi_18mbs"
+					text = JAP_pnr_continental_policy_SHX_points
+					maxWidth = 12
+					maxHeight = 12
+					fixedsize = yes
+					format = center
+					alwaystransparent = yes
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_continental_policy_XSM_slot"
+			position = { x = 0 y = 80 }
+			size = { width = @SLOT_WIDTH height = @SLOT_HEIGHT }
+			clipping = no
+
+			iconType = {
+				name = "JAP_pnr_continental_policy_XSM_flag"
+				position = { x = @FLAG_X y = @FLAG_Y }
+				quadTextureSprite = "GFX_flag_small2"
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "JAP_pnr_continental_policy_XSM_select_button"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_diplo_countrylist_flag_frame"
+				Orientation = "UPPER_LEFT"
+				clicksound = click_ok
+				oversound = ui_menu_over
+				buttonText = ""
+				pdx_tooltip = JAP_pnr_continental_policy_XSM_tt
+			}
+			iconType = {
+				name = "JAP_pnr_continental_policy_XSM_disabled_overlay"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_JAP_pnr_continental_policy_disabled_overlay"
+			}
+			containerWindowType = {
+				name = "points"
+				position = { x = @POINTS_X y = @POINTS_Y }
+				size = { width = 32 height = 32 }
+				clipping = no
+
+				iconType = {
+					name = "background"
+					spriteType = "GFX_raid_type_background_round"
+					pdx_tooltip = JAP_pnr_continental_policy_XSM_points_tt
+				}
+
+				instantTextBoxType = {
+					name = "value"
+					position = { x = @POINTS_TEXT_X y = @POINTS_TEXT_Y }
+					font = "hoi_18mbs"
+					text = JAP_pnr_continental_policy_XSM_points
+					maxWidth = 12
+					maxHeight = 12
+					fixedsize = yes
+					format = center
+					alwaystransparent = yes
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_continental_policy_KUM_slot"
+			position = { x = 168 y = 80 }
+			size = { width = @SLOT_WIDTH height = @SLOT_HEIGHT }
+			clipping = no
+
+			iconType = {
+				name = "JAP_pnr_continental_policy_KUM_flag"
+				position = { x = @FLAG_X y = @FLAG_Y }
+				quadTextureSprite = "GFX_flag_small2"
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "JAP_pnr_continental_policy_KUM_select_button"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_diplo_countrylist_flag_frame"
+				Orientation = "UPPER_LEFT"
+				clicksound = click_ok
+				oversound = ui_menu_over
+				buttonText = ""
+				pdx_tooltip = JAP_pnr_continental_policy_KUM_tt
+			}
+			iconType = {
+				name = "JAP_pnr_continental_policy_KUM_disabled_overlay"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_JAP_pnr_continental_policy_disabled_overlay"
+			}
+			containerWindowType = {
+				name = "points"
+				position = { x = @POINTS_X y = @POINTS_Y }
+				size = { width = 32 height = 32 }
+				clipping = no
+
+				iconType = {
+					name = "background"
+					spriteType = "GFX_raid_type_background_round"
+					pdx_tooltip = JAP_pnr_continental_policy_KUM_points_tt
+				}
+
+				instantTextBoxType = {
+					name = "value"
+					position = { x = @POINTS_TEXT_X y = @POINTS_TEXT_Y }
+					font = "hoi_18mbs"
+					text = JAP_pnr_continental_policy_KUM_points
+					maxWidth = 12
+					maxHeight = 12
+					fixedsize = yes
+					format = center
+					alwaystransparent = yes
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_continental_policy_SIK_slot"
+			position = { x = 336 y = 80 }
+			size = { width = @SLOT_WIDTH height = @SLOT_HEIGHT }
+			clipping = no
+
+			iconType = {
+				name = "JAP_pnr_continental_policy_SIK_flag"
+				position = { x = @FLAG_X y = @FLAG_Y }
+				quadTextureSprite = "GFX_flag_small2"
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "JAP_pnr_continental_policy_SIK_select_button"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_diplo_countrylist_flag_frame"
+				Orientation = "UPPER_LEFT"
+				clicksound = click_ok
+				oversound = ui_menu_over
+				buttonText = ""
+				pdx_tooltip = JAP_pnr_continental_policy_SIK_tt
+			}
+			iconType = {
+				name = "JAP_pnr_continental_policy_SIK_disabled_overlay"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_JAP_pnr_continental_policy_disabled_overlay"
+			}
+			containerWindowType = {
+				name = "points"
+				position = { x = @POINTS_X y = @POINTS_Y }
+				size = { width = 32 height = 32 }
+				clipping = no
+
+				iconType = {
+					name = "background"
+					spriteType = "GFX_raid_type_background_round"
+					pdx_tooltip = JAP_pnr_continental_policy_SIK_points_tt
+				}
+
+				instantTextBoxType = {
+					name = "value"
+					position = { x = @POINTS_TEXT_X y = @POINTS_TEXT_Y }
+					font = "hoi_18mbs"
+					text = JAP_pnr_continental_policy_SIK_points
+					maxWidth = 12
+					maxHeight = 12
+					fixedsize = yes
+					format = center
+					alwaystransparent = yes
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_continental_policy_TIB_slot"
+			position = { x = 0 y = 160 }
+			size = { width = @SLOT_WIDTH height = @SLOT_HEIGHT }
+			clipping = no
+
+			iconType = {
+				name = "JAP_pnr_continental_policy_TIB_flag"
+				position = { x = @FLAG_X y = @FLAG_Y }
+				quadTextureSprite = "GFX_flag_small2"
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "JAP_pnr_continental_policy_TIB_select_button"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_diplo_countrylist_flag_frame"
+				Orientation = "UPPER_LEFT"
+				clicksound = click_ok
+				oversound = ui_menu_over
+				buttonText = ""
+				pdx_tooltip = JAP_pnr_continental_policy_TIB_tt
+			}
+			iconType = {
+				name = "JAP_pnr_continental_policy_TIB_disabled_overlay"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_JAP_pnr_continental_policy_disabled_overlay"
+			}
+			containerWindowType = {
+				name = "points"
+				position = { x = @POINTS_X y = @POINTS_Y }
+				size = { width = 32 height = 32 }
+				clipping = no
+
+				iconType = {
+					name = "background"
+					spriteType = "GFX_raid_type_background_round"
+					pdx_tooltip = JAP_pnr_continental_policy_TIB_points_tt
+				}
+
+				instantTextBoxType = {
+					name = "value"
+					position = { x = @POINTS_TEXT_X y = @POINTS_TEXT_Y }
+					font = "hoi_18mbs"
+					text = JAP_pnr_continental_policy_TIB_points
+					maxWidth = 12
+					maxHeight = 12
+					fixedsize = yes
+					format = center
+					alwaystransparent = yes
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_continental_policy_SZC_slot"
+			position = { x = 168 y = 160 }
+			size = { width = @SLOT_WIDTH height = @SLOT_HEIGHT }
+			clipping = no
+
+			iconType = {
+				name = "JAP_pnr_continental_policy_SZC_flag"
+				position = { x = @FLAG_X y = @FLAG_Y }
+				quadTextureSprite = "GFX_flag_small2"
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "JAP_pnr_continental_policy_SZC_select_button"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_diplo_countrylist_flag_frame"
+				Orientation = "UPPER_LEFT"
+				clicksound = click_ok
+				oversound = ui_menu_over
+				buttonText = ""
+				pdx_tooltip = JAP_pnr_continental_policy_SZC_tt
+			}
+			iconType = {
+				name = "JAP_pnr_continental_policy_SZC_disabled_overlay"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_JAP_pnr_continental_policy_disabled_overlay"
+			}
+			containerWindowType = {
+				name = "points"
+				position = { x = @POINTS_X y = @POINTS_Y }
+				size = { width = 32 height = 32 }
+				clipping = no
+
+				iconType = {
+					name = "background"
+					spriteType = "GFX_raid_type_background_round"
+					pdx_tooltip = JAP_pnr_continental_policy_SZC_points_tt
+				}
+
+				instantTextBoxType = {
+					name = "value"
+					position = { x = @POINTS_TEXT_X y = @POINTS_TEXT_Y }
+					font = "hoi_18mbs"
+					text = JAP_pnr_continental_policy_SZC_points
+					maxWidth = 12
+					maxHeight = 12
+					fixedsize = yes
+					format = center
+					alwaystransparent = yes
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_continental_policy_HNN_slot"
+			position = { x = 336 y = 160 }
+			size = { width = @SLOT_WIDTH height = @SLOT_HEIGHT }
+			clipping = no
+
+			iconType = {
+				name = "JAP_pnr_continental_policy_HNN_flag"
+				position = { x = @FLAG_X y = @FLAG_Y }
+				quadTextureSprite = "GFX_flag_small2"
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "JAP_pnr_continental_policy_HNN_select_button"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_diplo_countrylist_flag_frame"
+				Orientation = "UPPER_LEFT"
+				clicksound = click_ok
+				oversound = ui_menu_over
+				buttonText = ""
+				pdx_tooltip = JAP_pnr_continental_policy_HNN_tt
+			}
+			iconType = {
+				name = "JAP_pnr_continental_policy_HNN_disabled_overlay"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_JAP_pnr_continental_policy_disabled_overlay"
+			}
+			containerWindowType = {
+				name = "points"
+				position = { x = @POINTS_X y = @POINTS_Y }
+				size = { width = 32 height = 32 }
+				clipping = no
+
+				iconType = {
+					name = "background"
+					spriteType = "GFX_raid_type_background_round"
+					pdx_tooltip = JAP_pnr_continental_policy_HNN_points_tt
+				}
+
+				instantTextBoxType = {
+					name = "value"
+					position = { x = @POINTS_TEXT_X y = @POINTS_TEXT_Y }
+					font = "hoi_18mbs"
+					text = JAP_pnr_continental_policy_HNN_points
+					maxWidth = 12
+					maxHeight = 12
+					fixedsize = yes
+					format = center
+					alwaystransparent = yes
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_continental_policy_YUN_slot"
+			position = { x = 0 y = 240 }
+			size = { width = @SLOT_WIDTH height = @SLOT_HEIGHT }
+			clipping = no
+
+			iconType = {
+				name = "JAP_pnr_continental_policy_YUN_flag"
+				position = { x = @FLAG_X y = @FLAG_Y }
+				quadTextureSprite = "GFX_flag_small2"
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "JAP_pnr_continental_policy_YUN_select_button"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_diplo_countrylist_flag_frame"
+				Orientation = "UPPER_LEFT"
+				clicksound = click_ok
+				oversound = ui_menu_over
+				buttonText = ""
+				pdx_tooltip = JAP_pnr_continental_policy_YUN_tt
+			}
+			iconType = {
+				name = "JAP_pnr_continental_policy_YUN_disabled_overlay"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_JAP_pnr_continental_policy_disabled_overlay"
+			}
+			containerWindowType = {
+				name = "points"
+				position = { x = @POINTS_X y = @POINTS_Y }
+				size = { width = 32 height = 32 }
+				clipping = no
+
+				iconType = {
+					name = "background"
+					spriteType = "GFX_raid_type_background_round"
+					pdx_tooltip = JAP_pnr_continental_policy_YUN_points_tt
+				}
+
+				instantTextBoxType = {
+					name = "value"
+					position = { x = @POINTS_TEXT_X y = @POINTS_TEXT_Y }
+					font = "hoi_18mbs"
+					text = JAP_pnr_continental_policy_YUN_points
+					maxWidth = 12
+					maxHeight = 12
+					fixedsize = yes
+					format = center
+					alwaystransparent = yes
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_continental_policy_GXC_slot"
+			position = { x = 168 y = 240 }
+			size = { width = @SLOT_WIDTH height = @SLOT_HEIGHT }
+			clipping = no
+
+			iconType = {
+				name = "JAP_pnr_continental_policy_GXC_flag"
+				position = { x = @FLAG_X y = @FLAG_Y }
+				quadTextureSprite = "GFX_flag_small2"
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "JAP_pnr_continental_policy_GXC_select_button"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_diplo_countrylist_flag_frame"
+				Orientation = "UPPER_LEFT"
+				clicksound = click_ok
+				oversound = ui_menu_over
+				buttonText = ""
+				pdx_tooltip = JAP_pnr_continental_policy_GXC_tt
+			}
+			iconType = {
+				name = "JAP_pnr_continental_policy_GXC_disabled_overlay"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_JAP_pnr_continental_policy_disabled_overlay"
+			}
+			containerWindowType = {
+				name = "points"
+				position = { x = @POINTS_X y = @POINTS_Y }
+				size = { width = 32 height = 32 }
+				clipping = no
+
+				iconType = {
+					name = "background"
+					spriteType = "GFX_raid_type_background_round"
+					pdx_tooltip = JAP_pnr_continental_policy_GXC_points_tt
+				}
+
+				instantTextBoxType = {
+					name = "value"
+					position = { x = @POINTS_TEXT_X y = @POINTS_TEXT_Y }
+					font = "hoi_18mbs"
+					text = JAP_pnr_continental_policy_GXC_points
+					maxWidth = 12
+					maxHeight = 12
+					fixedsize = yes
+					format = center
+					alwaystransparent = yes
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_continental_policy_SHD_slot"
+			position = { x = 336 y = 240 }
+			size = { width = @SLOT_WIDTH height = @SLOT_HEIGHT }
+			clipping = no
+
+			iconType = {
+				name = "JAP_pnr_continental_policy_SHD_flag"
+				position = { x = @FLAG_X y = @FLAG_Y }
+				quadTextureSprite = "GFX_flag_small2"
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "JAP_pnr_continental_policy_SHD_select_button"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_diplo_countrylist_flag_frame"
+				Orientation = "UPPER_LEFT"
+				clicksound = click_ok
+				oversound = ui_menu_over
+				buttonText = ""
+				pdx_tooltip = JAP_pnr_continental_policy_SHD_tt
+			}
+			iconType = {
+				name = "JAP_pnr_continental_policy_SHD_disabled_overlay"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_JAP_pnr_continental_policy_disabled_overlay"
+			}
+			containerWindowType = {
+				name = "points"
+				position = { x = @POINTS_X y = @POINTS_Y }
+				size = { width = 32 height = 32 }
+				clipping = no
+
+				iconType = {
+					name = "background"
+					spriteType = "GFX_raid_type_background_round"
+					pdx_tooltip = JAP_pnr_continental_policy_SHD_points_tt
+				}
+
+				instantTextBoxType = {
+					name = "value"
+					position = { x = @POINTS_TEXT_X y = @POINTS_TEXT_Y }
+					font = "hoi_18mbs"
+					text = JAP_pnr_continental_policy_SHD_points
+					maxWidth = 12
+					maxHeight = 12
+					fixedsize = yes
+					format = center
+					alwaystransparent = yes
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_continental_policy_ANQ_slot"
+			position = { x = 0 y = 320 }
+			size = { width = @SLOT_WIDTH height = @SLOT_HEIGHT }
+			clipping = no
+
+			iconType = {
+				name = "JAP_pnr_continental_policy_ANQ_flag"
+				position = { x = @FLAG_X y = @FLAG_Y }
+				quadTextureSprite = "GFX_flag_small2"
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "JAP_pnr_continental_policy_ANQ_select_button"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_diplo_countrylist_flag_frame"
+				Orientation = "UPPER_LEFT"
+				clicksound = click_ok
+				oversound = ui_menu_over
+				buttonText = ""
+				pdx_tooltip = JAP_pnr_continental_policy_ANQ_tt
+			}
+			iconType = {
+				name = "JAP_pnr_continental_policy_ANQ_disabled_overlay"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_JAP_pnr_continental_policy_disabled_overlay"
+			}
+			containerWindowType = {
+				name = "points"
+				position = { x = @POINTS_X y = @POINTS_Y }
+				size = { width = 32 height = 32 }
+				clipping = no
+
+				iconType = {
+					name = "background"
+					spriteType = "GFX_raid_type_background_round"
+					pdx_tooltip = JAP_pnr_continental_policy_ANQ_points_tt
+				}
+
+				instantTextBoxType = {
+					name = "value"
+					position = { x = @POINTS_TEXT_X y = @POINTS_TEXT_Y }
+					font = "hoi_18mbs"
+					text = JAP_pnr_continental_policy_ANQ_points
+					maxWidth = 12
+					maxHeight = 12
+					fixedsize = yes
+					format = center
+					alwaystransparent = yes
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_continental_policy_LEP_slot"
+			position = { x = 168 y = 320 }
+			size = { width = @SLOT_WIDTH height = @SLOT_HEIGHT }
+			clipping = no
+
+			iconType = {
+				name = "JAP_pnr_continental_policy_LEP_flag"
+				position = { x = @FLAG_X y = @FLAG_Y }
+				quadTextureSprite = "GFX_flag_small2"
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "JAP_pnr_continental_policy_LEP_select_button"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_diplo_countrylist_flag_frame"
+				Orientation = "UPPER_LEFT"
+				clicksound = click_ok
+				oversound = ui_menu_over
+				buttonText = ""
+				pdx_tooltip = JAP_pnr_continental_policy_LEP_tt
+			}
+			iconType = {
+				name = "JAP_pnr_continental_policy_LEP_disabled_overlay"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_JAP_pnr_continental_policy_disabled_overlay"
+			}
+			containerWindowType = {
+				name = "points"
+				position = { x = @POINTS_X y = @POINTS_Y }
+				size = { width = 32 height = 32 }
+				clipping = no
+
+				iconType = {
+					name = "background"
+					spriteType = "GFX_raid_type_background_round"
+					pdx_tooltip = JAP_pnr_continental_policy_LEP_points_tt
+				}
+
+				instantTextBoxType = {
+					name = "value"
+					position = { x = @POINTS_TEXT_X y = @POINTS_TEXT_Y }
+					font = "hoi_18mbs"
+					text = JAP_pnr_continental_policy_LEP_points
+					maxWidth = 12
+					maxHeight = 12
+					fixedsize = yes
+					format = center
+					alwaystransparent = yes
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_continental_policy_CHI_slot"
+			position = { x = 336 y = 320 }
+			size = { width = @SLOT_WIDTH height = @SLOT_HEIGHT }
+			clipping = no
+
+			iconType = {
+				name = "JAP_pnr_continental_policy_CHI_flag"
+				position = { x = @FLAG_X y = @FLAG_Y }
+				quadTextureSprite = "GFX_flag_small2"
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "JAP_pnr_continental_policy_CHI_select_button"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_diplo_countrylist_flag_frame"
+				Orientation = "UPPER_LEFT"
+				clicksound = click_ok
+				oversound = ui_menu_over
+				buttonText = ""
+				pdx_tooltip = JAP_pnr_continental_policy_CHI_tt
+			}
+			iconType = {
+				name = "JAP_pnr_continental_policy_CHI_disabled_overlay"
+				position = { x = @FLAG_FRAME_X y = @FLAG_FRAME_Y }
+				spriteType = "GFX_JAP_pnr_continental_policy_disabled_overlay"
+			}
+			containerWindowType = {
+				name = "points"
+				position = { x = @POINTS_X y = @POINTS_Y }
+				size = { width = 32 height = 32 }
+				clipping = no
+
+				iconType = {
+					name = "background"
+					spriteType = "GFX_raid_type_background_round"
+					pdx_tooltip = JAP_pnr_continental_policy_CHI_points_tt
+				}
+
+				instantTextBoxType = {
+					name = "value"
+					position = { x = @POINTS_TEXT_X y = @POINTS_TEXT_Y }
+					font = "hoi_18mbs"
+					text = JAP_pnr_continental_policy_CHI_points
+					maxWidth = 12
+					maxHeight = 12
+					fixedsize = yes
+					format = center
+					alwaystransparent = yes
+				}
+			}
+		}
+	}
+}

@@ -1,6 +1,7 @@
-JAP_pnr_red_conspiracy_category = {
+JAP_pnr_red_conspiracy_category = { #赤色阴谋
 	icon = GFX_decision_category_SOV_permanent_revolution
-	priority = 150
+	priority = 900
+	scripted_gui = JAP_pnr_red_conspiracy_decision_ui
 	allowed = {
 		tag = JAP
 	}
@@ -10,14 +11,45 @@ JAP_pnr_red_conspiracy_category = {
 	visible_when_empty = yes
 }
 
-JAP_pnr_interservice_budget_bop_category = {
+JAP_pnr_interservice_budget_bop_category = { #海陆对抗
 	icon = generic_political_reform
 	allowed = {
 		always = yes
 	}
 }
 
-JAP_pnr_debug_category = {
+JAP_pnr_election_category = { #选举
+	icon = GFX_decision_eng_propaganda_campaigns
+
+	allowed = {
+		original_tag = JAP
+	}
+
+	priority = 191
+	visible_when_empty = yes
+
+	visible = {
+		original_tag = JAP
+	}
+}
+
+JAP_pnr_continental_policy_category = { #代理人机制
+	icon = GFX_decision_category_generic_foreign_policy
+	priority = 92
+	visible_when_empty = yes
+
+	allowed = {
+		original_tag = JAP
+	}
+
+	visible = {
+		original_tag = JAP
+	}
+
+	scripted_gui = JAP_pnr_continental_policy_gui
+}
+
+JAP_pnr_debug_category = { #日本debug
 	icon = generic_political_reform
 	priority = 1
 	allowed = {

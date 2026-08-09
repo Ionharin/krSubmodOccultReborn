@@ -2,43 +2,43 @@ defined_text = {
 	name = JAP_congress_seat_party_name
 	text = {
 		trigger = { check_variable = { JAP_congress_seats_array^seat_idx = 1 } }
-		localization_key = JAP_congress_seat_party_1_name
+		localization_key = JAP_pnr_totalist_party
 	}
 	text = {
 		trigger = { check_variable = { JAP_congress_seats_array^seat_idx = 2 } }
-		localization_key = JAP_congress_seat_party_2_name
+		localization_key = JAP_pnr_syndicalist_party
 	}
 	text = {
 		trigger = { check_variable = { JAP_congress_seats_array^seat_idx = 3 } }
-		localization_key = JAP_congress_seat_party_3_name
+		localization_key = JAP_pnr_radical_socialist_party
 	}
 	text = {
 		trigger = { check_variable = { JAP_congress_seats_array^seat_idx = 4 } }
-		localization_key = JAP_congress_seat_party_4_name
+		localization_key = JAP_pnr_social_democrat_party
 	}
 	text = {
 		trigger = { check_variable = { JAP_congress_seats_array^seat_idx = 5 } }
-		localization_key = JAP_congress_seat_party_5_name
+		localization_key = JAP_pnr_social_liberal_party
 	}
 	text = {
 		trigger = { check_variable = { JAP_congress_seats_array^seat_idx = 6 } }
-		localization_key = JAP_congress_seat_party_6_name
+		localization_key = JAP_pnr_market_liberal_party
 	}
 	text = {
 		trigger = { check_variable = { JAP_congress_seats_array^seat_idx = 7 } }
-		localization_key = JAP_congress_seat_party_7_name
+		localization_key = JAP_pnr_social_conservative_party
 	}
 	text = {
 		trigger = { check_variable = { JAP_congress_seats_array^seat_idx = 8 } }
-		localization_key = JAP_congress_seat_party_8_name
+		localization_key = JAP_pnr_authoritarian_democrat_party
 	}
 	text = {
 		trigger = { check_variable = { JAP_congress_seats_array^seat_idx = 9 } }
-		localization_key = JAP_congress_seat_party_9_name
+		localization_key = JAP_pnr_paternal_autocrat_party
 	}
 	text = {
 		trigger = { check_variable = { JAP_congress_seats_array^seat_idx = 10 } }
-		localization_key = JAP_congress_seat_party_10_name
+		localization_key = JAP_pnr_national_populist_party
 	}
 	text = {
 		trigger = { always = yes }
@@ -48,15 +48,65 @@ defined_text = {
 
 defined_text = {
 	name = JAP_congress_majority_party_name_text
-	text = { trigger = { check_variable = { JAP_congress_majority_party = 1 } } localization_key = JAP_congress_seat_party_1_name }
-	text = { trigger = { check_variable = { JAP_congress_majority_party = 2 } } localization_key = JAP_congress_seat_party_2_name }
-	text = { trigger = { check_variable = { JAP_congress_majority_party = 3 } } localization_key = JAP_congress_seat_party_3_name }
-	text = { trigger = { check_variable = { JAP_congress_majority_party = 4 } } localization_key = JAP_congress_seat_party_4_name }
-	text = { trigger = { check_variable = { JAP_congress_majority_party = 5 } } localization_key = JAP_congress_seat_party_5_name }
-	text = { trigger = { check_variable = { JAP_congress_majority_party = 6 } } localization_key = JAP_congress_seat_party_6_name }
-	text = { trigger = { check_variable = { JAP_congress_majority_party = 7 } } localization_key = JAP_congress_seat_party_7_name }
-	text = { trigger = { check_variable = { JAP_congress_majority_party = 8 } } localization_key = JAP_congress_seat_party_8_name }
-	text = { trigger = { check_variable = { JAP_congress_majority_party = 9 } } localization_key = JAP_congress_seat_party_9_name }
-	text = { trigger = { check_variable = { JAP_congress_majority_party = 10 } } localization_key = JAP_congress_seat_party_10_name }
+	text = { trigger = { check_variable = { JAP_congress_majority_party = 1 } } localization_key = JAP_pnr_totalist_party }
+	text = { trigger = { check_variable = { JAP_congress_majority_party = 2 } } localization_key = JAP_pnr_syndicalist_party }
+	text = { trigger = { check_variable = { JAP_congress_majority_party = 3 } } localization_key = JAP_pnr_radical_socialist_party }
+	text = { trigger = { check_variable = { JAP_congress_majority_party = 4 } } localization_key = JAP_pnr_social_democrat_party }
+	text = { trigger = { check_variable = { JAP_congress_majority_party = 5 } } localization_key = JAP_pnr_social_liberal_party }
+	text = { trigger = { check_variable = { JAP_congress_majority_party = 6 } } localization_key = JAP_pnr_market_liberal_party }
+	text = { trigger = { check_variable = { JAP_congress_majority_party = 7 } } localization_key = JAP_pnr_social_conservative_party }
+	text = { trigger = { check_variable = { JAP_congress_majority_party = 8 } } localization_key = JAP_pnr_authoritarian_democrat_party }
+	text = { trigger = { check_variable = { JAP_congress_majority_party = 9 } } localization_key = JAP_pnr_paternal_autocrat_party }
+	text = { trigger = { check_variable = { JAP_congress_majority_party = 10 } } localization_key = JAP_pnr_national_populist_party }
 	text = { trigger = { always = yes } localization_key = JAP_congress_seat_party_unknown_name }
+}
+
+defined_text = {
+	name = JAP_congress_party_1_name_text
+	text = { trigger = { always = yes } localization_key = JAP_pnr_totalist_party }
+}
+
+defined_text = {
+	name = JAP_congress_party_2_name_text
+	text = { trigger = { always = yes } localization_key = JAP_pnr_syndicalist_party }
+}
+
+defined_text = {
+	name = JAP_congress_party_3_name_text
+	text = { trigger = { always = yes } localization_key = JAP_pnr_radical_socialist_party }
+}
+
+defined_text = {
+	name = JAP_congress_party_4_name_text
+	text = { trigger = { always = yes } localization_key = JAP_pnr_social_democrat_party }
+}
+
+defined_text = {
+	name = JAP_congress_party_5_name_text
+	text = { trigger = { always = yes } localization_key = JAP_pnr_social_liberal_party }
+}
+
+defined_text = {
+	name = JAP_congress_party_6_name_text
+	text = { trigger = { always = yes } localization_key = JAP_pnr_market_liberal_party }
+}
+
+defined_text = {
+	name = JAP_congress_party_7_name_text
+	text = { trigger = { always = yes } localization_key = JAP_pnr_social_conservative_party }
+}
+
+defined_text = {
+	name = JAP_congress_party_8_name_text
+	text = { trigger = { always = yes } localization_key = JAP_pnr_authoritarian_democrat_party }
+}
+
+defined_text = {
+	name = JAP_congress_party_9_name_text
+	text = { trigger = { always = yes } localization_key = JAP_pnr_paternal_autocrat_party }
+}
+
+defined_text = {
+	name = JAP_congress_party_10_name_text
+	text = { trigger = { always = yes } localization_key = JAP_pnr_national_populist_party }
 }
