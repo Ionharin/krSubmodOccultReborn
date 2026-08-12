@@ -3,13 +3,25 @@ scripted_gui = {
 		context_type = decision_category
 		window_name = "jap_pnr_cardgame_decision_ui"
 
-		properties = {
-			jap_pnr_cardgame_crisis_icon = {
-				image = "[?JAP_pnr_cardgame_current_crisis.GetJAPPNRCardgameCrisisIcon]"
-			}
-		}
-
 		triggers = {
+			jap_pnr_cardgame_crisis_icon_1_visible = {
+				check_variable = { JAP_pnr_cardgame_current_crisis = 1 }
+			}
+			jap_pnr_cardgame_crisis_icon_2_visible = {
+				check_variable = { JAP_pnr_cardgame_current_crisis = 2 }
+			}
+			jap_pnr_cardgame_crisis_icon_3_visible = {
+				check_variable = { JAP_pnr_cardgame_current_crisis = 3 }
+			}
+			jap_pnr_cardgame_crisis_icon_4_visible = {
+				check_variable = { JAP_pnr_cardgame_current_crisis = 4 }
+			}
+			jap_pnr_cardgame_crisis_icon_5_visible = {
+				check_variable = { JAP_pnr_cardgame_current_crisis = 5 }
+			}
+			jap_pnr_cardgame_crisis_icon_6_visible = {
+				check_variable = { JAP_pnr_cardgame_current_crisis = 6 }
+			}
 			jap_pnr_cardgame_round_exchange_button_visible = {
 				NOT = { has_country_flag = JAP_pnr_cardgame_round_exchange_used }
 			}

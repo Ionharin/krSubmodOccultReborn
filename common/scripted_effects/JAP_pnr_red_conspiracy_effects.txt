@@ -5,9 +5,10 @@ JAP_pnr_initialize_red_conspiracy = {
 			NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun }
 		}
 		set_country_flag = JAP_pnr_red_conspiracy_begun
-		set_variable = { JAP_pnr_red_conspiracy_strength = 25 }
+		set_variable = { JAP_pnr_red_conspiracy_strength = 15 }
+		remove_ideas = JAP_pnr_housing_finance_agency
 		JAP_pnr_update_red_conspiracy_modifier_values = yes
-		#add_dynamic_modifier = { modifier = JAP_pnr_red_hands_modifier }
+		add_dynamic_modifier = { modifier = JAP_pnr_red_hands_modifier }
 		activate_mission = JAP_pnr_red_conspiracy_escalation
 	}
 }

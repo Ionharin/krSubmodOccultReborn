@@ -3,22 +3,23 @@ JAP_pnr_election_initialize_projected_results = {
 	set_variable = { JAP_pnr_election_total_seats = 466 }
 
 	set_variable = { JAP_pnr_election_party_seats^1 = 0 }
-	set_variable = { JAP_pnr_election_party_seats^2 = 1 }
+	set_variable = { JAP_pnr_election_party_seats^2 = 2 }
 	set_variable = { JAP_pnr_election_party_seats^3 = 0 }
-	set_variable = { JAP_pnr_election_party_seats^4 = 11 }
-	set_variable = { JAP_pnr_election_party_seats^5 = 26 }
-	set_variable = { JAP_pnr_election_party_seats^6 = 155 }
-	set_variable = { JAP_pnr_election_party_seats^7 = 255 }
-	set_variable = { JAP_pnr_election_party_seats^8 = 0 }
+	set_variable = { JAP_pnr_election_party_seats^4 = 19 }
+	set_variable = { JAP_pnr_election_party_seats^5 = 28 }
+	set_variable = { JAP_pnr_election_party_seats^6 = 141 }
+	set_variable = { JAP_pnr_election_party_seats^7 = 228 }
+	set_variable = { JAP_pnr_election_party_seats^8 = 22 }
 	set_variable = { JAP_pnr_election_party_seats^9 = 0 }
-	set_variable = { JAP_pnr_election_party_seats^10 = 18 }
+	set_variable = { JAP_pnr_election_party_seats^10 = 26 }
 
-	set_variable = { JAP_pnr_election_party_seats_initial^2 = 1 }
-	set_variable = { JAP_pnr_election_party_seats_initial^4 = 11 }
-	set_variable = { JAP_pnr_election_party_seats_initial^5 = 26 }
-	set_variable = { JAP_pnr_election_party_seats_initial^6 = 155 }
-	set_variable = { JAP_pnr_election_party_seats_initial^7 = 255 }
-	set_variable = { JAP_pnr_election_party_seats_initial^10 = 18 }
+	set_variable = { JAP_pnr_election_party_seats_initial^2 = 2 }
+	set_variable = { JAP_pnr_election_party_seats_initial^4 = 19 }
+	set_variable = { JAP_pnr_election_party_seats_initial^5 = 28 }
+	set_variable = { JAP_pnr_election_party_seats_initial^6 = 141 }
+	set_variable = { JAP_pnr_election_party_seats_initial^7 = 228 }
+	set_variable = { JAP_pnr_election_party_seats_initial^8 = 22 }
+	set_variable = { JAP_pnr_election_party_seats_initial^10 = 26 }
 
 	JAP_pnr_election_refresh_projected_changes = yes
 }
@@ -38,6 +39,7 @@ JAP_pnr_election_refresh_projected_donor = {
 	if = { limit = { check_variable = { JAP_pnr_election_party_seats^5 > JAP_pnr_election_donor_party_seats } } set_variable = { JAP_pnr_election_donor_party = 5 } set_variable = { JAP_pnr_election_donor_party_seats = JAP_pnr_election_party_seats^5 } }
 	if = { limit = { check_variable = { JAP_pnr_election_party_seats^6 > JAP_pnr_election_donor_party_seats } } set_variable = { JAP_pnr_election_donor_party = 6 } set_variable = { JAP_pnr_election_donor_party_seats = JAP_pnr_election_party_seats^6 } }
 	if = { limit = { check_variable = { JAP_pnr_election_party_seats^7 > JAP_pnr_election_donor_party_seats } } set_variable = { JAP_pnr_election_donor_party = 7 } set_variable = { JAP_pnr_election_donor_party_seats = JAP_pnr_election_party_seats^7 } }
+	if = { limit = { check_variable = { JAP_pnr_election_party_seats^8 > JAP_pnr_election_donor_party_seats } } set_variable = { JAP_pnr_election_donor_party = 8 } set_variable = { JAP_pnr_election_donor_party_seats = JAP_pnr_election_party_seats^8 } }
 }
 
 JAP_pnr_election_refresh_projected_changes = {
@@ -51,25 +53,41 @@ JAP_pnr_election_refresh_projected_changes = {
 	subtract_from_variable = { JAP_pnr_election_party_change^6 = JAP_pnr_election_party_seats_initial^6 }
 	set_variable = { JAP_pnr_election_party_change^7 = JAP_pnr_election_party_seats^7 }
 	subtract_from_variable = { JAP_pnr_election_party_change^7 = JAP_pnr_election_party_seats_initial^7 }
+	set_variable = { JAP_pnr_election_party_change^8 = JAP_pnr_election_party_seats^8 }
+	subtract_from_variable = { JAP_pnr_election_party_change^8 = JAP_pnr_election_party_seats_initial^8 }
 	set_variable = { JAP_pnr_election_party_change^10 = JAP_pnr_election_party_seats^10 }
 	subtract_from_variable = { JAP_pnr_election_party_change^10 = JAP_pnr_election_party_seats_initial^10 }
 }
 
-JAP_pnr_election_party_10_gain_10_seats = {
+JAP_pnr_election_calculate_winner = {
 	JAP_pnr_election_ensure_projected_results = yes
-	JAP_pnr_election_refresh_projected_donor = yes
 
-	set_variable = { JAP_pnr_election_seats_to_move = 10 }
+	set_variable = { JAP_pnr_election_winning_party = 7 }
+	set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_party_seats^7 }
+
 	if = {
-		limit = { check_variable = { JAP_pnr_election_donor_party_seats < JAP_pnr_election_seats_to_move } }
-		set_variable = { JAP_pnr_election_seats_to_move = JAP_pnr_election_donor_party_seats }
+		limit = { check_variable = { JAP_pnr_election_party_seats^10 > JAP_pnr_election_winning_party_seats } }
+		set_variable = { JAP_pnr_election_winning_party = 10 }
+		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_party_seats^10 }
+	}
+	if = {
+		limit = { check_variable = { JAP_pnr_election_party_seats^8 > JAP_pnr_election_winning_party_seats } }
+		set_variable = { JAP_pnr_election_winning_party = 8 }
+		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_party_seats^8 }
 	}
 
-	subtract_from_variable = { JAP_pnr_election_party_seats^JAP_pnr_election_donor_party = JAP_pnr_election_seats_to_move }
-	add_to_variable = { JAP_pnr_election_party_seats^10 = JAP_pnr_election_seats_to_move }
-	JAP_pnr_election_refresh_projected_changes = yes
-
-	custom_effect_tooltip = JAP_pnr_election_party_10_gain_10_seats_tt
+	set_variable = { JAP_pnr_election_shakai_taishuto_seats = JAP_pnr_election_party_seats^4 }
+	add_to_variable = { JAP_pnr_election_shakai_taishuto_seats = JAP_pnr_election_party_seats^5 }
+	if = {
+		limit = { check_variable = { JAP_pnr_election_shakai_taishuto_seats > JAP_pnr_election_winning_party_seats } }
+		set_variable = { JAP_pnr_election_winning_party = 5 }
+		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_shakai_taishuto_seats }
+	}
+	if = {
+		limit = { check_variable = { JAP_pnr_election_party_seats^6 > JAP_pnr_election_winning_party_seats } }
+		set_variable = { JAP_pnr_election_winning_party = 6 }
+		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_party_seats^6 }
+	}
 }
 
 JAP_pnr_election_commit_results = {
@@ -83,6 +101,7 @@ JAP_pnr_election_commit_results = {
 	add_to_array = { JAP_congress_faction_list = 5 }
 	add_to_array = { JAP_congress_faction_list = 6 }
 	add_to_array = { JAP_congress_faction_list = 7 }
+	add_to_array = { JAP_congress_faction_list = 8 }
 	add_to_array = { JAP_congress_faction_list = 10 }
 
 	set_variable = { JAP_congress_faction_seats_list^1 = 0 }
@@ -92,12 +111,11 @@ JAP_pnr_election_commit_results = {
 	set_variable = { JAP_congress_faction_seats_list^5 = JAP_pnr_election_party_seats^5 }
 	set_variable = { JAP_congress_faction_seats_list^6 = JAP_pnr_election_party_seats^6 }
 	set_variable = { JAP_congress_faction_seats_list^7 = JAP_pnr_election_party_seats^7 }
-	set_variable = { JAP_congress_faction_seats_list^8 = 0 }
+	set_variable = { JAP_congress_faction_seats_list^8 = JAP_pnr_election_party_seats^8 }
 	set_variable = { JAP_congress_faction_seats_list^9 = 0 }
 	set_variable = { JAP_congress_faction_seats_list^10 = JAP_pnr_election_party_seats^10 }
 
 	clr_country_flag = JAP_pnr_election_in_progress
 	JAP_congress_rebuild_seats = yes
 	JAP_congress_set_initial_authority = yes
-	custom_effect_tooltip = JAP_pnr_election_results_committed_tt
 }

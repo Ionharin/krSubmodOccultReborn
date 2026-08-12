@@ -5,10 +5,15 @@ JAP_pnr_pandemic_modifier = {
 	local_org_regain = -0.50
 }
 
+JAP_pnr_cardgame_flowing_black_wealth_modifier = {
+	icon = GFX_decision_oil
+	state_resources_factor = 0.25
+}
+
 JAP_pnr_red_hands_modifier = {
 	icon = GFX_idea_NOR_sivog
 
-	global_building_slots_factor = -0.10
+	industrial_capacity_factory = -0.15
 	consumer_goods_factor = JAP_pnr_red_conspiracy_scaled_factor
 	production_speed_buildings_factor = JAP_pnr_red_conspiracy_scaled_factor_negative
 	local_resources_factor = JAP_pnr_red_conspiracy_scaled_factor_negative
@@ -17,9 +22,4 @@ JAP_pnr_red_hands_modifier = {
 	#remove_trigger = {
 		#NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun }
 	#}
-}
-
-JAP_pnr_cardgame_flowing_black_wealth_modifier = {
-	icon = GFX_decision_oil
-	state_resources_factor = 0.25
 }

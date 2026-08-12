@@ -49,7 +49,7 @@ scripted_gui = {
 				has_country_flag = JAP_congress_broken_overlay_active
 			}
 			JAP_congress_seats_reselect_overlay_visible = {
-				has_country_flag = JAP_congress_reselect_overlay_active
+				has_country_flag = pnr_congress_temporarily_unable
 			}
 			JAP_congress_majority_party_1_icon_visible = {
 				check_variable = { JAP_congress_majority_party = 1 }
@@ -81,11 +81,93 @@ scripted_gui = {
 			JAP_congress_majority_party_10_icon_visible = {
 				check_variable = { JAP_congress_majority_party = 10 }
 			}
+			JAP_congress_embedded_party_detail_1_visible = {
+				check_variable = { party_idx = 1 }
+			}
+			JAP_congress_embedded_party_row_1_bg_visible = {
+				check_variable = { party_idx = 1 }
+			}
+			JAP_congress_embedded_party_detail_2_visible = {
+				check_variable = { party_idx = 2 }
+			}
+			JAP_congress_embedded_party_row_2_bg_visible = {
+				check_variable = { party_idx = 2 }
+			}
+			JAP_congress_embedded_party_detail_3_visible = {
+				check_variable = { party_idx = 3 }
+			}
+			JAP_congress_embedded_party_row_3_bg_visible = {
+				check_variable = { party_idx = 3 }
+			}
+			JAP_congress_embedded_party_detail_4_visible = {
+				check_variable = { party_idx = 4 }
+			}
+			JAP_congress_embedded_party_row_4_bg_visible = {
+				check_variable = { party_idx = 4 }
+			}
+			JAP_congress_embedded_party_detail_5_visible = {
+				check_variable = { party_idx = 5 }
+			}
+			JAP_congress_embedded_party_row_5_bg_visible = {
+				check_variable = { party_idx = 5 }
+			}
+			JAP_congress_embedded_party_detail_6_visible = {
+				check_variable = { party_idx = 6 }
+			}
+			JAP_congress_embedded_party_row_6_bg_visible = {
+				check_variable = { party_idx = 6 }
+			}
+			JAP_congress_embedded_party_detail_7_visible = {
+				check_variable = { party_idx = 7 }
+			}
+			JAP_congress_embedded_party_row_7_bg_visible = {
+				check_variable = { party_idx = 7 }
+			}
+			JAP_congress_embedded_party_detail_8_visible = {
+				check_variable = { party_idx = 8 }
+			}
+			JAP_congress_embedded_party_row_8_bg_visible = {
+				check_variable = { party_idx = 8 }
+			}
+			JAP_congress_embedded_party_detail_9_visible = {
+				check_variable = { party_idx = 9 }
+			}
+			JAP_congress_embedded_party_row_9_bg_visible = {
+				check_variable = { party_idx = 9 }
+			}
+			JAP_congress_embedded_party_detail_10_visible = {
+				check_variable = { party_idx = 10 }
+			}
+			JAP_congress_embedded_party_row_10_bg_visible = {
+				check_variable = { party_idx = 10 }
+			}
+			JAP_congress_agenda_1_active_icon_visible = {
+				has_country_flag = JAP_congress_agenda_1_active
+			}
+			JAP_congress_agenda_2_active_icon_visible = {
+				has_country_flag = JAP_congress_agenda_2_active
+			}
+			JAP_congress_agenda_3_active_icon_visible = {
+				has_country_flag = JAP_congress_agenda_3_active
+			}
+			JAP_congress_agenda_4_active_icon_visible = {
+				has_country_flag = JAP_congress_agenda_4_active
+			}
+			JAP_congress_agenda_5_active_icon_visible = {
+				has_country_flag = JAP_congress_agenda_5_active
+			}
+			JAP_congress_agenda_6_active_icon_visible = {
+				has_country_flag = JAP_congress_agenda_6_active
+			}
+			JAP_congress_agenda_7_active_icon_visible = {
+				has_country_flag = JAP_congress_agenda_7_active
+			}
+			JAP_congress_agenda_8_active_icon_visible = {
+				has_country_flag = JAP_congress_agenda_8_active
+			}
 			JAP_congress_close_button_click_enabled = { always = yes }
-			JAP_congress_party_detail_toggle_button_click_enabled = { always = yes }
 			JAP_congress_collapse_test_button_click_enabled = { always = yes }
 			JAP_congress_broken_test_button_click_enabled = { always = yes }
-			JAP_congress_reselect_test_button_click_enabled = { always = yes }
 			JAP_congress_authority_increase_button_click_enabled = {
 				set_temp_variable = { JAP_congress_authority_value = 1 }
 				JAP_congress_has_political_power_for_authority = yes
@@ -118,29 +200,25 @@ scripted_gui = {
 				set_temp_variable = { JAP_congress_authority_value = 50 }
 				JAP_congress_can_recover_authority = yes
 			}
-			JAP_congress_agenda_1_button_click_enabled = { JAP_congress_can_vote_agenda = yes }
-			JAP_congress_agenda_2_button_click_enabled = { JAP_congress_can_vote_agenda = yes }
-			JAP_congress_agenda_3_button_click_enabled = { JAP_congress_can_vote_agenda = yes }
-			JAP_congress_agenda_3_button_visible = { JAP_congress_lower_voting_age_agenda_visible = yes }
-			JAP_congress_agenda_3_text_visible = { JAP_congress_lower_voting_age_agenda_visible = yes }
-			JAP_congress_agenda_3_checkbox_visible = { JAP_congress_lower_voting_age_agenda_visible = yes }
+			JAP_congress_agenda_1_button_click_enabled = { JAP_congress_agenda_1_available = yes }
+			JAP_congress_agenda_2_button_click_enabled = { JAP_congress_agenda_2_available = yes }
+			JAP_congress_agenda_3_button_click_enabled = { JAP_congress_agenda_3_available = yes }
+			JAP_congress_agenda_4_button_click_enabled = { JAP_congress_agenda_4_available = yes }
+			JAP_congress_agenda_5_button_click_enabled = { JAP_congress_agenda_5_available = yes }
+			JAP_congress_agenda_6_button_click_enabled = { JAP_congress_agenda_6_available = yes }
+			JAP_congress_agenda_7_button_click_enabled = { JAP_congress_agenda_7_available = yes }
+			JAP_congress_agenda_8_button_click_enabled = { JAP_congress_agenda_8_available = yes }
 		}
 
 		effects = {
 			JAP_congress_close_button_click = {
 				JAP_congress_close_panel = yes
 			}
-			JAP_congress_party_detail_toggle_button_click = {
-				JAP_congress_toggle_party_detail_panel = yes
-			}
 			JAP_congress_collapse_test_button_click = {
 				JAP_congress_start_collapse_overlay = yes
 			}
 			JAP_congress_broken_test_button_click = {
 				JAP_congress_start_broken_overlay = yes
-			}
-			JAP_congress_reselect_test_button_click = {
-				JAP_congress_start_reselect_overlay = yes
 			}
 			JAP_congress_authority_increase_button_click = {
 				set_temp_variable = { JAP_congress_authority_value = 1 }
@@ -177,6 +255,11 @@ scripted_gui = {
 			JAP_congress_agenda_1_button_click = { JAP_congress_pass_agenda_1 = yes }
 			JAP_congress_agenda_2_button_click = { JAP_congress_pass_agenda_2 = yes }
 			JAP_congress_agenda_3_button_click = { JAP_congress_pass_agenda_3 = yes }
+			JAP_congress_agenda_4_button_click = { JAP_congress_pass_agenda_4 = yes }
+			JAP_congress_agenda_5_button_click = { JAP_congress_pass_agenda_5 = yes }
+			JAP_congress_agenda_6_button_click = { JAP_congress_pass_agenda_6 = yes }
+			JAP_congress_agenda_7_button_click = { JAP_congress_pass_agenda_7 = yes }
+			JAP_congress_agenda_8_button_click = { JAP_congress_pass_agenda_8 = yes }
 		}
 
 		properties = {
@@ -189,9 +272,6 @@ scripted_gui = {
 				x = JAP_congress_x_array^seat_idx
 				y = JAP_congress_y_array^seat_idx
 			}
-			JAP_congress_agenda_1_checkbox = { frame = JAP_congress_agenda_1_frame }
-			JAP_congress_agenda_2_checkbox = { frame = JAP_congress_agenda_2_frame }
-			JAP_congress_agenda_3_checkbox = { frame = JAP_congress_agenda_3_frame }
 		}
 
 		dynamic_lists = {
@@ -201,20 +281,13 @@ scripted_gui = {
 				entry_container = JAP_congress_seat_container
 				index = seat_idx
 			}
+			JAP_congress_party_detail_gridbox = {
+				array = JAP_congress_party_detail_list
+				change_scope = no
+				entry_container = JAP_congress_party_detail_entry
+				value = party_idx
+			}
 		}
-	}
-
-	JAP_congress_party_detail_window = {
-		context_type = player_context
-		window_name = "JAP_congress_party_detail_panel"
-		dirty = global.JAP_congress_update
-
-		visible = {
-			JAP_congress_interface_is_open = yes
-			has_country_flag = JAP_congress_party_detail_panel_open
-		}
-
-		ai_enabled = { always = no }
 	}
 
 }

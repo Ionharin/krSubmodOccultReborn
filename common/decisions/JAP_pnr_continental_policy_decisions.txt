@@ -15,13 +15,16 @@ JAP_pnr_continental_policy_category = {
 		}
 	}
 
-	JAP_pnr_continental_policy_special_loan = {
+	JAP_pnr_continental_policy_FNG_establish_economic_contact = {
 		icon = generic_agreement
+		days_remove = 14
+		days_re_enable = 120
 
 		visible = {
 			original_tag = JAP
 			country_exists = FNG
 			check_variable = { JAP_pnr_continental_policy_selected_country = 1 }
+			NOT = { has_country_flag = JAP_pnr_continental_policy_contact_FNG }
 		}
 
 		available = {
@@ -31,18 +34,2643 @@ JAP_pnr_continental_policy_category = {
 		complete_effect = {
 		}
 
+		remove_effect = {
+			FNG = { country_event = { id = JAP_pnr_kg.101 } }
+		}
+
 		ai_will_do = {
 			factor = 0
 		}
 	}
 
-	JAP_pnr_continental_policy_opium_and_guns = {
+	JAP_pnr_continental_policy_FNG_special_loan = {
 		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 75
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			original_tag = JAP
+			country_exists = FNG
+			check_variable = { JAP_pnr_continental_policy_selected_country = 1 }
+			has_country_flag = JAP_pnr_continental_policy_contact_FNG
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_country_flag = JAP_pnr_continental_policy_contact_FNG
+		}
+
+		complete_effect = {
+			FNG = { country_event = { id = JAP_pnr_kg.102 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_FNG_opium_and_guns = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = FNG
+			check_variable = { JAP_pnr_continental_policy_selected_country = 1 }
+			has_country_flag = JAP_pnr_continental_policy_contact_FNG
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_FNG
+		}
+
+		complete_effect = {
+			FNG = { country_event = { id = JAP_pnr_kg.103 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_FNG_technical_investment_agreement = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = FNG
+			check_variable = { JAP_pnr_continental_policy_selected_country = 1 }
+			has_country_flag = JAP_pnr_continental_policy_contact_FNG
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_FNG
+		}
+
+		complete_effect = {
+			FNG = { country_event = { id = JAP_pnr_kg.104 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_FNG_encourage_righteous_war = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 150
+
+		visible = {
+			original_tag = JAP
+			country_exists = FNG
+			check_variable = { JAP_pnr_continental_policy_selected_country = 1 }
+			has_country_flag = JAP_pnr_continental_policy_contact_FNG
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_FNG
+		}
+
+		complete_effect = {
+			FNG = { country_event = { id = JAP_pnr_kg.105 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_FNG_military_advisory_group = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 50
+
+		visible = {
+			original_tag = JAP
+			country_exists = FNG
+			check_variable = { JAP_pnr_continental_policy_selected_country = 1 }
+			has_country_flag = JAP_pnr_continental_policy_contact_FNG
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_FNG
+		}
+
+		complete_effect = {
+			FNG = { country_event = { id = JAP_pnr_kg.106 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_FNG_limited_military_intervention = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 180
+
+		visible = {
+			original_tag = JAP
+			country_exists = FNG
+			check_variable = { JAP_pnr_continental_policy_selected_country = 1 }
+			has_country_flag = JAP_pnr_continental_policy_contact_FNG
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_FNG
+		}
+
+		complete_effect = {
+			FNG = { country_event = { id = JAP_pnr_kg.107 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_QIE_establish_economic_contact = {
+		icon = generic_agreement
+		days_remove = 14
+		days_re_enable = 120
+
+		visible = {
+			original_tag = JAP
+			country_exists = QIE
+			check_variable = { JAP_pnr_continental_policy_selected_country = 2 }
+			NOT = { has_country_flag = JAP_pnr_continental_policy_contact_QIE }
+		}
+
+		available = {
+			always = yes
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			QIE = { country_event = { id = JAP_pnr_kg.101 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_QIE_special_loan = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 75
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			original_tag = JAP
+			country_exists = QIE
+			check_variable = { JAP_pnr_continental_policy_selected_country = 2 }
+			has_country_flag = JAP_pnr_continental_policy_contact_QIE
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_country_flag = JAP_pnr_continental_policy_contact_QIE
+		}
+
+		complete_effect = {
+			QIE = { country_event = { id = JAP_pnr_kg.102 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_QIE_opium_and_guns = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = QIE
+			check_variable = { JAP_pnr_continental_policy_selected_country = 2 }
+			has_country_flag = JAP_pnr_continental_policy_contact_QIE
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_QIE
+		}
+
+		complete_effect = {
+			QIE = { country_event = { id = JAP_pnr_kg.103 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_QIE_technical_investment_agreement = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = QIE
+			check_variable = { JAP_pnr_continental_policy_selected_country = 2 }
+			has_country_flag = JAP_pnr_continental_policy_contact_QIE
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_QIE
+		}
+
+		complete_effect = {
+			QIE = { country_event = { id = JAP_pnr_kg.104 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_QIE_encourage_righteous_war = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 150
+
+		visible = {
+			original_tag = JAP
+			country_exists = QIE
+			check_variable = { JAP_pnr_continental_policy_selected_country = 2 }
+			has_country_flag = JAP_pnr_continental_policy_contact_QIE
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_QIE
+		}
+
+		complete_effect = {
+			QIE = { country_event = { id = JAP_pnr_kg.105 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_QIE_military_advisory_group = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 50
+
+		visible = {
+			original_tag = JAP
+			country_exists = QIE
+			check_variable = { JAP_pnr_continental_policy_selected_country = 2 }
+			has_country_flag = JAP_pnr_continental_policy_contact_QIE
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_QIE
+		}
+
+		complete_effect = {
+			QIE = { country_event = { id = JAP_pnr_kg.106 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_QIE_limited_military_intervention = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 180
+
+		visible = {
+			original_tag = JAP
+			country_exists = QIE
+			check_variable = { JAP_pnr_continental_policy_selected_country = 2 }
+			has_country_flag = JAP_pnr_continental_policy_contact_QIE
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_QIE
+		}
+
+		complete_effect = {
+			QIE = { country_event = { id = JAP_pnr_kg.107 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SHX_establish_economic_contact = {
+		icon = generic_agreement
+		days_remove = 14
+		days_re_enable = 120
+
+		visible = {
+			original_tag = JAP
+			country_exists = SHX
+			check_variable = { JAP_pnr_continental_policy_selected_country = 3 }
+			NOT = { has_country_flag = JAP_pnr_continental_policy_contact_SHX }
+		}
+
+		available = {
+			always = yes
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			SHX = { country_event = { id = JAP_pnr_kg.101 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SHX_special_loan = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 75
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			original_tag = JAP
+			country_exists = SHX
+			check_variable = { JAP_pnr_continental_policy_selected_country = 3 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SHX
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_country_flag = JAP_pnr_continental_policy_contact_SHX
+		}
+
+		complete_effect = {
+			SHX = { country_event = { id = JAP_pnr_kg.102 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SHX_opium_and_guns = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = SHX
+			check_variable = { JAP_pnr_continental_policy_selected_country = 3 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SHX
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SHX
+		}
+
+		complete_effect = {
+			SHX = { country_event = { id = JAP_pnr_kg.103 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SHX_technical_investment_agreement = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = SHX
+			check_variable = { JAP_pnr_continental_policy_selected_country = 3 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SHX
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SHX
+		}
+
+		complete_effect = {
+			SHX = { country_event = { id = JAP_pnr_kg.104 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SHX_encourage_righteous_war = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 150
+
+		visible = {
+			original_tag = JAP
+			country_exists = SHX
+			check_variable = { JAP_pnr_continental_policy_selected_country = 3 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SHX
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SHX
+		}
+
+		complete_effect = {
+			SHX = { country_event = { id = JAP_pnr_kg.105 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SHX_military_advisory_group = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 50
+
+		visible = {
+			original_tag = JAP
+			country_exists = SHX
+			check_variable = { JAP_pnr_continental_policy_selected_country = 3 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SHX
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SHX
+		}
+
+		complete_effect = {
+			SHX = { country_event = { id = JAP_pnr_kg.106 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SHX_limited_military_intervention = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 180
+
+		visible = {
+			original_tag = JAP
+			country_exists = SHX
+			check_variable = { JAP_pnr_continental_policy_selected_country = 3 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SHX
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SHX
+		}
+
+		complete_effect = {
+			SHX = { country_event = { id = JAP_pnr_kg.107 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_XSM_establish_economic_contact = {
+		icon = generic_agreement
+		days_remove = 14
+		days_re_enable = 120
+
+		visible = {
+			original_tag = JAP
+			country_exists = XSM
+			check_variable = { JAP_pnr_continental_policy_selected_country = 4 }
+			NOT = { has_country_flag = JAP_pnr_continental_policy_contact_XSM }
+		}
+
+		available = {
+			always = yes
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			XSM = { country_event = { id = JAP_pnr_kg.101 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_XSM_special_loan = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 75
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			original_tag = JAP
+			country_exists = XSM
+			check_variable = { JAP_pnr_continental_policy_selected_country = 4 }
+			has_country_flag = JAP_pnr_continental_policy_contact_XSM
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_country_flag = JAP_pnr_continental_policy_contact_XSM
+		}
+
+		complete_effect = {
+			XSM = { country_event = { id = JAP_pnr_kg.102 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_XSM_opium_and_guns = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = XSM
+			check_variable = { JAP_pnr_continental_policy_selected_country = 4 }
+			has_country_flag = JAP_pnr_continental_policy_contact_XSM
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_XSM
+		}
+
+		complete_effect = {
+			XSM = { country_event = { id = JAP_pnr_kg.103 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_XSM_technical_investment_agreement = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = XSM
+			check_variable = { JAP_pnr_continental_policy_selected_country = 4 }
+			has_country_flag = JAP_pnr_continental_policy_contact_XSM
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_XSM
+		}
+
+		complete_effect = {
+			XSM = { country_event = { id = JAP_pnr_kg.104 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_XSM_encourage_righteous_war = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 150
+
+		visible = {
+			original_tag = JAP
+			country_exists = XSM
+			check_variable = { JAP_pnr_continental_policy_selected_country = 4 }
+			has_country_flag = JAP_pnr_continental_policy_contact_XSM
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_XSM
+		}
+
+		complete_effect = {
+			XSM = { country_event = { id = JAP_pnr_kg.105 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_XSM_military_advisory_group = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 50
+
+		visible = {
+			original_tag = JAP
+			country_exists = XSM
+			check_variable = { JAP_pnr_continental_policy_selected_country = 4 }
+			has_country_flag = JAP_pnr_continental_policy_contact_XSM
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_XSM
+		}
+
+		complete_effect = {
+			XSM = { country_event = { id = JAP_pnr_kg.106 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_XSM_limited_military_intervention = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 180
+
+		visible = {
+			original_tag = JAP
+			country_exists = XSM
+			check_variable = { JAP_pnr_continental_policy_selected_country = 4 }
+			has_country_flag = JAP_pnr_continental_policy_contact_XSM
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_XSM
+		}
+
+		complete_effect = {
+			XSM = { country_event = { id = JAP_pnr_kg.107 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_KUM_establish_economic_contact = {
+		icon = generic_agreement
+		days_remove = 14
+		days_re_enable = 120
+
+		visible = {
+			original_tag = JAP
+			country_exists = KUM
+			check_variable = { JAP_pnr_continental_policy_selected_country = 5 }
+			NOT = { has_country_flag = JAP_pnr_continental_policy_contact_KUM }
+		}
+
+		available = {
+			always = yes
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			KUM = { country_event = { id = JAP_pnr_kg.101 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_KUM_special_loan = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 75
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			original_tag = JAP
+			country_exists = KUM
+			check_variable = { JAP_pnr_continental_policy_selected_country = 5 }
+			has_country_flag = JAP_pnr_continental_policy_contact_KUM
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_country_flag = JAP_pnr_continental_policy_contact_KUM
+		}
+
+		complete_effect = {
+			KUM = { country_event = { id = JAP_pnr_kg.102 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_KUM_opium_and_guns = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = KUM
+			check_variable = { JAP_pnr_continental_policy_selected_country = 5 }
+			has_country_flag = JAP_pnr_continental_policy_contact_KUM
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_KUM
+		}
+
+		complete_effect = {
+			KUM = { country_event = { id = JAP_pnr_kg.103 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_KUM_technical_investment_agreement = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = KUM
+			check_variable = { JAP_pnr_continental_policy_selected_country = 5 }
+			has_country_flag = JAP_pnr_continental_policy_contact_KUM
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_KUM
+		}
+
+		complete_effect = {
+			KUM = { country_event = { id = JAP_pnr_kg.104 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_KUM_encourage_righteous_war = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 150
+
+		visible = {
+			original_tag = JAP
+			country_exists = KUM
+			check_variable = { JAP_pnr_continental_policy_selected_country = 5 }
+			has_country_flag = JAP_pnr_continental_policy_contact_KUM
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_KUM
+		}
+
+		complete_effect = {
+			KUM = { country_event = { id = JAP_pnr_kg.105 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_KUM_military_advisory_group = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 50
+
+		visible = {
+			original_tag = JAP
+			country_exists = KUM
+			check_variable = { JAP_pnr_continental_policy_selected_country = 5 }
+			has_country_flag = JAP_pnr_continental_policy_contact_KUM
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_KUM
+		}
+
+		complete_effect = {
+			KUM = { country_event = { id = JAP_pnr_kg.106 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_KUM_limited_military_intervention = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 180
+
+		visible = {
+			original_tag = JAP
+			country_exists = KUM
+			check_variable = { JAP_pnr_continental_policy_selected_country = 5 }
+			has_country_flag = JAP_pnr_continental_policy_contact_KUM
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_KUM
+		}
+
+		complete_effect = {
+			KUM = { country_event = { id = JAP_pnr_kg.107 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SIK_establish_economic_contact = {
+		icon = generic_agreement
+		days_remove = 14
+		days_re_enable = 120
+
+		visible = {
+			original_tag = JAP
+			country_exists = SIK
+			check_variable = { JAP_pnr_continental_policy_selected_country = 6 }
+			NOT = { has_country_flag = JAP_pnr_continental_policy_contact_SIK }
+		}
+
+		available = {
+			always = yes
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			SIK = { country_event = { id = JAP_pnr_kg.101 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SIK_special_loan = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 75
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			original_tag = JAP
+			country_exists = SIK
+			check_variable = { JAP_pnr_continental_policy_selected_country = 6 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SIK
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_country_flag = JAP_pnr_continental_policy_contact_SIK
+		}
+
+		complete_effect = {
+			SIK = { country_event = { id = JAP_pnr_kg.102 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SIK_opium_and_guns = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = SIK
+			check_variable = { JAP_pnr_continental_policy_selected_country = 6 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SIK
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SIK
+		}
+
+		complete_effect = {
+			SIK = { country_event = { id = JAP_pnr_kg.103 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SIK_technical_investment_agreement = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = SIK
+			check_variable = { JAP_pnr_continental_policy_selected_country = 6 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SIK
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SIK
+		}
+
+		complete_effect = {
+			SIK = { country_event = { id = JAP_pnr_kg.104 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SIK_encourage_righteous_war = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 150
+
+		visible = {
+			original_tag = JAP
+			country_exists = SIK
+			check_variable = { JAP_pnr_continental_policy_selected_country = 6 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SIK
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SIK
+		}
+
+		complete_effect = {
+			SIK = { country_event = { id = JAP_pnr_kg.105 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SIK_military_advisory_group = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 50
+
+		visible = {
+			original_tag = JAP
+			country_exists = SIK
+			check_variable = { JAP_pnr_continental_policy_selected_country = 6 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SIK
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SIK
+		}
+
+		complete_effect = {
+			SIK = { country_event = { id = JAP_pnr_kg.106 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SIK_limited_military_intervention = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 180
+
+		visible = {
+			original_tag = JAP
+			country_exists = SIK
+			check_variable = { JAP_pnr_continental_policy_selected_country = 6 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SIK
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SIK
+		}
+
+		complete_effect = {
+			SIK = { country_event = { id = JAP_pnr_kg.107 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_TIB_establish_economic_contact = {
+		icon = generic_agreement
+		days_remove = 14
+		days_re_enable = 120
+
+		visible = {
+			original_tag = JAP
+			country_exists = TIB
+			check_variable = { JAP_pnr_continental_policy_selected_country = 7 }
+			NOT = { has_country_flag = JAP_pnr_continental_policy_contact_TIB }
+		}
+
+		available = {
+			always = yes
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			TIB = { country_event = { id = JAP_pnr_kg.101 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_TIB_special_loan = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 75
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			original_tag = JAP
+			country_exists = TIB
+			check_variable = { JAP_pnr_continental_policy_selected_country = 7 }
+			has_country_flag = JAP_pnr_continental_policy_contact_TIB
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_country_flag = JAP_pnr_continental_policy_contact_TIB
+		}
+
+		complete_effect = {
+			TIB = { country_event = { id = JAP_pnr_kg.102 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_TIB_opium_and_guns = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = TIB
+			check_variable = { JAP_pnr_continental_policy_selected_country = 7 }
+			has_country_flag = JAP_pnr_continental_policy_contact_TIB
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_TIB
+		}
+
+		complete_effect = {
+			TIB = { country_event = { id = JAP_pnr_kg.103 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_TIB_technical_investment_agreement = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = TIB
+			check_variable = { JAP_pnr_continental_policy_selected_country = 7 }
+			has_country_flag = JAP_pnr_continental_policy_contact_TIB
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_TIB
+		}
+
+		complete_effect = {
+			TIB = { country_event = { id = JAP_pnr_kg.104 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_TIB_encourage_righteous_war = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 150
+
+		visible = {
+			original_tag = JAP
+			country_exists = TIB
+			check_variable = { JAP_pnr_continental_policy_selected_country = 7 }
+			has_country_flag = JAP_pnr_continental_policy_contact_TIB
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_TIB
+		}
+
+		complete_effect = {
+			TIB = { country_event = { id = JAP_pnr_kg.105 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_TIB_military_advisory_group = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 50
+
+		visible = {
+			original_tag = JAP
+			country_exists = TIB
+			check_variable = { JAP_pnr_continental_policy_selected_country = 7 }
+			has_country_flag = JAP_pnr_continental_policy_contact_TIB
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_TIB
+		}
+
+		complete_effect = {
+			TIB = { country_event = { id = JAP_pnr_kg.106 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_TIB_limited_military_intervention = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 180
+
+		visible = {
+			original_tag = JAP
+			country_exists = TIB
+			check_variable = { JAP_pnr_continental_policy_selected_country = 7 }
+			has_country_flag = JAP_pnr_continental_policy_contact_TIB
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_TIB
+		}
+
+		complete_effect = {
+			TIB = { country_event = { id = JAP_pnr_kg.107 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SZC_establish_economic_contact = {
+		icon = generic_agreement
+		days_remove = 14
+		days_re_enable = 120
+
+		visible = {
+			original_tag = JAP
+			country_exists = SZC
+			check_variable = { JAP_pnr_continental_policy_selected_country = 8 }
+			NOT = { has_country_flag = JAP_pnr_continental_policy_contact_SZC }
+		}
+
+		available = {
+			always = yes
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			SZC = { country_event = { id = JAP_pnr_kg.101 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SZC_special_loan = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 75
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			original_tag = JAP
+			country_exists = SZC
+			check_variable = { JAP_pnr_continental_policy_selected_country = 8 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SZC
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_country_flag = JAP_pnr_continental_policy_contact_SZC
+		}
+
+		complete_effect = {
+			SZC = { country_event = { id = JAP_pnr_kg.102 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SZC_opium_and_guns = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = SZC
+			check_variable = { JAP_pnr_continental_policy_selected_country = 8 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SZC
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SZC
+		}
+
+		complete_effect = {
+			SZC = { country_event = { id = JAP_pnr_kg.103 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SZC_technical_investment_agreement = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = SZC
+			check_variable = { JAP_pnr_continental_policy_selected_country = 8 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SZC
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SZC
+		}
+
+		complete_effect = {
+			SZC = { country_event = { id = JAP_pnr_kg.104 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SZC_encourage_righteous_war = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 150
+
+		visible = {
+			original_tag = JAP
+			country_exists = SZC
+			check_variable = { JAP_pnr_continental_policy_selected_country = 8 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SZC
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SZC
+		}
+
+		complete_effect = {
+			SZC = { country_event = { id = JAP_pnr_kg.105 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SZC_military_advisory_group = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 50
+
+		visible = {
+			original_tag = JAP
+			country_exists = SZC
+			check_variable = { JAP_pnr_continental_policy_selected_country = 8 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SZC
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SZC
+		}
+
+		complete_effect = {
+			SZC = { country_event = { id = JAP_pnr_kg.106 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SZC_limited_military_intervention = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 180
+
+		visible = {
+			original_tag = JAP
+			country_exists = SZC
+			check_variable = { JAP_pnr_continental_policy_selected_country = 8 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SZC
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SZC
+		}
+
+		complete_effect = {
+			SZC = { country_event = { id = JAP_pnr_kg.107 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_HNN_establish_economic_contact = {
+		icon = generic_agreement
+		days_remove = 14
+		days_re_enable = 120
+
+		visible = {
+			original_tag = JAP
+			country_exists = HNN
+			check_variable = { JAP_pnr_continental_policy_selected_country = 9 }
+			NOT = { has_country_flag = JAP_pnr_continental_policy_contact_HNN }
+		}
+
+		available = {
+			always = yes
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			HNN = { country_event = { id = JAP_pnr_kg.101 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_HNN_special_loan = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 75
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			original_tag = JAP
+			country_exists = HNN
+			check_variable = { JAP_pnr_continental_policy_selected_country = 9 }
+			has_country_flag = JAP_pnr_continental_policy_contact_HNN
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_country_flag = JAP_pnr_continental_policy_contact_HNN
+		}
+
+		complete_effect = {
+			HNN = { country_event = { id = JAP_pnr_kg.102 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_HNN_opium_and_guns = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = HNN
+			check_variable = { JAP_pnr_continental_policy_selected_country = 9 }
+			has_country_flag = JAP_pnr_continental_policy_contact_HNN
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_HNN
+		}
+
+		complete_effect = {
+			HNN = { country_event = { id = JAP_pnr_kg.103 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_HNN_technical_investment_agreement = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = HNN
+			check_variable = { JAP_pnr_continental_policy_selected_country = 9 }
+			has_country_flag = JAP_pnr_continental_policy_contact_HNN
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_HNN
+		}
+
+		complete_effect = {
+			HNN = { country_event = { id = JAP_pnr_kg.104 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_HNN_encourage_righteous_war = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 150
+
+		visible = {
+			original_tag = JAP
+			country_exists = HNN
+			check_variable = { JAP_pnr_continental_policy_selected_country = 9 }
+			has_country_flag = JAP_pnr_continental_policy_contact_HNN
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_HNN
+		}
+
+		complete_effect = {
+			HNN = { country_event = { id = JAP_pnr_kg.105 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_HNN_military_advisory_group = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 50
+
+		visible = {
+			original_tag = JAP
+			country_exists = HNN
+			check_variable = { JAP_pnr_continental_policy_selected_country = 9 }
+			has_country_flag = JAP_pnr_continental_policy_contact_HNN
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_HNN
+		}
+
+		complete_effect = {
+			HNN = { country_event = { id = JAP_pnr_kg.106 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_HNN_limited_military_intervention = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 180
+
+		visible = {
+			original_tag = JAP
+			country_exists = HNN
+			check_variable = { JAP_pnr_continental_policy_selected_country = 9 }
+			has_country_flag = JAP_pnr_continental_policy_contact_HNN
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_HNN
+		}
+
+		complete_effect = {
+			HNN = { country_event = { id = JAP_pnr_kg.107 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_YUN_establish_economic_contact = {
+		icon = generic_agreement
+		days_remove = 14
+		days_re_enable = 120
+
+		visible = {
+			original_tag = JAP
+			country_exists = YUN
+			check_variable = { JAP_pnr_continental_policy_selected_country = 10 }
+			NOT = { has_country_flag = JAP_pnr_continental_policy_contact_YUN }
+		}
+
+		available = {
+			always = yes
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			YUN = { country_event = { id = JAP_pnr_kg.101 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_YUN_special_loan = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 75
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			original_tag = JAP
+			country_exists = YUN
+			check_variable = { JAP_pnr_continental_policy_selected_country = 10 }
+			has_country_flag = JAP_pnr_continental_policy_contact_YUN
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_country_flag = JAP_pnr_continental_policy_contact_YUN
+		}
+
+		complete_effect = {
+			YUN = { country_event = { id = JAP_pnr_kg.102 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_YUN_opium_and_guns = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = YUN
+			check_variable = { JAP_pnr_continental_policy_selected_country = 10 }
+			has_country_flag = JAP_pnr_continental_policy_contact_YUN
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_YUN
+		}
+
+		complete_effect = {
+			YUN = { country_event = { id = JAP_pnr_kg.103 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_YUN_technical_investment_agreement = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = YUN
+			check_variable = { JAP_pnr_continental_policy_selected_country = 10 }
+			has_country_flag = JAP_pnr_continental_policy_contact_YUN
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_YUN
+		}
+
+		complete_effect = {
+			YUN = { country_event = { id = JAP_pnr_kg.104 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_YUN_encourage_righteous_war = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 150
+
+		visible = {
+			original_tag = JAP
+			country_exists = YUN
+			check_variable = { JAP_pnr_continental_policy_selected_country = 10 }
+			has_country_flag = JAP_pnr_continental_policy_contact_YUN
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_YUN
+		}
+
+		complete_effect = {
+			YUN = { country_event = { id = JAP_pnr_kg.105 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_YUN_military_advisory_group = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 50
+
+		visible = {
+			original_tag = JAP
+			country_exists = YUN
+			check_variable = { JAP_pnr_continental_policy_selected_country = 10 }
+			has_country_flag = JAP_pnr_continental_policy_contact_YUN
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_YUN
+		}
+
+		complete_effect = {
+			YUN = { country_event = { id = JAP_pnr_kg.106 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_YUN_limited_military_intervention = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 180
+
+		visible = {
+			original_tag = JAP
+			country_exists = YUN
+			check_variable = { JAP_pnr_continental_policy_selected_country = 10 }
+			has_country_flag = JAP_pnr_continental_policy_contact_YUN
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_YUN
+		}
+
+		complete_effect = {
+			YUN = { country_event = { id = JAP_pnr_kg.107 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_GXC_establish_economic_contact = {
+		icon = generic_agreement
+		days_remove = 14
+		days_re_enable = 120
+
+		visible = {
+			original_tag = JAP
+			country_exists = GXC
+			check_variable = { JAP_pnr_continental_policy_selected_country = 11 }
+			NOT = { has_country_flag = JAP_pnr_continental_policy_contact_GXC }
+		}
+
+		available = {
+			always = yes
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			GXC = { country_event = { id = JAP_pnr_kg.101 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_GXC_special_loan = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 75
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			original_tag = JAP
+			country_exists = GXC
+			check_variable = { JAP_pnr_continental_policy_selected_country = 11 }
+			has_country_flag = JAP_pnr_continental_policy_contact_GXC
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_country_flag = JAP_pnr_continental_policy_contact_GXC
+		}
+
+		complete_effect = {
+			GXC = { country_event = { id = JAP_pnr_kg.102 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_GXC_opium_and_guns = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = GXC
+			check_variable = { JAP_pnr_continental_policy_selected_country = 11 }
+			has_country_flag = JAP_pnr_continental_policy_contact_GXC
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_GXC
+		}
+
+		complete_effect = {
+			GXC = { country_event = { id = JAP_pnr_kg.103 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_GXC_technical_investment_agreement = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = GXC
+			check_variable = { JAP_pnr_continental_policy_selected_country = 11 }
+			has_country_flag = JAP_pnr_continental_policy_contact_GXC
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_GXC
+		}
+
+		complete_effect = {
+			GXC = { country_event = { id = JAP_pnr_kg.104 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_GXC_encourage_righteous_war = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 150
+
+		visible = {
+			original_tag = JAP
+			country_exists = GXC
+			check_variable = { JAP_pnr_continental_policy_selected_country = 11 }
+			has_country_flag = JAP_pnr_continental_policy_contact_GXC
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_GXC
+		}
+
+		complete_effect = {
+			GXC = { country_event = { id = JAP_pnr_kg.105 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_GXC_military_advisory_group = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 50
+
+		visible = {
+			original_tag = JAP
+			country_exists = GXC
+			check_variable = { JAP_pnr_continental_policy_selected_country = 11 }
+			has_country_flag = JAP_pnr_continental_policy_contact_GXC
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_GXC
+		}
+
+		complete_effect = {
+			GXC = { country_event = { id = JAP_pnr_kg.106 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_GXC_limited_military_intervention = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 180
+
+		visible = {
+			original_tag = JAP
+			country_exists = GXC
+			check_variable = { JAP_pnr_continental_policy_selected_country = 11 }
+			has_country_flag = JAP_pnr_continental_policy_contact_GXC
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_GXC
+		}
+
+		complete_effect = {
+			GXC = { country_event = { id = JAP_pnr_kg.107 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SHD_establish_economic_contact = {
+		icon = generic_agreement
+		days_remove = 14
+		days_re_enable = 120
+
+		visible = {
+			original_tag = JAP
+			country_exists = SHD
+			check_variable = { JAP_pnr_continental_policy_selected_country = 12 }
+			NOT = { has_country_flag = JAP_pnr_continental_policy_contact_SHD }
+		}
+
+		available = {
+			always = yes
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			SHD = { country_event = { id = JAP_pnr_kg.101 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SHD_special_loan = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 75
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			original_tag = JAP
+			country_exists = SHD
+			check_variable = { JAP_pnr_continental_policy_selected_country = 12 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SHD
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_country_flag = JAP_pnr_continental_policy_contact_SHD
+		}
+
+		complete_effect = {
+			SHD = { country_event = { id = JAP_pnr_kg.102 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SHD_opium_and_guns = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = SHD
+			check_variable = { JAP_pnr_continental_policy_selected_country = 12 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SHD
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SHD
+		}
+
+		complete_effect = {
+			SHD = { country_event = { id = JAP_pnr_kg.103 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SHD_technical_investment_agreement = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = SHD
+			check_variable = { JAP_pnr_continental_policy_selected_country = 12 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SHD
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SHD
+		}
+
+		complete_effect = {
+			SHD = { country_event = { id = JAP_pnr_kg.104 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SHD_encourage_righteous_war = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 150
+
+		visible = {
+			original_tag = JAP
+			country_exists = SHD
+			check_variable = { JAP_pnr_continental_policy_selected_country = 12 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SHD
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SHD
+		}
+
+		complete_effect = {
+			SHD = { country_event = { id = JAP_pnr_kg.105 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SHD_military_advisory_group = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 50
+
+		visible = {
+			original_tag = JAP
+			country_exists = SHD
+			check_variable = { JAP_pnr_continental_policy_selected_country = 12 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SHD
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SHD
+		}
+
+		complete_effect = {
+			SHD = { country_event = { id = JAP_pnr_kg.106 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_SHD_limited_military_intervention = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 180
+
+		visible = {
+			original_tag = JAP
+			country_exists = SHD
+			check_variable = { JAP_pnr_continental_policy_selected_country = 12 }
+			has_country_flag = JAP_pnr_continental_policy_contact_SHD
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_SHD
+		}
+
+		complete_effect = {
+			SHD = { country_event = { id = JAP_pnr_kg.107 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_ANQ_establish_economic_contact = {
+		icon = generic_agreement
+		days_remove = 14
+		days_re_enable = 120
+
+		visible = {
+			original_tag = JAP
+			country_exists = ANQ
+			check_variable = { JAP_pnr_continental_policy_selected_country = 13 }
+			NOT = { has_country_flag = JAP_pnr_continental_policy_contact_ANQ }
+		}
+
+		available = {
+			always = yes
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			ANQ = { country_event = { id = JAP_pnr_kg.101 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_ANQ_special_loan = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 75
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			original_tag = JAP
+			country_exists = ANQ
+			check_variable = { JAP_pnr_continental_policy_selected_country = 13 }
+			has_country_flag = JAP_pnr_continental_policy_contact_ANQ
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_country_flag = JAP_pnr_continental_policy_contact_ANQ
+		}
+
+		complete_effect = {
+			ANQ = { country_event = { id = JAP_pnr_kg.102 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_ANQ_opium_and_guns = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = ANQ
+			check_variable = { JAP_pnr_continental_policy_selected_country = 13 }
+			has_country_flag = JAP_pnr_continental_policy_contact_ANQ
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_ANQ
+		}
+
+		complete_effect = {
+			ANQ = { country_event = { id = JAP_pnr_kg.103 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_ANQ_technical_investment_agreement = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = ANQ
+			check_variable = { JAP_pnr_continental_policy_selected_country = 13 }
+			has_country_flag = JAP_pnr_continental_policy_contact_ANQ
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_ANQ
+		}
+
+		complete_effect = {
+			ANQ = { country_event = { id = JAP_pnr_kg.104 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_ANQ_encourage_righteous_war = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 150
+
+		visible = {
+			original_tag = JAP
+			country_exists = ANQ
+			check_variable = { JAP_pnr_continental_policy_selected_country = 13 }
+			has_country_flag = JAP_pnr_continental_policy_contact_ANQ
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_ANQ
+		}
+
+		complete_effect = {
+			ANQ = { country_event = { id = JAP_pnr_kg.105 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_ANQ_military_advisory_group = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 50
+
+		visible = {
+			original_tag = JAP
+			country_exists = ANQ
+			check_variable = { JAP_pnr_continental_policy_selected_country = 13 }
+			has_country_flag = JAP_pnr_continental_policy_contact_ANQ
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_ANQ
+		}
+
+		complete_effect = {
+			ANQ = { country_event = { id = JAP_pnr_kg.106 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_ANQ_limited_military_intervention = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 180
+
+		visible = {
+			original_tag = JAP
+			country_exists = ANQ
+			check_variable = { JAP_pnr_continental_policy_selected_country = 13 }
+			has_country_flag = JAP_pnr_continental_policy_contact_ANQ
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_ANQ
+		}
+
+		complete_effect = {
+			ANQ = { country_event = { id = JAP_pnr_kg.107 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_LEP_establish_economic_contact = {
+		icon = generic_agreement
+		days_remove = 14
+		days_re_enable = 120
+
+		visible = {
+			original_tag = JAP
+			country_exists = LEP
+			check_variable = { JAP_pnr_continental_policy_selected_country = 14 }
+			NOT = { has_country_flag = JAP_pnr_continental_policy_contact_LEP }
+		}
+
+		available = {
+			always = yes
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			LEP = { country_event = { id = JAP_pnr_kg.101 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_LEP_special_loan = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 75
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		visible = {
+			original_tag = JAP
+			country_exists = LEP
+			check_variable = { JAP_pnr_continental_policy_selected_country = 14 }
+			has_country_flag = JAP_pnr_continental_policy_contact_LEP
+		}
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_country_flag = JAP_pnr_continental_policy_contact_LEP
+		}
+
+		complete_effect = {
+			LEP = { country_event = { id = JAP_pnr_kg.102 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_LEP_opium_and_guns = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = LEP
+			check_variable = { JAP_pnr_continental_policy_selected_country = 14 }
+			has_country_flag = JAP_pnr_continental_policy_contact_LEP
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_LEP
+		}
+
+		complete_effect = {
+			LEP = { country_event = { id = JAP_pnr_kg.103 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_LEP_technical_investment_agreement = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
+
+		visible = {
+			original_tag = JAP
+			country_exists = LEP
+			check_variable = { JAP_pnr_continental_policy_selected_country = 14 }
+			has_country_flag = JAP_pnr_continental_policy_contact_LEP
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_LEP
+		}
+
+		complete_effect = {
+			LEP = { country_event = { id = JAP_pnr_kg.104 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_LEP_encourage_righteous_war = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 150
+
+		visible = {
+			original_tag = JAP
+			country_exists = LEP
+			check_variable = { JAP_pnr_continental_policy_selected_country = 14 }
+			has_country_flag = JAP_pnr_continental_policy_contact_LEP
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_LEP
+		}
+
+		complete_effect = {
+			LEP = { country_event = { id = JAP_pnr_kg.105 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_LEP_military_advisory_group = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 50
+
+		visible = {
+			original_tag = JAP
+			country_exists = LEP
+			check_variable = { JAP_pnr_continental_policy_selected_country = 14 }
+			has_country_flag = JAP_pnr_continental_policy_contact_LEP
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_LEP
+		}
+
+		complete_effect = {
+			LEP = { country_event = { id = JAP_pnr_kg.106 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_LEP_limited_military_intervention = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 180
+
+		visible = {
+			original_tag = JAP
+			country_exists = LEP
+			check_variable = { JAP_pnr_continental_policy_selected_country = 14 }
+			has_country_flag = JAP_pnr_continental_policy_contact_LEP
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_LEP
+		}
+
+		complete_effect = {
+			LEP = { country_event = { id = JAP_pnr_kg.107 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_CHI_establish_economic_contact = {
+		icon = generic_agreement
+		days_remove = 14
+		days_re_enable = 120
 
 		visible = {
 			original_tag = JAP
 			country_exists = CHI
 			check_variable = { JAP_pnr_continental_policy_selected_country = 15 }
+			NOT = { has_country_flag = JAP_pnr_continental_policy_contact_CHI }
 		}
 
 		available = {
@@ -52,24 +2680,39 @@ JAP_pnr_continental_policy_category = {
 		complete_effect = {
 		}
 
+		remove_effect = {
+			CHI = { country_event = { id = JAP_pnr_kg.101 } }
+		}
+
 		ai_will_do = {
 			factor = 0
 		}
 	}
 
-	JAP_pnr_continental_policy_technical_investment_agreement = {
+	JAP_pnr_continental_policy_CHI_special_loan = {
 		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 75
+
+		modifier = {
+			civilian_factory_use = 3
+		}
 
 		visible = {
 			original_tag = JAP
-			always = no
+			country_exists = CHI
+			check_variable = { JAP_pnr_continental_policy_selected_country = 15 }
+			has_country_flag = JAP_pnr_continental_policy_contact_CHI
 		}
 
 		available = {
-			always = yes
+			num_of_civilian_factories_available_for_projects > 2
+			has_country_flag = JAP_pnr_continental_policy_contact_CHI
 		}
 
 		complete_effect = {
+			CHI = { country_event = { id = JAP_pnr_kg.102 } }
 		}
 
 		ai_will_do = {
@@ -77,19 +2720,25 @@ JAP_pnr_continental_policy_category = {
 		}
 	}
 
-	JAP_pnr_continental_policy_military_advisory_group = {
+	JAP_pnr_continental_policy_CHI_opium_and_guns = {
 		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
 
 		visible = {
 			original_tag = JAP
-			always = no
+			country_exists = CHI
+			check_variable = { JAP_pnr_continental_policy_selected_country = 15 }
+			has_country_flag = JAP_pnr_continental_policy_contact_CHI
 		}
 
 		available = {
-			always = yes
+			has_country_flag = JAP_pnr_continental_policy_contact_CHI
 		}
 
 		complete_effect = {
+			CHI = { country_event = { id = JAP_pnr_kg.103 days = 1 } }
 		}
 
 		ai_will_do = {
@@ -97,23 +2746,108 @@ JAP_pnr_continental_policy_category = {
 		}
 	}
 
-	JAP_pnr_continental_policy_limited_military_intervention = {
+	JAP_pnr_continental_policy_CHI_technical_investment_agreement = {
 		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 100
 
 		visible = {
 			original_tag = JAP
-			always = no
+			country_exists = CHI
+			check_variable = { JAP_pnr_continental_policy_selected_country = 15 }
+			has_country_flag = JAP_pnr_continental_policy_contact_CHI
 		}
 
 		available = {
-			always = yes
+			has_country_flag = JAP_pnr_continental_policy_contact_CHI
 		}
 
 		complete_effect = {
+			CHI = { country_event = { id = JAP_pnr_kg.104 days = 1 } }
 		}
 
 		ai_will_do = {
 			factor = 0
 		}
 	}
+
+	JAP_pnr_continental_policy_CHI_encourage_righteous_war = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 150
+
+		visible = {
+			original_tag = JAP
+			country_exists = CHI
+			check_variable = { JAP_pnr_continental_policy_selected_country = 15 }
+			has_country_flag = JAP_pnr_continental_policy_contact_CHI
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_CHI
+		}
+
+		complete_effect = {
+			CHI = { country_event = { id = JAP_pnr_kg.105 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_CHI_military_advisory_group = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 50
+
+		visible = {
+			original_tag = JAP
+			country_exists = CHI
+			check_variable = { JAP_pnr_continental_policy_selected_country = 15 }
+			has_country_flag = JAP_pnr_continental_policy_contact_CHI
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_CHI
+		}
+
+		complete_effect = {
+			CHI = { country_event = { id = JAP_pnr_kg.106 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_pnr_continental_policy_CHI_limited_military_intervention = {
+		icon = generic_agreement
+		days_remove = 120
+		days_re_enable = 120
+		cost = 180
+
+		visible = {
+			original_tag = JAP
+			country_exists = CHI
+			check_variable = { JAP_pnr_continental_policy_selected_country = 15 }
+			has_country_flag = JAP_pnr_continental_policy_contact_CHI
+		}
+
+		available = {
+			has_country_flag = JAP_pnr_continental_policy_contact_CHI
+		}
+
+		complete_effect = {
+			CHI = { country_event = { id = JAP_pnr_kg.107 days = 1 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
 }

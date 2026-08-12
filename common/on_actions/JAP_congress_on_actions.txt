@@ -6,8 +6,20 @@ on_actions = {
 					limit = { exists = yes }
 					JAP_congress_initialize_values = yes
 					JAP_pnr_election_ensure_projected_results = yes
-					JAP_pnr_initialize_red_conspiracy = yes
 					JAP_pnr_initialize_interservice_budget = yes
+					if = {
+						limit = {
+							has_completed_focus = JAP_pnr_68th_sessions_imperial_diet
+							NOT = { has_country_flag = JAP_pnr_election_completed }
+						}
+						set_country_flag = pnr_congress_temporarily_unable
+						set_country_flag = JAP_pnr_election_in_progress
+					}
+					if = {
+						limit = { NOT = { has_country_flag = JAP_congress_annual_agenda_loop_started } }
+						set_country_flag = JAP_congress_annual_agenda_loop_started
+						country_event = { id = JAP_pnr_event.2 days = 365 }
+					}
 				}
 			}
 		}
