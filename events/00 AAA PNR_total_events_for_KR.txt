@@ -7,6 +7,8 @@ add_namespace = annexation_events
 add_namespace = UPC.chinademocraticleague
 add_namespace = china_events
 add_namespace = qing_coup_events
+add_namespace = japan_domestic_events
+add_namespace = taiwan_events 
 
 ###########
 ### QIE ###
@@ -257,6 +259,235 @@ country_event = { #National Day of the Republic of China # Wushan submod change 
 		add_political_power = 5
 	}
 }
+
+###########
+### JAP ###
+###########
+
+country_event = {
+	id = japan_domestic_events.242 #Japanese Black Monday
+	title = japan_domestic_events.242.t
+	desc = japan_domestic_events.242.d
+	picture = GFX_report_event_JAP_economy_building
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = RUS_Black_Monday_Happened
+	}
+	option = {
+		log = "[GetLogInfo]: event japan_domestic_events.242 option japan_domestic_events.242.a"
+		name = japan_domestic_events.242.a
+		add_stability = -0.03
+		remove_ideas = JAP_pnr_farewell_to_the_lost_decade
+		add_dynamic_modifier = { modifier = JAP_pnr_lost_decade_nightmare_modifier }
+	}
+}
+
+###########
+### TAI ###
+###########
+
+country_event = { # change trigger so that MoG will not trigger this event
+	id = taiwan_events.1
+	title = taiwan_events.1.t
+
+	desc = {
+		text = taiwan_events.1.d.china
+		trigger = {
+			has_event_target = china
+		}
+	}
+	desc = {
+		text = taiwan_events.1.d.nochina
+		trigger = {
+			NOT = { has_event_target = china }
+		}
+	}
+
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	trigger = {
+		tag = TAI
+		has_war = no
+		country_exists = JAP
+		NOT = { has_war_with = JAP }
+		NOT = { has_country_flag = TAI_pnr_jap_mog_still_in_taiwan }
+		if = {
+			limit = { is_subject = yes }
+			JAP = {
+				OR = {
+					is_subject_of = ROOT.overlord
+					AND = {
+						is_in_faction_with = ROOT.overlord
+						var:ROOT.overlord = { is_faction_leader = yes }
+					}
+				}
+				has_capitulated = no
+			}
+		}
+		else = {
+			JAP = {
+				is_subject = no
+				has_capitulated = no
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 3
+	}
+
+	immediate = {
+		if = {
+			limit = { is_subject = yes }
+			if = {
+				limit = {
+					608 = {
+						is_capital = yes
+						owner = {
+							is_chinese_tag = yes
+							OR = {
+								is_subject_of = ROOT.overlord
+								AND = {
+									is_in_faction_with = ROOT.overlord
+									var:ROOT.overlord = { is_faction_leader = yes }
+								}
+							}
+							has_capitulated = no
+						}
+					}
+				}
+				var:608.owner = { save_event_target_as = china }
+			}
+			else_if = {
+				limit = {
+					613 = {
+						is_capital = yes
+						owner = {
+							is_chinese_tag = yes
+							OR = {
+								is_subject_of = ROOT.overlord
+								AND = {
+									is_in_faction_with = ROOT.overlord
+									var:ROOT.overlord = { is_faction_leader = yes }
+								}
+							}
+							has_capitulated = no
+						}
+					}
+				}
+				var:613.owner = { save_event_target_as = china }
+			}
+			else_if = {
+				limit = {
+					593 = {
+						is_capital = yes
+						owner = {
+							is_chinese_tag = yes
+							OR = {
+								is_subject_of = ROOT.overlord
+								AND = {
+									is_in_faction_with = ROOT.overlord
+									var:ROOT.overlord = { is_faction_leader = yes }
+								}
+							}
+							has_capitulated = no
+						}
+					}
+				}
+				var:593.owner = { save_event_target_as = china }
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					608 = {
+						is_capital = yes
+						owner = {
+							is_chinese_tag = yes
+							is_valid_peace_target = yes
+							has_capitulated = no
+						}
+					}
+				}
+				var:608.owner = { save_event_target_as = china }
+			}
+			else_if = {
+				limit = {
+					613 = {
+						is_capital = yes
+						owner = {
+							is_chinese_tag = yes
+							is_valid_peace_target = yes
+							has_capitulated = no
+						}
+					}
+				}
+				var:613.owner = { save_event_target_as = china }
+			}
+			else_if = {
+				limit = {
+					593 = {
+						owner = {
+							is_chinese_tag = yes
+							is_valid_peace_target = yes
+							has_capitulated = no
+						}
+					}
+				}
+				var:593.owner = { save_event_target_as = china }
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event taiwan_events.1 option taiwan_events.1.a"
+		name = taiwan_events.1.a
+		trigger = { is_subject = no }
+		ai_chance = { base = 40 }
+		JAP = { country_event = { id = taiwan_events.2 hours = 8 } }
+	}
+	option = {
+		log = "[GetLogInfo]: event taiwan_events.1 option taiwan_events.1.b"
+		name = taiwan_events.1.b
+		trigger = {
+			has_event_target = china
+			is_subject = no
+		}
+		ai_chance = { base = 60 }
+		event_target:china = { country_event = { id = taiwan_events.2 hours = 8 } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event taiwan_events.1 option taiwan_events.1.c"
+		name = taiwan_events.1.c
+		trigger = { is_subject = yes }
+		ai_chance = { base = 40 }
+		JAP = { save_event_target_as = taiwan_union_target }
+		overlord = { country_event = { id = taiwan_events.3 hours = 8 } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event taiwan_events.1 option taiwan_events.1.d"
+		name = taiwan_events.1.d
+		trigger = {
+			has_event_target = china
+			is_subject = yes
+		}
+		ai_chance = { base = 60 }
+		event_target:china = { save_event_target_as = taiwan_union_target }
+		overlord = { country_event = { id = taiwan_events.3 hours = 8 } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event taiwan_events.1 option taiwan_events.1.e"
+		name = taiwan_events.1.e
+		ai_chance = { base = 0 }
+		add_political_power = -100
+	}
+}
+
 
 ### Those events are modified coup events chain.
 

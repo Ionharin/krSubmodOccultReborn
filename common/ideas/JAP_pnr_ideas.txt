@@ -38,11 +38,78 @@ ideas = {
 			picture = jap_pnr_offensive_realpolitik
 			allowed = { always = no }
 			modifier = {
-				send_volunteer_size = 5
-				political_power_factor = 0.05
+				send_volunteer_size = 3
+				opinion_gain_monthly_factor = 0.05
 			}
 		}
+		JAP_pnr_offensive_realpolitik_1 = {
+			picture = jap_pnr_offensive_realpolitik
+			allowed = { always = no }
+			modifier = {
+				send_volunteer_size = 3
+				political_power_factor = 0.03
+				opinion_gain_monthly_factor = 0.08
+			}
+		}
+		JAP_pnr_offensive_realpolitik_2 = {
+			picture = jap_pnr_offensive_realpolitik
+			allowed = { always = no }
+			modifier = {
+				send_volunteer_size = 3
+				political_power_factor = 0.04
+				opinion_gain_monthly_factor = 0.08
+				guarantee_cost = -0.15
+			}
+		}
+		JAP_pnr_offensive_realpolitik_3 = {
+			picture = jap_pnr_offensive_realpolitik
+			allowed = { always = no }
+			modifier = {
+				send_volunteer_size = 3
+				political_power_factor = 0.06
+				opinion_gain_monthly_factor = 0.15
+				guarantee_cost = -0.15
+				experience_gain_army = 0.05
+				experience_gain_navy = 0.05
+				experience_gain_air = 0.05
+			}
+		}
+		JAP_pnr_offensive_realpolitik_4 = {
+			picture = jap_pnr_offensive_realpolitik
+			allowed = { always = no }
+			modifier = {
+				send_volunteer_size = 3
+				political_power_factor = 0.08
+				opinion_gain_monthly_factor = 0.20
+				guarantee_cost = -0.25
+				embargo_cost_factor = -0.45
+				experience_gain_army = 0.07
+				experience_gain_navy = 0.07
+				experience_gain_air = 0.07
+			}
+		}
+		JAP_pnr_ko_campaign = {
+			picture = generic_manpower_bonusjap_ichi_go
+			allowed = { always = no }
+			modifier = { custom_modifier_tooltip = KOR_neither_china_nor_japan_tt }
+			targeted_modifier = { tag = ANQ hidden_modifier = { attack_bonus_against = 0.27 } }
+    		targeted_modifier = { tag = CHI hidden_modifier = { attack_bonus_against = 0.27 } }
+    		targeted_modifier = { tag = FNG hidden_modifier = { attack_bonus_against = 0.27 } }
+    		targeted_modifier = { tag = GXC hidden_modifier = { attack_bonus_against = 0.27 } }
+    		targeted_modifier = { tag = HNN hidden_modifier = { attack_bonus_against = 0.27 } }
+    		targeted_modifier = { tag = LEP hidden_modifier = { attack_bonus_against = 0.27 } }
+    		targeted_modifier = { tag = QIE hidden_modifier = { attack_bonus_against = 0.27 } }
+    		targeted_modifier = { tag = SHX hidden_modifier = { attack_bonus_against = 0.27 } }
+   			targeted_modifier = { tag = SIK hidden_modifier = { attack_bonus_against = 0.27 } }
+    		targeted_modifier = { tag = SHD hidden_modifier = { attack_bonus_against = 0.27 } }
+    		targeted_modifier = { tag = SZC hidden_modifier = { attack_bonus_against = 0.27 } }
+    		targeted_modifier = { tag = XSM hidden_modifier = { attack_bonus_against = 0.27 } }
+    		targeted_modifier = { tag = YUN hidden_modifier = { attack_bonus_against = 0.27 } }
+    		targeted_modifier = { tag = UPC hidden_modifier = { attack_bonus_against = 0.27 } }
+		}
 	}
+
+	### Hidden ideas for Parliament Yearly Bonus ###
 	hidden_ideas = {
 		JAP_congress_agenda_1_idea = {
 			picture = generic_goods_red_bonus
