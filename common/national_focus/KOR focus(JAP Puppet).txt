@@ -4,44 +4,998 @@ focus_tree = {
 		factor = 0
 		modifier = {
 			add = 100
-			tag = KOR
+			tag = KOJ
 		}
 	}
 	default = no
 	focus = {
-		id = KOR_pnr_seoul_renovation_plan
-		x = 0
-		y = 0
-		cost = 41
-		icon = GFX_KOJ_pnr_seoul_renovation_plan
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-	}
-	focus = {
-		id = KOJ_pnr_issue_bonds
+		id = KOJ_pnr_issue_special_bonds
 		x = -2
 		y = 1
-		cost = 0
+		cost = 5
 		icon = GFX_focus_SWI_issue_war_bonds
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_seoul_renovation_plan
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
 	}
 	focus = {
 		id = KOJ_pnr_northern_plan
-		x = 6
-		y = 0
-		cost = 0
+		x = 18
+		y = 6
+		cost = 5
 		icon = GFX_kor_the_northern_project
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 	}
 	focus = {
 		id = KOJ_southern_plan
-		x = 10
-		y = 0
-		cost = 0
+		x = 22
+		y = 6
+		cost = 5
 		icon = GFX_kor_the_southern_project
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+	}
+	focus = {
+		id = KOJ_pnr_seoul_renovation_plan
+		x = 0
+		y = 0
+		cost = 8
+		icon = GFX_KOJ_pnr_seoul_renovation_plan
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = KOJ_pnr_invoke_governor_general_decree
+		x = 2
+		y = 1
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_seoul_renovation_plan
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_in_name_of_industrial_renewal
+		x = 1
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_invoke_governor_general_decree
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_meet_local_financial_associations
+		x = -3
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_issue_special_bonds
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_establish_national_policy_companies
+		x = 3
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_invoke_governor_general_decree
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_guide_korean_capital
+		x = -1
+		y = 2
+		cost = 4
+		icon = GFX_focus_INS_peg_indies_guilder_to_dutch_guilder
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_issue_special_bonds
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_overcome_capital_shortage
+		x = 0
+		y = 3
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_meet_local_financial_associations
+		}
+		prerequisite = {
+			focus = KOJ_pnr_guide_korean_capital
+		}
+		prerequisite = {
+			focus = KOJ_pnr_in_name_of_industrial_renewal
+		}
+		prerequisite = {
+			focus = KOJ_pnr_establish_national_policy_companies
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_improve_infrastructure
+		x = 0
+		y = 1
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_seoul_renovation_plan
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_demolish_shanties
+		x = -2
+		y = 2
+		cost = 4
+		icon = GFX_focus_SWE_hygienic_housing
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_improve_infrastructure
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_straight_avenues_cut_old_city
+		x = 0
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_improve_infrastructure
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_sow_heavy_industry_seeds
+		x = 2
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_improve_infrastructure
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_modernize_water_diversion_system
+		x = 1
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_straight_avenues_cut_old_city
+		}
+		prerequisite = {
+			focus = KOJ_pnr_sow_heavy_industry_seeds
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_new_asia_theater
+		x = -2
+		y = 4
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_plan_satellite_cities
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_permanent_green_belts
+		x = 2
+		y = 4
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_modernize_water_diversion_system
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_plan_satellite_cities
+		x = -1
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_demolish_shanties
+		}
+		prerequisite = {
+			focus = KOJ_pnr_straight_avenues_cut_old_city
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_rapid_metro_connecting_seoul
+		x = 0
+		y = 4
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_plan_satellite_cities
+		}
+		prerequisite = {
+			focus = KOJ_pnr_modernize_water_diversion_system
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_trace_back_past
+		x = 0
+		y = 5
+		cost = 5
+		icon = GFX_kor_the_granary_of_east_asia
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_rapid_metro_connecting_seoul
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_old_woman_and_young_girl
+		x = 11
+		y = 0
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = KOJ_pnr_japan_korea_integration_policy
+		x = 11
+		y = 1
+		cost = 4
+		icon = GFX_focus_generic_phone
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_old_woman_and_young_girl
+		}
+	}
+	focus = {
+		id = KOJ_pnr_continue_civilian_rule
+		x = 8
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOJ_pnr_military_officer_appointment
+		}
+		prerequisite = {
+			focus = KOJ_pnr_japan_korea_integration_policy
+		}
+	}
+	focus = {
+		id = KOJ_pnr_meet_korean_representatives
+		x = 2
+		y = 1
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_continue_civilian_rule
+		}
+		relative_position_id = KOJ_pnr_continue_civilian_rule
+	}
+	focus = {
+		id = KOJ_pnr_uphold_appeasement_policy
+		x = 0
+		y = 1
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_continue_civilian_rule
+		}
+		relative_position_id = KOJ_pnr_continue_civilian_rule
+	}
+	focus = {
+		id = KOJ_pnr_compulsory_education
+		x = -2
+		y = 1
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_continue_civilian_rule
+		}
+		relative_position_id = KOJ_pnr_continue_civilian_rule
+	}
+	focus = {
+		id = KOJ_pnr_name_changing_campaign
+		x = -1
+		y = 4
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_cultivate_pro_japanese_intellectuals
+		}
+		relative_position_id = KOJ_pnr_continue_civilian_rule
+	}
+	focus = {
+		id = KOJ_pnr_pride_in_speaking_japanese
+		x = -3
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_compulsory_education
+		}
+		relative_position_id = KOJ_pnr_continue_civilian_rule
+	}
+	focus = {
+		id = KOJ_pnr_path_of_shrine_visitation
+		x = -4
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_pride_in_speaking_japanese
+		}
+		relative_position_id = KOJ_pnr_continue_civilian_rule
+	}
+	focus = {
+		id = KOJ_pnr_made_in_japan
+		x = -2
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_pride_in_speaking_japanese
+		}
+		relative_position_id = KOJ_pnr_continue_civilian_rule
+	}
+	focus = {
+		id = KOJ_pnr_marching_forward_together
+		x = -3
+		y = 4
+		cost = 4
+		icon = GFX_focus_JAP_pnr_fewer_comrades_more_compatriots
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_path_of_shrine_visitation
+		}
+		prerequisite = {
+			focus = KOJ_pnr_made_in_japan
+		}
+		relative_position_id = KOJ_pnr_continue_civilian_rule
+	}
+	focus = {
+		id = KOJ_pnr_promote_korean_bureaucrats
+		x = 1
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_meet_korean_representatives
+		}
+		relative_position_id = KOJ_pnr_continue_civilian_rule
+	}
+	focus = {
+		id = KOJ_pnr_cultivate_pro_japanese_intellectuals
+		x = 0
+		y = 3
+		cost = 4
+		icon = GFX_focus_JAP_pnr_it_must_dominate_many_and_famous
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_uphold_appeasement_policy
+		}
+		prerequisite = {
+			focus = KOJ_pnr_promote_korean_bureaucrats
+		}
+		relative_position_id = KOJ_pnr_continue_civilian_rule
+	}
+	focus = {
+		id = KOJ_pnr_persuade_radical_nationalists
+		x = 1
+		y = 4
+		cost = 4
+		icon = GFX_focus_JAP_pnr_co_opt_social_activists
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_cultivate_pro_japanese_intellectuals
+		}
+		relative_position_id = KOJ_pnr_continue_civilian_rule
+	}
+	focus = {
+		id = KOJ_pnr_national_spirit
+		x = -1
+		y = 5
+		cost = 5
+		icon = GFX_kor_born_in_Jeollabuk_do
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_marching_forward_together
+		}
+		prerequisite = {
+			focus = KOJ_pnr_name_changing_campaign
+		}
+		prerequisite = {
+			focus = KOJ_pnr_persuade_radical_nationalists
+		}
+		relative_position_id = KOJ_pnr_continue_civilian_rule
+	}
+	focus = {
+		id = KOJ_pnr_military_officer_appointment
+		x = 14
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOJ_pnr_continue_civilian_rule
+		}
+		prerequisite = {
+			focus = KOJ_pnr_japan_korea_integration_policy
+		}
+	}
+	focus = {
+		id = KOJ_pnr_actions_speak_louder_than_words
+		x = 2
+		y = 1
+		cost = 4
+		icon = GFX_focus_JAP_pnr_disappearance_of_vulgar_nations
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_military_officer_appointment
+		}
+		relative_position_id = KOJ_pnr_military_officer_appointment
+	}
+	focus = {
+		id = KOJ_pnr_increase_special_police_budget
+		x = -1
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_tighten_media_control
+		}
+		relative_position_id = KOJ_pnr_military_officer_appointment
+	}
+	focus = {
+		id = KOJ_pnr_duty_to_instruct
+		x = 3
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_actions_speak_louder_than_words
+		}
+		relative_position_id = KOJ_pnr_military_officer_appointment
+	}
+	focus = {
+		id = KOJ_pnr_tighten_media_control
+		x = 0
+		y = 1
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_military_officer_appointment
+		}
+		relative_position_id = KOJ_pnr_military_officer_appointment
+	}
+	focus = {
+		id = KOJ_pnr_obey_orders
+		x = 1
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_actions_speak_louder_than_words
+		}
+		relative_position_id = KOJ_pnr_military_officer_appointment
+	}
+	focus = {
+		id = KOJ_pnr_assess_populace_wealth
+		x = 2
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_obey_orders
+		}
+		prerequisite = {
+			focus = KOJ_pnr_duty_to_instruct
+		}
+		relative_position_id = KOJ_pnr_military_officer_appointment
+	}
+	focus = {
+		id = KOJ_pnr_exploit_mines
+		x = 2
+		y = 4
+		cost = 4
+		icon = GFX_focus_generic_coal_mining
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_assess_populace_wealth
+		}
+		relative_position_id = KOJ_pnr_military_officer_appointment
+	}
+	focus = {
+		id = KOJ_pnr_cooperate_with_bank_of_chosen
+		x = 0
+		y = 4
+		cost = 4
+		icon = GFX_goal_generic_banking_legislation
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_fear_and_command
+		}
+		prerequisite = {
+			focus = KOJ_pnr_crack_down_on_underground_reactionaries
+		}
+		relative_position_id = KOJ_pnr_military_officer_appointment
+	}
+	focus = {
+		id = KOJ_pnr_fear_and_command
+		x = 0
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_increase_special_police_budget
+		}
+		prerequisite = {
+			focus = KOJ_pnr_ban_illegal_assemblies
+		}
+		prerequisite = {
+			focus = KOJ_pnr_obey_orders
+		}
+		prerequisite = {
+			focus = KOJ_pnr_duty_to_instruct
+		}
+		relative_position_id = KOJ_pnr_military_officer_appointment
+	}
+	focus = {
+		id = KOJ_pnr_ban_illegal_assemblies
+		x = -3
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_tighten_media_control
+		}
+		relative_position_id = KOJ_pnr_military_officer_appointment
+	}
+	focus = {
+		id = KOJ_pnr_crack_down_on_underground_reactionaries
+		x = -2
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_ban_illegal_assemblies
+		}
+		prerequisite = {
+			focus = KOJ_pnr_increase_special_police_budget
+		}
+		relative_position_id = KOJ_pnr_military_officer_appointment
+	}
+	focus = {
+		id = KOJ_pnr_bridge_for_imperial_advance
+		x = 0
+		y = 5
+		cost = 4
+		icon = GFX_kor_follow_our_lord
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_cooperate_with_bank_of_chosen
+		}
+		prerequisite = {
+			focus = KOJ_pnr_exploit_mines
+		}
+		relative_position_id = KOJ_pnr_military_officer_appointment
+	}
+	focus = {
+		id = KOJ_pnr_industrial_expansion
+		x = -1
+		y = 1
+		cost = 6
+		icon = GFX_focus_ICE_embrace_the_workers_revolution
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_northern_plan
+		}
+		relative_position_id = KOJ_pnr_northern_plan
+	}
+	focus = {
+		id = KOJ_pnr_survey_reservoir_construction
+		x = 1
+		y = 1
+		cost = 6
+		icon = GFX_focus_generic_hydroelectric_energy
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_northern_plan
+		}
+		relative_position_id = KOJ_pnr_northern_plan
+	}
+	focus = {
+		id = KOJ_pnr_designate_special_industrial_zones
+		x = -1
+		y = 2
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_industrial_expansion
+		}
+		relative_position_id = KOJ_pnr_northern_plan
+	}
+	focus = {
+		id = KOJ_pnr_exploit_strategic_resources
+		x = 1
+		y = 2
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_survey_reservoir_construction
+		}
+		relative_position_id = KOJ_pnr_northern_plan
+	}
+	focus = {
+		id = KOJ_pnr_heart_of_korean_production
+		x = 0
+		y = 3
+		cost = 5
+		icon = GFX_kor_the_miracle_of_economy
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_designate_special_industrial_zones
+		}
+		prerequisite = {
+			focus = KOJ_pnr_exploit_strategic_resources
+		}
+		relative_position_id = KOJ_pnr_northern_plan
+	}
+	focus = {
+		id = KOJ_pnr_encourage_rice_improvement
+		x = -1
+		y = 1
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_southern_plan
+		}
+		relative_position_id = KOJ_southern_plan
+	}
+	focus = {
+		id = KOJ_pnr_replenish_consumer_goods
+		x = 1
+		y = 1
+		cost = 6
+		icon = GFX_goal_generic_prohibition
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_southern_plan
+		}
+		relative_position_id = KOJ_southern_plan
+	}
+	focus = {
+		id = KOJ_pnr_concentrate_land_use
+		x = 1
+		y = 2
+		cost = 6
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_replenish_consumer_goods
+		}
+		relative_position_id = KOJ_southern_plan
+	}
+	focus = {
+		id = KOJ_pnr_restricted_cotton_cultivation
+		x = -1
+		y = 2
+		cost = 6
+		icon = GFX_focus_CHL_enlarge_the_textile_industries
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_encourage_rice_improvement
+		}
+		relative_position_id = KOJ_southern_plan
+	}
+	focus = {
+		id = KOJ_pnr_granary_feeding_all
+		x = 0
+		y = 3
+		cost = 5
+		icon = GFX_focus_SIA_thai_rice_company
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_concentrate_land_use
+		}
+		prerequisite = {
+			focus = KOJ_pnr_restricted_cotton_cultivation
+		}
+		relative_position_id = KOJ_southern_plan
+	}
+	focus = {
+		id = KOJ_pnr_status_of_korean_army
+		x = 23
+		y = 0
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = KOJ_pnr_exchanges_with_kwantung_army
+		x = -3
+		y = 1
+		cost = 4
+		icon = GFX_focus_generic_military_mission
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_status_of_korean_army
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_conscript_local_laborers
+		x = 3
+		y = 1
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_status_of_korean_army
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_join_factories_and_haul_supplies
+		x = 1
+		y = 1
+		cost = 4
+		icon = GFX_focus_generic_full_employment
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_status_of_korean_army
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_produce_weapons_locally
+		x = 2
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOJ_pnr_purchase_japanese_arms
+		}
+		prerequisite = {
+			focus = KOJ_pnr_join_factories_and_haul_supplies
+		}
+		prerequisite = {
+			focus = KOJ_pnr_conscript_local_laborers
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_learn_military_experience
+		x = -4
+		y = 2
+		cost = 4
+		icon = GFX_goal_generic_army_doctrines
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_exchanges_with_kwantung_army
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_consolidate_garrison_duties
+		x = -3
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOJ_pnr_preemptive_strike_plan
+		}
+		prerequisite = {
+			focus = KOJ_pnr_learn_military_experience
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_preemptive_strike_plan
+		x = -5
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOJ_pnr_consolidate_garrison_duties
+		}
+		prerequisite = {
+			focus = KOJ_pnr_learn_military_experience
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_will_to_fight_side_by_side
+		x = 2
+		y = 4
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_spiritual_indoctrination
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_spiritual_indoctrination
+		x = 1
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_purchase_japanese_arms
+			focus = KOJ_pnr_produce_weapons_locally
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_purchase_japanese_arms
+		x = 0
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = KOJ_pnr_produce_weapons_locally
+		}
+		prerequisite = {
+			focus = KOJ_pnr_join_factories_and_haul_supplies
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_spearhead_of_east_asia
+		x = 1
+		y = 5
+		cost = 5
+		icon = GFX_focus_PRC_stoke_the_flames
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_artillery_and_gunpowder
+		}
+		prerequisite = {
+			focus = KOJ_pnr_will_to_fight_side_by_side
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_artillery_and_gunpowder
+		x = 0
+		y = 4
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_spiritual_indoctrination
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_increased_budget
+		x = -2
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_exchanges_with_kwantung_army
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_improve_communication_systems
+		x = -1
+		y = 3
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_increased_budget
+		}
+		prerequisite = {
+			focus = KOJ_pnr_purchase_japanese_arms
+			focus = KOJ_pnr_produce_weapons_locally
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_korean_air_corps
+		x = -2
+		y = 4
+		cost = 4
+		icon = GFX_goal_KOR_Airforce
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_increased_budget
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_allow_locals_to_enlist
+		x = 4
+		y = 2
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_conscript_local_laborers
+		}
+		relative_position_id = KOJ_pnr_status_of_korean_army
 	}
 }
