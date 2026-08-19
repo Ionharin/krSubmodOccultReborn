@@ -3,6 +3,9 @@ add_namespace = JAP_pnr_normal
 add_namespace = JAP_pnr_jpc
 add_namespace = JAP_pnr_news
 add_namespace = JAP_pnr_kg
+add_namespace = JAP_pnr_earlygame
+add_namespace = JAP_pnr_parlia_punch
+add_namespace = JAP_pnr_horsing
 
 country_event = { # 日本共产党分裂
     id = JAP_pnr_normal.1
@@ -951,6 +954,871 @@ country_event = { # 亚洲的爪牙
     }
 }
 
+country_event = { # 国会僵局
+    id = JAP_pnr_earlygame.1
+    immediate = {
+        log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.1"
+        hidden_effect = { country_event = { id = JAP_pnr_earlygame.2 days = 1 } }
+    }
+    title = JAP_pnr_earlygame.1.t
+    desc = JAP_pnr_earlygame.1.desc
+    picture = GFX_JAP_pnr_earlygame_1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 7
+    option = { # 真是一群……只为一党利益的政客。
+        name = JAP_pnr_earlygame.1.a
+        ai_chance = { factor = 1 }
+        add_political_power = 5
+        add_stability = -0.03
+    }
+}
+
+country_event = { # 波谲云诡
+    id = JAP_pnr_earlygame.2
+    immediate = { 
+        log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.2"
+        hidden_effect = { country_event = { id = JAP_pnr_earlygame.4 days = 4 } }    
+    }
+    title = JAP_pnr_earlygame.2.t
+    desc = JAP_pnr_earlygame.2.desc
+    picture = GFX_JAP_pnr_earlygame_2
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 这些馒头请笑纳，还请您仔细考虑。
+        name = JAP_pnr_earlygame.2.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 铃木/久原的行动
+    id = JAP_pnr_earlygame.3
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.3" }
+    title = JAP_pnr_earlygame.3.t
+    desc = JAP_pnr_earlygame.3.desc
+    picture = GFX_JAP_pnr_earlygame_3
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 政治何其险恶。
+        name = JAP_pnr_earlygame.3.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 碰壁
+    id = JAP_pnr_earlygame.4
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.4" }
+    title = JAP_pnr_earlygame.4.t
+    desc = JAP_pnr_earlygame.4.desc
+    picture = GFX_JAP_pnr_earlygame_4
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们怎能背叛我们自己的利益团体！
+        name = JAP_pnr_earlygame.4.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 天皇大命
+    id = JAP_pnr_earlygame.5
+    immediate = {
+        log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.5"
+        hidden_effect = {
+            reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = -7
+            }
+            country_event = { id = JAP_pnr_earlygame.6 days = 2 }
+        }
+    }
+    title = JAP_pnr_earlygame.5.t
+    desc = JAP_pnr_earlygame.5.desc
+    picture = GFX_report_event_pnr_JAP_extension_of_the_parliamentary_session
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 7
+    option = { # 宫中的阴谋……
+        name = JAP_pnr_earlygame.5.a
+        ai_chance = { factor = 1 }
+        add_political_power = -10
+        add_popularity = {
+            ideology = social_conservative
+            popularity = -0.03
+        }
+        reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = -21
+            }
+        hidden_effect = {
+            reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = 7
+            }
+        }
+    }
+}
+
+country_event = { # 坐渔庄的访客
+    id = JAP_pnr_earlygame.6
+    immediate = { 
+        log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.6"
+        hidden_effect = {
+            reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = -7
+            }
+        }    
+    }
+    title = JAP_pnr_earlygame.6.t
+    desc = JAP_pnr_earlygame.6.desc
+    picture = GFX_JAP_pnr_earlygame_6
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 7
+    option = { # 铃木喜三郎心怀拳拳报国之心，必能维护我国正当利益。
+        name = JAP_pnr_earlygame.6.a
+        ai_chance = { factor = 1 }
+        country_event = { id = JAP_pnr_earlygame.7 days = 1 }
+        hidden_effect = {
+            set_country_flag = pnr_support_suzuki
+            reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = 7
+            }
+        }
+    }
+    option = { # 久原房之助，他从实业家一路打拼，最懂民众需求。
+        name = JAP_pnr_earlygame.6.b
+        ai_chance = { factor = 1 }
+        country_event = { id = JAP_pnr_earlygame.7 days = 1 }
+        hidden_effect = {
+            set_country_flag = pnr_support_kuhara
+            reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = 7
+            }
+        }
+    }
+}
+
+country_event = { # 单独奉谒
+    id = JAP_pnr_earlygame.7
+    immediate = {
+        log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.7"
+        hidden_effect = {
+            reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = -14
+            }
+        } 
+    }
+    title = JAP_pnr_earlygame.7.t
+    desc = JAP_pnr_earlygame.7.desc
+    picture = GFX_JAP_pnr_earlygame_7
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 不过是一丘之貉。
+        name = JAP_pnr_earlygame.7.a
+        ai_chance = { factor = 1 }
+        country_event = { id = JAP_pnr_earlygame.8 days = 1 }
+        hidden_effect = {
+            reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = 14
+            }
+        } 
+    }
+}
+
+country_event = { # 面圣奏报
+    id = JAP_pnr_earlygame.8
+    immediate = {
+        log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.8"
+        hidden_effect = {
+            reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = -14
+            }
+        } 
+    }
+    title = JAP_pnr_earlygame.8.t
+    desc = JAP_pnr_earlygame.8.desc
+    picture = GFX_JAP_pnr_earlygame_8
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 当向政友会铃木喜三郎降下组阁大命。
+        name = JAP_pnr_earlygame.8.a
+        ai_chance = { factor = 1 }
+        country_event = { id = JAP_pnr_earlygame.9 days = 3 }
+        set_country_flag = pnr_final_select_suzuki
+        hidden_effect = {
+            reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = 14
+            }
+            if = {
+                limit = { has_country_flag = pnr_support_suzuki }
+                clr_country_flag = pnr_support_suzuki
+            }
+        } 
+    }
+    option = { # 当向政友会久原房之助降下组阁大命。
+        name = JAP_pnr_earlygame.8.b
+        ai_chance = { factor = 1 }
+        country_event = { id = JAP_pnr_earlygame.9 days = 3 }
+        set_country_flag = pnr_final_select_kuhara
+        hidden_effect = {
+            reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = 14
+            }
+            if = {
+                limit = { has_country_flag = pnr_support_kuhara }
+                clr_country_flag = pnr_support_kuhara
+            }
+        }  
+    }
+    option = { # 当向民政党滨口雄幸降下组阁大命。
+        name = JAP_pnr_earlygame.8.c
+        ai_chance = { factor = 1 }
+        country_event = { id = JAP_pnr_earlygame.9 days = 3 }
+        set_country_flag = pnr_final_select_hamaguchi
+        hidden_effect = {
+            reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = 14
+            }
+            clr_country_flag = pnr_support_suzuki
+            clr_country_flag = pnr_support_kuhara
+            set_country_flag = pnr_betrayed_seiyukai
+        }
+    }
+}
+
+country_event = { # 永恒的僵局
+    id = JAP_pnr_earlygame.9
+    immediate = { 
+        log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.9"
+        hidden_effect = {
+            reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = -14
+            }
+        }
+    }
+    title = JAP_pnr_earlygame.9.t
+    desc = JAP_pnr_earlygame.9.desc
+    picture = GFX_JAP_pnr_earlygame_9
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我只希望诸位同袍看看周围，真正地看看周围吧！
+        name = JAP_pnr_earlygame.9.a
+        ai_chance = { factor = 1 }
+        add_political_power = -10
+        add_popularity = {
+            ideology = social_conservative
+            popularity = -0.05
+        }
+        hidden_effect = {
+            country_event = { id = JAP_pnr_earlygame.10 }
+            reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = 14
+            }
+        }
+    }
+}
+
+country_event = { # 犬养毅内阁垮台
+    id = JAP_pnr_earlygame.10
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.10" }
+    title = JAP_pnr_earlygame.10.t
+    desc = JAP_pnr_earlygame.10.desc
+    picture = GFX_JAP_pnr_earlygame_10
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 果然是铃木吗？
+        name = JAP_pnr_earlygame.10.a
+        ai_chance = { factor = 1 }
+        trigger = { has_country_flag = pnr_final_select_suzuki }
+        add_political_power = 5
+        add_popularity = {
+            ideology = social_conservative
+            popularity = 0.04
+        }
+        JAP_pnr_suzuki_kisaburo = { promote_character = social_conservative_subtype }
+        complete_national_focus = JAP_pnr_68th_sessions_imperial_diet
+        hidden_effect = {
+            if = {
+                limit = { has_completed_focus = JAP_pnr_join_forces_with_the_wakuhara_faction }
+                country_event = { id = JAP_pnr_earlygame.11 days = 2 }
+            }
+        }
+    }
+    option = { # 久原派居然胜利了，政友会会变成什么样？
+        name = JAP_pnr_earlygame.10.b
+        ai_chance = { factor = 1 }
+        trigger = { has_country_flag = pnr_final_select_kuhara }
+        add_political_power = 5
+        add_popularity = {
+            ideology = social_conservative
+            popularity = 0.04
+        }
+        JAP_pnr_fusanosuke_kuhara = { promote_character = social_conservative_subtype }
+        complete_national_focus = JAP_pnr_68th_sessions_imperial_diet
+        hidden_effect = {
+            if = {
+                limit = { has_completed_focus = JAP_pnr_leaning_toward_suzuki_faction }
+                country_event = { id = JAP_pnr_earlygame.11 days = 2 }
+            }
+        }
+    }
+    option = { # 十年之后，立宪民政党归来了！
+        name = JAP_pnr_earlygame.10.c
+        ai_chance = { factor = 1 }
+        trigger = { has_country_flag = pnr_final_select_hamaguchi }
+        add_political_power = 5
+        add_popularity = {
+            ideology = market_liberal
+            popularity = 0.04
+        }
+        set_politics = { ruling_party = market_liberal }
+        complete_national_focus = JAP_pnr_68th_sessions_imperial_diet
+    }
+}
+
+country_event = { # 久原/铃木的叛变
+    id = JAP_pnr_earlygame.11
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.11" }
+    title = JAP_pnr_earlygame.11.t
+    desc = JAP_pnr_earlygame.11.desc
+    picture = GFX_JAP_pnr_earlygame_11
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 这些人心中到底有没有理想？
+        name = JAP_pnr_earlygame.11.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 黑色星期一的混乱
+    id = JAP_pnr_earlygame.12
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.12" }
+    title = JAP_pnr_earlygame.12.t
+    desc = JAP_pnr_earlygame.12.desc
+    picture = GFX_JAP_pnr_earlygame_12
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 不不不，不要再来一次……
+        name = JAP_pnr_earlygame.12.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # Confidence/Complication/Control
+    id = JAP_pnr_earlygame.13
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.13" }
+    title = JAP_pnr_earlygame.13.t
+    desc = JAP_pnr_earlygame.13.desc
+    picture = GFX_JAP_pnr_earlygame_13
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 政府总归会做点什么吧。
+        name = JAP_pnr_earlygame.13.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 左线积极财政削弱减益事件
+    id = JAP_pnr_earlygame.14
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.14" }
+    title = JAP_pnr_earlygame.14.t
+    desc = JAP_pnr_earlygame.14.desc
+    picture = GFX_JAP_pnr_earlygame_14
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 7
+    option = { # 我们应该扩大公共工程。
+        name = JAP_pnr_earlygame.14.a
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = {
+			localization_key = tooltip_modify_dynmod
+			DYNMOD = JAP_pnr_lost_decade_nightmare_modifier
+		}
+		add_to_variable = {
+			var = JAP_pnr_lost_decade_consumer_goods_factor
+			value = 0.10
+			tooltip = consumer_goods_factor_tt
+		}
+        add_one_random_civilian_factory = yes
+    }
+    option = { # 拉动军工产业需求有助于我国国防。
+        name = JAP_pnr_earlygame.14.b
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = {
+			localization_key = tooltip_modify_dynmod
+			DYNMOD = JAP_pnr_lost_decade_nightmare_modifier
+		}
+		add_to_variable = {
+			var = JAP_pnr_lost_decade_consumer_goods_factor
+			value = 0.10
+			tooltip = consumer_goods_factor_tt
+		}
+        add_one_random_military_factory = yes
+    }
+    option = { # 请求财阀多买一点。
+        name = JAP_pnr_earlygame.14.c
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = {
+			localization_key = tooltip_modify_dynmod
+			DYNMOD = JAP_pnr_lost_decade_nightmare_modifier
+		}
+		add_to_variable = {
+			var = JAP_pnr_lost_decade_consumer_goods_factor
+			value = 0.14
+			tooltip = consumer_goods_factor_tt
+		}
+        add_one_random_civilian_factory = yes
+        add_one_random_military_factory = yes
+        custom_effect_tooltip = tooltip_white_line
+        custom_effect_tooltip = pnr_zaibatsu_may_control_government_tt
+    }
+}
+
+country_event = { # 右线自由主义削弱减益事件
+    id = JAP_pnr_earlygame.15
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.15" }
+    title = JAP_pnr_earlygame.15.t
+    desc = JAP_pnr_earlygame.15.desc
+    picture = GFX_JAP_pnr_earlygame_15
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 淘汰那些没了国家补贴就会死的企业。
+        name = JAP_pnr_earlygame.15.a
+        ai_chance = { factor = 1 }
+        random_owned_controlled_state = {
+			limit = { industrial_complex > 0 }
+			remove_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+    }
+    option = { # 一些盈利能力不足的企业也该退出竞争。
+        name = JAP_pnr_earlygame.15.b
+        ai_chance = { factor = 1 }
+        random_owned_controlled_state = {
+			limit = { industrial_complex > 0 }
+			remove_building = {
+				type = industrial_complex
+				level = 2
+			}
+		}
+    }
+    option = { # 值此机会积极促进各财阀进行产业并购。
+        name = JAP_pnr_earlygame.15.c
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = pnr_zaibatsu_may_control_government_tt
+    }
+}
+
+country_event = { # 左线通货膨胀事件
+    id = JAP_pnr_earlygame.16
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.16" }
+    title = JAP_pnr_earlygame.16.t
+    desc = JAP_pnr_earlygame.16.desc
+    picture = GFX_JAP_pnr_earlygame_16
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 先用未来拯救当下再说别的。
+        name = JAP_pnr_earlygame.16.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 左线经济恢复事件
+    id = JAP_pnr_earlygame.17
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.17" }
+    title = JAP_pnr_earlygame.17.t
+    desc = JAP_pnr_earlygame.17.desc
+    picture = GFX_JAP_pnr_earlygame_17
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 这是好消息啊。
+        name = JAP_pnr_earlygame.17.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 右线倒闭事件
+    id = JAP_pnr_earlygame.18
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.18" }
+    title = JAP_pnr_earlygame.18.t
+    desc = JAP_pnr_earlygame.18.desc
+    picture = GFX_JAP_pnr_earlygame_18
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 直至坠入谷底，便能一飞冲天。
+        name = JAP_pnr_earlygame.18.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 右线经济恢复事件
+    id = JAP_pnr_earlygame.19
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.19" }
+    title = JAP_pnr_earlygame.19.t
+    desc = JAP_pnr_earlygame.19.desc
+    picture = GFX_JAP_pnr_earlygame_19
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 明智的出手时机。
+        name = JAP_pnr_earlygame.19.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 浮华世界（财阀线转线事件）
+    id = JAP_pnr_earlygame.20
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.20" }
+    title = JAP_pnr_earlygame.20.t
+    desc = JAP_pnr_earlygame.20.desc
+    picture = GFX_JAP_pnr_earlygame_20
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 别了，契绥克林荫道！
+        name = JAP_pnr_earlygame.20.a
+        ai_chance = { factor = 1 }
+        set_country_flag = pnr_zaibatsu_government_flag
+    }
+}
+
+country_event = { # 五一五事件链开始
+    id = JAP_pnr_earlygame.21
+    immediate = {
+        log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.21"
+        hidden_effect = { country_event = { id = JAP_pnr_earlygame.22 days = 10 } }
+    }
+    title = JAP_pnr_earlygame.21.t
+    desc = JAP_pnr_earlygame.21.desc
+    picture = GFX_JAP_pnr_earlygame_21
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 那就去拜访圣师！
+        name = JAP_pnr_earlygame.21.a
+        ai_chance = { factor = 1 }
+        add_political_power = 3
+    }
+}
+
+country_event = { # 参拜
+    id = JAP_pnr_earlygame.22
+    immediate = {
+        log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.22"
+        hidden_effect = { country_event = { id = JAP_pnr_earlygame.23 days = 3 } }
+    }
+    title = JAP_pnr_earlygame.22.t
+    desc = JAP_pnr_earlygame.22.desc
+    picture = GFX_JAP_pnr_earlygame_22
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我等受决意驱使，必将一往无前。
+        name = JAP_pnr_earlygame.22.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 我们是海军学院的
+    id = JAP_pnr_earlygame.23
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.23" }
+    title = JAP_pnr_earlygame.23.t
+    desc = JAP_pnr_earlygame.23.desc
+    picture = GFX_JAP_pnr_earlygame_23
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 犬养毅在哪儿？
+        name = JAP_pnr_earlygame.23.a
+        ai_chance = { factor = 1 }
+        country_event = { id = JAP_pnr_earlygame.24 days = 3 }
+    }
+}
+
+country_event = { # 遗言
+    id = JAP_pnr_earlygame.24
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.24" }
+    title = JAP_pnr_earlygame.24.t
+    desc = JAP_pnr_earlygame.24.desc
+    picture = GFX_JAP_pnr_earlygame_24
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 天诛！
+        name = JAP_pnr_earlygame.24.a
+        ai_chance = { factor = 1 }
+        add_popularity = {
+			ideology = social_conservative
+			popularity = -0.02
+		}
+    }
+}
+
+country_event = { # 五一五事件
+    id = JAP_pnr_earlygame.25
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.25" }
+    title = JAP_pnr_earlygame.25.t
+    desc = JAP_pnr_earlygame.25.desc
+    picture = GFX_JAP_pnr_earlygame_25
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 骇人的恐怖暴行。
+        name = JAP_pnr_earlygame.25.a
+        ai_chance = { factor = 1 }
+        add_stability = -0.05
+        set_country_flag = JAP_pnr_515_happened
+        JAP_inukai_tsuyoshi = { kill_character = yes }
+    }
+}
+
+country_event = { # 《国家保安法》
+    id = JAP_pnr_earlygame.26
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.26" }
+    title = JAP_pnr_earlygame.26.t
+    desc = JAP_pnr_earlygame.26.desc
+    picture = GFX_JAP_pnr_earlygame_26
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 值得考虑，我们会在恰当的时候提出。
+        name = JAP_pnr_earlygame.26.a
+        ai_chance = { factor = 1 }
+        country_event = { id = JAP_pnr_earlygame.28 days = 3 }
+        country_event = { id = JAP_pnr_earlygame.27 days = 5 }
+    }
+}
+
+country_event = { # 五一五事件：宫中视角
+    id = JAP_pnr_earlygame.27
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.27" }
+    title = JAP_pnr_earlygame.27.t
+    desc = JAP_pnr_earlygame.27.desc
+    picture = GFX_JAP_pnr_earlygame_27
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我[JAP.GetName]之统治要去往何方……
+        name = JAP_pnr_earlygame.27.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 请愿书和手指
+    id = JAP_pnr_earlygame.28
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.28" }
+    title = JAP_pnr_earlygame.28.t
+    desc = JAP_pnr_earlygame.28.desc
+    picture = GFX_JAP_pnr_earlygame_28
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 疯狂的宴会要来了。
+        name = JAP_pnr_earlygame.28.a
+        ai_chance = { factor = 1 }
+        country_event = { id = JAP_pnr_earlygame.29 days = 4 }
+    }
+}
+
+country_event = { # 解散国会的提议
+    id = JAP_pnr_earlygame.29
+    immediate = {
+        log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.29"
+        hidden_effect = { country_event = { id = JAP_pnr_earlygame.30 days = 2 } }
+    }
+    title = JAP_pnr_earlygame.29.t
+    desc = JAP_pnr_earlygame.29.desc
+    picture = GFX_JAP_pnr_earlygame_29
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 绝不可在此狂热时刻解散国会！
+        name = JAP_pnr_earlygame.29.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 《国家保安法》的命运
+    id = JAP_pnr_earlygame.30
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.30" }
+    title = JAP_pnr_earlygame.30.t
+    desc = JAP_pnr_earlygame.30.desc
+    picture = GFX_JAP_pnr_earlygame_30
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 毫无疑问，《国家保安法》终获通过！
+        name = JAP_pnr_earlygame.30.a
+        ai_chance = { factor = 1 }
+        country_event = { id = JAP_pnr_earlygame.31 days = 3 }
+    }
+    option = { # 借危机夺取民权的《国家保安法》流产了！
+        name = JAP_pnr_earlygame.30.b
+        ai_chance = { factor = 1 }
+        country_event = { id = JAP_pnr_earlygame.32 days = 3 }
+    }
+}
+
+country_event = { # 《国家保安法》通过，解散议会大选
+    id = JAP_pnr_earlygame.31
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.31" }
+    title = JAP_pnr_earlygame.31.t
+    desc = JAP_pnr_earlygame.31.desc
+    picture = GFX_JAP_pnr_earlygame_31
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 看来他们信心满满。
+        name = JAP_pnr_earlygame.31.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 《国家保安法》失败，解散议会大选
+    id = JAP_pnr_earlygame.32
+    immediate = { 
+        log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.32"
+        hidden_effect = { country_event = { id = JAP_pnr_earlygame.33 days = 4 } }
+    }
+    title = JAP_pnr_earlygame.32.t
+    desc = JAP_pnr_earlygame.32.desc
+    picture = GFX_JAP_pnr_earlygame_32
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 如果早点解散众议院可能不会变成现在这样。
+        name = JAP_pnr_earlygame.32.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 陆军策划政变
+    id = JAP_pnr_earlygame.33
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.33" }
+    title = JAP_pnr_earlygame.33.t
+    desc = JAP_pnr_earlygame.33.desc
+    picture = GFX_JAP_pnr_earlygame_33
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 战术很困难，但政治很简单。
+        name = JAP_pnr_earlygame.33.a
+        ai_chance = { factor = 1 }
+        country_event = { id = JAP_pnr_earlygame.34 days = 1 }
+    }
+}
+
+country_event = { # 尊皇讨奸
+    id = JAP_pnr_earlygame.34
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.34" }
+    title = JAP_pnr_earlygame.34.t
+    desc = JAP_pnr_earlygame.34.desc
+    picture = GFX_JAP_pnr_earlygame_34
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 将我等赤红的忠心献于首领。
+        name = JAP_pnr_earlygame.34.a
+        ai_chance = { factor = 1 }
+        country_event = { id = JAP_pnr_earlygame.35 days = 3 }
+    }
+}
+
+country_event = { # 清君侧
+    id = JAP_pnr_earlygame.35
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.35" }
+    title = JAP_pnr_earlygame.35.t
+    desc = JAP_pnr_earlygame.35.desc
+    picture = GFX_JAP_pnr_earlygame_35
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 奏怆歌闻震天动地，拨乱云见白日苍空
+        name = JAP_pnr_earlygame.35.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 国会斗殴事件小游戏
+    id = JAP_pnr_parlia_punch.1
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_parlia_punch.1" }
+    title = JAP_pnr_parlia_punch.1.t
+    desc = JAP_pnr_parlia_punch.1.desc
+    picture = GFX_JAP_pnr_parlia_punch_1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 出拳！
+        name = JAP_pnr_parlia_punch.1.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 出腿！
+        name = JAP_pnr_parlia_punch.1.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 拿姓名牌打他！
+        name = JAP_pnr_parlia_punch.1.c
+        ai_chance = { factor = 1 }
+    }
+    option = { # 小心啊！
+        name = JAP_pnr_parlia_punch.1.d
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 1936年中山纪念赛马小游戏事件
+    id = JAP_pnr_horsing.1
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_horsing.1" }
+    title = JAP_pnr_horsing.1.t
+    desc = JAP_pnr_horsing.1.desc
+    picture = GFX_JAP_pnr_horsing_1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 依我看，亚特兰大没有输的理由。
+        name = JAP_pnr_horsing.1.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # クレオパトラトマス可是月城一脉。
+        name = JAP_pnr_horsing.1.b
+        ai_chance = { factor = 1 }
+    }
+    option = { # 扶桑绝对能胜利，扶桑！
+        name = JAP_pnr_horsing.1.c
+        ai_chance = { factor = 1 }
+    }
+    option = { # 老骥伏枥，志在千里。期待伊瓦塔达爆冷。
+        name = JAP_pnr_horsing.1.d
+        ai_chance = { factor = 1 }
+    }
+}
 
 country_event = {
 	id = JAP_pnr_event.1

@@ -2,7 +2,8 @@
 set_stability = 0.30
 set_war_support = 0.15
 set_fuel_ratio = 0.40
-set_research_slots = 4
+set_research_slots = 3
+load_focus_tree = JAP_pnr_yachiyo
 
 set_politics = {
 	ruling_party = social_conservative
@@ -11,38 +12,50 @@ set_politics = {
 	elections_allowed = no
 }
 
+set_variable = { country_intro_page_count = 5 }
+set_variable = { country_guide_page_count = 3 }
+
 set_popularities = {
 	totalist = 0
 	syndicalist = 1
 	radical_socialist = 0
-	social_democrat = 1
-	social_liberal = 2
+	social_democrat = 9
+	social_liberal = 12
 	authoritarian_democrat = 0
 	market_liberal = 31
-	social_conservative = 64
-	paternal_autocrat = 0
-	national_populist = 1
+	social_conservative = 33
+	paternal_autocrat = 8
+	national_populist = 6
 }
 
 add_ideas = {
 	JAP_pnr_showa_tenno
 	JAP_pnr_housing_finance_agency
-	JAP_pnr_rikken_seiyukai_factional_struggle
+	JAP_pnr_forever_frozen_in_1928
 	JAP_pnr_farewell_to_the_lost_decade
 }
 
-#add_dynamic_modifier = { modifier = JAP_pnr_red_hands_modifier }
-
-country_event = { id = JAP_pnr_normal.2 days = 3 }
-country_event = { id = JAP_pnr_normal.1 days = 14 }
-country_event = { id = JAP_pnr_jpc.1 days = 20 }
+country_event = { id = JAP_pnr_earlygame.1 days = 2 } #犬养毅国会质询
+country_event = { id = JAP_pnr_earlygame.3 days = 6 } #随机事件铃木久原
+country_event = { id = JAP_pnr_earlygame.5 days = 12 } #天皇大命
+country_event = { id = JAP_pnr_normal.1 days = 15 } #日共分裂事件
+country_event = { id = JAP_pnr_earlygame.12 days = 17 } #黑色星期一即将开始
+country_event = { id = JAP_pnr_jpc.1 days = 28 } #赤色魔手触发
+country_event = { id = JAP_pnr_earlygame.21 days = 115 } # 五一五事件链开始
+country_event = { id = JAP_pnr_earlygame.25 days = 135 } # 五一五事件
+country_event = { id = JAP_pnr_earlygame.26 days = 140 } # 国家保安法
 
 set_power_balance = {
 	id = JAP_pnr_poor_reality_bop
 	left_side = JAP_pnr_choshu_no_rikugun
 	right_side = JAP_pnr_satsuma_no_kaigun
-	set_value = -0.40
+	set_value = -0.15
 }
+
+KOJ = { activate_targeted_decision = { decision = JAP_develop_chosen_tungsten_mines1 target = 527 } }
+
+unlock_national_focus = JAP_pnr_south_manchuria_railway_our_bond_with_the_continent
+unlock_national_focus = JAP_pnr_rice_valley_self_governance_act
 
 ### JAP Puppet Register ###
 recruit_character = JAP_pnr_hiroyasu
@@ -51,8 +64,11 @@ recruit_character = JAP_pnr_onisaburo
 recruit_character = JAP_pnr_kong_decheng
 
 ### JAP Independ Character Register ###
+recruit_character = JAP_pnr_suzuki_kisaburo
 recruit_character = JAP_pnr_inukai_tsuyoshi
 recruit_character = JAP_pnr_hakamada_satomi
+recruit_character = JAP_pnr_hamaguchi_osachi
+recruit_character = JAP_pnr_fusanosuke_kuhara
 recruit_character = JAP_pnr_hisashi_aso
 recruit_character = JAP_pnr_katsumaro_akamatsu
 recruit_character = JAP_pnr_nishio_suehiro
@@ -117,11 +133,10 @@ set_party_name = {
 	name = JAP_pnr_national_populist_party
 }
 
-#oob = "JAP_focus_tree_start"
-load_focus_tree = JAP_pnr_yachiyo
-
 JAP_pnr_inukai_tsuyoshi = { promote_character = social_conservative_subtype }
 JAP_pnr_hakamada_satomi = { promote_character = totalist_subtype }
+JAP_pnr_hakamada_satomi = { promote_character = radical_socialist_subtype }
+JAP_pnr_hamaguchi_osachi = { promote_character = market_liberal_subtype }
 JAP_pnr_hisashi_aso = { promote_character = social_democrat_subtype }
 JAP_pnr_katsumaro_akamatsu = { promote_character = national_populist_subtype }
 JAP_pnr_nishio_suehiro = { promote_character = social_liberal_subtype }

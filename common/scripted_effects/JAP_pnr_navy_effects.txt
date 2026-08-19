@@ -1,0 +1,190 @@
+JAP_pnr_fleet_plan_ensure_modifier = {
+	if = {
+		limit = {
+			NOT = {
+				has_dynamic_modifier = {
+					modifier = JAP_pnr_fleet_plan_modifier
+				}
+			}
+		}
+		set_variable = { JAP_pnr_fleet_plan_experience_gain_navy_factor = 0.15 }
+		set_variable = { JAP_pnr_fleet_plan_navy_org_factor = 0.05 }
+		add_dynamic_modifier = {
+			modifier = JAP_pnr_fleet_plan_modifier
+		}
+	}
+}
+
+JAP_pnr_fleet_plan_modify_tooltip = {
+	custom_effect_tooltip = {
+		localization_key = tooltip_modify_dynmod
+		DYNMOD = JAP_pnr_fleet_plan_modifier
+	}
+}
+
+JAP_pnr_fleet_plan_battle_of_tsushima_strait_effect = {
+	JAP_pnr_fleet_plan_modify_tooltip = yes
+	add_to_variable = {
+		JAP_pnr_fleet_plan_naval_coordination = 0.05
+		tooltip = naval_coordination_tooltip
+	}
+	add_to_variable = {
+		JAP_pnr_fleet_plan_positioning = 0.05
+		tooltip = positioning_tooltip
+	}
+	force_update_dynamic_modifier = yes
+}
+
+JAP_pnr_fleet_plan_reassessing_the_oceans_effect = {
+	JAP_pnr_fleet_plan_modify_tooltip = yes
+	add_to_variable = {
+		JAP_pnr_fleet_plan_naval_doctrine_mastery_gain_factor = 0.10
+		tooltip = JAP_pnr_fleet_plan_naval_doctrine_mastery_gain_factor_tooltip
+	}
+	force_update_dynamic_modifier = yes
+}
+
+JAP_pnr_fleet_plan_landing_and_anti_landing_effect = {
+	JAP_pnr_fleet_plan_modify_tooltip = yes
+	add_to_variable = {
+		JAP_pnr_fleet_plan_special_forces_cap_flat = 12
+		tooltip = special_forces_cap_flat_tooltip
+	}
+	add_to_variable = {
+		JAP_pnr_fleet_plan_marines_special_forces_contribution_factor = -0.15
+		tooltip = marines_special_forces_contribution_factor_tooltip
+	}
+	force_update_dynamic_modifier = yes
+}
+
+JAP_pnr_fleet_plan_maritime_defense_perimeter_effect = {
+	JAP_pnr_fleet_plan_modify_tooltip = yes
+	add_to_variable = {
+		JAP_pnr_fleet_plan_naval_speed_factor = 0.05
+		tooltip = naval_speed_factor_tooltip
+	}
+	force_update_dynamic_modifier = yes
+}
+
+JAP_pnr_fleet_plan_operation_man_eating_shark_effect = {
+	JAP_pnr_fleet_plan_modify_tooltip = yes
+	add_to_variable = {
+		JAP_pnr_fleet_plan_mines_planting_by_fleets_factor = 0.22
+		tooltip = mines_planting_by_fleets_factor_tooltip
+	}
+	add_to_variable = {
+		JAP_pnr_fleet_plan_naval_mines_damage_factor = 0.30
+		tooltip = naval_mines_damage_factor_tooltip
+	}
+	force_update_dynamic_modifier = yes
+}
+
+JAP_pnr_fleet_plan_destroy_enemy_supplies_effect = {
+	JAP_pnr_fleet_plan_modify_tooltip = yes
+	add_to_variable = {
+		JAP_pnr_fleet_plan_convoy_raiding_efficiency_factor = 0.12
+		tooltip = convoy_raiding_efficiency_factor_tooltip
+	}
+	force_update_dynamic_modifier = yes
+}
+
+JAP_pnr_fleet_plan_beyond_the_blue_water_effect = {
+	JAP_pnr_fleet_plan_modify_tooltip = yes
+	add_to_variable = {
+		JAP_pnr_fleet_plan_navy_max_range_factor = 0.15
+		tooltip = navy_max_range_factor_tooltip
+	}
+	force_update_dynamic_modifier = yes
+}
+
+JAP_pnr_fleet_plan_three_dimensional_joint_operation_effect = {
+	JAP_pnr_fleet_plan_modify_tooltip = yes
+	add_to_variable = {
+		JAP_pnr_fleet_plan_navy_screen_defence_factor = 0.10
+		tooltip = navy_screen_defence_factor_tooltip
+	}
+	add_to_variable = {
+		JAP_pnr_fleet_plan_navy_carrier_air_attack_factor = 0.05
+		tooltip = navy_carrier_air_attack_factor_tooltip
+	}
+	add_to_variable = {
+		JAP_pnr_fleet_plan_sortie_efficiency = 0.15
+		tooltip = sortie_efficiency_tooltip
+	}
+	force_update_dynamic_modifier = yes
+}
+
+JAP_pnr_fleet_plan_ensure_open_sea_supply_effect = {
+	JAP_pnr_fleet_plan_modify_tooltip = yes
+	add_to_variable = {
+		JAP_pnr_fleet_plan_navy_fuel_consumption_factor = -0.12
+		tooltip = navy_fuel_consumption_factor_tooltip
+	}
+	force_update_dynamic_modifier = yes
+}
+
+JAP_pnr_fleet_plan_heavy_cannon_on_water_effect = {
+	JAP_pnr_fleet_plan_modify_tooltip = yes
+	add_to_variable = {
+		JAP_pnr_fleet_plan_shore_bombardment_bonus = 0.24
+		tooltip = shore_bombardment_bonus_tooltip
+	}
+	add_to_variable = {
+		JAP_pnr_fleet_plan_convoy_escort_efficiency = 0.08
+		tooltip = convoy_escort_efficiency_factor_tooltip
+	}
+	force_update_dynamic_modifier = yes
+}
+
+JAP_pnr_fleet_plan_concentrated_firepower_effect = {
+	JAP_pnr_fleet_plan_modify_tooltip = yes
+	add_to_variable = {
+		JAP_pnr_fleet_plan_navy_capital_ship_attack_factor = 0.10
+		tooltip = navy_capital_ship_attack_factor_tooltip
+	}
+	force_update_dynamic_modifier = yes
+}
+
+JAP_pnr_fleet_plan_high_speed_advantage_effect = {
+	JAP_pnr_fleet_plan_modify_tooltip = yes
+	add_to_variable = {
+		JAP_pnr_fleet_plan_naval_speed_factor = 0.10
+		tooltip = naval_speed_factor_tooltip
+	}
+	add_to_variable = {
+		JAP_pnr_fleet_plan_naval_retreat_speed = 0.10
+		tooltip = naval_retreat_speed_tooltip
+	}
+	force_update_dynamic_modifier = yes
+}
+
+JAP_pnr_fleet_plan_forestall_enemy_effect = {
+	JAP_pnr_fleet_plan_modify_tooltip = yes
+	add_to_variable = {
+		JAP_pnr_fleet_plan_naval_critical_score_chance_factor = 0.06
+		tooltip = naval_critical_score_chance_factor_tooltip
+	}
+	force_update_dynamic_modifier = yes
+}
+
+JAP_pnr_fleet_plan_search_for_enemy_ships_effect = {
+	JAP_pnr_fleet_plan_modify_tooltip = yes
+	add_to_variable = {
+		JAP_pnr_fleet_plan_spotting_chance = 0.10
+		tooltip = spotting_chance_tooltip
+	}
+	force_update_dynamic_modifier = yes
+}
+
+JAP_pnr_fleet_plan_large_scale_torpedo_warfare_effect = {
+	JAP_pnr_fleet_plan_modify_tooltip = yes
+	add_to_variable = {
+		JAP_pnr_fleet_plan_naval_torpedo_hit_chance_factor = 0.14
+		tooltip = naval_torpedo_hit_chance_factor_tooltip
+	}
+	add_to_variable = {
+		JAP_pnr_fleet_plan_naval_torpedo_cooldown_factor = -0.14
+		tooltip = naval_torpedo_cooldown_factor_tooltip
+	}
+	force_update_dynamic_modifier = yes
+}

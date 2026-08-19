@@ -2,15 +2,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 	JAP_pnr_realpolitik_decision = {
 		icon = generic_agreement
 
-		visible = {
-			OR = {
-				has_idea = JAP_pnr_offensive_realpolitik
-				has_idea = JAP_pnr_offensive_realpolitik_1
-				has_idea = JAP_pnr_offensive_realpolitik_2
-				has_idea = JAP_pnr_offensive_realpolitik_3
-				has_idea = JAP_pnr_offensive_realpolitik_4
-			}
-		}
+		visible = { has_completed_focus = JAP_pnr_kasumigaseki_diplomacy }
 
 		available = {
 			always = no
@@ -18,6 +10,48 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 
 		ai_will_do = {
 			factor = 0
+		}
+	}
+	JAP_pnr_south_china_melee_decision = {
+		icon = generic_civil_support
+		visible = { 
+			has_completed_focus = JAP_pnr_kasumigaseki_diplomacy
+			#LEP = { has_country_flag = LEP_league_war_flag }
+		}
+		fire_only_once = yes
+		available = {
+			NOT = { LEP = { has_volunteers_amount_from = { tag = GER count > 0 } } }
+			NOT = { LEP = { has_volunteers_amount_from = { tag = GEA count > 0 } } }
+			LEP = { has_country_flag = LEP_league_war_flag }
+		}
+		ai_will_do = { factor = 10 }
+		cost = 15
+		days_remove = 90
+		targeted_modifier = { tag = LEP send_volunteer_size = 2 }
+		targeted_modifier = { tag = ANQ send_volunteer_size = 2 }
+		targeted_modifier = { tag = CHI send_volunteer_size = 2 }
+		targeted_modifier = { tag = SHD send_volunteer_size = 2 }
+	}
+	JAP_pnr_operation_spartacus_india_decision = {
+		icon = GFX_decision_continent_north_america
+		visible = { 
+			has_completed_focus = JAP_pnr_kasumigaseki_diplomacy
+			#LEP = { has_country_flag = LEP_league_war_flag }
+		}
+		fire_only_once = yes
+		available = {
+			has_completed_focus = JAP_operation_spartacus
+			country_exists = HND
+			NOT = { has_war_with = 613.owner }
+		}
+		ai_will_do = { factor = 10 }
+		custom_cost_text = 1000_guns
+		custom_cost_trigger = {
+			NOT = { has_equipment = { infantry_equipment < 1000 } }
+		}
+		days_remove = 40
+		complete_effect = {
+			send_equipment = { target = HND type = infantry_equipment amount = 1000 }
 		}
 	}
 }

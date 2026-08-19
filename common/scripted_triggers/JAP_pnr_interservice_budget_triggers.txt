@@ -1,9 +1,42 @@
-JAP_pnr_has_army_budget_point_trigger = {
+JAP_pnr_has_army_budget_point_trigger = { # subtract 1 army budget point effect
 	custom_override_tooltip = {
 		tooltip = JAP_pnr_army_budget_point_required_tt
 		check_variable = {
 			var = JAP_pnr_army_budget_points
 			value = 1
+			compare = greater_than_or_equals
+		}
+	}
+}
+
+JAP_pnr_has_2_army_budget_point_trigger = { # subtract 2 army budget point effect ELITE focus
+	custom_override_tooltip = {
+		tooltip = JAP_pnr_army_budget_2_point_required_tt
+		check_variable = {
+			var = JAP_pnr_army_budget_points
+			value = 2
+			compare = greater_than_or_equals
+		}
+	}
+}
+
+JAP_pnr_has_navy_budget_point_trigger = { # subtract 1 navy budget point effect
+	custom_override_tooltip = {
+		tooltip = JAP_pnr_navy_budget_point_required_tt
+		check_variable = {
+			var = JAP_pnr_navy_budget_points
+			value = 1
+			compare = greater_than_or_equals
+		}
+	}
+}
+
+JAP_pnr_has_2_navy_budget_point_trigger = { # subtract 2 navy budget point effect ELITE focus
+	custom_override_tooltip = {
+		tooltip = JAP_pnr_navy_budget_2_point_required_tt
+		check_variable = {
+			var = JAP_pnr_navy_budget_points
+			value = 2
 			compare = greater_than_or_equals
 		}
 	}
