@@ -13,15 +13,13 @@ JAP_pnr_cardgame_flowing_black_wealth_modifier = {
 JAP_pnr_red_hands_modifier = {
 	icon = GFX_idea_NOR_sivog
 
-	industrial_capacity_factory = -0.05
+	industrial_capacity_factory = -0.10
 	consumer_goods_factor = JAP_pnr_red_conspiracy_scaled_factor
 	production_speed_buildings_factor = JAP_pnr_red_conspiracy_scaled_factor_negative
 	local_resources_factor = JAP_pnr_red_conspiracy_scaled_factor_negative
 	production_factory_max_efficiency_factor = JAP_pnr_red_conspiracy_scaled_factor_negative
 
-	#remove_trigger = {
-		#NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun }
-	#}
+	remove_trigger = { NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun } }
 }
 
 JAP_pnr_lost_decade_nightmare_modifier = {
@@ -34,6 +32,21 @@ JAP_pnr_lost_decade_nightmare_modifier = {
 	industrial_capacity_factory = JAP_pnr_lost_decade_industrial_capacity_factory
 	industrial_capacity_dockyard = JAP_pnr_lost_decade_industrial_capacity_dockyard
 	disabled_ideas = JAP_pnr_lost_decade_disabled_ideas
+}
+
+JAP_pnr_destruction_and_creation_modifier = {
+	icon = GFX_idea_JAP_imperial_navy
+
+	planning_speed = JAP_pnr_destruction_and_creation_planning_speed
+	war_support_factor = JAP_pnr_destruction_and_creation_war_support_factor
+	justify_war_goal_time = JAP_pnr_destruction_and_creation_justify_war_goal_time
+	resistance_damage_to_garrison = JAP_pnr_destruction_and_creation_resistance_damage_to_garrison
+	factory_energy_consumption = JAP_pnr_destruction_and_creation_factory_energy_consumption
+	political_power_factor = JAP_pnr_destruction_and_creation_political_power_factor
+	production_factory_max_efficiency_factor = JAP_pnr_destruction_and_creation_production_factory_max_efficiency_factor
+	stability_factor = JAP_pnr_destruction_and_creation_stability_factor
+	consumer_goods_factor = JAP_pnr_destruction_and_creation_consumer_goods_factor
+	training_time_factor = JAP_pnr_destruction_and_creation_training_time_factor
 }
 
 JAP_pnr_fleet_plan_modifier = {

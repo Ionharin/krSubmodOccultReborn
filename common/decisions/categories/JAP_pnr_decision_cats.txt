@@ -51,6 +51,37 @@ JAP_pnr_continental_policy_category = { #大陆代理人机制
 	scripted_gui = JAP_pnr_continental_policy_gui
 }
 
+JAP_pnr_ruin_and_creation_category = {
+	icon = GFX_decision_category_generic_propaganda
+	priority = 91
+	visible_when_empty = yes
+
+	allowed = {
+		original_tag = JAP
+	}
+
+	visible = {
+		original_tag = JAP
+		has_completed_focus = JAP_pnr_national_transformation
+	}
+
+	scripted_gui = JAP_pnr_ruin_and_creation_gui
+}
+JAP_pnr_showa_restoration_category = {
+	icon = GFX_decision_category_generic_propaganda
+	priority = 90
+	visible_when_empty = yes
+
+	allowed = {
+		original_tag = JAP
+	}
+
+	visible = {
+		original_tag = JAP
+	}
+
+	scripted_gui = JAP_pnr_showa_restoration_gui
+}
 JAP_pnr_debug_category = { #日本debug
 	icon = generic_political_reform
 	priority = 1

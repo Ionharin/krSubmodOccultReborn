@@ -1,42 +1,148 @@
 JAP_pnr_kasumigaseki_diplomacy_category = {
-	JAP_pnr_realpolitik_decision = {
-		icon = generic_agreement
-
-		visible = { has_completed_focus = JAP_pnr_kasumigaseki_diplomacy }
-
-		available = {
-			always = no
-		}
-
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	JAP_pnr_south_china_melee_decision = {
-		icon = generic_civil_support
+	JAP_pnr_south_china_melee_anq_decision = {
+		icon = GFX_decision_decision_generic_chinese_officers
+		allowed = { always = no }
 		visible = { 
-			has_completed_focus = JAP_pnr_kasumigaseki_diplomacy
-			#LEP = { has_country_flag = LEP_league_war_flag }
+			country_exists = ANQ
+			has_global_flag = LEP_collapse
 		}
 		fire_only_once = yes
 		available = {
-			NOT = { LEP = { has_volunteers_amount_from = { tag = GER count > 0 } } }
-			NOT = { LEP = { has_volunteers_amount_from = { tag = GEA count > 0 } } }
-			LEP = { has_country_flag = LEP_league_war_flag }
+			country_exists = ANQ
+			ANQ = { has_war = yes }
+			has_global_flag = LEP_war
+			NOT = { has_global_flag = LEP_league_war_over }
+			num_of_civilian_factories_available_for_projects > 1
 		}
 		ai_will_do = { factor = 10 }
-		cost = 15
+		cost = 5
 		days_remove = 90
-		targeted_modifier = { tag = LEP send_volunteer_size = 2 }
-		targeted_modifier = { tag = ANQ send_volunteer_size = 2 }
-		targeted_modifier = { tag = CHI send_volunteer_size = 2 }
-		targeted_modifier = { tag = SHD send_volunteer_size = 2 }
+		modifier = {
+			civilian_factory_use = 2
+			experience_gain_army = 0.02
+		}
+		complete_effect = {
+			ANQ = {
+				add_ideas = JAP_pnr_support_the_chaotic_battles_ideas_0
+				add_offsite_building = { type = industrial_complex level = 2 }
+			}
+		}
+		remove_effect = {
+			ANQ = {
+				remove_ideas = JAP_pnr_support_the_chaotic_battles_ideas_0
+				add_offsite_building = { type = industrial_complex level = -2 }
+			}
+		}
+	}
+	JAP_pnr_south_china_melee_chi_decision = {
+		icon = GFX_decision_decision_generic_chinese_officers
+		allowed = { always = no }
+		visible = { 
+			country_exists = CHI
+			has_global_flag = LEP_collapse
+		}
+		fire_only_once = yes
+		available = {
+			country_exists = CHI
+			CHI = { has_war = yes }
+			has_global_flag = LEP_war
+			NOT = { has_global_flag = LEP_league_war_over }
+			num_of_civilian_factories_available_for_projects > 1
+		}
+		ai_will_do = { factor = 10 }
+		cost = 5
+		days_remove = 90
+		modifier = {
+			civilian_factory_use = 2
+			experience_gain_army = 0.02
+		}
+		complete_effect = {
+			CHI = {
+				add_ideas = JAP_pnr_support_the_chaotic_battles_ideas_0
+				add_offsite_building = { type = industrial_complex level = 2 }
+			}
+		}
+		remove_effect = {
+			CHI = {
+				remove_ideas = JAP_pnr_support_the_chaotic_battles_ideas_0
+				add_offsite_building = { type = industrial_complex level = -2 }
+			}
+		}
+	}
+	JAP_pnr_south_china_melee_lep_decision = {
+		icon = GFX_decision_decision_generic_chinese_officers
+		allowed = { always = no }
+		visible = { 
+			country_exists = LEP
+			has_global_flag = LEP_collapse
+		}
+		fire_only_once = yes
+		available = {
+			country_exists = LEP
+			LEP = { has_war = yes }
+			has_global_flag = LEP_war
+			NOT = { has_global_flag = LEP_league_war_over }
+			num_of_civilian_factories_available_for_projects > 1
+		}
+		ai_will_do = { factor = 10 }
+		cost = 5
+		days_remove = 90
+		modifier = {
+			civilian_factory_use = 2
+			experience_gain_army = 0.02
+		}
+		complete_effect = {
+			LEP = {
+				add_ideas = JAP_pnr_support_the_chaotic_battles_ideas_0
+				add_offsite_building = { type = industrial_complex level = 2 }
+			}
+		}
+		remove_effect = {
+			LEP = {
+				remove_ideas = JAP_pnr_support_the_chaotic_battles_ideas_0
+				add_offsite_building = { type = industrial_complex level = -2 }
+			}
+		}
+	}
+	JAP_pnr_south_china_melee_shd_decision = {
+		icon = GFX_decision_decision_generic_chinese_officers
+		allowed = { always = no }
+		visible = { 
+			country_exists = SHD
+			has_global_flag = LEP_collapse
+		}
+		fire_only_once = yes
+		available = {
+			country_exists = SHD
+			SHD = { has_war = yes }
+			has_global_flag = LEP_war
+			NOT = { has_global_flag = LEP_league_war_over }
+			num_of_civilian_factories_available_for_projects > 1
+		}
+		ai_will_do = { factor = 10 }
+		cost = 5
+		days_remove = 90
+		modifier = {
+			civilian_factory_use = 2
+			experience_gain_army = 0.02
+		}
+		complete_effect = {
+			SHD = {
+				add_ideas = JAP_pnr_support_the_chaotic_battles_ideas_0
+				add_offsite_building = { type = industrial_complex level = 2 }
+			}
+		}
+		remove_effect = {
+			SHD = {
+				remove_ideas = JAP_pnr_support_the_chaotic_battles_ideas_0
+				add_offsite_building = { type = industrial_complex level = -2 }
+			}
+		}
 	}
 	JAP_pnr_operation_spartacus_india_decision = {
 		icon = GFX_decision_continent_north_america
 		visible = { 
 			has_completed_focus = JAP_pnr_kasumigaseki_diplomacy
-			#LEP = { has_country_flag = LEP_league_war_flag }
 		}
 		fire_only_once = yes
 		available = {

@@ -1,0 +1,439 @@
+JAP_pnr_ruin_and_creation_category = {
+	JAP_pnr_three_year_national_transformation = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { always = no }
+		days_mission_timeout = 1085
+		available = { always = no }
+		is_good = yes
+		fire_only_once = yes
+		priority = 100
+		timeout_effect = {
+			custom_effect_tooltip = JAP_pnr_three_year_national_transformation_timeout_tt
+		}
+	}
+
+	JAP_pnr_industrial_development = {
+		icon = GFX_decision_generic_industry
+		allowed = { always = no }
+		days_mission_timeout = 720
+		available = {
+			num_of_factories > 120
+			num_of_civilian_factories > 50
+			OR = {
+				has_completed_focus = JAP_pnr_ten_thousands_little_car_plan
+				has_completed_focus = JAP_pnr_our_chair_in_this_world
+			}
+		}
+		fire_only_once = yes
+		priority = 99
+		timeout_effect = {
+			add_to_variable = {
+				var = JAP_pnr_iw_destruction
+				value = 10
+				tooltip = JAP_pnr_kodoha_destruction_tt
+			}
+			clamp_variable = { var = JAP_pnr_iw_destruction max = 100 min = 0 }
+			JAP_pnr_update_destruction_and_creation_modifier = yes
+		}
+		complete_effect = {
+			add_to_variable = {
+				var = JAP_pnr_iw_creation
+				value = 10
+				tooltip = JAP_pnr_kodoha_creation_tt
+			}
+		}
+	}
+
+	JAP_pnr_solve_the_land_problem = {
+		icon = GFX_decision_generic_agriculture
+		allowed = { always = no }
+		days_mission_timeout = 365
+		available = {
+			NOT = { has_idea = JAP_bad_land }
+		}
+		fire_only_once = yes
+		priority = 98
+		timeout_effect = {
+			add_stability = -0.30
+			add_to_variable = {
+				var = JAP_pnr_iw_destruction
+				value = 25
+				tooltip = JAP_pnr_kodoha_destruction_tt
+			}
+			subtract_from_variable = {
+				JAP_pnr_iw_creation = 15
+				tooltip = JAP_pnr_kodoha_creation_decrease_tt
+			}
+			clamp_variable = { var = JAP_pnr_iw_destruction max = 100 min = 0 }
+			JAP_pnr_update_destruction_and_creation_modifier = yes
+		}
+		complete_effect = {
+			add_to_variable = {
+				var = JAP_pnr_iw_creation
+				value = 15
+				tooltip = JAP_pnr_kodoha_creation_tt
+			}
+		}
+	}
+
+	JAP_pnr_build_model_villages = {
+		icon = GFX_decision_generic_agriculture
+		allowed = { always = no }
+		cost = JAP_pnr_iw_agriculture_decision_cost
+		available = {
+			NOT = { has_idea = JAP_bad_land }
+			NOT = { has_country_flag = JAP_pnr_national_transformation_decision_in_progress }
+		}
+		fire_only_once = yes
+		days_remove = 160
+		complete_effect = {
+			set_country_flag = JAP_pnr_national_transformation_decision_in_progress
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_pnr_national_transformation_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_pnr_national_transformation_decision_in_progress
+			1106 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			536 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			1103 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_to_variable = {
+				var = JAP_pnr_iw_creation
+				value = 5
+				tooltip = JAP_pnr_kodoha_creation_tt
+			}
+		}
+	}
+
+	JAP_pnr_rice_subsidy_program = {
+		icon = GFX_decision_generic_agriculture
+		allowed = { always = no }
+		cost = JAP_pnr_iw_agriculture_decision_cost
+		available = {
+			NOT = { has_idea = JAP_bad_land }
+			NOT = { has_country_flag = JAP_pnr_national_transformation_decision_in_progress }
+		}
+		fire_only_once = yes
+		days_remove = 120
+		complete_effect = {
+			set_country_flag = JAP_pnr_national_transformation_decision_in_progress
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_pnr_national_transformation_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_pnr_national_transformation_decision_in_progress
+			add_ideas = PNR_value_agriculture
+			add_to_variable = {
+				var = JAP_pnr_iw_creation
+				value = 5
+				tooltip = JAP_pnr_kodoha_creation_tt
+			}
+		}
+	}
+
+	JAP_pnr_new_village_plan = {
+		icon = GFX_decision_generic_agriculture
+		allowed = { always = no }
+		cost = JAP_pnr_iw_agriculture_decision_cost
+		available = {
+			NOT = { has_idea = JAP_bad_land }
+			NOT = { has_country_flag = JAP_pnr_national_transformation_decision_in_progress }
+		}
+		fire_only_once = yes
+		days_remove = 220
+		complete_effect = {
+			set_country_flag = JAP_pnr_national_transformation_decision_in_progress
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_pnr_national_transformation_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_pnr_national_transformation_decision_in_progress
+			every_controlled_state = {
+				limit = { is_core_of = ROOT }
+				increase_state_category_by_one_level = yes
+			}
+			add_to_variable = {
+				var = JAP_pnr_iw_creation
+				value = 10
+				tooltip = JAP_pnr_kodoha_creation_tt
+			}
+		}
+	}
+
+	JAP_pnr_rapid_industrialization = {
+		icon = GFX_decision_generic_industry
+		allowed = { always = no }
+		cost = JAP_pnr_iw_industry_decision_cost
+		available = {
+			OR = {
+				has_tech = concentrated_industry
+				has_tech = dispersed_industry
+			}
+			NOT = { has_country_flag = JAP_pnr_national_transformation_decision_in_progress }
+		}
+		fire_only_once = yes
+		days_remove = 150
+		complete_effect = {
+			set_country_flag = JAP_pnr_national_transformation_decision_in_progress
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_pnr_national_transformation_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_pnr_national_transformation_decision_in_progress
+			add_one_random_civilian_factory = yes
+			add_one_random_military_factory = yes
+			add_to_variable = {
+				var = JAP_pnr_iw_creation
+				value = 5
+				tooltip = JAP_pnr_kodoha_creation_tt
+			}
+		}
+	}
+
+	JAP_pnr_prosperous_city_of_the_rising_sun = {
+		icon = GFX_decision_generic_industry
+		allowed = { always = no }
+		cost = JAP_pnr_iw_industry_decision_cost
+		available = {
+			has_tech = construction2
+			NOT = { has_country_flag = JAP_pnr_national_transformation_decision_in_progress }
+		}
+		fire_only_once = yes
+		days_remove = 220
+		complete_effect = {
+			set_country_flag = JAP_pnr_national_transformation_decision_in_progress
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_pnr_national_transformation_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_pnr_national_transformation_decision_in_progress
+			every_controlled_state = {
+				limit = { is_core_of = ROOT }
+				increase_state_category_by_one_level = yes
+			}
+			add_one_random_civilian_factory = yes
+			add_to_variable = {
+				var = JAP_pnr_iw_creation
+				value = 10
+				tooltip = JAP_pnr_kodoha_creation_tt
+			}
+		}
+	}
+
+	JAP_pnr_plan_sagami_dam = {
+		icon = GFX_decision_generic_construction
+		allowed = { always = no }
+		cost = JAP_pnr_iw_industry_decision_cost
+		available = {
+			NOT = { has_country_flag = JAP_pnr_national_transformation_decision_in_progress }
+		}
+		fire_only_once = yes
+		days_remove = 365
+		complete_effect = {
+			set_country_flag = JAP_pnr_national_transformation_decision_in_progress
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_pnr_national_transformation_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_pnr_national_transformation_decision_in_progress
+			282 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					province = 1182
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = building_state_modifier|dam
+				INDENT = "    "
+			}
+			add_to_variable = {
+				var = JAP_pnr_iw_creation
+				value = 10
+				tooltip = JAP_pnr_kodoha_creation_tt
+			}
+		}
+	}
+
+	JAP_pnr_direct_hydrogenation_coal_liquefaction = {
+		icon = GFX_decision_generic_oil
+		allowed = { always = no }
+		cost = JAP_pnr_iw_industry_decision_cost
+		available = {
+			has_tech = synth_oil_experiments
+			NOT = { has_country_flag = JAP_pnr_national_transformation_decision_in_progress }
+		}
+		fire_only_once = yes
+		days_remove = 140
+		complete_effect = {
+			set_country_flag = JAP_pnr_national_transformation_decision_in_progress
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_pnr_national_transformation_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_pnr_national_transformation_decision_in_progress
+			if = {
+				limit = { has_tech = fuel_refining4 }
+				set_technology = { fuel_refining5 = 1 popup = yes }
+			}
+			else_if = {
+				limit = { has_tech = fuel_refining3 }
+				set_technology = { fuel_refining4 = 1 popup = yes }
+			}
+			else_if = {
+				limit = { has_tech = fuel_refining2 }
+				set_technology = { fuel_refining3 = 1 popup = yes }
+			}
+			else_if = {
+				limit = { has_tech = fuel_refining }
+				set_technology = { fuel_refining2 = 1 popup = yes }
+			}
+			else = {
+				set_technology = { fuel_refining = 1 popup = yes }
+			}
+			1104 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+			529 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_to_variable = {
+				var = JAP_pnr_iw_creation
+				value = 5
+				tooltip = JAP_pnr_kodoha_creation_tt
+			}
+		}
+	}
+
+	JAP_pnr_mobilize_public_construction = {
+		icon = GFX_decision_generic_construction
+		allowed = { always = no }
+		custom_cost_text = JAP_pnr_national_populist_support_cost_tt
+		custom_cost_trigger = {
+			NOT = { check_variable = { party_popularity@national_populist < 0.05 } }
+		}
+		days_remove = 90
+		days_re_enable = 120
+		complete_effect = {
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.05
+			}
+		}
+		modifier = {
+			production_speed_buildings_factor = 0.15
+		}
+	}
+
+	JAP_pnr_call_for_moderate_reform = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { always = no }
+		custom_cost_text = JAP_pnr_iw_destruction_cost_4_tt
+		custom_cost_trigger = {
+			NOT = { check_variable = { JAP_pnr_iw_destruction < 4 } }
+		}
+		days_remove = 60
+		days_re_enable = 90
+		complete_effect = {
+			subtract_from_variable = { JAP_pnr_iw_destruction = 4 }
+			clamp_variable = { var = JAP_pnr_iw_destruction max = 100 min = 0 }
+			JAP_pnr_update_destruction_and_creation_modifier = yes
+		}
+		remove_effect = {
+			add_political_power = 25
+			add_to_variable = {
+				var = JAP_pnr_iw_creation
+				value = 3
+				tooltip = JAP_pnr_kodoha_creation_tt
+			}
+			add_days_mission_timeout = {
+				mission = JAP_pnr_three_year_national_transformation
+				days = 50
+			}
+		}
+		modifier = {
+			social_democrat_drift = 0.02
+			social_liberal_drift = 0.02
+			social_conservative_drift = 0.02
+			market_liberal_drift = 0.02
+			authoritarian_democrat_drift = 0.02
+		}
+	}
+
+	JAP_pnr_rapidly_advance_national_transformation = {
+		icon = GFX_decision_generic_propaganda
+		allowed = { always = no }
+		custom_cost_text = JAP_pnr_iw_creation_cost_4_tt
+		custom_cost_trigger = {
+			NOT = { check_variable = { JAP_pnr_iw_creation < 4 } }
+		}
+		days_remove = 100
+		days_re_enable = 300
+		complete_effect = {
+			subtract_from_variable = { JAP_pnr_iw_creation = 4 }
+		}
+		remove_effect = {
+			add_political_power = 25
+			add_to_variable = {
+				var = JAP_pnr_iw_destruction
+				value = 3
+				tooltip = JAP_pnr_kodoha_destruction_tt
+			}
+			subtract_from_variable = {
+				JAP_pnr_iw_agriculture_decision_cost = 20
+				tooltip = pnr_iw_decrease_agriculture_cost_tt
+			}
+			subtract_from_variable = {
+				JAP_pnr_iw_industry_decision_cost = 20
+				tooltip = pnr_iw_decrease_factory_cost_tt
+			}
+			if = {
+				limit = { check_variable = { JAP_pnr_iw_agriculture_decision_cost < 0 } }
+				set_variable = { JAP_pnr_iw_agriculture_decision_cost = 0 }
+			}
+			if = {
+				limit = { check_variable = { JAP_pnr_iw_industry_decision_cost < 0 } }
+				set_variable = { JAP_pnr_iw_industry_decision_cost = 0 }
+			}
+		}
+		modifier = {
+			conversion_cost_civ_to_mil_factor = -0.25
+			conversion_cost_mil_to_civ_factor = -0.25
+		}
+	}
+}

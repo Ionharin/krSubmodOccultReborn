@@ -314,6 +314,20 @@ JAP_pnr_cardgame_clamp_values = {
 	clamp_variable = { var = JAP_pnr_cardgame_japan_control min = 0 max = 100 }
 	clamp_variable = { var = JAP_pnr_cardgame_fengtian_alarm min = 0 max = 100 }
 	clamp_variable = { var = JAP_pnr_cardgame_russian_alarm min = 0 max = 100 }
+	JAP_pnr_cardgame_update_gui_bars = yes
+}
+
+JAP_pnr_cardgame_update_gui_bars = {
+	set_variable = { JAP_pnr_cardgame_oil_development_bar_y = JAP_pnr_cardgame_oil_development }
+	multiply_variable = { JAP_pnr_cardgame_oil_development_bar_y = -1.5 }
+	add_to_variable = { JAP_pnr_cardgame_oil_development_bar_y = 150 }
+	clamp_variable = { var = JAP_pnr_cardgame_oil_development_bar_y min = 0 max = 150 }
+
+	set_variable = { JAP_pnr_cardgame_japan_control_bar_y = JAP_pnr_cardgame_japan_control }
+	multiply_variable = { JAP_pnr_cardgame_japan_control_bar_y = -1.5 }
+	add_to_variable = { JAP_pnr_cardgame_japan_control_bar_y = 150 }
+	clamp_variable = { var = JAP_pnr_cardgame_japan_control_bar_y min = 0 max = 150 }
+
 }
 
 JAP_pnr_cardgame_mark_card_played = {

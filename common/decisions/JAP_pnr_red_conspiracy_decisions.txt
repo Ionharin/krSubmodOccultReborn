@@ -1,5 +1,5 @@
 JAP_pnr_red_conspiracy_category = {
-	JAP_pnr_red_conspiracy_escalation = {
+	JAP_pnr_red_conspiracy_escalation = { #Warning Missions
 		icon = GFX_decision_generic_ignite_civil_war
 
 		allowed = { always = no }
@@ -12,13 +12,13 @@ JAP_pnr_red_conspiracy_category = {
 
 		selectable_mission = no
 		is_good = no
-		days_mission_timeout = 21
+		days_mission_timeout = 31
 		priority = 100
 
 		timeout_effect = {
 			add_to_variable = {
 				var = JAP_pnr_red_conspiracy_strength
-				value = 10
+				value = 15
 				tooltip = JAP_pnr_red_conspiracy_raised
 			}
 			clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
@@ -27,12 +27,9 @@ JAP_pnr_red_conspiracy_category = {
 		}
 		fixed_random_seed = no
 	}
-	JAP_pnr_red_conspiracy_curtail_red_press = {
+	JAP_pnr_red_conspiracy_curtail_red_press = { #Red Flag Press
 		icon = GFX_decision_generic_break_treaty
-
-		visible = {
-			has_country_flag = JAP_pnr_red_conspiracy_begun
-		}
+		allowed = { always = no }
 		available = {
 			has_country_flag = JAP_pnr_red_conspiracy_begun
 		}
@@ -58,13 +55,9 @@ JAP_pnr_red_conspiracy_category = {
 		}
 		fixed_random_seed = no
 	}
-
 	JAP_pnr_red_conspiracy_activate_loyal_unions = {
 		icon = GFX_decision_eng_propaganda_campaigns
-
-		visible = {
-			has_country_flag = JAP_pnr_red_conspiracy_begun
-		}
+		allowed = { always = no }
 		available = {
 			has_country_flag = JAP_pnr_red_conspiracy_begun
 		}
@@ -90,13 +83,9 @@ JAP_pnr_red_conspiracy_category = {
 		}
 		fixed_random_seed = no
 	}
-
 	JAP_pnr_red_conspiracy_establish_curfews = {
 		icon = GFX_decision_generic_police_action
-
-		visible = {
-			has_country_flag = JAP_pnr_red_conspiracy_begun
-		}
+		allowed = { always = no }
 		available = {
 			has_country_flag = JAP_pnr_red_conspiracy_begun
 		}
@@ -122,13 +111,9 @@ JAP_pnr_red_conspiracy_category = {
 		}
 		fixed_random_seed = no
 	}
-
 	JAP_pnr_red_conspiracy_arrest_activists = {
 		icon = GFX_decision_generic_arrest
-
-		visible = {
-			has_country_flag = JAP_pnr_red_conspiracy_begun
-		}
+		allowed = { always = no }
 		available = {
 			has_country_flag = JAP_pnr_red_conspiracy_begun
 		}
@@ -154,13 +139,9 @@ JAP_pnr_red_conspiracy_category = {
 		}
 		fixed_random_seed = no
 	}
-
 	JAP_pnr_red_conspiracy_selective_reform = {
 		icon = GFX_decision_eng_trade_unions_support
-
-		visible = {
-			has_country_flag = JAP_pnr_red_conspiracy_begun
-		}
+		allowed = { always = no }
 		available = {
 			has_country_flag = JAP_pnr_red_conspiracy_begun
 		}
@@ -186,13 +167,9 @@ JAP_pnr_red_conspiracy_category = {
 		}
 		fixed_random_seed = no
 	}
-
 	JAP_pnr_red_conspiracy_lapse_on_security = {
 		icon = GFX_decision_generic_political_rally
-
-		visible = {
-			has_country_flag = JAP_pnr_red_conspiracy_begun
-		}
+		allowed = { always = no }
 		available = {
 			has_country_flag = JAP_pnr_red_conspiracy_begun
 		}

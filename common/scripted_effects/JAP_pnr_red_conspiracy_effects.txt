@@ -5,7 +5,7 @@ JAP_pnr_initialize_red_conspiracy = {
 			NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun }
 		}
 		set_country_flag = JAP_pnr_red_conspiracy_begun
-		set_variable = { JAP_pnr_red_conspiracy_strength = 35 }
+		set_variable = { JAP_pnr_red_conspiracy_strength = 15 }
 		remove_ideas = JAP_pnr_housing_finance_agency
 		JAP_pnr_update_red_conspiracy_modifier_values = yes
 		add_dynamic_modifier = { modifier = JAP_pnr_red_hands_modifier }
@@ -18,4 +18,20 @@ JAP_pnr_update_red_conspiracy_modifier_values = {
 	multiply_variable = { JAP_pnr_red_conspiracy_scaled_factor = 0.002 }
 	set_variable = { JAP_pnr_red_conspiracy_scaled_factor_negative = JAP_pnr_red_conspiracy_scaled_factor }
 	multiply_variable = { JAP_pnr_red_conspiracy_scaled_factor_negative = -1 }
+	JAP_pnr_check_red_conspiracy_threshold_events = yes
+}
+
+JAP_pnr_check_red_conspiracy_threshold_events = {
+	if = {
+		limit = {
+			tag = JAP
+			check_variable = { JAP_pnr_red_conspiracy_strength > 84 }
+			NOT = { 
+				has_country_flag = JAP_pnr_red_conspiracy_rs_1_triggered
+				has_country_flag = JAP_pnr_515_happened
+			}
+		}
+		set_country_flag = JAP_pnr_red_conspiracy_rs_1_triggered
+		country_event = { id = JAP_pnr_rs.1 }
+	}
 }

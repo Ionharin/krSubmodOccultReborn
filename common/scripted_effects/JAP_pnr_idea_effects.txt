@@ -28,3 +28,30 @@ JAP_pnr_offensive_realpolitik_update = {
 		}
 	}
 }
+
+JAP_pnr_update_destruction_and_creation_modifier = {
+	set_variable = { JAP_pnr_destruction_and_creation_planning_speed = { value = JAP_pnr_iw_destruction multiply = 0.00075 } }
+	set_variable = { JAP_pnr_destruction_and_creation_war_support_factor = { value = JAP_pnr_iw_destruction multiply = 0.00075 } }
+	set_variable = { JAP_pnr_destruction_and_creation_justify_war_goal_time = { value = JAP_pnr_iw_destruction multiply = -0.0015 } }
+	set_variable = { JAP_pnr_destruction_and_creation_resistance_damage_to_garrison = { value = JAP_pnr_iw_destruction multiply = -0.002 } }
+	set_variable = { JAP_pnr_destruction_and_creation_factory_energy_consumption = { value = JAP_pnr_iw_destruction multiply = 0.002 } }
+	set_variable = { JAP_pnr_destruction_and_creation_political_power_factor = { value = JAP_pnr_iw_creation multiply = 0.0007 } }
+	set_variable = { JAP_pnr_destruction_and_creation_production_factory_max_efficiency_factor = { value = JAP_pnr_iw_creation multiply = 0.0005 } }
+	set_variable = { JAP_pnr_destruction_and_creation_stability_factor = { value = JAP_pnr_iw_creation multiply = 0.00075 } }
+	set_variable = { JAP_pnr_destruction_and_creation_consumer_goods_factor = { value = JAP_pnr_iw_creation multiply = -0.001 } }
+	set_variable = { JAP_pnr_destruction_and_creation_training_time_factor = { value = JAP_pnr_iw_creation multiply = 0.002 } }
+
+	if = {
+		limit = { has_completed_focus = JAP_pnr_fluttering_banner_of_honor }
+		multiply_variable = { JAP_pnr_destruction_and_creation_planning_speed = 2 }
+		multiply_variable = { JAP_pnr_destruction_and_creation_war_support_factor = 2 }
+		multiply_variable = { JAP_pnr_destruction_and_creation_justify_war_goal_time = 2 }
+		multiply_variable = { JAP_pnr_destruction_and_creation_resistance_damage_to_garrison = 2 }
+		multiply_variable = { JAP_pnr_destruction_and_creation_political_power_factor = 2 }
+		multiply_variable = { JAP_pnr_destruction_and_creation_production_factory_max_efficiency_factor = 2 }
+		multiply_variable = { JAP_pnr_destruction_and_creation_stability_factor = 2 }
+		multiply_variable = { JAP_pnr_destruction_and_creation_consumer_goods_factor = 2 }
+	}
+
+	force_update_dynamic_modifier = yes
+}
