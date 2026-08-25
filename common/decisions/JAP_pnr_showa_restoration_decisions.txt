@@ -1,0 +1,400 @@
+JAP_pnr_showa_restoration_category = {
+	JAP_pnr_imperial_progress = {
+		icon = GFX_decision_generic_visit
+		allowed = { always = no }
+		cost = 100
+		days_remove = 60
+		days_re_enable = 365
+		fire_only_once = no
+		priority = 101
+
+		remove_effect = {
+			add_to_variable = {
+				var = JAP_pnr_sr_miitsu
+				value = 20
+				tooltip = JAP_pnr_sr_miitsu_increase_tt
+			}
+			add_to_variable = {
+				var = JAP_pnr_sr_emperor_mysticism
+				value = -1
+				tooltip = JAP_pnr_sr_emperor_mysticism_change_tt
+			}
+			JAP_pnr_clamp_showa_restoration_variables = yes
+		}
+
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_gozen_arbitration_conference = {
+		icon = generic_political_reform
+		allowed = { always = no }
+		cost = 50
+		days_remove = 60
+		days_re_enable = 90
+		fire_only_once = no
+		priority = 99
+
+		complete_effect = {
+			set_country_flag = JAP_pnr_gozen_arbitration_conference_active
+		}
+
+		cancel_effect = {
+			clr_country_flag = JAP_pnr_gozen_arbitration_conference_active
+		}
+
+		remove_effect = {
+			clr_country_flag = JAP_pnr_gozen_arbitration_conference_active
+		}
+
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_offensive_rescript = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		allowed = { always = no }
+		available = {
+			has_country_flag = JAP_pnr_gozen_arbitration_conference_active
+			has_war = yes
+		}
+		custom_cost_trigger = {
+			check_variable = { JAP_pnr_sr_army_control > 1 }
+		}
+		custom_cost_text = JAP_pnr_sr_army_control_2_cost
+		days_re_enable = 30
+		fire_only_once = no
+		priority = 98
+
+		complete_effect = {
+			add_to_variable = {
+				var = JAP_pnr_sr_army_control
+				value = -2
+				tooltip = JAP_pnr_sr_army_control_change_tt
+			}
+			custom_effect_tooltip = JAP_pnr_offensive_rescript_tt
+			effect_tooltip = { add_dynamic_modifier = { modifier = JAP_pnr_operation_launched_modifier } }
+			JAP_pnr_clamp_showa_restoration_variables = yes
+			JAP_pnr_apply_operation_launched_modifier = yes
+		}
+
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_prepare_decisive_fleet_battle = {
+		icon = GFX_decision_generic_navy
+		allowed = { always = no }
+		available = {
+			has_country_flag = JAP_pnr_gozen_arbitration_conference_active
+			has_war = yes
+		}
+		custom_cost_trigger = {
+			check_variable = { JAP_pnr_sr_navy_control > 1 }
+		}
+		custom_cost_text = JAP_pnr_sr_navy_control_2_cost
+		days_remove = 30
+		fire_only_once = no
+		priority = 97
+
+		modifier = {
+			navy_org_factor = 0.20
+			positioning = 0.10
+			spotting_chance = 0.15
+			naval_coordination = 0.10
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				var = JAP_pnr_sr_navy_control
+				value = -2
+				tooltip = JAP_pnr_sr_navy_control_change_tt
+			}
+			JAP_pnr_clamp_showa_restoration_variables = yes
+		}
+
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_build_military_factory = {
+		icon = generic_construct_mil_factory
+		allowed = { always = no }
+		available = {
+			has_country_flag = JAP_pnr_gozen_arbitration_conference_active
+		}
+		custom_cost_trigger = {
+			check_variable = { JAP_pnr_sr_miitsu > 14 }
+		}
+		custom_cost_text = JAP_pnr_sr_miitsu_15_cost
+		days_remove = 70
+		days_re_enable = 180
+		fire_only_once = no
+		priority = 96
+
+		modifier = {
+			production_speed_arms_factory_factor = 0.15
+		}
+
+		complete_effect = {
+			add_to_variable = { JAP_pnr_sr_miitsu = -15 }
+			JAP_pnr_clamp_showa_restoration_variables = yes
+		}
+
+		remove_effect = {
+			JAP_congress_add_military_factory = yes
+		}
+
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_build_civilian_factory = {
+		icon = generic_construct_civ_factory
+		allowed = { always = no }
+		available = {
+			has_country_flag = JAP_pnr_gozen_arbitration_conference_active
+		}
+		custom_cost_trigger = {
+			check_variable = { JAP_pnr_sr_miitsu > 14 }
+		}
+		custom_cost_text = JAP_pnr_sr_miitsu_15_cost
+		days_remove = 70
+		days_re_enable = 180
+		fire_only_once = no
+		priority = 96
+
+		modifier = {
+			production_speed_industrial_complex_factor = 0.15
+		}
+
+		complete_effect = {
+			add_to_variable = { JAP_pnr_sr_miitsu = -15 }
+			JAP_pnr_clamp_showa_restoration_variables = yes
+		}
+
+		remove_effect = {
+			JAP_congress_add_civilian_factory = yes
+		}
+
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_build_dockyard = {
+		icon = generic_construct_naval_dockyard
+		allowed = { always = no }
+		available = {
+			has_country_flag = JAP_pnr_gozen_arbitration_conference_active
+		}
+		custom_cost_trigger = {
+			check_variable = { JAP_pnr_sr_miitsu > 14 }
+		}
+		custom_cost_text = JAP_pnr_sr_miitsu_15_cost
+		days_remove = 70
+		days_re_enable = 180
+		fire_only_once = no
+		priority = 96
+
+		modifier = {
+			production_speed_dockyard_factor = 0.15
+		}
+
+		complete_effect = {
+			add_to_variable = { JAP_pnr_sr_miitsu = -15 }
+			JAP_pnr_clamp_showa_restoration_variables = yes
+		}
+
+		remove_effect = {
+			add_one_random_dockyard = yes
+		}
+
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_attend_public_events = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		allowed = { always = no }
+		custom_cost_trigger = {
+			check_variable = { JAP_pnr_sr_miitsu > 29 }
+		}
+		custom_cost_text = JAP_pnr_sr_miitsu_30_cost
+		days_remove = 70
+		days_re_enable = 180
+		fire_only_once = no
+		priority = 100
+
+		complete_effect = {
+			add_to_variable = { JAP_pnr_sr_miitsu = -30 }
+			JAP_pnr_clamp_showa_restoration_variables = yes
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				var = JAP_pnr_sr_emperor_mysticism
+				value = -1
+				tooltip = JAP_pnr_sr_emperor_mysticism_change_tt
+			}
+			random_list = {
+				33 = { 
+					add_to_variable = {
+						var = JAP_pnr_sr_army_control
+						value = 1
+						tooltip = JAP_pnr_sr_army_control_change_tt
+					}	
+				}
+				33 = { 
+					add_to_variable = {
+						var = JAP_pnr_sr_navy_control
+						value = 1
+						tooltip = JAP_pnr_sr_navy_control_change_tt
+					}	
+				}
+				33 = {
+					add_to_variable = {
+						var = JAP_pnr_sr_army_control
+						value = 1
+						tooltip = JAP_pnr_sr_army_control_change_tt
+					}
+					add_to_variable = {
+						var = JAP_pnr_sr_navy_control
+						value = 1
+						tooltip = JAP_pnr_sr_navy_control_change_tt
+					}
+				}
+			}
+			JAP_pnr_clamp_showa_restoration_variables = yes
+		}
+
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_production_rescript = {
+		icon = GFX_decision_generic_industry
+		allowed = { always = no }
+		custom_cost_trigger = {
+			check_variable = { JAP_pnr_sr_miitsu > 19 }
+		}
+		custom_cost_text = JAP_pnr_sr_miitsu_20_cost
+		days_remove = 120
+		days_re_enable = 180
+		fire_only_once = no
+
+		modifier = {
+			production_factory_max_efficiency_factor = 0.20
+			production_factory_efficiency_gain_factor = 0.10
+		}
+
+		complete_effect = {
+			add_to_variable = { JAP_pnr_sr_miitsu = -20 }
+			add_to_variable = {
+				var = JAP_pnr_sr_emperor_mysticism
+				value = 1
+				tooltip = JAP_pnr_sr_emperor_mysticism_change_tt
+			}
+			JAP_pnr_clamp_showa_restoration_variables = yes
+		}
+
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_love_farmers_rescript = {
+		icon = GFX_decision_generic_agriculture
+		allowed = { always = no }
+		custom_cost_trigger = {
+			check_variable = { JAP_pnr_sr_miitsu > 19 }
+		}
+		custom_cost_text = JAP_pnr_sr_miitsu_20_cost
+		days_remove = 120
+		days_re_enable = 180
+		fire_only_once = no
+
+		modifier = {
+			consumer_goods_factor = -0.15
+			stability_weekly = 0.002
+			war_support_weekly = 0.002
+		}
+
+		complete_effect = {
+			add_to_variable = { JAP_pnr_sr_miitsu = -20 }
+			add_to_variable = {
+				var = JAP_pnr_sr_emperor_mysticism
+				value = 1
+				tooltip = JAP_pnr_sr_emperor_mysticism_change_tt
+			}
+			JAP_pnr_clamp_showa_restoration_variables = yes
+		}
+
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_frugality_rescript = {
+		icon = generic_stockpile
+		allowed = { always = no }
+		custom_cost_trigger = {
+			check_variable = { JAP_pnr_sr_miitsu > 19 }
+		}
+		custom_cost_text = JAP_pnr_sr_miitsu_20_cost
+		days_remove = 120
+		days_re_enable = 180
+		fire_only_once = no
+
+		modifier = {
+			production_lack_of_resource_penalty_factor = -0.30
+			supply_node_range = 0.10
+			no_supply_grace = 144
+		}
+
+		complete_effect = {
+			add_to_variable = { JAP_pnr_sr_miitsu = -20 }
+			add_to_variable = {
+				var = JAP_pnr_sr_emperor_mysticism
+				value = 1
+				tooltip = JAP_pnr_sr_emperor_mysticism_change_tt
+			}
+			JAP_pnr_clamp_showa_restoration_variables = yes
+		}
+
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_morale_rescript = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		allowed = { always = no }
+		custom_cost_trigger = {
+			check_variable = { JAP_pnr_sr_miitsu > 19 }
+		}
+		custom_cost_text = JAP_pnr_sr_miitsu_20_cost
+		available = {
+			has_war = yes
+		}
+		days_remove = 120
+		days_re_enable = 180
+		fire_only_once = no
+
+		modifier = {
+			mobilization_speed = 0.25
+			conscription_factor = 0.15
+			army_org_factor = 0.10
+			army_org_regain = 0.10
+		}
+
+		complete_effect = {
+			add_to_variable = { JAP_pnr_sr_miitsu = -20 }
+			add_to_variable = {
+				var = JAP_pnr_sr_emperor_mysticism
+				value = 1
+				tooltip = JAP_pnr_sr_emperor_mysticism_change_tt
+			}
+			JAP_pnr_clamp_showa_restoration_variables = yes
+		}
+
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+}

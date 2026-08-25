@@ -9,6 +9,12 @@ on_actions = {
 					JAP_pnr_initialize_interservice_budget = yes
 					set_variable = { JAP_pnr_iw_agriculture_decision_cost = 120 }
 					set_variable = { JAP_pnr_iw_industry_decision_cost = 140 }
+					set_variable = { JAP_pnr_sr_miitsu = 35 }
+					set_variable = { JAP_pnr_sr_army_control = 0 }
+					set_variable = { JAP_pnr_sr_navy_control = 0 }
+					set_variable = { JAP_pnr_sr_emperor_mysticism = 4 }
+					JAP_pnr_clamp_showa_restoration_variables = yes
+					JAP_pnr_initialize_operation_launched_modifier_variables = yes
 					if = {
 						limit = {
 							has_completed_focus = JAP_pnr_68th_sessions_imperial_diet
@@ -27,6 +33,15 @@ on_actions = {
                     50 = { unlock_national_focus = JAP_pnr_join_forces_with_the_wakuhara_faction }
     				50 = { unlock_national_focus = JAP_pnr_leaning_toward_suzuki_faction }
                 }
+			}
+		}
+	}
+
+	on_monthly_JAP = {
+		effect = {
+			if = {
+				limit = { exists = yes }
+				JAP_pnr_monthly_miitsu_drift = yes
 			}
 		}
 	}

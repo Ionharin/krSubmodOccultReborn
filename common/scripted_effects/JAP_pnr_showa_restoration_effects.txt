@@ -1,0 +1,62 @@
+JAP_pnr_clamp_showa_restoration_variables = {
+	clamp_variable = { var = JAP_pnr_sr_miitsu min = 0 max = 100 }
+	clamp_variable = { var = JAP_pnr_sr_army_control min = -2 max = 6 }
+	clamp_variable = { var = JAP_pnr_sr_navy_control min = -2 max = 6 }
+}
+
+JAP_pnr_monthly_miitsu_drift = {
+	if = {
+		limit = {
+			OR = {
+				has_idea = JAP_pnr_gozen_conference_0
+				has_idea = JAP_pnr_gozen_conference_1
+				has_idea = JAP_pnr_gozen_conference_2
+			}
+			check_variable = { JAP_pnr_sr_miitsu > 69 }
+		}
+		add_to_variable = { JAP_pnr_sr_miitsu = 3 }
+		JAP_pnr_clamp_showa_restoration_variables = yes
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_idea = JAP_pnr_gozen_conference_0
+				has_idea = JAP_pnr_gozen_conference_1
+				has_idea = JAP_pnr_gozen_conference_2
+			}
+			check_variable = { JAP_pnr_sr_miitsu < 30 }
+		}
+		add_to_variable = { JAP_pnr_sr_miitsu = -3 }
+		JAP_pnr_clamp_showa_restoration_variables = yes
+	}
+}
+
+JAP_pnr_initialize_operation_launched_modifier_variables = {
+	set_variable = { JAP_pnr_operation_launched_army_attack_factor = 0.10 }
+	set_variable = { JAP_pnr_operation_launched_breakthrough_factor = 0.10 }
+	set_variable = { JAP_pnr_operation_launched_initiative_factor = 0.03 }
+	set_variable = { JAP_pnr_operation_launched_army_attack_speed_factor = 0 }
+	set_variable = { JAP_pnr_operation_launched_supply_factor = 0 }
+}
+
+JAP_pnr_apply_operation_launched_modifier = {
+	every_country = {
+		limit = { has_war_with = ROOT }
+		every_controlled_state = {
+			limit = {
+				any_neighbor_state = {
+					OR = {
+						is_controlled_by = ROOT
+						controller = { is_ally_with = ROOT }
+					}
+				}
+			}
+			set_variable = { JAP_pnr_operation_launched_army_attack_factor = ROOT.JAP_pnr_operation_launched_army_attack_factor }
+			set_variable = { JAP_pnr_operation_launched_breakthrough_factor = ROOT.JAP_pnr_operation_launched_breakthrough_factor }
+			set_variable = { JAP_pnr_operation_launched_initiative_factor = ROOT.JAP_pnr_operation_launched_initiative_factor }
+			set_variable = { JAP_pnr_operation_launched_army_attack_speed_factor = ROOT.JAP_pnr_operation_launched_army_attack_speed_factor }
+			set_variable = { JAP_pnr_operation_launched_supply_factor = ROOT.JAP_pnr_operation_launched_supply_factor }
+			add_dynamic_modifier = { modifier = JAP_pnr_operation_launched_modifier days = 30 }
+		}
+	}
+}
