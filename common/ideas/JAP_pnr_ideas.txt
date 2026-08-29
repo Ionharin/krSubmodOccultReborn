@@ -616,7 +616,7 @@ ideas = {
 			}
 		}
 		JAP_pnr_gozen_conference_0 = {
-			picture = generic_political_discourse
+			picture = generic_pp_unity_bonus
 			allowed = { always = no }
 			modifier = {
 				political_power_factor = -0.05
@@ -713,7 +713,758 @@ ideas = {
 				positioning = 0.06
 			}
 		}
-		
+
+		####################################
+		##### Kokoshiha NATIONAL IDEAS #####
+		####################################
+
+		JAP_pnr_end_the_tide_of_chaos = {
+			picture = generic_improved_industries
+			allowed = { always = no }
+			modifier = {
+				stability_weekly = 0.0001
+				war_support_weekly = 0.0001
+				production_speed_buildings_factor = 0.10
+			}
+		}
+		JAP_pnr_cabinet_planning_board = {
+			picture = generic_improved_industries
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.05
+				production_speed_buildings_factor = 0.05
+				trade_laws_cost_factor = -0.33
+				production_factory_efficiency_gain_factor = 0.10
+			}
+		}
+		JAP_pnr_census_underway = {
+			picture = generic_manpower_bonus
+			allowed = { always = no }
+			modifier = {
+				monthly_population = 0.40
+				political_power_gain = -0.02
+			}
+		}
+		JAP_pnr_command_politics_0 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = 0.10
+				political_power_gain = 0.03
+				production_speed_industrial_complex_factor = 0.05
+				production_speed_arms_factory_factor = 0.05
+			}
+		}
+		JAP_pnr_command_politics_1 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = 0.10
+				political_power_gain = 0.06
+				production_speed_industrial_complex_factor = 0.05
+				production_speed_arms_factory_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+		JAP_pnr_command_society = {
+			picture = generic_secret_police
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.10
+				consumer_goods_factor = -0.15
+			}
+		}
+		JAP_pnr_state_led_business_contracts_0 = {
+			picture = generic_improved_industries
+			allowed = { always = no }
+			modifier = {
+				production_factory_max_efficiency_factor = -0.05
+				global_building_slots_factor = 0.05
+			}
+		}
+		JAP_pnr_state_led_business_contracts_civilian = {
+			picture = generic_improved_industries
+			allowed = { always = no }
+			available = {
+				NOT = { num_of_civilian_factories > num_of_military_factories }
+			}
+			modifier = {
+				production_factory_max_efficiency_factor = -0.05
+				global_building_slots_factor = 0.10
+				production_speed_arms_factory_factor = 0.05
+				production_speed_industrial_complex_factor = 0.15
+				conversion_cost_mil_to_civ_factor = -0.40
+				custom_modifier_tooltip = JAP_pnr_state_led_business_contracts_change_m_tt
+			}
+			on_remove = {
+				add_ideas = JAP_pnr_state_led_business_contracts_military
+			}
+		}
+		JAP_pnr_state_led_business_contracts_military = {
+			picture = generic_improved_industries
+			allowed = { always = no }
+			available = {
+				num_of_civilian_factories > num_of_military_factories
+			}
+			modifier = {
+				production_factory_max_efficiency_factor = -0.05
+				global_building_slots_factor = 0.10
+				production_speed_industrial_complex_factor = 0.05
+				production_speed_arms_factory_factor = 0.15
+				conversion_cost_civ_to_mil_factor = -0.40
+				custom_modifier_tooltip = JAP_pnr_state_led_business_contracts_change_c_tt
+			}
+			on_remove = {
+				add_ideas = JAP_pnr_state_led_business_contracts_civilian
+			}
+		}
+		JAP_pnr_rational_army = {
+			picture = generic_army_staff
+			allowed = { always = no }
+			modifier = {
+				planning_speed = -0.25
+				max_planning = 0.15
+				combat_width_factor = -0.10
+			}
+		}
+		JAP_pnr_ministry_of_war_planning_0 = {
+			picture = generic_army_war_college
+			allowed = { always = no }
+			modifier = {
+				army_org_factor = 0.05
+				land_doctrine_cost_factor = -0.25
+			}
+		}
+		JAP_pnr_ministry_of_war_planning_1 = {
+			picture = generic_army_war_college
+			allowed = { always = no }
+			modifier = {
+				land_doctrine_cost_factor = -0.25
+				max_planning_factor = 0.15
+				experience_gain_army_factor = 0.15
+				max_command_power = 45
+			}
+		}
+		JAP_pnr_rational_clock = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.10
+				production_factory_max_efficiency_factor = 0.10
+				research_speed_factor = 0.05
+				consumer_goods_factor = -0.10
+			}
+		}
+		JAP_pnr_greater_japan_social_control_institute = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = 0.10
+				political_power_gain = 0.06
+				production_speed_industrial_complex_factor = 0.10
+				production_speed_arms_factory_factor = 0.10
+				industrial_capacity_factory = 0.05
+				production_factory_max_efficiency_factor = 0.10
+				production_factory_efficiency_gain_factor = 0.15
+				research_speed_factor = 0.05
+				consumer_goods_factor = -0.25
+			}
+		}
+		JAP_pnr_war_on_poverty = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			modifier = {
+				min_export = -0.15
+				local_resources_factor = 0.20
+			}
+		}
+		JAP_pnr_purified_and_cleansed = {
+			picture = generic_war_preparation
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.15
+				war_stability_factor = 0.20
+				civilian_intel_to_others = -20.0
+			}
+		}
+
+		####################################
+		####### NatPop NATIONAL IDEAS ######
+		####################################
+
+		JAP_pnr_scientific_socialism_0 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = 0.05
+				war_support_factor = 0.05
+			}
+		}
+		JAP_pnr_scientific_socialism_1 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = 0.05
+				war_support_factor = 0.10
+				production_speed_arms_factory_factor = 0.05
+			}
+		}
+		JAP_pnr_scientific_socialism_2 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = 0.05
+				war_support_factor = 0.10
+				production_speed_arms_factory_factor = 0.05
+				army_non_core_attack_factor = 0.05
+				army_non_core_defence_factor = 0.05
+			}
+		}
+		JAP_pnr_japanese_social_economy_0 = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.10
+				local_resources_factor = 0.10
+			}
+		}
+		JAP_pnr_japanese_social_economy_1 = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.10
+				local_resources_factor = 0.10
+				industrial_capacity_factory = 0.05
+				production_speed_industrial_complex_factor = 0.05
+			}
+		}
+		JAP_pnr_territorial_liberation_war = {
+			picture = generic_war_preparation
+			allowed = { always = no }
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.10
+				resistance_damage_to_garrison = -0.10
+				resistance_target = -0.15
+			}
+		}
+		JAP_pnr_patriotic_education = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.07
+				production_factory_start_efficiency_factor = 0.05
+				surrender_limit = 0.10
+			}
+		}
+		JAP_pnr_flag_is_a_weapon = {
+			picture = generic_war_preparation
+			allowed = { always = no }
+			modifier = {
+				army_org_factor = 0.05
+				research_speed_factor = 0.10
+				production_factory_start_efficiency_factor = 0.05
+				surrender_limit = 0.10
+				training_time_factor = -0.10
+				
+			}
+		}
+		JAP_pnr_uprising_of_the_japanese_nation_anti_syndicalist = {
+			picture = generic_army_staff
+			allowed = { always = no }
+			modifier = {
+				global_building_slots_factor = 0.10
+				war_support_factor = 0.05
+				line_change_production_efficiency_factor = 0.10
+				production_lack_of_resource_penalty_factor = -0.10
+			}
+			targeted_modifier = {
+				tag = ENG
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+				breakthrough_bonus_against = 0.05
+			}
+			targeted_modifier = {
+				tag = FRA
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+				breakthrough_bonus_against = 0.05
+			}
+		}
+		JAP_pnr_uprising_of_the_japanese_nation_anti_german = {
+			picture = generic_army_staff
+			allowed = { always = no }
+			modifier = {
+				global_building_slots_factor = 0.10
+				war_support_factor = 0.05
+				line_change_production_efficiency_factor = 0.10
+				production_lack_of_resource_penalty_factor = -0.10
+			}
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+				breakthrough_bonus_against = 0.05
+			}
+		}
+		JAP_pnr_uprising_of_the_japanese_nation = {
+			picture = generic_army_staff
+			allowed = { always = no }
+			modifier = {
+				global_building_slots_factor = 0.10
+				war_support_factor = 0.05
+				line_change_production_efficiency_factor = 0.10
+				production_lack_of_resource_penalty_factor = -0.10
+			}
+			targeted_modifier = {
+				tag = ENG
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+				breakthrough_bonus_against = 0.05
+			}
+			targeted_modifier = {
+				tag = FRA
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+				breakthrough_bonus_against = 0.05
+			}
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+				breakthrough_bonus_against = 0.05
+			}
+		}
+		JAP_pnr_revolution_of_justice = {
+			picture = generic_war_preparation
+			allowed = { always = no }
+			modifier = {
+				offensive_war_stability_factor = 0.10
+				army_attack_factor = 0.05
+				opinion_gain_monthly_same_ideology_factor = 0.30
+			}
+		}
+
+		####################################
+		### Kokumin Domei NATIONAL IDEAS ###
+		####################################
+
+		JAP_pnr_awakened_nation_0 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.05
+				stability_factor = 0.05
+				war_support_factor = 0.05
+			}
+		}
+		JAP_pnr_awakened_nation_1 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.05
+				stability_factor = 0.05
+				war_support_factor = 0.05
+				research_speed_factor = 0.05
+				party_popularity_stability_factor = 0.10
+			}
+		}
+		JAP_pnr_awakened_nation_2 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.05
+				stability_factor = 0.05
+				war_support_factor = 0.05
+				research_speed_factor = 0.05
+				production_factory_start_efficiency_factor = 0.08
+				party_popularity_stability_factor = 0.10
+			}
+		}
+		JAP_pnr_totalitarian_principle = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.10
+				stability_factor = 0.10
+				war_support_factor = 0.10
+				research_speed_factor = 0.08
+				production_factory_start_efficiency_factor = 0.08
+				production_factory_efficiency_gain_factor = 0.08
+				army_strength_factor = 0.05
+				army_morale_factor = 0.10
+			}
+		}
+		JAP_pnr_lose_the_collective_lose_everything = {
+			picture = generic_manpower_bonus
+			allowed = { always = no }
+			modifier = {
+				conscription_factor = 0.05
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		JAP_pnr_spiritual_bond = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				consumer_goods_factor = -0.05
+				authoritarian_democrat_drift = 0.02
+			}
+		}
+		JAP_pnr_tacit_secret_cooperation = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = -0.01
+				authoritarian_democrat_drift = 0.02
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		JAP_pnr_banquet_ended = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = -0.05
+				production_factory_max_efficiency_factor = 0.04
+				production_factory_efficiency_gain_factor = 0.04
+			}
+		}
+		JAP_pnr_economic_planning_agency = {
+			picture = generic_improved_industries
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.10
+				production_speed_industrial_complex_factor = 0.10
+				economy_cost_factor = -0.25
+			}
+		}
+		JAP_pnr_demand_guided_economy = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.15
+				global_building_slots_factor = 0.10
+			}
+		}
+		JAP_pnr_firm_grip_of_the_state = {
+			picture = generic_improved_industries
+			allowed = { always = no }
+			modifier = {
+				industrial_capacity_factory = 0.10
+				local_resources_factor = 0.10
+				local_resources_coal_factor = 0.05
+				industry_repair_factor = 0.10
+				monthly_population = 0.15
+				research_speed_factor = 0.05
+			}
+		}
+
+		####################################
+		## Shakai Taishuto NATIONAL IDEAS ##
+		####################################
+
+		JAP_pnr_respect_unity = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.07
+				production_factory_start_efficiency_factor = 0.05
+			}
+		}
+		JAP_pnr_employment_security_office = {
+			picture = generic_manpower_bonus
+			allowed = { always = no }
+			modifier = {
+				conscription_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+		JAP_pnr_trade_unions_for_peace_0 = {
+			picture = ARG_state_unions
+			allowed = { always = no }
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.10
+			}
+		}
+		JAP_pnr_trade_unions_for_peace_1 = {
+			picture = ARG_state_unions
+			allowed = { always = no }
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.10
+				production_factory_max_efficiency_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+		JAP_pnr_national_health_insurance = {
+			picture = FIN_socialist_welfare
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.02
+				monthly_population = 0.20
+			}
+		}
+		JAP_pnr_listening_and_helping_hand = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.10
+			}
+		}
+		JAP_pnr_worker_peasant_front = {
+			picture = JAP_socialist_pioneers
+			allowed = { always = no }
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				consumer_goods_factor = -0.10
+			}
+		}
+		JAP_pnr_worker_peasant_soldier_front_supreme = {
+			picture = JAP_socialist_pioneers
+			allowed = { always = no }
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				consumer_goods_factor = -0.10
+				war_support_factor = 0.10
+				army_morale_factor = 0.05
+			}
+		}
+		JAP_pnr_mass_labor_movement_0 = {
+			picture = ARG_state_unions
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.04
+				production_factory_start_efficiency_factor = 0.05
+			}
+		}
+		JAP_pnr_mass_labor_movement_1 = {
+			picture = ARG_state_unions
+			allowed = { always = no }
+			modifier = {
+				production_factory_start_efficiency_factor = 0.05
+				production_cost_industrial_complex_factor = -0.10
+				stability_factor = 0.08
+			}
+		}
+		JAP_pnr_price_controls = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.10
+			}
+		}
+		JAP_pnr_run_to_peace_and_tranquility = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.25
+				war_support_factor = -0.15
+				production_speed_industrial_complex_factor = 0.10
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+			}
+		}
+		JAP_pnr_war_of_social_revolution = {
+			picture = generic_war_preparation
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = 0.10
+				mobilization_speed = 0.10
+				production_speed_arms_factory_factor = 0.10
+				production_factory_max_efficiency_factor = 0.10
+			}
+		}
+		JAP_pnr_harmonious_economy = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.05
+			}
+		}
+		JAP_pnr_model_of_oriental_socialism = {
+			picture = JAP_socialist_pioneers
+			allowed = { always = no }
+			modifier = {
+				global_building_slots_factor = 0.15
+				production_speed_buildings_factor = 0.05
+				consumer_goods_factor = 0.06
+			}
+		}
+
+		####################################
+		##### Zaibatsu NATIONAL IDEAS ######
+		####################################
+
+		JAP_pnr_takeda_vitamin_pharmaceutical_0 = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.05
+				production_speed_industrial_complex_factor = 0.05
+			}
+		}
+		JAP_pnr_takeda_vitamin_pharmaceutical_1 = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.10
+				production_speed_industrial_complex_factor = 0.10
+				acclimatization_hot_climate_gain_factor = 0.15
+				acclimatization_cold_climate_gain_factor = 0.15
+			}
+		}
+		JAP_pnr_furukawa_electric_industry_0 = {
+			picture = generic_electronics_concern_1
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.05
+				production_speed_infrastructure_factor = 0.10
+			}
+		}
+		JAP_pnr_furukawa_electric_industry_1 = {
+			picture = generic_electronics_concern_1
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.10
+				production_speed_infrastructure_factor = 0.15
+				coordination_bonus = 0.15
+				land_reinforce_rate = 0.05
+			}
+		}
+		JAP_pnr_sekiyama_farm_plantation_base = {
+			picture = generic_agrarian_reform
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+		JAP_pnr_production_management_office_0 = {
+			picture = generic_central_management
+			allowed = { always = no }
+			modifier = {
+				production_factory_start_efficiency_factor = 0.05
+				production_factory_max_efficiency_factor = 0.10
+			}
+		}
+		JAP_pnr_production_management_office_1 = {
+			picture = generic_central_management
+			allowed = { always = no }
+			modifier = {
+				production_factory_start_efficiency_factor = 0.10
+				production_factory_max_efficiency_factor = 0.10
+				industrial_capacity_factory = 0.12
+				industrial_capacity_dockyard = 0.12
+			}
+		}
+		JAP_pnr_investment_in_expectations = {
+			picture = generic_foreign_capital
+			allowed = { always = no }
+			modifier = {
+				political_advisor_cost_factor = -0.50
+			}
+		}
+		JAP_pnr_conservative_policy = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.10
+			}
+		}
+		JAP_pnr_chain_of_leveraged_multiplication = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				consumer_goods_factor = -0.10
+			}
+		}
+		JAP_pnr_power_frequency_unification_underway = {
+			picture = generic_electronics_concern_1
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = -0.15
+				production_speed_infrastructure_factor = -0.10
+			}
+			on_remove = {
+				add_ideas = JAP_pnr_frequency_unified
+			}
+		}
+		JAP_pnr_frequency_unified = {
+			picture = generic_electronics_concern_1
+			allowed = { always = no }
+			modifier = {
+				production_speed_infrastructure_factor = 0.05
+				production_speed_industrial_complex_factor = 0.05
+				production_speed_arms_factory_factor = 0.05
+				factory_energy_consumption = -0.20
+			}
+		}
+		JAP_pnr_industrial_security_act_idea = {
+			picture = generic_spy_intel
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				production_factory_start_efficiency_factor = 0.05
+				production_factory_max_efficiency_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.10
+			}
+		}
+		JAP_pnr_building_the_organs = {
+			picture = generic_industrial_concern_1
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.10
+				production_factory_start_efficiency_factor = 0.05
+				production_factory_max_efficiency_factor = 0.05
+				production_speed_industrial_complex_factor = 0.10
+				production_speed_arms_factory_factor = 0.10
+			}
+		}
+		JAP_pnr_advanced_science_education = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.07
+			}
+		}
+		JAP_pnr_corporate_republicanism_idea = {
+			picture = jap_zaibatsu
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.15
+				war_support_factor = -0.10
+				resource_trade_cost_bonus_per_factory = 4
+				political_power_gain = 0.20
+			}
+		}
+		JAP_pnr_national_orders = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			modifier = {
+				industrial_capacity_factory = 0.06
+				industrial_capacity_dockyard = 0.06
+				local_resources_factor = 0.15
+				conversion_cost_civ_to_mil_factor = -0.15
+				conversion_cost_mil_to_civ_factor = -0.15
+				cic_construction_boost_factor = 0.10
+			}
+		}
+		JAP_pnr_miner_and_weaver = {
+			picture = jap_zaibatsu
+			allowed = { always = no }
+			modifier = {
+				production_speed_synthetic_refinery_factor = 0.15
+				fuel_gain_factor = 0.20
+				fuel_gain_factor_from_states = 0.10
+				industry_free_repair_factor = 0.20
+				global_building_slots = 2
+				consumer_goods_expected_value = -0.02
+			}
+		}
+
 	}
 
 	### Hidden ideas for Parliament Yearly Bonus ###

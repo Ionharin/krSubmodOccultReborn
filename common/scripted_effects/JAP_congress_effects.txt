@@ -97,6 +97,7 @@ JAP_congress_refresh_ruling_party = {
 JAP_congress_set_initial_authority = {
 	JAP_congress_refresh_ruling_party = yes
 	set_variable = { JAP_congress_authority_initial = JAP_congress_majority_party_seats }
+	multiply_variable = { JAP_congress_authority_initial = 0.75 }
 	if = {
 		limit = { check_variable = { JAP_congress_authority_initial > 234 } }
 		set_variable = { JAP_congress_authority_initial = 234 }
@@ -1143,10 +1144,8 @@ JAP_congress_add_authority = {
 		set_variable = { JAP_congress_authority = 234 }
 	}
 	set_temp_variable = { JAP_congress_authority_cost = JAP_congress_authority_value_tooltip }
-	multiply_temp_variable = { JAP_congress_authority_cost = 3 }
 	multiply_temp_variable = { JAP_congress_authority_cost = -1 }
 	set_temp_variable = { JAP_congress_authority_cost_tooltip = JAP_congress_authority_value_tooltip }
-	multiply_temp_variable = { JAP_congress_authority_cost_tooltip = 3 }
 	hidden_effect = { add_political_power = var:JAP_congress_authority_cost }
 	JAP_congress_update_gui = yes
 	custom_effect_tooltip = JAP_congress_authority_add_tooltip
@@ -1160,7 +1159,6 @@ JAP_congress_subtract_authority = {
 		set_variable = { JAP_congress_authority = JAP_congress_authority_initial }
 	}
 	set_temp_variable = { JAP_congress_authority_cost_tooltip = JAP_congress_authority_value_tooltip }
-	multiply_temp_variable = { JAP_congress_authority_cost_tooltip = 3 }
 	hidden_effect = {
 		add_political_power = var:JAP_congress_authority_cost_tooltip
 	}

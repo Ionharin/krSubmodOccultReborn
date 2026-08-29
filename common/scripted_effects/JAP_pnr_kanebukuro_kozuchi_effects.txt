@@ -1,0 +1,38 @@
+JAP_pnr_initialize_kanebukuro_kozuchi = {
+	if = {
+		limit = { NOT = { has_variable = JAP_pnr_zb_balance } }
+		set_variable = { JAP_pnr_zb_balance = 30 }
+	}
+	JAP_pnr_update_kanebukuro_kozuchi_gui = yes
+}
+
+JAP_pnr_update_kanebukuro_kozuchi_gui = {
+	clamp_variable = { var = JAP_pnr_zb_balance min = 0 max = 100 }
+	set_variable = { JAP_pnr_zb_balance_inverse = 100 }
+	subtract_from_variable = { JAP_pnr_zb_balance_inverse = JAP_pnr_zb_balance }
+	set_variable = { JAP_pnr_zb_orange_bar_x = JAP_pnr_zb_balance_inverse }
+	multiply_variable = { JAP_pnr_zb_orange_bar_x = 3.6 }
+	subtract_from_variable = { JAP_pnr_zb_orange_bar_x = 360 }
+	set_variable = { JAP_pnr_zb_needle_x = JAP_pnr_zb_balance_inverse }
+	multiply_variable = { JAP_pnr_zb_needle_x = 3.6 }
+	add_to_variable = { JAP_pnr_zb_needle_x = 60 }
+	set_variable = { JAP_pnr_zb_splitter_x = JAP_pnr_zb_needle_x }
+	add_to_variable = { JAP_pnr_zb_splitter_x = 6 }
+	set_variable = { JAP_pnr_zb_industrial_capacity_factory = JAP_pnr_zb_balance_inverse }
+	multiply_variable = { JAP_pnr_zb_industrial_capacity_factory = 0.001 }
+	set_variable = { JAP_pnr_zb_industrial_capacity_dockyard = JAP_pnr_zb_balance_inverse }
+	multiply_variable = { JAP_pnr_zb_industrial_capacity_dockyard = 0.001 }
+	set_variable = { JAP_pnr_zb_production_factory_max_efficiency_factor = JAP_pnr_zb_balance_inverse }
+	multiply_variable = { JAP_pnr_zb_production_factory_max_efficiency_factor = 0.0015 }
+	set_variable = { JAP_pnr_zb_line_change_production_efficiency_factor = JAP_pnr_zb_balance_inverse }
+	multiply_variable = { JAP_pnr_zb_line_change_production_efficiency_factor = 0.002 }
+	set_variable = { JAP_pnr_zb_consumer_goods_factor = JAP_pnr_zb_balance }
+	multiply_variable = { JAP_pnr_zb_consumer_goods_factor = -0.0015 }
+	set_variable = { JAP_pnr_zb_production_speed_buildings_factor = JAP_pnr_zb_balance }
+	multiply_variable = { JAP_pnr_zb_production_speed_buildings_factor = 0.001 }
+	set_variable = { JAP_pnr_zb_production_factory_efficiency_gain_factor = JAP_pnr_zb_balance }
+	multiply_variable = { JAP_pnr_zb_production_factory_efficiency_gain_factor = 0.001 }
+	set_variable = { JAP_pnr_zb_production_factory_start_efficiency_factor = JAP_pnr_zb_balance }
+	multiply_variable = { JAP_pnr_zb_production_factory_start_efficiency_factor = 0.0015 }
+	force_update_dynamic_modifier = yes
+}
