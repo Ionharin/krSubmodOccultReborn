@@ -17,4 +17,27 @@ scripted_gui = {
 		context_type = decision_category
 		window_name = "JAP_pnr_showa_restoration_gui"
 	}
+
+	JAP_pnr_reitai_juso_gui = {
+		context_type = decision_category
+		window_name = "JAP_pnr_reitai_juso_gui"
+
+		triggers = {
+			JAP_pnr_om_clock_icon_visible = {
+				check_variable = { JAP_pnr_om_circle_progress > 0 }
+			}
+			JAP_pnr_om_clock_empty_icon_visible = {
+				check_variable = { JAP_pnr_om_circle_progress = 0 }
+			}
+		}
+
+		properties = {
+			JAP_pnr_om_clock_icon = {
+				frame = JAP_pnr_om_circle_progress
+			}
+			JAP_pnr_om_triangle_icon = {
+				frame = JAP_pnr_om_lower_progress
+			}
+		}
+	}
 }

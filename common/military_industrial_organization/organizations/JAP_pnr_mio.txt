@@ -1,0 +1,35 @@
+##############################
+#### JAP PNR SPECIAL MIOs ####
+##############################
+
+JAP_pnr_toyoda_mio = {
+    include = generic_mobile_tank_organization
+    name = toyota
+    icon = GFX_idea_jap_mio_toyota
+    allowed = {
+        tag = JAP
+    }
+    available = {
+        always = yes
+    }
+	visible = {
+        always = yes
+    }
+	equipment_type = { armor }
+	research_categories = { mio_cat_tech_all_armor_and_modules }
+    on_design_team_assigned_to_tech = {
+		JAP = { add_cic = 100 }
+	}
+	on_design_team_assigned_to_variant = {
+		JAP = { add_cic = 50 }
+	}
+	on_industrial_manufacturer_assigned = {
+		JAP = { add_cic = 100 }
+	}
+	on_tech_research_completed = {
+		JAP = {
+			add_cic = 200
+			add_political_power = 25
+		}
+	}
+}

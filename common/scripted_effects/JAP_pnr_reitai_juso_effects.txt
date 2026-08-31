@@ -1,0 +1,46 @@
+JAP_pnr_update_reitai_juso_progress = {
+	while_loop_effect = {
+		limit = {
+			NOT = { check_variable = { JAP_pnr_om_lower_progress < 100 } }
+		}
+		subtract_from_variable = { JAP_pnr_om_lower_progress = 100 }
+		add_to_variable = { JAP_pnr_om_circle_progress = 10 }
+	}
+	clamp_variable = { var = JAP_pnr_om_circle_progress max = 100 min = 0 }
+	clamp_variable = { var = JAP_pnr_om_lower_progress max = 100 min = 0 }
+
+	set_variable = { JAP_pnr_showa_oomoto_way_political_power_gain = JAP_pnr_om_circle_progress }
+	multiply_variable = { JAP_pnr_showa_oomoto_way_political_power_gain = 0.004 }
+	set_variable = { JAP_pnr_showa_oomoto_way_production_speed_buildings_factor = JAP_pnr_om_circle_progress }
+	multiply_variable = { JAP_pnr_showa_oomoto_way_production_speed_buildings_factor = 0.0015 }
+	set_variable = { JAP_pnr_showa_oomoto_way_army_attack_factor = JAP_pnr_om_circle_progress }
+	multiply_variable = { JAP_pnr_showa_oomoto_way_army_attack_factor = 0.0011 }
+	set_variable = { JAP_pnr_showa_oomoto_way_army_defence_factor = JAP_pnr_om_circle_progress }
+	multiply_variable = { JAP_pnr_showa_oomoto_way_army_defence_factor = 0.0011 }
+	set_variable = { JAP_pnr_showa_oomoto_way_army_attack_against_major_factor = JAP_pnr_om_circle_progress }
+	multiply_variable = { JAP_pnr_showa_oomoto_way_army_attack_against_major_factor = 0.0008 }
+	set_variable = { JAP_pnr_showa_oomoto_way_army_breakthrough_against_major_factor = JAP_pnr_om_circle_progress }
+	multiply_variable = { JAP_pnr_showa_oomoto_way_army_breakthrough_against_major_factor = 0.0008 }
+	set_variable = { JAP_pnr_showa_oomoto_way_stability_factor = JAP_pnr_om_circle_progress }
+	multiply_variable = { JAP_pnr_showa_oomoto_way_stability_factor = 0.0024 }
+	set_variable = { JAP_pnr_showa_oomoto_way_war_support_factor = JAP_pnr_om_circle_progress }
+	multiply_variable = { JAP_pnr_showa_oomoto_way_war_support_factor = 0.0024 }
+	set_variable = { JAP_pnr_showa_oomoto_way_industrial_capacity_factory = JAP_pnr_om_circle_progress }
+	multiply_variable = { JAP_pnr_showa_oomoto_way_industrial_capacity_factory = 0.0018 }
+	set_variable = { JAP_pnr_showa_oomoto_way_industrial_capacity_dockyard = JAP_pnr_om_circle_progress }
+	multiply_variable = { JAP_pnr_showa_oomoto_way_industrial_capacity_dockyard = 0.0018 }
+	set_variable = { JAP_pnr_showa_oomoto_way_army_claim_attack_factor = JAP_pnr_om_circle_progress }
+	multiply_variable = { JAP_pnr_showa_oomoto_way_army_claim_attack_factor = 0.0007 }
+	set_variable = { JAP_pnr_showa_oomoto_way_army_claim_defence_factor = JAP_pnr_om_circle_progress }
+	multiply_variable = { JAP_pnr_showa_oomoto_way_army_claim_defence_factor = 0.0007 }
+	force_update_dynamic_modifier = yes
+}
+
+JAP_pnr_add_reitai_juso_progress_test = {
+	add_to_variable = {
+		var = JAP_pnr_om_lower_progress
+		value = 25
+		tooltip = JAP_pnr_om_lower_progress_gain_tt
+	}
+	JAP_pnr_update_reitai_juso_progress = yes
+}
