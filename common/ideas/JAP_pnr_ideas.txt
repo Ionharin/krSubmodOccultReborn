@@ -188,20 +188,20 @@ ideas = {
 			picture = generic_manpower_bonusjap_ichi_go
 			allowed = { always = no }
 			modifier = { custom_modifier_tooltip = KOR_neither_china_nor_japan_tt }
-			targeted_modifier = { tag = ANQ hidden_modifier = { attack_bonus_against = 0.27 } }
-    		targeted_modifier = { tag = CHI hidden_modifier = { attack_bonus_against = 0.27 } }
-    		targeted_modifier = { tag = FNG hidden_modifier = { attack_bonus_against = 0.27 } }
-    		targeted_modifier = { tag = GXC hidden_modifier = { attack_bonus_against = 0.27 } }
-    		targeted_modifier = { tag = HNN hidden_modifier = { attack_bonus_against = 0.27 } }
-    		targeted_modifier = { tag = LEP hidden_modifier = { attack_bonus_against = 0.27 } }
-    		targeted_modifier = { tag = QIE hidden_modifier = { attack_bonus_against = 0.27 } }
-    		targeted_modifier = { tag = SHX hidden_modifier = { attack_bonus_against = 0.27 } }
-   			targeted_modifier = { tag = SIK hidden_modifier = { attack_bonus_against = 0.27 } }
-    		targeted_modifier = { tag = SHD hidden_modifier = { attack_bonus_against = 0.27 } }
-    		targeted_modifier = { tag = SZC hidden_modifier = { attack_bonus_against = 0.27 } }
-    		targeted_modifier = { tag = XSM hidden_modifier = { attack_bonus_against = 0.27 } }
-    		targeted_modifier = { tag = YUN hidden_modifier = { attack_bonus_against = 0.27 } }
-    		targeted_modifier = { tag = UPC hidden_modifier = { attack_bonus_against = 0.27 } }
+			targeted_modifier = { tag = ANQ attack_bonus_against = 0.27 }
+			targeted_modifier = { tag = CHI attack_bonus_against = 0.27 }
+			targeted_modifier = { tag = FNG attack_bonus_against = 0.27 }
+			targeted_modifier = { tag = GXC attack_bonus_against = 0.27 }
+			targeted_modifier = { tag = HNN attack_bonus_against = 0.27 }
+			targeted_modifier = { tag = LEP attack_bonus_against = 0.27 }
+			targeted_modifier = { tag = QIE attack_bonus_against = 0.27 }
+			targeted_modifier = { tag = SHX attack_bonus_against = 0.27 }
+			targeted_modifier = { tag = SIK attack_bonus_against = 0.27 }
+			targeted_modifier = { tag = SHD attack_bonus_against = 0.27 }
+			targeted_modifier = { tag = SZC attack_bonus_against = 0.27 }
+			targeted_modifier = { tag = XSM attack_bonus_against = 0.27 }
+			targeted_modifier = { tag = YUN attack_bonus_against = 0.27 }
+			targeted_modifier = { tag = UPC attack_bonus_against = 0.27 }
 		}
 		JAP_pnr_foolproof_plan = {
 			picture = generic_planning
@@ -1570,6 +1570,402 @@ ideas = {
 			}
 		}
 
+		####################################
+		###### Konoes NATIONAL IDEAS #######
+		####################################
+
+		JAP_pnr_kokutai_clarification = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		JAP_pnr_parliamentary_harmony = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.05
+				party_popularity_stability_factor = 0.15
+			}
+		}
+		JAP_pnr_economic_model_reform_0 = {
+			picture = generic_improved_industries
+			allowed = { always = no }
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				economy_cost_factor = -0.25
+				production_factory_start_efficiency_factor = 0.10
+			}
+		}
+		JAP_pnr_economic_model_reform_1 = {
+			picture = generic_improved_industries
+			allowed = { always = no }
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				economy_cost_factor = -0.25
+				production_factory_start_efficiency_factor = 0.15
+				production_factory_max_efficiency_factor = 0.05
+				research_speed_factor = 0.05
+			}
+		}
+		JAP_pnr_electoral_reform_0 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.10
+				political_power_gain = 0.10
+				totalist_drift = 0.01
+				industrial_capacity_factory = 0.02
+			}
+		}
+		JAP_pnr_electoral_reform_1 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.10
+				political_power_gain = 0.15
+				totalist_drift = 0.02
+				industrial_capacity_factory = 0.04
+			}
+		}
+		JAP_pnr_electoral_reform_2 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.10
+				political_power_gain = 0.20
+				totalist_drift = 0.03
+				industrial_capacity_factory = 0.06
+			}
+		}
+		JAP_pnr_electoral_reform_3 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.10
+				political_power_gain = 0.25
+				totalist_drift = 0.04
+				industrial_capacity_factory = 0.08
+			}
+		}
+		JAP_pnr_electoral_reform_4 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.10
+				political_power_gain = 0.30
+				totalist_drift = 0.05
+				industrial_capacity_factory = 0.10
+			}
+		}
+		JAP_pnr_all_japan_workers_industrial_patriotic_association = {
+			picture = generic_improved_industries
+			allowed = { always = no }
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.10
+				industrial_capacity_factory = 0.05
+				conversion_cost_civ_to_mil_factor = -0.30
+				conversion_cost_mil_to_civ_factor = -0.30
+			}
+		}
+		JAP_pnr_new_unity_economy = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.20
+				production_cost_industrial_complex_factor = -0.06
+				production_cost_arms_factory_factor = -0.06
+			}
+		}
+		JAP_pnr_resist_hegemonic_threats = {
+			picture = generic_army_bonus
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = 0.10
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+				justify_war_goal_time = -0.35
+			}
+		}
+		JAP_pnr_defend_ancient_traditions = {
+			picture = generic_army_bonus
+			allowed = { always = no }
+			modifier = {
+				experience_gain_army_factor = 0.10
+				training_time_factor = -0.15
+				opinion_gain_monthly_factor = 0.25
+				guarantee_cost = -0.25
+				send_volunteer_size = 2
+			}
+		}
+		JAP_pnr_red_dukes_rule = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			modifier = {
+				production_factory_max_efficiency_factor = 0.10
+				production_factory_efficiency_gain_factor = 0.05
+				research_speed_factor = 0.05
+				industrial_capacity_factory = 0.10
+				war_support_factor = 0.10
+				production_speed_infrastructure_factor = 0.10
+				production_speed_rail_way_factor = 0.10
+				army_org_factor = 0.05
+				conscription_factor = 0.25
+				political_power_factor = 0.10
+			}
+		}
+		JAP_pnr_interconnected_nation = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.10
+				stability_factor = 0.05
+				research_speed_factor = 0.08
+			}
+		}
+		JAP_pnr_state_press_control = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				war_support_factor = 0.05
+				consumer_goods_factor = -0.10
+				production_factory_start_efficiency_factor = 0.05
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		JAP_pnr_centrally_guided_economy = {
+			picture = generic_improved_industries
+			allowed = { always = no }
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				economy_cost_factor = -0.25
+				production_factory_max_efficiency_factor = 0.10
+			}
+		}
+		JAP_pnr_smash_unemployed_parasites = {
+			picture = generic_improved_industries
+			allowed = { always = no }
+			modifier = {
+				conscription_factor = 0.10
+				production_factory_efficiency_gain_factor = 0.15
+				industrial_capacity_factory = 0.10
+			}
+		}
+		JAP_pnr_total_mobilization = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			modifier = {
+				conscription_factor = 0.10
+				production_factory_efficiency_gain_factor = 0.15
+				industrial_capacity_factory = 0.10
+				production_speed_arms_factory_factor = 0.15
+				mobilization_speed = 0.30
+				production_factory_max_efficiency_factor = 0.10
+				war_support_factor = 0.15
+			}
+		}
+		JAP_pnr_way_of_assistance = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				production_factory_start_efficiency_factor = 0.05
+				industrial_capacity_factory = 0.08
+				war_support_factor = 0.10
+				stability_factor = 0.15
+				production_speed_buildings_factor = 0.05
+				army_org_factor = 0.10
+				conscription_factor = 0.15
+				political_power_factor = 0.07
+			}
+		}
+
+		####################################
+		### Grey Cardinal NATIONAL IDEAS ###
+		####################################
+
+		JAP_pnr_leap_forward_for_the_holy_war = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.05
+				war_stability_factor = 0.10
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		JAP_pnr_restrained_enterprises = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			modifier = {
+				local_resources_factor = 0.10
+				consumer_goods_factor = -0.10
+			}
+		}
+		JAP_pnr_increased_production_patriotic_association = {
+			picture = generic_improved_industries
+			allowed = { always = no }
+			modifier = {
+				production_factory_start_efficiency_factor = 0.05
+				line_change_production_efficiency_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+		JAP_pnr_seoul_asia_university_preparations = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.05
+				research_speed_factor = 0.08
+				production_speed_buildings_factor = 0.04
+			}
+		}
+		JAP_pnr_spread_the_kingly_way = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.10
+				war_stability_factor = 0.10
+				production_speed_buildings_factor = 0.05
+				opinion_gain_monthly_factor = 0.15
+				cic_construction_boost_factor = 0.10
+			}
+		}
+		JAP_pnr_king_milinda = {
+			picture = JAP_pnr_showa_tenno
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.05
+				stability_factor = 0.10
+				compliance_gain = 0.01
+			}
+		}
+		JAP_pnr_asian_values = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			modifier = {
+				non_core_manpower = 0.10
+				guarantee_cost = -0.50
+				ai_focus_aggressive_factor = 0.25
+				operative_slot = 1
+				air_volunteer_cap = 1
+			}
+		}
+		JAP_pnr_short_bow_of_asia_0 = {
+			picture = generic_army_bonus
+			allowed = { always = no }
+			modifier = {
+				ai_focus_aggressive_factor = 0.25
+				political_power_gain = -0.15
+			}
+			targeted_modifier = { tag = RUS attack_bonus_against = 0.05 defense_bonus_against = 0.05 breakthrough_bonus_against = 0.05 }
+			targeted_modifier = { tag = GER attack_bonus_against = 0.05 defense_bonus_against = 0.05 breakthrough_bonus_against = 0.05 }
+			targeted_modifier = { tag = AUS attack_bonus_against = 0.05 defense_bonus_against = 0.05 breakthrough_bonus_against = 0.05 }
+			targeted_modifier = { tag = FRA attack_bonus_against = 0.05 defense_bonus_against = 0.05 breakthrough_bonus_against = 0.05 }
+			targeted_modifier = { tag = ENG attack_bonus_against = 0.05 defense_bonus_against = 0.05 breakthrough_bonus_against = 0.05 }
+			targeted_modifier = { tag = IMP attack_bonus_against = 0.05 defense_bonus_against = 0.05 breakthrough_bonus_against = 0.05 }
+			targeted_modifier = { tag = GEA attack_bonus_against = 0.05 defense_bonus_against = 0.05 breakthrough_bonus_against = 0.05 }
+		}
+		JAP_pnr_vanguard_of_asia = {
+			picture = generic_military_bonus
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.15
+				production_factory_max_efficiency_factor = 0.10
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.15
+			}
+		}
+		JAP_pnr_short_bow_of_asia_rissho_ankoku = {
+			picture = generic_army_bonus
+			allowed = { always = no }
+			modifier = {
+				ai_focus_aggressive_factor = 0.50
+				political_power_gain = -0.15
+			}
+			targeted_modifier = { tag = RUS attack_bonus_against = 0.10 defense_bonus_against = 0.10 breakthrough_bonus_against = 0.10 }
+			targeted_modifier = { tag = GER attack_bonus_against = 0.10 defense_bonus_against = 0.10 breakthrough_bonus_against = 0.10 }
+			targeted_modifier = { tag = AUS attack_bonus_against = 0.10 defense_bonus_against = 0.10 breakthrough_bonus_against = 0.10 }
+			targeted_modifier = { tag = FRA attack_bonus_against = 0.10 defense_bonus_against = 0.10 breakthrough_bonus_against = 0.10 }
+			targeted_modifier = { tag = ENG attack_bonus_against = 0.10 defense_bonus_against = 0.10 breakthrough_bonus_against = 0.10 }
+			targeted_modifier = { tag = IMP attack_bonus_against = 0.10 defense_bonus_against = 0.10 breakthrough_bonus_against = 0.10 }
+			targeted_modifier = { tag = GEA attack_bonus_against = 0.10 defense_bonus_against = 0.10 breakthrough_bonus_against = 0.10 }
+		}
+		JAP_pnr_short_bow_of_asia_golden_rooster = {
+			picture = generic_army_bonus
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = -0.15
+				production_factory_max_efficiency_factor = 0.10
+				production_factory_efficiency_gain_factor = 0.20
+				production_speed_buildings_factor = 0.10
+			}
+		}
+		JAP_pnr_return_to_simplicity = {
+			picture = generic_construct_civ_factory
+			allowed = { always = no }
+			modifier = {
+				monthly_population = 0.20
+				production_speed_buildings_factor = 0.05
+				production_factory_start_efficiency_factor = 0.05
+				production_speed_infrastructure_factor = 0.10
+			}
+		}
+		JAP_pnr_detached_from_without = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			modifier = {
+				political_advisor_cost_factor = -1.00
+			}
+		}
+		JAP_pnr_healing_decay_0 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				national_populist_drift = 0.02
+				party_popularity_stability_factor = 0.15
+			}
+		}
+		JAP_pnr_healing_decay_1 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				national_populist_drift = 0.02
+				party_popularity_stability_factor = 0.15
+				max_planning_factor = 0.10
+			}
+		}
+		JAP_pnr_healing_decay_2 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				national_populist_drift = 0.02
+				party_popularity_stability_factor = 0.20
+				max_planning_factor = 0.10
+				political_advisor_cost_factor = -0.33
+				high_command_cost_factor = -0.33
+			}
+		}
+		JAP_pnr_short_bow_of_asia_great_vehicle_japan = {
+			picture = generic_army_bonus
+			allowed = { always = no }
+			modifier = {
+				supply_node_range = 0.15
+				supply_consumption_factor = -0.10
+				army_org_factor = 0.10
+				ai_focus_aggressive_factor = 0.25
+				political_power_gain = -0.15
+			}
+			targeted_modifier = { tag = RUS attack_bonus_against = 0.05 defense_bonus_against = 0.05 breakthrough_bonus_against = 0.05 }
+			targeted_modifier = { tag = GER attack_bonus_against = 0.05 defense_bonus_against = 0.05 breakthrough_bonus_against = 0.05 }
+			targeted_modifier = { tag = AUS attack_bonus_against = 0.05 defense_bonus_against = 0.05 breakthrough_bonus_against = 0.05 }
+			targeted_modifier = { tag = FRA attack_bonus_against = 0.05 defense_bonus_against = 0.05 breakthrough_bonus_against = 0.05 }
+			targeted_modifier = { tag = ENG attack_bonus_against = 0.05 defense_bonus_against = 0.05 breakthrough_bonus_against = 0.05 }
+			targeted_modifier = { tag = IMP attack_bonus_against = 0.05 defense_bonus_against = 0.05 breakthrough_bonus_against = 0.05 }
+			targeted_modifier = { tag = GEA attack_bonus_against = 0.05 defense_bonus_against = 0.05 breakthrough_bonus_against = 0.05 }
+		}
 
 	}
 

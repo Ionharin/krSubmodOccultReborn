@@ -1,0 +1,164 @@
+guiTypes = {
+	containerWindowType = {
+		name = "JAP_pnr_new_party_preparation_gui"
+		position = { x = 0 y = 20 }
+		size = { width = 400 height = 340 }
+		clipping = no
+
+		containerWindowType = {
+			name = "JAP_pnr_kn_situation_container"
+			position = { x = 0 y = 0 }
+			size = { width = 280 height = 345 }
+			clipping = no
+
+			background = {
+				name = "background"
+				spriteType = "GFX_tiled_decisions_bg_small"
+				alwaystransparent = yes
+			}
+
+			containerWindowType = {
+				name = "JAP_pnr_kn_situation_title_container"
+				position = { x = 1 y = 0 }
+				size = { width = 278 height = 30 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_tiled_header_1"
+					alwaystransparent = yes
+				}
+
+				instantTextBoxType = {
+					name = "JAP_pnr_kn_situation_title_text"
+					position = { x = -126 y = 2 }
+					orientation = CENTER_UP
+					text = "JAP_pnr_kn_political_situation_title"
+					font = "hoi_24header"
+					format = left
+					maxWidth = 300
+					alwaystransparent = yes
+				}
+			}
+
+			containerWindowType = {
+				name = "JAP_pnr_kn_pie_container"
+				position = { x = 86 y = 48 }
+				size = { width = 107 height = 107 }
+				clipping = no
+
+				iconType = {
+					name = "JAP_pnr_kn_support_5_icon"
+					quadTextureSprite = "GFX_JAP_pnr_kn_support_5"
+					frame = 0
+					position = { x = 0 y = 0 }
+					pdx_tooltip = JAP_pnr_kn_court_forces_tt
+				}
+
+				iconType = {
+					name = "JAP_pnr_kn_support_4_icon"
+					quadTextureSprite = "GFX_JAP_pnr_kn_support_4"
+					frame = 0
+					position = { x = 0 y = 0 }
+					pdx_tooltip = JAP_pnr_kn_party_politicians_tt
+				}
+
+				iconType = {
+					name = "JAP_pnr_kn_support_3_icon"
+					quadTextureSprite = "GFX_JAP_pnr_kn_support_3"
+					frame = 0
+					position = { x = 0 y = 0 }
+					pdx_tooltip = JAP_pnr_kn_military_associates_tt
+				}
+
+				iconType = {
+					name = "JAP_pnr_kn_support_2_icon"
+					quadTextureSprite = "GFX_JAP_pnr_kn_support_2"
+					frame = 0
+					position = { x = 0 y = 0 }
+					pdx_tooltip = JAP_pnr_kn_reform_bureaucrats_tt
+				}
+
+				iconType = {
+					name = "JAP_pnr_kn_support_1_icon"
+					quadTextureSprite = "GFX_JAP_pnr_kn_support_1"
+					frame = 0
+					position = { x = 0 y = 0 }
+					pdx_tooltip = JAP_pnr_kn_new_party_supporters_tt
+				}
+
+				iconType = {
+					name = "JAP_pnr_kn_support_overlay_icon"
+					spriteType = "GFX_JAP_pnr_kn_support_overlay"
+					position = { x = 0 y = 0 }
+					alwaystransparent = yes
+				}
+			}
+
+			instantTextBoxType = {
+				name = "JAP_pnr_kn_support_text"
+				position = { x = 25 y = 205 }
+				text = "JAP_pnr_new_party_preparation_support_text"
+				font = "hoi_24header"
+				format = left
+				maxWidth = 240
+				maxHeight = 125
+				alwaystransparent = yes
+			}
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_kn_status_container"
+			position = { x = 280 y = 0 }
+			size = { width = 228 height = 345 }
+			clipping = no
+
+			containerWindowType = {
+				name = "JAP_pnr_kn_situation_title_container"
+				position = { x = 1 y = 0 }
+				size = { width = 226 height = 30 }
+
+				background = {
+					name = "background"
+					spriteType = "GFX_tiled_header_1"
+					alwaystransparent = yes
+				}
+
+				instantTextBoxType = {
+					name = "JAP_pnr_kn_situation_title_text"
+					position = { x = -100 y = 2 }
+					orientation = CENTER_UP
+					text = "JAP_pnr_kn_support_situation_title"
+					font = "hoi_24header"
+					format = left
+					maxWidth = 300
+					alwaystransparent = yes
+				}
+			}
+
+			background = {
+				name = "background"
+				spriteType = "GFX_tiled_decisions_bg_small"
+				alwaystransparent = yes
+			}
+
+			iconType = {
+				name = "JAP_pnr_kn_konoe_bust_icon"
+				position = { x = 65 y = 60 }
+				spriteType = "GFX_JAP_pnr_kn_konoe_bust"
+				scale = 1
+				pdx_tooltip = JAP_pnr_kn_konoe_enthusiasm_tt
+			}
+
+			instantTextBoxType = {
+				name = "JAP_pnr_kn_status_text"
+				position = { x = 10 y = 205 }
+				text = "JAP_pnr_new_party_preparation_status_text"
+				font = "hoi_24header"
+				format = left
+				maxWidth = 165
+				maxHeight = 140
+				alwaystransparent = yes
+			}
+		}
+	}
+}

@@ -352,3 +352,31 @@ JAP_beware_of_scams_achievement = {
 	}
 }
 
+KOJ_new_seoul_2_city_achievement = {
+	possible = { tag = KOJ }
+	happened = {
+		if = {
+			limit = {
+				NOT = { has_global_flag = disallow_achievements_flag }
+				OR = {
+					NOT = { has_global_flag = on_startup_completed }
+					is_ai = no
+				}
+			}
+			KOJ = { has_completed_focus = KOJ_pnr_trace_back_past }
+		}
+		else_if = {
+			limit = { has_global_flag = disallow_achievements_flag }
+			custom_override_tooltip = {
+				tooltip = achievements_disabled
+				always = no
+			}
+		}
+		else = {
+			custom_override_tooltip = {
+				tooltip = achievements_disabled_observer
+				always = no
+			}
+		}
+	}
+}
