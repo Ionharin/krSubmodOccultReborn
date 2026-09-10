@@ -1,0 +1,249 @@
+JAP_pnr_national_security_bill_category = {
+	JAP_pnr_nsb_extraordinary_session = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { always = no }
+		available = { hidden_trigger = { always = no } }
+		selectable_mission = no
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 30
+		priority = 100
+
+		timeout_effect = {
+			log = "[GetLogRoot]: Decision timeout JAP_pnr_nsb_extraordinary_session"
+			clr_country_flag = JAP_pnr_nsb_debate_begun
+			set_country_flag = JAP_pnr_nsb_extraordinary_session_held
+			if = {
+				limit = { has_country_flag = JAP_pnr_nsb_draft_ready }
+				country_event = { id = JAP_pnr_earlygame.30 }
+			}
+			else = {
+				custom_effect_tooltip = JAP_pnr_nsb_original_draft_submitted_tt
+				add_political_power = -25
+				hidden_effect = {
+					set_country_flag = pnr_nsb_decision_1_flag
+					set_country_flag = pnr_nsb_decision_3_flag
+					set_country_flag = pnr_nsb_decision_4_flag
+					set_country_flag = pnr_nsb_decision_5_flag
+					set_country_flag = pnr_nsb_decision_8_flag
+				}
+				country_event = { id = JAP_pnr_earlygame.30 }
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_nsb_ban_secret_societies = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { original_tag = JAP }
+		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
+		available = {
+			check_variable = { JAP_pnr_nsb_article_count < 5 }
+			hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_1_flag } }
+		}
+		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_1_flag } } }
+		complete_effect = {
+			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
+			effect_tooltip = { add_stability = 0.03 }
+			hidden_effect = {
+				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
+				set_country_flag = pnr_nsb_decision_1_flag
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_nsb_preventive_detention = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { original_tag = JAP }
+		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
+		available = {
+			check_variable = { JAP_pnr_nsb_article_count < 5 }
+			hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_2_flag } }
+		}
+		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_2_flag } } }
+		complete_effect = {
+			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
+			custom_effect_tooltip = JAP_pnr_nsb_longer_security_event_interval_tt
+			hidden_effect = {
+				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
+				set_country_flag = pnr_nsb_decision_2_flag
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_nsb_monitor_front_organisations = {
+		icon = GFX_decision_generic_intelligence_exchange
+		allowed = { original_tag = JAP }
+		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
+		available = {
+			check_variable = { JAP_pnr_nsb_article_count < 5 }
+			hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_3_flag } }
+		}
+		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_3_flag } } }
+		complete_effect = {
+			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
+			custom_effect_tooltip = JAP_pnr_nsb_extra_operative_slot_tt
+			hidden_effect = {
+				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
+				set_country_flag = pnr_nsb_decision_3_flag
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_nsb_register_pressure_groups = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { original_tag = JAP }
+		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
+		available = {
+			check_variable = { JAP_pnr_nsb_article_count < 5 }
+			hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_4_flag } }
+		}
+		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_4_flag } } }
+		complete_effect = {
+			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
+			custom_effect_tooltip = JAP_pnr_nsb_extremist_drift_reduction_tt
+			hidden_effect = {
+				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
+				set_country_flag = pnr_nsb_decision_4_flag
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_nsb_public_communications = {
+		icon = GFX_decision_generic_newspaper
+		allowed = { original_tag = JAP }
+		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
+		available = {
+			check_variable = { JAP_pnr_nsb_article_count < 5 }
+			hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_5_flag } }
+		}
+		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_5_flag } } }
+		complete_effect = {
+			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
+			custom_effect_tooltip = JAP_pnr_nsb_daily_political_power_cost_reduction_tt
+			hidden_effect = {
+				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
+				set_country_flag = pnr_nsb_decision_5_flag
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_nsb_military_official_responsibility = {
+		icon = GFX_decision_generic_army_support
+		allowed = { original_tag = JAP }
+		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
+		available = {
+			check_variable = { JAP_pnr_nsb_article_count < 5 }
+			hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_6_flag } }
+		}
+		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_6_flag } } }
+		complete_effect = {
+			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
+			custom_effect_tooltip = JAP_pnr_nsb_no_military_security_backlash_tt
+			hidden_effect = {
+				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
+				set_country_flag = pnr_nsb_decision_6_flag
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_nsb_emergency_suppression_power = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { original_tag = JAP }
+		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
+		available = {
+			check_variable = { JAP_pnr_nsb_article_count < 5 }
+			hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_7_flag } }
+		}
+		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_7_flag } } }
+		complete_effect = {
+			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
+			effect_tooltip = { add_stability = 0.03 }
+			custom_effect_tooltip = JAP_pnr_nsb_weaker_parties_gain_fewer_seats_tt
+			hidden_effect = {
+				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
+				set_country_flag = pnr_nsb_decision_7_flag
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_nsb_judicial_warrant_principle = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { original_tag = JAP }
+		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
+		available = {
+			check_variable = { JAP_pnr_nsb_article_count < 5 }
+			hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_8_flag } }
+		}
+		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_8_flag } } }
+		complete_effect = {
+			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
+			custom_effect_tooltip = JAP_pnr_nsb_party_popularity_stability_factor_tt
+			hidden_effect = {
+				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
+				set_country_flag = pnr_nsb_decision_8_flag
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_nsb_freeze_suspicious_funding = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = { original_tag = JAP }
+		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
+		available = {
+			check_variable = { JAP_pnr_nsb_article_count < 5 }
+			hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_9_flag } }
+		}
+		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_9_flag } } }
+		complete_effect = {
+			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
+			custom_effect_tooltip = JAP_pnr_nsb_consumer_goods_reduction_tt
+			hidden_effect = {
+				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
+				set_country_flag = pnr_nsb_decision_9_flag
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_nsb_reconsider_draft = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		allowed = { original_tag = JAP }
+		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
+		priority = 98
+		available = {
+			check_variable = { JAP_pnr_nsb_article_count > 0 }
+			hidden_trigger = { NOT = { has_country_flag = JAP_pnr_nsb_draft_ready } }
+		}
+		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = JAP_pnr_nsb_debate_begun } } }
+		complete_effect = {
+			hidden_effect = { JAP_pnr_nsb_clear_draft = yes }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_nsb_prepare_submission = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = { original_tag = JAP }
+		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
+		priority = 99
+		available = {
+			check_variable = { JAP_pnr_nsb_article_count > 4 }
+			hidden_trigger = { NOT = { has_country_flag = JAP_pnr_nsb_draft_ready } }
+		}
+		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = JAP_pnr_nsb_debate_begun } } }
+		complete_effect = {
+			set_country_flag = JAP_pnr_nsb_draft_ready
+		}
+		ai_will_do = { factor = 0 }
+	}
+}

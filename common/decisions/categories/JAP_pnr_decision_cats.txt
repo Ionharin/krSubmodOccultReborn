@@ -1,4 +1,4 @@
-JAP_pnr_red_conspiracy_category = { #赤色阴谋
+JAP_pnr_red_conspiracy_category = {
 	icon = GFX_decision_category_SOV_permanent_revolution
 	priority = 900
 	scripted_gui = JAP_pnr_red_conspiracy_decision_ui
@@ -11,14 +11,14 @@ JAP_pnr_red_conspiracy_category = { #赤色阴谋
 	visible_when_empty = yes
 }
 
-JAP_pnr_interservice_budget_bop_category = { #海陆对抗
+JAP_pnr_interservice_budget_bop_category = {
 	icon = generic_political_reform
 	allowed = {
 		always = yes
 	}
 }
 
-JAP_pnr_election_category = { #选举
+JAP_pnr_election_category = {
 	icon = GFX_decision_eng_propaganda_campaigns
 
 	allowed = {
@@ -35,7 +35,7 @@ JAP_pnr_election_category = { #选举
 	}
 }
 
-JAP_pnr_continental_policy_category = { #大陆代理人机制
+JAP_pnr_continental_policy_category = {
 	icon = GFX_decision_category_qing_hall
 	priority = 92
 	visible_when_empty = yes
@@ -67,6 +67,7 @@ JAP_pnr_ruin_and_creation_category = {
 
 	scripted_gui = JAP_pnr_ruin_and_creation_gui
 }
+
 JAP_pnr_showa_restoration_category = {
 	icon = GFX_decision_category_JAP_imperial_glory_red
 	priority = 90
@@ -83,6 +84,7 @@ JAP_pnr_showa_restoration_category = {
 
 	scripted_gui = JAP_pnr_showa_restoration_gui
 }
+
 JAP_pnr_kanebukuro_kozuchi_category = {
 	icon = GFX_decision_category_generic_economy
 	priority = 200
@@ -117,6 +119,7 @@ JAP_pnr_reitai_juso_category = {
 
 	scripted_gui = JAP_pnr_reitai_juso_gui
 }
+
 JAP_pnr_new_party_preparation_category = {
 	icon = GFX_decision_category_JAP_imperial_glory_red
 	priority = 200
@@ -133,6 +136,7 @@ JAP_pnr_new_party_preparation_category = {
 
 	scripted_gui = JAP_pnr_new_party_preparation_gui
 }
+
 JAP_pnr_grey_cardinals_category = {
 	icon = GFX_decision_generic_political_discourse
 	priority = 287
@@ -148,7 +152,23 @@ JAP_pnr_grey_cardinals_category = {
 
 	scripted_gui = JAP_pnr_grey_cardinals_gui
 }
-JAP_pnr_debug_category = { #日本debug
+
+JAP_pnr_national_security_bill_category = {
+	icon = GFX_decision_generic_political_discourse
+	priority = 800
+	visible_when_empty = yes
+
+	allowed = {
+		original_tag = JAP
+	}
+
+	visible = {
+		original_tag = JAP
+		has_country_flag = JAP_pnr_nsb_debate_begun
+	}
+}
+
+JAP_pnr_debug_category = {
 	icon = generic_political_reform
 	priority = 1
 	allowed = {
