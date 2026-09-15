@@ -2,8 +2,3724 @@
 #### JAP PNR SPECIAL MIOs ####
 ##############################
 
-JAP_pnr_toyoda_mio = {
-    include = generic_mobile_tank_organization
+####################
+#### ARMOR MIOs ####
+####################
+JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
+	name = JAP_edogawa_jukogyo_mio
+    icon = GFX_idea_jap_mio_edogawa_jukogyo
+    allowed = { tag = JAP }
+    available = { 1101 = { is_owned_and_controlled_by = FROM } }
+	visible = { always = yes }
+	equipment_type = { mio_cat_eq_all_light_tank armored_car_equipment }
+	research_categories = { mio_cat_tech_light_armor_and_modules cat_armored_cars }
+    on_design_team_assigned_to_tech = {
+		JAP = { add_cic = 100 }
+	}
+	on_design_team_assigned_to_variant = {
+		JAP = { add_cic = 50 }
+	}
+	on_industrial_manufacturer_assigned = {
+		JAP = { add_cic = 100 }
+	}
+	on_tech_research_completed = {
+		JAP = {
+			add_cic = 200
+			add_political_power = 25
+		}
+	}
+	initial_trait = {
+		name = edogawa_jukogyo_subtitle
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+			military_industrial_organization_task_capacity = 2
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_1
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_edogawa_4 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 0 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_2
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 4 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_3
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_KR_generic_mio_trait_icon_funds
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 7 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_4
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		mutually_exclusive = { JAP_mio_edogawa_1 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 2 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_5
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		any_parent = { JAP_mio_edogawa_1 JAP_mio_edogawa_4 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 1 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_6
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		all_parents = { JAP_mio_edogawa_5 }
+		mutually_exclusive = { JAP_mio_edogawa_7 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 0 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_7
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_resources
+		all_parents = { JAP_mio_edogawa_5 }
+		mutually_exclusive = { JAP_mio_edogawa_6 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 2 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_8
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_KR_generic_mio_trait_icon_assign_cost
+		all_parents = { JAP_mio_edogawa_3 }
+		mutually_exclusive = { JAP_mio_edogawa_9 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 7 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_9
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_KR_generic_mio_trait_icon_design_cost
+		all_parents = { JAP_mio_edogawa_3 }
+		mutually_exclusive = { JAP_mio_edogawa_8 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 6 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_10
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		all_parents = { JAP_mio_edogawa_2 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 3 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_11
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_armor_value
+		all_parents = { JAP_mio_edogawa_2 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 5 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_12
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_KR_generic_mio_trait_icon_research_speed
+		all_parents = { JAP_mio_edogawa_14 }
+		any_parent = { JAP_mio_edogawa_9 JAP_mio_edogawa_8 }
+		mutually_exclusive = { JAP_mio_edogawa_13 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 6 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_13
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_KR_generic_mio_trait_icon_cic
+		all_parents = { JAP_mio_edogawa_14 }
+		any_parent = { JAP_mio_edogawa_9 JAP_mio_edogawa_8 }
+		mutually_exclusive = { JAP_mio_edogawa_12 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 7 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_14
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		all_parents = { JAP_mio_edogawa_2 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 4 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_15
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_materials
+		all_parents = { JAP_mio_edogawa_19 }
+		any_parent = { JAP_mio_edogawa_6 JAP_mio_edogawa_7 }
+		mutually_exclusive = { JAP_mio_edogawa_16 JAP_mio_edogawa_17 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 3 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_16
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_engine
+		all_parents = { JAP_mio_edogawa_19 }
+		any_parent = { JAP_mio_edogawa_12 JAP_mio_edogawa_13 JAP_mio_edogawa_6 JAP_mio_edogawa_7 }
+		mutually_exclusive = { JAP_mio_edogawa_15 JAP_mio_edogawa_17 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 4 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_17
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_production
+		all_parents = { JAP_mio_edogawa_19 }
+		any_parent = { JAP_mio_edogawa_12 JAP_mio_edogawa_13 }
+		mutually_exclusive = { JAP_mio_edogawa_15 JAP_mio_edogawa_16 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 5 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_edogawa_19
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_reliability
+		all_parents = { JAP_mio_edogawa_14 }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 4 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+
+	include = JAP_armor_shared_mio
+	remove_trait = { JAP_mio_trait_merge_edogawa }
+}
+JAP_hitachi_mio = { # Hitachi
+	name = JAP_hitachi_mio
+    icon = GFX_idea_jap_mio_hitachi
+    allowed = { tag = JAP }
+    available = { 1101 = { is_owned_and_controlled_by = FROM } }
+	visible = { always = yes }
+	equipment_type = { light_tank_artillery_chassis medium_tank_artillery_chassis heavy_tank_artillery_chassis light_tank_destroyer_chassis medium_tank_destroyer_chassis heavy_tank_destroyer_chassis light_tank_aa_chassis medium_tank_aa_chassis heavy_tank_aa_chassis }
+	research_categories = { mio_cat_tech_all_armor_and_modules mio_cat_all_artillery_equipment }
+    on_design_team_assigned_to_tech = {
+		JAP = { add_cic = 100 }
+	}
+	on_design_team_assigned_to_variant = {
+		JAP = { add_cic = 50 }
+	}
+	on_industrial_manufacturer_assigned = {
+		JAP = { add_cic = 100 }
+	}
+	on_tech_research_completed = {
+		JAP = {
+			add_cic = 200
+			add_political_power = 25
+		}
+	}
+	initial_trait = {
+		name = hitachi_subtitle
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+			military_industrial_organization_task_capacity = 2
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_1
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_reliability
+
+		position = { x = 1 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_2
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		mutually_exclusive = { JAP_mio_hitachi_3 JAP_mio_hitachi_4 }
+		all_parents = { JAP_mio_hitachi_1 }
+
+		position = { x = 0 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_3
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		mutually_exclusive = { JAP_mio_hitachi_2 JAP_mio_hitachi_4 }
+		all_parents = { JAP_mio_hitachi_1 }
+
+		position = { x = 1 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_4
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_resources
+		mutually_exclusive = { JAP_mio_hitachi_2 JAP_mio_hitachi_3 }
+		all_parents = { JAP_mio_hitachi_1 }
+
+		position = { x = 2 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_5
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		any_parent = { JAP_mio_hitachi_2 JAP_mio_hitachi_3 JAP_mio_hitachi_4 }
+
+		position = { x = 0 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_6
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		any_parent = { JAP_mio_hitachi_2 JAP_mio_hitachi_3 JAP_mio_hitachi_4 }
+
+		position = { x = 2 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_7
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_engine
+
+		position = { x = 5 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_8
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_fuel_consumption
+		all_parents = { JAP_mio_hitachi_7 }
+
+		position = { x = 3 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_9
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		all_parents = { JAP_mio_hitachi_7 }
+
+		position = { x = 7 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_10
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		mutually_exclusive = { JAP_mio_hitachi_11 }
+		all_parents = { JAP_mio_hitachi_8 }
+
+		position = { x = 3 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_11
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_spg
+		mutually_exclusive = { JAP_mio_hitachi_10 }
+		all_parents = { JAP_mio_hitachi_8 }
+
+		position = { x = 4 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_12
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_spg
+		mutually_exclusive = { JAP_mio_hitachi_13 }
+		all_parents = { JAP_mio_hitachi_9 }
+
+		position = { x = 6 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_13
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		mutually_exclusive = { JAP_mio_hitachi_12 }
+		all_parents = { JAP_mio_hitachi_9 }
+
+		position = { x = 7 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_14
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_spg
+		all_parents = { JAP_mio_hitachi_7 }
+
+		position = { x = 5 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_15
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_max_strength
+		any_parent = { JAP_mio_hitachi_10 JAP_mio_hitachi_11 }
+
+		position = { x = 3 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_16
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_spg
+		any_parent = { JAP_mio_hitachi_10 JAP_mio_hitachi_11 JAP_mio_hitachi_12 JAP_mio_hitachi_13 }
+		all_parents = { JAP_mio_hitachi_14 }
+
+		position = { x = 5 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_17
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		any_parent = { JAP_mio_hitachi_12 JAP_mio_hitachi_13 }
+
+		position = { x = 7 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_hitachi_18
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_production
+		any_parent = { JAP_mio_hitachi_2 JAP_mio_hitachi_3 JAP_mio_hitachi_4 }
+
+		position = { x = 1 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+
+	include = JAP_armor_shared_mio
+	remove_trait = { JAP_mio_trait_merge_hitachi }
+}
+JAP_sagami_mio = { # Sagami
+	name = JAP_sagami_mio
+    icon = GFX_idea_jap_mio_sagami
+    allowed = { tag = JAP }
+    available = { 1101 = { is_owned_and_controlled_by = FROM } }
+	visible = { always = yes }
+	equipment_type = { armor }
+	research_categories = { mio_cat_tech_all_armor_and_modules }
+    on_design_team_assigned_to_tech = {
+		JAP = { add_cic = 100 }
+	}
+	on_design_team_assigned_to_variant = {
+		JAP = { add_cic = 50 }
+	}
+	on_industrial_manufacturer_assigned = {
+		JAP = { add_cic = 100 }
+	}
+	on_tech_research_completed = {
+		JAP = {
+			add_cic = 200
+			add_political_power = 25
+		}
+	}
+	initial_trait = {
+		name = sagami_subtitle
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.05
+			military_industrial_organization_task_capacity = 2
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_1
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_sagami_2 }
+
+		position = { x = 0 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_2
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_production
+		mutually_exclusive = { JAP_mio_sagami_1 }
+
+		position = { x = 2 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_3
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x = 3 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_4
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_conversion
+
+		position = { x = 5 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_5
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_reliability
+
+		position = { x = 7 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_6
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_engine
+		any_parent = { JAP_mio_sagami_1 JAP_mio_sagami_2 }
+
+		position = { x = 1 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_7
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_production
+		mutually_exclusive = { JAP_mio_sagami_8 }
+		all_parents = { JAP_mio_sagami_6 }
+
+		position = { x = 0 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_8
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_sagami_7 }
+		all_parents = { JAP_mio_sagami_6 }
+
+		position = { x = 2 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_9
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		all_parents = { JAP_mio_sagami_3 }
+
+		position = { x = 3 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_10
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_sagami_11 JAP_mio_sagami_12 }
+		all_parents = { JAP_mio_sagami_4 }
+
+		position = { x = 4 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_11
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		mutually_exclusive = { JAP_mio_sagami_10 JAP_mio_sagami_12 }
+		all_parents = { JAP_mio_sagami_4 }
+
+		position = { x = 5 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_12
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		mutually_exclusive = { JAP_mio_sagami_10 JAP_mio_sagami_11 }
+		all_parents = { JAP_mio_sagami_4 }
+
+		position = { x = 6 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_13
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_reliability
+		all_parents = { JAP_mio_sagami_5 }
+
+		position = { x = 7 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_14
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_facilities
+		any_parent = { JAP_mio_sagami_10 JAP_mio_sagami_11 JAP_mio_sagami_12 }
+		all_parents = { JAP_mio_sagami_9 }
+
+		position = { x = 4 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_15
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		any_parent = { JAP_mio_sagami_10 JAP_mio_sagami_11 JAP_mio_sagami_12 }
+		all_parents = { JAP_mio_sagami_13 }
+
+		position = { x = 6 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_16
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_sagami_17 JAP_mio_sagami_18 }
+		all_parents = { JAP_mio_sagami_14 JAP_mio_sagami_15 }
+
+		position = { x = 4 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_17
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		mutually_exclusive = { JAP_mio_sagami_16 JAP_mio_sagami_18 }
+		all_parents = { JAP_mio_sagami_14 JAP_mio_sagami_15 }
+
+		position = { x = 5 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sagami_18
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		mutually_exclusive = { JAP_mio_sagami_16 JAP_mio_sagami_17 }
+		all_parents = { JAP_mio_sagami_14 JAP_mio_sagami_15 }
+
+		position = { x = 6 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	include = JAP_armor_shared_mio
+	remove_trait = { JAP_mio_trait_merge_sagami }
+}
+JAP_mitsubishi_armor_mio = { # Mitsubishi Armor
+	name = JAP_mitsubishi_armor_mio
+    icon = GFX_idea_mitsubishi
+    allowed = { tag = JAP }
+	visible = { always = yes }
+	equipment_type = { mio_cat_eq_all_light_tank mio_cat_eq_all_medium_tank mio_cat_eq_all_heavy_tank }
+	research_categories = { mio_cat_tech_light_armor_and_modules mio_cat_tech_medium_armor_and_modules mio_cat_tech_heavy_armor_and_modules }
+    on_design_team_assigned_to_tech = {
+		JAP = { add_cic = 100 }
+	}
+	on_design_team_assigned_to_variant = {
+		JAP = { add_cic = 50 }
+	}
+	on_industrial_manufacturer_assigned = {
+		JAP = { add_cic = 100 }
+	}
+	on_tech_research_completed = {
+		JAP = {
+			add_cic = 200
+			add_political_power = 25
+		}
+	}
+	initial_trait = {
+		name = mitsubishi_armor_subtitle
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.05
+			military_industrial_organization_task_capacity = 2
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_armor_1
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+
+		position = { x = 3 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_armor_2
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		all_parents = { JAP_mio_mitsubishi_armor_1 }
+
+		position = { x = 1 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_armor_3
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		all_parents = { JAP_mio_mitsubishi_armor_1 }
+
+		position = { x = 5 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_armor_4
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_mitsubishi_armor_5 }
+		all_parents = { JAP_mio_mitsubishi_armor_2 }
+
+		position = { x = 0 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_armor_5
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_mitsubishi_armor_4 }
+		all_parents = { JAP_mio_mitsubishi_armor_2 }
+
+		position = { x = 2 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_armor_6
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		all_parents = { JAP_mio_mitsubishi_armor_1 }
+
+		position = { x = 3 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_armor_7
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_mitsubishi_armor_14 }
+		all_parents = { JAP_mio_mitsubishi_armor_6 JAP_mio_mitsubishi_armor_13 }
+
+		position = { x = 6 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_armor_8
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		any_parent = { JAP_mio_mitsubishi_armor_4 JAP_mio_mitsubishi_armor_5 }
+
+		position = { x = 1 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_armor_9
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		all_parents = { JAP_mio_mitsubishi_armor_6 }
+
+		position = { x = 3 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_armor_10
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		all_parents = { JAP_mio_mitsubishi_armor_3 }
+		any_parent = { JAP_mio_mitsubishi_armor_7 JAP_mio_mitsubishi_armor_14 }
+
+		position = { x = 5 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_armor_11
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+
+		position = { x = 7 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_armor_12
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		all_parents = { JAP_mio_mitsubishi_armor_11 }
+
+		position = { x = 7 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_armor_13
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		all_parents = { JAP_mio_mitsubishi_armor_11 }
+
+		position = { x = 6 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_armor_14
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_mitsubishi_armor_7 }
+		all_parents = { JAP_mio_mitsubishi_armor_6 JAP_mio_mitsubishi_armor_13 }
+
+		position = { x = 4 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+
+	include = JAP_armor_shared_mio
+	remove_trait = { JAP_mio_trait_merge_mitsubishi_armor }
+}
+JAP_ishikawajima_mio = { # Ishikawajima
+	name = JAP_ishikawajima_mio
+    icon = GFX_idea_ishikawajima
+    allowed = { tag = JAP }
+	visible = { always = yes }
+	equipment_type = { armor }
+	research_categories = { mio_cat_tech_all_armor_and_modules }
+    on_design_team_assigned_to_tech = {
+		JAP = { add_cic = 100 }
+	}
+	on_design_team_assigned_to_variant = {
+		JAP = { add_cic = 50 }
+	}
+	on_industrial_manufacturer_assigned = {
+		JAP = { add_cic = 100 }
+	}
+	on_tech_research_completed = {
+		JAP = {
+			add_cic = 200
+			add_political_power = 25
+		}
+	}
+	initial_trait = {
+		name = ishikawajima_subtitle
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.05
+			military_industrial_organization_task_capacity = 2
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_1
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_ishikawajima_11 }
+
+		position = { x = 1 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_2
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_ishikawajima_12 }
+
+		position = { x = 0 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_3
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+
+		position = { x = 1 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_4
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_ishikawajima_14 }
+
+		position = { x = 5 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_5
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_ishikawajima_15 }
+
+		position = { x = 6 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_6
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+
+		position = { x = 5 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_7
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		any_parent = { JAP_mio_ishikawajima_1 JAP_mio_ishikawajima_2 JAP_mio_ishikawajima_3 JAP_mio_ishikawajima_4 JAP_mio_ishikawajima_5 JAP_mio_ishikawajima_6 JAP_mio_ishikawajima_11 JAP_mio_ishikawajima_12 JAP_mio_ishikawajima_14 JAP_mio_ishikawajima_15 }
+
+		position = { x = 3 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_8
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_ishikawajima_17 }
+		all_parents = { JAP_mio_ishikawajima_7 }
+
+		position = { x = 2 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_9
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		all_parents = { JAP_mio_ishikawajima_7 }
+
+		position = { x = 3 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_10
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_ishikawajima_18 }
+		all_parents = { JAP_mio_ishikawajima_7 }
+
+		position = { x = 4 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_11
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_ishikawajima_1 }
+
+		position = { x = 2 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_12
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_ishikawajima_2 }
+
+		position = { x = 1 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_14
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_ishikawajima_4 }
+
+		position = { x = 4 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_15
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_ishikawajima_5 }
+
+		position = { x = 5 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_17
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_ishikawajima_8 }
+		all_parents = { JAP_mio_ishikawajima_7 }
+
+		position = { x = 0 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_18
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		mutually_exclusive = { JAP_mio_ishikawajima_10 }
+		all_parents = { JAP_mio_ishikawajima_7 }
+
+		position = { x = 6 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+
+	include = JAP_armor_shared_mio
+	remove_trait = { JAP_mio_trait_merge_ishikawajima }
+}
+JAP_nissan_mio = { # Nissan
+	name = nissan
+    icon = GFX_idea_nissan
+    allowed = { tag = JAP }
+	visible = { always = yes }
+	equipment_type = { mio_cat_eq_all_light_tank mio_cat_eq_all_medium_tank }
+	research_categories = { mio_cat_tech_light_armor_and_modules mio_cat_tech_medium_armor_and_modules }
+    on_design_team_assigned_to_tech = {
+		JAP = { add_cic = 100 }
+	}
+	on_design_team_assigned_to_variant = {
+		JAP = { add_cic = 50 }
+	}
+	on_industrial_manufacturer_assigned = {
+		JAP = { add_cic = 100 }
+	}
+	on_tech_research_completed = {
+		JAP = {
+			add_cic = 200
+			add_political_power = 25
+		}
+	}
+	initial_trait = {
+		name = nissan_subtitle
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.05
+			military_industrial_organization_task_capacity = 2
+		}
+	}
+	add_trait = {
+		token = JAP_mio_nissan_1
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_ap_attack
+		mutually_exclusive = { JAP_mio_nissan_2 JAP_mio_nissan_3 }
+
+		position = { x = 0 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_nissan_2
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		mutually_exclusive = { JAP_mio_nissan_1 JAP_mio_nissan_3 }
+
+		position = { x = 1 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_nissan_3
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		mutually_exclusive = { JAP_mio_nissan_1 JAP_mio_nissan_2 }
+
+		position = { x = 2 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_nissan_4
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		mutually_exclusive = { JAP_mio_nissan_5 JAP_mio_nissan_6 }
+
+		position = { x = 4 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_nissan_5
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		mutually_exclusive = { JAP_mio_nissan_4 JAP_mio_nissan_6 }
+
+		position = { x = 5 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_nissan_6
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_batteries_hit_chance
+		mutually_exclusive = { JAP_mio_nissan_4 JAP_mio_nissan_5 }
+
+		position = { x = 6 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_nissan_7
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_hardness
+		any_parent = { JAP_mio_nissan_1 JAP_mio_nissan_2 JAP_mio_nissan_3 }
+
+		position = { x = 1 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_nissan_8
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_breakthrough
+
+		position = { x = 3 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_nissan_9
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_armor_value
+		any_parent = { JAP_mio_nissan_4 JAP_mio_nissan_5 JAP_mio_nissan_6 }
+
+		position = { x = 5 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_nissan_10
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_reliability
+		all_parents = { JAP_mio_nissan_7 JAP_mio_nissan_8 }
+
+		position = { x = 0 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_nissan_11
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_entrenchment
+		all_parents = { JAP_mio_nissan_8 JAP_mio_nissan_9 }
+
+		position = { x = 6 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_nissan_12
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_fuel_consumption
+		all_parents = { JAP_mio_nissan_8 }
+
+		position = { x = 2 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_nissan_13
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_defense
+		all_parents = { JAP_mio_nissan_8 }
+
+		position = { x = 4 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_nissan_14
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_spg
+		all_parents = { JAP_mio_nissan_8 }
+		any_parent = { JAP_mio_nissan_10 JAP_mio_nissan_11 }
+
+		position = { x = 3 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+
+	include = JAP_armor_shared_mio
+	remove_trait = { JAP_mio_trait_merge_nissan }
+}
+JAP_armor_shared_mio = { # Special functions prepared for the concern route and all armor MIOs
+	allowed = { always = no }
+	trait = {
+		token = JAP_mio_armor_shared_1
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_KR_generic_mio_trait_icon_medium_tank_division
+		special_trait_background = yes
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 9 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_armor_shared_2
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_KR_generic_mio_trait_icon_market_contract
+		special_trait_background = yes
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 9 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_armor_shared_3
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_KR_generic_mio_trait_icon_subsidy
+		special_trait_background = yes
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 9 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_armor_shared_4
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_KR_generic_mio_trait_icon_license
+		special_trait_background = yes
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 9 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_armor_shared_5
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_unique
+		special_trait_background = yes
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 9 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_trait_merge_hitachi
+		name = PNR_JAP_mio_merge_hitachi
+		icon = GFX_mio_trait_hitachi
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 1 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_trait_merge_mitsubishi_armor
+		name = PNR_JAP_mio_merge_mitsubishi_armor
+		icon = GFX_mio_trait_mitsubishi
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 3 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_trait_merge_sagami
+		name = PNR_JAP_mio_merge_sagami
+		icon = GFX_mio_trait_sagami
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 2 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_trait_merge_nissan
+		name = PNR_JAP_mio_merge_nissan
+		icon = GFX_mio_trait_nissan
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 5 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_trait_merge_ishikawajima
+		name = PNR_JAP_mio_merge_ishikawajima
+		icon = GFX_mio_trait_ishikawajima
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 4 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_trait_merge_edogawa
+		name = PNR_JAP_mio_merge_edogawa
+		icon = GFX_mio_trait_edogawa_jukogyo
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 0 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_armor_kokka_soudashou
+		name = PNR_JAP_mio_kokka_soudashou
+		icon = GFX_mio_trait_kokka_soudashou
+		special_trait_background = yes
+		position = { x = 8 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_armor_shared_15_1
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_totalist
+		special_trait_background = yes
+		visible = { JAP = { has_government = totalist } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_armor_shared_15_2
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_syndie
+		special_trait_background = yes
+		visible = { JAP = { has_government = syndicalist } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_armor_shared_15_3
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_rad_soc
+		special_trait_background = yes
+		visible = { JAP = { has_government = radical_socialist } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_armor_shared_15_4
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_soc_dem
+		special_trait_background = yes
+		visible = { JAP = { has_government = social_democrat } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_armor_shared_15_5
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_soc_lib
+		special_trait_background = yes
+		visible = { JAP = { has_government = social_liberal } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_armor_shared_15_6
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_mar_lib
+		special_trait_background = yes
+		visible = { JAP = { has_government = market_liberal } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_armor_shared_15_7
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_soc_con
+		special_trait_background = yes
+		visible = { JAP = { has_government = social_conservative } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_armor_shared_15_8
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_auth_dem
+		special_trait_background = yes
+		visible = { JAP = { has_government = authoritarian_democrat } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_armor_shared_15_9
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_pat_aut
+		special_trait_background = yes
+		visible = { JAP = { has_government = paternal_autocrat } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_armor_shared_15_10
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_nat_pop
+		special_trait_background = yes
+		visible = { JAP = { has_government = national_populist } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+}
+
+####################
+##### AIR MIOs #####
+####################
+
+####################
+#### NAVY MIOs #####
+####################
+
+JAP_kure_naval_mio = { # Kure Naval
+	name = kure_naval_arsenal
+	icon = GFX_idea_kure_naval_arsenal
+	allowed = { tag = JAP }
+	visible = { always = yes }
+	equipment_type = { 
+		mio_cat_eq_all_battleship
+		mio_cat_eq_all_cruiser
+	}
+	research_categories = {
+		mio_cat_tech_all_capital_ship_and_modules
+		mio_cat_tech_all_cruiser_and_modules
+	}
+    on_design_team_assigned_to_tech = {
+		JAP = { add_cic = 100 }
+	}
+	on_design_team_assigned_to_variant = {
+		JAP = { add_cic = 50 }
+	}
+	on_industrial_manufacturer_assigned = {
+		JAP = { add_cic = 100 }
+	}
+	on_tech_research_completed = {
+		JAP = {
+			add_cic = 200
+			add_political_power = 25
+		}
+	}
+	initial_trait = {
+		name = pnr_kure_naval_subtitle
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_1
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_lg_attack
+		mutually_exclusive = { JAP_mio_kure_2 }
+
+		position = { x = 0 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_2
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_hg_attack
+		mutually_exclusive = { JAP_mio_kure_1 }
+
+		position = { x = 1 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_3
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_lg_attack
+		mutually_exclusive = { JAP_mio_kure_4 }
+		any_parent = { JAP_mio_kure_1 JAP_mio_kure_2 }
+
+		position = { x = 0 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_4
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_hg_attack
+		mutually_exclusive = { JAP_mio_kure_3 }
+		any_parent = { JAP_mio_kure_1 JAP_mio_kure_2 }
+
+		position = { x = 1 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_5
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_anti_air_attack
+		any_parent = { JAP_mio_kure_3 JAP_mio_kure_4 }
+		mutually_exclusive = { JAP_mio_kure_9 }
+
+		position = { x = 1 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_6
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_armor_value
+
+		position = { x = 5 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_7
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_ship_capital_ship_offense
+		all_parents = { JAP_mio_kure_6 }
+
+		position = { x = 3 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_8
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_ship_capital_ship_armor
+		all_parents = { JAP_mio_kure_6 }
+
+		position = { x = 6 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_9
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_ap_attack
+		mutually_exclusive = { JAP_mio_kure_5 }
+		all_parents = { JAP_mio_kure_7 }
+
+		position = { x = 2 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_10
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_ship_general_engine
+		all_parents = { JAP_mio_kure_7 }
+
+		position = { x = 4 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_11
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_naval_torpedo_damage_reduction_factor
+		any_parent = { JAP_mio_kure_5 JAP_mio_kure_9 }
+
+		position = { x = 3 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_12
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_max_strength
+		all_parents = { JAP_mio_kure_8 }
+
+		position = { x = 5 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_13
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		mutually_exclusive = { JAP_mio_kure_14 }
+		all_parents = { JAP_mio_kure_8 }
+
+		position = { x = 6 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_14
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_naval_range
+		mutually_exclusive = { JAP_mio_kure_13 }
+		all_parents = { JAP_mio_kure_8 }
+
+		position = { x = 7 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_15
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_ship_capital_ship_production
+		any_parent = { JAP_mio_kure_13 JAP_mio_kure_14 }
+
+		position = { x = 6 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_16
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_batteries_hit_chance
+		any_parent = { JAP_mio_kure_5 JAP_mio_kure_9 }
+
+		position = { x = 0 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kure_17
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_surface_detection
+		all_parents = { JAP_mio_kure_10 JAP_mio_kure_12 }
+
+		position = { x = 5 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+
+	include = JAP_navy_shared_mio
+	remove_trait = { JAP_mio_trait_merge_kure }
+}
+JAP_maizuru_naval_mio = { # Maizuru Naval
+	name = maizuru_naval_arsenal
+	icon = GFX_idea_maizuru_naval_arsenal
+	allowed = { tag = JAP }
+	visible = { always = yes }
+	equipment_type = { 
+		mio_cat_eq_all_battleship
+		mio_cat_eq_all_cruiser
+	}
+	research_categories = {
+		mio_cat_tech_all_capital_ship_and_modules
+		mio_cat_tech_all_cruiser_and_modules
+	}
+    on_design_team_assigned_to_tech = {
+
+	}
+	on_design_team_assigned_to_variant = {
+
+	}
+	on_industrial_manufacturer_assigned = {
+
+	}
+	on_tech_research_completed = {
+
+	}
+	initial_trait = {
+		name = pnr_maizuru_naval_subtitle
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_1
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+		position = { x = 1 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_2
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_maizuru_1 }
+
+		position = { x = 0 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_3
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_maizuru_7 JAP_mio_maizuru_8 }
+		all_parents = { JAP_mio_maizuru_1 JAP_mio_maizuru_6 }
+
+		position = { x = 2 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_4
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_maizuru_2 }
+
+		position = { x = 1 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_5
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_maizuru_10 }
+		all_parents = { JAP_mio_maizuru_4 }
+
+		position = { x = 0 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_6
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+		position = { x = 3 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_7
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_maizuru_3 JAP_mio_maizuru_8 }
+		all_parents = { JAP_mio_maizuru_6 }
+
+		position = { x = 3 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_8
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_maizuru_3 JAP_mio_maizuru_7 }
+		all_parents = { JAP_mio_maizuru_12 JAP_mio_maizuru_6 }
+
+		position = { x = 4 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_9
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		any_parent = { JAP_mio_maizuru_3 JAP_mio_maizuru_7 JAP_mio_maizuru_8 }
+
+		position = { x = 3 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_10
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_maizuru_5 }
+		all_parents = { JAP_mio_maizuru_4 }
+
+		position = { x = 2 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_11
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_maizuru_14 }
+
+		position = { x = 4 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_12
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+		position = { x = 5 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_13
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_maizuru_12 }
+
+		position = { x = 6 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_14
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_maizuru_13 }
+
+		position = { x = 5 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_15
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_maizuru_13 }
+
+		position = { x = 7 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_maizuru_16
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_maizuru_14 }
+
+		position = { x = 6 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+
+	include = JAP_navy_shared_mio
+	remove_trait = { JAP_mio_trait_merge_maizuru }
+}
+JAP_kobe_naval_mio = { # Mitsubishi Kobe Naval
+	name = mitsubishi_kobe_naval_mio
+	icon = GFX_idea_jap_mio_kobe
+	allowed = { tag = JAP }
+	visible = { always = yes }
+	equipment_type = { 
+		mio_cat_eq_all_battleship
+		mio_cat_eq_all_cruiser
+	}
+	research_categories = {
+		mio_cat_tech_all_capital_ship_and_modules
+		mio_cat_tech_all_cruiser_and_modules
+	}
+    on_design_team_assigned_to_tech = {
+
+	}
+	on_design_team_assigned_to_variant = {
+
+	}
+	on_industrial_manufacturer_assigned = {
+
+	}
+	on_tech_research_completed = {
+
+	}
+	initial_trait = {
+		name = pnr_maizuru_naval_subtitle
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_1
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_mitsubishi_kobe_4 }
+
+		position = { x = 0 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_2
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_mitsubishi_kobe_5 }
+
+		position = { x = 0 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_3
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_mitsubishi_kobe_6 }
+
+		position = { x = 0 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_4
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_mitsubishi_kobe_1 }
+
+		position = { x = 1 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_5
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_mitsubishi_kobe_2 }
+
+		position = { x = 1 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_6
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_mitsubishi_kobe_3 }
+
+		position = { x = 1 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_7
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_mitsubishi_kobe_10 }
+
+		position = { x = 6 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_8
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_mitsubishi_kobe_11 }
+
+		position = { x = 6 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_9
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_mitsubishi_kobe_12 }
+
+		position = { x = 6 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_10
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_mitsubishi_kobe_7 }
+
+		position = { x = 7 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_11
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_mitsubishi_kobe_8 }
+
+		position = { x = 7 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_12
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_mitsubishi_kobe_9 }
+
+		position = { x = 7 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_13
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		any_parent = { JAP_mio_mitsubishi_kobe_1 JAP_mio_mitsubishi_kobe_2 JAP_mio_mitsubishi_kobe_3 JAP_mio_mitsubishi_kobe_4 JAP_mio_mitsubishi_kobe_5 JAP_mio_mitsubishi_kobe_6 }
+
+		position = { x = 3 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_14
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		any_parent = { JAP_mio_mitsubishi_kobe_7 JAP_mio_mitsubishi_kobe_8 JAP_mio_mitsubishi_kobe_9 JAP_mio_mitsubishi_kobe_10 JAP_mio_mitsubishi_kobe_11 JAP_mio_mitsubishi_kobe_12 }
+
+		position = { x = 4 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_15
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_mitsubishi_kobe_13 }
+
+		position = { x = 2 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_16
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_mitsubishi_kobe_13 }
+
+		position = { x = 3 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_17
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_mitsubishi_kobe_14 }
+
+		position = { x = 4 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_mitsubishi_kobe_18
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_mitsubishi_kobe_14 }
+
+		position = { x = 5 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+
+	include = JAP_navy_shared_mio
+	remove_trait = { JAP_mio_trait_merge_mitsubishi_kobe }
+}
+JAP_sasebo_naval_mio = {
+	name = sasebo_naval_arsenal
+	icon = GFX_idea_sasebo_naval_arsenal
+	allowed = { tag = JAP }
+	visible = { always = yes }
+	equipment_type = { 
+		mio_cat_eq_all_battleship
+		mio_cat_eq_all_cruiser
+	}
+	research_categories = {
+		mio_cat_tech_all_capital_ship_and_modules
+		mio_cat_tech_all_cruiser_and_modules
+	}
+    on_design_team_assigned_to_tech = {
+
+	}
+	on_design_team_assigned_to_variant = {
+
+	}
+	on_industrial_manufacturer_assigned = {
+
+	}
+	on_tech_research_completed = {
+
+	}
+	initial_trait = {
+		name = pnr_maizuru_naval_subtitle
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_1
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+		position = { x = 3 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_2
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_sasebo_12 }
+		all_parents = { JAP_mio_sasebo_1 }
+
+		position = { x = 0 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_3
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_sasebo_1 }
+
+		position = { x = 3 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_4
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_sasebo_13 }
+		all_parents = { JAP_mio_sasebo_1 }
+
+		position = { x = 6 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_5
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		any_parent = { JAP_mio_sasebo_2 JAP_mio_sasebo_12 }
+
+		position = { x = 0 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_6
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_sasebo_3 }
+
+		position = { x = 2 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_7
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_sasebo_3 }
+
+		position = { x = 4 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_8
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		any_parent = { JAP_mio_sasebo_4 JAP_mio_sasebo_13 }
+
+		position = { x = 6 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_9
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		any_parent = { JAP_mio_sasebo_2 JAP_mio_sasebo_12 }
+		all_parents = { JAP_mio_sasebo_6 }
+
+		position = { x = 1 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_10
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_sasebo_6 JAP_mio_sasebo_7 }
+
+		position = { x = 3 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_11
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		any_parent = { JAP_mio_sasebo_4 JAP_mio_sasebo_13 }
+		all_parents = { JAP_mio_sasebo_7 }
+
+		position = { x = 5 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_12
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_sasebo_2 }
+		all_parents = { JAP_mio_sasebo_1 }
+
+		position = { x = 1 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_13
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_sasebo_4 }
+		all_parents = { JAP_mio_sasebo_1 }
+
+		position = { x = 5 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+
+	include = JAP_navy_shared_mio
+	remove_trait = { JAP_mio_trait_merge_sasebo }
+}
+JAP_yokosuka_mio = { # Yokosuka
+	name = yokosuka_naval_arsenal
+	icon = GFX_idea_yokosuka_naval_arsenal
+	allowed = { tag = JAP }
+	visible = { always = yes }
+	equipment_type = { 
+		mio_cat_eq_all_battleship
+		mio_cat_eq_all_cruiser
+	}
+	research_categories = {
+		mio_cat_tech_all_capital_ship_and_modules
+		mio_cat_tech_all_cruiser_and_modules
+	}
+    on_design_team_assigned_to_tech = {
+
+	}
+	on_design_team_assigned_to_variant = {
+
+	}
+	on_industrial_manufacturer_assigned = {
+
+	}
+	on_tech_research_completed = {
+
+	}
+	initial_trait = {
+		name = pnr_maizuru_naval_subtitle
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_1
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_sasebo_2 JAP_mio_sasebo_3 }
+
+		position = { x = 0 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_2
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_sasebo_1 JAP_mio_sasebo_3 }
+
+		position = { x = 1 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_3
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_sasebo_1 JAP_mio_sasebo_2 }
+
+		position = { x = 2 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_4
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+		position = { x = 5 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_5
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		any_parent = { JAP_mio_sasebo_1 JAP_mio_sasebo_2 JAP_mio_sasebo_3 }
+
+		position = { x = 1 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_6
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_sasebo_4 }
+
+		position = { x = 4 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_7
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_sasebo_4 }
+
+		position = { x = 6 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_8
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_sasebo_5 }
+
+		position = { x = 1 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_9
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_sasebo_6 }
+
+		position = { x = 3 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_10
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_sasebo_6 }
+
+		position = { x = 5 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_11
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_sasebo_9 JAP_mio_sasebo_10 }
+
+		position = { x = 4 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_12
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_sasebo_7 }
+
+		position = { x = 6 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_13
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_sasebo_7 }
+
+		position = { x = 7 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_sasebo_14
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_sasebo_13 }
+
+		position = { x = 7 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+
+	include = JAP_navy_shared_mio
+	remove_trait = { JAP_mio_trait_merge_yokosuka }
+}
+JAP_kawasaki_mio = { # Kawasaki
+	name = kawasaki
+	icon = GFX_idea_kawasaki
+	allowed = { tag = JAP }
+	visible = { always = yes }
+	equipment_type = { 
+		mio_cat_eq_all_battleship
+		mio_cat_eq_all_cruiser
+	}
+	research_categories = {
+		mio_cat_tech_all_capital_ship_and_modules
+		mio_cat_tech_all_cruiser_and_modules
+	}
+    on_design_team_assigned_to_tech = {
+
+	}
+	on_design_team_assigned_to_variant = {
+
+	}
+	on_industrial_manufacturer_assigned = {
+
+	}
+	on_tech_research_completed = {
+
+	}
+	initial_trait = {
+		name = pnr_maizuru_naval_subtitle
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kawasaki_1
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+		position = { x = 3 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kawasaki_2
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_kawasaki_1 }
+
+		position = { x = 1 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kawasaki_3
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_kawasaki_1 }
+
+		position = { x = 6 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kawasaki_4
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_kawasaki_2 }
+
+		position = { x = 0 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kawasaki_5
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_kawasaki_2 }
+
+		position = { x = 2 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kawasaki_6
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_kawasaki_7 }
+		all_parents = { JAP_mio_kawasaki_11 }
+
+		position = { x = 4 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kawasaki_7
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		mutually_exclusive = { JAP_mio_kawasaki_6 }
+		all_parents = { JAP_mio_kawasaki_3 }
+
+		position = { x = 5 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kawasaki_8
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_kawasaki_4 }
+
+		position = { x = 0 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kawasaki_9
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		any_parent = { JAP_mio_kawasaki_6 JAP_mio_kawasaki_7 }
+		all_parents = { JAP_mio_kawasaki_5 }
+
+		position = { x = 3 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kawasaki_10
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		any_parent = { JAP_mio_kawasaki_6 JAP_mio_kawasaki_7 }
+
+		position = { x = 6 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_kawasaki_11
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_kawasaki_1 }
+
+		position = { x = 4 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+
+	include = JAP_navy_shared_mio
+	remove_trait = { JAP_mio_trait_merge_kawasaki }
+}
+JAP_ishikawajima_navy_mio = { # Ishikawajima 
+	name = JAP_ishikawajima_mio
+    icon = GFX_idea_ishikawajima
+    allowed = { tag = JAP }
+	visible = { always = yes }
+	equipment_type = { armor }
+	research_categories = { mio_cat_tech_all_armor_and_modules }
+    on_design_team_assigned_to_tech = {
+		JAP = { add_cic = 100 }
+	}
+	on_design_team_assigned_to_variant = {
+		JAP = { add_cic = 50 }
+	}
+	on_industrial_manufacturer_assigned = {
+		JAP = { add_cic = 100 }
+	}
+	on_tech_research_completed = {
+		JAP = {
+			add_cic = 200
+			add_political_power = 25
+		}
+	}
+	initial_trait = {
+		name = ishikawajima_subtitle
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_navy_1
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_ship_general_materials
+		mutually_exclusive = { JAP_mio_ishikawajima_navy_2 }
+
+		position = { x = 6 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_navy_2
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_ship_general_conversion
+		mutually_exclusive = { JAP_mio_ishikawajima_navy_1 }
+
+		position = { x = 7 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_navy_3
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_ship_general_materials
+		mutually_exclusive = { JAP_mio_ishikawajima_navy_4 }
+		any_parent = { JAP_mio_ishikawajima_navy_1 JAP_mio_ishikawajima_navy_2 }
+
+		position = { x = 6 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_navy_4
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_ship_general_conversion
+		mutually_exclusive = { JAP_mio_ishikawajima_navy_3 }
+		any_parent = { JAP_mio_ishikawajima_navy_1 JAP_mio_ishikawajima_navy_2 }
+
+		position = { x = 7 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_navy_5
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_ship_capital_screen_weapons
+
+		position = { x = 2 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_navy_6
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_ship_general_production
+		all_parents = { JAP_mio_ishikawajima_navy_5 }
+
+		position = { x = 0 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_navy_7
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_ishikawajima_navy_5 }
+
+		position = { x = 4 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_navy_8
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_ship_general_offense
+		all_parents = { JAP_mio_ishikawajima_navy_6 }
+
+		position = { x = 0 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_navy_9
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		all_parents = { JAP_mio_ishikawajima_navy_7 }
+
+		position = { x = 4 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_navy_10
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_fuel_consumption
+		all_parents = { JAP_mio_ishikawajima_navy_5 }
+
+		position = { x = 1 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_navy_11
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_surface_detection
+		all_parents = { JAP_mio_ishikawajima_navy_5 }
+
+		position = { x = 3 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_navy_12
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		mutually_exclusive = { JAP_mio_ishikawajima_navy_13 JAP_mio_ishikawajima_navy_14 }
+		all_parents = { JAP_mio_ishikawajima_navy_10 JAP_mio_ishikawajima_navy_11 }
+
+		position = { x = 1 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_navy_13
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_max_strength
+		mutually_exclusive = { JAP_mio_ishikawajima_navy_12 JAP_mio_ishikawajima_navy_14 }
+		all_parents = { JAP_mio_ishikawajima_navy_10 JAP_mio_ishikawajima_navy_11 }
+
+		position = { x = 2 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_ishikawajima_navy_14
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_surface_visibility
+		mutually_exclusive = { JAP_mio_ishikawajima_navy_12 JAP_mio_ishikawajima_navy_13 }
+		all_parents = { JAP_mio_ishikawajima_navy_10 JAP_mio_ishikawajima_navy_11 }
+
+		position = { x = 3 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	
+	include = JAP_navy_shared_mio
+	remove_trait = { JAP_mio_trait_merge_ishikawajima_navy }
+}
+JAP_navy_shared_mio = { # Special functions prepared for the concern route and all navy MIOs
+	allowed = { always = no }
+	trait = {
+		token = JAP_mio_navy_shared_1
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_department_icon_ship_screen_ship_weapons
+		special_trait_background = yes
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 9 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_navy_shared_2
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_KR_generic_mio_trait_icon_market_contract
+		special_trait_background = yes
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 9 y = 3 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_navy_shared_3
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_KR_generic_mio_trait_icon_subsidy
+		special_trait_background = yes
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 9 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_navy_shared_4
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_KR_generic_mio_trait_icon_license
+		special_trait_background = yes
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 9 y = 1 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_navy_shared_5
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_generic_mio_trait_icon_unique
+		special_trait_background = yes
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 9 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_trait_merge_maizuru
+		name = PNR_JAP_mio_merge_maizuru
+		icon = GFX_mio_trait_maizuru
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 1 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_trait_merge_mitsubishi_kobe
+		name = PNR_JAP_mio_merge_mitsubishi_kobe
+		icon = GFX_mio_trait_mitsubishi_kobe
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 2 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_trait_merge_sasebo
+		name = PNR_JAP_mio_merge_sasebo
+		icon = GFX_mio_trait_sasebo
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 3 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_trait_merge_yokosuka
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_mio_trait_yokosuka
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 4 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_trait_merge_kawasaki
+		name = KR_MIO_Trait_increased_fire_accuracy
+		icon = GFX_mio_trait_kawasaki
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 5 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_trait_merge_kure
+		name = PNR_JAP_mio_merge_kure
+		icon = GFX_mio_trait_kure
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 0 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_trait_merge_ishikawajima_navy
+		name = PNR_JAP_mio_merge_ishikawajima
+		icon = GFX_mio_trait_ishikawajima
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 6 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_navy_kokka_soudashou
+		name = PNR_JAP_mio_kokka_soudashou
+		icon = GFX_mio_trait_kokka_soudashou
+		special_trait_background = yes
+		position = { x = 8 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_navy_shared_15_1
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_totalist
+		special_trait_background = yes
+		visible = { JAP = { has_government = totalist } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_navy_shared_15_2
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_syndie
+		special_trait_background = yes
+		visible = { JAP = { has_government = syndicalist } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_navy_shared_15_3
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_rad_soc
+		special_trait_background = yes
+		visible = { JAP = { has_government = radical_socialist } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_navy_shared_15_4
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_soc_dem
+		special_trait_background = yes
+		visible = { JAP = { has_government = social_democrat } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_navy_shared_15_5
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_soc_lib
+		special_trait_background = yes
+		visible = { JAP = { has_government = social_liberal } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_navy_shared_15_6
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_mar_lib
+		special_trait_background = yes
+		visible = { JAP = { has_government = market_liberal } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_navy_shared_15_7
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_soc_con
+		special_trait_background = yes
+		visible = { JAP = { has_government = social_conservative } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_navy_shared_15_8
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_auth_dem
+		special_trait_background = yes
+		visible = { JAP = { has_government = authoritarian_democrat } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_navy_shared_15_9
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_pat_aut
+		special_trait_background = yes
+		visible = { JAP = { has_government = paternal_autocrat } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = JAP_mio_navy_shared_15_10
+		name = PNR_JAP_mio_gov_command
+		icon = GFX_KR_generic_mio_trait_icon_nat_pop
+		special_trait_background = yes
+		visible = { JAP = { has_government = national_populist } }
+
+		available = {
+			always = yes
+		}
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+}
+
+#######################
+#### Materiel MIOs ####
+#######################
+
+JAP_pnr_toyoda_mio = { # PNR toyoda
+	include = generic_mobile_tank_organization
     name = toyota
     icon = GFX_idea_jap_mio_toyota
     allowed = {

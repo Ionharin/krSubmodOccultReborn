@@ -6,11 +6,798 @@ focus_tree = {
 	default = no
 	focus = {
 		id = JA1_three_kingdoms
-		x = 10
+		x = 1
 		y = 0
 		cost = 9
 		icon = GFX_focus_ETH_an_empire_in_the_shade_of_the_sun
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JA1_after_the_flames_of_war
+		x = 13
+		y = 0
+		cost = 6
+		icon = GFX_focus_SIA_built_to_withstand_every_flame
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JA1_return_of_the_paris_friends
+		x = 9
+		y = 1
+		cost = 2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_embers_of_the_north
+			focus = JA1_pass_through_the_ruins
+		}
+		prerequisite = {
+			focus = JA1_after_the_flames_of_war
+		}
+	}
+	focus = {
+		id = JA1_ignite_the_torch_of_bolshevism
+		x = 12
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_unite_all
+		}
+		prerequisite = {
+			focus = JA1_embers_of_the_north
+		}
+	}
+	focus = {
+		id = JA1_embers_of_the_north
+		x = 13
+		y = 1
+		cost = 2
+		icon = GFX_goal_ideology_radical_socialist
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_return_of_the_paris_friends
+		}
+		prerequisite = {
+			focus = JA1_after_the_flames_of_war
+		}
+	}
+	focus = {
+		id = JA1_pass_through_the_ruins
+		x = 17
+		y = 1
+		cost = 2
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_return_of_the_paris_friends
+		}
+		prerequisite = {
+			focus = JA1_after_the_flames_of_war
+		}
+	}
+	focus = {
+		id = JA1_encourage_the_recovery_of_the_economy
+		x = 20
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_embers_of_the_north
+			focus = JA1_pass_through_the_ruins
+		}
+	}
+	focus = {
+		id = JA1_empowering_reformist_bureaucrats
+		x = 21
+		y = 3
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_encourage_the_recovery_of_the_economy
+		}
+	}
+	focus = {
+		id = JA1_unite_all
+		x = 14
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_ignite_the_torch_of_bolshevism
+			focus = JA1_limited_volunteer_cooperation
+		}
+		prerequisite = {
+			focus = JA1_embers_of_the_north
+		}
+	}
+	focus = {
+		id = JA1_enterprises_belong_to_the_people
+		x = 6
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_return_of_the_paris_friends
+			focus = JA1_embers_of_the_north
+		}
+	}
+	focus = {
+		id = JA1_transformation_of_the_new_economy
+		x = 5
+		y = 3
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_enterprises_belong_to_the_people
+		}
+	}
+	focus = {
+		id = JA1_adorn_the_gun_muzzle_with_sakura
+		x = 18
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_limited_volunteer_cooperation
+		}
+		prerequisite = {
+			focus = JA1_pass_through_the_ruins
+		}
+	}
+	focus = {
+		id = JA1_limited_volunteer_cooperation
+		x = 16
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_unite_all
+			focus = JA1_adorn_the_gun_muzzle_with_sakura
+		}
+		prerequisite = {
+			focus = JA1_pass_through_the_ruins
+			focus = JA1_embers_of_the_north
+		}
+	}
+	focus = {
+		id = JA1_red_front
+		x = 8
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_proletarian_thousand
+		}
+		prerequisite = {
+			focus = JA1_return_of_the_paris_friends
+		}
+	}
+	focus = {
+		id = JA1_proletarian_thousand
+		x = 10
+		y = 2
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_red_front
+		}
+		prerequisite = {
+			focus = JA1_return_of_the_paris_friends
+			focus = JA1_embers_of_the_north
+		}
+	}
+	focus = {
+		id = JA1_righteous_rioters
+		x = 7
+		y = 3
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_supreme_army_council
+			focus = JA1_true_army_for_people
+			focus = JA1_militia
+			focus = JA1_law_enforcement_forces
+		}
+		prerequisite = {
+			focus = JA1_red_front
+			focus = JA1_proletarian_thousand
+		}
+	}
+	focus = {
+		id = JA1_true_army_for_people
+		x = 13
+		y = 3
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_righteous_rioters
+			focus = JA1_supreme_army_council
+			focus = JA1_militia
+			focus = JA1_law_enforcement_forces
+		}
+		prerequisite = {
+			focus = JA1_unite_all
+			focus = JA1_ignite_the_torch_of_bolshevism
+			focus = JA1_proletarian_thousand
+		}
+	}
+	focus = {
+		id = JA1_supreme_army_council
+		x = 9
+		y = 3
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_righteous_rioters
+			focus = JA1_true_army_for_people
+			focus = JA1_militia
+			focus = JA1_law_enforcement_forces
+		}
+		prerequisite = {
+			focus = JA1_proletarian_thousand
+			focus = JA1_ignite_the_torch_of_bolshevism
+			focus = JA1_red_front
+			focus = JA1_unite_all
+		}
+	}
+	focus = {
+		id = JA1_militia
+		x = 17
+		y = 3
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_righteous_rioters
+			focus = JA1_supreme_army_council
+			focus = JA1_true_army_for_people
+			focus = JA1_law_enforcement_forces
+		}
+		prerequisite = {
+			focus = JA1_limited_volunteer_cooperation
+		}
+	}
+	focus = {
+		id = JA1_law_enforcement_forces
+		x = 19
+		y = 3
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_righteous_rioters
+			focus = JA1_supreme_army_council
+			focus = JA1_true_army_for_people
+			focus = JA1_militia
+		}
+		prerequisite = {
+			focus = JA1_adorn_the_gun_muzzle_with_sakura
+			focus = JA1_limited_volunteer_cooperation
+		}
+	}
+	focus = {
+		id = JA1_terror_of_bygone_days
+		x = 10
+		y = 4
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_return_of_the_paris_friends
+			focus = JA1_embers_of_the_north
+		}
+	}
+	focus = {
+		id = JA1_seek_forgiveness_and_pardon
+		x = 16
+		y = 4
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_embers_of_the_north
+			focus = JA1_pass_through_the_ruins
+		}
+	}
+	focus = {
+		id = JA1_pull_out_the_corrupted_thorn
+		x = 5
+		y = 5
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_toxin_spread
+		}
+		prerequisite = {
+			focus = JA1_serpent_and_blade
+		}
+	}
+	focus = {
+		id = JA1_toxin_spread
+		x = 7
+		y = 5
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_pull_out_the_corrupted_thorn
+		}
+		prerequisite = {
+			focus = JA1_serpent_and_blade
+		}
+	}
+	focus = {
+		id = JA1_flame_of_revolution_rekindled
+		x = 8
+		y = 4
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_righteous_rioters
+			focus = JA1_supreme_army_council
+			focus = JA1_true_army_for_people
+		}
+	}
+	focus = {
+		id = JA1_not_a_part_but_the_whole
+		x = 10
+		y = 6
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_flame_of_revolution_rekindled
+		}
+	}
+	focus = {
+		id = JA1_end_the_mistake_of_1932
+		x = 18
+		y = 4
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_law_enforcement_forces
+			focus = JA1_militia
+			focus = JA1_true_army_for_people
+		}
+	}
+	focus = {
+		id = JA1_red_freedom_guard
+		x = 8
+		y = 6
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_flame_of_revolution_rekindled
+		}
+	}
+	focus = {
+		id = JA1_seek_education_through_labor
+		x = 11
+		y = 5
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_flame_of_revolution_rekindled
+			focus = JA1_reiterate_party_regulations
+		}
+	}
+	focus = {
+		id = JA1_serpent_and_blade
+		x = 6
+		y = 4
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_transformation_of_the_new_economy
+		}
+		prerequisite = {
+			focus = JA1_righteous_rioters
+			focus = JA1_supreme_army_council
+			focus = JA1_true_army_for_people
+		}
+	}
+	focus = {
+		id = JA1_most_humane_labor_relations
+		x = 20
+		y = 4
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_empowering_reformist_bureaucrats
+		}
+		prerequisite = {
+			focus = JA1_law_enforcement_forces
+			focus = JA1_militia
+			focus = JA1_true_army_for_people
+		}
+	}
+	focus = {
+		id = JA1_marching_toward_the_future
+		x = 9
+		y = 5
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_flame_of_revolution_rekindled
+		}
+		prerequisite = {
+			focus = JA1_terror_of_bygone_days
+		}
+	}
+	focus = {
+		id = JA1_central_authority_controls_everything
+		x = 11
+		y = 7
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_red_freedom_guard
+		}
+		prerequisite = {
+			focus = JA1_not_a_part_but_the_whole
+		}
+	}
+	focus = {
+		id = JA1_eternal_progress
+		x = 9
+		y = 7
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_marching_toward_the_future
+		}
+	}
+	focus = {
+		id = JA1_revolutionary_fervor_has_never_waned
+		x = 7
+		y = 7
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_red_freedom_guard
+		}
+		prerequisite = {
+			focus = JA1_not_a_part_but_the_whole
+		}
+	}
+	focus = {
+		id = JA1_reiterate_party_regulations
+		x = 13
+		y = 4
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_true_army_for_people
+		}
+	}
+	focus = {
+		id = JA1_cleaning_out_the_old_house
+		x = 12
+		y = 6
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_terror_of_bygone_days
+		}
+		prerequisite = {
+			focus = JA1_reiterate_party_regulations
+		}
+	}
+	focus = {
+		id = JA1_transform_into_new_person
+		x = 14
+		y = 6
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_reiterate_party_regulations
+		}
+		prerequisite = {
+			focus = JA1_seek_forgiveness_and_pardon
+		}
+	}
+	focus = {
+		id = JA1_revolution_lies_in_practice
+		x = 13
+		y = 5
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_reiterate_party_regulations
+		}
+	}
+	focus = {
+		id = JA1_from_body_to_mind
+		x = 13
+		y = 7
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_cleaning_out_the_old_house
+			focus = JA1_transform_into_new_person
+		}
+		prerequisite = {
+			focus = JA1_revolution_lies_in_practice
+		}
+	}
+	focus = {
+		id = JA1_strengthen_collective_consciousness
+		x = 11
+		y = 8
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_from_body_to_mind
+		}
+	}
+	focus = {
+		id = JA1_ancient_tradition_of_mutual_aid
+		x = 15
+		y = 8
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_from_body_to_mind
+		}
+	}
+	focus = {
+		id = JA1_red_sakura_in_full_bloom
+		x = 13
+		y = 8
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_from_body_to_mind
+		}
+	}
+	focus = {
+		id = JA1_win_over_the_moderates
+		x = 15
+		y = 5
+		cost = 3
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_reiterate_party_regulations
+			focus = JA1_seek_forgiveness_and_pardon
+		}
+	}
+	focus = {
+		id = JA1_sound_the_trumpet_of_pacifism
+		x = 17
+		y = 7
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_emphasizing_social_welfare
+		}
+	}
+	focus = {
+		id = JA1_echoes_of_humanity
+		x = 16
+		y = 6
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_seek_forgiveness_and_pardon
+		}
+	}
+	focus = {
+		id = JA1_building_a_new_society_together
+		x = 15
+		y = 7
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_echoes_of_humanity
+		}
+		prerequisite = {
+			focus = JA1_labor_arbitration_court
+		}
+	}
+	focus = {
+		id = JA1_supervised_recartelization
+		x = 20
+		y = 6
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_say_no_to_economic_dictatorship
+			focus = JA1_negotiate_fair_compensation
+		}
+	}
+	focus = {
+		id = JA1_emphasizing_social_welfare
+		x = 17
+		y = 5
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_seek_forgiveness_and_pardon
+		}
+		prerequisite = {
+			focus = JA1_end_the_mistake_of_1932
+		}
+	}
+	focus = {
+		id = JA1_labor_arbitration_court
+		x = 18
+		y = 6
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_end_the_mistake_of_1932
+		}
+	}
+	focus = {
+		id = JA1_democracy_shines_brightly
+		x = 19
+		y = 7
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_labor_arbitration_court
+		}
+		prerequisite = {
+			focus = JA1_echoes_of_humanity
+		}
+	}
+	focus = {
+		id = JA1_say_no_to_economic_dictatorship
+		x = 19
+		y = 5
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_negotiate_fair_compensation
+		}
+		prerequisite = {
+			focus = JA1_most_humane_labor_relations
+		}
+	}
+	focus = {
+		id = JA1_negotiate_fair_compensation
+		x = 21
+		y = 5
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = JA1_say_no_to_economic_dictatorship
+		}
+		prerequisite = {
+			focus = JA1_most_humane_labor_relations
+		}
+	}
+	focus = {
+		id = JA1_implement_a_collective_planned_economy
+		x = 6
+		y = 6
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_pull_out_the_corrupted_thorn
+			focus = JA1_toxin_spread
+		}
+	}
+	focus = {
+		id = JA1_union_vs_factory
+		x = 5
+		y = 7
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_implement_a_collective_planned_economy
+		}
+	}
+	focus = {
+		id = JA1_rational_allocation_of_production_funds
+		x = 6
+		y = 8
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_implement_a_collective_planned_economy
+		}
+	}
+	focus = {
+		id = JA1_decent_work
+		x = 21
+		y = 7
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_supervised_recartelization
+		}
+	}
+	focus = {
+		id = JA1_innovation_as_the_top_priority
+		x = 20
+		y = 8
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_supervised_recartelization
+		}
+	}
+	focus = {
+		id = JA1_assess_the_current_economic_situation
+		x = 24
+		y = 0
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = JA1_fiscal_policy
+		x = 24
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_assess_the_current_economic_situation
+		}
+	}
+	focus = {
+		id = JA1_securing_society_through_the_economy
+		x = 23
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = JA1_fiscal_policy
+		}
 	}
 }
