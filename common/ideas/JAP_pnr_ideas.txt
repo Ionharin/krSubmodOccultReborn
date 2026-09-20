@@ -1,5 +1,41 @@
 ideas = {
 	country = {
+		JAP_narrow_rail_0 = {
+			picture = JAP_Shitty_Tracks
+			allowed = { always = no }
+			modifier = {
+				supply_node_range = -0.20
+				supply_consumption_factor = 0.20
+				local_resources_factor = -0.10
+				production_speed_rail_way_factor = 0.10
+			}
+		}
+		JAP_pnr_black_monday_0 = {
+			picture = HOL_black_monday_recovery
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.03
+			} 
+		}
+		JAP_pnr_black_monday_1 = {
+			picture = usa_great_depression
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.05
+				consumer_goods_factor = 0.07
+				min_export = -0.10
+			} 
+		}
+		JAP_pnr_black_monday_2 = {
+			picture = usa_great_depression
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.10
+				consumer_goods_factor = 0.14
+				local_resources_factor = -0.20
+				min_export = -0.15
+			} 
+		}
 		JAP_pnr_housing_finance_agency = {
 			picture = jap_the_unthinkable_option
 			allowed = { always = no }
@@ -39,7 +75,6 @@ ideas = {
 			picture = JAP_pnr_forever_frozen_in_1928
 			allowed = { always = no }
 			modifier = {
-				political_power_factor = -0.04
 				social_conservative_drift = -0.10
 			}
 		}
@@ -1971,6 +2006,93 @@ ideas = {
 		##### Seiyukai NATIONAL IDEAS ######
 		####################################
 
+		JAP_pnr_invest_underdeveloped_regions = {
+			picture = generic_construct_civ_factory
+			allowed = { always = no }
+			modifier = {
+				production_speed_infrastructure_factor = 0.20
+				production_speed_industrial_complex_factor = 0.10
+				production_speed_arms_factory_factor = 0.10
+			}
+		}
+		JAP_pnr_stand_on_the_land_0 = {
+			picture = generic_agrarian_reform
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.10
+				consumer_goods_factor = -0.05
+				research_speed_factor = 0.03
+			}
+		}
+		JAP_pnr_stand_on_the_land_1 = {
+			picture = generic_agrarian_reform
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.15
+				consumer_goods_factor = -0.10
+				production_speed_buildings_factor = 0.05
+				research_speed_factor = 0.06
+			}
+		}
+		JAP_pnr_stand_on_the_land_2 = {
+			picture = generic_agrarian_reform
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.20
+				consumer_goods_factor = -0.15
+				production_speed_buildings_factor = 0.10
+				production_factory_max_efficiency_factor = 0.05
+				research_speed_factor = 0.10
+			}
+		}
+		JAP_pnr_prefectural_economic_survey = {
+			picture = generic_construct_civ_factory
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.15
+				production_speed_industrial_complex_factor = 0.05
+			}
+		}
+		JAP_pnr_public_finance_redistribution = {
+			picture = SIA_redirected_military_funds
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.05
+				production_speed_buildings_factor = 0.10
+			}
+		}
+		JAP_pnr_chairmen_support_government = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				party_popularity_stability_factor = 0.10
+				stability_factor = 0.05
+				social_conservative_drift = 0.02
+			}
+		}
+		JAP_pnr_end_caretaker_government = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			modifier = {
+				weekly_casualties_war_support = 0.003
+				production_factory_start_efficiency_factor = 0.10
+				offensive_war_stability_factor = 0.15
+				war_support_factor = 0.05
+			}
+		}
+		JAP_pnr_friend_of_government = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.10
+				mobilization_speed = 0.15
+				political_power_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.05
+				industrial_capacity_factory = 0.10
+				consumer_goods_factor = -0.05
+			}
+		}
 
 	}
 

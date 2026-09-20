@@ -37,7 +37,7 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 	}
 	add_trait = {
 		token = JAP_mio_edogawa_1
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_trait_multi_plant_cooperation
 		icon = GFX_generic_mio_trait_icon_efficiency_cap
 		mutually_exclusive = { JAP_mio_edogawa_4 }
 
@@ -48,12 +48,12 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		position = { x = 0 y = 0 }
 
 		equipment_bonus = {
-			maximum_speed = 0.1
+			production_efficiency_cap_factor = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_edogawa_2
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = KR_MIO_Trait_clear_random_engine_jams
 		icon = GFX_generic_mio_trait_icon_maximum_speed
 
 		available = {
@@ -63,7 +63,7 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		position = { x = 4 y = 0 }
 
 		equipment_bonus = {
-			maximum_speed = 0.1
+			maximum_speed = 0.05
 		}
 	}
 	add_trait = {
@@ -77,13 +77,14 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 
 		position = { x = 7 y = 0 }
 
-		equipment_bonus = {
-			maximum_speed = 0.1
+		organization_modifier = {
+			military_industrial_organization_policy_cooldown = -60
+			military_industrial_organization_funds_gain = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_edogawa_4
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_trait_24h_rotation_shifts
 		icon = GFX_generic_mio_trait_icon_efficiency_gain
 		mutually_exclusive = { JAP_mio_edogawa_1 }
 
@@ -94,12 +95,12 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		position = { x = 2 y = 0 }
 
 		equipment_bonus = {
-			maximum_speed = 0.1
+			production_efficiency_gain_factor = 0.12
 		}
 	}
 	add_trait = {
 		token = JAP_mio_edogawa_5
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_streamlined_production
 		icon = GFX_generic_mio_trait_icon_production_capacity
 		any_parent = { JAP_mio_edogawa_1 JAP_mio_edogawa_4 }
 
@@ -110,12 +111,12 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		position = { x = 1 y = 1 }
 
 		equipment_bonus = {
-			maximum_speed = 0.1
+			production_capacity_factor = 0.07
 		}
 	}
 	add_trait = {
 		token = JAP_mio_edogawa_6
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_trait_simplified_layout
 		icon = GFX_generic_mio_trait_icon_build_cost_ic
 		all_parents = { JAP_mio_edogawa_5 }
 		mutually_exclusive = { JAP_mio_edogawa_7 }
@@ -127,12 +128,12 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		position = { x = 0 y = 2 }
 
 		equipment_bonus = {
-			maximum_speed = 0.1
+			production_cost_factor = -0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_edogawa_7
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_trait_improved_gun_metallurgy
 		icon = GFX_generic_mio_trait_icon_resources
 		all_parents = { JAP_mio_edogawa_5 }
 		mutually_exclusive = { JAP_mio_edogawa_6 }
@@ -144,7 +145,7 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		position = { x = 2 y = 2 }
 
 		equipment_bonus = {
-			maximum_speed = 0.1
+			production_resource_need_factor = -0.1
 		}
 	}
 	add_trait = {
@@ -183,7 +184,7 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 	}
 	add_trait = {
 		token = JAP_mio_edogawa_10
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_gunner_sight_improvements
 		icon = GFX_generic_mio_trait_icon_soft_attack
 		all_parents = { JAP_mio_edogawa_2 }
 
@@ -194,12 +195,12 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		position = { x = 3 y = 1 }
 
 		equipment_bonus = {
-			maximum_speed = 0.1
+			soft_attack = 0.1
 		}
 	}
 	add_trait = {
 		token = JAP_mio_edogawa_11
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_sloping_armor
 		icon = GFX_generic_mio_trait_icon_armor_value
 		all_parents = { JAP_mio_edogawa_2 }
 
@@ -210,7 +211,7 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		position = { x = 5 y = 1 }
 
 		equipment_bonus = {
-			maximum_speed = 0.1
+			defense = 0.03
 		}
 	}
 	add_trait = {
@@ -251,7 +252,7 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 	}
 	add_trait = {
 		token = JAP_mio_edogawa_14
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_trait_barrels_of_hell
 		icon = GFX_generic_mio_trait_icon_breakthrough
 		all_parents = { JAP_mio_edogawa_2 }
 
@@ -262,12 +263,12 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		position = { x = 4 y = 1 }
 
 		equipment_bonus = {
-			maximum_speed = 0.1
+			breakthrough = 0.08
 		}
 	}
 	add_trait = {
 		token = JAP_mio_edogawa_15
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_trait_efficient_scrap_recycling
 		icon = GFX_generic_mio_department_icon_tank_heavy_tank_materials
 		all_parents = { JAP_mio_edogawa_19 }
 		any_parent = { JAP_mio_edogawa_6 JAP_mio_edogawa_7 }
@@ -321,7 +322,7 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 	}
 	add_trait = {
 		token = JAP_mio_edogawa_19
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_engine_optimization
 		icon = GFX_generic_mio_trait_icon_reliability
 		all_parents = { JAP_mio_edogawa_14 }
 
@@ -332,7 +333,7 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		position = { x = 4 y = 2 }
 
 		equipment_bonus = {
-			maximum_speed = 0.1
+			reliability = 0.06
 		}
 	}
 
@@ -6829,7 +6830,6 @@ JAP_nippon_sharyo_mio = { # Nippon Sharyo
 	remove_trait = { JAP_mio_trait_merge_nippon_sharyo }
 }
 JAP_pnr_toyoda_mio = { # Toyoda
-	include = generic_mobile_tank_organization
     name = toyota
     icon = GFX_idea_jap_mio_toyota
     allowed = {
@@ -7433,6 +7433,316 @@ JAP_materiel_shared_mio = { # Special functions prepared for the concern route a
 		}
 
 		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+}
+
+#######################
+#### Special MIOs #####
+#######################
+JAP_tetsudo_sho_mio = { #MIO railway_upgrade
+    name = tetsudo_sho
+    icon = GFX_idea_JAP_tetsudo_sho
+    allowed = {
+        tag = JAP
+    }
+    available = {
+        always = yes
+    }
+	visible = {
+        always = yes
+    }
+	equipment_type = { train_equipment }
+	research_categories = { cat_production electronics }
+	research_bonus = 0
+	task_capacity = 1
+    on_design_team_assigned_to_tech = {
+		JAP = { add_cic = 100 }
+	}
+	on_design_team_assigned_to_variant = {
+		JAP = { add_cic = 50 }
+	}
+	on_industrial_manufacturer_assigned = {
+		JAP = { add_cic = 100 }
+	}
+	on_tech_research_completed = {
+		JAP = {
+			add_cic = 200
+			add_political_power = 25
+		}
+	}
+	initial_trait = {
+		name = pnr_tetsudo_sho_subtitle
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.10
+			military_industrial_organization_size_up_requirement = 333
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_0
+		name = generic_mio_trait_state_subsidizing
+		icon = GFX_generic_mio_trait_icon_unique
+
+		position = { x = 0 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_1
+		name = generic_mio_trait_state_subsidizing
+		icon = GFX_generic_mio_trait_icon_unique
+
+		position = { x = 9 y = 0 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_2
+		name = generic_mio_trait_state_subsidizing
+		icon = GFX_military_industrial_organization_train
+
+		position = { x = 0 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_3
+		name = generic_mio_trait_research_program
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		all_parents = { JAP_mio_tetsudo_sho_2 }
+
+		position = { x = 1 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_4
+		name = generic_mio_trait_all_wheel_drive
+		icon = GFX_generic_mio_trait_icon_unique
+		all_parents = { JAP_mio_tetsudo_sho_3 }
+		special_trait_background = yes
+
+		position = { x = 2 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_5
+		name = generic_mio_trait_research_program
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		all_parents = { JAP_mio_tetsudo_sho_4 }
+
+		position = { x = 3 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_6
+		name = generic_mio_trait_research_program
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		all_parents = { JAP_mio_tetsudo_sho_5 }
+
+		position = { x = 4 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_7
+		name = generic_mio_trait_research_program
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		all_parents = { JAP_mio_tetsudo_sho_6 }
+
+		position = { x = 5 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_8
+		name = generic_mio_trait_upgraded_engines
+		icon = GFX_generic_mio_trait_icon_unique
+		all_parents = { JAP_mio_tetsudo_sho_7 }
+		special_trait_background = yes
+
+		position = { x = 6 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_9
+		name = generic_mio_trait_research_program
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		all_parents = { JAP_mio_tetsudo_sho_8 }
+
+		position = { x = 7 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_10
+		name = generic_mio_trait_research_program
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		all_parents = { JAP_mio_tetsudo_sho_9 }
+
+		position = { x = 8 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_11
+		name = generic_mio_trait_transport_duties
+		icon = GFX_generic_mio_trait_icon_unique
+		all_parents = { JAP_mio_tetsudo_sho_10 }
+		special_trait_background = yes
+
+		position = { x = 9 y = 2 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_12
+		name = generic_mio_trait_state_subsidizing
+		icon = GFX_military_industrial_organization_train
+		
+
+		position = { x = 0 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_13
+		name = generic_mio_trait_research_program
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		all_parents = { JAP_mio_tetsudo_sho_12 }
+
+		position = { x = 1 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_14
+		name = generic_mio_trait_all_wheel_drive
+		icon = GFX_generic_mio_trait_icon_unique
+		all_parents = { JAP_mio_tetsudo_sho_13 }
+		special_trait_background = yes
+
+		position = { x = 2 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_15
+		name = generic_mio_trait_research_program
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		all_parents = { JAP_mio_tetsudo_sho_14 }
+
+		position = { x = 3 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_16
+		name = generic_mio_trait_research_program
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		all_parents = { JAP_mio_tetsudo_sho_15 }
+
+		position = { x = 4 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_17
+		name = generic_mio_trait_research_program
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		all_parents = { JAP_mio_tetsudo_sho_16 }
+
+		position = { x = 5 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_18
+		name = generic_mio_trait_upgraded_engines
+		icon = GFX_generic_mio_trait_icon_unique
+		all_parents = { JAP_mio_tetsudo_sho_17 }
+		special_trait_background = yes
+
+		position = { x = 6 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_19
+		name = generic_mio_trait_research_program
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		all_parents = { JAP_mio_tetsudo_sho_18 }
+
+		position = { x = 7 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_20
+		name = generic_mio_trait_research_program
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		all_parents = { JAP_mio_tetsudo_sho_19 }
+
+		position = { x = 8 y = 4 }
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	add_trait = {
+		token = JAP_mio_tetsudo_sho_21
+		name = generic_mio_trait_transport_duties
+		icon = GFX_generic_mio_trait_icon_unique
+		all_parents = { JAP_mio_tetsudo_sho_20 }
+		special_trait_background = yes
+
+		position = { x = 9 y = 4 }
 
 		equipment_bonus = {
 			maximum_speed = 0.1

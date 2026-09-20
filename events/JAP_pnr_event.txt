@@ -2453,6 +2453,23 @@ country_event = { # 失去十年的梦魇
     }
 }
 
+country_event = { # 黑色星期一的微澜
+    id = JAP_pnr_earlygame.50
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.49" }
+    title = JAP_pnr_earlygame.50.t
+    desc = JAP_pnr_earlygame.50.desc
+    picture = GFX_report_event_generic_strike
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 风平浪不惊
+        name = JAP_pnr_earlygame.50.a
+        ai_chance = { factor = 1 }
+		remove_idea = JAP_pnr_farewell_to_the_lost_decade
+        add_timed_idea = { idea = JAP_pnr_black_monday_0 days = 180 }
+    }
+}
+
 country_event = { # 国会斗殴事件小游戏
     id = JAP_pnr_parlia_punch.1
     immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_parlia_punch.1" }

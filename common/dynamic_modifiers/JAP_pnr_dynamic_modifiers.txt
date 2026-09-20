@@ -20,20 +20,19 @@ JAP_pnr_operation_launched_modifier = {
 	supply_factor = JAP_pnr_operation_launched_supply_factor
 }
 
-JAP_pnr_red_hands_modifier = {
-	icon = GFX_idea_NOR_sivog
+#JAP_pnr_red_hands_modifier = {
+	#icon = GFX_idea_NOR_sivog
 
-	industrial_capacity_factory = -0.10
-	consumer_goods_factor = JAP_pnr_red_conspiracy_scaled_factor
-	production_speed_buildings_factor = JAP_pnr_red_conspiracy_scaled_factor_negative
-	local_resources_factor = JAP_pnr_red_conspiracy_scaled_factor_negative
-	production_factory_max_efficiency_factor = JAP_pnr_red_conspiracy_scaled_factor_negative
-
-	remove_trigger = { NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun } }
-}
+	#industrial_capacity_factory = -0.10
+	#consumer_goods_factor = JAP_pnr_red_conspiracy_scaled_factor
+	#production_speed_buildings_factor = JAP_pnr_red_conspiracy_scaled_factor_negative
+	#local_resources_factor = JAP_pnr_red_conspiracy_scaled_factor_negative
+	#production_factory_max_efficiency_factor = JAP_pnr_red_conspiracy_scaled_factor_negative
+	#remove_trigger = { NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun } }
+#}
 
 JAP_pnr_lost_decade_nightmare_modifier = {
-	icon = GFX_idea_usa_great_depression
+	icon = GFX_idea_usa_great_depression_3
 
 	consumer_goods_factor = JAP_pnr_lost_decade_consumer_goods_factor
 	stability_factor = JAP_pnr_lost_decade_stability_factor
@@ -41,7 +40,8 @@ JAP_pnr_lost_decade_nightmare_modifier = {
 	production_factory_max_efficiency_factor = JAP_pnr_lost_decade_production_factory_max_efficiency_factor
 	industrial_capacity_factory = JAP_pnr_lost_decade_industrial_capacity_factory
 	industrial_capacity_dockyard = JAP_pnr_lost_decade_industrial_capacity_dockyard
-	disabled_ideas = JAP_pnr_lost_decade_disabled_ideas
+	local_resources_factor = JAP_pnr_lost_decade_local_resource_factor
+	min_export = JAP_pnr_lost_decade_min_export
 }
 
 JAP_pnr_destruction_and_creation_modifier = {
