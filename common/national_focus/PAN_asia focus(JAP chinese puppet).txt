@@ -1,5 +1,229 @@
 focus_tree = {
 	id = panAsia
-	country = { factor = 0 }
+	country = {
+		factor = 0
+	}
 	default = no
+	focus = {
+		id = panasia_chinese_reborn
+		x = 11
+		y = 2
+		cost = 3
+		icon = GFX_focus_generic_asia_liberation
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = panasia_repairing_the_post_war_economy
+		x = 11
+		y = 8
+		cost = 6
+		icon = GFX_goal_generic_industry_reallocation
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = panasia_support_entrepreneurs
+		x = 10
+		y = 9
+		cost = 7
+		icon = GFX_goal_capitalist_system
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = panasia_repairing_the_post_war_economy
+		}
+	}
+	focus = {
+		id = panasia_restoring_etiquette
+		x = 9
+		y = 5
+		cost = 6
+		icon = GFX_goal_QIE_confucianism
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = panasia_revolution_over_nation
+		}
+		prerequisite = {
+			focus = panasia_seeking_national_legitimacy
+		}
+	}
+	focus = {
+		id = panasia_the_dream_of_pan_asia
+		x = 5
+		y = 6
+		cost = 7
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = panasia_land_of_benevolent_rule_and_peace
+		}
+	}
+	focus = {
+		id = panasia_the_revolution_not_yet_completed
+		x = 17
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = panasia_the_colour_is_yellow
+		x = 8
+		y = 3
+		cost = 7
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = panasia_surging_red_tide
+		}
+		prerequisite = {
+			focus = panasia_chinese_reborn
+		}
+	}
+	focus = {
+		id = panasia_surging_red_tide
+		x = 14
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = panasia_the_colour_is_yellow
+		}
+		prerequisite = {
+			focus = panasia_chinese_reborn
+		}
+	}
+	focus = {
+		id = panasia_seeking_economic_alliance
+		x = 11
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = panasia_land_of_benevolent_rule_and_peace
+		x = 6
+		y = 5
+		cost = 7
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = panasia_seeking_national_legitimacy
+		x = 11
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = panasia_the_colour_is_yellow
+			focus = panasia_surging_red_tide
+		}
+	}
+	focus = {
+		id = panasia_revolution_over_nation
+		x = 13
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = panasia_restoring_etiquette
+		}
+		prerequisite = {
+			focus = panasia_seeking_national_legitimacy
+		}
+	}
+	focus = {
+		id = panasia_sacrifice_oneself_for_idea
+		x = 7
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = panasia_restoring_etiquette
+		}
+	}
+	focus = {
+		id = panasia_universal_love
+		x = 10
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = panasia_restoring_etiquette
+		}
+	}
+	focus = {
+		id = panasia_founding_a_new_nation
+		x = 8
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = panasia_reject_heterodoxy
+		}
+	}
+	focus = {
+		id = panasia_reject_heterodoxy
+		x = 8
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = panasia_restoring_etiquette
+		}
+	}
+	focus = {
+		id = panasia_power_of_the_masses
+		x = 12
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = panasia_revolution_over_nation
+		}
+	}
+	focus = {
+		id = panasia_remember_the_great_man
+		x = 14
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = panasia_revolution_over_nation
+		}
+	}
+	focus = {
+		id = panasia_grateful_liberator
+		x = 14
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = panasia_remember_the_great_man
+		}
+	}
+	focus = {
+		id = panasia_learn_from_excellent_cultures
+		x = 15
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = panasia_revolution_over_nation
+		}
+	}
 }

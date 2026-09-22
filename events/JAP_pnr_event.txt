@@ -532,7 +532,7 @@ country_event = { # 赤旗报
     }
     title = JAP_pnr_jpc.4.t
     desc = JAP_pnr_jpc.4.desc
-    picture = GFX_JAP_pnr_jpc_4
+    picture = GFX_report_event_japan_conscription
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -579,7 +579,7 @@ country_event = { # 桃色争议
     immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_jpc.6" }
     title = JAP_pnr_jpc.6.t
     desc = JAP_pnr_jpc.6.desc
-    picture = GFX_JAP_pnr_jpc_6
+    picture = GFX_report_event_pnr_JAP_SSK
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -2465,7 +2465,6 @@ country_event = { # 黑色星期一的微澜
     option = { # 风平浪不惊
         name = JAP_pnr_earlygame.50.a
         ai_chance = { factor = 1 }
-		remove_idea = JAP_pnr_farewell_to_the_lost_decade
         add_timed_idea = { idea = JAP_pnr_black_monday_0 days = 180 }
     }
 }
@@ -2683,12 +2682,16 @@ country_event = { # 最后的演说
     immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_rs.9" }
     title = JAP_pnr_rs.9.t
     desc = JAP_pnr_rs.9.desc
-    picture = GFX_JAP_pnr_rs_9
+    picture = GFX_report_event_pnr_JAP_peasant
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 然后天地震动。
         name = JAP_pnr_rs.9.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 然后天地震动。
+        name = JAP_pnr_rs.9.b
         ai_chance = { factor = 1 }
     }
 }
