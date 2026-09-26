@@ -234,14 +234,15 @@ characters = {
 			id = -1
 		}
 	}
-	JAP_pnr_kodama_yoshio = {
-		name = JAP_pnr_kodama_yoshio
+	JAP_pnr_ogishi_raiko = {
+		name = JAP_pnr_ogishi_raiko
 		portraits = {
 			civilian = {
-				large = GFX_portrait_jap_pnr_kodama_yoshio
+				large = GFX_portrait_jap_pnr_ogishi_raiko
 			}
 		}
 		country_leader = {
+			desc = JAP_pnr_ogishi_raiko_leader_desc
 			ideology = national_populist_subtype
 			traits = { }
 			expire = "1965.1.1.1"
@@ -324,6 +325,7 @@ characters = {
 		portraits = {
 			civilian = {
 				large = GFX_portrait_jap_pnr_saionji_kinmochi
+				small = GFX_portrait_jap_pnr_saionji_kinmochi_adv
 			}
 		}
 		country_leader = {
@@ -331,6 +333,14 @@ characters = {
 			traits = { }
 			expire = "1965.1.1.1"
 			id = -1
+		}
+		advisor = {
+			slot = second_in_command
+            desc = JAP_pnr_saionji_kinmochi_advisor_desc
+			idea_token = JAP_pnr_saionji_kinmochi_idea
+			traits = { JAP_pnr_weak_dictator_trait }
+			cost = 0
+			can_be_fired = no
 		}
 	}
 	JAP_pnr_shigemitsu_mamoru = {

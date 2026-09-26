@@ -270,14 +270,14 @@ country_event = {
 	desc = japan_domestic_events.242.d
 	picture = GFX_report_event_JAP_economy_building
 	is_triggered_only = yes
-	immediate = {
-		set_country_flag = RUS_Black_Monday_Happened
-	}
 	option = {
 		log = "[GetLogInfo]: event japan_domestic_events.242 option japan_domestic_events.242.a"
 		name = japan_domestic_events.242.a
+		add_ideas = JAP_pnr_black_monday_1
 		hidden_effect = { 
 			country_event = { id = JAP_pnr_earlygame.47 days = 1 }
+			remove_ideas = JAP_pnr_black_monday_0
+			set_variable = { JAP_pnr_red_conspiracy_add_value_var = 10 }
 		}
 	}
 }

@@ -1,0 +1,14 @@
+defined_text = {
+	name = GetJAPPNRParliamentSupportStatus
+	text = {
+		trigger = { check_variable = { JAP_pnr_parliament_support_var > 4 } }
+		localization_key = JAP_pnr_parliament_support_status_safe
+	}
+	text = {
+		trigger = { check_variable = { JAP_pnr_parliament_support_var > 2 } }
+		localization_key = JAP_pnr_parliament_support_status_contested
+	}
+	text = {
+		localization_key = JAP_pnr_parliament_support_status_unwelcome
+	}
+}

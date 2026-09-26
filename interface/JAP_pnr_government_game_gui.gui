@@ -42,25 +42,67 @@ guiTypes = {
 		size = { width = 400 height = 330 }
 		clipping = no
 
+		containerWindowType = {
+			name = "JAP_pnr_clock_situation_container"
+			position = { x = -110 y = 0 }
+			size = { width = 280 height = 345 }
+			clipping = no
+
+			background = {
+				name = "background"
+				spriteType = "GFX_tiled_decisions_bg_small"
+				alwaystransparent = yes
+			}
+		}
+
 		iconType = {
 			name = "JAP_pnr_om_clock_icon"
-			position = { x = 170 y = 0 }
+			position = { x = -50 y = 10 }
 			spriteType = "GFX_JAP_pnr_om_clock_progress"
 			pdx_tooltip = JAP_pnr_om_clock_tt
 		}
 
 		iconType = {
 			name = "JAP_pnr_om_clock_empty_icon"
-			position = { x = 171 y = 2 }
+			position = { x = -50 y = 14 }
 			spriteType = "GFX_JAP_pnr_om_clock_empty"
 			pdx_tooltip = JAP_pnr_om_clock_tt
 		}
 
 		iconType = {
 			name = "JAP_pnr_om_triangle_icon"
-			position = { x = 170 y = 165 }
+			position = { x = -50 y = 185 }
 			spriteType = "GFX_JAP_pnr_om_triangle_progress"
 			pdx_tooltip = JAP_pnr_om_triangle_tt
+		}
+
+		containerWindowType = {
+			name = "JAP_pnr_angry_faith_situation_container"
+			position = { x = 167 y = 0 }
+			size = { width = 220 height = 345 }
+			clipping = no
+
+			background = {
+				name = "background"
+				spriteType = "GFX_tiled_decisions_bg_small"
+				alwaystransparent = yes
+			}
+
+			iconType = {
+				name = "JAP_pnr_faith_progressbar"
+				position = { x = 25 y = 30 }
+				spriteType = "GFX_JAP_pnr_cardgame_jap_control_bar_alt"
+				scale = 1.8
+				pdx_tooltip = JAP_pnr_kn_konoe_enthusiasm_tt
+			}
+
+			iconType = {
+				name = "JAP_pnr_angry_progressbar"
+				position = { x = 135 y = 30 }
+				spriteType = "GFX_JAP_pnr_cardgame_oil_development_bar"
+				scale = 1.8
+				pdx_tooltip = JAP_pnr_kn_konoe_enthusiasm_tt
+			}
 		}
 	}
 }
