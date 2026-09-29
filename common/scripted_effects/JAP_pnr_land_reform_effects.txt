@@ -1,57 +1,47 @@
-JAP_open_JAP_land_reform = {
-	activate_targeted_decision = { target = THIS decision = JAP_land_reform_1 }
-	activate_targeted_decision = { target = THIS decision = JAP_land_reform_2 }
-	activate_targeted_decision = { target = THIS decision = JAP_land_reform_3 }
-	activate_targeted_decision = { target = THIS decision = JAP_land_adjustment }
-	activate_targeted_decision = { target = THIS decision = JAP_rent_control }
-	activate_targeted_decision = { target = THIS decision = JAP_agriculture_land_control }
-	activate_targeted_decision = { target = THIS decision = JAP_finish_land_reform }
+JAP_pnr_update_landreform_costs = {
+	set_variable = { JAP_pnr_landreform_current_time_1 = JAP_pnr_peasant_angry_var }
+	multiply_variable = { JAP_pnr_landreform_current_time_1 = 5 }
+	add_to_variable = { JAP_pnr_landreform_current_time_1 = JAP_pnr_landreform_time_1 }
+	set_variable = { JAP_pnr_landreform_current_time_2 = JAP_pnr_peasant_angry_var }
+	multiply_variable = { JAP_pnr_landreform_current_time_2 = 5 }
+	add_to_variable = { JAP_pnr_landreform_current_time_2 = JAP_pnr_landreform_time_2 }
+	set_variable = { JAP_pnr_landreform_current_time_3 = JAP_pnr_peasant_angry_var }
+	multiply_variable = { JAP_pnr_landreform_current_time_3 = 5 }
+	add_to_variable = { JAP_pnr_landreform_current_time_3 = JAP_pnr_landreform_time_3 }
+
+	set_variable = { JAP_pnr_landreform_current_pp_1 = JAP_pnr_peasant_angry_var }
+	multiply_variable = { JAP_pnr_landreform_current_pp_1 = 3 }
+	add_to_variable = { JAP_pnr_landreform_current_pp_1 = JAP_pnr_landreform_pp_1 }
+	set_variable = { JAP_pnr_landreform_current_pp_2 = JAP_pnr_peasant_angry_var }
+	multiply_variable = { JAP_pnr_landreform_current_pp_2 = 3 }
+	add_to_variable = { JAP_pnr_landreform_current_pp_2 = JAP_pnr_landreform_pp_2 }
+	set_variable = { JAP_pnr_landreform_current_pp_3 = JAP_pnr_peasant_angry_var }
+	multiply_variable = { JAP_pnr_landreform_current_pp_3 = 3 }
+	add_to_variable = { JAP_pnr_landreform_current_pp_3 = JAP_pnr_landreform_pp_3 }
 }
 
-JAP_close_JAP_land_reform = {
-	remove_targeted_decision = { target = THIS decision = JAP_land_reform_1 }
-	remove_targeted_decision = { target = THIS decision = JAP_land_reform_2 }
-	remove_targeted_decision = { target = THIS decision = JAP_land_reform_3 }
-	remove_targeted_decision = { target = THIS decision = JAP_land_adjustment }
-	remove_targeted_decision = { target = THIS decision = JAP_rent_control }
-	remove_targeted_decision = { target = THIS decision = JAP_agriculture_land_control }
-	remove_targeted_decision = { target = THIS decision = JAP_finish_land_reform }
+JAP_pnr_landreform_check_completion = {
+	clamp_variable = { var = JAP_pnr_landreform_progress_var max = 100 min = 0 }
+	clamp_variable = { var = JAP_pnr_landreform_result_var max = 100 min = 0 }
+	clamp_variable = { var = JAP_pnr_landowner_angry_var max = 10 min = 0 }
+	clamp_variable = { var = JAP_pnr_peasant_angry_var max = 10 min = 0 }
+	if = {
+		limit = { check_variable = { JAP_pnr_landreform_progress_var > 99 } }
+		set_country_flag = pnr_landreform_end_flag
+	}
+	JAP_pnr_update_landreform_costs = yes
 }
 
-JAP_land_reform_reward_decent = {
-	remove_ideas = JAP_bad_land
-	set_temp_variable = { ideology_change_var = 0.05 }
-	change_ruling_party_popularity = yes
-	528 = { increase_state_category_by_one_level = yes }
-	1104 = { increase_state_category_by_one_level = yes }
-	531 = { increase_state_category_by_one_level = yes }
-	282 = { increase_state_category_by_one_level = yes }
-}
-
-JAP_land_reform_reward_good = {
-	JAP_land_reform_reward_decent = yes
-	529 = { increase_state_category_by_one_level = yes }
-	1103 = { increase_state_category_by_one_level = yes }
-	532 = { increase_state_category_by_one_level = yes }
-	536 = { increase_state_category_by_one_level = yes }
-}
-
-JAP_land_reform_best = {
-	JAP_land_reform_reward_good = yes
-	533 = { increase_state_category_by_one_level = yes }
-	1106 = { increase_state_category_by_one_level = yes }
-	1101 = { increase_state_category_by_one_level = yes }
-	1102 = { increase_state_category_by_one_level = yes }
-}
-
-JAP_clr_land_reform = {
-	clear_variable = JAP_land_reform_cost_1
-	clear_variable = JAP_land_reform_cost_2
-	clear_variable = JAP_land_reform_cost_3
-	clear_variable = JAP_land_reform_cost_4
-	clear_variable = JAP_land_reform_pp_1
-	clear_variable = JAP_land_reform_pp_2
-	clear_variable = JAP_land_reform_pp_3
-	clear_variable = JAP_land_reform_variable
-	clr_country_flag = JAP_seiyukai_land_reform
+JAP_pnr_apply_landreform_landowner_backlash = {
+	if = {
+		limit = { check_variable = { JAP_pnr_landowner_angry_var > 0 } }
+		set_temp_variable = { JAP_pnr_landreform_landowner_stability_penalty = JAP_pnr_landowner_angry_var }
+		multiply_temp_variable = { JAP_pnr_landreform_landowner_stability_penalty = -0.005 }
+		add_stability = var:JAP_pnr_landreform_landowner_stability_penalty
+		add_to_variable = {
+			var = JAP_pnr_landreform_progress_var
+			value = JAP_pnr_landowner_angry_var
+			tooltip = JAP_pnr_landreform_progress_var_raised
+		}
+	}
 }

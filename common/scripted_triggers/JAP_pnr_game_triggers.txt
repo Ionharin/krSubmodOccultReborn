@@ -1,3 +1,7 @@
+###############################
+# IMPERIAL PARLIAMENT SETTING #
+###############################
+
 JAP_congress_can_see_button = {
 	original_tag = JAP
 }
@@ -85,5 +89,89 @@ JAP_congress_can_recover_authority = {
 	custom_override_tooltip = {
 		tooltip = JAP_congress_authority_at_minimum_tt
 		NOT = { check_variable = { JAP_congress_authority_recoverable < JAP_congress_authority_value } }
+	}
+}
+
+#################
+# OTHER SETTING #
+#################
+
+JAP_pnr_cardgame_can_play_card = {
+	has_country_flag = JAP_pnr_cardgame_active
+	NOT = { has_country_flag = JAP_pnr_cardgame_finished }
+	check_variable = { JAP_pnr_cardgame_cards_played_this_round < 2 }
+}
+
+JAP_pnr_cardgame_can_end_round = {
+	has_country_flag = JAP_pnr_cardgame_active
+	NOT = { has_country_flag = JAP_pnr_cardgame_finished }
+}
+
+JAP_pnr_cardgame_can_exchange_round_cards = {
+	has_country_flag = JAP_pnr_cardgame_active
+	NOT = { has_country_flag = JAP_pnr_cardgame_finished }
+	NOT = { has_country_flag = JAP_pnr_cardgame_round_exchange_used }
+	check_variable = { JAP_pnr_cardgame_cards_played_this_round = 0 }
+}
+
+pnr_is_co_prosperity_candidate_trigger = {
+	OR = {
+		tag = SIA
+		tag = BRM
+		AND = {
+			tag = PHI
+			OR = {
+				is_ally_with = JAP
+				NOT = { JAP = { has_completed_focus = JAP_pnr_ensure_the_philippines } }
+			}
+		}
+		tag = MAL
+		tag = INS
+		tag = INC
+		tag = VIN
+		tag = LAO
+		tag = CAM
+		tag = KAC
+		tag = SHA
+		tag = CEY
+		#tag = NEP #commenting out Nepal for now to avoid war with India
+		tag = SAR
+		tag = TAI
+		tag = KOJ
+		AND = {
+			tag = HAW
+			OR = {
+				is_ally_with = JAP
+				NOT = { 629 = { is_claimed_by = JAP } }
+			}
+		}
+		AND = {
+			tag = KOR
+			is_ally_with = JAP
+		}
+		AND = {
+			is_indian_tag = yes
+			NOT = {
+				tag = RAJ
+				tag = PRF
+				tag = HND
+			}
+		}
+	}
+	exists = yes
+	has_socialist_government = no
+	NOT = { has_war_with = JAP }
+	OR = {
+		is_subject = no
+		is_subject_of = JAP
+	}
+}
+
+JAP_pnr_conspiracy_action_available = { # 判断阴谋数量，已弃用
+	custom_override_tooltip = {
+		tooltip = JAP_pnr_conspiracy_action_limit_tt
+		NOT = {
+			check_variable = { JAP_pnr_conspiracy_organizations_acted > 2 }
+		}
 	}
 }

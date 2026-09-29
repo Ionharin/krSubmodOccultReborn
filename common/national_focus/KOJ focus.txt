@@ -12,7 +12,7 @@ focus_tree = {
 		id = KOJ_pnr_issue_special_bonds
 		x = -2
 		y = 1
-		cost = 5
+		cost = 3
 		icon = GFX_goal_generic_recovery
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -23,125 +23,10 @@ focus_tree = {
 	}
 	focus = {
 		id = KOJ_pnr_northern_plan
-		x = 2
-		y = 0
-		cost = 5
-		icon = GFX_kor_the_northern_project
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOJ_pnr_seoul_renovation_plan
-		}
-	}
-	focus = {
-		id = KOJ_southern_plan
-		x = 12
-		y = 0
-		cost = 5
-		icon = GFX_kor_the_southern_project
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOJ_pnr_seoul_renovation_plan
-		}
-	}
-	focus = {
-		id = KOJ_pnr_seoul_renovation_plan
-		x = 7
-		y = -1
-		cost = 8
-		icon = GFX_KOJ_pnr_seoul_renovation_plan
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		allow_branch = {
-			NOT = {
-				has_country_flag = RUS_Black_Monday_Happened
-			}
-		}
-	}
-	focus = {
-		id = KOJ_pnr_nightmare_of_black_monday
-		x = 7
-		y = -1
-		cost = 6
-		icon = GFX_goal_bankruptcy
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		allow_branch = {
-			has_country_flag = RUS_Black_Monday_Happened
-		}
-	}
-	focus = {
-		id = KOJ_pnr_invoke_governor_general_decree
-		x = 2
-		y = 1
-		cost = 5
-		icon = GFX_goal_generic_phone_crisis
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOJ_pnr_nightmare_of_black_monday
-		}
-		relative_position_id = KOJ_pnr_nightmare_of_black_monday
-	}
-	focus = {
-		id = KOJ_pnr_in_name_of_industrial_renewal
-		x = 1
-		y = 2
-		cost = 4
-		icon = GFX_focus_DEN_limited_regulations
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOJ_pnr_invoke_governor_general_decree
-		}
-		relative_position_id = KOJ_pnr_nightmare_of_black_monday
-	}
-	focus = {
-		id = KOJ_pnr_meet_local_financial_associations
-		x = -3
-		y = 2
-		cost = 4
-		icon = GFX_focus_JAP_pnr_waltz_of_the_konzerns
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOJ_pnr_issue_special_bonds
-		}
-		relative_position_id = KOJ_pnr_nightmare_of_black_monday
-	}
-	focus = {
-		id = KOJ_pnr_establish_national_policy_companies
-		x = 3
-		y = 2
-		cost = 4
-		icon = GFX_generic_heavy_industry
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOJ_pnr_invoke_governor_general_decree
-		}
-		relative_position_id = KOJ_pnr_nightmare_of_black_monday
-	}
-	focus = {
-		id = KOJ_pnr_guide_korean_capital
-		x = -1
-		y = 2
-		cost = 4
-		icon = GFX_focus_INS_peg_indies_guilder_to_dutch_guilder
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOJ_pnr_issue_special_bonds
-		}
-		relative_position_id = KOJ_pnr_nightmare_of_black_monday
-	}
-	focus = {
-		id = KOJ_pnr_overcome_capital_shortage
-		x = 0
+		x = 5
 		y = 3
-		cost = 6
-		icon = GFX_goal_generic_cash_stimulus_plan
+		cost = 3
+		icon = GFX_kor_the_northern_project
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -156,13 +41,140 @@ focus_tree = {
 		prerequisite = {
 			focus = KOJ_pnr_establish_national_policy_companies
 		}
+	}
+	focus = {
+		id = KOJ_southern_plan
+		x = 9
+		y = 3
+		cost = 3
+		icon = GFX_kor_the_southern_project
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_meet_local_financial_associations
+		}
+		prerequisite = {
+			focus = KOJ_pnr_guide_korean_capital
+		}
+		prerequisite = {
+			focus = KOJ_pnr_in_name_of_industrial_renewal
+		}
+		prerequisite = {
+			focus = KOJ_pnr_establish_national_policy_companies
+		}
+	}
+	focus = {
+		id = KOJ_pnr_seoul_renovation_plan
+		x = 7
+		y = 0
+		cost = 10
+		icon = GFX_KOJ_pnr_seoul_renovation_plan
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		allow_branch = {
+			NOT = {
+				has_country_flag = RUS_Black_Monday_Happened
+			}
+		}
+	}
+	focus = {
+		id = KOJ_pnr_nightmare_of_black_monday
+		x = 7
+		y = 0
+		cost = 6
+		icon = GFX_goal_bankruptcy
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		allow_branch = {
+			has_country_flag = RUS_Black_Monday_Happened
+		}
+	}
+	focus = {
+		id = KOJ_pnr_invoke_governor_general_decree
+		x = 2
+		y = 1
+		cost = 3
+		icon = GFX_goal_generic_phone_crisis
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_nightmare_of_black_monday
+		}
+		relative_position_id = KOJ_pnr_nightmare_of_black_monday
+	}
+	focus = {
+		id = KOJ_pnr_in_name_of_industrial_renewal
+		x = 1
+		y = 2
+		cost = 3
+		icon = GFX_focus_DEN_limited_regulations
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_invoke_governor_general_decree
+		}
+		relative_position_id = KOJ_pnr_nightmare_of_black_monday
+	}
+	focus = {
+		id = KOJ_pnr_meet_local_financial_associations
+		x = -3
+		y = 2
+		cost = 3
+		icon = GFX_focus_JAP_pnr_waltz_of_the_konzerns
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_issue_special_bonds
+		}
+		relative_position_id = KOJ_pnr_nightmare_of_black_monday
+	}
+	focus = {
+		id = KOJ_pnr_establish_national_policy_companies
+		x = 3
+		y = 2
+		cost = 3
+		icon = GFX_generic_heavy_industry
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_invoke_governor_general_decree
+		}
+		relative_position_id = KOJ_pnr_nightmare_of_black_monday
+	}
+	focus = {
+		id = KOJ_pnr_guide_korean_capital
+		x = -1
+		y = 2
+		cost = 3
+		icon = GFX_focus_INS_peg_indies_guilder_to_dutch_guilder
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_issue_special_bonds
+		}
+		relative_position_id = KOJ_pnr_nightmare_of_black_monday
+	}
+	focus = {
+		id = KOJ_pnr_overcome_capital_shortage
+		x = 0
+		y = 7
+		cost = 3
+		icon = GFX_goal_generic_cash_stimulus_plan
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_heart_of_korean_production
+		}
+		prerequisite = {
+			focus = KOJ_pnr_granary_feeding_all
+		}
 		relative_position_id = KOJ_pnr_nightmare_of_black_monday
 	}
 	focus = {
 		id = KOJ_pnr_improve_infrastructure
-		x = 0
+		x = -1
 		y = 1
-		cost = 5
+		cost = 4
 		icon = GFX_goal_construction_engineering
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -173,35 +185,38 @@ focus_tree = {
 	}
 	focus = {
 		id = KOJ_pnr_demolish_shanties
-		x = -2
-		y = 2
+		x = -3
+		y = 1
 		cost = 4
 		icon = GFX_focus_SWE_hygienic_housing
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = KOJ_pnr_improve_infrastructure
+			focus = KOJ_pnr_seoul_renovation_plan
 		}
 		relative_position_id = KOJ_pnr_seoul_renovation_plan
 	}
 	focus = {
 		id = KOJ_pnr_straight_avenues_cut_old_city
-		x = 0
+		x = -2
 		y = 2
-		cost = 4
+		cost = 5
 		icon = GFX_goal_generic_road_construction
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = KOJ_pnr_improve_infrastructure
 		}
+		prerequisite = {
+			focus = KOJ_pnr_demolish_shanties
+		}
 		relative_position_id = KOJ_pnr_seoul_renovation_plan
 	}
 	focus = {
 		id = KOJ_pnr_sow_heavy_industry_seeds
-		x = 2
+		x = 0
 		y = 2
-		cost = 4
+		cost = 5
 		icon = GFX_goal_chemical_industry
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -212,15 +227,12 @@ focus_tree = {
 	}
 	focus = {
 		id = KOJ_pnr_modernize_water_diversion_system
-		x = 1
+		x = 0
 		y = 3
-		cost = 4
+		cost = 5
 		icon = GFX_goal_FIN_promote_the_red_cross
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOJ_pnr_straight_avenues_cut_old_city
-		}
 		prerequisite = {
 			focus = KOJ_pnr_sow_heavy_industry_seeds
 		}
@@ -229,24 +241,27 @@ focus_tree = {
 	focus = {
 		id = KOJ_pnr_new_asia_theater
 		x = -2
-		y = 4
-		cost = 4
+		y = 3
+		cost = 5
 		icon = GFX_goal_generic_cinema
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = KOJ_pnr_plan_satellite_cities
+			focus = KOJ_pnr_straight_avenues_cut_old_city
 		}
 		relative_position_id = KOJ_pnr_seoul_renovation_plan
 	}
 	focus = {
 		id = KOJ_pnr_permanent_green_belts
-		x = 2
+		x = -1
 		y = 4
-		cost = 4
+		cost = 5
 		icon = GFX_kor_the_granary_of_east_asia
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_straight_avenues_cut_old_city
+		}
 		prerequisite = {
 			focus = KOJ_pnr_modernize_water_diversion_system
 		}
@@ -254,46 +269,46 @@ focus_tree = {
 	}
 	focus = {
 		id = KOJ_pnr_plan_satellite_cities
-		x = -1
-		y = 3
-		cost = 4
+		x = -3
+		y = 4
+		cost = 5
 		icon = GFX_goal_generic_build_housing
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = KOJ_pnr_demolish_shanties
-		}
-		prerequisite = {
-			focus = KOJ_pnr_straight_avenues_cut_old_city
+			focus = KOJ_pnr_seek_more_architects
 		}
 		relative_position_id = KOJ_pnr_seoul_renovation_plan
 	}
 	focus = {
 		id = KOJ_pnr_rapid_metro_connecting_seoul
-		x = 0
+		x = 1
 		y = 4
-		cost = 4
+		cost = 5
 		icon = GFX_goal_generic_railway_construction
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_finish_korean_asia_europe_railway
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_trace_back_past
+		x = -2
+		y = 5
+		cost = 7
+		icon = GFX_goal_FRA_paris
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = KOJ_pnr_plan_satellite_cities
 		}
 		prerequisite = {
-			focus = KOJ_pnr_modernize_water_diversion_system
+			focus = KOJ_pnr_new_asia_theater
 		}
-		relative_position_id = KOJ_pnr_seoul_renovation_plan
-	}
-	focus = {
-		id = KOJ_pnr_trace_back_past
-		x = 0
-		y = 5
-		cost = 5
-		icon = GFX_goal_FRA_paris
-		continue_if_invalid = no
-		cancel_if_invalid = yes
 		prerequisite = {
-			focus = KOJ_pnr_rapid_metro_connecting_seoul
+			focus = KOJ_pnr_permanent_green_belts
 		}
 		relative_position_id = KOJ_pnr_seoul_renovation_plan
 	}
@@ -305,23 +320,26 @@ focus_tree = {
 		icon = GFX_focus_JAP_pnr_fulfilling_the_promise_of_islam
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_japan_korea_integration_policy
+		}
 	}
 	focus = {
 		id = KOJ_pnr_japan_korea_integration_policy
 		x = 16
-		y = 5
-		cost = 4
+		y = 3
+		cost = 0
 		icon = GFX_focus_generic_phone
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		prerequisite = {
-			focus = KOJ_pnr_old_woman_and_young_girl
+		available = {
+			always = no
 		}
 	}
 	focus = {
 		id = KOJ_pnr_continue_civilian_rule
 		x = 13
-		y = 6
+		y = 5
 		cost = 4
 		icon = GFX_focus_generic_improve_the_administration
 		continue_if_invalid = no
@@ -330,7 +348,7 @@ focus_tree = {
 			focus = KOJ_pnr_military_officer_appointment
 		}
 		prerequisite = {
-			focus = KOJ_pnr_japan_korea_integration_policy
+			focus = KOJ_pnr_old_woman_and_young_girl
 		}
 	}
 	focus = {
@@ -377,11 +395,11 @@ focus_tree = {
 		x = -1
 		y = 4
 		cost = 4
-		icon = GFX_focus_JAP_promote_pan_asianism
+		icon = GFX_focus_JAP_social_and_cultural_revolution
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = KOJ_pnr_cultivate_pro_japanese_intellectuals
+			focus = KOJ_pnr_promote_korean_bureaucrats
 		}
 		relative_position_id = KOJ_pnr_continue_civilian_rule
 	}
@@ -442,21 +460,24 @@ focus_tree = {
 	}
 	focus = {
 		id = KOJ_pnr_promote_korean_bureaucrats
-		x = 1
-		y = 2
+		x = 0
+		y = 3
 		cost = 4
 		icon = GFX_focus_PER_embrace_opulence
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = KOJ_pnr_meet_korean_representatives
+			focus = KOJ_pnr_compulsory_education
+		}
+		prerequisite = {
+			focus = KOJ_pnr_cultivate_pro_japanese_intellectuals
 		}
 		relative_position_id = KOJ_pnr_continue_civilian_rule
 	}
 	focus = {
 		id = KOJ_pnr_cultivate_pro_japanese_intellectuals
-		x = 0
-		y = 3
+		x = 1
+		y = 2
 		cost = 4
 		icon = GFX_focus_JAP_pnr_it_must_dominate_many_and_famous
 		continue_if_invalid = no
@@ -465,7 +486,7 @@ focus_tree = {
 			focus = KOJ_pnr_uphold_appeasement_policy
 		}
 		prerequisite = {
-			focus = KOJ_pnr_promote_korean_bureaucrats
+			focus = KOJ_pnr_meet_korean_representatives
 		}
 		relative_position_id = KOJ_pnr_continue_civilian_rule
 	}
@@ -478,7 +499,7 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = KOJ_pnr_cultivate_pro_japanese_intellectuals
+			focus = KOJ_pnr_promote_korean_bureaucrats
 		}
 		relative_position_id = KOJ_pnr_continue_civilian_rule
 	}
@@ -504,7 +525,7 @@ focus_tree = {
 	focus = {
 		id = KOJ_pnr_military_officer_appointment
 		x = 19
-		y = 6
+		y = 5
 		cost = 4
 		icon = GFX_goal_RUS_solidify_power
 		continue_if_invalid = no
@@ -513,7 +534,7 @@ focus_tree = {
 			focus = KOJ_pnr_continue_civilian_rule
 		}
 		prerequisite = {
-			focus = KOJ_pnr_japan_korea_integration_policy
+			focus = KOJ_pnr_old_woman_and_young_girl
 		}
 	}
 	focus = {
@@ -679,7 +700,7 @@ focus_tree = {
 	}
 	focus = {
 		id = KOJ_pnr_bridge_for_imperial_advance
-		x = 0
+		x = 1
 		y = 5
 		cost = 4
 		icon = GFX_kor_follow_our_lord
@@ -697,7 +718,7 @@ focus_tree = {
 		id = KOJ_pnr_industrial_expansion
 		x = -1
 		y = 1
-		cost = 6
+		cost = 3
 		icon = GFX_focus_ICE_embrace_the_workers_revolution
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -710,7 +731,7 @@ focus_tree = {
 		id = KOJ_pnr_survey_reservoir_construction
 		x = 1
 		y = 1
-		cost = 6
+		cost = 3
 		icon = GFX_focus_generic_hydroelectric_energy
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -723,7 +744,7 @@ focus_tree = {
 		id = KOJ_pnr_designate_special_industrial_zones
 		x = -1
 		y = 2
-		cost = 6
+		cost = 3
 		icon = GFX_goal_production
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -736,7 +757,7 @@ focus_tree = {
 		id = KOJ_pnr_exploit_strategic_resources
 		x = 1
 		y = 2
-		cost = 6
+		cost = 3
 		icon = GFX_all_resource
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -749,7 +770,7 @@ focus_tree = {
 		id = KOJ_pnr_heart_of_korean_production
 		x = 0
 		y = 3
-		cost = 5
+		cost = 4
 		icon = GFX_kor_the_miracle_of_economy
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -765,7 +786,7 @@ focus_tree = {
 		id = KOJ_pnr_encourage_rice_improvement
 		x = -1
 		y = 1
-		cost = 6
+		cost = 3
 		icon = GFX_goal_generic_rice_field
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -778,7 +799,7 @@ focus_tree = {
 		id = KOJ_pnr_replenish_consumer_goods
 		x = 1
 		y = 1
-		cost = 6
+		cost = 3
 		icon = GFX_goal_generic_prohibition
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -791,7 +812,7 @@ focus_tree = {
 		id = KOJ_pnr_concentrate_land_use
 		x = 1
 		y = 2
-		cost = 6
+		cost = 3
 		icon = GFX_goal_generic_land_reform
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -804,7 +825,7 @@ focus_tree = {
 		id = KOJ_pnr_restricted_cotton_cultivation
 		x = -1
 		y = 2
-		cost = 6
+		cost = 3
 		icon = GFX_focus_CHL_enlarge_the_textile_industries
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -817,7 +838,7 @@ focus_tree = {
 		id = KOJ_pnr_granary_feeding_all
 		x = 0
 		y = 3
-		cost = 5
+		cost = 4
 		icon = GFX_focus_SIA_thai_rice_company
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1068,5 +1089,135 @@ focus_tree = {
 			focus = KOJ_pnr_conscript_local_laborers
 		}
 		relative_position_id = KOJ_pnr_status_of_korean_army
+	}
+	focus = {
+		id = KOJ_pnr_explore_of_new_economy
+		x = 3
+		y = 1
+		cost = 4
+		icon = GFX_goal_generic_cash_stimulus_plan
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_seoul_renovation_plan
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_finish_korean_asia_europe_railway
+		x = 1
+		y = 1
+		cost = 5
+		icon = GFX_focus_JAP_danganressha
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_seoul_renovation_plan
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_use_your_brain_to_analyze_village
+		x = 3
+		y = 2
+		cost = 6
+		icon = GFX_goal_generic_cash_stimulus_plan
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_explore_of_new_economy
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_economic_ministrys_trick
+		x = 5
+		y = 2
+		cost = 6
+		icon = GFX_goal_generic_foreign_investments
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_explore_of_new_economy
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_travel_choice
+		x = 2
+		y = 3
+		cost = 5
+		icon = GFX_focus_generic_improve_roads
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_finish_korean_asia_europe_railway
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_harness_peasant
+		x = 3
+		y = 4
+		cost = 6
+		icon = GFX_goal_officers
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_use_your_brain_to_analyze_village
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_seek_more_architects
+		x = -4
+		y = 2
+		cost = 6
+		icon = GFX_focus_generic_industrialists
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_demolish_shanties
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_korean_money_inner_circle
+		x = 4
+		y = 3
+		cost = 6
+		icon = GFX_focus_BRA_rio_protocol
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_economic_ministrys_trick
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_fake_invest
+		x = 6
+		y = 3
+		cost = 6
+		icon = GFX_goal_state_economy
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_economic_ministrys_trick
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
+	}
+	focus = {
+		id = KOJ_pnr_xubao_gongcheng_jindu
+		x = 5
+		y = 4
+		cost = 6
+		icon = GFX_goal_munitions_factories
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = KOJ_pnr_economic_ministrys_trick
+		}
+		relative_position_id = KOJ_pnr_seoul_renovation_plan
 	}
 }

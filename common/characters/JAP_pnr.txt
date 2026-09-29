@@ -385,20 +385,6 @@ characters = {
 			id = -1
 		}
 	}
-	JAP_pnr_yamamoto_jotaro = {
-		name = JAP_pnr_yamamoto_jotaro
-		portraits = {
-			civilian = {
-				large = GFX_portrait_jap_pnr_yamamoto_jotaro
-			}
-		}
-		country_leader = {
-			ideology = authoritarian_democrat_subtype
-			traits = { }
-			expire = "1965.1.1.1"
-			id = -1
-		}
-	}
 	JAP_pnr_kato_kanju = {
 		name = JAP_pnr_kato_kanju
 		portraits = {
@@ -533,4 +519,115 @@ characters = {
             id = -1
         }
     }
+### JAP Adv and Theo ###
+	JAP_pnr_tsushima_juichi = {
+		name = JAP_pnr_tsushima_juichi
+        portraits = {
+            civilian = {
+                small = GFX_portrait_jap_pnr_tsushima_juichi_adv
+            }
+        }
+        advisor = {
+            slot = political_advisor
+            idea_token = JAP_pnr_tsushima_juichi_advisor_idea
+            desc = JAP_pnr_tsushima_juichi_desc
+            traits = { FNG_political_economist_sic }
+            available = {
+				is_country_leader = no
+			}
+            cost = 150
+        }
+	}
+	JAP_pnr_fujii_sadanobu = {
+		name = JAP_pnr_fujii_sadanobu
+        portraits = {
+            civilian = {
+                small = GFX_portrait_jap_pnr_fujii_sadanobu_adv
+            }
+        }
+        advisor = {
+            slot = political_advisor
+            idea_token = JAP_pnr_fujii_sadanobu_advisor_idea
+            desc = JAP_pnr_fujii_sadanobu_desc
+            traits = { FNG_political_economist_sic }
+            available = {
+				is_country_leader = no
+			}
+            cost = 150
+        }
+	}
+	JAP_pnr_tsushima_juichi = {
+		name = JAP_pnr_tsushima_juichi
+        portraits = {
+            civilian = {
+                small = GFX_portrait_jap_pnr_tsushima_juichi_adv
+            }
+        }
+        advisor = {
+            slot = political_advisor
+            idea_token = JAP_pnr_tsushima_juichi_advisor_idea
+            desc = JAP_pnr_tsushima_juichi_desc
+            traits = { FNG_political_economist_sic }
+            available = {
+				is_country_leader = no
+			}
+            cost = 150
+        }
+	}
+	JAP_pnr_tsushima_juichi = {
+		name = JAP_pnr_tsushima_juichi
+        portraits = {
+            civilian = {
+                small = GFX_portrait_jap_pnr_tsushima_juichi_adv
+            }
+        }
+        advisor = {
+            slot = political_advisor
+            idea_token = JAP_pnr_tsushima_juichi_advisor_idea
+            desc = JAP_pnr_tsushima_juichi_desc
+            traits = { FNG_political_economist_sic }
+            available = {
+				is_country_leader = no
+			}
+            cost = 150
+        }
+	}
+	JAP_pnr_obata_toshiro = {
+		name = JAP_pnr_obata_toshiro
+        portraits = {
+            army = {
+                small = GFX_portrait_JAP_obata_toshiro_army_small
+            }
+        }
+        advisor = {
+            slot = theorist
+            idea_token = JAP_pnr_obata_toshiro_theorist
+            desc = JAP_pnr_obata_toshiro_desc
+            ledger = army
+            allowed = { has_completed_focus = JAP_pnr_navy_expansion_plan }
+            visible = { always = yes }
+            traits = { JAP_pnr_advocate_of_modern_warfare_trait }
+			can_be_fired = no
+            cost = 100
+        }
+	}
+	JAP_pnr_tokugawa_yoshitoshi = {
+		name = JAP_pnr_tokugawa_yoshitoshi
+        portraits = {
+            army = {
+                small = GFX_portrait_JAP_tokugawa_yoshitoshi_army_small
+            }
+        }
+        advisor = {
+            slot = theorist
+            idea_token = JAP_pnr_tokugawa_yoshitoshi_theorist
+            desc = JAP_pnr_tokugawa_yoshitoshi_desc
+            ledger = army
+            allowed = { has_completed_focus = JAP_pnr_army_expansion_plan }
+            visible = { always = yes }
+            traits = { JAP_pnr_triumph_of_the_will_trait }
+			can_be_fired = no
+            cost = 100
+        }
+	}
 }

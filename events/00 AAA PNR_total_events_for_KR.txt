@@ -274,10 +274,86 @@ country_event = {
 		log = "[GetLogInfo]: event japan_domestic_events.242 option japan_domestic_events.242.a"
 		name = japan_domestic_events.242.a
 		add_ideas = JAP_pnr_black_monday_1
-		hidden_effect = { 
+		hidden_effect = {
+			add_stability = -0.01 
 			country_event = { id = JAP_pnr_earlygame.47 days = 1 }
 			remove_ideas = JAP_pnr_black_monday_0
 			set_variable = { JAP_pnr_red_conspiracy_add_value_var = 10 }
+		}
+	}
+}
+
+country_event = { # Anqing Refuses Further Cooperation
+	id = league_collapse_events.11
+	title = league_collapse_events.11.t
+	desc = league_collapse_events.11.d
+	picture = GFX_report_event_ANQ_chen_tiaoyuan
+	timeout_days = 3
+
+	is_triggered_only = yes #Triggered by [EVENT] league_collapse_events.10 in 2 days // Fires January 30
+	fire_only_once = yes
+
+	immediate = {
+		hidden_effect = {
+			ANQ_chen_tiaoyuan = {
+				set_nationality = ANQ
+				promote_leader = yes
+				add_country_leader_role = {
+					country_leader = {
+						desc = ANQ_chen_tiaoyuan_leader_desc
+						ideology = authoritarian_democrat_subtype
+						traits = { CHN_non_aligned ANQ_the_fool }
+					}
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = {
+						desc = ANQ_chen_tiaoyuan_leader_desc
+						ideology = paternal_autocrat_subtype
+						traits = { CHN_non_aligned ANQ_the_fool }
+					}
+					promote_leader = yes
+				}
+			}
+			set_country_flag = LEP_league_war_flag
+			country_event = { id = league_collapse_events.12 days = 15 }
+			GXC = {
+				country_event = { id = GXC.introgame.006 days = 1 } #The Young Guangxi War Council
+			}
+			YUN = {
+				country_event = { id = YUN.introgame.003 days = 1 } #Dian-Qian Border Tensions
+			}
+		}
+	}
+
+	option = { #We must bide our time
+		log = "[GetLogInfo]: event league_collapse_events.11 option league_collapse_events.11.a"
+		name = league_collapse_events.11.a
+		add_political_power = -30
+		add_stability = -0.03
+		ANQ_spawn_anqing_clique = yes
+	}
+
+	option = { #Let us join Governor Chen!
+		log = "[GetLogInfo]: event league_collapse_events.11 option league_collapse_events.11.b"
+		ai_chance = { base = 0 }
+		name = league_collapse_events.11.b
+		add_political_power = -30
+		add_stability = -0.03
+		ANQ_spawn_anqing_clique = yes
+		ANQ = { change_tag_from = ROOT }
+	}
+
+	after = {
+		swap_ideas = {
+			remove_idea = LEP_eight_provinces_allied_armies
+			add_idea = LEP_the_disunited_armies_1
+		}
+		hidden_effect = {
+			ANQ = { country_event = { id = league_collapse_events.13 hours = 5 } }
+			QIE = { country_event = { id = league_collapse_flavour_events.4 hours = 12 } }
+			FNG = { country_event = { id = fengtian_events.114 hours = 12 } }
+			JAP = { country_event = { id = JAP_pnr_foreign_events.1 hours = 12 } }
 		}
 	}
 }

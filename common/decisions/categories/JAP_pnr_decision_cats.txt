@@ -161,6 +161,44 @@ JAP_pnr_national_security_bill_category = {
 	}
 }
 
+JAP_pnr_landreform_category = {
+	icon = GFX_decision_category_agriculture_grain
+	priority = 50
+	allowed = { always = no }
+}
+
+JAP_pnr_kwan_island_crisis_category = {
+	icon = GFX_decision_category_generic_crisis
+	priority = 200
+	allowed = { always = no }
+}
+
+JAP_pnr_black_monday_development_category  = {
+	icon = GFX_decision_category_generic_industry
+	picture = GFX_decision_cat_industry_KMT
+	priority = 75
+	allowed = {
+		OR = {
+			has_completed_focus = JAP_pnr_shaking_hands_with_the_zaibatsu
+			has_completed_focus = JAP_pnr_deal_a_heavy_blow_to_the_zaibatsu
+		}
+	}
+}
+
+JAP_pnr_oriental_policy_category = {
+	icon = GFX_decision_category_generic_industry
+	picture = GFX_decision_cat_industry_KMT
+	priority = 900
+	visible_when_empty = yes
+}
+
+JAP_pnr_control_anti_country_terrorists_category = {
+	icon = GFX_decision_spr_political_assassination
+	picture = GFX_decision_cat_industry_KMT
+	priority = 900
+	visible_when_empty = yes
+}
+
 JAP_pnr_debug_category = {
 	icon = generic_political_reform
 	priority = 1

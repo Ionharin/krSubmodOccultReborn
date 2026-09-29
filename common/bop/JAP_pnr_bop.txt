@@ -1,0 +1,54 @@
+JAP_hero_et_gangster_bop = {
+    initial_value = 0.00
+	left_side = JAP_pnr_bop_gangster
+	right_side = JAP_pnr_bop_hero
+	decision_category = JAP_hero_et_gangster_bop_category
+	side = {
+		id = JAP_pnr_bop_gangster
+		icon = GFX_idea_jap_pnr_bop_gangster
+		range = {
+			id = JAP_pnr_bop_gangster_2
+			min = -1.0
+			max = -0.8
+			modifier = {
+				consumer_goods_factor = -0.10
+				political_power_gain = -0.1
+			}
+		}
+		range = {
+			id = JAP_pnr_bop_gangster_1
+			min = -0.8
+			max = -0.4
+		}
+		range = {
+			id = JAP_pnr_bop_gangster_0
+			min = -0.4
+			max = -0.15
+		}
+		range = {
+			id = JAP_pnr_bop_balance
+			min = -0.15
+			max = 0.15
+		}
+
+	}
+	side = {
+		id = JAP_pnr_bop_hero
+		icon = GFX_idea_jap_pnr_bop_hero
+		range = {
+			id = JAP_pnr_bop_hero_0
+			min = 0.15
+			max = 0.4
+		}
+		range = {
+			id = JAP_pnr_bop_hero_1
+			min = 0.4
+			max = 0.8
+		}
+		range = {
+			id = JAP_pnr_bop_hero_2
+			min = 0.8
+			max = 1.0
+		}
+	}
+}

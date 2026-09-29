@@ -29,6 +29,41 @@ JAP_pnr_offensive_realpolitik_update = {
 	}
 }
 
+JAP_pnr_farewell_to_the_lost_decade_update = { #Upgrade Chaos
+	if = {
+		limit = { has_idea = JAP_pnr_farewell_to_the_lost_decade_4 }
+		remove_ideas = JAP_pnr_farewell_to_the_lost_decade_4
+	}
+	else_if = {
+		limit = { has_idea = JAP_pnr_farewell_to_the_lost_decade_3 }
+		swap_ideas = {
+			remove_idea = JAP_pnr_farewell_to_the_lost_decade_3
+			add_idea = JAP_pnr_farewell_to_the_lost_decade_4
+		}
+	}
+	else_if = {
+		limit = { has_idea = JAP_pnr_farewell_to_the_lost_decade_2 }
+		swap_ideas = {
+			remove_idea = JAP_pnr_farewell_to_the_lost_decade_2
+			add_idea = JAP_pnr_farewell_to_the_lost_decade_3
+		}
+	}
+	else_if = {
+		limit = { has_idea = JAP_pnr_farewell_to_the_lost_decade_1 }
+		swap_ideas = {
+			remove_idea = JAP_pnr_farewell_to_the_lost_decade_1
+			add_idea = JAP_pnr_farewell_to_the_lost_decade_2
+		}
+	}
+	else_if = {
+		limit = { has_idea = JAP_pnr_farewell_to_the_lost_decade }
+		swap_ideas = {
+			remove_idea = JAP_pnr_farewell_to_the_lost_decade
+			add_idea = JAP_pnr_farewell_to_the_lost_decade_1
+		}
+	}
+}
+
 JAP_pnr_update_destruction_and_creation_modifier = {
 	set_variable = { JAP_pnr_destruction_and_creation_planning_speed = { value = JAP_pnr_iw_destruction multiply = 0.00075 } }
 	set_variable = { JAP_pnr_destruction_and_creation_war_support_factor = { value = JAP_pnr_iw_destruction multiply = 0.00075 } }

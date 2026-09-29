@@ -1,5 +1,12 @@
 ideas = {
 	country = {
+		JAP_pnr_anti_japan_pakt = {
+			picture = GER_proud_eagle_that_ate_the_sun
+			allowed = { always = no }
+			modifier = {
+				cannot_call_allies_or_join_wars = 1
+			}
+		}
 		JAP_narrow_rail_0 = {
 			picture = JAP_Shitty_Tracks
 			allowed = { always = no }
@@ -9,6 +16,56 @@ ideas = {
 				local_resources_factor = -0.10
 				production_speed_rail_way_factor = 0.10
 			}
+		}
+		JAP_pnr_deadlock_financial_situation_0 = {
+			picture = HOL_black_monday_recovery
+			allowed = { always = no }
+			modifier = {
+				political_power_cost = 0.25
+				stability_factor = -0.15
+				consumer_goods_factor = 0.35
+				totalist_drift = 0.01
+				syndicalist_drift = 0.01
+				radical_socialist = 0.01
+			} 
+		}
+		JAP_pnr_deadlock_financial_situation_1 = {
+			picture = HOL_black_monday_recovery
+			allowed = { always = no }
+			modifier = {
+				political_power_cost = 0.2
+				stability_factor = -0.10
+				consumer_goods_factor = 0.25
+				totalist_drift = 0.01
+				syndicalist_drift = 0.01
+				radical_socialist = 0.01
+			} 
+		}
+		JAP_pnr_deadlock_financial_situation_2 = {
+			picture = HOL_black_monday_recovery
+			allowed = { always = no }
+			modifier = {
+				political_power_cost = 0.15
+				stability_factor = -0.10
+				consumer_goods_factor = 0.20
+			} 
+		}
+		JAP_pnr_deadlock_financial_situation_3 = {
+			picture = HOL_black_monday_recovery
+			allowed = { always = no }
+			modifier = {
+				political_power_cost = 0.10
+				stability_factor = -0.05
+				consumer_goods_factor = 0.15
+			} 
+		}
+		JAP_pnr_deadlock_financial_situation_4 = {
+			picture = HOL_black_monday_recovery
+			allowed = { always = no }
+			modifier = {
+				political_power_cost = 0.10
+				consumer_goods_factor = 0.15
+			} 
 		}
 		JAP_pnr_black_monday_0 = {
 			picture = HOL_black_monday_recovery
@@ -39,7 +96,7 @@ ideas = {
 		JAP_pnr_takahashi_finance_0 = {
 			picture = EST_exploit_the_banks
 			allowed = { always = no }
-			#available = { JAP = { NOT = { has_dynamic_modifier = { modifer = JAP_pnr_lost_decade_nightmare_modifier } } } }
+			available = { JAP = { has_dynamic_modifier = { modifier = JAP_pnr_lost_decade_nightmare_modifier } } }
 			modifier = {
 				consumer_goods_factor = -0.15
 				production_speed_industrial_complex_factor = 0.25
@@ -50,7 +107,7 @@ ideas = {
 		JAP_pnr_takahashi_finance_1 = {
 			picture = EST_exploit_the_banks
 			allowed = { always = no }
-			#available = { JAP = { NOT = { has_dynamic_modifier = { modifer = JAP_pnr_lost_decade_nightmare_modifier } } } }
+			available = { JAP = { has_dynamic_modifier = { modifier = JAP_pnr_lost_decade_nightmare_modifier } } }
 			modifier = {
 				consumer_goods_factor = -0.15
 				production_speed_arms_factory_factor = 0.25
@@ -61,7 +118,7 @@ ideas = {
 		JAP_pnr_takahashi_finance_2 = {
 			picture = EST_exploit_the_banks
 			allowed = { always = no }
-			#available = { JAP = { NOT = { has_dynamic_modifier = { modifer = JAP_pnr_lost_decade_nightmare_modifier } } } }
+			available = { JAP = { has_dynamic_modifier = { modifier = JAP_pnr_lost_decade_nightmare_modifier } } }
 			modifier = {
 				consumer_goods_factor = -0.15
 				production_speed_buildings_factor = 0.20
@@ -75,6 +132,7 @@ ideas = {
 			modifier = {
 				consumer_goods_factor = -0.10
 				production_factory_max_efficiency_factor = 0.10
+				production_factory_start_efficiency_factor = 0.10
 			} 
 		}
 		JAP_pnr_after_the_rainstorm_1 = {
@@ -97,6 +155,23 @@ ideas = {
 				production_factory_start_efficiency_factor = 0.05
 			} 
 		}
+		JAP_pnr_resist_financial_risks_idea = {
+			picture = HABSBURG_economy
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.10
+				global_building_slots_factor = 0.10
+			}
+		}
+		JAP_pnr_asia_european_international_railway_idea = {
+			picture = NOR_passport_union_idea
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.075
+				cic_construction_boost_factor = 0.15
+			}
+		}
 		JAP_pnr_housing_finance_agency = {
 			picture = jap_the_unthinkable_option
 			allowed = { always = no }
@@ -113,19 +188,6 @@ ideas = {
 				political_power_factor = 0.05
 			}
 		}
-		JAP_pnr_farewell_to_the_lost_decade = {
-			picture = pnr_strike
-			allowed = { always = no }
-			modifier = {
-				political_power_cost = 0.10
-				consumer_goods_factor = 0.15
-				production_speed_arms_factory_factor = -0.20
-				war_support_factor = -0.15
-				stability_factor = -0.15
-				monthly_population = -0.10
-				mobilization_laws_cost_factor = 1.8
-			}
-		}
 		JAP_pnr_farewell_to_the_lost_decade_0 = {
 			picture = RAJ_debt_relief
 			allowed = { always = no }
@@ -138,6 +200,67 @@ ideas = {
 				monthly_population = -0.10
 				production_speed_buildings_factor = -0.30
 				mobilization_laws_cost_factor = 3
+			}
+		}
+		JAP_pnr_farewell_to_the_lost_decade = {
+			picture = pnr_strike
+			allowed = { always = no }
+			modifier = {
+				political_power_cost = 0.10
+				consumer_goods_factor = 0.15
+				production_speed_arms_factory_factor = -0.20
+				war_support_factor = -0.15
+				stability_factor = -0.15
+				monthly_population = -0.10
+				mobilization_laws_cost_factor = 1.6
+			}
+		}
+		JAP_pnr_farewell_to_the_lost_decade_1 = {
+			picture = pnr_strike
+			allowed = { always = no }
+			modifier = {
+				political_power_cost = 0.08
+				consumer_goods_factor = 0.11
+				production_speed_arms_factory_factor = -0.15
+				war_support_factor = -0.11
+				stability_factor = -0.11
+				monthly_population = -0.08
+				mobilization_laws_cost_factor = 0.8
+			}
+		}
+		JAP_pnr_farewell_to_the_lost_decade_2 = {
+			picture = pnr_strike
+			allowed = { always = no }
+			modifier = {
+				political_power_cost = 0.06
+				consumer_goods_factor = 0.09
+				production_speed_arms_factory_factor = -0.10
+				war_support_factor = -0.09
+				stability_factor = -0.09
+				monthly_population = -0.06
+			}
+		}
+		JAP_pnr_farewell_to_the_lost_decade_3 = {
+			picture = pnr_strike
+			allowed = { always = no }
+			modifier = {
+				political_power_cost = 0.04
+				consumer_goods_factor = 0.06
+				production_speed_arms_factory_factor = -0.05
+				war_support_factor = -0.06
+				stability_factor = -0.06
+				monthly_population = -0.04
+			}
+		}
+		JAP_pnr_farewell_to_the_lost_decade_4 = {
+			picture = pnr_strike
+			allowed = { always = no }
+			modifier = {
+				political_power_cost = 0.02
+				consumer_goods_factor = 0.03
+				war_support_factor = -0.03
+				stability_factor = -0.03
+				monthly_population = -0.02
 			}
 		}
 		JAP_pnr_forever_frozen_in_1928 = {
@@ -308,12 +431,12 @@ ideas = {
 			targeted_modifier = { tag = UPC attack_bonus_against = 0.27 }
 		}
 ####################### ARMY #######################
-		JAP_pnr_
 		JAP_pnr_foolproof_plan = {
 			picture = generic_planning
 			allowed = { always = no }
 			modifier = {
-				max_planning_factor = 0.05
+				max_planning_factor = 0.10
+				planning_speed = -0.05
 				attrition = -0.05
 			}
 		}
@@ -323,15 +446,6 @@ ideas = {
 			modifier = {
 				army_speed_factor = 0.05
 				org_loss_when_moving = -0.10
-			}
-		}
-		JAP_pnr_strengthened_core_staff_system = {
-			picture = generic_army_war_college
-			allowed = { always = no }
-			modifier = {
-				max_planning_factor = 0.10
-				planning_speed = 0.05
-				attrition = -0.05
 			}
 		}
 		JAP_pnr_advanced_army = {
@@ -506,17 +620,6 @@ ideas = {
 			}
 		}
 ####################### ARMY #######################
-		JAP_pnr_resist_financial_risks_idea = {
-			picture = HABSBURG_economy
-			allowed = { always = no }
-			modifier = {
-				consumer_goods_factor = -0.05
-				production_factory_efficiency_gain_factor = 0.08
-				production_factory_max_efficiency_factor = 0.08
-				industrial_capacity_factory = 0.05
-				industrial_capacity_dockyard = 0.05
-			}
-		}
 
 		####################################
 		#### IMPERIAL WAY NATIONAL IDEAS ###
@@ -2168,7 +2271,20 @@ ideas = {
 
 	}
 
-	### Hidden ideas for Parliament Yearly Bonus ###
+### Industrial Concern ###
+	
+	industrial_concern = {
+		JAP_pnr_niseko = {
+			picture = jap_pnr_niseko
+			allowed = { original_tag = JAP }
+			research_bonus = { industry = 0.05 }
+			modifier = {
+				
+			}
+		}
+	}
+
+### Hidden ideas for Parliament Yearly Bonus ###
 
 	hidden_ideas = {
 		JAP_congress_agenda_1_idea = {

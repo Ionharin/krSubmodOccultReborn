@@ -14,29 +14,29 @@ focus_tree = {
 	default = no
 	focus = {
 		id = TAI_pnr_p_1936_situation
-		x = 4
+		x = 9
 		y = 1
-		cost = 5
+		cost = 7
 		icon = GFX_focus_ETH_an_empire_in_the_shade_of_the_sun
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 	}
 	focus = {
 		id = TAI_pnr_p_changing_indigenous_policies
-		x = 4
-		y = 2
+		x = 11
+		y = 4
 		cost = 4
 		icon = GFX_focus_AST_department_of_aboriginal_affairs
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = TAI_pnr_p_1936_situation
+			focus = TAI_wenti_duijirushan
 		}
 	}
 	focus = {
 		id = JAP_pnr_p_promote_japanization_education
-		x = 3
-		y = 8
+		x = 17
+		y = 3
 		cost = 4
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -46,16 +46,16 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pnr_p_assimilation
-		x = 3
-		y = 7
+		x = 16
+		y = 2
 		cost = 4
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 	}
 	focus = {
 		id = TAI_pnr_p_national_spiritual_mobilization_movement
-		x = 1
-		y = 8
+		x = 15
+		y = 3
 		cost = 4
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -65,9 +65,10 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pnr_p_aftermath_of_musha_incident
-		x = 3
-		y = 3
+		x = 11
+		y = 6
 		cost = 4
+		icon = GFX_focus_TAI_pnr_come_and_fight_them
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -76,39 +77,42 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pnr_p_searching_for_the_body_of_mona_rudao
-		x = 3
-		y = 4
+		x = 12
+		y = 5
 		cost = 4
 		icon = GFX_goal_skull_treaty
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = TAI_pnr_p_aftermath_of_musha_incident
+			focus = TAI_pnr_p_changing_indigenous_policies
 		}
 	}
 	focus = {
 		id = TAI_pnr_p_police_supervision
-		x = 1
-		y = 4
+		x = 10
+		y = 5
 		cost = 4
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = TAI_pnr_p_aftermath_of_musha_incident
+			focus = TAI_zongdufu_zaixingdong
 		}
 	}
 	focus = {
 		id = TAI_pnr_p_japans_negative_assets
-		x = 14
-		y = 1
+		x = 5
+		y = 4
 		cost = 4
 		icon = GFX_focus_PER_national_bank
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_wenti_duijirushan
+		}
 	}
 	focus = {
 		id = TAI_pnr_p_nogyo_wa_taiwan
-		x = 0
+		x = -3
 		y = 7
 		cost = 7
 		continue_if_invalid = no
@@ -120,84 +124,67 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pnr_p_industrial_revitalization_plan
-		x = 0
-		y = 2
+		x = -1
+		y = 1
 		cost = 6
+		icon = GFX_focus_JAP_the_shuilikeng_power_plant
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = TAI_pnr_p_expand_the_scope_of_publicly_sold_goods
-		}
-		prerequisite = {
-			focus = TAI_pnr_p_utilizing_the_local_tax_system
+			focus = TAI_pnr_p_japans_negative_assets
 		}
 		relative_position_id = TAI_pnr_p_japans_negative_assets
 	}
 	focus = {
 		id = TAI_pnr_p_bank_of_taiwan
-		x = -3
-		y = 3
+		x = 16
+		y = 4
 		cost = 4
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		prerequisite = {
-			focus = TAI_pnr_p_industrial_revitalization_plan
-		}
-		relative_position_id = TAI_pnr_p_japans_negative_assets
 	}
 	focus = {
 		id = TAI_pnr_p_taiwan_development_company
-		x = 0
-		y = 3
+		x = 17
+		y = 4
 		cost = 4
 		icon = GFX_focus_JAP_the_shuilikeng_power_plant
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		prerequisite = {
-			focus = TAI_pnr_p_industrial_revitalization_plan
-		}
-		relative_position_id = TAI_pnr_p_japans_negative_assets
 	}
 	focus = {
 		id = TAI_pnr_p_taiwan_power_company
-		x = 3
-		y = 3
+		x = 15
+		y = 4
 		cost = 4
 		icon = GFX_focus_JAP_the_shuilikeng_power_plant
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		prerequisite = {
-			focus = TAI_pnr_p_industrial_revitalization_plan
-		}
-		relative_position_id = TAI_pnr_p_japans_negative_assets
 	}
 	focus = {
 		id = TAI_pnr_p_nanyang_trade_center
-		x = -4
-		y = 5
+		x = -7
+		y = 2
 		cost = 6
+		icon = GFX_goal_AST_new_markets
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = TAI_pnr_p_issue_special_taiwan_yen
+			focus = TAI_pnr_p_expand_the_scope_of_publicly_sold_goods
 		}
 		relative_position_id = TAI_pnr_p_japans_negative_assets
 	}
 	focus = {
 		id = TAI_pnr_p_issue_special_taiwan_yen
-		x = -4
-		y = 4
+		x = 16
+		y = 5
 		cost = 4
 		continue_if_invalid = no
 		cancel_if_invalid = yes
-		prerequisite = {
-			focus = TAI_pnr_p_bank_of_taiwan
-		}
-		relative_position_id = TAI_pnr_p_japans_negative_assets
 	}
 	focus = {
 		id = TAI_pnr_p_resolve_the_conflict_between_rice_and_sugar
-		x = 0
+		x = -3
 		y = 6
 		cost = 5
 		continue_if_invalid = no
@@ -212,20 +199,20 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pnr_p_guishan_hydropower_plant
-		x = 4
-		y = 4
+		x = 0
+		y = 2
 		cost = 4
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = TAI_pnr_p_taiwan_power_company
+			focus = TAI_pnr_p_industrial_revitalization_plan
 		}
 		relative_position_id = TAI_pnr_p_japans_negative_assets
 	}
 	focus = {
 		id = TAI_pnr_p_construct_a_reservoir
-		x = 4
-		y = 5
+		x = 0
+		y = 3
 		cost = 6
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -236,20 +223,20 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pnr_p_continue_to_promote_sugar_industry_reform
-		x = -2
-		y = 4
+		x = -4
+		y = 3
 		cost = 4
 		icon = GFX_focus_AFG_sugar_factory
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = TAI_pnr_p_taiwan_development_company
+			focus = TAI_pnr_p_utilizing_the_local_tax_system
 		}
 		relative_position_id = TAI_pnr_p_japans_negative_assets
 	}
 	focus = {
 		id = TAI_pnr_p_raw_material_collection_area_system
-		x = -2
+		x = -4
 		y = 5
 		cost = 5
 		continue_if_invalid = no
@@ -261,20 +248,20 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pnr_p_camphor_kingdom
-		x = 0
-		y = 4
+		x = -3
+		y = 2
 		cost = 4
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = TAI_pnr_p_taiwan_development_company
+			focus = TAI_pnr_p_utilizing_the_local_tax_system
 		}
 		relative_position_id = TAI_pnr_p_japans_negative_assets
 	}
 	focus = {
 		id = TAI_pnr_p_introduction_of_the_chemical_synthesis_method_for_camphor
-		x = 0
-		y = 5
+		x = -3
+		y = 4
 		cost = 6
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -285,19 +272,19 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pnr_p_expand_the_cultivation_of_penglai_rice
-		x = 2
-		y = 4
+		x = -2
+		y = 3
 		cost = 4
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = TAI_pnr_p_taiwan_development_company
+			focus = TAI_pnr_p_utilizing_the_local_tax_system
 		}
 		relative_position_id = TAI_pnr_p_japans_negative_assets
 	}
 	focus = {
 		id = TAI_pnr_p_initial_attempts_at_agricultural_collectivization
-		x = 2
+		x = -2
 		y = 5
 		cost = 5
 		icon = GFX_focus_CHI_students_to_the_countryside
@@ -310,9 +297,10 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pnr_p_expand_the_scope_of_publicly_sold_goods
-		x = -1
+		x = -5
 		y = 1
 		cost = 5
+		icon = GFX_goal_LEP_tea_trade
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -322,7 +310,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pnr_p_utilizing_the_local_tax_system
-		x = 1
+		x = -3
 		y = 1
 		cost = 5
 		continue_if_invalid = no
@@ -334,48 +322,484 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pnr_p_strengthen_the_taiwan_military
-		x = 23
-		y = 2
+		x = 0
+		y = 1
 		cost = 3
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = TAI_pnr_p_military_revolution
 		}
+		relative_position_id = TAI_pnr_p_military_revolution
 	}
 	focus = {
 		id = TAI_pnr_p_healing_the_wounds
-		x = 3
+		x = 7
 		y = 6
 		cost = 3
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_pnr_p_teach_with_authority
+		}
+		prerequisite = {
+			focus = TAI_yaoqing_sanjutou
+		}
+		prerequisite = {
+			focus = TAI_pnr_p_police_supervision
+		}
 	}
 	focus = {
 		id = TAI_pnr_p_indigenous_military_service_rights
-		x = 22
+		x = 2
 		y = 3
 		cost = 3
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = TAI_pnr_p_strengthen_the_taiwan_military
+			focus = TAI_zhengzhao_taiwanese
 		}
+		relative_position_id = TAI_pnr_p_military_revolution
 	}
 	focus = {
 		id = TAI_pnr_p_military_revolution
 		x = 23
 		y = 1
 		cost = 3
+		icon = GFX_focus_generic_military_mission
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 	}
 	focus = {
 		id = TAI_pnr_p_teach_with_authority
-		x = 5
+		x = 9
 		y = 6
 		cost = 3
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_pnr_p_healing_the_wounds
+		}
+		prerequisite = {
+			focus = TAI_yaoqing_sanjutou
+		}
+		prerequisite = {
+			focus = TAI_pnr_p_police_supervision
+		}
+	}
+	focus = {
+		id = TAI_pingding_hunluan
+		x = 6
+		y = 2
+		cost = 5
+		icon = GFX_goal_HOL_black_monday
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = TAI_chongqi_mimijingcha
+		x = 12
+		y = 2
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = TAI_yu_zhishifenzi_huimian
+		x = 8
+		y = 2
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = TAI_anfu_gaoshazu
+		x = 10
+		y = 2
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = TAI_wenti_duijirushan
+		x = 9
+		y = 3
+		cost = 3
+		icon = GFX_focus_SWE_as_the_barometer_falls
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_1936_situation
+		}
+		prerequisite = {
+			focus = TAI_pingding_hunluan
+			focus = TAI_yu_zhishifenzi_huimian
+			focus = TAI_anfu_gaoshazu
+			focus = TAI_chongqi_mimijingcha
+		}
+	}
+	focus = {
+		id = TAI_hongse_yinying
+		x = 7
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_wenti_duijirushan
+		}
+	}
+	focus = {
+		id = TAI_shuo_deyu_zhe
+		x = 13
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_wenti_duijirushan
+		}
+	}
+	focus = {
+		id = TAI_no_water_anchol
+		x = -5
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_continue_to_promote_sugar_industry_reform
+		}
+		relative_position_id = TAI_pnr_p_japans_negative_assets
+	}
+	focus = {
+		id = TAI_zongdufu_zaixingdong
+		x = 9
+		y = 4
+		cost = 0
+		icon = GFX_focus_JAP_hasten_the_integration_of_taiwan
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_wenti_duijirushan
+		}
+	}
+	focus = {
+		id = TAI_penglai_maru_dida
+		x = 16
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_zaixu_jiuqing
+		}
+	}
+	focus = {
+		id = TAI_yaoqing_sanjutou
+		x = 8
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_zongdufu_zaixingdong
+		}
+	}
+	focus = {
+		id = TAI_jiakuai_jituanyizhu
+		x = 12
+		y = 7
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_aftermath_of_musha_incident
+		}
+	}
+	focus = {
+		id = TAI_shoujiao_wuqi
+		x = 10
+		y = 7
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_aftermath_of_musha_incident
+		}
+		prerequisite = {
+			focus = TAI_pnr_p_teach_with_authority
+		}
+	}
+	focus = {
+		id = TAI_jingong_tahemashe
+		x = 13
+		y = 6
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_searching_for_the_body_of_mona_rudao
+		}
+		prerequisite = {
+			focus = TAI_find_lamata_sing_sing
+		}
+	}
+	focus = {
+		id = TAI_find_lamata_sing_sing
+		x = 14
+		y = 5
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_changing_indigenous_policies
+		}
+	}
+	focus = {
+		id = TAI_gaitouhuanmian_aiyongxian
+		x = 14
+		y = 7
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_jingong_tahemashe
+		}
+	}
+	focus = {
+		id = TAI_zaixu_jiuqing
+		x = 18
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_penglai_maru_dida
+		}
+	}
+	focus = {
+		id = TAI_lalongqingnian
+		x = 13
+		y = 8
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_jiakuai_jituanyizhu
+		}
+		prerequisite = {
+			focus = TAI_jingong_tahemashe
+		}
+	}
+	focus = {
+		id = TAI_baquliaoya
+		x = 12
+		y = 9
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_shouzhiyiyu
+		}
+		prerequisite = {
+			focus = TAI_lalongqingnian
+		}
+	}
+	focus = {
+		id = TAI_shouzhiyiyu
+		x = 11
+		y = 8
+		cost = 4
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_jiakuai_jituanyizhu
+		}
+	}
+	focus = {
+		id = TAI_duxue_jiaoyu
+		x = 10
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_shouzhiyiyu
+		}
+	}
+	focus = {
+		id = TAI_kaifa_chunvdi
+		x = -1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_industrial_revitalization_plan
+		}
+		relative_position_id = TAI_pnr_p_japans_negative_assets
+	}
+	focus = {
+		id = TAI_cong_anbao_dao_jundui
+		x = -3
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_strengthen_the_taiwan_military
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_kuochong_feixingzhongdui
+		x = 0
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_strengthen_the_taiwan_military
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_zhengzhao_taiwanese
+		x = 2
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_strengthen_the_taiwan_military
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_qingdian_kucun
+		x = -4
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_cong_anbao_dao_jundui
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_ewai_wuqi_zhizao
+		x = -2
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_cong_anbao_dao_jundui
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_shanchuan_dao_milin
+		x = -3
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_cong_anbao_dao_jundui
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_shougou_pochan_tangtian
+		x = 1
+		y = 1
+		cost = 0
+		icon = GFX_HON_sugar_plantations
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_japans_negative_assets
+		}
+		relative_position_id = TAI_pnr_p_japans_negative_assets
+	}
+	focus = {
+		id = TAI_riben_jiaoguan
+		x = -1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_xunmi_shanghai
+		}
+		prerequisite = {
+			focus = TAI_xiyin_gengduo_rencai
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_xunmi_shanghai
+		x = 1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_riben_jiaoguan
+		}
+		prerequisite = {
+			focus = TAI_xiyin_gengduo_rencai
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_pink_bubble
+		x = -5
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_expand_the_scope_of_publicly_sold_goods
+		}
+		relative_position_id = TAI_pnr_p_japans_negative_assets
+	}
+	focus = {
+		id = TAI_chongqi_mayao_maoyi
+		x = -6
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_expand_the_scope_of_publicly_sold_goods
+		}
+		relative_position_id = TAI_pnr_p_japans_negative_assets
+	}
+	focus = {
+		id = TAI_yixiaoboda
+		x = -3
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_expand_the_scope_of_publicly_sold_goods
+		}
+	}
+	focus = {
+		id = TAI_xiyin_gengduo_rencai
+		x = 23
+		y = 4
+		cost = 0
+		icon = GFX_focus_generic_treaty
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_kuochong_feixingzhongdui
+		}
 	}
 }
