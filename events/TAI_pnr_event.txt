@@ -1,0 +1,57 @@
+add_namespace = TAI_pnr_normal
+
+country_event = { # 东亚共荣协会祝全台国民新春快乐
+    id = TAI_pnr_normal.5
+    immediate = { log = "[GetDateText]: [Root.GetName]: event TAI_pnr_normal.5" }
+    title = TAI_pnr_normal.5.t
+    desc = TAI_pnr_normal.5.desc
+    picture = GFX_report_event_pnr_TAI_pan_asia_co_sphere
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 鼠年快乐……
+        name = TAI_pnr_normal.5.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 三大亨之治
+    id = TAI_pnr_normal.6
+    immediate = { log = "[GetDateText]: [Root.GetName]: event TAI_pnr_normal.6" }
+    title = TAI_pnr_normal.6.t
+    desc = TAI_pnr_normal.6.desc
+    picture = GFX_report_event_pnr_TAI_big_three
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 希望他们能给总督府带回好消息。
+        name = TAI_pnr_normal.6.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 看起来只是三个卖国贼。
+        name = TAI_pnr_normal.6.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 蔗奴
+    id = TAI_pnr_normal.7
+    immediate = { log = "[GetDateText]: [Root.GetName]: event TAI_pnr_normal.7" }
+    title = TAI_pnr_normal.7.t
+    desc = TAI_pnr_normal.7.desc
+    picture = GFX_report_event_pnr_TAI_hospital
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 凡我青年同志，务须努力奋斗。
+        name = TAI_pnr_normal.7.a
+        ai_chance = { factor = 1 }
+        add_popularity = { ideology = radical_socialist popularity = 0.02 }
+    }
+    option = { # 亦应加倍团结，为同胞得解放。
+        name = TAI_pnr_normal.7.b
+        ai_chance = { factor = 1 }
+        add_popularity = { ideology = radical_socialist popularity = 0.02 }
+    }
+}
+

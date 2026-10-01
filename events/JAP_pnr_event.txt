@@ -900,6 +900,39 @@ news_event = { # 昭和青年会稳定政局
     }
 }
 
+news_event = { # 泛美航空天际酒店遭到破坏
+    id = JAP_pnr_news.10
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_news.10" }
+    title = JAP_pnr_news.10.t
+    desc = JAP_pnr_news.10.desc
+    picture = GFX_report_event_pan_american_airways_system_news
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 西太平洋局势愈发不安。
+        name = JAP_pnr_news.10.a
+        ai_chance = { factor = 1 }
+        trigger = {
+            NOT = {
+                OR = {
+                    tag = JAP
+                    tag = GEA
+                }
+            }
+        }
+    }
+    option = { # 审查该报道。
+        name = JAP_pnr_news.10.b
+        ai_chance = { factor = 1 }
+        trigger = {
+            OR = {
+                tag = JAP
+                tag = GEA
+            }
+        }
+    }
+}
+
 country_event = { # [JAP.GetName]与我们接触
     id = JAP_pnr_kg.1
     immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_kg.1" }
@@ -1837,7 +1870,7 @@ country_event = { # 右线自由主义削弱减益事件
     }
 }
 
-country_event = { # 左线通货膨胀事件
+country_event = { # $JAP_pnr_fujii_sadanobu$辞职
     id = JAP_pnr_earlygame.16
     immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.16" }
     title = JAP_pnr_earlygame.16.t
@@ -1846,36 +1879,17 @@ country_event = { # 左线通货膨胀事件
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # 将国债拆分成小面额无记名债券。
+    option = { # 命运的安排，真是感人。
         name = JAP_pnr_earlygame.16.a
         ai_chance = { factor = 1 }
-        custom_effect_tooltip = {
-			localization_key = tooltip_modify_dynmod
-			DYNMOD = JAP_pnr_lost_decade_nightmare_modifier
-		}
-        add_to_variable = {
-			var = JAP_pnr_lost_decade_consumer_goods_factor
-			value = -0.04
-			tooltip = consumer_goods_factor_tt
-		}
-        force_update_dynamic_modifier = yes
+        retire_character = JAP_pnr_fujii_sadanobu
+        activate_advisor = JAP_pnr_takahashi_korekiyo_advisor_idea
     }
-    option = { # 游说银行团进行相对交易与卖出。
+    option = { # 我是说有没有可能……
         name = JAP_pnr_earlygame.16.b
         ai_chance = { factor = 1 }
-        custom_effect_tooltip = {
-			localization_key = tooltip_modify_dynmod
-			DYNMOD = JAP_pnr_lost_decade_nightmare_modifier
-		}
-        add_to_variable = {
-			var = JAP_pnr_lost_decade_consumer_goods_factor
-			value = -0.10
-			tooltip = consumer_goods_factor_tt
-		}
-        add_to_variable = { JAP_pnr_zaibatsu_government_path_var = 1 }
-        force_update_dynamic_modifier = yes
-        custom_effect_tooltip = tooltip_white_line
-        custom_effect_tooltip = pnr_zaibatsu_may_control_government_tt
+        retire_character = JAP_pnr_fujii_sadanobu
+        activate_advisor = JAP_pnr_takahashi_korekiyo_advisor_idea
     }
 }
 
@@ -1899,7 +1913,7 @@ country_event = { # 关闭工具箱
     }
 }
 
-country_event = { # 右线倒闭事件
+country_event = { # $JAP_pnr_tsushima_juichi$退场
     id = JAP_pnr_earlygame.18
     immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.18" }
     title = JAP_pnr_earlygame.18.t
@@ -1908,13 +1922,17 @@ country_event = { # 右线倒闭事件
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # 市场会自己挤出泡沫的。
+    option = { # 井上准之助会收拾残局。
         name = JAP_pnr_earlygame.18.a
         ai_chance = { factor = 1 }
+        retire_character = JAP_pnr_tsushima_juichi
+        activate_advisor = JAP_pnr_inoue_junnosuke_advisor_idea
     }
-    option = { # 让巨头们兼并，借此提升经济抗风险能力。
+    option = { # 不良资产被出清了。
         name = JAP_pnr_earlygame.18.b
         ai_chance = { factor = 1 }
+        retire_character = JAP_pnr_tsushima_juichi
+        activate_advisor = JAP_pnr_inoue_junnosuke_advisor_idea
     }
 }
 
@@ -2069,7 +2087,7 @@ country_event = { # 五一五事件
         ai_chance = { factor = 1 }
         add_stability = -0.05
         set_country_flag = JAP_pnr_515_happened
-        JAP_inukai_tsuyoshi = { kill_character = yes }
+        retire_character = JAP_pnr_inukai_tsuyoshi # = { kill_character = yes }
     }
 }
 
@@ -3494,6 +3512,30 @@ country_event = { # [FROM.GetName]拒绝提议
     }
 }
 
+country_event = { # [JAP.GetName]显露野心
+    id = JAP_pnr_foreign_events.10
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.8" }
+    title = JAP_pnr_foreign_events.10.t
+    desc = JAP_pnr_foreign_events.10.desc
+    picture = GFX_report_event_GER_tsingtao_defences
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 致电东京，“强硬地”要求他们改正错误。
+        name = JAP_pnr_foreign_events.10.a
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = JAP_pnr_foreign_events.10.a_tt
+    }
+    option = { # 用委婉一点的口气。
+        name = JAP_pnr_foreign_events.10.b
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = JAP_pnr_foreign_events.10.b_tt
+    }
+    option = { # 为了避免麻烦上身的最好方法是——别干。
+        name = JAP_pnr_foreign_events.10.c
+        ai_chance = { factor = 1 }
+    }
+}
 
 country_event = {
 	id = JAP_pnr_event.2

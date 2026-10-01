@@ -11,6 +11,11 @@ JAP_pnr_landreform_category = { # LAND REFORM
 
 		timeout_effect = {
 			add_to_variable = {
+				var = JAP_pnr_landreform_result_var
+				value = 1
+				tooltip = JAP_pnr_landreform_result_var_raised
+			}
+			add_to_variable = {
 				var = JAP_pnr_landreform_progress_var
 				value = 5
 				tooltip = JAP_pnr_landreform_progress_var_raised
@@ -813,12 +818,305 @@ JAP_pnr_kwan_island_crisis_category = { # 1936.4 kwan crisis
 	}
 }
 
-JAP_pnr_oriental_policy_category = { # Korean Government Control
-
-}
-
-JAP_pnr_control_anti_country_terrorists_category = {
-	
+JAP_pnr_oriental_policy_category = {
+	JAP_pnr_revalue_taiwan = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		days_remove = 90
+		days_re_enable = 90
+		available = {
+			country_exists = TAI
+			custom_trigger_tooltip = {
+				tooltip = pnr_oriental_policy_category_economy_normal_tt
+				TAI = {
+					is_subject_of = JAP
+					check_variable = { pnr_provisional_government_stability_var > 9 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
+				}
+			}
+		}
+		custom_cost_trigger = {
+			TAI = { check_variable = { pnr_provisional_government_stability_var > 9 } }
+		}
+		custom_cost_text = JAP_pnr_oriental_policy_category_pgst_10_cost
+		modifier = { political_power_gain = 0.2 }
+		complete_effect = {
+			TAI = {
+				add_to_variable = {
+					var = pnr_provisional_government_stability_var
+					value = -10
+					tooltip = pnr_oriental_policy_category
+				}
+				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
+			}
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_revalue_korea = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		days_remove = 90
+		days_re_enable = 90
+		available = {
+			country_exists = KOJ
+			custom_trigger_tooltip = {
+				tooltip = pnr_oriental_policy_category_economy_normal_tt
+				KOJ = {
+					is_subject_of = JAP
+					check_variable = { pnr_provisional_government_stability_var > 9 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
+				}
+			}
+		}
+		custom_cost_trigger = {
+			KOJ = { check_variable = { pnr_provisional_government_stability_var > 9 } }
+		}
+		custom_cost_text = JAP_pnr_oriental_policy_category_pgst_10_cost
+		modifier = { political_power_gain = 0.2 }
+		complete_effect = {
+			KOJ = {
+				add_to_variable = {
+					var = pnr_provisional_government_stability_var
+					value = -10
+					tooltip = pnr_oriental_policy_category
+				}
+				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
+			}
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_fund_taiwan = {
+		icon = GFX_decision_gre_investment_decisions
+		cost = 20
+		days_remove = 120
+		days_re_enable = 30
+		allowed = { always = no }
+		available = {
+			country_exists = TAI
+			custom_trigger_tooltip = {
+				tooltip = pnr_oriental_policy_category_economy_normal_tt
+				TAI = {
+					is_subject_of = JAP
+					check_variable = { pnr_provisional_government_stability_var < 96 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
+				}
+			}
+		}
+		remove_effect = {
+			TAI = {
+				add_to_variable = {
+					var = pnr_provisional_government_stability_var
+					value = 5
+					tooltip = pnr_oriental_policy_category
+				}
+				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
+			}
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_fund_korea = {
+		icon = GFX_decision_gre_investment_decisions
+		cost = 20
+		days_remove = 120
+		days_re_enable = 30
+		allowed = { always = no }
+		available = {
+			country_exists = KOJ
+			custom_trigger_tooltip = {
+				tooltip = pnr_oriental_policy_category_economy_normal_tt
+				KOJ = {
+					is_subject_of = JAP
+					check_variable = { pnr_provisional_government_stability_var < 96 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
+				}
+			}
+		}
+		remove_effect = {
+			KOJ = {
+				add_to_variable = {
+					var = pnr_provisional_government_stability_var
+					value = 5
+					tooltip = pnr_oriental_policy_category
+				}
+				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
+			}
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_ship_weapons_to_taiwan = {
+		icon = GFX_decision_support_equipment
+		days_remove = 60
+		days_re_enable = 30
+		allowed = { always = no }
+		available = {
+			country_exists = TAI
+			custom_trigger_tooltip = {
+				tooltip = pnr_oriental_policy_category_economy_normal_tt
+				TAI = {
+					is_subject_of = JAP
+					check_variable = { pnr_provisional_government_stability_var < 96 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
+				}
+			}
+		}
+		custom_cost_text = JAP_pnr_1000_infantry_100_support_equipment_cost
+		custom_cost_trigger = {
+			NOT = { has_equipment = { infantry_equipment < 1000 } }
+			NOT = { has_equipment = { support_equipment < 100 } }
+		}
+		complete_effect = {
+			send_equipment = { target = TAI type = infantry_equipment amount = 1000 }
+			send_equipment = { target = TAI type = support_equipment amount = 100 }
+		}
+		remove_effect = {
+			TAI = {
+				add_to_variable = {
+					var = pnr_provisional_government_stability_var
+					value = 5
+					tooltip = pnr_oriental_policy_category
+				}
+				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
+			}
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_ship_weapons_to_korea = {
+		icon = GFX_decision_support_equipment
+		days_remove = 60
+		days_re_enable = 30
+		allowed = { always = no }
+		available = {
+			country_exists = KOJ
+			custom_trigger_tooltip = {
+				tooltip = pnr_oriental_policy_category_economy_normal_tt
+				KOJ = {
+					is_subject_of = JAP
+					check_variable = { pnr_provisional_government_stability_var < 96 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
+				}
+			}
+		}
+		custom_cost_text = JAP_pnr_1000_infantry_100_support_equipment_cost
+		custom_cost_trigger = {
+			NOT = { has_equipment = { infantry_equipment < 1000 } }
+			NOT = { has_equipment = { support_equipment < 100 } }
+		}
+		complete_effect = {
+			send_equipment = { target = KOJ type = infantry_equipment amount = 1000 }
+			send_equipment = { target = KOJ type = support_equipment amount = 100 }
+		}
+		remove_effect = {
+			KOJ = {
+				add_to_variable = {
+					var = pnr_provisional_government_stability_var
+					value = 5
+					tooltip = pnr_oriental_policy_category
+				}
+				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
+			}
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_consolidate_control_over_taiwan = {
+		icon = GFX_decision_government
+		cost = 45
+		days_remove = 180
+		allowed = { always = no }
+		fire_only_once = yes
+		available = {
+			country_exists = TAI
+			custom_trigger_tooltip = {
+				tooltip = pnr_oriental_policy_category_economy_normal_tt
+				TAI = {
+					is_subject_of = JAP
+					check_variable = { pnr_provisional_government_stability_var < 91 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
+				}
+			}
+		}
+		remove_effect = {
+			TAI = {
+				add_one_random_civilian_factory = yes
+				add_one_random_civilian_factory = yes
+				add_to_variable = {
+					var = pnr_provisional_government_stability_var
+					value = 10
+					tooltip = pnr_oriental_policy_category
+				}
+				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
+			}
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_consolidate_control_over_korea = {
+		icon = GFX_decision_government
+		cost = 45
+		days_remove = 180
+		allowed = { always = no }
+		fire_only_once = yes
+		available = {
+			country_exists = KOJ
+			custom_trigger_tooltip = {
+				tooltip = pnr_oriental_policy_category_economy_normal_tt
+				KOJ = {
+					is_subject_of = JAP
+					check_variable = { pnr_provisional_government_stability_var < 91 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
+					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
+				}
+			}
+		}
+		remove_effect = {
+			KOJ = {
+				add_one_random_civilian_factory = yes
+				add_one_random_civilian_factory = yes
+				add_to_variable = {
+					var = pnr_provisional_government_stability_var
+					value = 10
+					tooltip = pnr_oriental_policy_category
+				}
+				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
+			}
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
 }
 
 JAP_pnr_black_monday_development_category = {
@@ -1021,4 +1319,418 @@ JAP_pnr_black_monday_development_category = {
 		ai_will_do = { factor = 0 }
 		fixed_random_seed = no
 	}
+}
+
+JAP_pnr_guirendengche_qinglong_zaoqiu_catgory = {
+	JAP_pnr_doubts_about_zhang_mission = { # New Countdown for FNG-JAP
+		allowed = { always = no }
+		available = {
+			FNG_JAP_mission_complete_trigger = yes
+		}
+		cancel_trigger = {
+			NOT = { country_exists = FNG }
+		}
+		icon = GFX_decision_jap_conquer_china
+		is_good = no
+		days_mission_timeout = 365
+		priority = 900 #Should always be at top
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete JAP_pnr_doubts_about_zhang_mission"
+			#Rig it if you have game rules
+			if = {
+				limit = {
+					FNG = { is_ai = yes }
+					OR = {
+						has_game_rule = { rule = FNG_path option = FNG_PATH_GAMBIT_PATAUT }
+						has_game_rule = { rule = FNG_path option = FNG_PATH_CONCORD_PATAUT }
+					}
+				}
+				effect_tooltip = { country_event = fengtian_japan_mechanic_events.004 } #The Huanggutun Incident
+			}
+			#Actual code
+			else = {
+				effect_tooltip = { country_event = fengtian_japan_mechanic_events.003 } #The Fengtian-Japanese Alliance Victorious?
+			}
+		}
+		timeout_effect = {
+			log = "[GetLogRoot]: Decision timeout JAP_pnr_doubts_about_zhang_mission"
+			#Rig it if you have game rules
+			if = {
+				limit = {
+					FNG = { is_ai = yes }
+					OR = {
+						has_game_rule = { rule = FNG_path option = FNG_PATH_RECOVERY_AUTDEM }
+						has_game_rule = { rule = FNG_path option = FNG_PATH_COMMUNICATIONS_AUTDEM }
+						has_game_rule = { rule = FNG_path option = FNG_PATH_TWIN_DRAGONS_AUTDEM }
+					}
+				}
+				effect_tooltip = { country_event = fengtian_japan_mechanic_events.003 } #The Fengtian-Japanese Alliance Victorious?
+			}
+			#Actual code
+			else = {
+				effect_tooltip = { country_event = fengtian_japan_mechanic_events.004 } #The Huanggutun Incident
+			}
+		}
+		cancel_effect = {
+			log = "[GetLogRoot]: Decision cancel JAP_faith_in_zhang_runs_out_mission"
+		}
+		fixed_random_seed = no
+	}
+	FNG_JAP_pnr_search_for_helpful_collaborators = {
+		allowed = { tag = JAP }
+		visible = {
+			has_active_mission = JAP_faith_in_zhang_runs_out_mission
+		}
+		icon = GFX_decision_generic_political_discourse
+		priority = 100
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100 #Higher Priority than Others
+				has_political_power > 150 #AI shouldn't use this unless they have room to spare
+			}
+			modifier = {
+				factor = 0
+				has_country_flag = JAP_is_playing_FNG_JAP_minigame_flag
+			}
+		}
+		cost = 30
+		days_re_enable = 0
+		days_remove = 90
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete FNG_JAP_search_for_helpful_collaborators"
+			effect_tooltip = {
+				FNG_JAP_mech_sub_time_small_effect = yes
+				FNG_JAP_investment_small = yes
+			}
+			set_country_flag = {
+				flag = JAP_is_playing_FNG_JAP_minigame_flag
+				days = 60 #Ai will only do Philippines stuff every 60 days.
+				value = 1
+			}
+			FNG = { country_event = { id = fengtian_japan_mechanic_events.200 days = 1 } } #Japan Searches for Collaborators
+		}
+		fixed_random_seed = no
+	}
+	FNG_JAP_pnr_rein_in_the_extremists = {
+		allowed = { tag = JAP }
+		visible = {
+			has_active_mission = JAP_faith_in_zhang_runs_out_mission
+		}
+		icon = GFX_decision_soldierly_discipline
+		priority = 100
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100 #Higher Priority than Others
+				has_war_support > 0.50
+			}
+			modifier = {
+				factor = 0
+				has_country_flag = JAP_is_playing_FNG_JAP_minigame_flag
+			}
+		}
+		custom_cost_trigger = {
+			has_war_support > 0.05
+		}
+		custom_cost_text = war_support5
+		days_re_enable = 0
+		days_remove = 90
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete FNG_JAP_rein_in_the_extremists"
+			hidden_effect = {
+				add_war_support = -0.05
+			}
+			effect_tooltip = {
+				FNG_JAP_mech_add_time_small_effect = yes
+				FNG_JAP_investment_small = yes
+			}
+			set_country_flag = {
+				flag = JAP_is_playing_FNG_JAP_minigame_flag
+				days = 60 #Ai will only do Philippines stuff every 60 days.
+				value = 1
+			}
+			FNG = { country_event = { id = fengtian_japan_mechanic_events.201 days = 1 } } #Japan Reins in Extremists
+		}
+		fixed_random_seed = no
+	}
+	FNG_JAP_pnr_deploy_emergency_economic_aid = {
+		allowed = { tag = JAP }
+		visible = {
+			has_active_mission = JAP_faith_in_zhang_runs_out_mission
+		}
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+		}
+		icon = GFX_decision_cash_flow
+		priority = 100
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100 #Higher Priority than Others
+				num_of_civilian_factories_available_for_projects > 14
+				has_war = no
+			}
+			modifier = {
+				factor = 0
+				has_country_flag = JAP_is_playing_FNG_JAP_minigame_flag
+			}
+		}
+		modifier = {
+			civilian_factory_use = 3
+		}
+		cost = 10
+		days_re_enable = 0
+		days_remove = 90
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete FNG_JAP_deploy_emergency_economic_aid"
+			effect_tooltip = {
+				FNG_JAP_mech_sub_time_medium_effect = yes
+				FNG_JAP_investment_medium = yes
+				FNG = {
+					add_timed_idea = {
+						idea = FNG_JAP_deploy_emergency_economic_aid_idea
+						days = 90
+					}
+				}
+			}
+			set_country_flag = {
+				flag = JAP_is_playing_FNG_JAP_minigame_flag
+				days = 60 #Ai will only do Philippines stuff every 60 days.
+				value = 1
+			}
+			FNG = { country_event = { id = fengtian_japan_mechanic_events.202 days = 1 } } #Japan Deploys an Economic Aid Plan
+		}
+		fixed_random_seed = no
+	}
+	FNG_JAP_pnr_send_emergency_arms_shipment = {
+		allowed = { tag = JAP }
+		visible = {
+			has_active_mission = JAP_faith_in_zhang_runs_out_mission
+		}
+		available = {
+			has_equipment = { artillery_equipment > 49 }
+			has_equipment = { support_equipment > 49 }
+		}
+		icon = GFX_decision_artillery
+		priority = 100
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100 #Higher Priority than Others
+				has_war_support > 0.50
+			}
+			modifier = {
+				factor = 0
+				has_country_flag = JAP_is_playing_FNG_JAP_minigame_flag
+			}
+		}
+		custom_cost_trigger = {
+			NOT = { has_equipment = { infantry_equipment < 2000 } }
+		}
+		custom_cost_text = 2000_guns
+		days_re_enable = 0
+		days_remove = 90
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete FNG_JAP_send_emergency_arms_shipment"
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -2000
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = -50
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -50
+				}
+			}
+			effect_tooltip = {
+				FNG_JAP_mech_sub_time_medium_effect = yes
+				FNG_JAP_investment_medium = yes
+				FNG = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 2000
+					}
+					add_equipment_to_stockpile = {
+						type = artillery_equipment
+						amount = 50
+					}
+					add_equipment_to_stockpile = {
+						type = support_equipment
+						amount = 50
+					}
+				}
+			}
+			set_country_flag = {
+				flag = JAP_is_playing_FNG_JAP_minigame_flag
+				days = 60 #Ai will only do Philippines stuff every 60 days.
+				value = 1
+			}
+			FNG = { country_event = { id = fengtian_japan_mechanic_events.203 days = 1 } } #Japanese Sends Emergency Arms
+		}
+		fixed_random_seed = no
+	}
+	FNG_JAP_pnr_reinforce_our_armies_in_china = {
+		allowed = { tag = JAP }
+		visible = {
+			has_active_mission = JAP_faith_in_zhang_runs_out_mission
+			NOT = {
+				has_relation_modifier = {
+					target = FNG
+					modifier = volunteer_limit_plus_nine #AKA capped out
+				}
+			}
+		}
+		available = {
+			if = {
+				limit = {
+					has_relation_modifier = {
+						target = FNG
+						modifier = volunteer_limit_plus_two
+					}
+				}
+				custom_override_tooltip = {
+					tooltip = FNG_JAP_influence_above_25_tooltip
+					OR = {
+						FNG_mantetsu_level_medium = yes
+						FNG_mantetsu_level_high = yes
+						FNG_mantetsu_level_very_high = yes
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_relation_modifier = {
+						target = FNG
+						modifier = volunteer_limit_plus_four
+					}
+				}
+				custom_override_tooltip = {
+					tooltip = FNG_JAP_influence_above_50_tooltip
+					OR = {
+						FNG_mantetsu_level_high = yes
+						FNG_mantetsu_level_very_high = yes
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_relation_modifier = {
+						target = FNG
+						modifier = volunteer_limit_plus_six
+					}
+				}
+				FNG_mantetsu_level_very_high = yes
+			}
+			#If you don't have any ideas yet, you can do it any time.
+		}
+		icon = GFX_decision_generic_military
+		priority = 100
+		ai_will_do = {
+			base = 100 #Japan should basically always take this focus when its available.
+			modifier = {
+				factor = 0
+				has_country_flag = JAP_is_playing_FNG_JAP_minigame_flag
+			}
+		}
+		custom_cost_trigger = {
+			NOT = { command_power < 50 }
+		}
+		custom_cost_text = CP_50
+		days_re_enable = 0
+		days_remove = 90
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete FNG_JAP_reinforce_our_armies_in_china"
+			hidden_effect = {
+				add_command_power = -50
+			}
+			effect_tooltip = {
+				FNG_JAP_mech_sub_time_medium_effect = yes
+				FNG_JAP_investment_medium = yes
+				JAP_FNG_increase_reinforcements_to_FNG_effect = yes
+			}
+			set_country_flag = {
+				flag = JAP_is_playing_FNG_JAP_minigame_flag
+				days = 60 #Ai will only do Philippines stuff every 60 days.
+				value = 1
+			}
+			FNG = { country_event = { id = fengtian_japan_mechanic_events.204 days = 1 } } #Japanese Reinforcements Arrive
+		}
+		fixed_random_seed = no
+	}
+	FNG_JAP_pnr_attaches_to_the_continent = {
+		allowed = { tag = JAP }
+		visible = {
+			has_active_mission = JAP_faith_in_zhang_runs_out_mission
+			FNG = { has_war = yes }
+			NOT = {
+				FNG = { has_attache_from = JAP }
+			}
+		}
+		available = {
+			#Can do any time basically
+		}
+		icon = GFX_decision_decision_generic_chinese_officers
+		priority = 100
+		ai_will_do = {
+			base = 500 #Japan should basically always take this focus when its available.
+			#modifier = {
+			#	factor = 0
+			#	has_country_flag = JAP_is_playing_FNG_JAP_minigame_flag
+			#}
+			modifier = {
+				factor = 0
+				check_variable = { FNG.FNG_JAP_influence_variable > 0.30 } #avoid causing massive penalty on Fengtian
+			}
+		}
+		custom_cost_trigger = {
+			NOT = { command_power < 15 }
+		}
+		custom_cost_text = CP_15
+		days_re_enable = 20 #Ensure the events play out correctly
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete FNG_JAP_attaches_to_the_continent"
+			hidden_effect = {
+				add_command_power = -15
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = JAP_has_sent_military_attache_to_the_continent }
+				}
+				FNG = { country_event = { id = fengtian_japan_mechanic_events.205 days = 1 } } #Attaches from Tokyo
+				effect_tooltip = {
+					diplomatic_relation = {
+						country = FNG
+						relation = send_attache
+						active = yes
+					}
+				}
+				custom_effect_tooltip = if_they_accept_tt
+				effect_tooltip = {
+					FNG_JAP_investment_mega = yes
+				}
+				custom_effect_tooltip = if_they_refuse_tt
+				effect_tooltip = {
+					FNG_JAP_mech_sub_time_mega_effect = yes
+				}
+				set_country_flag = JAP_has_sent_military_attache_to_the_continent
+			}
+			else_if = {
+				limit = {
+					has_country_flag = JAP_has_sent_military_attache_to_the_continent
+				}
+				diplomatic_relation = {
+					country = FNG
+					relation = send_attache
+					active = yes
+				}
+			}
+		}
+		fixed_random_seed = no
+	}
+
 }

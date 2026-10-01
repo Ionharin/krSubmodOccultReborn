@@ -28,6 +28,22 @@ JAP_pnr_election_category = {
 	}
 }
 
+JAP_pnr_cardgame_category = {
+	icon = GFX_JAP_pnr_cardgame_decision_category
+	allowed = { original_tag = JAP }
+	priority = 150
+	visible_when_empty = yes
+	visible = { original_tag = JAP }
+	scripted_gui = JAP_pnr_cardgame
+}
+
+JAP_pnr_kasumigaseki_diplomacy_category = {
+	icon = GFX_decision_category_foreign_policy
+	priority = 91
+	allowed = { original_tag = JAP }
+	visible = { has_completed_focus = JAP_pnr_kasumigaseki_diplomacy }
+}
+
 JAP_pnr_continental_policy_category = {
 	icon = GFX_decision_category_qing_hall
 	priority = 92
@@ -186,16 +202,27 @@ JAP_pnr_black_monday_development_category  = {
 }
 
 JAP_pnr_oriental_policy_category = {
-	icon = GFX_decision_category_generic_industry
-	picture = GFX_decision_cat_industry_KMT
-	priority = 900
-	visible_when_empty = yes
+	icon = GFX_decision_cat_JAP_pnr_we_salute
+	picture = GFX_decisions_picture_pnr_KOR_oriental_development_company
+	priority = 65
+	allowed = { tag = JAP }
+	custom_icon = {
+		tag = KOJ
+		value = pnr_koj_pg_stability_value
+		desc = pnr_koj_pg_stability_value_tt
+	}
+	custom_icon = {
+		tag = TAI
+		value = pnr_tai_pg_stability_value
+		desc = pnr_tai_pg_stability_value_tt
+	}
 }
 
-JAP_pnr_control_anti_country_terrorists_category = {
-	icon = GFX_decision_spr_political_assassination
-	picture = GFX_decision_cat_industry_KMT
-	priority = 900
+JAP_pnr_guirendengche_qinglong_zaoqiu_catgory = {
+	icon = GFX_decision_category_fengtian
+	priority = 66
+	picture = GFX_decision_cat_picture_unification_conference
+	allowed = { tag = JAP }
 	visible_when_empty = yes
 }
 

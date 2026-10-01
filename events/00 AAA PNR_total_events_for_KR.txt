@@ -7,8 +7,94 @@ add_namespace = annexation_events
 add_namespace = UPC.chinademocraticleague
 add_namespace = china_events
 add_namespace = qing_coup_events
+add_namespace = league_collapse_events
+add_namespace = fengtian_japan_mechanic_events
 add_namespace = japan_domestic_events
-add_namespace = taiwan_events 
+add_namespace = taiwan_events
+
+###########
+### FNG ###
+###########
+
+country_event = { #The Three Armies in China
+	id = fengtian_japan_mechanic_events.001
+	title = fengtian_japan_mechanic_events.001.t
+	desc = fengtian_japan_mechanic_events.001.d
+	picture = GFX_report_event_FNG_zhang_zoulin
+
+	is_triggered_only = yes #Triggered by [EVENT] fengtian_japan_mechanic_events.000
+
+	option = {
+		log = "[GetLogInfo]: event fengtian_japan_mechanic_events.001 option fengtian_japan_mechanic_events.001.a"
+		name = fengtian_japan_mechanic_events.001.a #We will tame the Chinese dragon.
+		custom_effect_tooltip = fengtian_japan_mechanic_events.001.tt
+		unlock_decision_category_tooltip = JAP_pnr_guirendengche_qinglong_zaoqiu_catgory
+	}
+}
+
+country_event = { #Tensions in Manchuria
+	id = fengtian_japan_mechanic_events.002
+	title = fengtian_japan_mechanic_events.002.t
+	desc = fengtian_japan_mechanic_events.002.d
+	picture = GFX_report_event_JAP_revolt
+
+	is_triggered_only = yes #Triggered by [ON ACTION] on_war_relation_added
+
+	major = yes
+	fire_for_sender = yes
+	show_major = {
+		OR = {
+			is_tag_in_china_area = yes
+			original_tag = JAP
+			original_tag = GEA
+			any_home_area_neighbor_country = {
+				is_tag_in_china_area = yes
+				is_owner_neighbor_of = ROOT
+			}
+		}
+	}
+
+	trigger = {
+		NOT = { FNG_JAP_hostile = yes }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event fengtian_japan_mechanic_events.002 option fengtian_japan_mechanic_events.002.a"
+		name = fengtian_japan_mechanic_events.002.a #When you play the game of thrones, you win or you die.
+		custom_effect_tooltip = fengtian_japan_mechanic_events.002.tt #Warn everyone what will happen if Zhang fails to win
+		if = {
+			limit = { tag = FNG }
+			#Do these both FNG side so they are synched
+			activate_mission = FNG_japanese_patience_runs_thin_mission
+			hidden_effect = {
+				JAP = {
+					activate_mission = JAP_pnr_doubts_about_zhang_mission
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_variable = FNG_prince_faith_increase
+					}
+					add_days_mission_timeout = {
+						mission = FNG_japanese_patience_runs_thin_mission
+						days = FNG_prince_faith_increase
+					}
+					JAP = {
+						add_days_mission_timeout = {
+							mission = JAP_pnr_doubts_about_zhang_mission
+							days = FNG.FNG_prince_faith_increase
+						}
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { tag = JAP }
+			effect_tooltip = { activate_mission = JAP_pnr_doubts_about_zhang_mission }
+		}
+	}
+}
 
 ###########
 ### QIE ###
@@ -332,6 +418,9 @@ country_event = { # Anqing Refuses Further Cooperation
 		add_political_power = -30
 		add_stability = -0.03
 		ANQ_spawn_anqing_clique = yes
+		hidden_effect = {
+			JAP = { country_event = { id = JAP_pnr_foreign_events.1 days = 1 } }
+		}
 	}
 
 	option = { #Let us join Governor Chen!
@@ -342,6 +431,9 @@ country_event = { # Anqing Refuses Further Cooperation
 		add_stability = -0.03
 		ANQ_spawn_anqing_clique = yes
 		ANQ = { change_tag_from = ROOT }
+		hidden_effect = {
+			JAP = { country_event = { id = JAP_pnr_foreign_events.1 days = 1 } }
+		}
 	}
 
 	after = {
@@ -353,7 +445,6 @@ country_event = { # Anqing Refuses Further Cooperation
 			ANQ = { country_event = { id = league_collapse_events.13 hours = 5 } }
 			QIE = { country_event = { id = league_collapse_flavour_events.4 hours = 12 } }
 			FNG = { country_event = { id = fengtian_events.114 hours = 12 } }
-			JAP = { country_event = { id = JAP_pnr_foreign_events.1 hours = 12 } }
 		}
 	}
 }
