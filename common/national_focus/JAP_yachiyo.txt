@@ -4105,21 +4105,27 @@ focus_tree = {
 		}
 		completion_reward = {
 			if = {
-				limit = { has_idea = JAP_pnr_bushido_0 }
+				limit = {
+					has_idea = JAP_pnr_bushido_0
+				}
 				swap_ideas = {
 					remove_idea = JAP_pnr_bushido_0
 					add_idea = JAP_pnr_bushido_1
 				}
 			}
 			else_if = {
-				limit = { has_idea = JAP_pnr_bushido_1 }
+				limit = {
+					has_idea = JAP_pnr_bushido_1
+				}
 				swap_ideas = {
 					remove_idea = JAP_pnr_bushido_1
 					add_idea = JAP_pnr_bushido_2
 				}
 			}
 			else_if = {
-				effect_tooltip = { add_ideas = JAP_pnr_bushido_1 }
+				effect_tooltip = {
+					add_ideas = JAP_pnr_bushido_1
+				}
 			}
 			enable_JAP_pnr_tech_complex_resilience = yes
 		}
@@ -12918,21 +12924,27 @@ focus_tree = {
 		}
 		completion_reward = {
 			if = {
-				limit = { has_idea = JAP_pnr_bushido_0 }
+				limit = {
+					has_idea = JAP_pnr_bushido_0
+				}
 				swap_ideas = {
 					remove_idea = JAP_pnr_bushido_0
 					add_idea = JAP_pnr_bushido_1
 				}
 			}
 			else_if = {
-				limit = { has_idea = JAP_pnr_bushido_1 }
+				limit = {
+					has_idea = JAP_pnr_bushido_1
+				}
 				swap_ideas = {
 					remove_idea = JAP_pnr_bushido_1
 					add_idea = JAP_pnr_bushido_2
 				}
 			}
 			else_if = {
-				effect_tooltip = { add_ideas = JAP_pnr_bushido_1 }
+				effect_tooltip = {
+					add_ideas = JAP_pnr_bushido_1
+				}
 			}
 			custom_effect_tooltip = pnr_reduce_lost_decade_tt
 			JAP_pnr_farewell_to_the_lost_decade_update = yes
@@ -14505,10 +14517,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_political_power = 5
-			swap_ideas = {
-				remove_idea = JAP_pnr_farewell_to_the_lost_decade_0
-				add_idea = JAP_pnr_farewell_to_the_lost_decade
-			}
+			remove_ideas = JAP_pnr_farewell_to_the_lost_decade_0
+			set_power_balance = { id = JAP_hero_et_gangster_bop left_side = JAP_pnr_bop_gangster right_side = JAP_pnr_bop_hero set_value = -0.9 }
 		}
 		relative_position_id = JAP_pnr_south_manchuria_railway_our_bond_with_the_continent
 	}

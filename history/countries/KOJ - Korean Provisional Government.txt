@@ -1,5 +1,5 @@
 capital = 525 #Seoul
-
+oob = "KOJ_oob_startup"
 set_technology = {
 	#### Infantry ####
 	infantry_weapons = 1
@@ -28,12 +28,7 @@ if = {
 
 set_research_slots = 2
 
-JAP = {
-	set_autonomy = {
-		target = KOJ
-		autonomy_state = autonomy_pnr_governor_mansion
-	}
-}
+JAP = { set_autonomy = { target = KOJ autonomy_state = autonomy_pnr_governor_mansion } }
 set_politics = {
 	ruling_party = authoritarian_democrat
 	last_election = "1888.6.15"
@@ -85,39 +80,6 @@ recruit_character = KOJ_pnr_kawamura_takeji
 ### Advisors ###
 
 ### Character Setup ###
-
-### Templates ###
-division_template = {
-	name = "Infantry Division"
-	division_names_group = KOR_INF_01
-	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
-		infantry = { x = 2 y = 0 }
-		infantry = { x = 2 y = 1 }
-		infantry = { x = 2 y = 2 }
-	}
-}
-
-division_template = {
-	name = "Cavalry Division"
-	division_names_group = KOR_CAV_01
-	regiments = {
-		cavalry = { x = 0 y = 0 }
-		cavalry = { x = 0 y = 1 }
-		cavalry = { x = 0 y = 2 }
-		cavalry = { x = 1 y = 0 }
-		cavalry = { x = 1 y = 1 }
-		cavalry = { x = 1 y = 2 }
-		cavalry = { x = 2 y = 0 }
-		cavalry = { x = 2 y = 1 }
-		cavalry = { x = 2 y = 2 }
-	}
-}
 
 ### Register Leader ###
 KOJ_pnr_kawamura_takeji = { promote_character = authoritarian_democrat_subtype }
