@@ -29,6 +29,7 @@ country_event = { #The Three Armies in China
 		name = fengtian_japan_mechanic_events.001.a #We will tame the Chinese dragon.
 		custom_effect_tooltip = fengtian_japan_mechanic_events.001.tt
 		unlock_decision_category_tooltip = JAP_pnr_guirendengche_qinglong_zaoqiu_catgory
+		set_country_flag = pnr_unlock_JAP_pnr_guirendengche_qinglong_zaoqiu_catgory
 	}
 }
 
@@ -45,7 +46,7 @@ country_event = { #Tensions in Manchuria
 	show_major = {
 		OR = {
 			is_tag_in_china_area = yes
-			original_tag = JAP
+			tag = JAP
 			original_tag = GEA
 			any_home_area_neighbor_country = {
 				is_tag_in_china_area = yes
@@ -419,7 +420,7 @@ country_event = { # Anqing Refuses Further Cooperation
 		add_stability = -0.03
 		ANQ_spawn_anqing_clique = yes
 		hidden_effect = {
-			JAP = { country_event = { id = JAP_pnr_foreign_events.1 days = 1 } }
+			ANQ = { country_event = { id = JAP_pnr_foreign_events.4 days = 4 } }
 		}
 	}
 
@@ -432,7 +433,7 @@ country_event = { # Anqing Refuses Further Cooperation
 		ANQ_spawn_anqing_clique = yes
 		ANQ = { change_tag_from = ROOT }
 		hidden_effect = {
-			JAP = { country_event = { id = JAP_pnr_foreign_events.1 days = 1 } }
+			ANQ = { country_event = { id = JAP_pnr_foreign_events.4 days = 4 } }
 		}
 	}
 

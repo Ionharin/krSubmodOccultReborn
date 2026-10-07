@@ -3,17 +3,17 @@ JAP_pnr_election_category = {
 		icon = GFX_decision_eng_propaganda_campaigns
 		priority = 100
 
-		allowed = { original_tag = JAP }
+		allowed = { tag = JAP }
 		visible = {
 			#always = no
-			original_tag = JAP
-			has_completed_focus = JAP_pnr_68th_sessions_imperial_diet
+			tag = JAP
+			has_country_flag = JAP_pnr_election_in_progress
 			NOT = { has_country_flag = JAP_pnr_election_completed }
 		}
 		activation = {
 			#always = no
-			original_tag = JAP
-			has_completed_focus = JAP_pnr_68th_sessions_imperial_diet
+			tag = JAP
+			has_country_flag = JAP_pnr_election_in_progress
 			NOT = { has_country_flag = JAP_pnr_election_completed }
 		}
 		available = {
@@ -38,8 +38,8 @@ JAP_pnr_election_category = {
 
 	JAP_pnr_election_party_10_leaflets = {
 		icon = GFX_decision_eng_propaganda_campaigns
-		target_root_trigger = { original_tag = JAP }
-		target_trigger = { FROM = { original_tag = JAP } }
+		target_root_trigger = { tag = JAP }
+		target_trigger = { FROM = { tag = JAP } }
 		cost = 20
 		days_remove = 14
 		fire_only_once = yes
@@ -52,13 +52,13 @@ JAP_pnr_election_category = {
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 	}
 
 	JAP_pnr_election_party_10_speech = {
 		icon = GFX_decision_eng_propaganda_campaigns
-		target_root_trigger = { original_tag = JAP }
-		target_trigger = { FROM = { original_tag = JAP } }
+		target_root_trigger = { tag = JAP }
+		target_trigger = { FROM = { tag = JAP } }
 		cost = 20
 		days_remove = 21
 		fire_only_once = yes
@@ -71,13 +71,13 @@ JAP_pnr_election_category = {
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 	}
 
 	JAP_pnr_election_party_10_bribe = {
 		icon = GFX_decision_eng_propaganda_campaigns
-		target_root_trigger = { original_tag = JAP }
-		target_trigger = { FROM = { original_tag = JAP } }
+		target_root_trigger = { tag = JAP }
+		target_trigger = { FROM = { tag = JAP } }
 		cost = 20
 		days_remove = 28
 		fire_only_once = yes
@@ -90,13 +90,13 @@ JAP_pnr_election_category = {
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 	}
 
 	JAP_pnr_election_party_4_leaflets = {
 		icon = GFX_decision_eng_propaganda_campaigns
-		target_root_trigger = { original_tag = JAP }
-		target_trigger = { FROM = { original_tag = JAP } }
+		target_root_trigger = { tag = JAP }
+		target_trigger = { FROM = { tag = JAP } }
 		cost = 20
 		days_remove = 14
 		fire_only_once = yes
@@ -110,13 +110,13 @@ JAP_pnr_election_category = {
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 	}
 
 	JAP_pnr_election_party_4_speech = {
 		icon = GFX_decision_eng_propaganda_campaigns
-		target_root_trigger = { original_tag = JAP }
-		target_trigger = { FROM = { original_tag = JAP } }
+		target_root_trigger = { tag = JAP }
+		target_trigger = { FROM = { tag = JAP } }
 		cost = 20
 		days_remove = 21
 		fire_only_once = yes
@@ -130,13 +130,13 @@ JAP_pnr_election_category = {
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 	}
 
 	JAP_pnr_election_party_4_bribe = {
 		icon = GFX_decision_eng_propaganda_campaigns
-		target_root_trigger = { original_tag = JAP }
-		target_trigger = { FROM = { original_tag = JAP } }
+		target_root_trigger = { tag = JAP }
+		target_trigger = { FROM = { tag = JAP } }
 		cost = 20
 		days_remove = 28
 		fire_only_once = yes
@@ -150,13 +150,70 @@ JAP_pnr_election_category = {
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
+	}
+
+	JAP_pnr_election_party_7_leaflets = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		target_root_trigger = { tag = JAP }
+		target_trigger = { FROM = { tag = JAP } }
+		cost = 20
+		days_remove = 14
+		fire_only_once = yes
+		remove_effect = {
+			custom_effect_tooltip = JAP_pnr_election_party_4_leaflets_tt
+			hidden_effect = {
+				JAP_pnr_election_ensure_projected_results = yes
+				subtract_from_variable = { JAP_pnr_election_party_seats^6 = 4 }
+				add_to_variable = { JAP_pnr_election_party_seats^7 = 4 }
+				JAP_pnr_election_refresh_projected_changes = yes
+			}
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	JAP_pnr_election_party_7_speech = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		target_root_trigger = { tag = JAP }
+		target_trigger = { FROM = { tag = JAP } }
+		cost = 20
+		days_remove = 21
+		fire_only_once = yes
+		remove_effect = {
+			custom_effect_tooltip = JAP_pnr_election_party_4_speech_tt
+			hidden_effect = {
+				JAP_pnr_election_ensure_projected_results = yes
+				subtract_from_variable = { JAP_pnr_election_party_seats^6 = 7 }
+				add_to_variable = { JAP_pnr_election_party_seats^7 = 7 }
+				JAP_pnr_election_refresh_projected_changes = yes
+			}
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	JAP_pnr_election_party_7_bribe = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		target_root_trigger = { tag = JAP }
+		target_trigger = { FROM = { tag = JAP } }
+		cost = 20
+		days_remove = 28
+		fire_only_once = yes
+		remove_effect = {
+			custom_effect_tooltip = JAP_pnr_election_party_4_bribe_tt
+			hidden_effect = {
+				JAP_pnr_election_ensure_projected_results = yes
+				subtract_from_variable = { JAP_pnr_election_party_seats^6 = 9 }
+				add_to_variable = { JAP_pnr_election_party_seats^7 = 9 }
+				JAP_pnr_election_refresh_projected_changes = yes
+			}
+		}
+		ai_will_do = { factor = 100 }
 	}
 
 	JAP_pnr_election_party_8_leaflets = {
 		icon = GFX_decision_eng_propaganda_campaigns
-		target_root_trigger = { original_tag = JAP }
-		target_trigger = { FROM = { original_tag = JAP } }
+		target_root_trigger = { tag = JAP }
+		target_trigger = { FROM = { tag = JAP } }
 		cost = 20
 		days_remove = 14
 		fire_only_once = yes
@@ -169,13 +226,13 @@ JAP_pnr_election_category = {
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 	}
 
 	JAP_pnr_election_party_8_speech = {
 		icon = GFX_decision_eng_propaganda_campaigns
-		target_root_trigger = { original_tag = JAP }
-		target_trigger = { FROM = { original_tag = JAP } }
+		target_root_trigger = { tag = JAP }
+		target_trigger = { FROM = { tag = JAP } }
 		cost = 20
 		days_remove = 21
 		fire_only_once = yes
@@ -188,13 +245,13 @@ JAP_pnr_election_category = {
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 	}
 
 	JAP_pnr_election_party_8_bribe = {
 		icon = GFX_decision_eng_propaganda_campaigns
-		target_root_trigger = { original_tag = JAP }
-		target_trigger = { FROM = { original_tag = JAP } }
+		target_root_trigger = { tag = JAP }
+		target_trigger = { FROM = { tag = JAP } }
 		cost = 20
 		days_remove = 28
 		fire_only_once = yes
@@ -207,13 +264,13 @@ JAP_pnr_election_category = {
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 	}
 
 	JAP_pnr_election_party_6_leaflets = {
 		icon = GFX_decision_eng_propaganda_campaigns
-		target_root_trigger = { original_tag = JAP }
-		target_trigger = { FROM = { original_tag = JAP } }
+		target_root_trigger = { tag = JAP }
+		target_trigger = { FROM = { tag = JAP } }
 		cost = 20
 		days_remove = 14
 		fire_only_once = yes
@@ -226,13 +283,13 @@ JAP_pnr_election_category = {
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 	}
 
 	JAP_pnr_election_party_6_speech = {
 		icon = GFX_decision_eng_propaganda_campaigns
-		target_root_trigger = { original_tag = JAP }
-		target_trigger = { FROM = { original_tag = JAP } }
+		target_root_trigger = { tag = JAP }
+		target_trigger = { FROM = { tag = JAP } }
 		cost = 20
 		days_remove = 21
 		fire_only_once = yes
@@ -245,13 +302,13 @@ JAP_pnr_election_category = {
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 	}
 
 	JAP_pnr_election_party_6_bribe = {
 		icon = GFX_decision_eng_propaganda_campaigns
-		target_root_trigger = { original_tag = JAP }
-		target_trigger = { FROM = { original_tag = JAP } }
+		target_root_trigger = { tag = JAP }
+		target_trigger = { FROM = { tag = JAP } }
 		cost = 20
 		days_remove = 28
 		fire_only_once = yes
@@ -264,6 +321,6 @@ JAP_pnr_election_category = {
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 	}
 }

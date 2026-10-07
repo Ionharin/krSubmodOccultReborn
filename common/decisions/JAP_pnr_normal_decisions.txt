@@ -1,5 +1,422 @@
-JAP_hero_et_gangster_bop_category = {
-	
+JAP_hero_et_gangster_bop_category = { #BOP
+	JAP_pnr_liangbing_wa_liangmin = {
+		icon = GFX_decision_generic_disband_irregulars
+		cost = 50
+		priority = 98
+		days_remove = 30
+		days_re_enable = 90
+		available = { NOT = { has_country_flag = pnr_one_decision_is_running } }
+		allowed = { always = no }
+		complete_effect = {
+			set_country_flag = pnr_one_decision_is_running
+		}
+		remove_effect = {
+			add_power_balance_value = {
+				id = JAP_hero_et_gangster_bop
+				value = 0.025
+				tooltip_side = JAP_pnr_bop_hero
+			}
+			clr_country_flag = pnr_one_decision_is_running
+		}
+	}
+	JAP_pnr_kokumin_no_kuntai = {
+		icon = GFX_decision_soldierly_discipline
+		cost = 0
+		priority = 98
+		days_remove = 35
+		days_re_enable = 90
+		custom_cost_trigger = { command_power > 19 }
+		custom_cost_text = JAP_pnr_command_power_20_cost
+		available = { NOT = { has_country_flag = pnr_one_decision_is_running } }
+		allowed = { always = no }
+		complete_effect = {
+			set_country_flag = pnr_one_decision_is_running
+			add_command_power = -20
+		}
+		modifier = {
+			power_balance_weekly = 0.0005
+		}
+		remove_effect = {
+			clr_country_flag = pnr_one_decision_is_running
+		}
+	}
+	JAP_pnr_yiqiba_saishinianqian_nutaozhishang = {
+		icon = GFX_decision_generic_military
+		cost = 0
+		priority = 97
+		days_remove = 90
+		days_re_enable = 140
+		custom_cost_trigger = { has_stability > 0.05 }
+		custom_cost_text = JAP_pnr_stability_5_cost
+		available = {
+			NOT = { has_country_flag = pnr_one_decision_is_running }
+			has_stability > 0.05
+		}
+		allowed = { always = no }
+		complete_effect = {
+			set_country_flag = pnr_one_decision_is_running
+			add_stability = -0.05
+		}
+		remove_effect = {
+			add_power_balance_value = {
+				id = JAP_hero_et_gangster_bop
+				value = 0.025
+				tooltip_side = JAP_pnr_bop_hero
+			}
+			clr_country_flag = pnr_one_decision_is_running
+		}
+
+	}
+	JAP_pnr_junren_zhanzai_guominshenqian = {
+		icon = GFX_decision_decision_generic_chinese_officers
+		cost = 50
+		priority = 96
+		days_remove = 35
+		days_re_enable = 90
+		custom_cost_trigger = {
+			has_army_experience > 9
+			has_navy_experience > 9
+		}
+		custom_cost_text = JAP_pnr_army_xp_10_cost
+		available = {
+			NOT = { has_country_flag = pnr_one_decision_is_running }
+			has_army_experience > 10
+			has_navy_experience > 10
+		}
+		allowed = { always = no }
+		complete_effect = {
+			set_country_flag = pnr_one_decision_is_running
+			army_experience = -10
+			navy_experience = -10
+		}
+		modifier = {
+			power_balance_weekly = 0.0005
+		}
+		remove_effect = {
+			add_power_balance_value = {
+				id = JAP_hero_et_gangster_bop
+				value = 0.025
+				tooltip_side = JAP_pnr_bop_hero
+			}
+			clr_country_flag = pnr_one_decision_is_running
+		}
+	}
+	JAP_pnr_battle_for_production = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = { always = no }
+		cost = 25
+		fire_only_once = yes
+		days_remove = 90
+		ai_will_do = { factor = 100 }
+		priority = 99
+		available = { has_war = yes }
+		modifier = {
+			industrial_capacity_factory = 0.05
+			industrial_capacity_dockyard = 0.05
+		}
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete JAP_battle_for_production"
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_battle_for_morale = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = { always = no }
+		cost = 25
+		fire_only_once = yes
+		days_remove = 90
+		ai_will_do = { factor = 100 }
+		priority = 99
+		available = { has_war = yes }
+		modifier = {
+			command_power_gain = 0.25
+			breakthrough_factor = 0.05
+		}
+		complete_effect = {
+
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_battle_for_defence = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = { always = no }
+		cost = 25
+		fire_only_once = yes
+		days_remove = 90
+		ai_will_do = { factor = 100 }
+		priority = 99
+		available = { has_war = yes }
+		modifier = {
+			army_defence_factor = 0.05
+			dig_in_speed_factor = 0.15
+		}
+		complete_effect = {
+
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_battle_for_the_skies = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = { always = no }
+		cost = 25
+		fire_only_once = yes
+		days_remove = 90
+		ai_will_do = { factor = 100 }
+		priority = 99
+		available = { has_war = yes }
+		modifier = {
+			army_bonus_air_superiority_factor = 0.10
+			air_superiority_efficiency = 0.05
+		}
+		complete_effect = {
+
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_battle_for_harmony = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = { always = no }
+		cost = 25
+		fire_only_once = yes
+		days_remove = 90
+		ai_will_do = { factor = 100 }
+		priority = 99
+		available = { has_war = yes }
+		modifier = {
+			stability_weekly = 0.002
+			consumer_goods_factor = -0.10
+		}
+		complete_effect = {
+
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_battle_for_production_1 = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = { always = no }
+		cost = 25
+		fire_only_once = yes
+		days_remove = 90
+		ai_will_do = { factor = 100 }
+		priority = 99
+		available = { has_war = yes }
+		modifier = {
+			industrial_capacity_factory = 0.10
+			industrial_capacity_dockyard = 0.10
+		}
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete JAP_battle_for_production"
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_battle_for_morale_1 = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = { always = no }
+		cost = 25
+		fire_only_once = yes
+		days_remove = 90
+		ai_will_do = { factor = 100 }
+		priority = 99
+		available = { has_war = yes }
+		modifier = {
+			command_power_gain = 0.50
+			breakthrough_factor = 0.10
+		}
+		complete_effect = {
+
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_battle_for_defence_1 = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = { always = no }
+		cost = 25
+		fire_only_once = yes
+		days_remove = 90
+		ai_will_do = { factor = 100 }
+		priority = 99
+		available = { has_war = yes }
+		modifier = {
+			army_defence_factor = 0.10
+			dig_in_speed_factor = 0.30
+		}
+		complete_effect = {
+
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_battle_for_the_skies_1 = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = { always = no }
+		cost = 25
+		fire_only_once = yes
+		days_remove = 90
+		ai_will_do = { factor = 100 }
+		priority = 99
+		available = { has_war = yes }
+		modifier = {
+			army_bonus_air_superiority_factor = 0.20
+			air_superiority_efficiency = 0.10
+		}
+		complete_effect = {
+
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_battle_for_harmony_1 = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = { always = no }
+		cost = 25
+		fire_only_once = yes
+		days_remove = 90
+		ai_will_do = { factor = 100 }
+		priority = 99
+		available = { has_war = yes }
+		modifier = {
+			stability_weekly = 0.004
+			consumer_goods_factor = -0.20
+		}
+		complete_effect = {
+
+		}
+		fixed_random_seed = no
+	}
+}
+
+JAP_pnr_shanghai_strike_category = {
+	JAP_pnr_shanghaijun_xingdongzhong = {
+		icon = GFX_decision_SWI_consolidate_council_power
+        is_good = no
+		days_mission_timeout = 365
+		priority = 100
+		visible = {
+			has_completed_focus = JAP_pnr_shanghai_night_strike
+			NOT = { has_global_flag = LEP_collapse }
+		}
+		activation = {
+			has_completed_focus = JAP_pnr_shanghai_night_strike
+			NOT = { has_global_flag = LEP_collapse }
+		}
+		available = { has_global_flag = LEP_collapse }
+		timeout_effect = {
+			custom_effect_tooltip = pnr_tokyo_angry_tt
+		}
+		complete_effect = {
+			custom_effect_tooltip = LEP_league_war_flag
+		}
+	}
+	JAP_pnr_qiaozhuang_daban = {
+		icon = GFX_decision_generic_political_discourse
+		#allowed = { always = no }
+		cancel_trigger = { has_global_flag = LEP_collapse }
+		cost = 5
+		days_remove = 3
+		fire_only_once = yes
+		ai_will_do = { factor = 100 }
+		priority = 99
+		available = { NOT = { has_global_flag = LEP_collapse } }
+		remove_effect = {
+			ANQ = { add_stability = 0.05 }
+			set_country_flag = pnr_we_have_do_essential_preparation_for_chaos_flag
+			custom_effect_tooltip = pnr_we_have_do_essential_preparation_for_chaos_flag
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_tongma_sunchuanfang = {
+		icon = GFX_decision_generic_political_rally
+		#allowed = { always = no }
+		cancel_trigger = { has_global_flag = LEP_collapse }
+		cost = 5
+		fire_only_once = yes
+		ai_will_do = { factor = 100 }
+		priority = 99
+		days_remove = 14
+		available = { NOT = { has_global_flag = LEP_collapse } }
+		visible = { has_country_flag = pnr_we_have_do_essential_preparation_for_chaos_flag }
+		remove_effect = {
+			LEP = {
+				add_stability = -0.05
+				effect_tooltip = { country_event = { id = league_collapse_events.7 } }
+			}
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_zhangtie_dazibao = {
+		icon = GFX_decision_generic_nationalism
+		#allowed = { always = no }
+		cancel_trigger = { has_global_flag = LEP_collapse }
+		cost = 10
+		fire_only_once = yes
+		ai_will_do = { factor = 100 }
+		priority = 99
+		days_remove = 14
+		available = { NOT = { has_global_flag = LEP_collapse } }
+		visible = { has_country_flag = pnr_we_have_do_essential_preparation_for_chaos_flag }
+		remove_effect = {
+			ANQ = {
+				add_stability = 0.05
+				add_war_support = 0.05
+				country_event = { id = JAP_pnr_foreign_events.2 days = 1 }
+			}
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_ti_chendiaoyuan_xuanchuan = {
+		icon = GFX_decision_generic_political_address
+		#allowed = { always = no }
+		cancel_trigger = { has_global_flag = LEP_collapse }
+		cost = 25
+		fire_only_once = yes
+		ai_will_do = { factor = 100 }
+		priority = 99
+		days_remove = 20
+		available = { NOT = { has_global_flag = LEP_collapse } }
+		visible = { has_country_flag = pnr_we_have_do_essential_preparation_for_chaos_flag }
+		remove_effect = {
+			ANQ = {
+				606 = {
+					create_unit = { division = "name = \"Bubing Xie\" division_template = \"Bubing Xie\" start_experience_factor = 0.4 start_equipment_factor = 0.4" owner = ANQ }
+				}
+				1050 = {
+					create_unit = { division = "name = \"Bubing Xie\" division_template = \"Bubing Xie\" start_experience_factor = 0.4 start_equipment_factor = 0.4" owner = ANQ }
+				}
+				country_event = { id = JAP_pnr_foreign_events.3 days = 1 }
+			}
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_xiang_anq_tigong_junhuo = {
+		icon = GFX_decision_generic_prepare_civil_war
+		#allowed = { always = no }
+		cancel_trigger = { has_global_flag = LEP_collapse }
+		cost = 10
+		fire_only_once = yes
+		ai_will_do = { factor = 100 }
+		priority = 99
+		days_remove = 21
+		available = { NOT = { has_global_flag = LEP_collapse } }
+		visible = { has_country_flag = pnr_we_have_do_essential_preparation_for_chaos_flag }
+		remove_effect = {
+			ANQ = { add_equipment_to_stockpile = { type = infantry_equipment amount = 1000 } }
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_xiang_anq_tigong_jimifei = {
+		icon = GFX_decision_generic_welfare
+		#allowed = { always = no }
+		cancel_trigger = { has_global_flag = LEP_collapse }
+		cost = 10
+		fire_only_once = yes
+		ai_will_do = { factor = 100 }
+		priority = 99
+		days_remove = 21
+		available = { NOT = { has_global_flag = LEP_collapse } }
+		visible = { has_country_flag = pnr_we_have_do_essential_preparation_for_chaos_flag }
+		remove_effect = {
+			ANQ = { add_command_power = 20 add_political_power = 35 }
+		}
+		fixed_random_seed = no
+	}
 }
 
 JAP_pnr_landreform_category = { # LAND REFORM
@@ -32,11 +449,11 @@ JAP_pnr_landreform_category = { # LAND REFORM
             }
             else_if = {
                 custom_effect_tooltip = tooltip_white_line
-                
+
             }
             #hidden_effect = {
                 #activate_mission = JAP_pnr_landreform_countdown
-            #}		
+            #}
 		}
 		complete_effect = {
 			custom_effect_tooltip = pnr_reduce_lost_decade_tt
@@ -108,7 +525,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
 			consumer_goods_factor = 0.05
 		}
 		remove_effect = {
-            528 = { 
+            528 = {
                 add_building_construction = {
 		        type = infrastructure
 		        level = 1
@@ -152,7 +569,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
 			consumer_goods_factor = 0.05
 		}
 		remove_effect = {
-            1104 = { 
+            1104 = {
                 add_building_construction = {
 		        type = infrastructure
 		        level = 1
@@ -195,7 +612,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
 			consumer_goods_factor = 0.05
 		}
 		remove_effect = {
-            531 = { 
+            531 = {
                 add_building_construction = {
 		        type = infrastructure
 		        level = 1
@@ -639,7 +1056,7 @@ JAP_pnr_kwan_island_crisis_category = { # 1936.4 kwan crisis
 		}
 		visible = { NOT = { has_global_flag = pnr_kwan_crisis_end_flag } }
 		allowed = { always = no }
-		complete_effect = { 
+		complete_effect = {
 			subtract_from_variable = {
 				var = JAP_kwan_island_influence_var
 				value = 10
@@ -815,7 +1232,7 @@ JAP_pnr_kwan_island_crisis_category = { # 1936.4 kwan crisis
 				name = JAP_pnr_kwan_island_crisis_category
 			}
 		}
-		ai_will_do = { 
+		ai_will_do = {
 			base = 50
 		}
 		fixed_random_seed = no
@@ -1126,7 +1543,7 @@ JAP_pnr_oriental_policy_category = {
 JAP_pnr_black_monday_development_category = {
 	JAP_pnr_subsidize_japan_beer_mineral_spring = {
 		icon = GFX_decision_gre_investment_decisions
-		cost = 40
+		cost = 50
 		days_remove = 70
 		allowed = { always = no }
 		modifier = { civilian_factory_use = 3 }
@@ -1141,7 +1558,7 @@ JAP_pnr_black_monday_development_category = {
 	}
 	JAP_pnr_support_showa_aircraft_industry = {
 		icon = GFX_decision_generic_factory
-		cost = 40
+		cost = 50
 		days_remove = 70
 		allowed = { always = no }
 		modifier = { civilian_factory_use = 3 }
@@ -1156,7 +1573,7 @@ JAP_pnr_black_monday_development_category = {
 	}
 	JAP_pnr_aid_dainippon_celluloid = {
 		icon = GFX_decision_hol_attract_foreign_investors
-		cost = 40
+		cost = 50
 		days_remove = 70
 		allowed = { always = no }
 		modifier = { civilian_factory_use = 3 }
@@ -1171,7 +1588,7 @@ JAP_pnr_black_monday_development_category = {
 	}
 	JAP_pnr_commission_tokyo_tatemono = {
 		icon = GFX_decision_generic_construction
-		cost = 40
+		cost = 50
 		days_remove = 70
 		allowed = { always = no }
 		modifier = { civilian_factory_use = 3 }
@@ -1185,7 +1602,7 @@ JAP_pnr_black_monday_development_category = {
 	}
 	JAP_pnr_invest_in_teikoku_sen_i = {
 		icon = GFX_decision_wrenches
-		cost = 40
+		cost = 50
 		days_remove = 70
 		allowed = { always = no }
 		modifier = { civilian_factory_use = 3 }
@@ -1200,7 +1617,7 @@ JAP_pnr_black_monday_development_category = {
 	}
 	JAP_pnr_support_kominato_railway = {
 		icon = GFX_decision_railroad
-		cost = 40
+		cost = 50
 		days_remove = 70
 		allowed = { always = no }
 		modifier = { civilian_factory_use = 3 }
@@ -1215,7 +1632,7 @@ JAP_pnr_black_monday_development_category = {
 	}
 	JAP_pnr_subsidize_nippon_gakki = {
 		icon = GFX_decision_generic_consumer_goods
-		cost = 40
+		cost = 50
 		days_remove = 70
 		allowed = { always = no }
 		modifier = { civilian_factory_use = 3 }
@@ -1230,7 +1647,7 @@ JAP_pnr_black_monday_development_category = {
 	}
 	JAP_pnr_expand_sumitomo_special_metals = {
 		icon = GFX_decision_generic_factory
-		cost = 40
+		cost = 50
 		days_remove = 70
 		allowed = { always = no }
 		modifier = { civilian_factory_use = 3 }
@@ -1247,7 +1664,7 @@ JAP_pnr_black_monday_development_category = {
 	}
 	JAP_pnr_develop_kokura_steel = {
 		icon = GFX_decision_steel
-		cost = 40
+		cost = 50
 		days_remove = 70
 		allowed = { always = no }
 		modifier = { civilian_factory_use = 3 }
@@ -1261,7 +1678,7 @@ JAP_pnr_black_monday_development_category = {
 	}
 	JAP_pnr_loan_to_kurashiki_spinning = {
 		icon = GFX_decision_gre_investment_decisions
-		cost = 40
+		cost = 50
 		days_remove = 70
 		allowed = { always = no }
 		modifier = { civilian_factory_use = 3 }
@@ -1276,7 +1693,7 @@ JAP_pnr_black_monday_development_category = {
 	}
 	JAP_pnr_support_dainichi_wire = {
 		icon = GFX_decision_electrify
-		cost = 40
+		cost = 50
 		days_remove = 70
 		allowed = { always = no }
 		modifier = { civilian_factory_use = 3 }
@@ -1295,7 +1712,7 @@ JAP_pnr_black_monday_development_category = {
 	}
 	JAP_pnr_priority_loans_for_tokyo_methanol = {
 		icon = GFX_decision_generic_research
-		cost = 40
+		cost = 50
 		days_remove = 70
 		allowed = { always = no }
 		modifier = { civilian_factory_use = 3 }
@@ -1310,7 +1727,7 @@ JAP_pnr_black_monday_development_category = {
 	}
 	JAP_pnr_commission_hokuyo_shokai = {
 		icon = GFX_decision_gre_paying_ifc_debt
-		cost = 40
+		cost = 50
 		days_remove = 70
 		allowed = { always = no }
 		modifier = { civilian_factory_use = 3 }
@@ -1319,6 +1736,295 @@ JAP_pnr_black_monday_development_category = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
 			}
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_yamaoka_gas_trading = {
+		icon = GFX_decision_gre_investment_decisions
+		cost = 80
+		days_remove = 140
+		allowed = { always = no }
+		modifier = { civilian_factory_use = 3 }
+		remove_effect = {
+			531 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_invest_chichibu_cement = {
+		icon = GFX_decision_generic_construction
+		cost = 80
+		days_remove = 140
+		allowed = { always = no }
+		modifier = { civilian_factory_use = 3 }
+		remove_effect = {
+			532 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_nippon_carbide_industries = {
+		icon = GFX_decision_wrenches
+		cost = 80
+		days_remove = 140
+		allowed = { always = no }
+		modifier = { civilian_factory_use = 3 }
+		remove_effect = {
+			534 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_adopt_brown_blast_furnace = {
+		icon = GFX_decision_steel
+		cost = 50
+		days_remove = 93
+		allowed = { always = no }
+		modifier = { consumer_goods_factor = 0.10 }
+		remove_effect = {
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier } } }
+					add_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier }
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = JAP_pnr_technology_investment_modifier
+			}
+			add_to_variable = {
+				var = JAP_pnr_technology_investment_local_resources_factor
+				value = 0.05
+				tooltip = local_resources_factor_tt
+			}
+			force_update_dynamic_modifier = yes
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_industrialize_tokyo_tech_ferrite_ceramics = {
+		icon = GFX_decision_generic_research
+		cost = 50
+		days_remove = 93
+		allowed = { always = no }
+		modifier = { consumer_goods_factor = 0.10 }
+		remove_effect = {
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier } } }
+					add_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier }
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = JAP_pnr_technology_investment_modifier
+			}
+			add_to_variable = {
+				var = JAP_pnr_technology_investment_research_speed_factor
+				value = 0.02
+				tooltip = research_speed_factor_tt
+			}
+			force_update_dynamic_modifier = yes
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_fund_sumitomo_metal_esd_project = {
+		icon = GFX_decision_generic_air
+		cost = 50
+		days_remove = 93
+		allowed = { always = no }
+		modifier = { consumer_goods_factor = 0.10 }
+		remove_effect = {
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier } } }
+					add_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier }
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = JAP_pnr_technology_investment_modifier
+			}
+			add_to_variable = {
+				var = JAP_pnr_technology_investment_air_defence_factor
+				value = 0.05
+				tooltip = air_defence_factor_tt
+			}
+			force_update_dynamic_modifier = yes
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_fund_nakajima_akira_switching_circuit_theory = {
+		icon = GFX_decision_generic_research
+		cost = 50
+		days_remove = 93
+		allowed = { always = no }
+		modifier = { consumer_goods_factor = 0.10 }
+		remove_effect = {
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier } } }
+					add_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier }
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = JAP_pnr_technology_investment_modifier
+			}
+			add_to_variable = {
+				var = JAP_pnr_technology_investment_research_speed_factor
+				value = 0.02
+				tooltip = research_speed_factor_tt
+			}
+			force_update_dynamic_modifier = yes
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_experiment_large_scale_arc_welding = {
+		icon = GFX_decision_generic_navy
+		cost = 50
+		days_remove = 93
+		allowed = { always = no }
+		modifier = { consumer_goods_factor = 0.10 }
+		remove_effect = {
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier } } }
+					add_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier }
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = JAP_pnr_technology_investment_modifier
+			}
+			add_to_variable = {
+				var = JAP_pnr_technology_investment_refit_ic_cost
+				value = -0.10
+				tooltip = refit_ic_cost_tt
+			}
+			force_update_dynamic_modifier = yes
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_support_high_refractive_optical_glass = {
+		icon = GFX_decision_generic_navy
+		cost = 50
+		days_remove = 93
+		allowed = { always = no }
+		modifier = { consumer_goods_factor = 0.10 }
+		remove_effect = {
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier } } }
+					add_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier }
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = JAP_pnr_technology_investment_modifier
+			}
+			add_to_variable = {
+				var = JAP_pnr_technology_investment_naval_detection
+				value = 0.05
+				tooltip = naval_detection_tt
+			}
+			force_update_dynamic_modifier = yes
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_accelerate_air_cooled_two_stroke_diesel = {
+		icon = GFX_decision_oil
+		cost = 50
+		days_remove = 93
+		allowed = { always = no }
+		modifier = { consumer_goods_factor = 0.10 }
+		remove_effect = {
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier } } }
+					add_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier }
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = JAP_pnr_technology_investment_modifier
+			}
+			add_to_variable = {
+				var = JAP_pnr_technology_investment_army_fuel_consumption_factor
+				value = -0.05
+				tooltip = army_fuel_consumption_factor_tt
+			}
+			force_update_dynamic_modifier = yes
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_invest_non_loaded_multichannel_cable = {
+		icon = GFX_decision_electrify
+		cost = 50
+		days_remove = 93
+		allowed = { always = no }
+		modifier = { consumer_goods_factor = 0.10 }
+		remove_effect = {
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier } } }
+					add_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier }
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = JAP_pnr_technology_investment_modifier
+			}
+			add_to_variable = {
+				var = JAP_pnr_technology_investment_coordination_bonus
+				value = 0.02
+				tooltip = coordination_bonus_tt
+			}
+			force_update_dynamic_modifier = yes
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_fund_takemi_taro = {
+		icon = GFX_decision_generic_healthcare
+		cost = 50
+		days_remove = 93
+		allowed = { always = no }
+		modifier = { consumer_goods_factor = 0.10 }
+		remove_effect = {
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier } } }
+					add_dynamic_modifier = { modifier = JAP_pnr_technology_investment_modifier }
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = tooltip_modify_dynmod
+				DYNMOD = JAP_pnr_technology_investment_modifier
+			}
+			add_to_variable = {
+				var = JAP_pnr_technology_investment_experience_loss_factor
+				value = -0.05
+				tooltip = experience_loss_factor_tt
+			}
+			force_update_dynamic_modifier = yes
 		}
 		ai_will_do = { factor = 0 }
 		fixed_random_seed = no
@@ -1737,4 +2443,379 @@ JAP_pnr_guirendengche_qinglong_zaoqiu_catgory = {
 		fixed_random_seed = no
 	}
 
+}
+
+JAP_pnr_cardgame_category = { # 1937.1 Oil Crisis
+	JAP_pnr_cardgame_round_timer = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		priority = 100
+
+		allowed = { always = no }
+		available = { hidden_trigger = { always = no } }
+
+		fixed_random_seed = no
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 40
+
+		timeout_effect = {
+			log = "[GetLogRoot]: Decision timeout JAP_pnr_cardgame_round_timer"
+			JAP_pnr_cardgame_end_round = yes
+		}
+	}
+
+	JAP_pnr_cardgame_start_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_category
+
+		allowed = { tag = JAP }
+		visible = {
+			tag = JAP
+			NOT = { has_country_flag = JAP_pnr_cardgame_active }
+			NOT = { has_country_flag = JAP_pnr_cardgame_finished }
+		}
+		available = { tag = JAP }
+
+		fire_only_once = yes
+		fixed_random_seed = no
+		cost = 0
+
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete JAP_pnr_cardgame_start_decision"
+			JAP_pnr_cardgame_initialize = yes
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_end_round_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+
+		allowed = { tag = JAP }
+		visible = { has_country_flag = JAP_pnr_cardgame_active }
+		available = { JAP_pnr_cardgame_can_end_round = yes }
+
+		fixed_random_seed = no
+		cost = 0
+
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete JAP_pnr_cardgame_end_round_decision"
+			JAP_pnr_cardgame_end_round = yes
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_1_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_1_in_hand > 0 }
+		}
+		available = { JAP_pnr_cardgame_can_play_card = yes }
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_1_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_2_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_2_in_hand > 0 }
+		}
+		available = { JAP_pnr_cardgame_can_play_card = yes }
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_2_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_3_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_3_in_hand > 0 }
+		}
+		available = { JAP_pnr_cardgame_can_play_card = yes }
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_3_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_4_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_4_in_hand > 0 }
+		}
+		available = { JAP_pnr_cardgame_can_play_card = yes }
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_4_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_5_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_5_in_hand > 0 }
+		}
+		available = { JAP_pnr_cardgame_can_play_card = yes }
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_5_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_6_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_6_in_hand > 0 }
+		}
+		available = { JAP_pnr_cardgame_can_play_card = yes }
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_6_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_7_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_7_in_hand > 0 }
+		}
+		available = {
+			JAP_pnr_cardgame_can_play_card = yes
+			NOT = { has_country_flag = JAP_pnr_cardgame_no_kwantung_cards }
+		}
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_7_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+
+	JAP_pnr_cardgame_card_8_decision = {
+		icon = GFX_JAP_pnr_cardgame_decision_card
+		allowed = { tag = JAP }
+		visible = {
+			has_country_flag = JAP_pnr_cardgame_active
+			check_variable = { JAP_pnr_cardgame_card_8_in_hand > 0 }
+		}
+		available = {
+			JAP_pnr_cardgame_can_play_card = yes
+			NOT = { has_country_flag = JAP_pnr_cardgame_no_kwantung_cards }
+		}
+		fixed_random_seed = no
+		cost = 0
+		complete_effect = { JAP_pnr_cardgame_card_8_effect = yes }
+		ai_will_do = { factor = 0 }
+	}
+}
+
+JAP_pnr_red_conspiracy_category = {
+	JAP_pnr_red_conspiracy_escalation = { #Warning Missions
+		icon = GFX_decision_generic_ignite_civil_war
+
+		allowed = { always = no }
+		available = {
+			hidden_trigger = { always = no }
+		}
+		cancel_trigger = {
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_done }
+		}
+
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 21
+		priority = 100
+
+		timeout_effect = {
+			add_to_variable = {
+				var = JAP_pnr_red_conspiracy_strength
+				value = JAP_pnr_red_conspiracy_add_value_var
+				tooltip = JAP_pnr_red_conspiracy_raised
+			}
+			clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
+			JAP_pnr_update_red_conspiracy_modifier_values = yes
+			activate_mission = JAP_pnr_red_conspiracy_escalation
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_red_conspiracy_curtail_red_press = { #Red Flag Press
+		icon = GFX_decision_generic_break_treaty
+		allowed = { always = no }
+		available = {
+			has_country_flag = JAP_pnr_red_conspiracy_done
+		}
+		cancel_trigger = {
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_done }
+		}
+		cost = 10
+		days_remove = 21
+		fire_only_once = yes
+		modifier = {
+			political_power_factor = -0.05
+		}
+		complete_effect = {
+			add_manpower = -100
+		}
+		remove_effect = {
+			subtract_from_variable = {
+				var = JAP_pnr_red_conspiracy_strength
+				value = 10
+				tooltip = JAP_pnr_red_conspiracy_reduced
+			}
+			clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
+			JAP_pnr_update_red_conspiracy_modifier_values = yes
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_red_conspiracy_activate_loyal_unions = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		allowed = { always = no }
+		available = {
+			has_country_flag = JAP_pnr_red_conspiracy_done
+		}
+		cancel_trigger = {
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_done }
+		}
+		cost = 10
+		days_remove = 14
+		fire_only_once = yes
+		modifier = {
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			subtract_from_variable = {
+				var = JAP_pnr_red_conspiracy_strength
+				value = 10
+				tooltip = JAP_pnr_red_conspiracy_reduced
+			}
+			clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
+			JAP_pnr_update_red_conspiracy_modifier_values = yes
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_red_conspiracy_establish_curfews = {
+		icon = GFX_decision_generic_police_action
+		allowed = { always = no }
+		available = {
+			has_country_flag = JAP_pnr_red_conspiracy_done
+		}
+		cancel_trigger = {
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_done }
+		}
+		cost = 10
+		days_remove = 21
+		fire_only_once = yes
+		modifier = {
+			stability_weekly = -0.01
+		}
+		remove_effect = {
+			subtract_from_variable = {
+				var = JAP_pnr_red_conspiracy_strength
+				value = 15
+				tooltip = JAP_pnr_red_conspiracy_reduced
+			}
+			clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
+			JAP_pnr_update_red_conspiracy_modifier_values = yes
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_red_conspiracy_arrest_activists = {
+		icon = GFX_decision_generic_arrest
+		allowed = { always = no }
+		available = {
+			has_country_flag = JAP_pnr_red_conspiracy_done
+		}
+		cancel_trigger = {
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_done }
+		}
+		cost = 0
+		days_remove = 28
+		fire_only_once = yes
+		complete_effect = {
+			add_manpower = -20
+			add_political_power = -35
+		}
+		remove_effect = {
+			subtract_from_variable = {
+				var = JAP_pnr_red_conspiracy_strength
+				value = 20
+				tooltip = JAP_pnr_red_conspiracy_reduced
+			}
+			clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
+			JAP_pnr_update_red_conspiracy_modifier_values = yes
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_red_conspiracy_selective_reform = {
+		icon = GFX_decision_eng_trade_unions_support
+		allowed = { always = no }
+		available = {
+			has_country_flag = JAP_pnr_red_conspiracy_done
+		}
+		cancel_trigger = {
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_done }
+		}
+		cost = 10
+		days_remove = 14
+		fire_only_once = yes
+		modifier = {
+			political_power_factor = -0.1
+		}
+		remove_effect = {
+			subtract_from_variable = {
+				var = JAP_pnr_red_conspiracy_strength
+				value = 20
+				tooltip = JAP_pnr_red_conspiracy_reduced
+			}
+			clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
+			JAP_pnr_update_red_conspiracy_modifier_values = yes
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_red_conspiracy_lapse_on_security = {
+		icon = GFX_decision_generic_political_rally
+		allowed = { always = no }
+		available = {
+			has_country_flag = JAP_pnr_red_conspiracy_done
+		}
+		cancel_trigger = {
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_done }
+		}
+
+		cost = 15
+		days_remove = 28
+		fire_only_once = yes
+		modifier = {
+			political_power_gain = 0.20
+		}
+		complete_effect = {
+			add_command_power = 10
+			add_stability = -0.01
+		}
+		remove_effect = {
+			add_to_variable = {
+				var = JAP_pnr_red_conspiracy_strength
+				value = 15
+				tooltip = JAP_pnr_red_conspiracy_raised
+			}
+			clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
+			JAP_pnr_update_red_conspiracy_modifier_values = yes
+		}
+		fixed_random_seed = no
+	}
 }

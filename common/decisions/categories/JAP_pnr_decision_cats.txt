@@ -6,7 +6,7 @@ JAP_pnr_red_conspiracy_category = {
 		tag = JAP
 	}
 	visible = {
-		has_country_flag = JAP_pnr_red_conspiracy_begun
+		has_country_flag = JAP_pnr_red_conspiracy_done
 	}
 	visible_when_empty = yes
 }
@@ -15,7 +15,7 @@ JAP_pnr_election_category = {
 	icon = GFX_decision_eng_propaganda_campaigns
 
 	allowed = {
-		original_tag = JAP
+		tag = JAP
 	}
 
 	priority = 191
@@ -23,24 +23,24 @@ JAP_pnr_election_category = {
 
 	visible = {
 		always = no
-		#original_tag = JAP
+		#tag = JAP
 		#has_completed_focus = JAP_pnr_68th_sessions_imperial_diet
 	}
 }
 
 JAP_pnr_cardgame_category = {
 	icon = GFX_JAP_pnr_cardgame_decision_category
-	allowed = { original_tag = JAP }
+	allowed = { tag = JAP }
 	priority = 150
 	visible_when_empty = yes
-	visible = { original_tag = JAP }
+	visible = { tag = JAP }
 	scripted_gui = JAP_pnr_cardgame
 }
 
 JAP_pnr_kasumigaseki_diplomacy_category = {
 	icon = GFX_decision_category_foreign_policy
 	priority = 91
-	allowed = { original_tag = JAP }
+	allowed = { tag = JAP }
 	visible = { has_completed_focus = JAP_pnr_kasumigaseki_diplomacy }
 }
 
@@ -50,11 +50,12 @@ JAP_pnr_continental_policy_category = {
 	visible_when_empty = yes
 
 	allowed = {
-		original_tag = JAP
+		tag = JAP
 	}
 
 	visible = {
-		original_tag = JAP
+		tag = JAP
+		has_completed_focus = JAP_pnr_divide_and_rule
 	}
 
 	scripted_gui = JAP_pnr_continental_policy_gui
@@ -66,11 +67,11 @@ JAP_pnr_ruin_and_creation_category = {
 	visible_when_empty = yes
 
 	allowed = {
-		original_tag = JAP
+		tag = JAP
 	}
 
 	visible = {
-		original_tag = JAP
+		tag = JAP
 		has_completed_focus = JAP_pnr_national_transformation
 	}
 
@@ -83,11 +84,11 @@ JAP_pnr_showa_restoration_category = {
 	visible_when_empty = yes
 
 	allowed = {
-		original_tag = JAP
+		tag = JAP
 	}
 
 	visible = {
-		original_tag = JAP
+		tag = JAP
 		has_country_flag = pnr_showa_restoration_government_flag
 	}
 
@@ -100,12 +101,12 @@ JAP_pnr_kanebukuro_kozuchi_category = {
 	visible_when_empty = yes
 
 	allowed = {
-		original_tag = JAP
+		tag = JAP
 		has_country_flag = pnr_zaibatsu_government_flag
 	}
 
 	visible = {
-		original_tag = JAP
+		tag = JAP
 		has_country_flag = pnr_zaibatsu_government_flag
 	}
 
@@ -118,11 +119,11 @@ JAP_pnr_reitai_juso_category = {
 	visible_when_empty = yes
 
 	allowed = {
-		original_tag = JAP
+		tag = JAP
 	}
 
 	visible = {
-		original_tag = JAP
+		tag = JAP
 		has_completed_focus = JAP_pnr_exorcise_resentment
 	}
 
@@ -135,11 +136,11 @@ JAP_pnr_new_party_preparation_category = {
 	visible_when_empty = yes
 
 	allowed = {
-		original_tag = JAP
+		tag = JAP
 	}
 
 	visible = {
-		original_tag = JAP
+		tag = JAP
 		has_completed_focus = JAP_pnr_last_legacy_of_the_genrou
 	}
 
@@ -152,11 +153,12 @@ JAP_pnr_grey_cardinals_category = {
 	visible_when_empty = yes
 
 	allowed = {
-		original_tag = JAP
+		tag = JAP
 	}
 
 	visible = {
-		original_tag = JAP
+		tag = JAP
+		has_country_flag = pnr_conspiracy_government_flag
 	}
 
 	scripted_gui = JAP_pnr_grey_cardinals_gui
@@ -168,11 +170,11 @@ JAP_pnr_national_security_bill_category = {
 	visible_when_empty = yes
 
 	allowed = {
-		original_tag = JAP
+		tag = JAP
 	}
 
 	visible = {
-		original_tag = JAP
+		tag = JAP
 		has_country_flag = JAP_pnr_nsb_debate_begun
 	}
 }
@@ -223,6 +225,7 @@ JAP_pnr_guirendengche_qinglong_zaoqiu_catgory = {
 	priority = 66
 	picture = GFX_decision_cat_picture_unification_conference
 	allowed = { tag = JAP }
+	visible = { has_country_flag = pnr_unlock_JAP_pnr_guirendengche_qinglong_zaoqiu_catgory }
 	visible_when_empty = yes
 }
 
@@ -230,6 +233,21 @@ JAP_hero_et_gangster_bop_category = {
 	icon = generic_political_reform
 	allowed = {
 		always = yes
+	}
+}
+
+JAP_pnr_shanghai_strike_category = {
+	icon = GFX_decision_category_spr_political_assassination
+	picture = GFX_decision_cat_picture_JAP_government_censors
+	priority = 95
+	allowed = {
+		tag = JAP
+	}
+	visible = {
+		AND = {
+			has_completed_focus = JAP_pnr_shanghai_night_strike
+			NOT = { has_global_flag = LEP_collapse }
+		}
 	}
 }
 

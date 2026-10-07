@@ -1,6 +1,6 @@
 JAP_pnr_national_security_bill_category = {
 	JAP_pnr_nsb_extraordinary_session = {
-		icon = GFX_decision_generic_political_discourse
+		icon = GFX_decision_generic_speech
 		allowed = { always = no }
 		available = { hidden_trigger = { always = no } }
 		selectable_mission = no
@@ -15,7 +15,7 @@ JAP_pnr_national_security_bill_category = {
 			set_country_flag = JAP_pnr_nsb_extraordinary_session_held
 			if = {
 				limit = { has_country_flag = JAP_pnr_nsb_draft_ready }
-				country_event = { id = JAP_pnr_earlygame.30 }
+				country_event = { id = JAP_pnr_515.1 days = 3 }
 			}
 			else = {
 				custom_effect_tooltip = JAP_pnr_nsb_original_draft_submitted_tt
@@ -27,16 +27,16 @@ JAP_pnr_national_security_bill_category = {
 					set_country_flag = pnr_nsb_decision_5_flag
 					set_country_flag = pnr_nsb_decision_8_flag
 				}
-				country_event = { id = JAP_pnr_earlygame.30 }
+				country_event = { id = JAP_pnr_515.1 days = 3 }
 			}
 		}
 
 		ai_will_do = { factor = 0 }
 	}
 
-	JAP_pnr_nsb_ban_secret_societies = {
+	JAP_pnr_nsb_ban_secret_societies = { #稳定度 +3%
 		icon = GFX_decision_generic_political_discourse
-		allowed = { original_tag = JAP }
+		allowed = { tag = JAP }
 		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
 		available = {
 			check_variable = { JAP_pnr_nsb_article_count < 5 }
@@ -45,7 +45,17 @@ JAP_pnr_national_security_bill_category = {
 		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_1_flag } } }
 		complete_effect = {
 			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
-			effect_tooltip = { add_stability = 0.03 }
+			effect_tooltip = {
+				custom_effect_tooltip = {
+					localization_key = tooltip_modify_dynmod
+					DYNMOD = JAP_pnr_NSA_idea
+				}
+				add_to_variable = {
+					var = JAP_pnr_NSA_idea_stability_factor
+					value = 0.03
+					tooltip = stability_factor_tt
+				}
+			}
 			hidden_effect = {
 				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
 				set_country_flag = pnr_nsb_decision_1_flag
@@ -54,9 +64,9 @@ JAP_pnr_national_security_bill_category = {
 		ai_will_do = { factor = 0 }
 	}
 
-	JAP_pnr_nsb_preventive_detention = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = { original_tag = JAP }
+	JAP_pnr_nsb_preventive_detention = { # 抵抗目标 -10%
+		icon = GFX_decision_generic_arrest
+		allowed = { tag = JAP }
 		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
 		available = {
 			check_variable = { JAP_pnr_nsb_article_count < 5 }
@@ -64,8 +74,23 @@ JAP_pnr_national_security_bill_category = {
 		}
 		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_2_flag } } }
 		complete_effect = {
+			add_to_variable = {
+				var = JAP_pnr_parliament_support_var
+				value = -1
+				tooltip = JAP_pnr_parliament_support_var_tt
+			}
 			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
-			custom_effect_tooltip = JAP_pnr_nsb_longer_security_event_interval_tt
+			effect_tooltip = {
+				custom_effect_tooltip = {
+					localization_key = tooltip_modify_dynmod
+					DYNMOD = JAP_pnr_NSA_idea
+				}
+				add_to_variable = {
+					var = JAP_pnr_NSA_idea_resistance_target
+					value = -0.10
+					tooltip = resistance_target_tt
+				}
+			}
 			hidden_effect = {
 				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
 				set_country_flag = pnr_nsb_decision_2_flag
@@ -74,9 +99,9 @@ JAP_pnr_national_security_bill_category = {
 		ai_will_do = { factor = 0 }
 	}
 
-	JAP_pnr_nsb_monitor_front_organisations = {
-		icon = GFX_decision_generic_intelligence_exchange
-		allowed = { original_tag = JAP }
+	JAP_pnr_nsb_monitor_front_organisations = { #特工位 +1
+		icon = GFX_decision_onmap_recruit_operative
+		allowed = { tag = JAP }
 		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
 		available = {
 			check_variable = { JAP_pnr_nsb_article_count < 5 }
@@ -85,7 +110,17 @@ JAP_pnr_national_security_bill_category = {
 		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_3_flag } } }
 		complete_effect = {
 			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
-			custom_effect_tooltip = JAP_pnr_nsb_extra_operative_slot_tt
+			effect_tooltip = {
+				custom_effect_tooltip = {
+					localization_key = tooltip_modify_dynmod
+					DYNMOD = JAP_pnr_NSA_idea
+				}
+				add_to_variable = {
+					var = JAP_pnr_NSA_idea_operative_slot
+					value = 1
+					tooltip = operative_slot_tt
+				}
+			}
 			hidden_effect = {
 				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
 				set_country_flag = pnr_nsb_decision_3_flag
@@ -94,9 +129,9 @@ JAP_pnr_national_security_bill_category = {
 		ai_will_do = { factor = 0 }
 	}
 
-	JAP_pnr_nsb_register_pressure_groups = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = { original_tag = JAP }
+	JAP_pnr_nsb_register_pressure_groups = { # 稳定度 +3%
+		icon = GFX_decision_generic_decision
+		allowed = { tag = JAP }
 		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
 		available = {
 			check_variable = { JAP_pnr_nsb_article_count < 5 }
@@ -104,8 +139,23 @@ JAP_pnr_national_security_bill_category = {
 		}
 		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_4_flag } } }
 		complete_effect = {
+			add_to_variable = {
+				var = JAP_pnr_parliament_support_var
+				value = -1
+				tooltip = JAP_pnr_parliament_support_var_tt
+			}
 			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
-			custom_effect_tooltip = JAP_pnr_nsb_extremist_drift_reduction_tt
+			effect_tooltip = {
+				custom_effect_tooltip = {
+					localization_key = tooltip_modify_dynmod
+					DYNMOD = JAP_pnr_NSA_idea
+				}
+				add_to_variable = {
+					var = JAP_pnr_NSA_idea_stability_factor
+					value = 0.03
+					tooltip = stability_factor_tt
+				}
+			}
 			hidden_effect = {
 				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
 				set_country_flag = pnr_nsb_decision_4_flag
@@ -114,9 +164,9 @@ JAP_pnr_national_security_bill_category = {
 		ai_will_do = { factor = 0 }
 	}
 
-	JAP_pnr_nsb_public_communications = {
-		icon = GFX_decision_generic_newspaper
-		allowed = { original_tag = JAP }
+	JAP_pnr_nsb_public_communications = { # cost - 0.05
+		icon = GFX_decision_ger_mefo_bills
+		allowed = { tag = JAP }
 		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
 		available = {
 			check_variable = { JAP_pnr_nsb_article_count < 5 }
@@ -124,8 +174,23 @@ JAP_pnr_national_security_bill_category = {
 		}
 		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_5_flag } } }
 		complete_effect = {
+			add_to_variable = {
+				var = JAP_pnr_parliament_support_var
+				value = -2
+				tooltip = JAP_pnr_parliament_support_var_tt
+			}
 			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
-			custom_effect_tooltip = JAP_pnr_nsb_daily_political_power_cost_reduction_tt
+			effect_tooltip = {
+				custom_effect_tooltip = {
+					localization_key = tooltip_modify_dynmod
+					DYNMOD = JAP_pnr_NSA_idea
+				}
+				add_to_variable = {
+					var = JAP_pnr_NSA_idea_political_power_cost
+					value = -0.05
+					tooltip = political_power_cost_tt
+				}
+			}
 			hidden_effect = {
 				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
 				set_country_flag = pnr_nsb_decision_5_flag
@@ -134,9 +199,9 @@ JAP_pnr_national_security_bill_category = {
 		ai_will_do = { factor = 0 }
 	}
 
-	JAP_pnr_nsb_military_official_responsibility = {
+	JAP_pnr_nsb_military_official_responsibility = { # 战争稳定度 +5%
 		icon = GFX_decision_generic_army_support
-		allowed = { original_tag = JAP }
+		allowed = { tag = JAP }
 		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
 		available = {
 			check_variable = { JAP_pnr_nsb_article_count < 5 }
@@ -144,8 +209,23 @@ JAP_pnr_national_security_bill_category = {
 		}
 		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_6_flag } } }
 		complete_effect = {
+			add_to_variable = {
+				var = JAP_pnr_parliament_support_var
+				value = -1
+				tooltip = JAP_pnr_parliament_support_var_tt
+			}
 			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
-			custom_effect_tooltip = JAP_pnr_nsb_no_military_security_backlash_tt
+			effect_tooltip = {
+				custom_effect_tooltip = {
+					localization_key = tooltip_modify_dynmod
+					DYNMOD = JAP_pnr_NSA_idea
+				}
+				add_to_variable = {
+					var = JAP_pnr_NSA_idea_war_stability_factor
+					value = 0.05
+					tooltip = war_stability_factor_tt
+				}
+			}
 			hidden_effect = {
 				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
 				set_country_flag = pnr_nsb_decision_6_flag
@@ -154,9 +234,9 @@ JAP_pnr_national_security_bill_category = {
 		ai_will_do = { factor = 0 }
 	}
 
-	JAP_pnr_nsb_emergency_suppression_power = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = { original_tag = JAP }
+	JAP_pnr_nsb_emergency_suppression_power = { #选举事件将为弱势党派提供更少席位
+		icon = GFX_decision_generic_confiscation
+		allowed = { tag = JAP }
 		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
 		available = {
 			check_variable = { JAP_pnr_nsb_article_count < 5 }
@@ -164,8 +244,12 @@ JAP_pnr_national_security_bill_category = {
 		}
 		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_7_flag } } }
 		complete_effect = {
+			add_to_variable = {
+				var = JAP_pnr_parliament_support_var
+				value = -2
+				tooltip = JAP_pnr_parliament_support_var_tt
+			}
 			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
-			effect_tooltip = { add_stability = 0.03 }
 			custom_effect_tooltip = JAP_pnr_nsb_weaker_parties_gain_fewer_seats_tt
 			hidden_effect = {
 				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
@@ -175,9 +259,9 @@ JAP_pnr_national_security_bill_category = {
 		ai_will_do = { factor = 0 }
 	}
 
-	JAP_pnr_nsb_judicial_warrant_principle = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = { original_tag = JAP }
+	JAP_pnr_nsb_judicial_warrant_principle = { # 政党支持率稳定 +5%
+		icon = GFX_decision_SOV_place_hq
+		allowed = { tag = JAP }
 		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
 		available = {
 			check_variable = { JAP_pnr_nsb_article_count < 5 }
@@ -185,8 +269,23 @@ JAP_pnr_national_security_bill_category = {
 		}
 		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_8_flag } } }
 		complete_effect = {
+			add_to_variable = {
+				var = JAP_pnr_parliament_support_var
+				value = -1
+				tooltip = JAP_pnr_parliament_support_var_tt
+			}
 			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
-			custom_effect_tooltip = JAP_pnr_nsb_party_popularity_stability_factor_tt
+			effect_tooltip = {
+				custom_effect_tooltip = {
+					localization_key = tooltip_modify_dynmod
+					DYNMOD = JAP_pnr_NSA_idea
+				}
+				add_to_variable = {
+					var = JAP_pnr_NSA_idea_party_popularity_stability_factor
+					value = 0.05
+					tooltip = party_popularity_stability_factor_tt
+				}
+			}
 			hidden_effect = {
 				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
 				set_country_flag = pnr_nsb_decision_8_flag
@@ -195,9 +294,9 @@ JAP_pnr_national_security_bill_category = {
 		ai_will_do = { factor = 0 }
 	}
 
-	JAP_pnr_nsb_freeze_suspicious_funding = {
-		icon = GFX_decision_hol_attract_foreign_investors
-		allowed = { original_tag = JAP }
+	JAP_pnr_nsb_freeze_suspicious_funding = { # cost - 0.05
+		icon = GFX_decision_gre_investment_decisions
+		allowed = { tag = JAP }
 		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
 		available = {
 			check_variable = { JAP_pnr_nsb_article_count < 5 }
@@ -205,8 +304,23 @@ JAP_pnr_national_security_bill_category = {
 		}
 		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = pnr_nsb_decision_9_flag } } }
 		complete_effect = {
+			add_to_variable = {
+				var = JAP_pnr_parliament_support_var
+				value = -2
+				tooltip = JAP_pnr_parliament_support_var_tt
+			}
 			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
-			custom_effect_tooltip = JAP_pnr_nsb_consumer_goods_reduction_tt
+			effect_tooltip = {
+				custom_effect_tooltip = {
+					localization_key = tooltip_modify_dynmod
+					DYNMOD = JAP_pnr_NSA_idea
+				}
+				add_to_variable = {
+					var = JAP_pnr_NSA_idea_political_power_cost
+					value = -0.05
+					tooltip = political_power_cost_tt
+				}
+			}
 			hidden_effect = {
 				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
 				set_country_flag = pnr_nsb_decision_9_flag
@@ -216,8 +330,8 @@ JAP_pnr_national_security_bill_category = {
 	}
 
 	JAP_pnr_nsb_reconsider_draft = {
-		icon = GFX_decision_eng_propaganda_campaigns
-		allowed = { original_tag = JAP }
+		icon = GFX_decision_generic_operation
+		allowed = { tag = JAP }
 		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
 		priority = 98
 		available = {
@@ -232,8 +346,8 @@ JAP_pnr_national_security_bill_category = {
 	}
 
 	JAP_pnr_nsb_prepare_submission = {
-		icon = GFX_decision_generic_prepare_civil_war
-		allowed = { original_tag = JAP }
+		icon = GFX_decision_hol_radio_oranje
+		allowed = { tag = JAP }
 		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
 		priority = 99
 		available = {
@@ -243,6 +357,34 @@ JAP_pnr_national_security_bill_category = {
 		cancel_trigger = { hidden_trigger = { NOT = { has_country_flag = JAP_pnr_nsb_debate_begun } } }
 		complete_effect = {
 			set_country_flag = JAP_pnr_nsb_draft_ready
+			if = {
+				limit = { has_country_flag = pnr_nsb_decision_2_flag }
+				add_to_variable = { JAP_pnr_parliament_support_var = -1 }
+			}
+			if = {
+				limit = { has_country_flag = pnr_nsb_decision_4_flag }
+				add_to_variable = { JAP_pnr_parliament_support_var = -1 }
+			}
+			if = {
+				limit = { has_country_flag = pnr_nsb_decision_5_flag }
+				add_to_variable = { JAP_pnr_parliament_support_var = -2 }
+			}
+			if = {
+				limit = { has_country_flag = pnr_nsb_decision_6_flag }
+				add_to_variable = { JAP_pnr_parliament_support_var = -1 }
+			}
+			if = {
+				limit = { has_country_flag = pnr_nsb_decision_7_flag }
+				add_to_variable = { JAP_pnr_parliament_support_var = -2 }
+			}
+			if = {
+				limit = { has_country_flag = pnr_nsb_decision_8_flag }
+				add_to_variable = { JAP_pnr_parliament_support_var = -1 }
+			}
+			if = {
+				limit = { has_country_flag = pnr_nsb_decision_9_flag }
+				add_to_variable = { JAP_pnr_parliament_support_var = -2 }
+			}
 		}
 		ai_will_do = { factor = 0 }
 	}

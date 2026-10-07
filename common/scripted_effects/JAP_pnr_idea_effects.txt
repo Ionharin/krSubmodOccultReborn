@@ -32,38 +32,38 @@ JAP_pnr_offensive_realpolitik_update = { #Update Policy Idea
 }
 
 JAP_pnr_farewell_to_the_lost_decade_update = { #Update Chaos
-	if = {
-		limit = { has_idea = JAP_pnr_farewell_to_the_lost_decade_4 }
-		remove_ideas = JAP_pnr_farewell_to_the_lost_decade_4
-	}
-	else_if = {
-		limit = { has_idea = JAP_pnr_farewell_to_the_lost_decade_3 }
-		swap_ideas = {
-			remove_idea = JAP_pnr_farewell_to_the_lost_decade_3
-			add_idea = JAP_pnr_farewell_to_the_lost_decade_4
-		}
-	}
-	else_if = {
-		limit = { has_idea = JAP_pnr_farewell_to_the_lost_decade_2 }
-		swap_ideas = {
-			remove_idea = JAP_pnr_farewell_to_the_lost_decade_2
-			add_idea = JAP_pnr_farewell_to_the_lost_decade_3
-		}
-	}
-	else_if = {
-		limit = { has_idea = JAP_pnr_farewell_to_the_lost_decade_1 }
-		swap_ideas = {
-			remove_idea = JAP_pnr_farewell_to_the_lost_decade_1
-			add_idea = JAP_pnr_farewell_to_the_lost_decade_2
-		}
-	}
-	else_if = {
-		limit = { has_idea = JAP_pnr_farewell_to_the_lost_decade }
-		swap_ideas = {
-			remove_idea = JAP_pnr_farewell_to_the_lost_decade
-			add_idea = JAP_pnr_farewell_to_the_lost_decade_1
-		}
-	}
+	#if = {
+	#	limit = { has_idea = JAP_pnr_farewell_to_the_lost_decade_4 }
+	#	remove_ideas = JAP_pnr_farewell_to_the_lost_decade_4
+	#}
+	#else_if = {
+	#	limit = { has_idea = JAP_pnr_farewell_to_the_lost_decade_3 }
+	#	swap_ideas = {
+	#		remove_idea = JAP_pnr_farewell_to_the_lost_decade_3
+	#		add_idea = JAP_pnr_farewell_to_the_lost_decade_4
+	#	}
+	#}
+	#else_if = {
+	#	limit = { has_idea = JAP_pnr_farewell_to_the_lost_decade_2 }
+	#	swap_ideas = {
+	#		remove_idea = JAP_pnr_farewell_to_the_lost_decade_2
+	#		add_idea = JAP_pnr_farewell_to_the_lost_decade_3
+	#	}
+	#}
+	#else_if = {
+	#	limit = { has_idea = JAP_pnr_farewell_to_the_lost_decade_1 }
+	#	swap_ideas = {
+	#		remove_idea = JAP_pnr_farewell_to_the_lost_decade_1
+	#		add_idea = JAP_pnr_farewell_to_the_lost_decade_2
+	#	}
+	#}
+	#else_if = {
+	#	limit = { has_idea = JAP_pnr_farewell_to_the_lost_decade }
+	#	swap_ideas = {
+	#		remove_idea = JAP_pnr_farewell_to_the_lost_decade
+	#		add_idea = JAP_pnr_farewell_to_the_lost_decade_1
+	#	}
+	#}
 }
 
 JAP_pnr_stand_with_market_idea_update = { # left financial path
@@ -230,9 +230,9 @@ JAP_pnr_initialize_red_conspiracy = { # Initialize Red Conspiracy
 	if = {
 		limit = {
 			tag = JAP
-			NOT = { has_country_flag = JAP_pnr_red_conspiracy_begun }
+			NOT = { has_country_flag = JAP_pnr_red_conspiracy_done }
 		}
-		set_country_flag = JAP_pnr_red_conspiracy_begun
+		set_country_flag = JAP_pnr_red_conspiracy_done
 		set_variable = { JAP_pnr_red_conspiracy_strength = 15 }
 		remove_ideas = JAP_pnr_housing_finance_agency
 		JAP_pnr_update_red_conspiracy_modifier_values = yes
@@ -272,11 +272,11 @@ JAP_pnr_mio_check_industrial_complex = { # Check num of IC
 	}
 	if = {
 		limit = { check_variable = { JAP_pnr_mio_check_industrial_complex_var < 100 } }
-		multiply_temp_variable = { JAP_pnr_mio_check_industrial_complex_var = 0.0010 }
+		multiply_temp_variable = { JAP_pnr_mio_check_industrial_complex_var = -0.0010 }
 		add_mio_research_bonus = JAP_pnr_mio_check_industrial_complex_var
 	}
 	else = {
-		add_mio_research_bonus = 0.10
+		military_industrial_organization_size_up_requirement = -0.10
 	}
 }
 
@@ -292,5 +292,20 @@ JAP_pnr_mio_check_military_factories = { # Check num of MF
 	}
 	else = {
 		add_mio_funds_gain_factor = 0.15
+	}
+}
+
+JAP_pnr_mio_check_technologies = { # Check num of TECH
+	set_temp_variable = {
+		JAP_pnr_mio_check_technologies_var = FROM.num_researched_technologies
+		tooltip = JAP_mio_check_industrial_complex_tt
+	}
+	if = {
+		limit = { check_variable = { JAP_pnr_mio_check_technologies_var < 75 } }
+		multiply_temp_variable = { JAP_pnr_mio_check_technologies_var = 0.00267 }
+		add_mio_research_bonus = JAP_pnr_mio_check_technologies_var
+	}
+	else = {
+		add_mio_research_bonus = 0.20
 	}
 }
