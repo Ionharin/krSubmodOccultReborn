@@ -1,3 +1,4 @@
+### CHN Unification ###
 	chinese_unification = {
     china_declare_unification = {
 		icon = generic_form_nation
@@ -1399,3 +1400,135 @@
 		}
 	}
 }
+
+### FNG ###
+	FNG_foreign_policy = {
+		FNG_The_Grand_Marshals_Proclamation = {
+		icon = GFX_decision_generic_army_support
+		priority = 4
+
+		available = {
+			date > 1938.1.30
+			OR = {
+				AND = {
+					is_in_faction_with = JAP
+					JAP = { is_faction_leader = yes }
+				}
+				#Need to find a way to have this unlock in 1938 for AI
+				has_war_support > 0.80
+				AND = {
+					has_war_support > 0.60
+					OR = {
+						custom_override_tooltip = {
+							tooltip = FNG_CHN_enemies_tooltip
+							check_variable = { CHN.enemies^num > 2 }
+						}
+						strength_ratio = { tag = CHN ratio > 1.25 }
+						var:608.owner = { enemies_strength_ratio > 1 }
+						var:608.owner = { surrender_progress > 0.1 }
+						var:613.owner = { is_subject_of = FNG } #If Fengtian has Shandong or Anqing as a puppet, they can move more aggressively.
+					}
+				}
+				any_enemy_country = {
+					is_chinese_tag = yes #In case someone declares war on SHD or ANQ which are either subjects or guaranteed by FNG
+				}
+			}
+		}
+
+		visible = {
+			is_subject = no
+			can_declare_war_on = 608.owner
+			var:608.owner = { is_chinese_tag = yes }
+		}
+
+		cancel_trigger = {
+			OR = {
+				is_subject = yes
+				NOT = { can_declare_war_on = 608.owner }
+			}
+		}
+
+		days_remove = 30
+		fire_only_once = yes
+
+		ai_will_do = { base = 1000 }
+
+		remove_effect = {
+			log = "[GetLogRoot]: Decision remove FNG_The_Grand_Marshals_Proclamation"
+			set_country_flag = FNG_preparing_war_of_national_reclamation
+			country_event = fengtian_events.101
+			add_war_support = 0.10
+			add_political_power = 100
+			add_timed_idea = {
+				idea = FNG_Year_of_Righteous_Effort
+				days = 365
+			}
+			china_enable_alliances_decisions = yes
+			if = {
+				limit = {
+					ANQ = {
+						has_country_flag = ANQ_commits_reclamation
+						exists = yes
+						is_subject = no
+						is_in_faction = no
+						NOT = { has_war_with = ROOT }
+					}
+				}
+				ANQ = { country_event = { id = anqing_events.183 days = 3 } }
+				custom_effect_tooltip = if_they_accept_tt
+				effect_tooltip = {
+					set_temp_variable = { target = ANQ }
+					china_puppet_TARGET_effect = yes
+				}
+			}
+			unlock_decision_tooltip = FNG_The_Yanshan_Plan
+			unlock_decision_tooltip = FNG_Shanhaiguan_Infiltration
+			custom_effect_tooltip = tooltip_white_line
+			FNG_zhang_zuoxiang = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = character_becomes_a_general_bound
+						SKILL = 2
+						ATTACK = 1
+						DEFENSE = 2
+						PLANNING = 2
+						LOGISTICS = 2
+					}
+					add_corps_commander_role = {
+						character = FNG_zhang_zuoxiang
+						desc = FNG_zhang_zuoxiang_army_chief_desc
+						traits = { career_officer war_hero skilled_staffer irregulars_officer CHN_zhang_officer_trait }
+						skill = 2
+						attack_skill = 1
+						defense_skill = 2
+						planning_skill = 2
+						logistics_skill = 2
+					}
+				}
+			}
+			FNG_wu_junsheng = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = character_becomes_a_general_bound
+						SKILL = 2
+						ATTACK = 2
+						DEFENSE = 1
+						PLANNING = 2
+						LOGISTICS = 2
+					}
+					add_corps_commander_role = {
+						character = FNG_wu_junsheng
+						desc = FNG_wu_junsheng_commander_desc
+						traits = { old_guard cavalry_officer trait_cautious substance_abuser irregulars_officer CHN_zhang_officer_trait }
+						skill = 2
+						attack_skill = 2
+						defense_skill = 1
+						planning_skill = 2
+						logistics_skill = 2
+					}
+				}
+			}
+		}
+		fixed_random_seed = no
+	}
+	}

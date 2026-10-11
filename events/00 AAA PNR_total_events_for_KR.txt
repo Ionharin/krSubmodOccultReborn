@@ -11,6 +11,182 @@ add_namespace = league_collapse_events
 add_namespace = fengtian_japan_mechanic_events
 add_namespace = japan_domestic_events
 add_namespace = taiwan_events
+add_namespace = fengtian_events
+add_namespace = xinjiang_events
+add_namespace = german_east_asia_events
+add_namespace = siam_events
+add_namespace = spanish_civil_war_events
+add_namespace = united_states_events
+add_namespace = central_asian_crisis_events
+add_namespace = india_events
+
+####################
+### CENTRAL ASIA ###
+####################
+
+country_event = { #The Bandits Band Together!
+	id = central_asian_crisis_events.472
+	title = central_asian_crisis_events.472.t
+	desc = central_asian_crisis_events.472.d
+	is_triggered_only = yes
+	picture = GFX_report_event_basmachi_squad
+
+	option = {
+		log = "[GetLogInfo]: event central_asian_crisis_events.472 option central_asian_crisis_events.472.a"
+		name = central_asian_crisis_events.472.a
+		add_to_faction = BUK
+		add_named_threat = {
+			threat = 5
+			name = RUS_CA_war_has_begun
+		}
+		declare_war_on = {
+			target = KAZ
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = KHI
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = TRK
+			type = annex_everything
+		}
+		hidden_effect = {
+			KAZ = {
+				every_owned_state = { remove_core_of = RUS }
+				set_major = yes
+				activate_mission = CA_hold_out_vs_russia
+			}
+			TRK = { activate_mission = CA_hold_out_vs_russia }
+			KHI = { activate_mission = CA_hold_out_vs_russia }
+			every_state = {
+				limit = {
+					is_central_asia = yes
+					NOT = {
+						is_core_of = RUS
+						is_claimed_by = RUS
+					}
+				}
+				add_claim_by = RUS
+			}
+			if = {
+				limit = { country_exists = BUK }
+				BUK = { country_event = central_asian_crisis_events.475 }
+			}
+			if = {
+				limit = { country_exists = TRK }
+				TRK = { country_event = central_asian_crisis_events.475 }
+			}
+			if = {
+				limit = { country_exists = KHI }
+				KHI = { country_event = central_asian_crisis_events.475 }
+			}
+			JAP = { country_event = { id = JAP_pnr_military_events.18 days = 5 } }
+		}
+		activate_mission = RUS_defeat_central_asia
+		set_global_flag = CA_russia_war_started
+	}
+}
+
+###########
+### IND ###
+###########
+
+news_event = {
+	id = india_events.103
+	immediate = {
+		log = "[GetLogInfo]: event india_events.103"
+		JAP = { country_event = { id = JAP_pnr_military_events.17 days = 8 } }
+	}
+	title = india_events.103.t
+	desc = india_events.103.d
+	picture = GFX_news_event_HND_marching
+
+	is_triggered_only = yes
+	fire_for_sender = no
+	major = yes
+
+	trigger = { wants_world_news = yes } #Global news event
+
+	option = {
+		name = india_events.103.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = ENT
+				has_socialist_government = yes
+			}
+		}
+	}
+	option = {
+		name = india_events.103.b
+		trigger = {
+			is_in_faction_with = ENT
+		}
+	}
+	option = {
+		name = india_events.103.c
+		trigger = {
+			has_socialist_government = yes
+		}
+	}
+}
+
+###########
+### USA ###
+###########
+
+news_event = {
+	id = united_states_events.1000
+	immediate = { 
+		log = "[GetLogInfo]: event united_states_events.1000"
+		JAP = { country_event = { id = JAP_pnr_kg.200 days = 20 } }
+		GEA = { country_event = { id = JAP_pnr_kg.200 days = 20 } }
+	}
+	title = united_states_events.1000.t
+	picture = GFX_news_event_USA_second_american_civil_war
+
+	desc = {
+		text = united_states_events.1000.d.four_way
+		trigger = {
+			country_exists = APG
+			country_exists = ACC
+		}
+	}
+	desc = {
+		text = united_states_events.1000.d.three_way
+		trigger = {
+			country_exists = APG
+			NOT = { country_exists = ACC }
+		}
+	}
+	desc = {
+		text = united_states_events.1000.d.two_way
+		trigger = {
+			NOT = { country_exists = APG }
+			NOT = { country_exists = ACC }
+		}
+	}
+
+	trigger = { wants_world_news = yes } #Global news event
+
+	is_triggered_only = yes
+	fire_for_sender = no
+	major = yes
+
+	show_major = {
+		is_american_tag = no
+	}
+
+	option = {
+		name = united_states_events.1000.a
+		effect_tooltip = {
+			add_named_threat = {
+				threat = 12
+				name = american_civil_war_threat
+			}
+		}
+	}
+}
 
 ###########
 ### FNG ###
@@ -93,6 +269,34 @@ country_event = { #Tensions in Manchuria
 		else_if = {
 			limit = { tag = JAP }
 			effect_tooltip = { activate_mission = JAP_pnr_doubts_about_zhang_mission }
+		}
+	}
+}
+
+country_event = { #Wu Wang Zai Ju
+	id = fengtian_events.79
+	title = fengtian_events.79.t
+	desc = fengtian_events.79.d
+	picture = GFX_report_event_CHN_five_colour_flag_gate_1
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #Read the text of the speech
+		log = "[GetLogInfo]: event fengtian_events.79 option fengtian_events.79.a"
+		name = fengtian_events.79.a
+		country_event = fengtian_events.282
+		ai_chance = { base = 0 }
+		hidden_effect = {
+			JAP = { country_event = { id = JAP_pnr_event.1 hours = 6 } }
+		}
+	}
+
+	option = { #Southern Reclamation is Inevitable!
+		log = "[GetLogInfo]: event fengtian_events.79 option fengtian_events.79.b"
+		name = fengtian_events.79.b
+		hidden_effect = {
+			JAP = { country_event = { id = JAP_pnr_event.1 hours = 6 } }
 		}
 	}
 }
@@ -656,6 +860,310 @@ country_event = { # change trigger so that MoG will not trigger this event
 	}
 }
 
+###########
+### SIK ###
+###########
+
+news_event = {
+	id = xinjiang_events.111
+	immediate = {
+		log = "[GetLogInfo]: event xinjiang_events.111"
+		hidden_effect = { JAP = { country_event = { id = JAP_pnr_military_events.13 days = 3 } } }	
+	}
+	title = xinjiang_events.111.t
+	desc = xinjiang_events.111.d
+	picture = GFX_news_event_SIK_xinjiang
+
+	is_triggered_only = yes
+	fire_for_sender = no
+	major = yes
+
+	trigger = { wants_world_news = yes }
+
+	show_major = { regional_asia_news = yes }
+
+	option = { #Interesting
+		name = xinjiang_events.111.a
+	}
+}
+
+###########
+### GEA ###
+###########
+
+country_event = { # Saigon Uprising
+	id = german_east_asia_events.15
+
+	immediate = {
+		log = "KR_Event_Logging;ICW STARTS"
+		JAP = { country_event = { id = JAP_pnr_military_events.14 days = 2 } }
+	}
+
+	title = german_east_asia_events.15.t
+	desc = {
+		text = german_east_asia_events.15.d
+		trigger = {
+			tag = GEA
+		}
+	}
+	desc = {
+		text = german_east_asia_events.15.d.fra
+		trigger = {
+			tag = FRA
+		}
+	}
+	picture = GFX_report_event_INC_mass
+
+	is_triggered_only = yes
+
+	option = { # Vive la Revolution!
+		log = "[GetLogInfo]: event german_east_asia_events.15 option german_east_asia_events.15.a"
+		name = german_east_asia_events.15.a
+		trigger = { tag = GEA }
+		ai_chance = { base = 0 }
+		hidden_effect = { GEA_spawn_indochinese_revolt = yes }
+		INC = { change_tag_from = ROOT }
+		hidden_effect = {
+			set_variable = { country_guide_page_count = 0 }
+		}
+	}
+	option = { # Damn the Vietcong!
+		log = "[GetLogInfo]: event german_east_asia_events.15 option german_east_asia_events.15.b"
+		name = german_east_asia_events.15.b
+		trigger = { tag = GEA }
+		hidden_effect = { GEA_spawn_indochinese_revolt = yes }
+		hidden_effect = {
+			set_variable = { country_guide_page_count = 0 }
+		}
+	}
+	option = { # Wait, I'm coming with you!
+		log = "[GetLogInfo]: event german_east_asia_events.15 option german_east_asia_events.15.a.fra"
+		name = german_east_asia_events.15.a.fra
+		trigger = { tag = FRA }
+		ai_chance = { base = 0 }
+		INC = { change_tag_from = ROOT }
+	}
+
+	option = { # Good luck, comrades!
+		log = "[GetLogInfo]: event german_east_asia_events.15 option german_east_asia_events.15.b.fra"
+		name = german_east_asia_events.15.b.fra
+		trigger = { tag = FRA }
+	}
+}
+
+###########
+### SIA ###
+###########
+
+country_event = { # Luang Phibunsongkhram's Dilemma
+	id = siam_events.15
+	title = siam_events.15.t
+	desc = siam_events.15.d
+	picture = GFX_report_event_SIA_Checking_Out_Troops
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				last_election = 1936.8.2 # Since [today] - just place here to prevent all the date fck-up
+				elections_allowed = no
+			}
+			end_coalition = yes
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event siam_events.15 option siam_events.15.a"
+		name = siam_events.15.a # Parliamentarians
+		ai_chance = {
+			base = 45
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SIA_civil_war option = SIA_CIVIL_WAR_RADSOC }
+					has_game_rule = { rule = SIA_civil_war option = SIA_CIVIL_WAR_PLAEK_NATPOP }
+					has_game_rule = { rule = SIA_civil_war option = SIA_CIVIL_WAR_SARIT_PATAUT }
+					has_game_rule = { rule = SIA_civil_war option = SIA_CIVIL_WAR_PHAO_NATPOP }
+				}
+			}
+		}
+		country_event = { id = siam_events.16 days = 3 }
+		SIA = {
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.01
+			}
+			hidden_effect = {
+				set_party_name = { # Khana Gubarn Gumueang
+					ideology = paternal_autocrat
+					long_name = SIA_paternal_autocrat_party_CW_long
+					name = SIA_paternal_autocrat_party_CW
+				}
+				JAP = { country_event = { id = JAP_pnr_military_events.15 days = 7 } }
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event siam_events.15 option siam_events.15.b"
+		name = siam_events.15.b # Royalist
+		ai_chance = {
+			base = 5
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SIA_civil_war option = SIA_CIVIL_WAR_BOWORADET_PATAUT }
+					has_game_rule = { rule = SIA_civil_war option = SIA_CIVIL_WAR_PLAEK_NATPOP }
+					has_game_rule = { rule = SIA_civil_war option = SIA_CIVIL_WAR_SARIT_PATAUT }
+					has_game_rule = { rule = SIA_civil_war option = SIA_CIVIL_WAR_PHAO_NATPOP }
+				}
+			}
+		}
+		set_global_flag = SIA_phibunsongkhram_is_royalist
+		country_event = { id = siam_events.16 days = 3 }
+		SIA = {
+			add_popularity = {
+				ideology = totalist
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.01
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = -0.03
+			}
+			hidden_effect = {
+				set_party_name = { # Khana Pokpong Prachathipatai
+					ideology = radical_socialist
+					long_name = SIA_radical_socialist_party_CW_long
+					name = SIA_radical_socialist_party_CW
+				}
+				JAP = { country_event = { id = JAP_pnr_military_events.15 days = 7 } }
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event siam_events.15 option siam_events.15.c"
+		name = siam_events.15.c # Coup d'etat - temporary power
+		news_event = { id = siam_events.204 days = 3 }
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SIA_civil_war option = SIA_CIVIL_WAR_BOWORADET_PATAUT }
+					has_game_rule = { rule = SIA_civil_war option = SIA_CIVIL_WAR_RADSOC }
+				}
+			}
+		}
+		SIA = {
+			custom_effect_tooltip = SIA_martial_law_2_months_tt
+			add_stability = -0.15
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.20
+			}
+			activate_advisor = SIA_plaek_phibunsongkhram_sic
+			country_event = { id = siam_events.22 days = 60 }
+			set_country_flag = SIA_no_civil_war
+		}
+	}
+}
+
+###########
+### SPA ###
+###########
+
+country_event = {
+	id = spanish_civil_war_events.1
+	title = spanish_civil_war_events.1.t
+	desc = spanish_civil_war_events.1.d
+	picture = GFX_report_event_SPA_civwar
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			SWF = { set_cosmetic_tag = SPA_socialist_civil_war }
+			remove_ideas = {
+				SPA_black_monday
+				SPA_black_monday_2
+				SPA_social_breakdown
+				SPA_memories_of_the_republic
+			}
+			set_country_flag = pre_civil_war_over
+			mark_focus_tree_layout_dirty = yes
+			activate_targeted_decision = { target = ROOT decision = SPA_secure_loyalty }
+			activate_targeted_decision = { target = ROOT decision = SPA_increase_security }
+			random_list = {
+				50 = { }
+				50 = { set_country_flag = SPA_assassination_fail }
+			}
+			JAP = { country_event = { id = JAP_pnr_military_events.16 days = 1 } }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event spanish_civil_war_events.1 option spanish_civil_war_events.1.a"
+		name = spanish_civil_war_events.1.a #We shall fight them!
+		SPA_start_civil_war = yes
+		if = {
+			limit = { is_ai = yes }
+			SPA_spawn_AI_reinforcements = yes
+		}
+		SWF_spawn_AI_reinforcements = yes
+		SPR_spawn_AI_reinforcements = yes
+		custom_effect_tooltip = available_mio_tt
+		show_mio_tooltip = SPAIN_generic_civil_war_organisation
+	}
+
+	option = {
+		log = "[GetLogInfo]: event spanish_civil_war_events.1 option spanish_civil_war_events.1.b"
+		name = spanish_civil_war_events.1.b #Viva la Revolución! (Play as the CNT-FAI)
+		ai_chance = { base = 0 }
+		SPA_start_civil_war = yes
+		SPA_spawn_AI_reinforcements = yes
+		SPR_spawn_AI_reinforcements = yes
+		SWF = { change_tag_from = ROOT }
+		custom_effect_tooltip = tooltip_white_line
+		custom_effect_tooltip = available_mio_tt
+		show_mio_tooltip = SPAIN_generic_civil_war_organisation
+	}
+
+	option = {
+		log = "[GetLogInfo]: event spanish_civil_war_events.1 option spanish_civil_war_events.1.c"
+		name = spanish_civil_war_events.1.c #Long live Javier I! (Play as the Carlists)
+		ai_chance = { base = 0 }
+		SPA_start_civil_war = yes
+		SPA_spawn_AI_reinforcements = yes
+		SWF_spawn_AI_reinforcements = yes
+		SPR = { change_tag_from = ROOT }
+	}
+}
+
+###########
+### RUS ###
+###########
 
 ### Those events are modified coup events chain.
 

@@ -1,5 +1,15 @@
 defined_text = {
 	name = JAP_pnr_guirendengche_qinglong_zaoqiu_catgory_text
-	text = { trigger = { NOT = { has_active_mission = JAP_pnr_doubts_about_zhang_mission } } localization_key = JAP_pnr_guirendengche_qinglong_zaoqiu_catgory_no_war_desc }
-	text = { trigger = { has_active_mission = JAP_pnr_doubts_about_zhang_mission } localization_key = JAP_pnr_guirendengche_qinglong_zaoqiu_catgory_war_start_desc }
+	text = { trigger = { JAP = { NOT = { has_active_mission = JAP_pnr_doubts_about_zhang_mission } } } localization_key = JAP_pnr_guirendengche_qinglong_zaoqiu_catgory_no_war_desc }
+	text = { trigger = { JAP = { has_active_mission = JAP_pnr_doubts_about_zhang_mission } } localization_key = JAP_pnr_guirendengche_qinglong_zaoqiu_catgory_war_start_desc }
+}
+
+defined_text = {
+	name = JAP_pnr_seek_other_collabrator_text
+	text = { trigger = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var = 100 } } localization_key = JAP_pnr_seek_other_collabrator_text_5 }
+	text = { trigger = { AND = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var > 79 } check_variable = { JAP.JAP_seek_other_collabrator_progress_var < 100 } } } localization_key = JAP_pnr_seek_other_collabrator_text_4 }
+	text = { trigger = { AND = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var > 59 } check_variable = { JAP.JAP_seek_other_collabrator_progress_var < 80 } } } localization_key = JAP_pnr_seek_other_collabrator_text_3 }
+	text = { trigger = { AND = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var > 39 } check_variable = { JAP.JAP_seek_other_collabrator_progress_var < 60 } } } localization_key = JAP_pnr_seek_other_collabrator_text_2 }
+	text = { trigger = { AND = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var > 19 } check_variable = { JAP.JAP_seek_other_collabrator_progress_var < 40 } } } localization_key = JAP_pnr_seek_other_collabrator_text_1 }
+	text = { trigger = { AND = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var > -1 } check_variable = { JAP.JAP_seek_other_collabrator_progress_var < 20 } } } localization_key = JAP_pnr_seek_other_collabrator_text_0 }
 }

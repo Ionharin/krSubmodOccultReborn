@@ -184,6 +184,28 @@ JAP_pnr_update_landreform_costs = {
 	add_to_variable = { JAP_pnr_landreform_current_pp_3 = JAP_pnr_landreform_pp_3 }
 }
 
+JAP_pnr_update_bad_landreform_problem_modifier = {
+	set_temp_variable = {
+		JAP_pnr_bad_landreform_problem_manpower_factor = max_available_manpower_k
+	}
+	subtract_from_temp_variable = { JAP_pnr_bad_landreform_problem_manpower_factor = 300 }
+	divide_temp_variable = { JAP_pnr_bad_landreform_problem_manpower_factor = 100 }
+	clamp_temp_variable = { var = JAP_pnr_bad_landreform_problem_manpower_factor min = 0 max = 10 }
+	set_variable = {
+		JAP_pnr_bad_landreform_problem_modifier_consumer_goods_factor = {
+			value = JAP_pnr_bad_landreform_problem_manpower_factor
+			multiply = 0.025
+		}
+	}
+	set_variable = {
+		JAP_pnr_bad_landreform_problem_modifier_political_power_cost = {
+			value = JAP_pnr_bad_landreform_problem_manpower_factor
+			multiply = 0.03
+		}
+	}
+	force_update_dynamic_modifier = yes
+}
+
 JAP_pnr_landreform_check_completion = {
 	clamp_variable = { var = JAP_pnr_landreform_progress_var max = 100 min = 0 }
 	clamp_variable = { var = JAP_pnr_landreform_result_var max = 100 min = 0 }
@@ -273,10 +295,10 @@ JAP_pnr_mio_check_industrial_complex = { # Check num of IC
 	if = {
 		limit = { check_variable = { JAP_pnr_mio_check_industrial_complex_var < 100 } }
 		multiply_temp_variable = { JAP_pnr_mio_check_industrial_complex_var = -0.0010 }
-		add_mio_research_bonus = JAP_pnr_mio_check_industrial_complex_var
+		add_mio_size_up_requirement_factor = JAP_pnr_mio_check_industrial_complex_var
 	}
 	else = {
-		military_industrial_organization_size_up_requirement = -0.10
+		add_mio_size_up_requirement_factor = -0.10
 	}
 }
 

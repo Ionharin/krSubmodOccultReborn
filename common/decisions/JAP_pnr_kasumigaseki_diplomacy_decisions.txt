@@ -1,14 +1,15 @@
 JAP_pnr_kasumigaseki_diplomacy_category = {
 	JAP_pnr_south_china_melee_anq_decision = { # ANQ support
 		icon = GFX_decision_decision_generic_chinese_officers
-		allowed = { always = no }
+		#allowed = { always = no }
 		visible = { 
-			country_exists = ANQ
+			ANQ = { exists = yes }
 			has_global_flag = LEP_collapse
+			NOT = { has_global_flag = LEP_league_war_over }
 		}
 		fire_only_once = yes
 		available = {
-			country_exists = ANQ
+			ANQ = { exists = yes }
 			ANQ = { has_war = yes }
 			has_global_flag = LEP_war
 			NOT = { has_global_flag = LEP_league_war_over }
@@ -34,10 +35,11 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 	}
 	JAP_pnr_south_china_melee_chi_decision = { # CHI support
 		icon = GFX_decision_decision_generic_chinese_officers
-		allowed = { always = no }
+		#allowed = { always = no }
 		visible = { 
 			country_exists = CHI
 			has_global_flag = LEP_collapse
+			NOT = { has_global_flag = LEP_league_war_over }
 		}
 		fire_only_once = yes
 		available = {
@@ -67,10 +69,11 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 	}
 	JAP_pnr_south_china_melee_lep_decision = { # LEP support
 		icon = GFX_decision_decision_generic_chinese_officers
-		allowed = { always = no }
+		#allowed = { always = no }
 		visible = { 
 			country_exists = LEP
 			has_global_flag = LEP_collapse
+			NOT = { has_global_flag = LEP_league_war_over }
 		}
 		fire_only_once = yes
 		available = {
@@ -100,10 +103,11 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 	}
 	JAP_pnr_south_china_melee_shd_decision = { # SHD support
 		icon = GFX_decision_decision_generic_chinese_officers
-		allowed = { always = no }
+		#allowed = { always = no }
 		visible = { 
 			country_exists = SHD
 			has_global_flag = LEP_collapse
+			NOT = { has_global_flag = LEP_league_war_over }
 		}
 		fire_only_once = yes
 		available = {
@@ -133,8 +137,9 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 	}
 	JAP_pnr_operation_spartacus_india_decision = { # Operation Spartacus
 		icon = GFX_decision_continent_north_america
+
 		visible = { 
-			has_completed_focus = JAP_pnr_kasumigaseki_diplomacy
+			has_completed_focus = JAP_pnr_our_benefit_in_india
 		}
 		fire_only_once = yes
 		available = {

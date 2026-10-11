@@ -1,4 +1,311 @@
 JAP_pnr_continental_policy_category = {
+		JAP_pnr_support_chinese_separatists = {
+		icon = generic_prepare_civil_war
+
+		allowed = { always = yes }
+		available = {
+			FROM = {
+				NOT = { has_war_with = FNG }
+			}
+		}
+		
+
+		cost = 50
+		ai_will_do = { factor = 2 }
+
+		complete_effect = {
+			log = "[GetLogRoot][GetLogFrom]: Decision complete support_chinese_separatists"
+			FROM = {
+				country_event = japan_foreign_events.7
+			}
+			custom_effect_tooltip = chinese_tag_must_agree
+			effect_tooltip = {
+				FROM = {
+					add_ideas = JAP_chinese_separatist_support
+				}
+			}
+		}
+		fixed_random_seed = no
+	}
+
+	JAP_pnr_send_ETS_tartar_guy = {
+		icon = generic_prepare_civil_war
+
+		allowed = { always = yes }
+		available = {
+			NOT = { has_war_with = FROM }
+		}
+		
+		fire_only_once = yes
+		cost = 10
+		ai_will_do = { factor = 4 }
+
+		complete_effect = {
+			log = "[GetLogRoot][GetLogFrom]: Decision complete send_ETS_tartar_guy"
+			ETS = {
+				country_event = japan_foreign_events.8
+			}
+			custom_effect_tooltip = ETS_will_discuss_this
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_pan_asianism = {
+		icon = generic_prepare_civil_war
+
+		allowed = { always = yes }
+		available = {
+			has_war_with = CHN
+			608 = { is_controlled_by_ROOT_or_ally = yes }
+			613 = { is_controlled_by_ROOT_or_ally = yes }
+		}
+		
+		cost = 40
+
+		ai_will_do = { base = 100 }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete JAP_pan_asianism"
+			custom_effect_tooltip = JAP_peace_effects
+			effect_tooltip = { add_ideas = JAP_sabotage_1 }
+			hidden_effect = {
+				every_enemy_country = {
+					limit = {
+						is_in_array = { global.china_tags_array = THIS }
+					}
+					country_event = japan_foreign_events.604
+				}
+			}
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_harmony_and_reconciliation = {
+		icon = generic_prepare_civil_war
+
+		allowed = { always = yes }
+		available = {
+			has_war_with = CHN
+			608 = { is_controlled_by_ROOT_or_ally = yes }
+			613 = { is_controlled_by_ROOT_or_ally = yes }
+		}
+		
+
+		cost = 40
+
+		ai_will_do = { base = 100 }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete JAP_harmony_and_reconciliation"
+			custom_effect_tooltip = JAP_peace_effects
+			effect_tooltip = { add_ideas = JAP_sabotage_2 }
+			hidden_effect = {
+				every_enemy_country = {
+					limit = {
+						is_in_array = { global.china_tags_array = THIS }
+					}
+					country_event = japan_foreign_events.605
+				}
+			}
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_unity_through_peace = {
+		icon = generic_prepare_civil_war
+
+		allowed = { always = yes }
+		available = {
+			has_war_with = CHN
+			608 = { is_controlled_by_ROOT_or_ally = yes }
+			613 = { is_controlled_by_ROOT_or_ally = yes }
+		}
+		
+
+		cost = 40
+
+		ai_will_do = { base = 100 }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			log = "[GetLogRoot]: Decision complete JAP_unity_through_peace"
+			custom_effect_tooltip = JAP_peace_effects
+			effect_tooltip = { add_ideas = JAP_sabotage_3 }
+			hidden_effect = {
+				every_enemy_country = {
+					limit = {
+						is_in_array = { global.china_tags_array = THIS }
+					}
+					country_event = japan_foreign_events.606
+				}
+			}
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_finish_off_stragglers = {
+		icon = GFX_decision_jap_conquer_china
+
+		allowed = { always = no } #activated by focus JAP_continental_warfare
+
+		available = {
+			NOT = { has_non_aggression_pact_with = FROM }
+			NOT = { has_guaranteed = FROM }
+			NOT = { is_guaranteed_by = FROM }
+			FROM = { is_working_with_JAP = no }
+		}
+
+		cancel_trigger = {
+			OR = {
+				NOT = { can_declare_war_on = FROM }
+				has_wargoal_against = FROM
+				has_global_flag = JAP_defeated_by_china
+				has_non_aggression_pact_with = FROM
+				has_guaranteed = FROM
+				is_guaranteed_by = FROM
+				FROM = { is_working_with_JAP = yes }
+			}
+		}
+
+		target_trigger = {
+			can_declare_war_on = FROM
+			NOT = { has_wargoal_against = FROM }
+			NOT = { has_global_flag = JAP_defeated_by_china }
+		}
+
+		cost = 35
+		days_remove = 30
+		war_with_target_on_remove = yes
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				country_is_in_dangerous_war = yes
+			}
+			modifier = {
+				factor = 0
+				FROM = { default_attack_AI_trigger_consider_naval_strength = yes }
+			}
+		}
+
+		cancel_effect = {
+			log = "[GetLogRoot][GetLogFrom]: Decision cancel JAP_finish_off_stragglers"
+			clear_decision_attack_AI = yes
+			hidden_effect = { add_political_power = 35 }
+		}
+
+		complete_effect = {
+			log = "[GetLogRoot][GetLogFrom]: Decision complete JAP_finish_off_stragglers"
+			FROM = { incoming_war_notification_effect = yes }
+			setup_decision_attack_AI = yes
+		}
+
+		remove_effect = {
+			log = "[GetLogRoot][GetLogFrom]: Decision remove JAP_finish_off_stragglers"
+			clear_decision_attack_AI = yes
+			create_wargoal = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_campaign_into_frontier = {
+		icon = GFX_decision_jap_conquer_china
+
+		allowed = { always = no } #activated by focus JAP_continental_warfare
+
+		available = {
+			second_weltkrieg_has_begun = yes
+			NOT = {
+				has_non_aggression_pact_with = FROM
+				has_guaranteed = FROM
+				is_guaranteed_by = FROM
+				is_ally_with = FROM
+			}
+			if = {
+				limit = {
+					FNG = {
+						exists = yes
+						is_working_with_JAP = yes
+					}
+				}
+				OR = {
+					#This decision exists basically because faction rules prevent non-leaders from declaring war.
+					FNG = { has_wargoal_against = FROM } #if FNG is independent, try to funnel decisions through them and their demand outskirts decisions.
+					FNG = {
+						has_global_flag = china_united
+						is_subject_of = JAP
+					}
+				}
+			}
+			else = {
+				has_global_flag = china_united
+				var:608.owner = { #Beijing
+					is_subject_of = ROOT
+				}
+			}
+		}
+
+		cancel_trigger = {
+			OR = {
+				NOT = { can_declare_war_on = FROM }
+				has_wargoal_against = FROM
+				has_global_flag = JAP_defeated_by_china
+				has_non_aggression_pact_with = FROM
+				has_guaranteed = FROM
+				is_guaranteed_by = FROM
+				is_ally_with = FROM
+			}
+		}
+
+		target_trigger = {
+			can_declare_war_on = FROM
+			NOT = { has_wargoal_against = FROM }
+			NOT = { has_global_flag = JAP_defeated_by_china }
+		}
+
+		cost = 35
+		days_remove = 30
+		war_with_target_on_remove = yes
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				country_is_in_dangerous_war = yes
+			}
+			modifier = {
+				factor = 0
+				FROM = { default_attack_AI_trigger_consider_naval_strength = yes }
+			}
+		}
+
+		cancel_effect = {
+			log = "[GetLogRoot][GetLogFrom]: Decision cancel JAP_campaign_into_frontier"
+			clear_decision_attack_AI = yes
+			hidden_effect = { add_political_power = 35 }
+		}
+
+		complete_effect = {
+			log = "[GetLogRoot][GetLogFrom]: Decision complete JAP_campaign_into_frontier"
+			FROM = { incoming_war_notification_effect = yes }
+			setup_decision_attack_AI = yes
+		}
+
+		remove_effect = {
+			log = "[GetLogRoot][GetLogFrom]: Decision remove JAP_campaign_into_frontier"
+			clear_decision_attack_AI = yes
+			create_wargoal = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+		fixed_random_seed = no
+	}
+
 	JAP_pnr_withdraw_continental_investment = {
 		icon = generic_agreement
 

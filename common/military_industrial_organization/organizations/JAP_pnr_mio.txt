@@ -9312,307 +9312,307 @@ JAP_materiel_shared_mio = { # Special functions prepared for the concern route a
 #######################
 #### Special MIOs #####
 #######################
-JAP_tetsudo_sho_mio = { #MIO railway_upgrade
-    name = tetsudo_sho
-    icon = GFX_idea_JAP_tetsudo_sho
-    allowed = {
-        tag = JAP
-    }
-    available = {
-        always = yes
-    }
-	visible = { JAP = { has_completed_focus = JAP_pnr_railway_plan } }
-	equipment_type = { train_equipment }
-	research_categories = { cat_production electronics }
-	research_bonus = 0
-	task_capacity = 1
-    on_design_team_assigned_to_tech = {
-		JAP = { add_cic = 100 }
-	}
-	on_design_team_assigned_to_variant = {
-		JAP = { add_cic = 50 }
-	}
-	on_industrial_manufacturer_assigned = {
-		JAP = { add_cic = 100 }
-	}
-	on_tech_research_completed = {
-		JAP = {
-			add_cic = 200
-			add_political_power = 25
-		}
-	}
-	initial_trait = {
-		name = pnr_tetsudo_sho_subtitle
-		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.10
-			military_industrial_organization_size_up_requirement = 333
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_0
-		name = generic_mio_trait_state_subsidizing
-		icon = GFX_generic_mio_trait_icon_unique
-
-		position = { x = 0 y = 0 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_1
-		name = generic_mio_trait_state_subsidizing
-		icon = GFX_generic_mio_trait_icon_unique
-
-		position = { x = 9 y = 0 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_2
-		name = generic_mio_trait_state_subsidizing
-		icon = GFX_military_industrial_organization_train
-
-		position = { x = 0 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_3
-		name = generic_mio_trait_research_program
-		icon = GFX_generic_mio_trait_icon_maximum_speed
-		all_parents = { JAP_mio_tetsudo_sho_2 }
-
-		position = { x = 1 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_4
-		name = generic_mio_trait_all_wheel_drive
-		icon = GFX_generic_mio_trait_icon_unique
-		all_parents = { JAP_mio_tetsudo_sho_3 }
-		special_trait_background = yes
-
-		position = { x = 2 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_5
-		name = generic_mio_trait_research_program
-		icon = GFX_generic_mio_trait_icon_maximum_speed
-		all_parents = { JAP_mio_tetsudo_sho_4 }
-
-		position = { x = 3 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_6
-		name = generic_mio_trait_research_program
-		icon = GFX_generic_mio_trait_icon_maximum_speed
-		all_parents = { JAP_mio_tetsudo_sho_5 }
-
-		position = { x = 4 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_7
-		name = generic_mio_trait_research_program
-		icon = GFX_generic_mio_trait_icon_maximum_speed
-		all_parents = { JAP_mio_tetsudo_sho_6 }
-
-		position = { x = 5 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_8
-		name = generic_mio_trait_upgraded_engines
-		icon = GFX_generic_mio_trait_icon_unique
-		all_parents = { JAP_mio_tetsudo_sho_7 }
-		special_trait_background = yes
-
-		position = { x = 6 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_9
-		name = generic_mio_trait_research_program
-		icon = GFX_generic_mio_trait_icon_maximum_speed
-		all_parents = { JAP_mio_tetsudo_sho_8 }
-
-		position = { x = 7 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_10
-		name = generic_mio_trait_research_program
-		icon = GFX_generic_mio_trait_icon_maximum_speed
-		all_parents = { JAP_mio_tetsudo_sho_9 }
-
-		position = { x = 8 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_11
-		name = generic_mio_trait_transport_duties
-		icon = GFX_generic_mio_trait_icon_unique
-		all_parents = { JAP_mio_tetsudo_sho_10 }
-		special_trait_background = yes
-
-		position = { x = 9 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_12
-		name = generic_mio_trait_state_subsidizing
-		icon = GFX_military_industrial_organization_train
-
-
-		position = { x = 0 y = 4 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_13
-		name = generic_mio_trait_research_program
-		icon = GFX_generic_mio_trait_icon_maximum_speed
-		all_parents = { JAP_mio_tetsudo_sho_12 }
-
-		position = { x = 1 y = 4 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_14
-		name = generic_mio_trait_all_wheel_drive
-		icon = GFX_generic_mio_trait_icon_unique
-		all_parents = { JAP_mio_tetsudo_sho_13 }
-		special_trait_background = yes
-
-		position = { x = 2 y = 4 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_15
-		name = generic_mio_trait_research_program
-		icon = GFX_generic_mio_trait_icon_maximum_speed
-		all_parents = { JAP_mio_tetsudo_sho_14 }
-
-		position = { x = 3 y = 4 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_16
-		name = generic_mio_trait_research_program
-		icon = GFX_generic_mio_trait_icon_maximum_speed
-		all_parents = { JAP_mio_tetsudo_sho_15 }
-
-		position = { x = 4 y = 4 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_17
-		name = generic_mio_trait_research_program
-		icon = GFX_generic_mio_trait_icon_maximum_speed
-		all_parents = { JAP_mio_tetsudo_sho_16 }
-
-		position = { x = 5 y = 4 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_18
-		name = generic_mio_trait_upgraded_engines
-		icon = GFX_generic_mio_trait_icon_unique
-		all_parents = { JAP_mio_tetsudo_sho_17 }
-		special_trait_background = yes
-
-		position = { x = 6 y = 4 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_19
-		name = generic_mio_trait_research_program
-		icon = GFX_generic_mio_trait_icon_maximum_speed
-		all_parents = { JAP_mio_tetsudo_sho_18 }
-
-		position = { x = 7 y = 4 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_20
-		name = generic_mio_trait_research_program
-		icon = GFX_generic_mio_trait_icon_maximum_speed
-		all_parents = { JAP_mio_tetsudo_sho_19 }
-
-		position = { x = 8 y = 4 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_tetsudo_sho_21
-		name = generic_mio_trait_transport_duties
-		icon = GFX_generic_mio_trait_icon_unique
-		all_parents = { JAP_mio_tetsudo_sho_20 }
-		special_trait_background = yes
-
-		position = { x = 9 y = 4 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-}
+#JAP_tetsudo_sho_mio = { #MIO railway_upgrade
+#    name = tetsudo_sho
+#    icon = GFX_idea_JAP_tetsudo_sho
+#    allowed = {
+#        tag = JAP
+#    }
+#    available = {
+#        always = yes
+#    }
+#	visible = { JAP = { has_completed_focus = JAP_pnr_railway_plan } }
+#	equipment_type = { train_equipment }
+#	research_categories = { cat_production electronics }
+#	research_bonus = 0
+#	task_capacity = 1
+ #   on_design_team_assigned_to_tech = {
+#		JAP = { add_cic = 100 }
+#	}
+#	on_design_team_assigned_to_variant = {
+#		JAP = { add_cic = 50 }
+#	}
+#	on_industrial_manufacturer_assigned = {
+#		JAP = { add_cic = 100 }
+#	}
+#	on_tech_research_completed = {
+#		JAP = {
+#			add_cic = 200
+#			add_political_power = 25
+#		}
+#	}
+#	initial_trait = {
+#		name = pnr_tetsudo_sho_subtitle
+#		organization_modifier = {
+#			military_industrial_organization_research_bonus = 0.10
+#			military_industrial_organization_size_up_requirement = 333
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_0
+#		name = generic_mio_trait_state_subsidizing
+#		icon = GFX_generic_mio_trait_icon_unique
+#
+#		position = { x = 0 y = 0 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_1
+#		name = generic_mio_trait_state_subsidizing
+#		icon = GFX_generic_mio_trait_icon_unique
+#
+#		position = { x = 9 y = 0 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_2
+#		name = generic_mio_trait_state_subsidizing
+#		icon = GFX_military_industrial_organization_train
+#
+#		position = { x = 0 y = 2 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_3
+#		name = generic_mio_trait_research_program
+#		icon = GFX_generic_mio_trait_icon_maximum_speed
+#		all_parents = { JAP_mio_tetsudo_sho_2 }
+#
+#		position = { x = 1 y = 2 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_4
+#		name = generic_mio_trait_all_wheel_drive
+#		icon = GFX_generic_mio_trait_icon_unique
+#		all_parents = { JAP_mio_tetsudo_sho_3 }
+#		special_trait_background = yes
+#
+#		position = { x = 2 y = 2 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_5
+#		name = generic_mio_trait_research_program
+#		icon = GFX_generic_mio_trait_icon_maximum_speed
+#		all_parents = { JAP_mio_tetsudo_sho_4 }
+#
+#		position = { x = 3 y = 2 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_6
+#		name = generic_mio_trait_research_program
+#		icon = GFX_generic_mio_trait_icon_maximum_speed
+#		all_parents = { JAP_mio_tetsudo_sho_5 }
+#
+#		position = { x = 4 y = 2 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_7
+#		name = generic_mio_trait_research_program
+#		icon = GFX_generic_mio_trait_icon_maximum_speed
+#		all_parents = { JAP_mio_tetsudo_sho_6 }
+#
+#		position = { x = 5 y = 2 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_8
+#		name = generic_mio_trait_upgraded_engines
+#		icon = GFX_generic_mio_trait_icon_unique
+#		all_parents = { JAP_mio_tetsudo_sho_7 }
+#		special_trait_background = yes
+#
+#		position = { x = 6 y = 2 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_9
+#		name = generic_mio_trait_research_program
+#		icon = GFX_generic_mio_trait_icon_maximum_speed
+#		all_parents = { JAP_mio_tetsudo_sho_8 }
+#
+#		position = { x = 7 y = 2 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_10
+#		name = generic_mio_trait_research_program
+#		icon = GFX_generic_mio_trait_icon_maximum_speed
+#		all_parents = { JAP_mio_tetsudo_sho_9 }
+#
+#		position = { x = 8 y = 2 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_11
+#		name = generic_mio_trait_transport_duties
+#		icon = GFX_generic_mio_trait_icon_unique
+#		all_parents = { JAP_mio_tetsudo_sho_10 }
+#		special_trait_background = yes
+#
+#		position = { x = 9 y = 2 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_12
+#		name = generic_mio_trait_state_subsidizing
+#		icon = GFX_military_industrial_organization_train
+#
+#
+#		position = { x = 0 y = 4 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_13
+#		name = generic_mio_trait_research_program
+#		icon = GFX_generic_mio_trait_icon_maximum_speed
+#		all_parents = { JAP_mio_tetsudo_sho_12 }
+#
+#		position = { x = 1 y = 4 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_14
+#		name = generic_mio_trait_all_wheel_drive
+#		icon = GFX_generic_mio_trait_icon_unique
+#		all_parents = { JAP_mio_tetsudo_sho_13 }
+#		special_trait_background = yes
+#
+#		position = { x = 2 y = 4 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_15
+#		name = generic_mio_trait_research_program
+#		icon = GFX_generic_mio_trait_icon_maximum_speed
+#		all_parents = { JAP_mio_tetsudo_sho_14 }
+#
+#		position = { x = 3 y = 4 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_16
+#		name = generic_mio_trait_research_program
+#		icon = GFX_generic_mio_trait_icon_maximum_speed
+#		all_parents = { JAP_mio_tetsudo_sho_15 }
+#
+#		position = { x = 4 y = 4 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_17
+#		name = generic_mio_trait_research_program
+#		icon = GFX_generic_mio_trait_icon_maximum_speed
+#		all_parents = { JAP_mio_tetsudo_sho_16 }
+#
+#		position = { x = 5 y = 4 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_18
+#		name = generic_mio_trait_upgraded_engines
+#		icon = GFX_generic_mio_trait_icon_unique
+#		all_parents = { JAP_mio_tetsudo_sho_17 }
+#		special_trait_background = yes
+#
+#		position = { x = 6 y = 4 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_19
+#		name = generic_mio_trait_research_program
+#		icon = GFX_generic_mio_trait_icon_maximum_speed
+#		all_parents = { JAP_mio_tetsudo_sho_18 }
+#
+#		position = { x = 7 y = 4 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_20
+#		name = generic_mio_trait_research_program
+#		icon = GFX_generic_mio_trait_icon_maximum_speed
+#		all_parents = { JAP_mio_tetsudo_sho_19 }
+#
+#		position = { x = 8 y = 4 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#	add_trait = {
+#		token = JAP_mio_tetsudo_sho_21
+#		name = generic_mio_trait_transport_duties
+#		icon = GFX_generic_mio_trait_icon_unique
+#		all_parents = { JAP_mio_tetsudo_sho_20 }
+#		special_trait_background = yes
+#
+#		position = { x = 9 y = 4 }
+#
+#		equipment_bonus = {
+#			maximum_speed = 0.1
+#		}
+#	}
+#}

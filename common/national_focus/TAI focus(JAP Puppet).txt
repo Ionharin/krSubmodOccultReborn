@@ -351,13 +351,13 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pnr_p_indigenous_military_service_rights
-		x = 2
-		y = 3
+		x = -1
+		y = 7
 		cost = 3
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = TAI_zhengzhao_taiwanese
+			focus = TAI_shanchuan_dao_milin
 		}
 		relative_position_id = TAI_pnr_p_military_revolution
 	}
@@ -643,12 +643,13 @@ focus_tree = {
 	focus = {
 		id = TAI_cong_anbao_dao_jundui
 		x = -3
-		y = 2
+		y = 4
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = TAI_pnr_p_strengthen_the_taiwan_military
+			focus = TAI_riben_jiaoguan
+			focus = TAI_xunmi_shanghai
 		}
 		relative_position_id = TAI_pnr_p_military_revolution
 	}
@@ -666,20 +667,20 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_zhengzhao_taiwanese
-		x = 2
-		y = 2
+		x = -3
+		y = 6
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = TAI_pnr_p_strengthen_the_taiwan_military
+			focus = TAI_cong_anbao_dao_jundui
 		}
 		relative_position_id = TAI_pnr_p_military_revolution
 	}
 	focus = {
 		id = TAI_qingdian_kucun
 		x = -4
-		y = 3
+		y = 5
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -690,20 +691,20 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_ewai_wuqi_zhizao
-		x = -2
-		y = 3
+		x = -5
+		y = 6
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
-			focus = TAI_cong_anbao_dao_jundui
+			focus = TAI_qingdian_kucun
 		}
 		relative_position_id = TAI_pnr_p_military_revolution
 	}
 	focus = {
 		id = TAI_shanchuan_dao_milin
-		x = -3
-		y = 4
+		x = -2
+		y = 5
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -727,8 +728,8 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_riben_jiaoguan
-		x = -1
-		y = 4
+		x = -4
+		y = 3
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -742,8 +743,8 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_xunmi_shanghai
-		x = 1
-		y = 4
+		x = -2
+		y = 3
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -792,14 +793,248 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_xiyin_gengduo_rencai
-		x = 23
-		y = 4
+		x = -3
+		y = 2
 		cost = 0
 		icon = GFX_focus_generic_treaty
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
+			focus = TAI_pnr_p_strengthen_the_taiwan_military
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_ziwei_jiandui
+		x = 3
+		y = 2
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_strengthen_the_taiwan_military
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_nanyang_jianshiguan
+		x = 2
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_yijiao_tuiyi_anfang_jian
+		}
+		prerequisite = {
+			focus = TAI_ziwei_jiandui
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_yijiao_tuiyi_anfang_jian
+		x = 4
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_nanyang_jianshiguan
+		}
+		prerequisite = {
+			focus = TAI_ziwei_jiandui
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_kuojian_magonggang
+		x = 3
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_nanyang_jianshiguan
+			focus = TAI_yijiao_tuiyi_anfang_jian
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_fazhan_jilong_gang
+		x = 3
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_kuojian_magonggang
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_pinggu_gaoxiong_haijunjidi
+		x = 2
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_fazhan_jilong_gang
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_yinjin_neidi_shejishang
+		x = 3
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_lianjia_xunyangjian
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_guli_bendi_zaochuanye
+		x = 5
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_lianjia_xunyangjian
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_haian_paobing
+		x = 5
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_kuojian_magonggang
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_lianjia_xunyangjian
+		x = 4
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_kuojian_magonggang
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_xiandaihua_haijun
+		x = 1
+		y = 7
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_lianjia_xunyangjian
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_quebao_jinhai_haiquan
+		x = 6
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_kuojian_magonggang
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_jianshe_kongjun_jidi
+		x = 0
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
 			focus = TAI_kuochong_feixingzhongdui
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_qinglai_zhandouji
+		x = -1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_qinglai_hongzhaji
+		}
+		prerequisite = {
+			focus = TAI_jianshe_kongjun_jidi
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_qinglai_hongzhaji
+		x = 1
+		y = 4
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_qinglai_zhandouji
+		}
+		prerequisite = {
+			focus = TAI_jianshe_kongjun_jidi
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_milin_sanbing
+		x = 0
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_shanchuan_dao_milin
+		}
+		prerequisite = {
+			focus = TAI_feixingyuan_peixunkecheng
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_feixingyuan_peixunkecheng
+		x = 0
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_qinglai_zhandouji
+			focus = TAI_qinglai_hongzhaji
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_haidao_zhanshu
+		x = 7
+		y = 7
+		cost = 0
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		relative_position_id = TAI_pnr_p_military_revolution
+		prerequisite = {
+			focus = TAI_lianjia_xunyangjian
 		}
 	}
 }

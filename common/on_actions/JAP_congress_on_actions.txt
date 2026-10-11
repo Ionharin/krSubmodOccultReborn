@@ -49,6 +49,18 @@ on_actions = {
 		}
 	}
 
+	on_weekly = {
+		effect = {
+			if = {
+				limit = {
+					tag = JAP
+					has_dynamic_modifier = { modifier = JAP_pnr_bad_landreform_problem_modifier }
+				}
+				JAP_pnr_update_bad_landreform_problem_modifier = yes
+			}
+		}
+	}
+
 	on_daily = {
 		effect = {
 			JAP = {
