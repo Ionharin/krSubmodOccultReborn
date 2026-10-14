@@ -1,4 +1,5 @@
 JAP_pnr_kasumigaseki_diplomacy_category = {
+### Eastern China ###
 	JAP_pnr_south_china_melee_anq_decision = { # ANQ support
 		icon = GFX_decision_decision_generic_chinese_officers
 		#allowed = { always = no }
@@ -26,78 +27,18 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			ANQ = {
 				add_offsite_building = { type = industrial_complex level = 1 }
 			}
+			add_relation_modifier = {
+				target = ANQ
+				modifier = volunteer_limit_plus_five
+			}
 		}
 		remove_effect = {
 			ANQ = {
 				add_offsite_building = { type = industrial_complex level = -1 }
 			}
-		}
-	}
-	JAP_pnr_south_china_melee_chi_decision = { # CHI support
-		icon = GFX_decision_decision_generic_chinese_officers
-		#allowed = { always = no }
-		visible = { 
-			country_exists = CHI
-			has_global_flag = LEP_collapse
-			NOT = { has_global_flag = LEP_league_war_over }
-		}
-		fire_only_once = yes
-		available = {
-			country_exists = CHI
-			CHI = { has_war = yes }
-			has_global_flag = LEP_war
-			NOT = { has_global_flag = LEP_league_war_over }
-			num_of_civilian_factories_available_for_projects > 1
-		}
-		ai_will_do = { factor = 10 }
-		cost = 5
-		days_remove = 90
-		modifier = {
-			civilian_factory_use = 2
-			experience_gain_army = 0.02
-		}
-		complete_effect = {
-			CHI = {
-				add_offsite_building = { type = industrial_complex level = 1 }
-			}
-		}
-		remove_effect = {
-			CHI = {
-				add_offsite_building = { type = industrial_complex level = -1 }
-			}
-		}
-	}
-	JAP_pnr_south_china_melee_lep_decision = { # LEP support
-		icon = GFX_decision_decision_generic_chinese_officers
-		#allowed = { always = no }
-		visible = { 
-			country_exists = LEP
-			has_global_flag = LEP_collapse
-			NOT = { has_global_flag = LEP_league_war_over }
-		}
-		fire_only_once = yes
-		available = {
-			country_exists = LEP
-			LEP = { has_war = yes }
-			has_global_flag = LEP_war
-			NOT = { has_global_flag = LEP_league_war_over }
-			num_of_civilian_factories_available_for_projects > 1
-		}
-		ai_will_do = { factor = 10 }
-		cost = 5
-		days_remove = 90
-		modifier = {
-			civilian_factory_use = 2
-			experience_gain_army = 0.02
-		}
-		complete_effect = {
-			LEP = {
-				add_offsite_building = { type = industrial_complex level = 1 }
-			}
-		}
-		remove_effect = {
-			LEP = {
-				add_offsite_building = { type = industrial_complex level = -1 }
+			remove_relation_modifier = {
+				target = ANQ
+				modifier = volunteer_limit_plus_five
 			}
 		}
 	}
@@ -128,13 +69,172 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			SHD = {
 				add_offsite_building = { type = industrial_complex level = 1 }
 			}
+			add_relation_modifier = {
+				target = SHD
+				modifier = volunteer_limit_plus_three
+			}
 		}
 		remove_effect = {
 			SHD = {
 				add_offsite_building = { type = industrial_complex level = -1 }
 			}
+			remove_relation_modifier = {
+				target = SHD
+				modifier = volunteer_limit_plus_three
+			}
 		}
 	}
+### SIK Civil War ###
+	JAP_pnr_shandong_musilin = {
+		icon = GFX_decision_generic_reorganize_irregulars
+		allowed = { always = no }
+		visible = { 
+			country_exists = ETS
+			OR = {
+				ETS = { has_war_with = SIK }
+				ETS = { has_war_with = KUM }
+			}
+		}
+		fire_only_once = yes
+		available = {
+			country_exists = ETS
+			OR = {
+				ETS = { has_war_with = SIK }
+				ETS = { has_war_with = KUM }
+			}
+		}
+		ai_will_do = { factor = 50 }
+		cost = 25
+		days_remove = 60
+		complete_effect = {
+			ETS = {
+				add_manpower = 8000
+			}
+		}
+		remove_effect = {
+			ETS = {
+				add_stability = 0.05
+				add_popularity = {
+					ideology = var:current_party_ideology_group
+					popularity = 0.05
+				}
+			}
+		}
+	}	
+	JAP_pnr_huanxing_tacheng_qianfufenzi = {
+		icon = GFX_decision_onmap_recruit_operative
+		allowed = { always = no }
+		visible = { 
+			country_exists = ETS
+			OR = {
+				ETS = { has_war_with = SIK }
+				ETS = { has_war_with = KUM }
+			}
+		}
+		fire_only_once = yes
+		available = {
+			country_exists = ETS
+			OR = {
+				ETS = { has_war_with = SIK }
+				ETS = { has_war_with = KUM }
+			}
+		}
+		ai_will_do = { factor = 50 }
+		cost = 20
+		complete_effect = {
+			ETS = {
+				add_intel = {
+					target = SIK
+    				civilian_intel = 20
+    				army_intel = 20
+				}
+				add_intel = {
+					target = KUM
+    				civilian_intel = 20
+    				army_intel = 20
+				}
+			}
+		}
+	}
+	JAP_pnr_cong_kabuer_tigong_zijin = {
+		icon = GFX_decision_generic_welfare
+		allowed = { always = no }
+		visible = { 
+			country_exists = ETS
+			OR = {
+				ETS = { has_war_with = SIK }
+				ETS = { has_war_with = KUM }
+			}
+		}
+		fire_only_once = yes
+		available = {
+			command_power > 19
+			country_exists = ETS
+			OR = {
+				ETS = { has_war_with = SIK }
+				ETS = { has_war_with = KUM }
+			}
+		}
+		ai_will_do = { factor = 50 }
+		cost = 40
+		complete_effect = {
+			add_command_power = -20
+			ETS = {
+				add_political_power = 30
+				add_command_power = 20
+			}
+		}
+	}
+	JAP_pnr_chiyuan_tongbao_minzu = {
+		icon = GFX_decision_SWE_set_army_budget
+		allowed = { always = no }
+		visible = { 
+			country_exists = ETS
+			OR = {
+				ETS = { has_war_with = SIK }
+				ETS = { has_war_with = KUM }
+			}
+		}
+		fire_only_once = yes
+		available = {
+			country_exists = ETS
+			OR = {
+				ETS = { has_war_with = SIK }
+				ETS = { has_war_with = KUM }
+			}
+		}
+		ai_will_do = { factor = 50 }
+		cost = 0
+		custom_cost_trigger = { command_power > 19 }
+		custom_cost_text = JAP_pnr_command_power_20_cost
+		days_remove = 140
+		modifier = {
+			power_balance_weekly = 0.0025
+			send_volunteer_size = 2
+		}
+		complete_effect = {
+			add_command_power = -20
+			ETS = {
+				add_manpower = 8000
+			}
+		}
+		remove_effect = {
+			ETS = {
+				add_stability = 0.05
+				add_popularity = {
+					ideology = var:current_party_ideology_group
+					popularity = 0.05
+				}
+			}
+		}
+	}
+### Siam Civil War ###
+
+### Middle Asia War ###
+
+### Muslim-Buddhism War ###
+
+### Indian Civil War ###
 	JAP_pnr_operation_spartacus_india_decision = { # Operation Spartacus
 		icon = GFX_decision_continent_north_america
 

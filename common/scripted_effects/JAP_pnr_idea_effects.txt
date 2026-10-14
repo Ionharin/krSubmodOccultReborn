@@ -294,11 +294,11 @@ JAP_pnr_mio_check_industrial_complex = { # Check num of IC
 	}
 	if = {
 		limit = { check_variable = { JAP_pnr_mio_check_industrial_complex_var < 100 } }
-		multiply_temp_variable = { JAP_pnr_mio_check_industrial_complex_var = -0.0010 }
+		multiply_temp_variable = { JAP_pnr_mio_check_industrial_complex_var = -0.0040 }
 		add_mio_size_up_requirement_factor = JAP_pnr_mio_check_industrial_complex_var
 	}
 	else = {
-		add_mio_size_up_requirement_factor = -0.10
+		add_mio_size_up_requirement_factor = -0.40
 	}
 }
 
@@ -309,11 +309,11 @@ JAP_pnr_mio_check_military_factories = { # Check num of MF
 	}
 	if = {
 		limit = { check_variable = { JAP_pnr_mio_check_military_factories_var < 100 } }
-		multiply_temp_variable = { JAP_pnr_mio_check_military_factories_var = 0.0015 }
+		multiply_temp_variable = { JAP_pnr_mio_check_military_factories_var = 0.0030 }
 		add_mio_funds_gain_factor = JAP_pnr_mio_check_military_factories_var
 	}
 	else = {
-		add_mio_funds_gain_factor = 0.15
+		add_mio_funds_gain_factor = 0.30
 	}
 }
 

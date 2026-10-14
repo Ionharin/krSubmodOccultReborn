@@ -39,54 +39,36 @@ JAP_pnr_election_category = {
 	JAP_pnr_election_party_10_leaflets = {
 		icon = GFX_decision_eng_propaganda_campaigns
 		allowed = { always = no }
-		visible = { always = yes }
 		cost = 0
-		days_remove = 14
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = JAP_pnr_election_party_10_leaflets_tt
-			hidden_effect = {
+		days_remove = 7
+		complete_effect = {
+			if = {
+				limit = { check_variable = { JAP_pnr_election_party_seats^7 > JAP_pnr_election_party_seats^6 } }
 				JAP_pnr_election_ensure_projected_results = yes
-				subtract_from_variable = { JAP_pnr_election_party_seats^7 = 8 }
-				add_to_variable = { JAP_pnr_election_party_seats^10 = 8 }
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^10
+					value = 10
+					tooltip = JAP_pnr_election_party_10_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^7
+					value = -10
+					tooltip = JAP_pnr_election_party_7_tt
+				}
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
-		}
-		ai_will_do = { factor = 100 }
-	}
-
-	JAP_pnr_election_party_10_speech = {
-		icon = GFX_decision_eng_propaganda_campaigns
-		allowed = { always = no }
-		visible = { always = yes }
-		cost = 0
-		days_remove = 21
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = JAP_pnr_election_party_10_speech_tt
-			hidden_effect = {
+			else = {
 				JAP_pnr_election_ensure_projected_results = yes
-				subtract_from_variable = { JAP_pnr_election_party_seats^7 = 14 }
-				add_to_variable = { JAP_pnr_election_party_seats^10 = 14 }
-				JAP_pnr_election_refresh_projected_changes = yes
-			}
-		}
-		ai_will_do = { factor = 100 }
-	}
-
-	JAP_pnr_election_party_10_bribe = {
-		icon = GFX_decision_eng_propaganda_campaigns
-		allowed = { always = no }
-		visible = { always = yes }
-		cost = 0
-		days_remove = 28
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = JAP_pnr_election_party_10_bribe_tt
-			hidden_effect = {
-				JAP_pnr_election_ensure_projected_results = yes
-				subtract_from_variable = { JAP_pnr_election_party_seats^7 = 18 }
-				add_to_variable = { JAP_pnr_election_party_seats^10 = 18 }
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^10
+					value = 10
+					tooltip = JAP_pnr_election_party_10_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^6
+					value = -10
+					tooltip = JAP_pnr_election_party_6_tt
+				}
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
@@ -97,53 +79,45 @@ JAP_pnr_election_category = {
 		icon = GFX_decision_eng_propaganda_campaigns
 		allowed = { always = no }
 		cost = 0
-		days_remove = 14
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = JAP_pnr_election_party_4_leaflets_tt
-			hidden_effect = {
+		days_remove = 7
+		complete_effect = {
+			if = {
+				limit = { check_variable = { JAP_pnr_election_party_seats^7 > JAP_pnr_election_party_seats^6 } }
 				JAP_pnr_election_ensure_projected_results = yes
-				subtract_from_variable = { JAP_pnr_election_party_seats^7 = 8 }
-				add_to_variable = { JAP_pnr_election_party_seats^4 = 4 }
-				add_to_variable = { JAP_pnr_election_party_seats^5 = 4 }
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^4
+					value = 5
+					tooltip = JAP_pnr_election_party_4_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^5
+					value = 5
+					tooltip = JAP_pnr_election_party_5_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^7
+					value = -10
+					tooltip = JAP_pnr_election_party_7_tt
+				}
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
-		}
-		ai_will_do = { factor = 100 }
-	}
-
-	JAP_pnr_election_party_4_speech = {
-		icon = GFX_decision_eng_propaganda_campaigns
-		allowed = { always = no }
-		cost = 0
-		days_remove = 21
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = JAP_pnr_election_party_4_speech_tt
-			hidden_effect = {
+			else = {
 				JAP_pnr_election_ensure_projected_results = yes
-				subtract_from_variable = { JAP_pnr_election_party_seats^7 = 14 }
-				add_to_variable = { JAP_pnr_election_party_seats^4 = 7 }
-				add_to_variable = { JAP_pnr_election_party_seats^5 = 7 }
-				JAP_pnr_election_refresh_projected_changes = yes
-			}
-		}
-		ai_will_do = { factor = 100 }
-	}
-
-	JAP_pnr_election_party_4_bribe = {
-		icon = GFX_decision_eng_propaganda_campaigns
-		allowed = { always = no }
-		cost = 0
-		days_remove = 28
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = JAP_pnr_election_party_4_bribe_tt
-			hidden_effect = {
-				JAP_pnr_election_ensure_projected_results = yes
-				subtract_from_variable = { JAP_pnr_election_party_seats^7 = 18 }
-				add_to_variable = { JAP_pnr_election_party_seats^4 = 9 }
-				add_to_variable = { JAP_pnr_election_party_seats^5 = 9 }
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^4
+					value = 5
+					tooltip = JAP_pnr_election_party_4_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^5
+					value = 5
+					tooltip = JAP_pnr_election_party_5_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^6
+					value = -10
+					tooltip = JAP_pnr_election_party_6_tt
+				}
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
@@ -154,52 +128,20 @@ JAP_pnr_election_category = {
 		icon = GFX_decision_eng_propaganda_campaigns
 		allowed = { always = no }
 		cost = 0
-		days_remove = 14
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = JAP_pnr_election_party_4_leaflets_tt
-			hidden_effect = {
-				JAP_pnr_election_ensure_projected_results = yes
-				subtract_from_variable = { JAP_pnr_election_party_seats^6 = 4 }
-				add_to_variable = { JAP_pnr_election_party_seats^7 = 4 }
+		days_remove = 7
+		complete_effect = {
+			JAP_pnr_election_ensure_projected_results = yes
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^7
+					value = 10
+					tooltip = JAP_pnr_election_party_7_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^6
+					value = -10
+					tooltip = JAP_pnr_election_party_6_tt
+				}
 				JAP_pnr_election_refresh_projected_changes = yes
-			}
-		}
-		ai_will_do = { factor = 100 }
-	}
-
-	JAP_pnr_election_party_7_speech = {
-		icon = GFX_decision_eng_propaganda_campaigns
-		allowed = { always = no }
-		cost = 0
-		days_remove = 21
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = JAP_pnr_election_party_4_speech_tt
-			hidden_effect = {
-				JAP_pnr_election_ensure_projected_results = yes
-				subtract_from_variable = { JAP_pnr_election_party_seats^6 = 7 }
-				add_to_variable = { JAP_pnr_election_party_seats^7 = 7 }
-				JAP_pnr_election_refresh_projected_changes = yes
-			}
-		}
-		ai_will_do = { factor = 100 }
-	}
-
-	JAP_pnr_election_party_7_bribe = {
-		icon = GFX_decision_eng_propaganda_campaigns
-		allowed = { always = no }
-		cost = 0
-		days_remove = 28
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = JAP_pnr_election_party_4_bribe_tt
-			hidden_effect = {
-				JAP_pnr_election_ensure_projected_results = yes
-				subtract_from_variable = { JAP_pnr_election_party_seats^6 = 9 }
-				add_to_variable = { JAP_pnr_election_party_seats^7 = 9 }
-				JAP_pnr_election_refresh_projected_changes = yes
-			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -208,50 +150,35 @@ JAP_pnr_election_category = {
 		icon = GFX_decision_eng_propaganda_campaigns
 		allowed = { always = no }
 		cost = 0
-		days_remove = 14
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = JAP_pnr_election_party_8_leaflets_tt
-			hidden_effect = {
+		days_remove = 7
+		complete_effect = {
+			if = {
+				limit = { check_variable = { JAP_pnr_election_party_seats^7 > JAP_pnr_election_party_seats^6 } }
 				JAP_pnr_election_ensure_projected_results = yes
-				subtract_from_variable = { JAP_pnr_election_party_seats^7 = 8 }
-				add_to_variable = { JAP_pnr_election_party_seats^8 = 8 }
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^8
+					value = 10
+					tooltip = JAP_pnr_election_party_8_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^7
+					value = -10
+					tooltip = JAP_pnr_election_party_7_tt
+				}
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
-		}
-		ai_will_do = { factor = 100 }
-	}
-
-	JAP_pnr_election_party_8_speech = {
-		icon = GFX_decision_eng_propaganda_campaigns
-		allowed = { always = no }
-		cost = 0
-		days_remove = 21
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = JAP_pnr_election_party_8_speech_tt
-			hidden_effect = {
+			else = {
 				JAP_pnr_election_ensure_projected_results = yes
-				subtract_from_variable = { JAP_pnr_election_party_seats^7 = 14 }
-				add_to_variable = { JAP_pnr_election_party_seats^8 = 14 }
-				JAP_pnr_election_refresh_projected_changes = yes
-			}
-		}
-		ai_will_do = { factor = 100 }
-	}
-
-	JAP_pnr_election_party_8_bribe = {
-		icon = GFX_decision_eng_propaganda_campaigns
-		allowed = { always = no }
-		cost = 0
-		days_remove = 28
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = JAP_pnr_election_party_8_bribe_tt
-			hidden_effect = {
-				JAP_pnr_election_ensure_projected_results = yes
-				subtract_from_variable = { JAP_pnr_election_party_seats^7 = 18 }
-				add_to_variable = { JAP_pnr_election_party_seats^8 = 18 }
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^8
+					value = 10
+					tooltip = JAP_pnr_election_party_8_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^6
+					value = -10
+					tooltip = JAP_pnr_election_party_6_tt
+				}
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
@@ -262,53 +189,100 @@ JAP_pnr_election_category = {
 		icon = GFX_decision_eng_propaganda_campaigns
 		allowed = { always = no }
 		cost = 0
+		days_remove = 7
+		complete_effect = {
+				JAP_pnr_election_ensure_projected_results = yes
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^6
+					value = 10
+					tooltip = JAP_pnr_election_party_6_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^7
+					value = -10
+					tooltip = JAP_pnr_election_party_7_tt
+				}
+				JAP_pnr_election_refresh_projected_changes = yes
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	JAP_pnr_election_NSA_ALLOW = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		visible = { has_dynamic_modifier = JAP_pnr_NSA_idea }
+		cost = 5
 		days_remove = 14
 		fire_only_once = yes
 		remove_effect = {
-			custom_effect_tooltip = JAP_pnr_election_party_6_leaflets_tt
-			hidden_effect = {
+			if = {
+				limit = { has_government = social_conservative }
 				JAP_pnr_election_ensure_projected_results = yes
-				subtract_from_variable = { JAP_pnr_election_party_seats^7 = 8 }
-				add_to_variable = { JAP_pnr_election_party_seats^6 = 8 }
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^10
+					value = -6
+					tooltip = JAP_pnr_election_party_10_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^8
+					value = -6
+					tooltip = JAP_pnr_election_party_8_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^6
+					value = -6
+					tooltip = JAP_pnr_election_party_6_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^5
+					value = -6
+					tooltip = JAP_pnr_election_party_5_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^4
+					value = -6
+					tooltip = JAP_pnr_election_party_4_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^7
+					value = 30
+					tooltip = JAP_pnr_election_party_7_tt
+				}	
+				JAP_pnr_election_refresh_projected_changes = yes
+			}
+			else = {
+				JAP_pnr_election_ensure_projected_results = yes
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^10
+					value = -6
+					tooltip = JAP_pnr_election_party_10_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^8
+					value = -6
+					tooltip = JAP_pnr_election_party_8_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^7
+					value = -6
+					tooltip = JAP_pnr_election_party_7_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^5
+					value = -6
+					tooltip = JAP_pnr_election_party_5_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^4
+					value = -6
+					tooltip = JAP_pnr_election_party_4_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^6
+					value = 30
+					tooltip = JAP_pnr_election_party_6_tt
+				}	
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
-		ai_will_do = { factor = 100 }
-	}
-
-	JAP_pnr_election_party_6_speech = {
-		icon = GFX_decision_eng_propaganda_campaigns
-		allowed = { always = no }
-		cost = 0
-		days_remove = 21
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = JAP_pnr_election_party_6_speech_tt
-			hidden_effect = {
-				JAP_pnr_election_ensure_projected_results = yes
-				subtract_from_variable = { JAP_pnr_election_party_seats^7 = 14 }
-				add_to_variable = { JAP_pnr_election_party_seats^6 = 14 }
-				JAP_pnr_election_refresh_projected_changes = yes
-			}
-		}
-		ai_will_do = { factor = 100 }
-	}
-
-	JAP_pnr_election_party_6_bribe = {
-		icon = GFX_decision_eng_propaganda_campaigns
-		allowed = { always = no }
-		cost = 0
-		days_remove = 28
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = JAP_pnr_election_party_6_bribe_tt
-			hidden_effect = {
-				JAP_pnr_election_ensure_projected_results = yes
-				subtract_from_variable = { JAP_pnr_election_party_seats^7 = 18 }
-				add_to_variable = { JAP_pnr_election_party_seats^6 = 18 }
-				JAP_pnr_election_refresh_projected_changes = yes
-			}
-		}
-		ai_will_do = { factor = 100 }
 	}
 }

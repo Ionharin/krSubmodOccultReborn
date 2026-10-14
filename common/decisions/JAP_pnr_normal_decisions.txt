@@ -5,10 +5,10 @@ JAP_hero_et_gangster_bop_category = { #BOP
 		priority = 98
 		days_remove = 30
 		days_re_enable = 90
-		available = { NOT = { has_country_flag = pnr_one_decision_is_running } }
+		available = { NOT = { has_country_flag = pnr_one_jap_bop_decision_is_running } }
 		allowed = { always = no }
 		complete_effect = {
-			set_country_flag = pnr_one_decision_is_running
+			set_country_flag = pnr_one_jap_bop_decision_is_running
 		}
 		remove_effect = {
 			add_power_balance_value = {
@@ -16,7 +16,7 @@ JAP_hero_et_gangster_bop_category = { #BOP
 				value = 0.025
 				tooltip_side = JAP_pnr_bop_hero
 			}
-			clr_country_flag = pnr_one_decision_is_running
+			clr_country_flag = pnr_one_jap_bop_decision_is_running
 		}
 	}
 	JAP_pnr_kokumin_no_kuntai = {
@@ -27,17 +27,17 @@ JAP_hero_et_gangster_bop_category = { #BOP
 		days_re_enable = 90
 		custom_cost_trigger = { command_power > 19 }
 		custom_cost_text = JAP_pnr_command_power_20_cost
-		available = { NOT = { has_country_flag = pnr_one_decision_is_running } }
+		available = { NOT = { has_country_flag = pnr_one_jap_bop_decision_is_running } }
 		allowed = { always = no }
 		complete_effect = {
-			set_country_flag = pnr_one_decision_is_running
+			set_country_flag = pnr_one_jap_bop_decision_is_running
 			add_command_power = -20
 		}
 		modifier = {
 			power_balance_weekly = 0.005
 		}
 		remove_effect = {
-			clr_country_flag = pnr_one_decision_is_running
+			clr_country_flag = pnr_one_jap_bop_decision_is_running
 		}
 	}
 	JAP_pnr_yiqiba_saishinianqian_nutaozhishang = {
@@ -49,12 +49,12 @@ JAP_hero_et_gangster_bop_category = { #BOP
 		custom_cost_trigger = { has_stability > 0.05 }
 		custom_cost_text = JAP_pnr_stability_5_cost
 		available = {
-			NOT = { has_country_flag = pnr_one_decision_is_running }
+			NOT = { has_country_flag = pnr_one_jap_bop_decision_is_running }
 			has_stability > 0.05
 		}
 		allowed = { always = no }
 		complete_effect = {
-			set_country_flag = pnr_one_decision_is_running
+			set_country_flag = pnr_one_jap_bop_decision_is_running
 			add_stability = -0.05
 		}
 		remove_effect = {
@@ -63,7 +63,7 @@ JAP_hero_et_gangster_bop_category = { #BOP
 				value = 0.025
 				tooltip_side = JAP_pnr_bop_hero
 			}
-			clr_country_flag = pnr_one_decision_is_running
+			clr_country_flag = pnr_one_jap_bop_decision_is_running
 		}
 
 	}
@@ -79,13 +79,13 @@ JAP_hero_et_gangster_bop_category = { #BOP
 		}
 		custom_cost_text = JAP_pnr_army_xp_10_cost
 		available = {
-			NOT = { has_country_flag = pnr_one_decision_is_running }
+			NOT = { has_country_flag = pnr_one_jap_bop_decision_is_running }
 			has_army_experience > 10
 			has_navy_experience > 10
 		}
 		allowed = { always = no }
 		complete_effect = {
-			set_country_flag = pnr_one_decision_is_running
+			set_country_flag = pnr_one_jap_bop_decision_is_running
 			army_experience = -10
 			navy_experience = -10
 		}
@@ -98,7 +98,7 @@ JAP_hero_et_gangster_bop_category = { #BOP
 				value = 0.025
 				tooltip_side = JAP_pnr_bop_hero
 			}
-			clr_country_flag = pnr_one_decision_is_running
+			clr_country_flag = pnr_one_jap_bop_decision_is_running
 		}
 	}
 	JAP_pnr_battle_for_production = {
@@ -2532,7 +2532,8 @@ JAP_pnr_guirendengche_qinglong_zaoqiu_catgory = {
 	}
 	#### For Normal Development ####
 	FNG_JAP_pnr_mantie_shangye_huiyisuo = {
-
+		icon = GFX_decision_SWI_no_elected_president
+		available = {  }
 	}
 	FNG_JAP_pnr_zaixiuding_guanshuijianmian_zhidu = {
 
@@ -3245,185 +3246,6 @@ JAP_pnr_guirendengche_qinglong_zaoqiu_catgory = {
 	}
 }
 
-JAP_pnr_cardgame_category = { # 1937.1 Oil Crisis
-	JAP_pnr_cardgame_round_timer = {
-		icon = GFX_JAP_pnr_cardgame_decision_card
-		priority = 100
-
-		allowed = { always = no }
-		available = { hidden_trigger = { always = no } }
-
-		fixed_random_seed = no
-		selectable_mission = no
-		is_good = no
-		days_mission_timeout = 40
-
-		timeout_effect = {
-			log = "[GetLogRoot]: Decision timeout JAP_pnr_cardgame_round_timer"
-			JAP_pnr_cardgame_end_round = yes
-		}
-	}
-
-	JAP_pnr_cardgame_start_decision = {
-		icon = GFX_JAP_pnr_cardgame_decision_category
-
-		allowed = { tag = JAP }
-		visible = {
-			tag = JAP
-			NOT = { has_country_flag = JAP_pnr_cardgame_active }
-			NOT = { has_country_flag = JAP_pnr_cardgame_finished }
-		}
-		available = { tag = JAP }
-
-		fire_only_once = yes
-		fixed_random_seed = no
-		cost = 0
-
-		complete_effect = {
-			log = "[GetLogRoot]: Decision complete JAP_pnr_cardgame_start_decision"
-			JAP_pnr_cardgame_initialize = yes
-		}
-
-		ai_will_do = { factor = 0 }
-	}
-
-	JAP_pnr_cardgame_end_round_decision = {
-		icon = GFX_JAP_pnr_cardgame_decision_card
-
-		allowed = { tag = JAP }
-		visible = { has_country_flag = JAP_pnr_cardgame_active }
-		available = { JAP_pnr_cardgame_can_end_round = yes }
-
-		fixed_random_seed = no
-		cost = 0
-
-		complete_effect = {
-			log = "[GetLogRoot]: Decision complete JAP_pnr_cardgame_end_round_decision"
-			JAP_pnr_cardgame_end_round = yes
-		}
-
-		ai_will_do = { factor = 0 }
-	}
-
-	JAP_pnr_cardgame_card_1_decision = {
-		icon = GFX_JAP_pnr_cardgame_decision_card
-		allowed = { tag = JAP }
-		visible = {
-			has_country_flag = JAP_pnr_cardgame_active
-			check_variable = { JAP_pnr_cardgame_card_1_in_hand > 0 }
-		}
-		available = { JAP_pnr_cardgame_can_play_card = yes }
-		fixed_random_seed = no
-		cost = 0
-		complete_effect = { JAP_pnr_cardgame_card_1_effect = yes }
-		ai_will_do = { factor = 0 }
-	}
-
-	JAP_pnr_cardgame_card_2_decision = {
-		icon = GFX_JAP_pnr_cardgame_decision_card
-		allowed = { tag = JAP }
-		visible = {
-			has_country_flag = JAP_pnr_cardgame_active
-			check_variable = { JAP_pnr_cardgame_card_2_in_hand > 0 }
-		}
-		available = { JAP_pnr_cardgame_can_play_card = yes }
-		fixed_random_seed = no
-		cost = 0
-		complete_effect = { JAP_pnr_cardgame_card_2_effect = yes }
-		ai_will_do = { factor = 0 }
-	}
-
-	JAP_pnr_cardgame_card_3_decision = {
-		icon = GFX_JAP_pnr_cardgame_decision_card
-		allowed = { tag = JAP }
-		visible = {
-			has_country_flag = JAP_pnr_cardgame_active
-			check_variable = { JAP_pnr_cardgame_card_3_in_hand > 0 }
-		}
-		available = { JAP_pnr_cardgame_can_play_card = yes }
-		fixed_random_seed = no
-		cost = 0
-		complete_effect = { JAP_pnr_cardgame_card_3_effect = yes }
-		ai_will_do = { factor = 0 }
-	}
-
-	JAP_pnr_cardgame_card_4_decision = {
-		icon = GFX_JAP_pnr_cardgame_decision_card
-		allowed = { tag = JAP }
-		visible = {
-			has_country_flag = JAP_pnr_cardgame_active
-			check_variable = { JAP_pnr_cardgame_card_4_in_hand > 0 }
-		}
-		available = { JAP_pnr_cardgame_can_play_card = yes }
-		fixed_random_seed = no
-		cost = 0
-		complete_effect = { JAP_pnr_cardgame_card_4_effect = yes }
-		ai_will_do = { factor = 0 }
-	}
-
-	JAP_pnr_cardgame_card_5_decision = {
-		icon = GFX_JAP_pnr_cardgame_decision_card
-		allowed = { tag = JAP }
-		visible = {
-			has_country_flag = JAP_pnr_cardgame_active
-			check_variable = { JAP_pnr_cardgame_card_5_in_hand > 0 }
-		}
-		available = { JAP_pnr_cardgame_can_play_card = yes }
-		fixed_random_seed = no
-		cost = 0
-		complete_effect = { JAP_pnr_cardgame_card_5_effect = yes }
-		ai_will_do = { factor = 0 }
-	}
-
-	JAP_pnr_cardgame_card_6_decision = {
-		icon = GFX_JAP_pnr_cardgame_decision_card
-		allowed = { tag = JAP }
-		visible = {
-			has_country_flag = JAP_pnr_cardgame_active
-			check_variable = { JAP_pnr_cardgame_card_6_in_hand > 0 }
-		}
-		available = { JAP_pnr_cardgame_can_play_card = yes }
-		fixed_random_seed = no
-		cost = 0
-		complete_effect = { JAP_pnr_cardgame_card_6_effect = yes }
-		ai_will_do = { factor = 0 }
-	}
-
-	JAP_pnr_cardgame_card_7_decision = {
-		icon = GFX_JAP_pnr_cardgame_decision_card
-		allowed = { tag = JAP }
-		visible = {
-			has_country_flag = JAP_pnr_cardgame_active
-			check_variable = { JAP_pnr_cardgame_card_7_in_hand > 0 }
-		}
-		available = {
-			JAP_pnr_cardgame_can_play_card = yes
-			NOT = { has_country_flag = JAP_pnr_cardgame_no_kwantung_cards }
-		}
-		fixed_random_seed = no
-		cost = 0
-		complete_effect = { JAP_pnr_cardgame_card_7_effect = yes }
-		ai_will_do = { factor = 0 }
-	}
-
-	JAP_pnr_cardgame_card_8_decision = {
-		icon = GFX_JAP_pnr_cardgame_decision_card
-		allowed = { tag = JAP }
-		visible = {
-			has_country_flag = JAP_pnr_cardgame_active
-			check_variable = { JAP_pnr_cardgame_card_8_in_hand > 0 }
-		}
-		available = {
-			JAP_pnr_cardgame_can_play_card = yes
-			NOT = { has_country_flag = JAP_pnr_cardgame_no_kwantung_cards }
-		}
-		fixed_random_seed = no
-		cost = 0
-		complete_effect = { JAP_pnr_cardgame_card_8_effect = yes }
-		ai_will_do = { factor = 0 }
-	}
-}
-
 JAP_pnr_red_conspiracy_category = {
 	JAP_pnr_red_conspiracy_escalation = { #Warning Missions
 		icon = GFX_decision_generic_ignite_civil_war
@@ -3618,4 +3440,8 @@ JAP_pnr_red_conspiracy_category = {
 		}
 		fixed_random_seed = no
 	}
+}
+
+JAP_pnr_party_support_category = {
+	
 }
