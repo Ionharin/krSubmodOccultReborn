@@ -91,7 +91,7 @@ country_event = { # 竹行动：整理现状
     immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_event.5" }
     title = JAP_pnr_event.5.t
     desc = JAP_pnr_event.5.desc
-    picture = GFX_JAP_pnr_event_5
+    picture = GFX_report_event_FNG_zhang_zuolin_1
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -100,7 +100,233 @@ country_event = { # 竹行动：整理现状
         ai_chance = { factor = 1 }
         custom_effect_tooltip = JAP_pnr_seek_other_collabrator_increase_tt
         add_to_variable = { JAP_seek_other_collabrator_progress_var = 20 }
-        activate_targeted_decision = { decision = FNG_JAP_pnr_kiku_operation target = THIS }
+        activate_targeted_decision = { decision = FNG_JAP_pnr_kiku_operation target = FNG }
+    }
+}
+
+country_event = { # 行动意外：反目的可能性？
+    id = JAP_pnr_event.6
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_event.6" }
+    title = JAP_pnr_event.6.t
+    desc = JAP_pnr_event.6.desc
+    picture = GFX_report_event_FNG_tang_yulin_tiger
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 追加经费，调查新线索。
+        name = JAP_pnr_event.6.a
+        ai_chance = { factor = 1 }
+        add_political_power = -15
+        hidden_effect = {
+            country_event = { id = JAP_pnr_event.8 days = 28 random_days = 3 }
+        }
+    }
+    option = { # 继续按照现有计划进行调查。
+        name = JAP_pnr_event.6.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 菊行动：调查告一段落
+    id = JAP_pnr_event.7
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_event.7" }
+    title = JAP_pnr_event.7.t
+    desc = JAP_pnr_event.7.desc
+    picture = GFX_report_event_SHD_zongchang_and_zuolin
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 好像清晰了，好像又没有。
+        name = JAP_pnr_event.7.a
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = JAP_pnr_seek_other_collabrator_increase_tt
+        add_to_variable = { JAP_seek_other_collabrator_progress_var = 20 }
+        activate_targeted_decision = { decision = FNG_JAP_pnr_ran_operation target = FNG }
+    }
+    option = { # 说实话，要不问问张宗昌……
+        name = JAP_pnr_event.7.b
+        ai_chance = { factor = 1 }
+        add_political_power = -5
+        add_command_power = -10
+        custom_effect_tooltip = JAP_pnr_seek_other_collabrator_increase_tt
+        add_to_variable = { JAP_seek_other_collabrator_progress_var = 20 }
+        activate_targeted_decision = { decision = FNG_JAP_pnr_ran_operation target = FNG }
+        hidden_effect = {
+            country_event = { id = JAP_pnr_event.9 days = 18 random_hours = 15 }
+        }
+    }
+}
+
+country_event = { # 反目的可能性：不可能
+    id = JAP_pnr_event.8
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_event.8" }
+    title = JAP_pnr_event.8.t
+    desc = JAP_pnr_event.8.desc
+    picture = GFX_report_event_FNG_zhang_jinghui_zang_shiyi_and_kwuntung
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 实在不行就利用张景惠那个邪教徒吧……
+        name = JAP_pnr_event.8.a
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = JAP_pnr_seek_other_collabrator_increase_tt
+        add_to_variable = { JAP_seek_other_collabrator_progress_var = 20 }
+    }
+}
+
+country_event = { # 狗肉将军的电报
+    id = JAP_pnr_event.9
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_event.9" }
+    title = JAP_pnr_event.9.t
+    desc = JAP_pnr_event.9.desc
+    picture = GFX_report_event_JAP_officer_phone
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 火气这么大干什么。
+        name = JAP_pnr_event.9.a
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = JAP_pnr_seek_other_collabrator_increase_tt
+        add_to_variable = { JAP_seek_other_collabrator_progress_var = 20 }
+    }
+}
+
+country_event = { # 兰行动：陷入死路
+    id = JAP_pnr_event.10
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_event.10" }
+    title = JAP_pnr_event.10.t
+    desc = JAP_pnr_event.10.desc
+    picture = GFX_report_event_JAP_announcement
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 没有继续调查下去的必要了。
+        name = JAP_pnr_event.10.a
+        ai_chance = { factor = 1 }
+        add_political_power = 50
+        custom_effect_tooltip = JAP_pnr_seek_other_collabrator_increase_tt
+        add_to_variable = { JAP_seek_other_collabrator_progress_var = 20 }
+    }
+    option = { # 或许还有可能性……
+        name = JAP_pnr_event.10.b
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = JAP_pnr_seek_other_collabrator_increase_tt
+        add_to_variable = { JAP_seek_other_collabrator_progress_var = 20 }
+        activate_targeted_decision = { decision = FNG_JAP_pnr_increase_collaboration target = FNG }
+    }
+}
+
+country_event = { # 柳暗花明：人选确定
+    id = JAP_pnr_event.11
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_event.11" }
+    title = JAP_pnr_event.11.t
+    desc = JAP_pnr_event.11.desc
+    picture = GFX_report_event_FNG_yang_yuting_2
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 到头来还是皖系靠得住。
+        name = JAP_pnr_event.11.a
+        ai_chance = { factor = 1 }
+        add_political_power = 100
+        set_variable = { FNG_yangyuting_support_var = 0 }
+        activate_targeted_decision = { decision = FNG_JAP_pnr_bribing_the_disloyal target = FNG }
+    }
+}
+
+country_event = { # 地方主义情绪反扑
+    id = JAP_pnr_event.12
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_event.12" }
+    title = JAP_pnr_event.12.t
+    desc = JAP_pnr_event.12.desc
+    picture = GFX_JAP_pnr_event_12
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 糟透了。
+        name = JAP_pnr_event.12.a
+        ai_chance = { factor = 1 }
+        add_war_support = -0.05
+    }
+}
+
+country_event = { # 社会支持复国战争
+    id = JAP_pnr_event.13
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_event.13" }
+    title = JAP_pnr_event.13.t
+    desc = JAP_pnr_event.13.desc
+    picture = GFX_JAP_pnr_event_13
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们众望所归！
+        name = JAP_pnr_event.13.a
+        ai_chance = { factor = 1 }
+        add_war_support = 0.05
+    }
+}
+
+country_event = { # 小火柴，大决心
+    id = JAP_pnr_event.14
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_event.14" }
+    title = JAP_pnr_event.14.t
+    desc = JAP_pnr_event.14.desc
+    picture = GFX_JAP_pnr_event_14
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 把洋货驱逐出去！
+        name = JAP_pnr_event.14.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 陌生来电
+    id = JAP_pnr_event.15
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_event.15" }
+    title = JAP_pnr_event.15.t
+    desc = JAP_pnr_event.15.desc
+    picture = GFX_report_event_FNG_railway_map
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # “肯定死翘翘了，他直接从我身边飞出去了。”
+        name = JAP_pnr_event.15.a
+        ai_chance = { factor = 1 }
+        FNG = { add_stability = -0.01 }
+    }
+}
+
+country_event = { # 寄给某人的信件
+    id = JAP_pnr_event.16
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_event.16" }
+    title = JAP_pnr_event.16.t
+    desc = JAP_pnr_event.16.desc
+    picture = GFX_report_event_JAP_parade_shanghai
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 在东北搞得血肉横飞，
+        name = JAP_pnr_event.16.a
+        ai_chance = { factor = 1 }
+        effect_tooltip = { add_days_mission_timeout = { mission = JAP_pnr_doubts_about_zhang_mission days = -7 } }
+        hidden_effect = {
+            add_days_mission_timeout = {
+				mission = JAP_pnr_doubts_about_zhang_mission
+				 days = -7
+			}
+		    FNG = {
+			    add_days_mission_timeout = {
+				    mission = FNG_japanese_patience_runs_thin_mission
+				    days = -7
+			    }
+		    }
+        }
+    }
+    option = { # 相信这是根本解决方针。
+        name = JAP_pnr_event.16.b
+        ai_chance = { factor = 1 }
+        add_war_support = 0.02
     }
 }
 
@@ -200,7 +426,12 @@ country_event = { # 1936年日本众议院大选
 
 country_event = { # 1936年第一次选举结果
     id = JAP_pnr_normal.4
-    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.4" }
+    immediate = {
+        log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.4"
+        JAP_pnr_election_commit_results = yes
+		JAP_pnr_election_calculate_winner = yes
+		JAP_congress_update_gui = yes
+    }
     title = JAP_pnr_normal.4.t
     desc = JAP_pnr_normal.4.desc
     picture = GFX_JAP_pnr_normal_4
@@ -209,7 +440,7 @@ country_event = { # 1936年第一次选举结果
     timeout_days = 14
     option = { # 民主制度仍在运行的铁证！
         name = JAP_pnr_normal.4.a
-        ai_chance = { factor = 1 }
+        ai_chance = { factor = 1 }  
         hidden_effect = {
             set_country_flag = JAP_pnr_1936_election_has_concluded
         }
@@ -271,35 +502,35 @@ country_event = { # 国家社会主义研究所介绍
     option = { # 日共元老掀起农民的旗帜！
         name = JAP_pnr_normal.5.a
         ai_chance = { factor = 1 }
-        if = {
-            limit = { has_government = social_conservative }
-            JAP_pnr_election_ensure_projected_results = yes
-            subtract_from_variable = {
-			    var = JAP_pnr_election_party_seats^7
-			    value = 5
-			    tooltip = JAP_pnr_election_party_7_tt
-		    }
-		    add_to_variable = {
-			    var = JAP_pnr_election_party_seats^10
-			    value = 5
-			    tooltip = JAP_pnr_election_party_10_tt
-		    }
-            JAP_pnr_election_refresh_projected_changes = yes
-        }
-        else = {
-            JAP_pnr_election_ensure_projected_results = yes
-            subtract_from_variable = {
-			    var = JAP_pnr_election_party_seats^6
-			    value = 5
-			    tooltip = JAP_pnr_election_party_6_tt
-		    }
-		    add_to_variable = {
-			    var = JAP_pnr_election_party_seats^10
-			    value = 5
-			    tooltip = JAP_pnr_election_party_10_tt
-		    }
-            JAP_pnr_election_refresh_projected_changes = yes
-        }
+            if = {
+				limit = { check_variable = { JAP_pnr_election_party_seats^7 > JAP_pnr_election_party_seats^6 } }
+				JAP_pnr_election_ensure_projected_results = yes
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^10
+					value = 5
+					tooltip = JAP_pnr_election_party_10_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^7
+					value = -5
+					tooltip = JAP_pnr_election_party_7_tt
+				}
+				JAP_pnr_election_refresh_projected_changes = yes
+			}
+			else = {
+				JAP_pnr_election_ensure_projected_results = yes
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^10
+					value = 5
+					tooltip = JAP_pnr_election_party_10_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^6
+					value = -5
+					tooltip = JAP_pnr_election_party_6_tt
+				}
+				JAP_pnr_election_refresh_projected_changes = yes
+			}
     }
 }
 
@@ -315,45 +546,45 @@ country_event = { # 社会大众党：两头猛虎
     option = { # 议会斗争和温和路线的典范。
         name = JAP_pnr_normal.6.a
         ai_chance = { factor = 1 }
-        if = {
-            limit = { has_government = social_conservative }
-            JAP_pnr_election_ensure_projected_results = yes
-            subtract_from_variable = {
-			    var = JAP_pnr_election_party_seats^7
-			    value = 6
-			    tooltip = JAP_pnr_election_party_7_tt
-		    }
-		    add_to_variable = {
-			    var = JAP_pnr_election_party_seats^4
-			    value = 3
-			    tooltip = JAP_pnr_election_party_4_tt
-		    }
-            add_to_variable = {
-			    var = JAP_pnr_election_party_seats^5
-			    value = 3
-			    tooltip = JAP_pnr_election_party_5_tt
-		    }
-            JAP_pnr_election_refresh_projected_changes = yes
-        }
-        else = {
-            JAP_pnr_election_ensure_projected_results = yes
-            subtract_from_variable = {
-			    var = JAP_pnr_election_party_seats^6
-			    value = 6
-			    tooltip = JAP_pnr_election_party_6_tt
-		    }
-		    add_to_variable = {
-			    var = JAP_pnr_election_party_seats^4
-			    value = 3
-			    tooltip = JAP_pnr_election_party_4_tt
-		    }
-            add_to_variable = {
-			    var = JAP_pnr_election_party_seats^5
-			    value = 3
-			    tooltip = JAP_pnr_election_party_5_tt
-		    }
-            JAP_pnr_election_refresh_projected_changes = yes
-        }
+            if = {
+				limit = { check_variable = { JAP_pnr_election_party_seats^7 > JAP_pnr_election_party_seats^6 } }
+				JAP_pnr_election_ensure_projected_results = yes
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^4
+					value = 3
+					tooltip = JAP_pnr_election_party_4_tt
+				}
+                add_to_variable = {
+					var = JAP_pnr_election_party_seats^5
+					value = 3
+					tooltip = JAP_pnr_election_party_5_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^7
+					value = -6
+					tooltip = JAP_pnr_election_party_7_tt
+				}
+				JAP_pnr_election_refresh_projected_changes = yes
+			}
+			else = {
+				JAP_pnr_election_ensure_projected_results = yes
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^4
+					value = 3
+					tooltip = JAP_pnr_election_party_4_tt
+				}
+                add_to_variable = {
+					var = JAP_pnr_election_party_seats^5
+					value = 3
+					tooltip = JAP_pnr_election_party_5_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^6
+					value = -6
+					tooltip = JAP_pnr_election_party_6_tt
+				}
+				JAP_pnr_election_refresh_projected_changes = yes
+			}
     }
 }
 
@@ -369,24 +600,18 @@ country_event = { # 立宪民政党：宪政常道的守卫
     option = { # 擎炬火，向未来。
         name = JAP_pnr_normal.7.a
         ai_chance = { factor = 1 }
-        if = {
-            limit = { has_government = social_conservative }
-            JAP_pnr_election_ensure_projected_results = yes
-            subtract_from_variable = {
-			    var = JAP_pnr_election_party_seats^7
-			    value = 5
-			    tooltip = JAP_pnr_election_party_7_tt
-		    }
-		    add_to_variable = {
-			    var = JAP_pnr_election_party_seats^6
-			    value = 5
-			    tooltip = JAP_pnr_election_party_6_tt
-		    }
-            JAP_pnr_election_refresh_projected_changes = yes
-        }
-        else = {
-            add_political_power = 5
-        }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+		    var = JAP_pnr_election_party_seats^7
+		    value = -5
+		    tooltip = JAP_pnr_election_party_7_tt
+	    }
+		add_to_variable = {
+		    var = JAP_pnr_election_party_seats^6
+		    value = 5
+		    tooltip = JAP_pnr_election_party_6_tt
+	    }
+        JAP_pnr_election_refresh_projected_changes = yes
     }
 }
 
@@ -402,35 +627,35 @@ country_event = { # 国民同盟：科学经济，科学指令
     option = { # 强有力的国家之手会解决所有问题。
         name = JAP_pnr_normal.8.a
         ai_chance = { factor = 1 }
-        if = {
-            limit = { has_government = social_conservative }
-            JAP_pnr_election_ensure_projected_results = yes
-            subtract_from_variable = {
-			    var = JAP_pnr_election_party_seats^7
-			    value = 5
-			    tooltip = JAP_pnr_election_party_7_tt
-		    }
-		    add_to_variable = {
-			    var = JAP_pnr_election_party_seats^8
-			    value = 5
-			    tooltip = JAP_pnr_election_party_8_tt
-		    }
-            JAP_pnr_election_refresh_projected_changes = yes
-        }
-        else = {
-            JAP_pnr_election_ensure_projected_results = yes
-            subtract_from_variable = {
-			    var = JAP_pnr_election_party_seats^6
-			    value = 5
-			    tooltip = JAP_pnr_election_party_6_tt
-		    }
-		    add_to_variable = {
-			    var = JAP_pnr_election_party_seats^8
-			    value = 5
-			    tooltip = JAP_pnr_election_party_8_tt
-		    }
-            JAP_pnr_election_refresh_projected_changes = yes
-        }
+            if = {
+				limit = { check_variable = { JAP_pnr_election_party_seats^7 > JAP_pnr_election_party_seats^6 } }
+				JAP_pnr_election_ensure_projected_results = yes
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^8
+					value = 5
+					tooltip = JAP_pnr_election_party_8_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^7
+					value = -5
+					tooltip = JAP_pnr_election_party_7_tt
+				}
+				JAP_pnr_election_refresh_projected_changes = yes
+			}
+			else = {
+				JAP_pnr_election_ensure_projected_results = yes
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^8
+					value = 5
+					tooltip = JAP_pnr_election_party_8_tt
+				}
+				add_to_variable = {
+					var = JAP_pnr_election_party_seats^6
+					value = -5
+					tooltip = JAP_pnr_election_party_6_tt
+				}
+				JAP_pnr_election_refresh_projected_changes = yes
+			}
     }
 }
 
@@ -446,24 +671,18 @@ country_event = { # 政友会的金元攻势
     option = { # 这符合民主吗？
         name = JAP_pnr_normal.9.a
         ai_chance = { factor = 1 }
-        if = {
-            limit = { has_government = social_conservative }
-            add_popularity = { ideology = social_conservative popularity = 0.02 }
-        }
-        else = {
-            JAP_pnr_election_ensure_projected_results = yes
-            subtract_from_variable = {
-			    var = JAP_pnr_election_party_seats^6
-			    value = 5
-			    tooltip = JAP_pnr_election_party_6_tt
-		    }
-		    add_to_variable = {
-			    var = JAP_pnr_election_party_seats^7
-			    value = 5
-			    tooltip = JAP_pnr_election_party_7_tt
-		    }
-            JAP_pnr_election_refresh_projected_changes = yes
-        }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+		    var = JAP_pnr_election_party_seats^6
+		    value = 5
+		    tooltip = JAP_pnr_election_party_6_tt
+	    }
+		add_to_variable = {
+		    var = JAP_pnr_election_party_seats^7
+		    value = -5
+		    tooltip = JAP_pnr_election_party_7_tt
+	    }
+        JAP_pnr_election_refresh_projected_changes = yes
     }
 }
 
@@ -494,13 +713,131 @@ country_event = { # 1936年陆军演习
     option = { # “永田少将，再详细讲下这里的军力部署。”
         name = JAP_pnr_normal.11.a
         ai_chance = { factor = 1 }
-        add_political_power = 3
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = 4
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 2
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 3
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^5
+			    value = -4
+			    tooltip = JAP_pnr_election_party_5_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^4
+			    value = -5
+			    tooltip = JAP_pnr_election_party_4_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = 4
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 2
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 3
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^5
+			    value = -4
+			    tooltip = JAP_pnr_election_party_5_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^4
+			    value = -5
+			    tooltip = JAP_pnr_election_party_4_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
         hidden_effect = { country_event = { id = JAP_pnr_normal.15 days = 7 } }
     }
     option = { # “大家别担心，陛下并没有受到冲撞。”
         name = JAP_pnr_normal.11.b
         ai_chance = { factor = 1 }
-        add_political_power = 3
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -10
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = -5
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = -8
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^5
+			    value = 12
+			    tooltip = JAP_pnr_election_party_5_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^4
+			    value = 11
+			    tooltip = JAP_pnr_election_party_4_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = -10
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = -5
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = -8
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^5
+			    value = 12
+			    tooltip = JAP_pnr_election_party_5_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^4
+			    value = 11
+			    tooltip = JAP_pnr_election_party_4_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
         hidden_effect = { country_event = { id = JAP_pnr_normal.15 days = 7 } }
     }
 }
@@ -572,9 +909,11 @@ country_event = { # 昭和神圣会的阅兵
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # 老实说，他们的位置很尴尬。
+    option = { # 真是岂有此理！他以为他是谁？天皇吗！
         name = JAP_pnr_normal.15.a
         ai_chance = { factor = 1 }
+        add_stability = -0.03
+        add_popularity = { ideology = national_populist popularity = 0.02 }
     }
 }
 
@@ -684,11 +1023,111 @@ country_event = { # 社会催促我们尽快行动
         name = JAP_pnr_normal.20.a
         ai_chance = { factor = 1 }
         add_stability = -0.03
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -8
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 2
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 2
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = 4
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = -8
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 2
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 2
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = 4
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
     }
     option = { # 或许我们现在就应该行动了。
         name = JAP_pnr_normal.20.b
         ai_chance = { factor = 1 }
-        add_political_power = -25
+        add_political_power = -35
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -8
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^5
+			    value = 3
+			    tooltip = JAP_pnr_election_party_5_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^4
+			    value = 4
+			    tooltip = JAP_pnr_election_party_4_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 1
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = -8
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^5
+			    value = 3
+			    tooltip = JAP_pnr_election_party_5_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^4
+			    value = 4
+			    tooltip = JAP_pnr_election_party_4_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 1
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
     }
 }
 
@@ -721,11 +1160,101 @@ country_event = { # 军队催促我们快速行动
         name = JAP_pnr_normal.21.a
         ai_chance = { factor = 1 }
         add_war_support = -0.05
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -4
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^5
+			    value = 1
+			    tooltip = JAP_pnr_election_party_5_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^4
+			    value = 1
+			    tooltip = JAP_pnr_election_party_4_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 2
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = -4
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^5
+			    value = 1
+			    tooltip = JAP_pnr_election_party_5_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^4
+			    value = 1
+			    tooltip = JAP_pnr_election_party_4_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 2
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
     }
     option = { # 他们的建议是对的……
         name = JAP_pnr_normal.21.b
         ai_chance = { factor = 1 }
         add_command_power = -20
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -6
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 2
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 4
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = -6
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 2
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 4
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
     }
 }
 
@@ -770,6 +1299,139 @@ country_event = { # 宫中逼迫[JAP.GetLeader]
             unlock_national_focus = JAP_pnr_currency_war
             unlock_national_focus = JAP_pnr_expand_exports
         }
+    }
+}
+
+country_event = { # 台下接触
+    id = JAP_pnr_normal.23
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.23" }
+    title = JAP_pnr_normal.23.t
+    desc = JAP_pnr_normal.23.desc
+    picture = GFX_JAP_pnr_normal_23
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 无产党加入了社会大众党左翼。
+        name = JAP_pnr_normal.23.a
+        ai_chance = { factor = 1 }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^4
+			value = JAP_pnr_election_party_seats^2
+			tooltip = JAP_pnr_election_party_4_tt
+		}
+        set_temp_variable = { JAP_pnr_election_party_seats_ele_temp_var = JAP_pnr_election_party_seats^2 }
+        multiply_temp_variable = { JAP_pnr_election_party_seats_ele_temp_var = -1 }
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^2
+			value = JAP_pnr_election_party_seats_ele_temp_var
+			tooltip = JAP_pnr_election_party_2_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
+        hidden_effect = { country_event = JAP_pnr_normal.24 }
+    }
+    option = { # 事实上，谈判破裂了。
+        name = JAP_pnr_normal.23.b
+        ai_chance = { factor = 1 }
+        hidden_effect = { country_event = JAP_pnr_normal.24 }
+    }
+}
+
+country_event = { # 社会大众党左翼与赤松交流
+    id = JAP_pnr_normal.24
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.24" }
+    title = JAP_pnr_normal.24.t
+    desc = JAP_pnr_normal.24.desc
+    picture = GFX_JAP_pnr_normal_24
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 麻生久向赤松伸出援手。
+        name = JAP_pnr_normal.24.a
+        ai_chance = { factor = 1 }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^10
+			value = JAP_pnr_election_party_seats^4
+			tooltip = JAP_pnr_election_party_10_tt
+		}
+        set_temp_variable = { JAP_pnr_election_party_seats_ele_temp_var = JAP_pnr_election_party_seats^4 }
+        multiply_temp_variable = { JAP_pnr_election_party_seats_ele_temp_var = -1 }
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^4
+			value = JAP_pnr_election_party_seats_ele_temp_var
+			tooltip = JAP_pnr_election_party_4_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
+        hidden_effect = { country_event = JAP_pnr_normal.25 }
+    }
+    option = { # 国家社会主义党重返社大党。
+        name = JAP_pnr_normal.24.b
+        ai_chance = { factor = 1 }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^4
+			value = JAP_pnr_election_party_seats^10
+			tooltip = JAP_pnr_election_party_4_tt
+		}
+        set_temp_variable = { JAP_pnr_election_party_seats_ele_temp_var = JAP_pnr_election_party_seats^10 }
+        multiply_temp_variable = { JAP_pnr_election_party_seats_ele_temp_var = -1 }
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^10
+			value = JAP_pnr_election_party_seats_ele_temp_var
+			tooltip = JAP_pnr_election_party_10_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
+        hidden_effect = { country_event = JAP_pnr_normal.25 }
+    }
+}
+
+country_event = { # 归党派胜利？
+    id = JAP_pnr_normal.25
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.25" }
+    title = JAP_pnr_normal.25.t
+    desc = JAP_pnr_normal.25.desc
+    picture = GFX_JAP_pnr_normal_25
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 面对压力，立宪民政党和国民同盟重修旧好了。
+        name = JAP_pnr_normal.25.a
+        ai_chance = { factor = 1 }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^8
+			value = JAP_pnr_election_party_seats^6
+			tooltip = JAP_pnr_election_party_8_tt
+		}
+        set_temp_variable = { JAP_pnr_election_party_seats_ele_temp_var = JAP_pnr_election_party_seats^6 }
+        multiply_temp_variable = { JAP_pnr_election_party_seats_ele_temp_var = -1 }
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = JAP_pnr_election_party_seats_ele_temp_var
+			tooltip = JAP_pnr_election_party_6_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
+        hidden_effect = { country_event = { id = JAP_pnr_normal.4 days = 2 random_hours = 2 } }
+    }
+    option = { # 国民同盟分裂了！
+        name = JAP_pnr_normal.25.b
+        ai_chance = { factor = 1 }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = JAP_pnr_election_party_seats^8
+			tooltip = JAP_pnr_election_party_6_tt
+		}
+        set_temp_variable = { JAP_pnr_election_party_seats_ele_temp_var = JAP_pnr_election_party_seats^8 }
+        multiply_temp_variable = { JAP_pnr_election_party_seats_ele_temp_var = -1 }
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^8
+			value = JAP_pnr_election_party_seats_ele_temp_var
+			tooltip = JAP_pnr_election_party_8_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
+        hidden_effect = { country_event = { id = JAP_pnr_normal.4 days = 2 random_hours = 2 } }
     }
 }
 
@@ -901,6 +1563,18 @@ country_event = { # 赤旗报
         add_to_variable = { JAP_pnr_red_conspiracy_strength = 5 }
         clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
         JAP_pnr_update_red_conspiracy_modifier_values = yes
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = -3
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^2
+			value = 3
+			tooltip = JAP_pnr_election_party_2_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
     }
 }
 
@@ -922,6 +1596,46 @@ country_event = { # 安久公司骚乱
         subtract_from_variable = { JAP_pnr_red_conspiracy_strength = 5 }
         clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
         JAP_pnr_update_red_conspiracy_modifier_values = yes
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = 7
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = -4
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = -3
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = 7
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = -4
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = -3
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
     }
     option = { # 这事政府可不好出面，快给内田先生准备些伴手礼。
         name = JAP_pnr_jpc.5.b
@@ -931,17 +1645,18 @@ country_event = { # 安久公司骚乱
         custom_effect_tooltip = JAP_pnr_jpc.5.b_tt
         hidden_effect = {
             random_list = {
-                25 = {
+                3 = {
                     set_country_flag = jpc_bad_end_flag
                 }
-                50 = {
+                5 = {
                     set_country_flag = jpc_normal_end_flag
                 }
-                25 = {
+                2 = {
                     set_country_flag = jpc_good_end_flag
                 }
             }
             country_event = { id = JAP_pnr_jpc.13 days = 12 }
+            country_event = { id = JAP_pnr_jpc.8 days = 15 random_hours = 3 }
         }
     }
 }
@@ -958,7 +1673,7 @@ country_event = { # 桃色争议
     option = { # 只是每年都会发生的单纯的劳动争议……
         name = JAP_pnr_jpc.6.a
         ai_chance = { factor = 1 }
-        add_stability = -0.02
+        add_stability = -0.05
         activate_targeted_decision = { target = JAP decision = JAP_pnr_red_conspiracy_activate_loyal_unions }
         activate_targeted_decision = { target = JAP decision = JAP_pnr_red_conspiracy_establish_curfews }
         custom_effect_tooltip = tooltip_white_line
@@ -966,6 +1681,56 @@ country_event = { # 桃色争议
         add_to_variable = { JAP_pnr_red_conspiracy_strength = 5 }
         clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
         JAP_pnr_update_red_conspiracy_modifier_values = yes
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -5
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 3
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 1
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 1
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = -5
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 3
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 1
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 1
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
         hidden_effect = {
             country_event = { id = JAP_pnr_jpc.7 days = 12 random_hours = 8 }
         }
@@ -986,22 +1751,24 @@ country_event = { # 横须贺工厂怠工事件
         ai_chance = { factor = 1 }
         add_popularity = {
 			ideology = totalist
-			popularity = 0.01
+			popularity = 0.02
 		}
         activate_targeted_decision = { target = JAP decision = JAP_pnr_red_conspiracy_arrest_activists }
         activate_targeted_decision = { target = JAP decision = JAP_pnr_red_conspiracy_selective_reform }
-        custom_effect_tooltip = pnr_red_conspiracy_add_5_tt
-        add_to_variable = { JAP_pnr_red_conspiracy_strength = 5 }
+        custom_effect_tooltip = pnr_red_conspiracy_add_10_tt
+        add_to_variable = { JAP_pnr_red_conspiracy_strength = 10 }
+        clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
         JAP_pnr_update_red_conspiracy_modifier_values = yes
     }
     option = { # 我们可赌不起，给古市工厂长放长假。
         name = JAP_pnr_jpc.7.b
         ai_chance = { factor = 1 }
-        add_political_power = -5
+        add_political_power = -25
         activate_targeted_decision = { target = JAP decision = JAP_pnr_red_conspiracy_arrest_activists }
         activate_targeted_decision = { target = JAP decision = JAP_pnr_red_conspiracy_selective_reform }
-        custom_effect_tooltip = pnr_red_conspiracy_add_10_tt
-        add_to_variable = { JAP_pnr_red_conspiracy_strength = 10 }
+        custom_effect_tooltip = pnr_red_conspiracy_decrease_5_tt
+        add_to_variable = { JAP_pnr_red_conspiracy_strength = -5 }
+        clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
         JAP_pnr_update_red_conspiracy_modifier_values = yes
     }
 }
@@ -1011,34 +1778,102 @@ country_event = { # 片山潜被袭击
     immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_jpc.8" }
     title = JAP_pnr_jpc.8.t
     desc = JAP_pnr_jpc.8.desc
-    picture = GFX_JAP_pnr_jpc_8
+    picture = GFX_report_event_JAP_Katayama
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 这可不妙……
         name = JAP_pnr_jpc.8.a
         ai_chance = { factor = 1 }
-        add_political_power = 10
+        add_stability = -0.05
         custom_effect_tooltip = pnr_red_conspiracy_add_5_tt
         add_to_variable = { JAP_pnr_red_conspiracy_strength = 5 }
+        clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
         JAP_pnr_update_red_conspiracy_modifier_values = yes
-        country_event = { id = JAP_pnr_rs.8 days = 4 }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = -5
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = -5
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^10
+			value = 5
+			tooltip = JAP_pnr_election_party_10_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^2
+			value = 5
+			tooltip = JAP_pnr_election_party_2_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
+        hidden_effect = {
+            country_event = { id = JAP_pnr_jpc.9 days = 14 random_hours = 5 }
+        }
     }
 }
 
-country_event = { # 最后的冲锋
+country_event = { # 日本无产党的诞生
     id = JAP_pnr_jpc.9
     immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_jpc.9" }
     title = JAP_pnr_jpc.9.t
     desc = JAP_pnr_jpc.9.desc
-    picture = GFX_JAP_pnr_jpc_9
+    picture = GFX_report_event_pnr_JAP_speech
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # 匹夫之怒，血溅五步。
+    option = { # 这不是什么好消息……
         name = JAP_pnr_jpc.9.a
         ai_chance = { factor = 1 }
-        country_event = { id = JAP_pnr_jpc.10 }
+        custom_effect_tooltip = pnr_red_conspiracy_add_10_tt
+        add_to_variable = { JAP_pnr_red_conspiracy_strength = 10 }
+        clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
+        JAP_pnr_update_red_conspiracy_modifier_values = yes
+        set_party_name = {
+			ideology = syndicalist
+			long_name = JAP_pnr_nihon_musanto
+			name = JAP_pnr_nihon_musanto
+		}
+        set_variable = { JAP_party_scripted_name_syn_var = 1 }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = -7
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = -7
+			tooltip = JAP_pnr_election_party_6_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^4
+			value = -4
+			tooltip = JAP_pnr_election_party_4_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^10
+			value = 8
+			tooltip = JAP_pnr_election_party_10_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^2
+			value = 10
+			tooltip = JAP_pnr_election_party_2_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
+        hidden_effect = {
+            set_party_name = {
+			    ideology = syndicalist
+			    long_name = JAP_pnr_nihon_musanto_long
+			    name = JAP_pnr_nihon_musanto
+		    }
+        }
     }
 }
 
@@ -1119,6 +1954,36 @@ country_event = { # 东京激斗
         trigger = { has_country_flag = jpc_good_end_flag }
         add_political_power = 15
         clr_country_flag = jpc_good_end_flag
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -2
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 2
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = -2
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 2
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
     }
     option = { # 也还好吧。
         name = JAP_pnr_jpc.13.b
@@ -1129,6 +1994,46 @@ country_event = { # 东京激斗
         custom_effect_tooltip = pnr_red_conspiracy_add_5_tt
         add_to_variable = { JAP_pnr_red_conspiracy_strength = 5 }
         clr_country_flag = jpc_normal_end_flag
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -5
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 2
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 3
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = -5
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 2
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 3
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
     }
     option = { # 完了……
         name = JAP_pnr_jpc.13.c
@@ -1138,6 +2043,46 @@ country_event = { # 东京激斗
         custom_effect_tooltip = pnr_red_conspiracy_add_10_tt
         add_to_variable = { JAP_pnr_red_conspiracy_strength = 10 }
         clr_country_flag = jpc_bad_end_flag
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -10
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 4
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 6
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = -10
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 4
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 6
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
     }
 }
 
@@ -1791,8 +2736,76 @@ country_event = { # 国会僵局
     option = { # 真是一群……只为一党利益的政客。
         name = JAP_pnr_earlygame.1.a
         ai_chance = { factor = 1 }
-        add_political_power = 5
-        add_stability = -0.03
+        add_stability = -0.05
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = -10
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+		add_to_variable = {
+			var = JAP_pnr_election_party_seats^10
+			value = 2
+			tooltip = JAP_pnr_election_party_10_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^8
+			value = 2
+			tooltip = JAP_pnr_election_party_8_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = 2
+			tooltip = JAP_pnr_election_party_6_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^5
+			value = 2
+			tooltip = JAP_pnr_election_party_5_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^4
+			value = 2
+			tooltip = JAP_pnr_election_party_4_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
+    }
+    option = { # 保持平静是政治家的完美素养。
+        name = JAP_pnr_earlygame.1.b
+        ai_chance = { factor = 1 }
+        add_stability = -0.05
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = -5
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+		add_to_variable = {
+			var = JAP_pnr_election_party_seats^10
+			value = 1
+			tooltip = JAP_pnr_election_party_10_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^8
+			value = 1
+			tooltip = JAP_pnr_election_party_8_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = 1
+			tooltip = JAP_pnr_election_party_6_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^5
+			value = 1
+			tooltip = JAP_pnr_election_party_5_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^4
+			value = 1
+			tooltip = JAP_pnr_election_party_4_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
     }
 }
 
@@ -1811,6 +2824,18 @@ country_event = { # 波谲云诡
     option = { # 这些馒头请笑纳，还请您仔细考虑。
         name = JAP_pnr_earlygame.2.a
         ai_chance = { factor = 1 }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = 3
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+		add_to_variable = {
+			var = JAP_pnr_election_party_seats^10
+			value = -3
+			tooltip = JAP_pnr_election_party_10_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
     }
 }
 
@@ -1848,6 +2873,18 @@ country_event = { # 碰壁
     option = { # 我们怎能背叛我们自己的利益团体！
         name = JAP_pnr_earlygame.4.a
         ai_chance = { factor = 1 }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = -3
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+		add_to_variable = {
+			var = JAP_pnr_election_party_seats^10
+			value = 3
+			tooltip = JAP_pnr_election_party_10_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
     }
 }
 
@@ -1869,7 +2906,7 @@ country_event = { # 天皇大命
     is_triggered_only = yes
     hidden = no
     timeout_days = 7
-    option = { # 宫中的阴谋……
+    option = { # 现在来了。
         name = JAP_pnr_earlygame.5.a
         ai_chance = { factor = 1 }
         add_political_power = -10
@@ -1881,6 +2918,59 @@ country_event = { # 天皇大命
                 focus = JAP_pnr_68th_sessions_imperial_diet
                 cost = -21
             }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = 5
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^8
+			value = -2
+			tooltip = JAP_pnr_election_party_8_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = -3
+			tooltip = JAP_pnr_election_party_6_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
+        hidden_effect = {
+            reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = 7
+            }
+        }
+    }
+    option = { # 宫中的阴谋……
+        name = JAP_pnr_earlygame.5.b
+        ai_chance = { factor = 1 }
+        add_political_power = -10
+        add_popularity = {
+            ideology = social_conservative
+            popularity = -0.03
+        }
+        reduce_focus_completion_cost = {
+                focus = JAP_pnr_68th_sessions_imperial_diet
+                cost = -21
+            }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = -5
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^8
+			value = 2
+			tooltip = JAP_pnr_election_party_8_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = 3
+			tooltip = JAP_pnr_election_party_6_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
         hidden_effect = {
             reduce_focus_completion_cost = {
                 focus = JAP_pnr_68th_sessions_imperial_diet
@@ -1911,6 +3001,7 @@ country_event = { # 坐渔庄的访客
         name = JAP_pnr_earlygame.6.a
         ai_chance = { factor = 1 }
         country_event = { id = JAP_pnr_earlygame.7 days = 1 }
+        custom_effect_tooltip = JAP_pnr_earlygame.6_tt
         hidden_effect = {
             set_country_flag = pnr_support_suzuki
             reduce_focus_completion_cost = {
@@ -1923,6 +3014,7 @@ country_event = { # 坐渔庄的访客
         name = JAP_pnr_earlygame.6.b
         ai_chance = { factor = 1 }
         country_event = { id = JAP_pnr_earlygame.7 days = 1 }
+        custom_effect_tooltip = JAP_pnr_earlygame.6_tt
         hidden_effect = {
             set_country_flag = pnr_support_kuhara
             reduce_focus_completion_cost = {
@@ -2054,6 +3146,38 @@ country_event = { # 永恒的僵局
             ideology = social_conservative
             popularity = -0.05
         }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = -10
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+		add_to_variable = {
+			var = JAP_pnr_election_party_seats^10
+			value = 2
+			tooltip = JAP_pnr_election_party_10_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^8
+			value = 2
+			tooltip = JAP_pnr_election_party_8_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = 2
+			tooltip = JAP_pnr_election_party_6_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^5
+			value = 2
+			tooltip = JAP_pnr_election_party_5_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^4
+			value = 2
+			tooltip = JAP_pnr_election_party_4_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
         hidden_effect = {
             country_event = { id = JAP_pnr_earlygame.10 }
             reduce_focus_completion_cost = {
@@ -2085,6 +3209,18 @@ country_event = { # 犬养毅内阁垮台
         JAP_pnr_suzuki_kisaburo = { promote_character = social_conservative_subtype }
         complete_national_focus = JAP_pnr_68th_sessions_imperial_diet
         remove_ideas = JAP_pnr_forever_frozen_in_1928
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = 4
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = -4
+			tooltip = JAP_pnr_election_party_6_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
         hidden_effect = {
             country_event = { id = JAP_pnr_earlygame.11 days = 4 }
         }
@@ -2101,6 +3237,18 @@ country_event = { # 犬养毅内阁垮台
         JAP_pnr_fusanosuke_kuhara = { promote_character = social_conservative_subtype }
         complete_national_focus = JAP_pnr_68th_sessions_imperial_diet
         remove_ideas = JAP_pnr_forever_frozen_in_1928
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = 4
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = -4
+			tooltip = JAP_pnr_election_party_6_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
         hidden_effect = {
             country_event = { id = JAP_pnr_earlygame.11 days = 4 }
         }
@@ -2117,6 +3265,38 @@ country_event = { # 犬养毅内阁垮台
         set_politics = { ruling_party = market_liberal }
         complete_national_focus = JAP_pnr_68th_sessions_imperial_diet
         remove_ideas = JAP_pnr_forever_frozen_in_1928
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = -12
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^10
+			value = 1
+			tooltip = JAP_pnr_election_party_10_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^8
+			value = 3
+			tooltip = JAP_pnr_election_party_8_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = 6
+			tooltip = JAP_pnr_election_party_6_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^5
+			value = 1
+			tooltip = JAP_pnr_election_party_5_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^4
+			value = 1
+			tooltip = JAP_pnr_election_party_4_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
         hidden_effect = {
             country_event = { id = JAP_pnr_earlygame.11 days = 4 }
         }
@@ -2135,6 +3315,23 @@ country_event = { # 与下一乐章
     option = { # 这些人心中到底有没有理想？
         name = JAP_pnr_earlygame.11.a
         ai_chance = { factor = 1 }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = -8
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^10
+			value = 4
+			tooltip = JAP_pnr_election_party_10_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^8
+			value = 4
+			tooltip = JAP_pnr_election_party_8_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
         hidden_effect = { country_event = { id = JAP_pnr_normal.11 days =21 } }
     }
 }
@@ -2167,6 +3364,66 @@ country_event = { # Confidence/Complication/Control
     option = { # 政府总归会做点什么吧。
         name = JAP_pnr_earlygame.13.a
         ai_chance = { factor = 1 }
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -7
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 3
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 1
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = 1
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 2
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        } 
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = -7
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 3
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 1
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = 1
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 2
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
         hidden_effect = {
             country_event = { id = JAP_pnr_con.1 days = 19 }
             country_event = { id = JAP_pnr_normal.20 days = 21 }
@@ -2276,12 +3533,46 @@ country_event = { # $JAP_pnr_fujii_sadanobu$辞职
         ai_chance = { factor = 1 }
         retire_character = JAP_pnr_fujii_sadanobu
         activate_advisor = JAP_pnr_takahashi_korekiyo_advisor_idea
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = 5
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = -5
+			tooltip = JAP_pnr_election_party_6_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
     }
     option = { # 我是说有没有可能……
         name = JAP_pnr_earlygame.16.b
         ai_chance = { factor = 1 }
         retire_character = JAP_pnr_fujii_sadanobu
         activate_advisor = JAP_pnr_takahashi_korekiyo_advisor_idea
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = -7
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^10
+			value = 2
+			tooltip = JAP_pnr_election_party_10_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = 2
+			tooltip = JAP_pnr_election_party_6_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^4
+			value = 3
+			tooltip = JAP_pnr_election_party_4_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
     }
 }
 
@@ -2327,12 +3618,46 @@ country_event = { # $JAP_pnr_tsushima_juichi$退场
         ai_chance = { factor = 1 }
         retire_character = JAP_pnr_tsushima_juichi
         activate_advisor = JAP_pnr_inoue_junnosuke_advisor_idea
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = 4
+			tooltip = JAP_pnr_election_party_6_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+			value = -4
+			tooltip = JAP_pnr_election_party_7_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
     }
     option = { # 不良资产被出清了。
         name = JAP_pnr_earlygame.18.b
         ai_chance = { factor = 1 }
         retire_character = JAP_pnr_tsushima_juichi
         activate_advisor = JAP_pnr_inoue_junnosuke_advisor_idea
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^6
+			value = -7
+			tooltip = JAP_pnr_election_party_6_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^8
+			value = 2
+			tooltip = JAP_pnr_election_party_8_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^5
+			value = 2
+			tooltip = JAP_pnr_election_party_5_tt
+		}
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^4
+			value = 3
+			tooltip = JAP_pnr_election_party_4_tt
+		}
+        JAP_pnr_election_refresh_projected_changes = yes
     }
 }
 
@@ -2479,7 +3804,10 @@ country_event = { # 五一五事件
         ai_chance = { factor = 1 }
         add_stability = -0.05
         set_country_flag = JAP_pnr_515_happened
-        retire_character = JAP_pnr_inukai_tsuyoshi # = { kill_character = yes }
+        effect_tooltip = { JAP_pnr_inukai_tsuyoshi = { kill_character = yes } }
+        hidden_effect = {
+            retire_character = JAP_pnr_inukai_tsuyoshi
+        }
     }
 }
 
@@ -2524,13 +3852,14 @@ country_event = { # 挥杆
     immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_earlygame.27" }
     title = JAP_pnr_earlygame.27.t
     desc = JAP_pnr_earlygame.27.desc
-    picture = GFX_JAP_pnr_earlygame_27
+    picture = GFX_report_event_pnr_JAP_hirohito_portrait
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # ……我根本不会打麻将，我只打桥牌。
         name = JAP_pnr_earlygame.27.a
         ai_chance = { factor = 1 }
+        add_popularity = { ideology = paternal_autocrat popularity = 0.01 }
     }
 }
 
@@ -2670,7 +3999,7 @@ country_event = { # 《国家保安法》通过，解散议会大选
             country_event = { id = JAP_pnr_normal.3 days = 2 }
 			set_country_flag = pnr_congress_temporarily_unable
 			set_country_flag = JAP_pnr_election_in_progress
-			JAP_pnr_election_initialize_projected_results = yes
+			#JAP_pnr_election_initialize_projected_results = yes
 			JAP_congress_update_gui = yes  
         }
     }
@@ -2696,7 +4025,7 @@ country_event = { # 《国家保安法》失败，解散议会大选
             country_event = { id = JAP_pnr_normal.3 days = 2 }
 			set_country_flag = pnr_congress_temporarily_unable
 			set_country_flag = JAP_pnr_election_in_progress
-			JAP_pnr_election_initialize_projected_results = yes
+			#JAP_pnr_election_initialize_projected_results = yes
 			JAP_congress_update_gui = yes
         }
     }
@@ -2989,7 +4318,47 @@ country_event = { # [SOM.GetName]暂停自我国进口商品
     option = { # 我不想听。
         name = JAP_pnr_earlygame.47.a
         ai_chance = { factor = 1 }
-        add_stability = -0.01
+        add_stability = -0.03
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -4
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 3
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 1
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        } 
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = -4
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 3
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 1
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }  
         hidden_effect = { country_event = { id = JAP_pnr_earlygame.48 days = 2 } }
     }
 }
@@ -3010,6 +4379,56 @@ country_event = { # 我们失去了在[PHI.GetName]的市场
         swap_ideas = {
             remove_idea = JAP_pnr_black_monday_1
             add_idea = JAP_pnr_black_monday_2
+        }
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -7
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 4
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 2
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 1
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        } 
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -7
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 4
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 2
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 1
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
         }  
         hidden_effect = { country_event = { id = JAP_pnr_earlygame.49 days = 4 } }
     }
@@ -3029,9 +4448,89 @@ country_event = { # 失去十年的梦魇
     option = { # 放开我的脚……
         name = JAP_pnr_earlygame.49.a
         ai_chance = { factor = 1 }
-        add_stability = -0.03
+        add_stability = -0.10
         set_country_flag = RUS_Black_Monday_Happened
         add_dynamic_modifier = { modifier = JAP_pnr_lost_decade_nightmare_modifier }
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -28
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 4
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 4
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = 8
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^5
+			    value = 5
+			    tooltip = JAP_pnr_election_party_5_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^4
+			    value = 6
+			    tooltip = JAP_pnr_election_party_4_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 1
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        } 
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = -28
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 4
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 4
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = 8
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^5
+			    value = 5
+			    tooltip = JAP_pnr_election_party_5_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^4
+			    value = 6
+			    tooltip = JAP_pnr_election_party_4_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 1
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
         hidden_effect = {
             complete_national_focus = JAP_pnr_black_monday_arrives_in_the_east
             remove_ideas = JAP_pnr_black_monday_2
@@ -3099,11 +4598,22 @@ country_event = { # “圣师”突袭东京！
     option = { # 至少没给我们添乱。
         name = JAP_pnr_earlygame.54.a
         ai_chance = { factor = 1 }
-        add_to_variable = {
-			var = JAP_pnr_parliament_support_var
-			value = 1
-			tooltip = JAP_pnr_parliament_support_var_tt
-		}
+        random_list = {
+            1 = {
+                add_to_variable = {
+			        var = JAP_pnr_parliament_support_var
+			        value = 1
+			        tooltip = JAP_pnr_parliament_support_var_tt
+		        }
+            }
+            1 = {
+                add_to_variable = {
+			        var = JAP_pnr_parliament_support_var
+			        value = 0
+			        tooltip = JAP_pnr_parliament_support_var_tt
+		        }
+            }
+        } 
         hidden_effect = {
             country_event = { id = JAP_pnr_earlygame.55 days = 20 }
         }
@@ -3192,11 +4702,22 @@ country_event = { # 我要最便宜的
     option = { # “不知道你有没有兴趣，近卫公爵。”
         name = JAP_pnr_earlygame.57.a
         ai_chance = { factor = 1 }
-        add_to_variable = {
-			var = JAP_pnr_parliament_support_var
-			value = -1
-			tooltip = JAP_pnr_parliament_support_var_tt
-		}
+        random_list = {
+            1 = {
+                add_to_variable = {
+			        var = JAP_pnr_parliament_support_var
+			        value = -1
+			        tooltip = JAP_pnr_parliament_support_var_tt
+		        }
+            }
+            1 = {
+                add_to_variable = {
+			        var = JAP_pnr_parliament_support_var
+			        value = 0
+			        tooltip = JAP_pnr_parliament_support_var_tt
+		        }
+            }
+        }  
     }
 }
 
@@ -4219,6 +5740,7 @@ country_event = { # 大战之伤痛
         ai_chance = { factor = 1 }
         army_experience = 10
 		navy_experience = 10
+        hidden_effect = { country_event = { id = JAP_pnr_military_events.8 days = 14 random_days = 7 } }
     }
 }
 
@@ -4334,14 +5856,29 @@ country_event = { # 争取陆军大臣
     option = { # 林大将被利益诱惑了。
         name = JAP_pnr_military_events.8.a
         ai_chance = { factor = 1 }
-        trigger = { has_completed_focus = JAP_pnr_navy_expansion_plan }
-        add_war_support = 0.05
+        set_country_flag = jap_pnr_army_support_anti_imperial_way_line
+        custom_effect_tooltip = JAP_pnr_military_events.8a_tt
+        custom_effect_tooltip = tooltip_white_line
+        set_can_be_fired_in_advisor_role = { character = JAP_pnr_hayashi_senjuro value = yes }
+		remove_trait = {
+	        character = JAP_pnr_hayashi_senjuro
+	        trait = PNR_lujun_dachen_1
+	        slot = political_advisor
+        }
+		add_trait = {
+	        character = JAP_pnr_hayashi_senjuro
+	        trait = KR_heer_advocate
+	        slot = political_advisor
+        }
     }
     option = { # 为名声计，我还是跑路吧。
         name = JAP_pnr_military_events.8.b
         ai_chance = { factor = 1 }
-        trigger = { has_completed_focus = JAP_pnr_army_expansion_plan }
-        add_war_support = 0.05
+        set_country_flag = jap_pnr_army_support_imperial_way_line
+        custom_effect_tooltip = JAP_pnr_military_events.8b_tt
+        custom_effect_tooltip = tooltip_white_line
+        #deactivate_advisor = JAP_pnr_hayashi_senjuro_idea
+        retire_character = JAP_pnr_hayashi_senjuro
     }
 }
 
@@ -4835,7 +6372,8 @@ country_event = { # 传闻显现
     option = { # 不太对劲，就到这里吧。
         name = JAP_pnr_rs.2.b
         ai_chance = { factor = 1 }
-        add_command_power = -5
+        add_command_power = -30
+        add_political_power = -50
     }
 }
 
@@ -4857,8 +6395,10 @@ country_event = { # 恐怖的政变计划
         }
     }
     option = { # 听上去只是酒后狂言。
-        name = JAP_pnr_rs.3.a
+        name = JAP_pnr_rs.3.b
         ai_chance = { factor = 1 }
+        add_command_power = -30
+        add_political_power = -50
     }
 }
 
@@ -4965,8 +6505,101 @@ country_event = { # 昭和青年团慰问农村
         name = JAP_pnr_con.2.a
         ai_chance = { factor = 1 }
         add_popularity = { ideology = national_populist popularity = 0.01 }
-        add_popularity = { ideology = authoritarian_democrat popularity = 0.01 }
-        add_popularity = { ideology = social_conservative popularity = 0.01 }
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -3
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 2
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 1
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = -3
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 2
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 1
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+    }
+    option = { # 又有谁在意工人们呢？
+        name = JAP_pnr_con.2.b
+        ai_chance = { factor = 1 }
+        add_popularity = { ideology = syndicalist popularity = 0.01 }
+        if = {
+            limit = { has_government = social_conservative }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -6
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^5
+			    value = 3
+			    tooltip = JAP_pnr_election_party_5_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^4
+			    value = 2
+			    tooltip = JAP_pnr_election_party_4_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 1
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+        else_if = {
+            limit = { has_government = market_liberal }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = -6
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^5
+			    value = 3
+			    tooltip = JAP_pnr_election_party_5_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^4
+			    value = 2
+			    tooltip = JAP_pnr_election_party_4_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^2
+			    value = 1
+			    tooltip = JAP_pnr_election_party_2_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
     }
 }
 
@@ -5159,7 +6792,13 @@ country_event = { # 联帅治下八省不和
         country_event = { id = JAP_pnr_earlygame.3 days = 3 }
         hidden_effect = {
             CHI = { country_event = { id = JAP_pnr_foreign_events.5 days = 7 } }
-            LEP = { country_event = { id = JAP_pnr_foreign_events.11 days = 14 } }
+            LEP = { country_event = { id = JAP_pnr_foreign_events.11 days = 20 random_days = 2 } }
+            GER = { country_event = { id = JAP_pnr_foreign_events.11 days = 20 random_days = 2 } }
+            ANQ = { country_event = { id = JAP_pnr_foreign_events.11 days = 20 random_days = 2 } }
+            JAP = { country_event = { id = JAP_pnr_foreign_events.11 days = 20 random_days = 2 } }
+            QIE = { country_event = { id = JAP_pnr_foreign_events.11 days = 20 random_days = 2 } }
+            CHI = { country_event = { id = JAP_pnr_foreign_events.11 days = 20 random_days = 2 } }
+            GEA = { country_event = { id = JAP_pnr_foreign_events.11 days = 20 random_days = 2 } }
         }
     }
 }
@@ -5241,6 +6880,7 @@ country_event = { # 撕下面孔
 			create_unit = { division = "name = \"Bubing Xie\" division_template = \"Bubing Xie\" start_experience_factor = 0.4 start_equipment_factor = 0.4" owner = ANQ }
 		}
         JAP = { country_event = { id = JAP_pnr_foreign_events.1001 days = 1 } }
+        hidden_effect = { GEA = { country_event = { id = JAP_pnr_foreign_events.10 days = 15 random_days = 7 } } }
     }
 }
 
@@ -5407,7 +7047,7 @@ country_event = { # [JAP.GetName]显露野心
     }
 }
 
-country_event = { # 不可能的帮手？
+country_event = { # 东亚同文书院支持$ANQ_chen_tiaoyuan$
     id = JAP_pnr_foreign_events.11
     immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.11" }
     title = JAP_pnr_foreign_events.11.t
@@ -5416,15 +7056,76 @@ country_event = { # 不可能的帮手？
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
-    option = { # $LEP_qi_xieyuan$与矶谷廉介微笑握手。
+    option = { # 打倒列强，收回租界！
         name = JAP_pnr_foreign_events.11.a
         ai_chance = { factor = 1 }
-        add_timed_idea = { idea = JAP_pnr_kwantong_army_support_the_chaotic_battles_ideas_0 days = 180 }
-        GEA = { country_event = { id = JAP_pnr_foreign_events.10 days = 10 } }
+        trigger = {
+            OR = {
+                NOT = { tag = LEP }
+                NOT = { tag = GER }
+                NOT = { tag = QIE }
+                NOT = { tag = GEA }
+            }
+        }
+        if = {
+            limit = { tag = ANQ }
+            add_political_power = -20
+            set_temp_variable = { change_league_war_morale_by = 10 }
+			china_update_morale = yes
+        }
+        else_if = {
+            limit = {
+                tag = JAP
+                has_government = social_conservative
+            }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^7
+			    value = -8
+			    tooltip = JAP_pnr_election_party_7_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 4
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 4
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+        else_if = {
+            limit = {
+                tag = JAP
+                has_government = market_liberal
+            }
+            JAP_pnr_election_ensure_projected_results = yes
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^6
+			    value = -8
+			    tooltip = JAP_pnr_election_party_6_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^10
+			    value = 4
+			    tooltip = JAP_pnr_election_party_10_tt
+		    }
+            add_to_variable = {
+			    var = JAP_pnr_election_party_seats^8
+			    value = 4
+			    tooltip = JAP_pnr_election_party_8_tt
+		    }
+            JAP_pnr_election_refresh_projected_changes = yes
+        }
+        else = { add_political_power = 10 }
     }
-    option = { # $LEP_qi_xieyuan$将矶谷廉介送出了联帅府。
+    option = { # 这真是黄鼠狼给鸡拜年。
         name = JAP_pnr_foreign_events.11.b
-        ai_chance = { factor = 0 }
+        ai_chance = { factor = 1 }
+        trigger = { NOT = { tag = JAP } }
+        add_political_power = -5
     }
 }
 
@@ -5440,13 +7141,426 @@ country_event = { # 各行其是
     option = { # 既然如此，停止对[ANQ.GetName]的援助。
         name = JAP_pnr_foreign_events.12.a
         ai_chance = { factor = 1 }
-        LEP = { remove_ideas = JAP_pnr_kwantong_army_support_the_chaotic_battles_ideas_0 }
         ANQ = { remove_ideas = JAP_pnr_support_the_chaotic_battles_ideas_0 }
     }
     option = { # 让那家伙赶紧回[FNG.GetName]，然后当什么都没发生。
         name = JAP_pnr_foreign_events.12.b
         ai_chance = { base = 0 }
-        LEP = { remove_ideas = JAP_pnr_kwantong_army_support_the_chaotic_battles_ideas_0 }
+    }
+}
+
+country_event = { # [JAP.GetName]尝试和我们接触
+    id = JAP_pnr_foreign_events.13
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.13" }
+    title = JAP_pnr_foreign_events.13.t
+    desc = JAP_pnr_foreign_events.13.desc
+    picture = GFX_JAP_pnr_foreign_events_13
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 为什么不呢？
+        name = JAP_pnr_foreign_events.13.a
+        ai_chance = { factor = 3 }
+        JAP = { country_event = { id = JAP_pnr_foreign_events.14 days = 2 } }
+        set_country_flag = three_i_support_jap_flag
+        add_opinion_modifier = { target = JAP modifier = KR_pleased }
+    }
+    option = { # 我们绝不和帝国主义者媾和。
+        name = JAP_pnr_foreign_events.13.b
+        ai_chance = { factor = 1 }
+        JAP = { country_event = { id = JAP_pnr_foreign_events.14 days = 2 } }
+    }
+}
+
+country_event = { # [FROM.GetName]表现积极
+    id = JAP_pnr_foreign_events.14
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.14" }
+    title = JAP_pnr_foreign_events.14.t
+    desc = JAP_pnr_foreign_events.14.desc
+    picture = GFX_JAP_pnr_foreign_events_14
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 这就是国际政治哦。
+        name = JAP_pnr_foreign_events.14.a
+        ai_chance = { factor = 1 }
+        add_opinion_modifier = { target = FROM modifier = KR_pleased }
+        give_market_access = FROM
+    }
+}
+
+country_event = { # [FROM.GetName]拒绝了我们
+    id = JAP_pnr_foreign_events.15
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.15" }
+    title = JAP_pnr_foreign_events.15.t
+    desc = JAP_pnr_foreign_events.15.desc
+    picture = GFX_JAP_pnr_foreign_events_15
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 很遗憾。
+        name = JAP_pnr_foreign_events.15.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 出席瓦隆-蓬达尔克会议？
+    id = JAP_pnr_foreign_events.16
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.16" }
+    title = JAP_pnr_foreign_events.16.t
+    desc = JAP_pnr_foreign_events.16.desc
+    picture = GFX_JAP_pnr_foreign_events_16
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们听听他们想说什么。
+        name = JAP_pnr_foreign_events.16.a
+        ai_chance = { factor = 1 }
+        JAP = { country_event = { id = JAP_pnr_foreign_events.17 days = 4 } }
+    }
+    option = { # 挥舞自由大旗的帝国主义者让我恶心。
+        name = JAP_pnr_foreign_events.16.b
+        ai_chance = { factor = 0 }
+        clr_country_flag = three_i_support_jap_flag
+        remove_opinion_modifier = { target = JAP modifier = KR_pleased }
+        JAP = { country_event = { id = JAP_pnr_foreign_events.18 days = 4 } }
+    }
+}
+
+country_event = { # [From.GetName]将出席瓦隆-蓬达尔克会议
+    id = JAP_pnr_foreign_events.17
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.17" }
+    title = JAP_pnr_foreign_events.17.t
+    desc = JAP_pnr_foreign_events.17.desc
+    picture = GFX_JAP_pnr_foreign_events_17
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # Bienvenue, camarade!（欢迎你，同志！）
+        name = JAP_pnr_foreign_events.17.a
+        ai_chance = { factor = 1 }
+        add_political_power = 5
+        if = {
+            limit = {
+                OR = {
+                    FRA = { has_country_flag = three_i_support_jap_flag }
+                    ENG = { has_country_flag = three_i_support_jap_flag }
+                }
+            }
+            country_event = { id = JAP_pnr_foreign_events.19 days = 5 random_days = 2 }
+        }
+    }
+}
+
+country_event = { # [From.GetName]拒绝出席瓦隆-蓬达尔克会议
+    id = JAP_pnr_foreign_events.18
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.18" }
+    title = JAP_pnr_foreign_events.18.t
+    desc = JAP_pnr_foreign_events.18.desc
+    picture = GFX_JAP_pnr_foreign_events_18
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 八嘎！竟敢侮辱大东亚圣战！
+        name = JAP_pnr_foreign_events.18.a
+        ai_chance = { factor = 1 }
+        remove_opinion_modifier = { target = FROM modifier = KR_pleased }
+    }
+}
+
+country_event = { # 第一天：印度半岛问题
+    id = JAP_pnr_foreign_events.19
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.19" }
+    title = JAP_pnr_foreign_events.19.t
+    desc = JAP_pnr_foreign_events.19.desc
+    picture = GFX_JAP_pnr_foreign_events_19
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们将支持[HND.GetName]的民族解放运动。
+        name = JAP_pnr_foreign_events.19.a
+        ai_chance = { factor = 1 }
+        set_variable = { valon_pon_darc_conference_1_var = 1 }
+        country_event = { id = JAP_pnr_foreign_events.20 days = 4 random_days = 2 }
+    }
+    option = { # 我们呼吁密切关注印度次大陆的紧张局势。
+        name = JAP_pnr_foreign_events.19.b
+        ai_chance = { factor = 1 }
+        set_variable = { valon_pon_darc_conference_1_var = 2 }
+        country_event = { id = JAP_pnr_foreign_events.20 days = 4 random_days = 2 }
+    }
+}
+
+country_event = { # 第二天：亚洲去殖民化
+    id = JAP_pnr_foreign_events.20
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.20" }
+    title = JAP_pnr_foreign_events.20.t
+    desc = JAP_pnr_foreign_events.20.desc
+    picture = GFX_JAP_pnr_foreign_events_20
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 就按他们的想法来。
+        name = JAP_pnr_foreign_events.20.a
+        ai_chance = { factor = 1 }
+        add_to_variable = { valon_pon_darc_conference_2_var = 1 }
+        country_event = { id = JAP_pnr_foreign_events.22 days = 4 random_days = 2 }
+    }
+    option = { # 我想这一点还是不能接受。
+        name = JAP_pnr_foreign_events.20.b
+        ai_chance = { factor = 1 }
+        add_to_variable = { valon_pon_darc_conference_2_var = 2 }
+        country_event = { id = JAP_pnr_foreign_events.22 days = 4 random_days = 2 }
+    }
+}
+
+country_event = { # 硝烟散去……
+    id = JAP_pnr_foreign_events.21
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.21" }
+    title = JAP_pnr_foreign_events.21.t
+    desc = JAP_pnr_foreign_events.21.desc
+    picture = GFX_JAP_pnr_foreign_events_21
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 愿逝者安息。
+        name = JAP_pnr_foreign_events.21.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 第三天：大陆打通作战
+    id = JAP_pnr_foreign_events.22
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.22" }
+    title = JAP_pnr_foreign_events.22.t
+    desc = JAP_pnr_foreign_events.22.desc
+    picture = GFX_JAP_pnr_foreign_events_22
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 不要阻碍大陆打通作战。
+        name = JAP_pnr_foreign_events.22.a
+        ai_chance = { factor = 1 }
+        add_to_variable = { valon_pon_darc_conference_3_var = 1 }
+        if = {
+            limit = { FRA = { has_country_flag = three_i_support_jap_flag } }
+            FRA = { country_event = { id = JAP_pnr_foreign_events.23 days = 3 random_hours = 6 } }
+        }
+        if = {
+            limit = { ENG = { has_country_flag = three_i_support_jap_flag } }
+            ENG = { country_event = { id = JAP_pnr_foreign_events.23 days = 3 random_hours = 6 } }
+        }
+    }
+    option = { # 如果战争开始，希望你们能发动禁运。
+        name = JAP_pnr_foreign_events.22.b
+        ai_chance = { factor = 1 }
+        add_to_variable = { valon_pon_darc_conference_3_var = 2 }
+        if = {
+            limit = { FRA = { has_country_flag = three_i_support_jap_flag } }
+            FRA = { country_event = { id = JAP_pnr_foreign_events.23 days = 3 random_hours = 6 } }
+        }
+        if = {
+            limit = { ENG = { has_country_flag = three_i_support_jap_flag } }
+            ENG = { country_event = { id = JAP_pnr_foreign_events.23 days = 3 random_hours = 6 } }
+        }
+    }
+}
+
+country_event = { # 硝烟散去……
+    id = JAP_pnr_foreign_events.21
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.21" }
+    title = JAP_pnr_foreign_events.21.t
+    desc = {
+        trigger = {
+            country_exists = ANQ
+			NOT = {
+				country_exists = LEP
+				country_exists = CHI
+			}
+			OR = {
+				NOT = { country_exists = SHD }
+				has_global_flag = LEP_collapse_SHD_out
+			}
+        }
+        text = JAP_pnr_foreign_events.21a.desc
+    }
+    desc = {
+        trigger = {
+            country_exists = SHD
+			NOT = {
+				SHD = { has_government = authoritarian_democrat }
+				country_exists = LEP
+				country_exists = CHI
+				country_exists = ANQ
+			}
+        }
+        text = JAP_pnr_foreign_events.21b.desc
+    }
+    desc = {
+        trigger = {
+            country_exists = LEP
+			NOT = {
+				country_exists = CHI
+				country_exists = ANQ
+			}
+			OR = {
+				NOT = { country_exists = SHD }
+				SHD = { is_subject = yes }
+				has_global_flag = LEP_collapse_SHD_out
+			}
+        }
+        text = JAP_pnr_foreign_events.21c.desc
+    }
+    desc = {
+        trigger = {
+            country_exists = CHI
+			NOT = {
+				country_exists = LEP
+				country_exists = ANQ
+			}
+			OR = {
+				NOT = { country_exists = SHD }
+				has_global_flag = LEP_collapse_SHD_out
+			}
+        }
+        text = JAP_pnr_foreign_events.21d.desc
+    }
+    picture = GFX_report_event_CHN_warlord_battle
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 愿逝者安息。
+        name = JAP_pnr_foreign_events.21.a
+        ai_chance = { factor = 1 }
+        trigger = {
+            country_exists = ANQ
+			NOT = {
+				country_exists = LEP
+				country_exists = CHI
+			}
+			OR = {
+				NOT = { country_exists = SHD }
+				has_global_flag = LEP_collapse_SHD_out
+			}
+        }
+        add_to_variable = {
+            var = JAP_pnr_pan_asia_modifier_point_var
+            value = 1
+            tooltip = JAP_pnr_pan_asia_modifier_point_var_add_tt
+        }
+    }
+    option = { # 令人反胃。
+        name = JAP_pnr_foreign_events.21.b
+        ai_chance = { factor = 1 }
+        trigger = {
+            OR = {
+                AND = {
+                    country_exists = CHI
+			        NOT = {
+				        country_exists = LEP
+				        country_exists = ANQ
+			        }
+			        OR = {
+				        NOT = { country_exists = SHD }
+				        has_global_flag = LEP_collapse_SHD_out
+			        }
+                }
+                AND = {
+                    country_exists = SHD
+			        NOT = {
+				        SHD = { has_government = authoritarian_democrat }
+				        country_exists = LEP
+				        country_exists = CHI
+				        country_exists = ANQ
+			        }
+                }
+            }
+        }
+        add_political_power = 5
+        custom_effect_tooltip = JAP_pnr_pan_asia_modifier_point_var_none_tt
+    }
+    option = { # [GER.GetNameDef]有这么强大吗？
+        name = JAP_pnr_foreign_events.21.c
+        ai_chance = { factor = 1 }
+        trigger = {
+            country_exists = LEP
+			NOT = {
+				country_exists = CHI
+				country_exists = ANQ
+			}
+			OR = {
+				NOT = { country_exists = SHD }
+				SHD = { is_subject = yes }
+				has_global_flag = LEP_collapse_SHD_out
+			}
+        }
+        add_political_power = 5
+        custom_effect_tooltip = JAP_pnr_pan_asia_modifier_point_var_none_tt
+    }
+}
+
+country_event = { # [JAP.GetName]在会议上的要求
+    id = JAP_pnr_foreign_events.23
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.23" }
+    title = JAP_pnr_foreign_events.23.t
+    desc = JAP_pnr_foreign_events.23.desc
+    picture = GFX_JAP_pnr_foreign_events_23
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 这似乎可以接受。
+        name = JAP_pnr_foreign_events.23.a
+        set_temp_variable = { valon_pon_darc_total_temp_var = valon_pon_darc_conference_1_var }
+        add_to_variable = { valon_pon_darc_total_temp_var = valon_pon_darc_conference_2_var }
+        add_to_variable = { valon_pon_darc_total_temp_var = valon_pon_darc_conference_3_var }
+        ai_chance = { factor = valon_pon_darc_total_temp_var }
+        add_political_power = 15
+        add_stability = 0.01    
+        set_country_flag = we_betrayed_the_asian_revolution_flag
+        JAP = { country_event = { id = JAP_pnr_foreign_events.24 days = 10 random_hours = 5 } }
+    }
+    option = { # 他们似乎没睡醒。
+        name = JAP_pnr_foreign_events.23.b
+        ai_chance = { factor = 6 }
+        clr_country_flag = three_i_support_jap_flag
+        remove_opinion_modifier = { target = JAP modifier = KR_pleased }
+        JAP = { country_event = { id = JAP_pnr_foreign_events.25 days = 10 random_hours = 5 } }
+    }
+}
+
+country_event = { # 瓦隆-蓬达尔克会议成功
+    id = JAP_pnr_foreign_events.24
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.24" }
+    title = JAP_pnr_foreign_events.24.t
+    desc = JAP_pnr_foreign_events.24.desc
+    picture = GFX_JAP_pnr_foreign_events_24
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 他们会遵守密约吧。
+        name = JAP_pnr_foreign_events.24.a
+        ai_chance = { factor = 1 }
+        add_popularity = {
+            ideology = var:current_party_ideology_group
+            popularity = 0.02
+        }
+    }
+}
+
+country_event = { # 瓦隆-蓬达尔克会议失败
+    id = JAP_pnr_foreign_events.25
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.25" }
+    title = JAP_pnr_foreign_events.25.t
+    desc = JAP_pnr_foreign_events.25.desc
+    picture = GFX_JAP_pnr_foreign_events_25
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 令人失望。
+        name = JAP_pnr_foreign_events.25.a
+        ai_chance = { factor = 1 }
+        add_political_power = 5
+        remove_opinion_modifier = { target = FROM modifier = KR_pleased }
     }
 }
 

@@ -151,12 +151,3 @@ pnr_is_co_prosperity_candidate_trigger = {
 		is_subject_of = JAP
 	}
 }
-
-JAP_pnr_conspiracy_action_available = { # 判断阴谋数量，已弃用
-	custom_override_tooltip = {
-		tooltip = JAP_pnr_conspiracy_action_limit_tt
-		NOT = {
-			check_variable = { JAP_pnr_conspiracy_organizations_acted > 2 }
-		}
-	}
-}

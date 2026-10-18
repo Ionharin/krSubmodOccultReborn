@@ -19,6 +19,7 @@ add_namespace = spanish_civil_war_events
 add_namespace = united_states_events
 add_namespace = central_asian_crisis_events
 add_namespace = india_events
+add_namespace = ma_clique_events
 
 ####################
 ### CENTRAL ASIA ###
@@ -96,7 +97,7 @@ news_event = {
 	id = india_events.103
 	immediate = {
 		log = "[GetLogInfo]: event india_events.103"
-		JAP = { country_event = { id = JAP_pnr_military_events.17 days = 8 } }
+		hidden_effect = { JAP = { country_event = { id = JAP_pnr_military_events.17 days = 8 } } }
 	}
 	title = india_events.103.t
 	desc = india_events.103.d
@@ -209,6 +210,245 @@ country_event = { #The Three Armies in China
 	}
 }
 
+country_event = { #The Huanggutun Incident
+	id = fengtian_japan_mechanic_events.004
+	title = {
+		text = fengtian_japan_mechanic_events.004.t_huanggutun
+		trigger = {
+			FNG = { controls_state = 716 } #Liaoning - where Huanggutun is
+		}
+	}
+	title = {
+		text = fengtian_japan_mechanic_events.004.t_manchurian
+		trigger = {
+			NOT = { FNG = { controls_state = 716 } }
+		}
+	}
+	desc = {
+		text = fengtian_japan_mechanic_events.004.d_huanggutun
+		trigger = {
+			FNG = { controls_state = 716 } #Liaoning - where Huanggutun is
+		}
+	}
+	desc = {
+		text = fengtian_japan_mechanic_events.004.d_manchurian
+		trigger = {
+			NOT = { FNG = { controls_state = 716 } }
+		}
+	}
+	picture = GFX_report_event_FNG_zhang_zuolin_assasination
+
+	is_triggered_only = yes #Triggered by [DECISION] JAP_faith_in_zhang_runs_out_mission
+
+	option = {
+		log = "[GetLogInfo]: event fengtian_japan_mechanic_events.004 option fengtian_japan_mechanic_events.004.a"
+		name = fengtian_japan_mechanic_events.004.a #All eyes are on Marshal Yang to navigate us out of the crisis...
+		trigger = {
+			tag = FNG
+		}
+		remove_mission = FNG_japanese_patience_runs_thin_mission
+		FNG_zhang_zuolin = { kill_character = yes }
+
+		clear_global_event_target = AGJ_leader
+		RGC_set_leader_effect = yes
+		set_global_flag = FNG_projapan
+		set_country_flag = FNG_collaborated_with_japan
+		clr_country_flag = FNG_communications_clique_active
+		clr_country_flag = FNG_recovery_league_active
+		clr_country_flag = FNG_zhang_clique_active
+
+		remove_targeted_decision = { target = THIS decision = FNG_favor_shikan_clique }
+		remove_targeted_decision = { target = THIS decision = FNG_favor_communications_clique }
+		remove_targeted_decision = { target = THIS decision = FNG_favor_recovery_league }
+		remove_targeted_decision = { target = THIS decision = FNG_favor_zhang_clique }
+
+		promote_character = {
+			character = FNG_yang_yuting
+			ideology = paternal_autocrat_subtype
+		}
+		custom_effect_tooltip = tooltip_white_line
+		if = {
+			limit = { NOT = { has_character = FNG_guo_enlin } }
+			FNG_guo_enlin = {
+				custom_override_tooltip = {
+					tooltip = character_becomes_a_general
+					set_nationality = ROOT
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = FNG_guo_xipeng } }
+			FNG_guo_xipeng = {
+				custom_override_tooltip = {
+					tooltip = character_becomes_a_general
+					set_nationality = ROOT
+				}
+			}
+		}
+		retire_character = FNG_zhang_xueliang
+		retire_character = FNG_zhang_zuoxiang
+		retire_character = FNG_tang_yulin
+		retire_character = FNG_feng_zhanhai
+		retire_character = FNG_he_zhuguo
+		retire_character = FNG_su_bingwen
+		#retire_character = FNG_bao_wenyue he stays with Fengtian because he's a traitor (also to show Yang has more reach than the irl collabos)
+		retire_character = FNG_feng_yong
+		hidden_effect = {
+			random_neighbor_country = {
+				limit = {
+					is_chinese_tag = yes
+					OR = {
+						#This event will fire for CHN first (CUF can't form without being CHN anyway), then the player if CHN isn't a neighbor, then any neighbor
+						tag = CHN
+						AND = {
+							is_ai = no
+							NOT = {
+								CUF = { is_neighbor_of = FNG }
+								CHN = { is_neighbor_of = FNG }
+							}
+						}
+						AND = {
+							is_ai = yes
+							NOT = {
+								CUF = { is_neighbor_of = FNG }
+								CHN = { is_neighbor_of = FNG }
+							}
+							FNG = {
+								all_neighbor_country = {
+									is_ai = yes
+								}
+							}
+						}
+					}
+				}
+				country_event = { id = china_events.470 days = 7 } #Zhang Xueliang Flees to [ROOT.Capital.GetCapitalVictoryPointName]
+			}
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -2000 #3 x 9 x 100 x 0.75 = 3375
+			producer = FNG
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = -25 #3 x 12 x 0.75 = 45
+			producer = FNG
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = -20 #3 x 10 *0.75 = 37.5
+			producer = FNG
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			name = FNG_shikan_clique
+			long_name = FNG_shikan_clique_tt
+		}
+		#CHN_setup_lategame_debuffs_effect = yes #Set up lategame debuffs for focuses - lol nvm it'll be part of the Begonia focus
+		if = {
+			limit = { has_completed_focus = FNG_Shikan_Clique_Chosen }
+			add_stability = -0.10
+			add_war_support = -0.10
+			add_timed_idea = {
+				idea = FNG_army_purged
+				days = 180
+			}
+			custom_effect_tooltip = FNG_army_purged_less_tt
+		}
+		else = {
+			add_stability = -0.25
+			add_war_support = -0.25
+			add_timed_idea = {
+				idea = FNG_army_purged
+				days = 360
+			}
+			custom_effect_tooltip = FNG_army_purged_tt
+		}
+		hidden_effect = {
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = FNG_shikan_clique
+				long_name = FNG_shikan_clique_long
+			}
+			remove_dynamic_modifier = { modifier = FNG_factionalism_modifier }
+			set_politics = {
+				ruling_party = paternal_autocrat
+				elections_allowed = no
+			}
+			activate_advisor = FNG_chang_yinhuai_sic
+			FNG_recalculate_mantetsu_effects = yes
+
+			#Associated Events
+			country_event = { id = fengtian_events.308 days = 2 } #Restoring Order to Manchuria
+			news_event = fengtian_japan_mechanic_events.005
+			country_event = fengtian_system_events.15 # Ma Zhanshan's defection
+
+			JAP = { country_event = { id = fengtian_japan_mechanic_events.004 days = 1 } } #Huanggutuan Incident - let Japan known
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event fengtian_japan_mechanic_events.004 option fengtian_japan_mechanic_events.004.b"
+		name = fengtian_japan_mechanic_events.004.b #Marshal Zhang has failed us for the last time.
+		trigger = {
+			tag = JAP
+		}
+		remove_mission = JAP_pnr_doubts_about_zhang_mission
+		JAP_add_FNG_to_faction_effect = yes
+		custom_effect_tooltip = FNG_JAP_pnr_influence_half_tt
+		custom_effect_tooltip = FNG_JAP_influence_save_in_war_var_back_tt
+		set_temp_variable = { FNG_JAP_influence_variable_pnr_temp_var = FNG.FNG_JAP_influence_variable }
+		multiply_temp_variable = { FNG_JAP_influence_variable_pnr_temp_var = 0.5 }
+		set_variable = { FNG.FNG_JAP_influence_variable = FNG_JAP_influence_variable_pnr_temp_var }
+		add_to_variable = { FNG.FNG_JAP_influence_variable = FNG_JAP_influence_save_in_war_var }
+	}
+}
+
+news_event = { # Zhang Zuolin Assassinated
+	id = fengtian_japan_mechanic_events.005
+	immediate = {
+		log = "[GetLogInfo]: event fengtian_japan_mechanic_events.005"
+		hidden_effect = {
+			FNG_JAP_pnr_FNG_government_paralysis_idea_check = yes
+		}
+	}
+	title = fengtian_japan_mechanic_events.005.t
+	desc = fengtian_japan_mechanic_events.005.d
+	picture = GFX_news_event_FNG_zhang_assassination
+	is_triggered_only = yes
+	major = yes
+
+	trigger = { wants_world_news = yes }
+
+	show_major = { regional_china_news = yes }
+
+	option = { #Surely we are safe from Marshal Zhang’s fate, right?
+		name = fengtian_japan_mechanic_events.005.a
+		trigger = {
+			tag = FNG
+		}
+	}
+
+	option = { #It seems that Zhang's time simply ran out.
+		name = fengtian_japan_mechanic_events.005.b
+		trigger = {
+			is_in_faction_with = JAP
+			NOT = {
+				tag = FNG
+			}
+		}
+	}
+
+	option = { #Japan has disgraced itself in the eyes of the world.
+		name = fengtian_japan_mechanic_events.005.c
+		trigger = {
+			NOT = {
+				tag = FNG
+				is_in_faction_with = JAP
+			}
+		}
+	}
+}
+
 country_event = { #Tensions in Manchuria
 	id = fengtian_japan_mechanic_events.002
 	title = fengtian_japan_mechanic_events.002.t
@@ -269,6 +509,9 @@ country_event = { #Tensions in Manchuria
 		else_if = {
 			limit = { tag = JAP }
 			effect_tooltip = { activate_mission = JAP_pnr_doubts_about_zhang_mission }
+			hidden_effect = {
+				country_event = { id = JAP_pnr_event.16 days = 60 random_days = 21 }
+			}
 		}
 	}
 }
@@ -1162,8 +1405,31 @@ country_event = {
 }
 
 ###########
-### RUS ###
+### XSM ###
 ###########
+
+news_event = {
+	id = ma_clique_events.224
+	immediate = {
+		log = "[GetLogInfo]: event ma_clique_events.224"
+		hidden_effect = { JAP = { country_event = { id = JAP_pnr_military_events.19 days = 5 } } }  
+	}
+	title = ma_clique_events.224.t
+	desc = ma_clique_events.224.d
+	picture = GFX_news_event_SIK_western_china
+
+	is_triggered_only = yes
+	fire_for_sender = no
+	major = yes
+
+	trigger = { wants_world_news = yes }
+
+	show_major = { regional_asia_news = yes }
+
+	option = { #Interesting
+		name = ma_clique_events.224.a
+	}
+}
 
 ### Those events are modified coup events chain.
 

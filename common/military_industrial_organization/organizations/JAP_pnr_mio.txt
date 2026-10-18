@@ -2764,7 +2764,9 @@ JAP_kawanishi_mio = { # Kawanishi
 	allowed = { tag = JAP }
 	equipment_type = { mio_cat_eq_all_aircraft }
 	research_categories = { mio_cat_all_light_aircraft_and_modules mio_cat_all_medium_aircraft_and_modules mio_cat_all_heavy_aircraft_and_modules plane_modules_tech }
-	initial_trait = { name = pnr_kawanishi_subtitle }
+	initial_trait = {
+		name = pnr_kawanishi_subtitle
+	}
 	add_trait = {
 		token = JAP_mio_kawanishi_1
 		name = generic_mio_trait_flexible_design
@@ -4137,9 +4139,6 @@ JAP_air_shared_mio = {# Special functions prepared for the concern route and all
 				add_to_variable = { JAP.JAP_mio_kokka_soudashou_var = -1 }
 			}
 		}
-		organization_modifier = {
-			military_industrial_organization_task_capacity = 1
-		}
 	}
 }
 
@@ -4151,12 +4150,18 @@ JAP_kure_naval_mio = { # Kure Naval
 	name = kure_naval_arsenal
 	icon = GFX_idea_kure_naval_arsenal
 	allowed = { tag = JAP }
-	equipment_type = { mio_cat_eq_all_ships }
-	research_categories = { mio_cat_tech_all_carrier_and_modules mio_cat_tech_all_capital_ship_and_modules mio_cat_tech_all_destroyer_and_modules mio_cat_tech_all_cruiser_and_modules mio_cat_tech_all_submarine_and_modules tp_tech }
+	equipment_type = {
+		mio_cat_eq_all_battleship
+		mio_cat_eq_all_carrier
+	}
+	research_categories = {
+		mio_cat_tech_all_capital_ship_and_modules
+		mio_cat_tech_all_carrier_and_modules
+		tp_tech
+	}
 	initial_trait = {
 		name = pnr_kure_naval_subtitle
 		organization_modifier = {
-			military_industrial_organization_funds_gain = 0.1
 		}
 	}
 	add_trait = {
@@ -4164,11 +4169,9 @@ JAP_kure_naval_mio = { # Kure Naval
 		name = KR_MIO_Trait_increased_fire_accuracy
 		icon = GFX_generic_mio_trait_icon_lg_attack
 		mutually_exclusive = { JAP_mio_kure_2 }
-
 		position = { x = 0 y = 0 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			lg_attack = 0.075
 		}
 	}
 	add_trait = {
@@ -4176,11 +4179,9 @@ JAP_kure_naval_mio = { # Kure Naval
 		name = KR_MIO_Trait_increased_fire_accuracy
 		icon = GFX_generic_mio_trait_icon_hg_attack
 		mutually_exclusive = { JAP_mio_kure_1 }
-
 		position = { x = 1 y = 0 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			hg_attack = 0.075
 		}
 	}
 	add_trait = {
@@ -4189,11 +4190,9 @@ JAP_kure_naval_mio = { # Kure Naval
 		icon = GFX_generic_mio_trait_icon_lg_attack
 		mutually_exclusive = { JAP_mio_kure_4 }
 		any_parent = { JAP_mio_kure_1 JAP_mio_kure_2 }
-
 		position = { x = 0 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			lg_attack = 0.075
 		}
 	}
 	add_trait = {
@@ -4202,71 +4201,61 @@ JAP_kure_naval_mio = { # Kure Naval
 		icon = GFX_generic_mio_trait_icon_hg_attack
 		mutually_exclusive = { JAP_mio_kure_3 }
 		any_parent = { JAP_mio_kure_1 JAP_mio_kure_2 }
-
 		position = { x = 1 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			hg_attack = 0.075
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kure_5
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_anti_air_attack
+		icon = GFX_generic_mio_trait_icon_batteries_hit_chance
 		any_parent = { JAP_mio_kure_3 JAP_mio_kure_4 }
 		mutually_exclusive = { JAP_mio_kure_9 }
-
 		position = { x = 1 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_light_gun_hit_chance_factor = 0.05
+			naval_heavy_gun_hit_chance_factor = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kure_7
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_department_icon_ship_capital_ship_offense
-
+		icon = GFX_generic_mio_department_icon_ship_carrier_armor
 		position = { x = 3 y = 0 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			armor_value = 0.1
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kure_8
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_department_icon_ship_capital_ship_armor
-
+		icon = GFX_generic_mio_trait_icon_anti_air_attack
 		position = { x = 6 y = 0 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			anti_air_attack = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kure_9
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_ap_attack
+		icon = GFX_generic_mio_department_icon_ship_carrier_engine
 		mutually_exclusive = { JAP_mio_kure_5 }
 		all_parents = { JAP_mio_kure_7 }
-
+		limit_to_equipment_type = { mio_cat_eq_all_carrier }
 		position = { x = 2 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			carrier_size = 1
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kure_10
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_department_icon_ship_general_engine
+		icon = GFX_generic_mio_trait_icon_fuel_consumption
 		all_parents = { JAP_mio_kure_7 }
-
 		position = { x = 4 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			fuel_consumption = -0.15
 		}
 	}
 	add_trait = {
@@ -4274,11 +4263,10 @@ JAP_kure_naval_mio = { # Kure Naval
 		name = KR_MIO_Trait_increased_fire_accuracy
 		icon = GFX_generic_mio_trait_icon_naval_torpedo_damage_reduction_factor
 		any_parent = { JAP_mio_kure_5 JAP_mio_kure_9 }
-
 		position = { x = 3 y = 3 }
-
+		limit_to_equipment_type = { mio_cat_eq_all_carrier }
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_torpedo_damage_reduction_factor = 0.15
 		}
 	}
 	add_trait = {
@@ -4286,24 +4274,21 @@ JAP_kure_naval_mio = { # Kure Naval
 		name = KR_MIO_Trait_increased_fire_accuracy
 		icon = GFX_generic_mio_trait_icon_max_strength
 		all_parents = { JAP_mio_kure_8 }
-
 		position = { x = 5 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			max_strength = 0.20
+			naval_torpedo_enemy_critical_chance_factor = -0.15
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kure_13
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_maximum_speed
+		icon = GFX_generic_mio_trait_icon_naval_speed
 		mutually_exclusive = { JAP_mio_kure_14 }
 		all_parents = { JAP_mio_kure_8 }
-
 		position = { x = 6 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_speed = 0.1
 		}
 	}
 	add_trait = {
@@ -4312,47 +4297,40 @@ JAP_kure_naval_mio = { # Kure Naval
 		icon = GFX_generic_mio_trait_icon_naval_range
 		mutually_exclusive = { JAP_mio_kure_13 }
 		all_parents = { JAP_mio_kure_8 }
-
 		position = { x = 7 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_range = 0.1
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kure_15
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_department_icon_ship_capital_ship_production
+		icon = GFX_generic_mio_department_icon_ship_carrier_armor
 		any_parent = { JAP_mio_kure_13 JAP_mio_kure_14 }
-
 		position = { x = 6 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			armor_value = 0.15
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kure_16
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_batteries_hit_chance
+		icon = GFX_generic_mio_trait_icon_ap_attack
 		any_parent = { JAP_mio_kure_5 JAP_mio_kure_9 }
-
 		position = { x = 0 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			hg_armor_piercing = 0.10
+			lg_armor_piercing = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kure_17
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_surface_detection
+		icon = GFX_generic_mio_trait_icon_naval_torpedo_damage_reduction_factor
 		all_parents = { JAP_mio_kure_10 JAP_mio_kure_12 }
-
 		position = { x = 5 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_torpedo_damage_reduction_factor = 0.10
 		}
 	}
 
@@ -4482,195 +4460,171 @@ JAP_maizuru_naval_mio = { # Maizuru Naval
 	add_trait = {
 		token = JAP_mio_maizuru_1
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
-
+		icon = GFX_generic_mio_trait_icon_sub_detection
 		position = { x = 1 y = 0 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_detection = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_maizuru_2
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_surface_visibility
 		all_parents = { JAP_mio_maizuru_1 }
-
 		position = { x = 0 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			surface_visibility = -0.04
 		}
 	}
 	add_trait = {
 		token = JAP_mio_maizuru_3
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_surface_detection
 		mutually_exclusive = { JAP_mio_maizuru_7 JAP_mio_maizuru_8 }
 		all_parents = { JAP_mio_maizuru_1 JAP_mio_maizuru_6 }
-
 		position = { x = 2 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			surface_detection = 0.10
+			lg_attack = -0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_maizuru_4
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_surface_visibility
 		all_parents = { JAP_mio_maizuru_2 }
-
 		position = { x = 1 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			surface_visibility = -0.04
 		}
 	}
 	add_trait = {
 		token = JAP_mio_maizuru_5
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_surface_visibility
 		mutually_exclusive = { JAP_mio_maizuru_10 }
 		all_parents = { JAP_mio_maizuru_4 }
-
 		position = { x = 0 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			surface_visibility = -0.04
 		}
 	}
 	add_trait = {
 		token = JAP_mio_maizuru_6
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
-
+		icon = GFX_generic_mio_trait_icon_sub_detection
 		position = { x = 3 y = 0 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_detection = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_maizuru_7
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_surface_detection
 		mutually_exclusive = { JAP_mio_maizuru_3 JAP_mio_maizuru_8 }
 		all_parents = { JAP_mio_maizuru_6 }
-
 		position = { x = 3 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			surface_detection = 0.10
+			lg_attack = -0.05
+			hg_attack = -0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_maizuru_8
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_surface_detection
 		mutually_exclusive = { JAP_mio_maizuru_3 JAP_mio_maizuru_7 }
 		all_parents = { JAP_mio_maizuru_12 JAP_mio_maizuru_6 }
-
 		position = { x = 4 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			surface_detection = 0.10
+			hg_attack = -0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_maizuru_9
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_detection
 		any_parent = { JAP_mio_maizuru_3 JAP_mio_maizuru_7 JAP_mio_maizuru_8 }
-
 		position = { x = 3 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			surface_detection = 0.10
+			sub_detection = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_maizuru_10
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_surface_visibility
 		mutually_exclusive = { JAP_mio_maizuru_5 }
 		all_parents = { JAP_mio_maizuru_4 }
-
 		position = { x = 2 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			surface_visibility = -0.08
+			naval_torpedo_damage_reduction_factor = -0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_maizuru_11
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_naval_speed
 		all_parents = { JAP_mio_maizuru_14 }
-
 		position = { x = 4 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_speed = 0.10
+			fuel_consumption = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_maizuru_12
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
-
+		icon = GFX_generic_mio_trait_icon_sub_detection
 		position = { x = 5 y = 0 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_detection = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_maizuru_13
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_naval_speed
 		all_parents = { JAP_mio_maizuru_12 }
-
 		position = { x = 6 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_speed = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_maizuru_14
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_department_icon_ship_general_engine
 		all_parents = { JAP_mio_maizuru_13 }
-
 		position = { x = 5 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_range = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_maizuru_15
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_naval_speed
 		all_parents = { JAP_mio_maizuru_13 }
-
 		position = { x = 7 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_speed = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_maizuru_16
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_naval_speed
 		all_parents = { JAP_mio_maizuru_14 }
-
 		position = { x = 6 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_speed = 0.10
+			armor_value = -0.05
 		}
 	}
 
@@ -4789,228 +4743,209 @@ JAP_kobe_naval_mio = { # Mitsubishi Kobe Naval
 	name = mitsubishi_kobe_naval_mio
 	icon = GFX_idea_jap_mio_kobe
 	allowed = { tag = JAP }
-	equipment_type = { mio_cat_eq_all_ships }
-	research_categories = { mio_cat_tech_all_carrier_and_modules mio_cat_tech_all_capital_ship_and_modules mio_cat_tech_all_destroyer_and_modules mio_cat_tech_all_cruiser_and_modules mio_cat_tech_all_submarine_and_modules tp_tech }
+	equipment_type = {
+		mio_cat_eq_all_cruiser
+		mio_cat_eq_all_destroyer
+	}
+	research_categories = {
+		mio_cat_tech_all_cruiser_and_modules
+		mio_cat_tech_all_destroyer_and_modules
+		tp_tech
+	}
 	initial_trait = {
 		name = pnr_maizuru_naval_subtitle
 		organization_modifier = {
-			military_industrial_organization_funds_gain = 0.1
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_1
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_detection
 		mutually_exclusive = { JAP_mio_mitsubishi_kobe_4 }
-
 		position = { x = 0 y = 0 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_detection = 0.20
+			lg_armor_piercing = -0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_2
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_detection
 		mutually_exclusive = { JAP_mio_mitsubishi_kobe_5 }
-
 		position = { x = 0 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_detection = 0.20
+			lg_armor_piercing = -0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_3
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_detection
 		mutually_exclusive = { JAP_mio_mitsubishi_kobe_6 }
-
 		position = { x = 0 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_detection = 0.20
+			lg_armor_piercing = -0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_4
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_attack
 		mutually_exclusive = { JAP_mio_mitsubishi_kobe_1 }
-
 		position = { x = 1 y = 0 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_attack = 0.14
+			fuel_consumption = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_5
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_attack
 		mutually_exclusive = { JAP_mio_mitsubishi_kobe_2 }
-
 		position = { x = 1 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_attack = 0.14
+			fuel_consumption = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_6
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_attack
 		mutually_exclusive = { JAP_mio_mitsubishi_kobe_3 }
-
 		position = { x = 1 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_attack = 0.14
+			fuel_consumption = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_7
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_attack
 		mutually_exclusive = { JAP_mio_mitsubishi_kobe_10 }
-
 		position = { x = 6 y = 0 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_attack = 0.07
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_8
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_attack
 		mutually_exclusive = { JAP_mio_mitsubishi_kobe_11 }
-
 		position = { x = 6 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_attack = 0.07
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_9
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_attack
 		mutually_exclusive = { JAP_mio_mitsubishi_kobe_12 }
-
 		position = { x = 6 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_attack = 0.07
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_10
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_detection
 		mutually_exclusive = { JAP_mio_mitsubishi_kobe_7 }
-
 		position = { x = 7 y = 0 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_detection = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_11
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_detection
 		mutually_exclusive = { JAP_mio_mitsubishi_kobe_8 }
-
 		position = { x = 7 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_detection = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_12
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_detection
 		mutually_exclusive = { JAP_mio_mitsubishi_kobe_9 }
-
 		position = { x = 7 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_detection = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_13
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_anti_air_attack
 		any_parent = { JAP_mio_mitsubishi_kobe_1 JAP_mio_mitsubishi_kobe_2 JAP_mio_mitsubishi_kobe_3 JAP_mio_mitsubishi_kobe_4 JAP_mio_mitsubishi_kobe_5 JAP_mio_mitsubishi_kobe_6 }
-
 		position = { x = 3 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			anti_air_attack = 0.20
+		}
+		production_bonus = {
+			production_cost_factor = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_14
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_anti_air_attack
 		any_parent = { JAP_mio_mitsubishi_kobe_7 JAP_mio_mitsubishi_kobe_8 JAP_mio_mitsubishi_kobe_9 JAP_mio_mitsubishi_kobe_10 JAP_mio_mitsubishi_kobe_11 JAP_mio_mitsubishi_kobe_12 }
-
 		position = { x = 4 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			anti_air_attack = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_15
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_max_strength
 		all_parents = { JAP_mio_mitsubishi_kobe_13 }
-
 		position = { x = 2 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			armor_value = 0.07
+			max_strength = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_16
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_lg_attack
 		all_parents = { JAP_mio_mitsubishi_kobe_13 }
-
 		position = { x = 3 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			lg_attack = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_17
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_lg_attack
 		all_parents = { JAP_mio_mitsubishi_kobe_14 }
-
 		position = { x = 4 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			lg_attack = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_mitsubishi_kobe_18
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_max_strength
 		all_parents = { JAP_mio_mitsubishi_kobe_14 }
-
 		position = { x = 5 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			armor_value = 0.07
+			max_strength = 0.10
 		}
 	}
 
@@ -5140,114 +5075,98 @@ JAP_sasebo_naval_mio = { # Sasebo
 	add_trait = {
 		token = JAP_mio_sasebo_1
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
-
+		icon = GFX_generic_mio_department_icon_ship_general_production
 		position = { x = 3 y = 0 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_capacity_factor = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_2
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_production_capacity
 		mutually_exclusive = { JAP_mio_sasebo_12 }
 		all_parents = { JAP_mio_sasebo_1 }
-
 		position = { x = 0 y = 1 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_capacity_factor = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_4
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_production_capacity
 		mutually_exclusive = { JAP_mio_sasebo_13 }
 		all_parents = { JAP_mio_sasebo_1 }
-
 		position = { x = 6 y = 1 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_capacity_factor = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_6
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_department_icon_ship_general_materials
 		any_parent = { JAP_mio_sasebo_2 JAP_mio_sasebo_12 }
-
 		position = { x = 2 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_resource_need_factor = -0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_7
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_department_icon_ship_general_conversion
 		any_parent = { JAP_mio_sasebo_4 JAP_mio_sasebo_13 }
-
 		position = { x = 4 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_conversion_speed_factor = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_9
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_department_icon_ship_general_materials
 		any_parent = { JAP_mio_sasebo_2 JAP_mio_sasebo_12 }
 		all_parents = { JAP_mio_sasebo_6 }
-
 		position = { x = 1 y = 3 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_resource_need_factor = -0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_11
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_department_icon_ship_general_conversion
 		any_parent = { JAP_mio_sasebo_4 JAP_mio_sasebo_13 }
 		all_parents = { JAP_mio_sasebo_7 }
-
 		position = { x = 5 y = 3 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_conversion_speed_factor = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_12
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_production_capacity
 		mutually_exclusive = { JAP_mio_sasebo_2 }
 		all_parents = { JAP_mio_sasebo_1 }
-
 		position = { x = 1 y = 1 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_capacity_factor = 0.10
+			production_resource_penalty_factor = 0.30
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_13
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_production_capacity
 		mutually_exclusive = { JAP_mio_sasebo_4 }
 		all_parents = { JAP_mio_sasebo_1 }
-
 		position = { x = 5 y = 1 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_capacity_factor = 0.10
+			production_resource_penalty_factor = 0.30
 		}
 	}
 
@@ -5377,144 +5296,121 @@ JAP_yokosuka_mio = { # Yokosuka
 	add_trait = {
 		token = JAP_mio_sasebo_1
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_armor_value
 		mutually_exclusive = { JAP_mio_sasebo_2 JAP_mio_sasebo_3 }
-
-		position = { x = 0 y = 0 }
-
+		position = { x = 1 y = 0 }
 		equipment_bonus = {
-			maximum_speed = 0.1
+			armor_value = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_2
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_naval_torpedo_damage_reduction_factor
 		mutually_exclusive = { JAP_mio_sasebo_1 JAP_mio_sasebo_3 }
-
-		position = { x = 1 y = 0 }
-
+		position = { x = 2 y = 0 }
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_torpedo_damage_reduction_factor = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_3
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_reliability
 		mutually_exclusive = { JAP_mio_sasebo_1 JAP_mio_sasebo_2 }
-
-		position = { x = 2 y = 0 }
-
+		position = { x = 3 y = 0 }
 		equipment_bonus = {
-			maximum_speed = 0.1
+			reliability = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_4
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
-
+		icon = GFX_generic_mio_trait_icon_naval_speed
 		position = { x = 5 y = 0 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_speed = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_5
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_max_strength
 		any_parent = { JAP_mio_sasebo_1 JAP_mio_sasebo_2 JAP_mio_sasebo_3 }
-
-		position = { x = 1 y = 1 }
-
+		position = { x = 2 y = 1 }
 		equipment_bonus = {
-			maximum_speed = 0.1
+			max_strength = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_6
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_naval_torpedo_hit_chance_factor
 		all_parents = { JAP_mio_sasebo_4 }
-
 		position = { x = 4 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_torpedo_enemy_critical_chance_factor = -0.08
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_7
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_naval_torpedo_hit_chance_factor
 		all_parents = { JAP_mio_sasebo_4 }
-
 		position = { x = 6 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_torpedo_enemy_critical_chance_factor = -0.08
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_9
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
-		all_parents = { JAP_mio_sasebo_6 }
-
+		icon = GFX_generic_mio_trait_icon_reliability
+		all_parents = { JAP_mio_sasebo_5 JAP_mio_sasebo_6 }
 		position = { x = 3 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			reliability = 0.06
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_10
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_reliability
 		all_parents = { JAP_mio_sasebo_6 }
-
 		position = { x = 5 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			reliability = 0.06
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_11
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_max_strength
 		all_parents = { JAP_mio_sasebo_9 JAP_mio_sasebo_10 }
-
 		position = { x = 4 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			max_strength = 0.10
+			armor_value = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_13
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_surface_detection
 		all_parents = { JAP_mio_sasebo_7 }
-
 		position = { x = 7 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_weather_penalty_factor = -0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_sasebo_14
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_surface_detection
 		all_parents = { JAP_mio_sasebo_13 }
-
 		position = { x = 7 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_weather_penalty_factor = -0.05
 		}
 	}
 
@@ -5633,146 +5529,123 @@ JAP_kawasaki_mio = { # Kawasaki
 	name = kawasaki
 	icon = GFX_idea_kawasaki
 	allowed = { tag = JAP }
-	equipment_type = { mio_cat_eq_all_ships }
-	research_categories = { mio_cat_tech_all_carrier_and_modules mio_cat_tech_all_capital_ship_and_modules mio_cat_tech_all_destroyer_and_modules mio_cat_tech_all_cruiser_and_modules mio_cat_tech_all_submarine_and_modules tp_tech }
+	equipment_type = { submarine }
+	research_categories = { mio_cat_tech_all_submarine_and_modules tp_tech }
 	initial_trait = {
 		name = pnr_maizuru_naval_subtitle
 		organization_modifier = {
-			military_industrial_organization_funds_gain = 0.1
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kawasaki_1
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
-
+		icon = GFX_generic_mio_trait_icon_sub_visibility
 		position = { x = 3 y = 0 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_visibility = -0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kawasaki_2
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_detection
 		all_parents = { JAP_mio_kawasaki_1 }
-
 		position = { x = 1 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			surface_detection = 0.1
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kawasaki_3
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_naval_speed
 		all_parents = { JAP_mio_kawasaki_1 }
-
 		position = { x = 6 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_speed = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kawasaki_4
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_detection
 		all_parents = { JAP_mio_kawasaki_2 }
-
 		position = { x = 0 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			surface_detection = 0.1
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kawasaki_5
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_detection
 		all_parents = { JAP_mio_kawasaki_2 }
-
 		position = { x = 2 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			surface_detection = 0.1
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kawasaki_6
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_visibility
 		mutually_exclusive = { JAP_mio_kawasaki_7 }
 		all_parents = { JAP_mio_kawasaki_11 }
-
 		position = { x = 4 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_visibility = -0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kawasaki_7
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_naval_speed
 		mutually_exclusive = { JAP_mio_kawasaki_6 }
 		all_parents = { JAP_mio_kawasaki_3 }
-
 		position = { x = 5 y = 2 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_speed = 0.15
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kawasaki_8
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_torpedo_attack
 		all_parents = { JAP_mio_kawasaki_4 }
-
 		position = { x = 0 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			torpedo_attack = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kawasaki_9
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_naval_torpedo_hit_chance_factor
 		any_parent = { JAP_mio_kawasaki_6 JAP_mio_kawasaki_7 }
 		all_parents = { JAP_mio_kawasaki_5 }
-
 		position = { x = 3 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_torpedo_hit_chance_factor = 0.15
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kawasaki_10
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_torpedo_attack
 		any_parent = { JAP_mio_kawasaki_6 JAP_mio_kawasaki_7 }
-
 		position = { x = 6 y = 3 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			torpedo_attack = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_kawasaki_11
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_sub_visibility
 		all_parents = { JAP_mio_kawasaki_1 }
-
 		position = { x = 4 y = 1 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			sub_visibility = -0.05
 		}
 	}
 
@@ -5896,7 +5769,6 @@ JAP_ishikawajima_navy_mio = { # Ishikawajima
 	initial_trait = {
 		name = ishikawajima_subtitle
 		organization_modifier = {
-			military_industrial_organization_funds_gain = 0.1
 		}
 	}
 	add_trait = {
@@ -5904,11 +5776,9 @@ JAP_ishikawajima_navy_mio = { # Ishikawajima
 		name = KR_MIO_Trait_increased_fire_accuracy
 		icon = GFX_generic_mio_department_icon_ship_general_materials
 		mutually_exclusive = { JAP_mio_ishikawajima_navy_2 }
-
 		position = { x = 6 y = 0 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_resource_need_factor = -0.15
 		}
 	}
 	add_trait = {
@@ -5916,11 +5786,9 @@ JAP_ishikawajima_navy_mio = { # Ishikawajima
 		name = KR_MIO_Trait_increased_fire_accuracy
 		icon = GFX_generic_mio_department_icon_ship_general_conversion
 		mutually_exclusive = { JAP_mio_ishikawajima_navy_1 }
-
 		position = { x = 7 y = 0 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_conversion_speed_factor = 0.25
 		}
 	}
 	add_trait = {
@@ -5929,11 +5797,9 @@ JAP_ishikawajima_navy_mio = { # Ishikawajima
 		icon = GFX_generic_mio_department_icon_ship_general_materials
 		mutually_exclusive = { JAP_mio_ishikawajima_navy_4 }
 		any_parent = { JAP_mio_ishikawajima_navy_1 JAP_mio_ishikawajima_navy_2 }
-
 		position = { x = 6 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_resource_need_factor = -0.15
 		}
 	}
 	add_trait = {
@@ -5942,133 +5808,113 @@ JAP_ishikawajima_navy_mio = { # Ishikawajima
 		icon = GFX_generic_mio_department_icon_ship_general_conversion
 		mutually_exclusive = { JAP_mio_ishikawajima_navy_3 }
 		any_parent = { JAP_mio_ishikawajima_navy_1 JAP_mio_ishikawajima_navy_2 }
-
 		position = { x = 7 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_conversion_speed_factor = 0.25
 		}
 	}
 	add_trait = {
 		token = JAP_mio_ishikawajima_navy_5
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_department_icon_ship_capital_screen_weapons
-
+		icon = GFX_generic_mio_department_icon_ship_general_production
 		position = { x = 2 y = 0 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_cost_factor = -0.015
 		}
 	}
 	add_trait = {
 		token = JAP_mio_ishikawajima_navy_6
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_department_icon_ship_general_production
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
 		all_parents = { JAP_mio_ishikawajima_navy_5 }
-
 		position = { x = 0 y = 1 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_cost_factor = -0.03
 		}
 	}
 	add_trait = {
 		token = JAP_mio_ishikawajima_navy_7
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
 		all_parents = { JAP_mio_ishikawajima_navy_5 }
-
 		position = { x = 4 y = 1 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_cost_factor = -0.03
 		}
 	}
 	add_trait = {
 		token = JAP_mio_ishikawajima_navy_8
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_department_icon_ship_general_offense
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
 		all_parents = { JAP_mio_ishikawajima_navy_6 }
-
 		position = { x = 0 y = 3 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_cost_factor = -0.03
 		}
 	}
 	add_trait = {
 		token = JAP_mio_ishikawajima_navy_9
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
 		all_parents = { JAP_mio_ishikawajima_navy_7 }
-
 		position = { x = 4 y = 3 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_cost_factor = -0.03
 		}
 	}
 	add_trait = {
 		token = JAP_mio_ishikawajima_navy_10
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_fuel_consumption
+		icon = GFX_generic_mio_trait_icon_resources
 		all_parents = { JAP_mio_ishikawajima_navy_5 }
-
 		position = { x = 1 y = 1 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_resource_penalty_factor = -0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_ishikawajima_navy_11
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_surface_detection
+		icon = GFX_generic_mio_trait_icon_resources
 		all_parents = { JAP_mio_ishikawajima_navy_5 }
-
 		position = { x = 3 y = 1 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_resource_penalty_factor = -0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_ishikawajima_navy_12
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_maximum_speed
+		icon = GFX_generic_mio_trait_icon_resources
 		mutually_exclusive = { JAP_mio_ishikawajima_navy_13 JAP_mio_ishikawajima_navy_14 }
 		all_parents = { JAP_mio_ishikawajima_navy_10 JAP_mio_ishikawajima_navy_11 }
-
 		position = { x = 1 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_cost_factor = -0.045
+			production_resource_penalty_factor = 0.10
 		}
 	}
 	add_trait = {
 		token = JAP_mio_ishikawajima_navy_13
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_max_strength
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
 		mutually_exclusive = { JAP_mio_ishikawajima_navy_12 JAP_mio_ishikawajima_navy_14 }
 		all_parents = { JAP_mio_ishikawajima_navy_10 JAP_mio_ishikawajima_navy_11 }
-
 		position = { x = 2 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_cost_factor = -0.015
 		}
 	}
 	add_trait = {
 		token = JAP_mio_ishikawajima_navy_14
 		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_surface_visibility
+		icon = GFX_generic_mio_trait_icon_conversion_speed
 		mutually_exclusive = { JAP_mio_ishikawajima_navy_12 JAP_mio_ishikawajima_navy_13 }
 		all_parents = { JAP_mio_ishikawajima_navy_10 JAP_mio_ishikawajima_navy_11 }
-
 		position = { x = 3 y = 2 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		production_bonus = {
+			production_cost_factor = -0.045
+			production_conversion_speed_factor = -0.25
 		}
 	}
 
@@ -6304,15 +6150,9 @@ JAP_navy_shared_mio = { # Special functions prepared for the concern route and a
 		token = JAP_mio_trait_merge_yokosuka
 		name = KR_MIO_Trait_increased_fire_accuracy
 		icon = GFX_mio_trait_yokosuka
-
-		available = {
-			always = yes
-		}
-
 		position = { x = 4 y = 4 }
-
 		equipment_bonus = {
-			maximum_speed = 0.1
+			naval_weather_penalty_factor = -0.15
 		}
 	}
 	trait = {

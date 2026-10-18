@@ -35,33 +35,42 @@ focus_tree = {
 	}
 	focus = {
 		id = JAP_pnr_p_promote_japanization_education
-		x = 17
-		y = 3
+		x = -1
+		y = 6
 		cost = 4
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = TAI_pnr_p_assimilation
 		}
+		relative_position_id = TAI_zhongchuanjianzang_likai_taiwan
 	}
 	focus = {
 		id = TAI_pnr_p_assimilation
-		x = 16
-		y = 2
+		x = -1
+		y = 5
 		cost = 4
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_tairen_zhitai
+		}
+		prerequisite = {
+			focus = TAI_xin_tebietongzhizhuyi
+		}
+		relative_position_id = TAI_zhongchuanjianzang_likai_taiwan
 	}
 	focus = {
 		id = TAI_pnr_p_national_spiritual_mobilization_movement
-		x = 15
-		y = 3
+		x = -3
+		y = 6
 		cost = 4
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = TAI_pnr_p_assimilation
 		}
+		relative_position_id = TAI_zhongchuanjianzang_likai_taiwan
 	}
 	focus = {
 		id = TAI_pnr_p_aftermath_of_musha_incident
@@ -92,6 +101,7 @@ focus_tree = {
 		x = 10
 		y = 5
 		cost = 4
+		icon = GFX_goal_secret_agents
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -115,6 +125,7 @@ focus_tree = {
 		x = -3
 		y = 7
 		cost = 7
+		icon = GFX_goal_generic_agriculture2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -127,39 +138,13 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 6
-		icon = GFX_focus_JAP_the_shuilikeng_power_plant
+		icon = GFX_goal_ANQ_okura_bank_loans_2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = TAI_pnr_p_japans_negative_assets
 		}
 		relative_position_id = TAI_pnr_p_japans_negative_assets
-	}
-	focus = {
-		id = TAI_pnr_p_bank_of_taiwan
-		x = 16
-		y = 4
-		cost = 4
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-	}
-	focus = {
-		id = TAI_pnr_p_taiwan_development_company
-		x = 17
-		y = 4
-		cost = 4
-		icon = GFX_focus_JAP_the_shuilikeng_power_plant
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-	}
-	focus = {
-		id = TAI_pnr_p_taiwan_power_company
-		x = 15
-		y = 4
-		cost = 4
-		icon = GFX_focus_JAP_the_shuilikeng_power_plant
-		continue_if_invalid = no
-		cancel_if_invalid = yes
 	}
 	focus = {
 		id = TAI_pnr_p_nanyang_trade_center
@@ -175,18 +160,11 @@ focus_tree = {
 		relative_position_id = TAI_pnr_p_japans_negative_assets
 	}
 	focus = {
-		id = TAI_pnr_p_issue_special_taiwan_yen
-		x = 16
-		y = 5
-		cost = 4
-		continue_if_invalid = no
-		cancel_if_invalid = yes
-	}
-	focus = {
 		id = TAI_pnr_p_resolve_the_conflict_between_rice_and_sugar
 		x = -3
 		y = 6
 		cost = 5
+		icon = GFX_focus_generic_agriculture
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -199,9 +177,10 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pnr_p_guishan_hydropower_plant
-		x = 0
-		y = 2
+		x = -1
+		y = 4
 		cost = 4
+		icon = GFX_goal_dam
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -211,13 +190,17 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pnr_p_construct_a_reservoir
-		x = 0
+		x = 1
 		y = 3
 		cost = 6
+		icon = GFX_goal_generic_elections
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_zhenya_kangyi
+		}
 		prerequisite = {
-			focus = TAI_pnr_p_guishan_hydropower_plant
+			focus = TAI_pnr_p_healing_the_wounds
 		}
 		relative_position_id = TAI_pnr_p_japans_negative_assets
 	}
@@ -239,6 +222,7 @@ focus_tree = {
 		x = -4
 		y = 5
 		cost = 5
+		icon = GFX_goal_SYR_Stop_Jewish_Settlers
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -251,6 +235,7 @@ focus_tree = {
 		x = -3
 		y = 2
 		cost = 4
+		icon = GFX_focus_generic_rubber_plantations
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -263,6 +248,7 @@ focus_tree = {
 		x = -3
 		y = 4
 		cost = 6
+		icon = GFX_goal_chemical_industry
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -275,6 +261,7 @@ focus_tree = {
 		x = -2
 		y = 3
 		cost = 4
+		icon = GFX_goal_generic_rice_field
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -287,7 +274,7 @@ focus_tree = {
 		x = -2
 		y = 5
 		cost = 5
-		icon = GFX_focus_CHI_students_to_the_countryside
+		icon = GFX_goal_LEP_subsidize_villages
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -313,6 +300,7 @@ focus_tree = {
 		x = -3
 		y = 1
 		cost = 5
+		icon = GFX_goal_agricultural_aid
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -325,6 +313,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 3
+		icon = GFX_goal_army_guy_2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -363,10 +352,10 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pnr_p_military_revolution
-		x = 23
+		x = 21
 		y = 1
 		cost = 3
-		icon = GFX_focus_generic_military_mission
+		icon = GFX_goal_break_rifle
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 	}
@@ -375,6 +364,7 @@ focus_tree = {
 		x = 9
 		y = 6
 		cost = 3
+		icon = GFX_goal_National_Security_Act
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
@@ -391,40 +381,63 @@ focus_tree = {
 		id = TAI_pingding_hunluan
 		x = 6
 		y = 2
-		cost = 5
+		cost = 4
 		icon = GFX_goal_HOL_black_monday
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			NOT = {
+				has_completed_focus = TAI_wenti_duijirushan
+			}
+		}
 	}
 	focus = {
 		id = TAI_chongqi_mimijingcha
 		x = 12
 		y = 2
-		cost = 5
+		cost = 4
+		icon = GFX_goal_NOR_conjure_black_magic
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			NOT = {
+				has_completed_focus = TAI_wenti_duijirushan
+			}
+		}
 	}
 	focus = {
 		id = TAI_yu_zhishifenzi_huimian
 		x = 8
 		y = 2
-		cost = 5
+		cost = 4
+		icon = GFX_focus_generic_public_meetings
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			NOT = {
+				has_completed_focus = TAI_wenti_duijirushan
+			}
+		}
 	}
 	focus = {
 		id = TAI_anfu_gaoshazu
 		x = 10
 		y = 2
-		cost = 5
+		cost = 4
+		icon = GFX_VIN_Caodai2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
+		available = {
+			NOT = {
+				has_completed_focus = TAI_wenti_duijirushan
+			}
+		}
 	}
 	focus = {
 		id = TAI_wenti_duijirushan
 		x = 9
 		y = 3
-		cost = 3
+		cost = 5
 		icon = GFX_focus_SWE_as_the_barometer_falls
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -442,7 +455,8 @@ focus_tree = {
 		id = TAI_hongse_yinying
 		x = 7
 		y = 4
-		cost = 0
+		cost = 7
+		icon = GFX_goal_China_LKMT
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -453,7 +467,8 @@ focus_tree = {
 		id = TAI_shuo_deyu_zhe
 		x = 13
 		y = 4
-		cost = 0
+		cost = 7
+		icon = GFX_goal_GER_Conservative_Revolution
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -476,7 +491,7 @@ focus_tree = {
 		id = TAI_zongdufu_zaixingdong
 		x = 9
 		y = 4
-		cost = 0
+		cost = 5
 		icon = GFX_focus_JAP_hasten_the_integration_of_taiwan
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -486,20 +501,27 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_penglai_maru_dida
-		x = 16
+		x = -3
 		y = 1
 		cost = 0
+		icon = GFX_goal_Japanese_Glory
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
 			focus = TAI_zaixu_jiuqing
+			focus = TAI_xiangaizhe_de_tongmeng
 		}
+		prerequisite = {
+			focus = TAI_zhongchuanjianzang_likai_taiwan
+		}
+		relative_position_id = TAI_zhongchuanjianzang_likai_taiwan
 	}
 	focus = {
 		id = TAI_yaoqing_sanjutou
 		x = 8
 		y = 5
-		cost = 0
+		cost = 4
+		icon = GFX_goal_collaborate_local_elites
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -511,6 +533,7 @@ focus_tree = {
 		x = 12
 		y = 7
 		cost = 4
+		icon = GFX_goal_conspiracy
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -521,7 +544,8 @@ focus_tree = {
 		id = TAI_shoujiao_wuqi
 		x = 10
 		y = 7
-		cost = 4
+		cost = 5
+		icon = GFX_goal_RUS_solidify_power
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -536,6 +560,7 @@ focus_tree = {
 		x = 13
 		y = 6
 		cost = 4
+		icon = GFX_goal_generic_army_soldier_2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -550,6 +575,7 @@ focus_tree = {
 		x = 14
 		y = 5
 		cost = 4
+		icon = GFX_goal_LEP_selective_enforcement
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -561,6 +587,7 @@ focus_tree = {
 		x = 14
 		y = 7
 		cost = 4
+		icon = GFX_goal_RUS_streamline_autonomies
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -569,20 +596,26 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_zaixu_jiuqing
-		x = 18
+		x = 0
 		y = 1
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
 			focus = TAI_penglai_maru_dida
+			focus = TAI_xiangaizhe_de_tongmeng
 		}
+		prerequisite = {
+			focus = TAI_zhongchuanjianzang_likai_taiwan
+		}
+		relative_position_id = TAI_zhongchuanjianzang_likai_taiwan
 	}
 	focus = {
 		id = TAI_lalongqingnian
 		x = 13
 		y = 8
 		cost = 4
+		icon = GFX_goal_KTG_Educate_natives
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -597,6 +630,7 @@ focus_tree = {
 		x = 12
 		y = 9
 		cost = 5
+		icon = GFX_goal_backstab
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -611,6 +645,7 @@ focus_tree = {
 		x = 11
 		y = 8
 		cost = 4
+		icon = GFX_focus_JAP_politicize_the_education_system
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -621,7 +656,8 @@ focus_tree = {
 		id = TAI_duxue_jiaoyu
 		x = 10
 		y = 9
-		cost = 0
+		cost = 5
+		icon = GFX_goal_KTG_Educate_natives
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -630,9 +666,10 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_kaifa_chunvdi
-		x = -1
-		y = 4
+		x = 0
+		y = 2
 		cost = 0
+		icon = GFX_focus_AUS_agriculture
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -645,6 +682,7 @@ focus_tree = {
 		x = -3
 		y = 4
 		cost = 0
+		icon = GFX_goal_generic_army_soldier
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -670,6 +708,7 @@ focus_tree = {
 		x = -3
 		y = 6
 		cost = 0
+		icon = GFX_goal_RUS_extinguish_flame
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -682,6 +721,7 @@ focus_tree = {
 		x = -4
 		y = 5
 		cost = 0
+		icon = GFX_focus_generic_military_equipment
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -694,6 +734,7 @@ focus_tree = {
 		x = -5
 		y = 6
 		cost = 0
+		icon = GFX_goal_Arms_Export
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -706,6 +747,7 @@ focus_tree = {
 		x = -2
 		y = 5
 		cost = 0
+		icon = GFX_goal_generic_mountain_warfare2
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -731,6 +773,7 @@ focus_tree = {
 		x = -4
 		y = 3
 		cost = 0
+		icon = GFX_focus_generic_military_mission
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
@@ -746,6 +789,7 @@ focus_tree = {
 		x = -2
 		y = 3
 		cost = 0
+		icon = GFX_goal_checkmate
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
@@ -761,6 +805,7 @@ focus_tree = {
 		x = -5
 		y = 2
 		cost = 0
+		icon = GFX_goal_the_gender_issue
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -773,6 +818,7 @@ focus_tree = {
 		x = -6
 		y = 3
 		cost = 0
+		icon = GFX_focus_PRC_allow_special_goods_trade
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -785,6 +831,7 @@ focus_tree = {
 		x = -3
 		y = 7
 		cost = 0
+		icon = BAT_charity_propaganda
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -851,6 +898,7 @@ focus_tree = {
 		x = 3
 		y = 4
 		cost = 0
+		icon = GFX_goal_generic_naval_industry
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -861,7 +909,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_fazhan_jilong_gang
-		x = 3
+		x = 4
 		y = 5
 		cost = 0
 		continue_if_invalid = no
@@ -873,7 +921,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_pinggu_gaoxiong_haijunjidi
-		x = 2
+		x = 3
 		y = 6
 		cost = 0
 		continue_if_invalid = no
@@ -909,7 +957,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_haian_paobing
-		x = 5
+		x = 2
 		y = 5
 		cost = 0
 		continue_if_invalid = no
@@ -921,7 +969,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TAI_lianjia_xunyangjian
-		x = 4
+		x = 5
 		y = 6
 		cost = 0
 		continue_if_invalid = no
@@ -946,7 +994,7 @@ focus_tree = {
 	focus = {
 		id = TAI_quebao_jinhai_haiquan
 		x = 6
-		y = 6
+		y = 5
 		cost = 0
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -1002,6 +1050,7 @@ focus_tree = {
 		x = 0
 		y = 6
 		cost = 0
+		icon = GFX_goal_trees
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1030,11 +1079,517 @@ focus_tree = {
 		x = 7
 		y = 7
 		cost = 0
-		cancel_if_invalid = yes
 		continue_if_invalid = no
-		relative_position_id = TAI_pnr_p_military_revolution
+		cancel_if_invalid = yes
 		prerequisite = {
 			focus = TAI_lianjia_xunyangjian
+		}
+		relative_position_id = TAI_pnr_p_military_revolution
+	}
+	focus = {
+		id = TAI_zhongchuanjianzang_likai_taiwan
+		x = 16
+		y = 9
+		cost = 0
+		icon = GFX_goal_HOL_sustain_neutrality
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = TAI_tairen_zhitai
+		x = 1
+		y = 5
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_pnr_p_assimilation
+		}
+		prerequisite = {
+			focus = TAI_xin_tebietongzhizhuyi
+			focus = TAI_ouge_xin_shidai
+		}
+		relative_position_id = TAI_zhongchuanjianzang_likai_taiwan
+	}
+	focus = {
+		id = TAI_tarenzhimengzhongcheng
+		x = 24
+		y = 9
+		cost = 4
+		icon = GFX_goal_JAP_co_prosperity_sphere
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+	}
+	focus = {
+		id = TAI_xiangaizhe_de_tongmeng
+		x = 3
+		y = 1
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_penglai_maru_dida
+			focus = TAI_zaixu_jiuqing
+		}
+		prerequisite = {
+			focus = TAI_zhongchuanjianzang_likai_taiwan
+		}
+		relative_position_id = TAI_zhongchuanjianzang_likai_taiwan
+	}
+	focus = {
+		id = TAI_zuihou_de_wenti
+		x = 0
+		y = 5
+		cost = 4
+		icon = GFX_goal_generic_solidarity
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_yongyuan_de_weixiao
+		}
+		relative_position_id = TAI_tarenzhimengzhongcheng
+	}
+	focus = {
+		id = TAI_zhenya_kangyi
+		x = 8
+		y = 7
+		cost = 6
+		icon = GFX_goal_RUS_oppression
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_pnr_p_construct_a_reservoir
+		}
+		prerequisite = {
+			focus = TAI_pnr_p_healing_the_wounds
+			focus = TAI_pnr_p_teach_with_authority
+		}
+	}
+	focus = {
+		id = TAI_kuijian_xingchen
+		x = -2
+		y = 1
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_yaxiya_de_shouwei
+			focus = TAI_xiegei_guyou_de_nvermen
+		}
+		prerequisite = {
+			focus = TAI_tarenzhimengzhongcheng
+		}
+		relative_position_id = TAI_tarenzhimengzhongcheng
+	}
+	focus = {
+		id = TAI_yongyuan_de_weixiao
+		x = 0
+		y = 4
+		cost = 2630
+		icon = GFX_goal_generic_propaganda_film
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_chunmeng_zhihen
+			focus = TAI_jingen_suzaozhe
+			focus = TAI_wushinian_de_bieli
+		}
+		relative_position_id = TAI_tarenzhimengzhongcheng
+	}
+	focus = {
+		id = TAI_minzhu_zhongcheng
+		x = -3
+		y = 2
+		cost = 0
+		icon = GFX_goal_generic_parliament
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_kuijian_xingchen
+		}
+		relative_position_id = TAI_tarenzhimengzhongcheng
+	}
+	focus = {
+		id = TAI_yaxiya_de_shouwei
+		x = 0
+		y = 1
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_kuijian_xingchen
+			focus = TAI_xiegei_guyou_de_nvermen
+		}
+		prerequisite = {
+			focus = TAI_tarenzhimengzhongcheng
+		}
+		relative_position_id = TAI_tarenzhimengzhongcheng
+	}
+	focus = {
+		id = TAI_xiegei_guyou_de_nvermen
+		x = 2
+		y = 1
+		cost = 5
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_kuijian_xingchen
+			focus = TAI_yaxiya_de_shouwei
+		}
+		prerequisite = {
+			focus = TAI_tarenzhimengzhongcheng
+		}
+		relative_position_id = TAI_tarenzhimengzhongcheng
+	}
+	focus = {
+		id = TAI_wushinian_de_bieli
+		x = 2
+		y = 3
+		cost = 0
+		icon = GFX_goal_ANQ_end_century_humiliation
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_xiegei_guyou_de_nvermen
+		}
+		relative_position_id = TAI_tarenzhimengzhongcheng
+	}
+	focus = {
+		id = TAI_zhenzheng_de_minzhu
+		x = 3
+		y = 2
+		cost = 0
+		icon = GFX_goal_INS_focus_party_coalition
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_xiegei_guyou_de_nvermen
+		}
+		relative_position_id = TAI_tarenzhimengzhongcheng
+	}
+	focus = {
+		id = TAI_chunmeng_zhihen
+		x = -2
+		y = 3
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_kuijian_xingchen
+		}
+		relative_position_id = TAI_tarenzhimengzhongcheng
+	}
+	focus = {
+		id = TAI_fuping_shanghen
+		x = -1
+		y = 2
+		cost = 0
+		icon = GFX_goal_chi_towards_true_love
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_kuijian_xingchen
+			focus = TAI_yaxiya_de_shouwei
+		}
+		relative_position_id = TAI_tarenzhimengzhongcheng
+	}
+	focus = {
+		id = TAI_zhonghua_zhangzi
+		x = 1
+		y = 2
+		cost = 0
+		icon = GFX_goal_QIE_forbiddenpalace
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_yaxiya_de_shouwei
+			focus = TAI_xiegei_guyou_de_nvermen
+		}
+		relative_position_id = TAI_tarenzhimengzhongcheng
+	}
+	focus = {
+		id = TAI_jingen_suzaozhe
+		x = 0
+		y = 3
+		cost = 0
+		icon = GFX_goal_align_japan
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_yaxiya_de_shouwei
+		}
+		relative_position_id = TAI_tarenzhimengzhongcheng
+	}
+	focus = {
+		id = TAI_chongshen_chengnuo
+		x = 7
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_construct_a_reservoir
+			focus = TAI_zhenya_kangyi
+		}
+	}
+	focus = {
+		id = TAI_1935_de_yanxu
+		x = 8
+		y = 9
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		mutually_exclusive = {
+			focus = TAI_1935_de_cuowu
+		}
+		prerequisite = {
+			focus = TAI_chongshen_chengnuo
+		}
+	}
+	focus = {
+		id = TAI_tairi_guanxi_zhengchanghua
+		x = 1
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_tairen_zhitai
+		}
+		relative_position_id = TAI_zhongchuanjianzang_likai_taiwan
+	}
+	focus = {
+		id = TAI_yunzhuan_xuanchuan_jiqi
+		x = 9
+		y = 8
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_pnr_p_teach_with_authority
+		}
+	}
+	focus = {
+		id = TAI_chengnuogaige
+		x = 9
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_1935_de_yanxu
+		}
+	}
+	focus = {
+		id = TAI_huyu_tuanjie
+		x = 8
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_1935_de_yanxu
+		}
+	}
+	focus = {
+		id = TAI_huigu_wangrihuanying
+		x = 7
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_1935_de_cuowu
+			focus = TAI_1935_de_yanxu
+		}
+	}
+	focus = {
+		id = TAI_zhidaotongzhi_yuanze
+		x = 5
+		y = 10
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_1935_de_cuowu
+		}
+	}
+	focus = {
+		id = TAI_fenlie_zhishifenzi
+		x = 6
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_1935_de_cuowu
+		}
+		prerequisite = {
+			focus = TAI_tuanjie_yu_siwang
+		}
+	}
+	focus = {
+		id = TAI_xunqiu_taiwan_de_gongshi
+		x = 10
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_1935_de_yanxu
+		}
+	}
+	focus = {
+		id = TAI_tuanjie_yu_siwang
+		x = 5
+		y = 11
+		cost = 0
+		icon = GFX_goal_generic_stable_government
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_zhidaotongzhi_yuanze
+		}
+	}
+	focus = {
+		id = TAI_yazhouminzhu_de_chilun
+		x = 3
+		y = 6
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_tairen_zhitai
+		}
+		relative_position_id = TAI_zhongchuanjianzang_likai_taiwan
+	}
+	focus = {
+		id = TAI_xin_tebietongzhizhuyi
+		x = 16
+		y = 13
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_dongfang_gongyegeming
+		}
+		prerequisite = {
+			focus = TAI_pingyi_chengshi_fangjia
+		}
+	}
+	focus = {
+		id = TAI_xiaomie_jiduanfenzi
+		x = 14
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_penglai_maru_dida
+			focus = TAI_zaixu_jiuqing
+		}
+	}
+	focus = {
+		id = TAI_dongfang_gongyegeming
+		x = 15
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_jianli_difang_nongye_hezuohui
+		}
+	}
+	focus = {
+		id = TAI_chongzheng_tudijijin
+		x = 17
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_zaixu_jiuqing
+		}
+	}
+	focus = {
+		id = TAI_jianli_difang_nongye_hezuohui
+		x = 15
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_zaixu_jiuqing
+		}
+	}
+	focus = {
+		id = TAI_dapo_cunqianguan
+		x = 18
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_zaixu_jiuqing
+			focus = TAI_xiangaizhe_de_tongmeng
+		}
+	}
+	focus = {
+		id = TAI_pingyi_chengshi_fangjia
+		x = 17
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_chongzheng_tudijijin
+		}
+	}
+	focus = {
+		id = TAI_bankai_zhongfu
+		x = 20
+		y = 11
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_xiangaizhe_de_tongmeng
+		}
+	}
+	focus = {
+		id = TAI_guli_yishubiaoda
+		x = 19
+		y = 12
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_bankai_zhongfu
+		}
+	}
+	focus = {
+		id = TAI_ouge_xin_shidai
+		x = 18
+		y = 13
+		cost = 0
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		prerequisite = {
+			focus = TAI_guli_yishubiaoda
+		}
+	}
+	focus = {
+		id = TAI_1935_de_cuowu
+		x = 6
+		y = 9
+		cost = 0
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		mutually_exclusive = {
+			focus = TAI_1935_de_yanxu
+		}
+		prerequisite = {
+			focus = TAI_chongshen_chengnuo
 		}
 	}
 }

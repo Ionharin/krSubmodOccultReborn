@@ -2,7 +2,6 @@ JAP_pnr_election_category = {
 	JAP_pnr_election_countdown_decision = {
 		icon = GFX_decision_eng_propaganda_campaigns
 		priority = 100
-
 		allowed = { tag = JAP }
 		visible = {
 			#always = no
@@ -29,19 +28,19 @@ JAP_pnr_election_category = {
 			log = "[GetLogRoot]: Decision timeout JAP_pnr_election_countdown_decision"
 			set_country_flag = JAP_pnr_election_completed
 			clr_country_flag = pnr_congress_temporarily_unable
-			JAP_pnr_election_commit_results = yes
-			JAP_pnr_election_calculate_winner = yes
-			JAP_congress_update_gui = yes
-			country_event = { id = JAP_pnr_normal.4 }
+			#JAP_pnr_election_commit_results = yes
+			#JAP_pnr_election_calculate_winner = yes
+			#JAP_congress_update_gui = yes
+			country_event = { id = JAP_pnr_normal.23 }
 		}
 	}
-
 	JAP_pnr_election_party_10_leaflets = {
 		icon = GFX_decision_eng_propaganda_campaigns
 		allowed = { always = no }
 		cost = 0
-		days_remove = 7
-		complete_effect = {
+		days_remove = 12
+		cancel_trigger = { has_country_flag = JAP_pnr_election_completed }
+		remove_effect = {
 			if = {
 				limit = { check_variable = { JAP_pnr_election_party_seats^7 > JAP_pnr_election_party_seats^6 } }
 				JAP_pnr_election_ensure_projected_results = yes
@@ -74,13 +73,13 @@ JAP_pnr_election_category = {
 		}
 		ai_will_do = { factor = 100 }
 	}
-
 	JAP_pnr_election_party_4_leaflets = {
 		icon = GFX_decision_eng_propaganda_campaigns
 		allowed = { always = no }
 		cost = 0
-		days_remove = 7
-		complete_effect = {
+		days_remove = 12
+		cancel_trigger = { has_country_flag = JAP_pnr_election_completed }
+		remove_effect = {
 			if = {
 				limit = { check_variable = { JAP_pnr_election_party_seats^7 > JAP_pnr_election_party_seats^6 } }
 				JAP_pnr_election_ensure_projected_results = yes
@@ -123,13 +122,13 @@ JAP_pnr_election_category = {
 		}
 		ai_will_do = { factor = 100 }
 	}
-
 	JAP_pnr_election_party_7_leaflets = {
 		icon = GFX_decision_eng_propaganda_campaigns
 		allowed = { always = no }
 		cost = 0
-		days_remove = 7
-		complete_effect = {
+		days_remove = 12
+		cancel_trigger = { has_country_flag = JAP_pnr_election_completed }
+		remove_effect = {
 			JAP_pnr_election_ensure_projected_results = yes
 				add_to_variable = {
 					var = JAP_pnr_election_party_seats^7
@@ -145,13 +144,13 @@ JAP_pnr_election_category = {
 		}
 		ai_will_do = { factor = 100 }
 	}
-
 	JAP_pnr_election_party_8_leaflets = {
 		icon = GFX_decision_eng_propaganda_campaigns
 		allowed = { always = no }
 		cost = 0
-		days_remove = 7
-		complete_effect = {
+		days_remove = 12
+		cancel_trigger = { has_country_flag = JAP_pnr_election_completed }
+		remove_effect = {
 			if = {
 				limit = { check_variable = { JAP_pnr_election_party_seats^7 > JAP_pnr_election_party_seats^6 } }
 				JAP_pnr_election_ensure_projected_results = yes
@@ -184,12 +183,12 @@ JAP_pnr_election_category = {
 		}
 		ai_will_do = { factor = 100 }
 	}
-
 	JAP_pnr_election_party_6_leaflets = {
 		icon = GFX_decision_eng_propaganda_campaigns
 		allowed = { always = no }
 		cost = 0
-		days_remove = 7
+		cancel_trigger = { has_country_flag = JAP_pnr_election_completed }
+		remove_effect = 12
 		complete_effect = {
 				JAP_pnr_election_ensure_projected_results = yes
 				add_to_variable = {
@@ -206,12 +205,11 @@ JAP_pnr_election_category = {
 		}
 		ai_will_do = { factor = 100 }
 	}
-
 	JAP_pnr_election_NSA_ALLOW = {
 		icon = GFX_decision_eng_propaganda_campaigns
 		visible = { has_dynamic_modifier = JAP_pnr_NSA_idea }
-		cost = 5
-		days_remove = 14
+		cost = 0
+		days_remove = 21
 		fire_only_once = yes
 		remove_effect = {
 			if = {
@@ -219,32 +217,32 @@ JAP_pnr_election_category = {
 				JAP_pnr_election_ensure_projected_results = yes
 				add_to_variable = {
 					var = JAP_pnr_election_party_seats^10
-					value = -6
+					value = -12
 					tooltip = JAP_pnr_election_party_10_tt
 				}
 				add_to_variable = {
 					var = JAP_pnr_election_party_seats^8
-					value = -6
+					value = -12
 					tooltip = JAP_pnr_election_party_8_tt
 				}
 				add_to_variable = {
 					var = JAP_pnr_election_party_seats^6
-					value = -6
+					value = -12
 					tooltip = JAP_pnr_election_party_6_tt
 				}
 				add_to_variable = {
 					var = JAP_pnr_election_party_seats^5
-					value = -6
+					value = -12
 					tooltip = JAP_pnr_election_party_5_tt
 				}
 				add_to_variable = {
 					var = JAP_pnr_election_party_seats^4
-					value = -6
+					value = -12
 					tooltip = JAP_pnr_election_party_4_tt
 				}
 				add_to_variable = {
 					var = JAP_pnr_election_party_seats^7
-					value = 30
+					value = 60
 					tooltip = JAP_pnr_election_party_7_tt
 				}	
 				JAP_pnr_election_refresh_projected_changes = yes
@@ -253,36 +251,36 @@ JAP_pnr_election_category = {
 				JAP_pnr_election_ensure_projected_results = yes
 				add_to_variable = {
 					var = JAP_pnr_election_party_seats^10
-					value = -6
+					value = -12
 					tooltip = JAP_pnr_election_party_10_tt
 				}
 				add_to_variable = {
 					var = JAP_pnr_election_party_seats^8
-					value = -6
+					value = -12
 					tooltip = JAP_pnr_election_party_8_tt
 				}
 				add_to_variable = {
 					var = JAP_pnr_election_party_seats^7
-					value = -6
+					value = -12
 					tooltip = JAP_pnr_election_party_7_tt
 				}
 				add_to_variable = {
 					var = JAP_pnr_election_party_seats^5
-					value = -6
+					value = -12
 					tooltip = JAP_pnr_election_party_5_tt
 				}
 				add_to_variable = {
 					var = JAP_pnr_election_party_seats^4
-					value = -6
+					value = -12
 					tooltip = JAP_pnr_election_party_4_tt
 				}
 				add_to_variable = {
 					var = JAP_pnr_election_party_seats^6
-					value = 30
+					value = 60
 					tooltip = JAP_pnr_election_party_6_tt
 				}	
 				JAP_pnr_election_refresh_projected_changes = yes
 			}
 		}
-	}
+	}	
 }

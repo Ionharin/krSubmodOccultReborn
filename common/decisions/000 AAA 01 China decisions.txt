@@ -1408,7 +1408,17 @@
 		priority = 4
 
 		available = {
-			date > 1938.1.30
+			OR = {
+				date > 1938.7.6
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = JAP_pnr_jap_influence_greater_than_50
+						check_variable = { FNG.FNG_JAP_influence_variable > 0.39 }
+					}
+					date > 1938.1.30
+				}
+			}
+			
 			OR = {
 				AND = {
 					is_in_faction_with = JAP

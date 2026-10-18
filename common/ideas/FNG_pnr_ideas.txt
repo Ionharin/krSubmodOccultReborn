@@ -7,5 +7,63 @@ ideas = {
 				cannot_call_allies_or_join_wars = 1
 			}
         }
+        FNG_government_paralysis_idea_0 = {
+            picture = FRA_matignon_agreements
+			allowed = { always = no }
+			modifier = {
+                compliance_gain = -0.01
+                political_power_factor = -0.05
+                war_stability_factor = -0.10
+			}
+        }
+        FNG_government_paralysis_idea_1 = {
+            picture = FRA_matignon_agreements
+			allowed = { always = no }
+            on_remove = { add_timed_idea = { idea = FNG_government_paralysis_idea_0 days = 150 } }
+			modifier = {
+				planning_speed = -0.10
+                compliance_gain = -0.01
+                political_power_factor = -0.05
+                war_stability_factor = -0.10
+			}
+        }
+        FNG_government_paralysis_idea_2 = {
+            picture = FRA_matignon_agreements
+			allowed = { always = no }
+            on_remove = { add_timed_idea = { idea = FNG_government_paralysis_idea_1 days = 150 } }
+			modifier = {
+				planning_speed = -0.20
+                compliance_gain = -0.02
+                political_power_factor = -0.10
+                war_stability_factor = -0.20
+			}
+        }
+        FNG_government_paralysis_idea_3 = {
+            picture = FRA_matignon_agreements
+			allowed = { always = no }
+            on_remove = { add_timed_idea = { idea = FNG_government_paralysis_idea_2 days = 150 } }
+			modifier = {
+				planning_speed = -0.30
+                army_org_factor = -0.10
+                compliance_gain = -0.03
+                political_power_factor = -0.10
+                war_stability_factor = -0.30
+                required_garrison_factor = 0.15
+			}
+        }
+        FNG_government_paralysis_idea_4 = {
+            picture = FRA_matignon_agreements
+			allowed = { always = no }
+            on_remove = { add_timed_idea = { idea = FNG_government_paralysis_idea_3 days = 150 } }
+			modifier = {
+				planning_speed = -0.30
+                max_planning = -0.15
+                army_org_factor = -0.20
+                compliance_gain = -0.03
+                political_power_factor = -0.15
+                war_stability_factor = -0.40
+                required_garrison_factor = 0.30
+			}
+        }
     }
 }

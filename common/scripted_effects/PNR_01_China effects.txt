@@ -2,6 +2,127 @@ china_set_character_alignment_traditionalist_china = { # Wushan
 	event_target:system = { china_alignment_traditionalist_china = { set_variable = { PREV.PREV.china_alignment = THIS } } }
 }
 
+LEP_league_war_find_victor = { # For Japanese
+	if = {
+		limit = {
+			NOT = {
+				country_exists = SHD
+				country_exists = LEP
+				country_exists = CHI
+				country_exists = ANQ
+			}
+		}
+		set_variable = { LEP.LEP_league_war_victor = -1 }
+	}
+	else_if = {
+		limit = {
+			country_exists = SHD
+			NOT = {
+				SHD = { has_government = authoritarian_democrat }
+				country_exists = LEP
+				country_exists = CHI
+				country_exists = ANQ
+			}
+		}
+		set_variable = { LEP.LEP_league_war_victor = SHD }
+		SHD = {
+			country_event = { id = shandong_events.500 days = 2 }
+		}
+		JAP = { country_event = JAP_pnr_foreign_events.21 }
+	}
+	else_if = {
+		limit = {
+			country_exists = LEP
+			NOT = {
+				country_exists = CHI
+				country_exists = ANQ
+			}
+			OR = {
+				NOT = { country_exists = SHD }
+				SHD = { is_subject = yes }
+				has_global_flag = LEP_collapse_SHD_out
+			}
+		}
+		set_variable = { LEP.LEP_league_war_victor = LEP }
+		LEP = {
+			country_event = { id = league_events.100 days = 2 }
+		}
+		JAP = { country_event = JAP_pnr_foreign_events.21 }
+	}
+	else_if = {
+		limit = {
+			country_exists = CHI
+			NOT = {
+				country_exists = LEP
+				country_exists = ANQ
+			}
+			OR = {
+				NOT = { country_exists = SHD }
+				has_global_flag = LEP_collapse_SHD_out
+			}
+		}
+		set_variable = { LEP.LEP_league_war_victor = CHI }
+		CHI = {
+			country_event = { id = CHI.midgame.000 days = 2 }
+			country_event = { id = CHI.earlygame.005 days = 100 } #Friends on the Other Side
+		}
+		JAP = { country_event = JAP_pnr_foreign_events.21 }
+	}
+	else_if = {
+		limit = {
+			country_exists = ANQ
+			NOT = {
+				country_exists = LEP
+				country_exists = CHI
+			}
+			OR = {
+				NOT = { country_exists = SHD }
+				has_global_flag = LEP_collapse_SHD_out
+			}
+		}
+		set_variable = { LEP.LEP_league_war_victor = ANQ }
+		ANQ = {
+			set_country_flag = ANQ_feng_aid_undecided
+			country_event = { id = anqing_events.64 days = 2 }
+		}
+		JAP = { country_event = JAP_pnr_foreign_events.21 }
+	}
+	if = {
+		limit = { has_variable = LEP.LEP_league_war_victor }
+		set_global_flag = LEP_league_war_over
+		clr_global_flag = LEP_war
+		ANQ = {
+			LEP_remove_collapse_dm = yes
+		}
+		SHD = {
+			LEP_remove_collapse_dm = yes
+		}
+		CHI = {
+			LEP_remove_collapse_dm = yes
+		}
+		LEP = {
+			LEP_remove_collapse_dm = yes
+		}
+		if = {
+			limit = { has_global_flag = LEP_wuxi_vp_increased }
+			clr_global_flag = LEP_wuxi_vp_increased
+			add_victory_points = { province = 10076 value = -5 }
+		}
+		#### Cleanup of LEP war decisions - ANQ
+		ANQ = {
+			remove_targeted_decision = { target = 606 decision = ANQ_Yangtze_River_Line }
+			remove_targeted_decision = { target = 1050 decision = ANQ_Huai_River_Line }
+			remove_targeted_decision = { target = 1047 decision = ANQ_Xuzhou_Rail_Line }
+			remove_targeted_decision = { target = 1044 decision = ANQ_Nanchang_Rail_Line }
+			remove_targeted_decision = { target = 597 decision = ANQ_Jinan_Rail_Line }
+			remove_targeted_decision = { target = 1075 decision = ANQ_Nantong_Port_Line }
+			remove_targeted_decision = { target = 803 decision = ANQ_Wenzhou_Port_Line }
+			remove_targeted_decision = { target = 1066 decision = ANQ_Quanzhou_Port_Line }
+			remove_targeted_decision = { target = 596 decision = ANQ_Hangzhou_Port_Line }
+		}
+	}
+}
+
 CHN_calculate_china_alignment_gui_effect = {
 	CHN_clear_china_alignment_gui = yes
 

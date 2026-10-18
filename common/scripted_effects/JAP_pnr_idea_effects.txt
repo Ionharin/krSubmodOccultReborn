@@ -120,6 +120,38 @@ JAP_pnr_guide_invisible_finger_idea_update = { # right financial path
 	}
 }
 
+FNG_JAP_pnr_FNG_government_paralysis_idea_check = { # HuangGuTun
+	if = {
+		limit = { check_variable = { JAP.FNG_yangyuting_support_var = 0 } }
+		FNG = {
+			add_timed_idea = { idea = FNG_government_paralysis_idea_4 days = 180 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { JAP.FNG_yangyuting_support_var = 1 } }
+		FNG = {
+			add_timed_idea = { idea = FNG_government_paralysis_idea_3 days = 180 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { JAP.FNG_yangyuting_support_var = 2 } }
+		FNG = {
+			add_timed_idea = { idea = FNG_government_paralysis_idea_2 days = 180 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { JAP.FNG_yangyuting_support_var = 3 } }
+		FNG = {
+			add_timed_idea = { idea = FNG_government_paralysis_idea_1 days = 180 }
+		}
+	}
+	else = {
+		FNG = {
+			add_timed_idea = { idea = FNG_government_paralysis_idea_0 days = 180 }
+		}
+	}
+}
+
 #### Game Machinisms ####
 
 JAP_pnr_update_destruction_and_creation_modifier = { #Imperial Way special Setting
@@ -330,4 +362,15 @@ JAP_pnr_mio_check_technologies = { # Check num of TECH
 	else = {
 		add_mio_research_bonus = 0.20
 	}
+}
+
+JAP_pnr_normal_zaibatsu_size_bonus_effect = { # Complete KOKKA SOUDASHOU THEN PRODUCTION MOOOORE
+	set_variable = { JAP.JAP_pnr_total_mio_size_var = 0 }
+	every_military_industrial_organization = {
+        limit = { owner = { tag = JAP } }
+        set_temp_variable = { current_mio_size_var = THIS.size }
+        PREV = {
+			add_to_variable = { JAP.JAP_pnr_total_mio_size_var = current_mio_size_var }
+        }
+    }
 }
