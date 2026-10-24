@@ -1,100 +1,29 @@
 JAP_pnr_kasumigaseki_diplomacy_category = {
-### Eastern China ###
-	JAP_pnr_south_china_melee_anq_decision = { # ANQ support
-		icon = GFX_decision_decision_generic_chinese_officers
-		#allowed = { always = no }
-		visible = { 
-			ANQ = { exists = yes }
-			has_global_flag = LEP_collapse
-			NOT = { has_global_flag = LEP_league_war_over }
-		}
-		fire_only_once = yes
+### Common Decisions WAR ###
+	JAP_pnr_support_temporary_mil_factory_decision = {
+		icon = GFX_decision_wrenches
+		allowed = { always = no }
 		available = {
-			ANQ = { exists = yes }
-			ANQ = { has_war = yes }
-			has_global_flag = LEP_war
-			NOT = { has_global_flag = LEP_league_war_over }
-			num_of_civilian_factories_available_for_projects > 1
-		}
-		ai_will_do = { factor = 10 }
-		cost = 5
-		days_remove = 90
-		modifier = {
-			civilian_factory_use = 2
-			experience_gain_army = 0.02
-		}
-		complete_effect = {
-			ANQ = {
-				add_offsite_building = { type = industrial_complex level = 1 }
-			}
-			add_relation_modifier = {
-				target = ANQ
-				modifier = volunteer_limit_plus_five
+			FROM = {
+				exists = yes
+				has_war = yes
+				NOT = { has_war_with = JAP }
 			}
 		}
-		remove_effect = {
-			ANQ = {
-				add_offsite_building = { type = industrial_complex level = -1 }
-			}
-			remove_relation_modifier = {
-				target = ANQ
-				modifier = volunteer_limit_plus_five
-			}
-		}
-	}
-	JAP_pnr_south_china_melee_shd_decision = { # SHD support
-		icon = GFX_decision_decision_generic_chinese_officers
-		#allowed = { always = no }
-		visible = { 
-			country_exists = SHD
-			has_global_flag = LEP_collapse
-			NOT = { has_global_flag = LEP_league_war_over }
-		}
+		custom_cost_text = CP_15
+		custom_cost_trigger = { command_power > 14.99 }
+		days_remove = 120
 		fire_only_once = yes
-		available = {
-			country_exists = SHD
-			SHD = { has_war = yes }
-			has_global_flag = LEP_war
-			NOT = { has_global_flag = LEP_league_war_over }
-			num_of_civilian_factories_available_for_projects > 1
-		}
-		ai_will_do = { factor = 10 }
-		cost = 5
-		days_remove = 90
-		modifier = {
-			civilian_factory_use = 2
-			experience_gain_army = 0.02
-		}
-		complete_effect = {
-			SHD = {
-				add_offsite_building = { type = industrial_complex level = 1 }
-			}
-			add_relation_modifier = {
-				target = SHD
-				modifier = volunteer_limit_plus_three
-			}
-		}
-		remove_effect = {
-			SHD = {
-				add_offsite_building = { type = industrial_complex level = -1 }
-			}
-			remove_relation_modifier = {
-				target = SHD
-				modifier = volunteer_limit_plus_three
-			}
-		}
+		ai_will_do = { factor = 1 }
+		complete_effect = { FROM = { add_offsite_building = { type = arms_factory level = 1 } } }
+		remove_effect = { FROM = { add_offsite_building = { type = arms_factory level = -1 } } }
+		fixed_random_seed = no
 	}
 ### SIK Civil War ###
-	JAP_pnr_shandong_musilin = {
+	JAP_pnr_shandong_gedimu = {
 		icon = GFX_decision_generic_reorganize_irregulars
 		allowed = { always = no }
-		visible = { 
-			country_exists = ETS
-			OR = {
-				ETS = { has_war_with = SIK }
-				ETS = { has_war_with = KUM }
-			}
-		}
+		visible = { check_variable = { JAP_pnr_kd_events^2 = 1 } }
 		fire_only_once = yes
 		available = {
 			country_exists = ETS
@@ -104,11 +33,17 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			}
 		}
 		ai_will_do = { factor = 50 }
-		cost = 25
-		days_remove = 60
+		cost = 0
+		custom_cost_trigger = { command_power > 4.99 }
+		custom_cost_text = CP_5
+		days_remove = 28
 		complete_effect = {
-			ETS = {
-				add_manpower = 8000
+			ETS = { add_manpower = 6000 }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_ETS } }
+					set_country_flag = JAP_pnr_support_ETS
+				}
 			}
 		}
 		remove_effect = {
@@ -124,13 +59,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 	JAP_pnr_huanxing_tacheng_qianfufenzi = {
 		icon = GFX_decision_onmap_recruit_operative
 		allowed = { always = no }
-		visible = { 
-			country_exists = ETS
-			OR = {
-				ETS = { has_war_with = SIK }
-				ETS = { has_war_with = KUM }
-			}
-		}
+		visible = { check_variable = { JAP_pnr_kd_events^2 = 1 } }
 		fire_only_once = yes
 		available = {
 			country_exists = ETS
@@ -140,7 +69,9 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			}
 		}
 		ai_will_do = { factor = 50 }
-		cost = 20
+		cost = 0
+		custom_cost_trigger = { command_power > 14.99 }
+		custom_cost_text = CP_15
 		complete_effect = {
 			ETS = {
 				add_intel = {
@@ -154,21 +85,20 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
     				army_intel = 20
 				}
 			}
-		}
-	}
-	JAP_pnr_cong_kabuer_tigong_zijin = {
-		icon = GFX_decision_generic_welfare
-		allowed = { always = no }
-		visible = { 
-			country_exists = ETS
-			OR = {
-				ETS = { has_war_with = SIK }
-				ETS = { has_war_with = KUM }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_ETS } }
+					set_country_flag = JAP_pnr_support_ETS
+				}
 			}
 		}
+	}
+	JAP_pnr_cong_kabuer_tigong_wuqi = {
+		icon = GFX_decision_generic_welfare
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^2 = 1 } }
 		fire_only_once = yes
 		available = {
-			command_power > 19
 			country_exists = ETS
 			OR = {
 				ETS = { has_war_with = SIK }
@@ -176,25 +106,22 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			}
 		}
 		ai_will_do = { factor = 50 }
-		cost = 40
+		custom_cost_text = 500_guns
+		custom_cost_trigger = { NOT = { has_equipment = { infantry_equipment < 500 } } }
 		complete_effect = {
-			add_command_power = -20
-			ETS = {
-				add_political_power = 30
-				add_command_power = 20
+			send_equipment = { target = ETS type = infantry_equipment amount = 500 }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_ETS } }
+					set_country_flag = JAP_pnr_support_ETS
+				}
 			}
 		}
 	}
 	JAP_pnr_chiyuan_tongbao_minzu = {
 		icon = GFX_decision_SWE_set_army_budget
 		allowed = { always = no }
-		visible = { 
-			country_exists = ETS
-			OR = {
-				ETS = { has_war_with = SIK }
-				ETS = { has_war_with = KUM }
-			}
-		}
+		visible = { check_variable = { JAP_pnr_kd_events^2 = 1 } }
 		fire_only_once = yes
 		available = {
 			country_exists = ETS
@@ -204,36 +131,579 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			}
 		}
 		ai_will_do = { factor = 50 }
-		cost = 0
-		custom_cost_trigger = { command_power > 19 }
-		custom_cost_text = JAP_pnr_command_power_20_cost
-		days_remove = 140
+		cost = 10
+		days_remove = 120
 		modifier = {
-			power_balance_weekly = 0.0025
-			send_volunteer_size = 2
+			civilian_factory_use = 2
+			experience_gain_army = 0.02
 		}
 		complete_effect = {
-			add_command_power = -20
-			ETS = {
-				add_manpower = 8000
+			ETS = { add_offsite_building = { type = arms_factory level = 1 } }
+			add_relation_modifier = { target = ETS modifier = volunteer_limit_plus_2 }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_ETS } }
+					set_country_flag = JAP_pnr_support_ETS
+				}
 			}
 		}
 		remove_effect = {
-			ETS = {
-				add_stability = 0.05
-				add_popularity = {
-					ideology = var:current_party_ideology_group
-					popularity = 0.05
+			ETS = { add_offsite_building = { type = arms_factory level = -1 } }
+			remove_relation_modifier = { target = ETS modifier = volunteer_limit_plus_2 }
+		}
+	}
+### Siam Civil War ###
+	JAP_pnr_SIA_support_volunteer_2_decision = {
+		icon = GFX_decision_generic_scorched_earth
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^4 = 1 } }
+		fire_only_once = yes
+		available = {
+			var:823.owner = { has_civil_war = yes }
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		cost = 10
+		days_remove = 120
+		modifier = {
+			experience_gain_army = 0.01
+		}
+		complete_effect = {
+			add_relation_modifier = { target = SIA modifier = volunteer_limit_plus_2 }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_SIA } }
+					set_country_flag = JAP_pnr_support_SIA
+				}
+			}
+		}
+		remove_effect = {
+			remove_relation_modifier = { target = SIA modifier = volunteer_limit_plus_2 }
+		}
+	}
+	JAP_pnr_anti_SIA_support_volunteer_2_decision = {
+		icon = GFX_decision_generic_scorched_earth
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^4 = 1 } }
+		fire_only_once = yes
+		available = {
+			var:823.owner = { has_civil_war = yes }
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		cost = 10
+		days_remove = 120
+		modifier = {
+			experience_gain_army = 0.01
+		}
+		complete_effect = {
+			add_relation_modifier = { target = D06 modifier = volunteer_limit_plus_2 }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_SIA } }
+					set_country_flag = JAP_pnr_support_SIA
+				}
+			}
+		}
+		remove_effect = {
+			remove_relation_modifier = { target = D06 modifier = volunteer_limit_plus_2 }
+		}
+	}
+### Middle Asia War ###
+	JAP_pnr_KHI_support_volunteer_1_decision = {
+		icon = GFX_decisions_generic_infiltration
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^7 = 1 } }
+		fire_only_once = yes
+		available = {
+			KHI = { has_war_with = RUS }
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		cost = 10
+		days_remove = 120
+		modifier = {
+			experience_gain_army = 0.01
+		}
+		complete_effect = {
+			add_relation_modifier = { target = KHI modifier = volunteer_limit_plus_1 }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_KHITRK } }
+					set_country_flag = JAP_pnr_support_KHITRK
+				}
+			}
+		}
+		remove_effect = {
+			remove_relation_modifier = { target = KHI modifier = volunteer_limit_plus_1 }
+		}
+	}
+	JAP_pnr_TRK_support_volunteer_1_decision = {
+		icon = GFX_decisions_generic_infiltration
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^7 = 1 } }
+		fire_only_once = yes
+		available = {
+			TRK = { has_war_with = RUS }
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		cost = 10
+		days_remove = 120
+		modifier = {
+			experience_gain_army = 0.01
+		}
+		complete_effect = {
+			add_relation_modifier = { target = TRK modifier = volunteer_limit_plus_1 }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_KHITRK } }
+					set_country_flag = JAP_pnr_support_KHITRK
+				}
+			}
+		}
+		remove_effect = {
+			remove_relation_modifier = { target = TRK modifier = volunteer_limit_plus_1 }
+		}
+	}
+	JAP_pnr_cong_kabuer_zhiyuan_decision = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^7 = 1 } }
+		fire_only_once = yes
+		available = {
+			FROM = { has_war_with = RUS }
+		}
+		ai_will_do = { factor = 50 }
+		custom_cost_text = 500_guns
+		custom_cost_trigger = { NOT = { has_equipment = { infantry_equipment < 500 } } }
+		complete_effect = {
+			if = {
+				limit = { ETS = { exists = yes has_war = no } }
+				send_equipment = { target = FROM type = infantry_equipment amount = 500 }
+				add_equipment_to_stockpile = { type = infantry_equipment amount = 500 producer = JAP }
+			}
+			else = {
+				send_equipment = { target = FROM type = infantry_equipment amount = 500 }
+			}
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_KHITRK } }
+					set_country_flag = JAP_pnr_support_KHITRK
 				}
 			}
 		}
 	}
-### Siam Civil War ###
-
-### Middle Asia War ###
-
+	JAP_pnr_KHI_support_volunteer_2_decision = {
+		icon = GFX_decisions_generic_infiltration
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^7 = 1 } }
+		fire_only_once = yes
+		available = {
+			KHI = { has_war_with = RUS }
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		cost = 10
+		days_remove = 120
+		modifier = {
+			experience_gain_army = 0.01
+		}
+		complete_effect = {
+			add_relation_modifier = { target = KHI modifier = volunteer_limit_plus_2 }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_KHITRK } }
+					set_country_flag = JAP_pnr_support_KHITRK
+				}
+			}
+		}
+		remove_effect = {
+			remove_relation_modifier = { target = KHI modifier = volunteer_limit_plus_2 }
+		}
+	}
+	JAP_pnr_TRK_support_volunteer_2_decision = {
+		icon = GFX_decisions_generic_infiltration
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^7 = 1 } }
+		fire_only_once = yes
+		available = {
+			TRK = { has_war_with = RUS }
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		cost = 10
+		days_remove = 120
+		modifier = {
+			experience_gain_army = 0.01
+		}
+		complete_effect = {
+			add_relation_modifier = { target = TRK modifier = volunteer_limit_plus_2 }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_KHITRK } }
+					set_country_flag = JAP_pnr_support_KHITRK
+				}
+			}
+		}
+		remove_effect = {
+			remove_relation_modifier = { target = TRK modifier = volunteer_limit_plus_2 }
+		}
+	}
+	JAP_pnr_calling_ets_come_to_help_friends_decision = {
+		icon = GFX_decisions_generic_infiltration
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^7 = 1 } }
+		fire_only_once = yes
+		available = {
+			OR = {
+				KHI = { has_war_with = RUS }
+				TRK = { has_war_with = RUS }
+			}
+			ETS = {
+				exists = yes
+				has_war = no
+			}	
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		custom_cost_trigger = { command_power > 9.99 }
+		custom_cost_text = CP_10
+		days_remove = 365
+		complete_effect = {
+			ETS = { add_relation_modifier = { target = KHI modifier = volunteer_limit_plus_3 } }
+			ETS = { add_relation_modifier = { target = TRK modifier = volunteer_limit_plus_3 } }
+			activate_targeted_decision = { target = KHI decision = JAP_pnr_KHI_support_volunteer_2_decision }
+			activate_targeted_decision = { target = TRK decision = JAP_pnr_TRK_support_volunteer_2_decision }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_KHITRK } }
+					set_country_flag = JAP_pnr_support_KHITRK
+				}
+			}
+		}
+		remove_effect = {
+			ETS = { remove_relation_modifier = { target = KHI modifier = volunteer_limit_plus_3 } }
+			ETS = { remove_relation_modifier = { target = TRK modifier = volunteer_limit_plus_3 } }
+		}
+	}
 ### Muslim-Buddhism War ###
-
+	JAP_pnr_muslim_buddhism_volunteer_TIB_decision = {
+		icon = GFX_decision_eng_blackshirt_march
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^3 = 1 } }
+		fire_only_once = yes
+		available = {
+			TIB = { 
+				OR = {
+                    has_war_with = MON
+					has_war_with = XSM
+                    has_war_with = SHX
+                }
+			}
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		cost = 10
+		days_remove = 120
+		modifier = {
+			civilian_factory_use = 2
+			experience_gain_army = 0.02
+		}
+		complete_effect = {
+			TIB = { add_offsite_building = { type = arms_factory level = 1 } }
+			add_relation_modifier = { target = TIB modifier = volunteer_limit_plus_2 }
+			remove_targeted_decision = { target = SHX decision = JAP_pnr_muslim_buddhism_volunteer_SHX_decision }
+			remove_targeted_decision = { target = XSM decision = JAP_pnr_muslim_buddhism_volunteer_XSM_decision }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_TIB } }
+					set_country_flag = JAP_pnr_support_TIB
+				}
+			}
+		}
+		remove_effect = {
+			TIB = { add_offsite_building = { type = arms_factory level = -1 } }
+			remove_relation_modifier = { target = TIB modifier = volunteer_limit_plus_2 }
+		}
+	}
+	JAP_pnr_muslim_buddhism_volunteer_SHX_decision = {
+		icon = GFX_decision_eng_blackshirt_march
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^3 = 1 } }
+		fire_only_once = yes
+		available = {
+			SHX = { 
+				OR = {
+                    has_war_with = MON
+					has_war_with = XSM
+                    has_war_with = TIB
+                }
+			}
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		cost = 10
+		days_remove = 120
+		modifier = {
+			civilian_factory_use = 2
+			experience_gain_army = 0.02
+		}
+		complete_effect = {
+			SHX = { add_offsite_building = { type = arms_factory level = 1 } }
+			add_relation_modifier = { target = SHX modifier = volunteer_limit_plus_2 }
+			remove_targeted_decision = { target = TIB decision = JAP_pnr_muslim_buddhism_volunteer_TIB_decision }
+			remove_targeted_decision = { target = XSM decision = JAP_pnr_muslim_buddhism_volunteer_XSM_decision }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_SHX } }
+					set_country_flag = JAP_pnr_support_SHX
+				}
+			}
+		}
+		remove_effect = {
+			SHX = { add_offsite_building = { type = arms_factory level = -1 } }
+			remove_relation_modifier = { target = SHX modifier = volunteer_limit_plus_2 }
+		}
+	}
+	JAP_pnr_muslim_buddhism_volunteer_XSM_decision = {
+		icon = GFX_decision_eng_blackshirt_march
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^3 = 1 } }
+		fire_only_once = yes
+		available = {
+			XSM = { 
+				OR = {
+                    has_war_with = MON
+					has_war_with = TIB
+                    has_war_with = SHX
+                }
+			}
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		cost = 10
+		days_remove = 120
+		modifier = {
+			civilian_factory_use = 2
+			experience_gain_army = 0.02
+		}
+		complete_effect = {
+			XSM = { add_offsite_building = { type = arms_factory level = 1 } }
+			add_relation_modifier = { target = XSM modifier = volunteer_limit_plus_2 }
+			remove_targeted_decision = { target = SHX decision = JAP_pnr_muslim_buddhism_volunteer_SHX_decision }
+			remove_targeted_decision = { target = TIB decision = JAP_pnr_muslim_buddhism_volunteer_TIB_decision }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_XSM } }
+					set_country_flag = JAP_pnr_support_XSM
+				}
+			}
+		}
+		remove_effect = {
+			XSM = { add_offsite_building = { type = arms_factory level = -1 } }
+			remove_relation_modifier = { target = XSM modifier = volunteer_limit_plus_2 }
+		}
+	}
+	JAP_pnr_xibeizhanzheng_training_decision = {
+		icon = GFX_decision_generic_intelligence_operation
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^3 = 1 } }
+		fire_only_once = yes
+		available = {
+			OR = {
+				TIB = { has_volunteers_amount_from = { tag = JAP count > 0 } }
+				SHX = { has_volunteers_amount_from = { tag = JAP count > 0 } }
+				XSM = { has_volunteers_amount_from = { tag = JAP count > 0 } }
+			}
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		cost = 0
+		custom_cost_trigger = { command_power > 14.99 }
+		custom_cost_text = CP_15
+		days_remove = 90
+		modifier = {
+			supply_consumption_factor = -0.50
+			supply_node_range = 1
+		}
+		targeted_modifier = { tag = XSM attack_bonus_against = 1 }
+		targeted_modifier = { tag = TIB attack_bonus_against = 1 }
+		targeted_modifier = { tag = SHX attack_bonus_against = 1 }
+		complete_effect = {
+			#remove_targeted_decision = { target = SHX decision = JAP_pnr_muslim_buddhism_volunteer_SHX_decision }
+			#remove_targeted_decision = { target = TIB decision = JAP_pnr_muslim_buddhism_volunteer_TIB_decision }
+		}
+	}
+### Indonicia War ###
+	JAP_pnr_inc_war_with_gea_phase_1_countdown = {
+        icon = GFX_decision_generic_guerilla_base
+        is_good = no
+		days_mission_timeout = 21
+		fire_only_once = yes
+		priority = 100
+        activation = {
+			OR = {
+				INC = { exists = yes }
+				INC ={ has_war_with = GEA }
+			}
+		}
+        available = { NOT = { INC ={ has_war_with = GEA } } }
+        allowed = { always = no }
+		timeout_effect = {
+			add_intel = { target = GEA civilian_intel = 10 army_intel = 10 navy_intel = 10 airforce_intel = 10 }
+			activate_targeted_decision = { decision = JAP_pnr_indonicia_support_volunteer_2_decision target = INC }
+			activate_targeted_decision = { decision = JAP_pnr_indonicia_arm_training_decision target = INC } 
+		}
+		fixed_random_seed = no
+    }
+	JAP_pnr_indonicia_support_volunteer_1_decision = {
+		icon = GFX_decision_generic_civil_support
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^1 = 1 } }
+		fire_only_once = yes
+		available = {
+			INC = { exists = yes }
+			INC = { has_war_with = GEA }
+			num_of_civilian_factories_available_for_projects > 1
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		cost = 10
+		days_remove = 120
+		modifier = {
+			civilian_factory_use = 2
+			experience_gain_army = 0.02
+		}
+		complete_effect = {
+			INC = { add_offsite_building = { type = arms_factory level = 1 } }
+			add_relation_modifier = { target = INC modifier = volunteer_limit_plus_1 }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_INC } }
+					set_country_flag = JAP_pnr_support_INC
+				}
+			}
+		}
+		remove_effect = {
+			INC = { add_offsite_building = { type = arms_factory level = -1 } }
+			remove_relation_modifier = { target = INC modifier = volunteer_limit_plus_1 }
+		}
+	}
+	JAP_pnr_indonicia_support_volunteer_2_decision = {
+		icon = GFX_decision_generic_civil_support
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^1 = 1 } }
+		fire_only_once = yes
+		available = {
+			INC = { exists = yes }
+			INC = { has_war_with = GEA }
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		cost = 10
+		days_remove = 120
+		modifier = {
+			experience_gain_army = 0.01
+		}
+		complete_effect = {
+			add_relation_modifier = { target = INC modifier = volunteer_limit_plus_2 }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_INC } }
+					set_country_flag = JAP_pnr_support_INC
+				}
+			}
+		}
+		remove_effect = {
+			remove_relation_modifier = { target = INC modifier = volunteer_limit_plus_2 }
+		}
+	}
+	JAP_pnr_indonicia_arm_training_decision = {
+		icon = GFX_decision_SWE_set_army_budget
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^1 = 1 } }
+		fire_only_once = yes
+		available = {
+			INC = { exists = yes }
+			INC = { has_war_with = GEA }
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		custom_cost_trigger = { command_power > 9.99 }
+		custom_cost_text = CP_10
+		days_remove = 28
+		complete_effect = {
+			INC = { country_event = JAP_pnr_foreign_events.28 }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = if_they_accept_tt
+			INC = { effect_tooltip = { add_timed_idea = { idea = JAP_pnr_military_mission_ideas days = 180 } } }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_INC } }
+					set_country_flag = JAP_pnr_support_INC
+				}
+			}
+		}
+	}
+	JAP_pnr_secret_support_weapon_to_INC_decision = {
+		icon = GFX_decision_generic_civil_support
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^1 = 1 } }
+		fire_only_once = yes
+		available = {
+			INC = { exists = yes }
+			INC = { has_war_with = GEA }
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		cost = 0
+		days_remove = 35
+		custom_cost_text = 1000_guns
+		custom_cost_trigger = { NOT = { has_equipment = { infantry_equipment < 1000 } } }
+		complete_effect = {
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_INC } }
+					set_country_flag = JAP_pnr_support_INC
+				}
+			}
+		}
+		remove_effect = {
+			send_equipment = { target = INC type = infantry_equipment amount = 1000 }
+		}
+	}
+	JAP_pnr_volunteer_manpower_to_INC_decision = {
+		icon = GFX_decision_eng_blackshirt_march
+		allowed = { always = no }
+		visible = { check_variable = { JAP_pnr_kd_events^1 = 1 } }
+		available = {
+			INC = { exists = yes }
+			INC = { has_war_with = GEA }
+		}
+		ai_will_do = { factor = 50 }
+		priority = 99
+		cost = 25
+		days_remove = 42		
+		complete_effect = {
+			if = {
+				limit = { has_active_mission = JAP_pnr_inc_war_with_gea_phase_1_countdown }
+				JAP = { add_manpower = -800 }
+				INC = { add_manpower = 800 }
+			}
+			else = {
+				JAP = { add_manpower = -2010 }
+				INC = { add_manpower = 2000 }
+				add_intel = { target = INC civilian_intel = 5 army_intel = 5 navy_intel = 5 airforce_intel = 5 }
+			}
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_INC } }
+					set_country_flag = JAP_pnr_support_INC
+				}
+			}
+		}
+	}
 ### Indian Civil War ###
 	JAP_pnr_operation_spartacus_india_decision = { # Operation Spartacus
 		icon = GFX_decision_continent_north_america

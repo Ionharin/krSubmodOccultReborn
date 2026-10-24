@@ -1,13 +1,16 @@
 JAP_pnr_initialize_startup_variables = { #Variable StartUp Setting
 	if = {
-		limit = {
-			tag = JAP
-		}
-		set_variable = { JAP_pnr_pan_asia_modifier_point_var = 0 }
+		limit = { tag = JAP }
 		set_variable = { FNG_JAP_influence_save_in_war_var = 0 }
+		set_variable = { JAP_pnr_iw_agriculture_decision_cost = 30 }
+		set_variable = { JAP_pnr_iw_industry_decision_cost = 50 }
+		set_variable = { JAP_pnr_sr_miitsu = 35 }
+		set_variable = { JAP_pnr_sr_army_control = 0 }
+		set_variable = { JAP_pnr_sr_navy_control = 0 }
+		set_variable = { JAP_pnr_sr_emperor_mysticism = 4 }
 	# MANPOWER DEBUFF #
-		set_variable = { JAP_pnr_bad_landreform_problem_modifier_consumer_goods_factor = 0 }
-		set_variable = { JAP_pnr_bad_landreform_problem_modifier_political_power_cost = 0 }
+		#set_variable = { JAP_pnr_bad_landreform_problem_modifier_consumer_goods_factor = 0 }
+		#set_variable = { JAP_pnr_bad_landreform_problem_modifier_political_power_cost = 0 }
 		JAP_pnr_update_bad_landreform_problem_modifier = yes
 	# Black Monday Setting #
 		set_variable = { JAP_pnr_lost_decade_consumer_goods_factor = 0.35 }
@@ -55,16 +58,29 @@ JAP_pnr_initialize_startup_variables = { #Variable StartUp Setting
 		set_variable = { JAP_kwan_island_crisis_level_var = 0 }
 		set_variable = { JAP_kwan_island_hp_var = 30 }
 	# For MIO #
-		set_variable = { JAP_mio_kokka_soudashou_var = 3 } 
 		set_variable = { JAP_mio_kokka_soudashou_bonus_var = 0 }
 		set_variable = { JAP_mio_trait_next_will_be_better_var = 0 }
 		set_variable = { JAP_mio_experience_var = 5 } 
 		set_variable = { JAP_mio_command_power_var = 5 }
 		set_variable = { JAP_mio_cic_var = 25 }
 		#set_variable = { pnr_provisional_government_stability_var = 0 }
+	# For Co-sphere #
+		set_variable = { JAP_pnr_pan_asia_modifier_point_progress_var = 0 }
+		set_variable = { JAP_pnr_pan_asia_modifier_point_var = 0 }
+		set_variable = { JAP_pnr_pan_asia_modifier_point_progress_quarterly_multply_var = 0.1 }
 	# FNG - JAP setting #
 		set_variable = { JAP_seek_other_collabrator_progress_var = 0 } 
 		set_variable = { JAP_seek_other_collabrator_count_var = 0 } 
+	# Kasumigaseki Diplomacy regional conflict slots #
+		set_variable = { JAP_pnr_kd_events^0 = 0 }
+		set_variable = { JAP_pnr_kd_events^1 = 0 }
+		set_variable = { JAP_pnr_kd_events^2 = 0 }
+		set_variable = { JAP_pnr_kd_events^3 = 0 }
+		set_variable = { JAP_pnr_kd_events^4 = 0 }
+		set_variable = { JAP_pnr_kd_events^5 = 0 }
+		set_variable = { JAP_pnr_kd_events^6 = 0 }
+		set_variable = { JAP_pnr_kd_events^7 = 0 }
+		set_variable = { JAP_pnr_kd_events^8 = 0 }
 	}
 	KOJ = {
 		set_variable = { pnr_provisional_government_stability_var = 65 } # PG startup

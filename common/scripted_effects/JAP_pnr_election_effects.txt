@@ -61,32 +61,43 @@ JAP_pnr_election_refresh_projected_changes = {
 
 JAP_pnr_election_calculate_winner = {
 	JAP_pnr_election_ensure_projected_results = yes
-
-	set_variable = { JAP_pnr_election_winning_party = 7 }
-	set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_party_seats^7 }
-
+	### Initialize Winner Trigger ###
+	set_variable = { JAP_pnr_election_winning_party = 12 }
+	set_variable = { JAP_pnr_election_winning_party_seats = 234 }
+	set_variable = { JAP_pnr_election_shakai_taishuto_seats = JAP_pnr_election_party_seats^5 } # For Shakai_taishuto
+	add_to_variable = { JAP_pnr_election_shakai_taishuto_seats = JAP_pnr_election_party_seats^4 } # For Shakai_taishuto
+	set_variable = { JAP_pnr_election_seimin_teikei_seats = JAP_pnr_election_party_seats^7 } # For Shakai_taishuto
+	add_to_variable = { JAP_pnr_election_seimin_teikei_seats = JAP_pnr_election_party_seats^6 } # For Shakai_taishuto
+	### For Party Seats Calculate ###
 	if = {
 		limit = { check_variable = { JAP_pnr_election_party_seats^10 > JAP_pnr_election_winning_party_seats } }
 		set_variable = { JAP_pnr_election_winning_party = 10 }
 		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_party_seats^10 }
 	}
-	if = {
+	else_if = {
 		limit = { check_variable = { JAP_pnr_election_party_seats^8 > JAP_pnr_election_winning_party_seats } }
 		set_variable = { JAP_pnr_election_winning_party = 8 }
 		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_party_seats^8 }
 	}
-
-	set_variable = { JAP_pnr_election_shakai_taishuto_seats = JAP_pnr_election_party_seats^4 }
-	add_to_variable = { JAP_pnr_election_shakai_taishuto_seats = JAP_pnr_election_party_seats^5 }
-	if = {
+	else_if = {
+		limit = { check_variable = { JAP_pnr_election_party_seats^7 > JAP_pnr_election_winning_party_seats } }
+		set_variable = { JAP_pnr_election_winning_party = 7 }
+		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_party_seats^7 }
+	}
+	else_if = {
+		limit = { check_variable = { JAP_pnr_election_party_seats^6 > JAP_pnr_election_winning_party_seats } }
+		set_variable = { JAP_pnr_election_winning_party = 6 }
+		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_party_seats^6 }
+	}
+	else_if = {
 		limit = { check_variable = { JAP_pnr_election_shakai_taishuto_seats > JAP_pnr_election_winning_party_seats } }
 		set_variable = { JAP_pnr_election_winning_party = 5 }
 		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_shakai_taishuto_seats }
 	}
-	if = {
-		limit = { check_variable = { JAP_pnr_election_party_seats^6 > JAP_pnr_election_winning_party_seats } }
-		set_variable = { JAP_pnr_election_winning_party = 6 }
-		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_party_seats^6 }
+	else_if = {
+		limit = { check_variable = { JAP_pnr_election_seimin_teikei_seats > JAP_pnr_election_winning_party_seats } }
+		set_variable = { JAP_pnr_election_winning_party = 11 }
+		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_seimin_teikei_seats }
 	}
 }
 

@@ -1,0 +1,141 @@
+on_actions = {
+on_civil_war_end = { 
+    effect = { # For SIA civil War
+        if = {
+            limit = { original_tag = SIA }
+            if = {
+                limit = {
+                    SIA = {
+                        has_country_flag = SIA_REBEL
+                        NOT = { has_global_flag = SIA_phibunsongkhram_is_royalist }
+                    }
+                }
+				JAP = { country_event = { id = JAP_pnr_military_events.22 days = 3 } }
+            }
+        }      
+    }
+}
+
+on_send_volunteers = {
+    effect = {
+        if = {
+            limit = { original_tag = JAP }
+            if = { # For LEP Civil War
+				limit = {
+					has_global_flag = LEP_collapse
+					FROM = { original_tag = ANQ }
+                    NOT = { has_country_flag = JAP_pnr_support_ANQ }
+				}
+				set_country_flag = JAP_pnr_support_ANQ
+			}
+            if = { # For Muslim-Buddhism War XSM
+				limit = {
+					FROM = {
+                        tag = XSM
+                        OR = {
+                            has_war_with = MON
+							has_war_with = TIB
+                            has_war_with = SHX
+                        }
+                    }
+                    NOT = { has_country_flag = JAP_pnr_support_XSM }
+				}
+				set_country_flag = JAP_pnr_support_
+			}
+			if = { # For SIK War ETS
+				limit = {
+					ETS = {
+                        OR = {
+                            has_war_with = KUM
+							has_war_with = SIK
+                        }
+                    }
+                    NOT = { has_country_flag = JAP_pnr_support_ETS }
+				}
+				set_country_flag = JAP_pnr_support_ETS
+			}
+            if = { # For Muslim-Buddhism War TIB
+				limit = {
+					FROM = {
+                        tag = TIB
+                        OR = {
+                            has_war_with = MON
+							has_war_with = XSM
+                            has_war_with = SHX
+                        }
+                    }
+                    NOT = { has_country_flag = JAP_pnr_support_TIB }
+				}
+				set_country_flag = JAP_pnr_support_TIB
+			}
+            if = { # For Muslim-Buddhism War SHX
+				limit = {
+					FROM = {
+                        tag = SHX
+                        OR = {
+                            has_war_with = MON
+							has_war_with = TIB
+                            has_war_with = XSM
+                        }
+                    }
+                    NOT = { has_country_flag = JAP_pnr_support_SHX }
+				}
+				set_country_flag = JAP_pnr_support_SHX
+			}
+            if = { # For SIA Civil War
+				limit = {
+					SIA = { has_civil_war = yes }
+					FROM = { original_tag = SIA }
+                    NOT = { has_country_flag = JAP_pnr_support_SIA }
+				}
+				set_country_flag = JAP_pnr_support_SIA
+			}
+            if = { # For INC War
+				limit = {
+					INC = { has_war_with = GEA }
+					FROM = { tag = INC }
+                    NOT = { has_country_flag = JAP_pnr_support_INC }
+				}
+				set_country_flag = JAP_pnr_support_INC
+			}
+            if = { # For SPA Civil War
+				limit = {
+					has_global_flag = spanish_civil_war
+					FROM = { original_tag = SPA }
+                    FROM = { tag = SPR }
+                    NOT = { has_country_flag = JAP_pnr_support_SPR }
+				}
+                set_country_flag = JAP_pnr_support_SPR
+			}
+            if = { # For IND Civil War - HND
+				limit = {
+					has_country_flag = JAP_supported_HND_flag
+					FROM = {
+						tag = HND
+						OR = {
+							has_war_with = PRF
+							has_war_with = RAJ
+						}
+					}
+                    NOT = { has_country_flag = JAP_pnr_support_India }
+				}
+                set_country_flag = JAP_pnr_support_India
+			}
+            if = { # For IND Civil War - PRF
+				limit = {
+					NOT = { has_country_flag = JAP_supported_HND_flag }
+					FROM = {
+						tag = PRF
+						OR = {
+							has_war_with = RAJ
+							has_war_with = HND
+						}
+					}
+                    NOT = { has_country_flag = JAP_pnr_support_India }
+				}
+                set_country_flag = JAP_pnr_support_India
+			}
+        }
+    }
+}
+}

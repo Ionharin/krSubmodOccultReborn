@@ -174,7 +174,7 @@ characters = {
 		country_leader = {
 			desc = JAP_pnr_hayashi_senjuro_leader_desc
 			ideology = authoritarian_democrat_subtype
-			traits = { JAP_pnr_the_friend_of_paris_trait }
+			traits = { JAP_pnr_the_puppet_pm_trait }
 			expire = "1965.1.1.1"
 			id = -1
 		}
@@ -187,6 +187,21 @@ characters = {
 			can_be_fired = no
 		}
 	}
+	JAP_pnr_ugaki_kazushige = {
+		name = JAP_pnr_ugaki_kazushige
+		portraits = {
+			civilian = {
+				large = GFX_portrait_jap_pnr_ugaki_kazushige
+			}
+		}
+		country_leader = {
+			desc = JAP_pnr_ugaki_kazushige_leader_desc
+			ideology = authoritarian_democrat_subtype
+			traits = { BUK_progressive_grey_eminence_leader }
+			expire = "1965.1.1.1"
+			id = -1
+		}
+	}
 	JAP_pnr_isoo_abe = {
 		name = JAP_pnr_isoo_abe
 		portraits = {
@@ -196,7 +211,7 @@ characters = {
 		}
 		country_leader = {
 			desc = JAP_pnr_isoo_abe_leader_desc
-			ideology = social_democrat_subtype
+			ideology = social_liberal_subtype
 			traits = { JAP_pnr_the_friend_of_paris_trait }
 			expire = "1965.1.1.1"
 			id = -1
@@ -747,6 +762,21 @@ characters = {
 			can_be_fired = no
 		}
 	}
+	JAP_pnr_yoshiyuki_kawashima = {
+		name = JAP_pnr_yoshiyuki_kawashima
+        portraits = {
+            army = {
+                small = GFX_portrait_jap_pnr_yoshiyuki_kawashima_adv
+            }
+        }
+		advisor = {
+			slot = army_chief
+            desc = JAP_pnr_yoshiyuki_kawashima_desc
+			idea_token = JAP_pnr_yoshiyuki_kawashima_idea
+			traits = { KR_army_chief_organisational_2 }
+			cost = 150
+		}
+	}
 
 ### Second in Command ###
 	JAP_pnr_hyakutake_saburou = {
@@ -765,6 +795,33 @@ characters = {
 			can_be_fired = no
 		}
 	}
+	JAP_pnr_honjo_shigeru = {
+		name = JAP_pnr_honjo_shigeru
+        portraits = {
+            civilian = {
+                small = GFX_portrait_jap_pnr_honjo_shigeru_adv
+            }
+			army = {
+				large = GFX_portrait_jap_pnr_honjo_shigeru
+			}
+        }
+        advisor = {
+			slot = second_in_command
+            desc = JAP_pnr_honjo_shigeru_advisor_desc
+			idea_token = JAP_pnr_honjo_shigeru_idea
+			traits = { KR_flamboyant_brute }
+			cost = 0
+			can_be_fired = no
+		}
+		corps_commander = {
+			traits = { old_guard politically_connected infantry_officer hidden_sympathies }
+    		skill = 2
+    		attack_skill = 2
+    		defense_skill = 3
+    		planning_skill = 1
+    		logistics_skill = 1
+		}
+	}
 	JAP_pnr_ichiki_kitokuro = {
 		name = JAP_pnr_ichiki_kitokuro
         portraits = {
@@ -776,7 +833,7 @@ characters = {
 			slot = second_in_command
             desc = JAP_pnr_ichiki_kitokuro_advisor_desc
 			idea_token = JAP_pnr_ichiki_kitokuro_idea
-			traits = { JAP_pnr_weak_dictator_trait }
+			traits = { KR_influential_intellectual }
 			cost = 0
 			can_be_fired = no
 		}
@@ -792,7 +849,7 @@ characters = {
 			slot = second_in_command
             desc = JAP_pnr_kido_koichi_advisor_desc
 			idea_token = JAP_pnr_kido_koichi_idea
-			traits = { JAP_pnr_weak_dictator_trait }
+			traits = { KR_political_specialist }
 			cost = 0
 			can_be_fired = no
 		}
@@ -808,7 +865,7 @@ characters = {
 			slot = second_in_command
             desc = JAP_pnr_kurahei_yuasa_advisor_desc
 			idea_token = JAP_pnr_kurahei_yuasa_idea
-			traits = { JAP_pnr_weak_dictator_trait }
+			traits = { KR_pragmatic_statesman }
 			cost = 0
 			can_be_fired = no
 		}
@@ -824,7 +881,7 @@ characters = {
 			slot = second_in_command
             desc = JAP_pnr_makino_nobuaki_advisor_desc
 			idea_token = JAP_pnr_makino_nobuaki_idea
-			traits = { JAP_pnr_weak_dictator_trait }
+			traits = { JAP_pnr_the_believer_of_tenno_trait }
 			cost = 0
 			can_be_fired = no
 		}

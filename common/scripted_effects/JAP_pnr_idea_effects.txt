@@ -317,6 +317,7 @@ JAP_pnr_check_red_conspiracy_threshold_events = { # Trigger JAP_pnr_rs.1
 		country_event = { id = JAP_pnr_rs.1 }
 	}
 }
+
 ### MIO Effect ###
 
 JAP_pnr_mio_check_industrial_complex = { # Check num of IC
@@ -372,5 +373,91 @@ JAP_pnr_normal_zaibatsu_size_bonus_effect = { # Complete KOKKA SOUDASHOU THEN PR
         PREV = {
 			add_to_variable = { JAP.JAP_pnr_total_mio_size_var = current_mio_size_var }
         }
+    }
+}
+
+### PAN ASIA SYSTEM ###
+
+JAP_pnr_pan_asia_progress_var_increase_normal_effect = {
+	set_temp_variable = { JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var = 0 }
+	add_to_temp_variable = { JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var = THIS.num_of_factories }
+	every_other_country = {
+		limit = { is_in_faction_with = ROOT }
+		add_to_temp_variable = { JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var = THIS.num_of_factories }
+	}
+	multiply_temp_variable = { JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var = JAP_pnr_pan_asia_modifier_point_progress_quarterly_multply_var }
+	clamp_temp_variable = { var = JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var min = 0 max = 100 }
+	add_to_variable = { JAP.JAP_pnr_pan_asia_modifier_point_progress_var = JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var }
+	if = {
+		limit = { check_variable = { JAP.JAP_pnr_pan_asia_modifier_point_progress_var > 99.99 } }
+		set_variable = { JAP.JAP_pnr_pan_asia_modifier_point_progress_var = 0 }
+		add_to_variable = { JAP.JAP_pnr_pan_asia_modifier_point_var = 1 }
+        country_event = { id = JAP_pnr_foreign_events.26 days = 7 random_hours = 3 }
+	}
+}
+
+JAP_pnr_pan_asia_progress_var_increase_defeat_effect = {
+	set_temp_variable = { JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var = 0 }
+	add_to_temp_variable = { JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var = THIS.num_of_factories }
+	multiply_temp_variable = { JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var = 0.03 }
+	clamp_temp_variable = { var = JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var min = 0 max = 100 }
+	add_to_variable = { 
+		var = JAP.JAP_pnr_pan_asia_modifier_point_progress_var 
+		value = JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var
+		tooltip = JAP_pnr_pan_asia_modifier_point_progress_var_add_tt	
+	}
+	if = {
+		limit = { check_variable = { JAP.JAP_pnr_pan_asia_modifier_point_progress_var > 99.99 } }
+		set_variable = { JAP.JAP_pnr_pan_asia_modifier_point_progress_var = 0 }
+		add_to_variable = { JAP.JAP_pnr_pan_asia_modifier_point_var = 1 }
+         country_event = { id = JAP_pnr_foreign_events.26 days = 7 random_hours = 3 }
+	}
+}
+
+### 1936 Election System Route Check ###
+
+JAP_pnr_first_election_route_check = {
+	if = {
+        limit = { check_variable = { JAP_pnr_election_winning_party = 7 } }
+        custom_effect_tooltip = JAP_pnr_normal.4.seiyukai_tt
+        complete_national_focus = JAP_pnr_constitution_still_exists
+        hidden_effect = { set_politics = { ruling_party = social_conservative } }
+    }
+    if = {
+        limit = { check_variable = { JAP_pnr_election_winning_party = 10 } }
+        custom_effect_tooltip = JAP_pnr_normal.4.national_populist_tt
+        set_country_flag = pnr_national_populist_government_flag
+        mark_focus_tree_layout_dirty = yes
+        hidden_effect = { set_politics = { ruling_party = national_populist } }
+    }
+    if = {
+        limit = { check_variable = { JAP_pnr_election_winning_party = 8 } }
+        custom_effect_tooltip = JAP_pnr_normal.4.authoritarian_democrat_tt
+        set_country_flag = pnr_kokumin_domei_government_flag
+        mark_focus_tree_layout_dirty = yes
+        hidden_effect = { set_politics = { ruling_party = authoritarian_democrat } }
+        }
+    if = {
+        limit = { check_variable = { JAP_pnr_election_winning_party = 5 } }
+        custom_effect_tooltip = JAP_pnr_normal.4.social_liberal_tt
+        set_country_flag = pnr_shakai_taishuto_government_flag
+        mark_focus_tree_layout_dirty = yes
+        hidden_effect = { set_politics = { ruling_party = social_liberal } }
+    }
+    if = {
+        limit = { check_variable = { JAP_pnr_election_winning_party = 6 } }
+        custom_effect_tooltip = JAP_pnr_normal.4.market_liberal_tt
+        complete_national_focus = JAP_pnr_constitution_still_exists
+        hidden_effect = { set_politics = { ruling_party = market_liberal } }
+    }
+	if = {
+        limit = { check_variable = { JAP_pnr_election_winning_party = 11 } }
+        custom_effect_tooltip = JAP_pnr_normal.4.special_tt
+        country_event = { id = JAP_pnr_normal.27 days = 7 }
+    }
+	if = {
+        limit = { check_variable = { JAP_pnr_election_winning_party = 12 } }
+        custom_effect_tooltip = JAP_pnr_normal.4.special_tt
+		country_event = { id = JAP_pnr_normal.28 days = 3 }
     }
 }

@@ -12,3 +12,18 @@ technology_sharing_group = { # World Moral Association
 		exists = yes
 	}
 }
+
+technology_sharing_group = { # PNR Rikagaku Kenkyusho (Japan)
+	id = JAP_pnr_sharing_research
+	name = japan_research_name
+	desc = japan_research_desc
+	picture = GFX_idea_jap_pnr_riken
+
+	research_sharing_per_country_bonus = 0.12
+
+	available = {
+		country_exists = JAP
+		NOT = { has_war_with = JAP }
+		has_socialist_government = no
+	}
+}
