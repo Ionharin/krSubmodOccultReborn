@@ -7,7 +7,7 @@ add_namespace = JAP_pnr_news
 add_namespace = JAP_pnr_kg
 add_namespace = JAP_pnr_earlygame
 add_namespace = JAP_pnr_midgame
-add_namespace = JAP_pnr_finalgame
+add_namespace = JAP_pnr_endgame
 add_namespace = JAP_pnr_rs
 add_namespace = JAP_pnr_con
 add_namespace = JAP_pnr_515
@@ -414,7 +414,7 @@ country_event = { # 1936年日本众议院大选
             country_event = { id = JAP_pnr_normal.8 days = 16 }
             country_event = { id = JAP_pnr_normal.9 days = 20 }
             country_event = { id = JAP_pnr_earlygame.58 days = 25 }
-            country_event = { id = JAP_pnr_normal.23  days = 30 }
+            country_event = { id = JAP_pnr_normal.29  days = 30 }
         }
     }
     title = JAP_pnr_normal.3.t
@@ -864,7 +864,7 @@ country_event = { # 闲话
     immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.14" }
     title = JAP_pnr_normal.14.t
     desc = JAP_pnr_normal.14.desc
-    picture = GFX_JAP_pnr_normal_14
+    picture = GFX_report_event_pnr_JAP_saionji_kinmochi_1
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
@@ -1491,6 +1491,60 @@ country_event = { # 超然内阁的回归
     }
 }
 
+country_event = { # 舞弊
+    id = JAP_pnr_normal.29
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.27" }
+    title = JAP_pnr_normal.29.t
+    desc = JAP_pnr_normal.29.desc
+    picture = GFX_JAP_pnr_normal_27
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 立宪政友会凭此逆转大局。
+        name = JAP_pnr_normal.29.a
+        ai_chance = { factor = 1 }
+        JAP_pnr_election_ensure_projected_results = yes
+        add_to_variable = {
+			var = JAP_pnr_election_party_seats^7
+		    value = 40
+		    tooltip = JAP_pnr_election_party_7_tt
+	    }
+        add_to_variable = {
+		    var = JAP_pnr_election_party_seats^10
+		    value = -8
+		    tooltip = JAP_pnr_election_party_10_tt
+	    }
+        add_to_variable = {
+		    var = JAP_pnr_election_party_seats^8
+		    value = -8
+		    tooltip = JAP_pnr_election_party_8_tt
+	    }
+        add_to_variable = {
+		    var = JAP_pnr_election_party_seats^6
+		    value = -8
+		    tooltip = JAP_pnr_election_party_6_tt
+	    }
+        add_to_variable = {
+		    var = JAP_pnr_election_party_seats^5
+		    value = -8
+		    tooltip = JAP_pnr_election_party_5_tt
+	    }
+        add_to_variable = {
+		    var = JAP_pnr_election_party_seats^4
+		    value = -8
+		    tooltip = JAP_pnr_election_party_4_tt
+	    }
+        JAP_pnr_election_refresh_projected_changes = yes
+        hidden_effect = { country_event = JAP_pnr_normal.23 }
+    }
+    option = { # 号外！立宪政友会选举舞弊！
+        name = JAP_pnr_normal.29.b
+        ai_chance = { factor = 1 }
+        add_popularity = { ideology = social_conservative popularity = -0.05 }
+        hidden_effect = { country_event = JAP_pnr_normal.23 }
+    }
+}
+
 country_event = { # 秋田县的深夜
     id = JAP_pnr_jpc.1
     immediate = { 
@@ -1697,6 +1751,7 @@ country_event = { # 安久公司骚乱
 		    }
             JAP_pnr_election_refresh_projected_changes = yes
         }
+        hidden_effect = { country_event = { id = JAP_pnr_jpc.8 days = 15 random_hours = 3 } }
     }
     option = { # 这事政府可不好出面，快给内田先生准备些伴手礼。
         name = JAP_pnr_jpc.5.b
@@ -1849,8 +1904,8 @@ country_event = { # 片山潜被袭击
         name = JAP_pnr_jpc.8.a
         ai_chance = { factor = 1 }
         add_stability = -0.05
-        custom_effect_tooltip = pnr_red_conspiracy_add_5_tt
-        add_to_variable = { JAP_pnr_red_conspiracy_strength = 5 }
+        custom_effect_tooltip = pnr_red_conspiracy_add_10_tt
+        add_to_variable = { JAP_pnr_red_conspiracy_strength = 10 }
         clamp_variable = { var = JAP_pnr_red_conspiracy_strength max = 100 min = 0 }
         JAP_pnr_update_red_conspiracy_modifier_values = yes
         JAP_pnr_election_ensure_projected_results = yes
@@ -4105,6 +4160,7 @@ country_event = { # 《国家保安法》通过，解散议会大选
         ai_chance = { factor = 1 }
         add_dynamic_modifier = { modifier = JAP_pnr_NSA_idea }
         custom_effect_tooltip =  JAP_pnr_election_start_show_figure_tt
+        JAP_congress_open_panel = yes
         hidden_effect = {
             country_event = { id = JAP_pnr_normal.3 days = 2 }
 			set_country_flag = pnr_congress_temporarily_unable
@@ -5016,6 +5072,67 @@ country_event = { # 产业界的援手
     }
 }
 
+##################################
+#####  MIDDLE  GAME  EVENTS  #####
+##################################
+
+country_event = { # 政友会穿越风暴
+    id = JAP_pnr_midgame.1
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_midgame.1" }
+    title = JAP_pnr_midgame.1.t
+    desc = JAP_pnr_midgame.1.desc
+    picture = GFX_JAP_pnr_midgame_1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 由铃木喜三郎掌舵没什么不好。
+        name = JAP_pnr_midgame.1.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 希望久原房之助能带来一些改变。
+        name = JAP_pnr_midgame.1.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 中岛知久平表达合作意愿
+    id = JAP_pnr_midgame.2
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_midgame.2" }
+    title = JAP_pnr_midgame.2.t
+    desc = JAP_pnr_midgame.2.desc
+    picture = GFX_JAP_pnr_midgame_2
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 如果你想要，我就会给。
+        name = JAP_pnr_midgame.2.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 这个位置已经有人了。
+        name = JAP_pnr_midgame.2.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 推进地方自治分权
+    id = JAP_pnr_midgame.3
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_midgame.3" }
+    title = JAP_pnr_midgame.3.t
+    desc = JAP_pnr_midgame.3.desc
+    picture = GFX_JAP_pnr_midgame_3
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 希望这能稳住局势。
+        name = JAP_pnr_midgame.3.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 老实说，我觉得还是先放一放。
+        name = JAP_pnr_midgame.3.b
+        ai_chance = { factor = 1 }
+    }
+}
+
 country_event = { # 帝国议会临时会召开
     id = JAP_pnr_515.1
     immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_515.1" }
@@ -5884,6 +6001,8 @@ country_event = { # 议会大乱斗
     id = JAP_pnr_515.12
     immediate = {
         log = "[GetDateText]: [Root.GetName]: event JAP_pnr_515.12"
+        set_variable = { JAP_pnr_your_punching_life_var = 40 }
+		set_variable = { JAP_pnr_enemies_punching_life_var = 50 }
     }
     trigger = { NOT = { has_country_flag = JAP_515_debate_dissolution_flag } }
     title = JAP_pnr_515.12.t
@@ -5905,6 +6024,8 @@ country_event = { # 议会大乱斗
         custom_effect_tooltip = JAP_pnr_515_parliament_support_tt
         custom_effect_tooltip = tooltip_white_line
         custom_effect_tooltip = JAP_pnr_515.12.a_tt
+        set_country_flag = JAP_parliament_fight_start
+        country_event = JAP_pnr_punch.1
     }
     option = { # 简直是帮派火并，流氓恶斗。
         name = JAP_pnr_515.12.b
@@ -7162,10 +7283,7 @@ country_event = { # 跳入混乱
     option = { # 该打人了。
         name = JAP_pnr_punch.1.a
         ai_chance = { factor = 1 }
-    }
-    option = { # 我要再想想院外团的职责。
-        name = JAP_pnr_punch.1.b
-        ai_chance = { factor = 1 }
+        country_event = JAP_pnr_punch.2
     }
 }
 
@@ -7173,26 +7291,367 @@ country_event = { # 缠斗
     id = JAP_pnr_punch.2
     immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_punch.2" }
     title = JAP_pnr_punch.2.t
-    desc = JAP_pnr_punch.2.desc
-    picture = GFX_JAP_pnr_punch_2
+    desc = {
+        trigger = { has_country_flag = JAP_parliament_fight_start }
+        text = JAP_pnr_punch.2.desc
+    }
+    desc = {
+        trigger = { has_country_flag = JAP_parliament_fight_hold }
+        text = JAP_pnr_punch.2.desc_hold
+    }
+    desc = {
+        trigger = { has_country_flag = JAP_parliament_fight_dodge }
+        text = JAP_pnr_punch.2.desc_dodge
+    }
+    desc = {
+        trigger = { has_country_flag = JAP_parliament_fight_dodge_miss }
+        text = JAP_pnr_punch.2.desc_dodge_miss
+    }
+    desc = {
+        trigger = { has_country_flag = JAP_parliament_fight_attack }
+        text = JAP_pnr_punch.2.desc_attack
+    }
+    desc = {
+        trigger = { has_country_flag = JAP_parliament_fight_attack_miss }
+        text = JAP_pnr_punch.2.desc_attack_miss
+    }
+    picture = GFX_report_event_pnr_JAP_parliament_violence_1
     is_triggered_only = yes
     hidden = no
     timeout_days = 14
     option = { # 跳到桌子上突袭。
         name = JAP_pnr_punch.2.a
         ai_chance = { factor = 1 }
+        trigger = { NOT = { has_country_flag = JAP_pnr_strike_punch_flag } }
+        clr_country_flag = JAP_parliament_fight_start
+        clr_country_flag = JAP_parliament_fight_hold
+        clr_country_flag = JAP_parliament_fight_dodge
+        clr_country_flag = JAP_parliament_fight_dodge_miss
+        clr_country_flag = JAP_parliament_fight_attack
+        clr_country_flag = JAP_parliament_fight_attack_miss
+        hidden_effect = { country_event = JAP_pnr_punch.4 }
+        custom_effect_tooltip = JAP_pnr_punch.2.a_tt
     }
     option = { # 给他一棍。
         name = JAP_pnr_punch.2.b
         ai_chance = { factor = 1 }
+        trigger = {
+            OR = {
+               check_variable = { JAP_pnr_your_punching_life_var > 0 }
+               check_variable = { JAP_pnr_enemies_punching_life_var > 0 } 
+            }
+        }
+        set_country_flag = JAP_pnr_strike_punch_flag
+        clr_country_flag = JAP_parliament_fight_start
+        clr_country_flag = JAP_parliament_fight_hold
+        clr_country_flag = JAP_parliament_fight_dodge
+        clr_country_flag = JAP_parliament_fight_dodge_miss
+        clr_country_flag = JAP_parliament_fight_attack
+        clr_country_flag = JAP_parliament_fight_attack_miss
+        if = {
+            limit = { has_country_flag = JAP_parliament_fight_attack_power }
+            random_list = {
+                65 = {
+                    set_country_flag = JAP_parliament_fight_attack
+                    subtract_from_variable = {
+                        var = JAP_pnr_enemies_punching_life_var
+                        value = 5
+                        tooltip = JAP_pnr_enemies_punching_life_var_decrease_tt
+                    }
+                    clamp_variable = { var = JAP_pnr_enemies_punching_life_var min = 0 }
+                    clr_country_flag = JAP_parliament_fight_attack_power
+                }
+                45 = {
+                    set_country_flag = JAP_parliament_fight_attack_miss
+                    subtract_from_variable = {
+                        var = JAP_pnr_your_punching_life_var
+                        value = 5
+                        tooltip = JAP_pnr_your_punching_life_var_decrease_tt
+                    }
+                    clamp_variable = { var = JAP_pnr_your_punching_life_var min = 0 }
+                    clr_country_flag = JAP_parliament_fight_attack_power
+                }
+            }
+            hidden_effect = { country_event = { id = JAP_pnr_punch.2 } country_event = { id = JAP_pnr_punch.7 } }
+        }
+        else = {
+            random_list = {
+                1 = {
+                    set_country_flag = JAP_parliament_fight_attack
+                    subtract_from_variable = {
+                        var = JAP_pnr_enemies_punching_life_var
+                        value = 5
+                        tooltip = JAP_pnr_enemies_punching_life_var_decrease_tt
+                    }
+                    clamp_variable = { var = JAP_pnr_enemies_punching_life_var min = 0 }
+                }
+                1 = {
+                    set_country_flag = JAP_parliament_fight_attack_miss
+                    subtract_from_variable = {
+                        var = JAP_pnr_your_punching_life_var
+                        value = 5
+                        tooltip = JAP_pnr_your_punching_life_var_decrease_tt
+                    }
+                    clamp_variable = { var = JAP_pnr_your_punching_life_var min = 0 }
+                }
+            }
+            hidden_effect = { country_event = { id = JAP_pnr_punch.2 } country_event = { id = JAP_pnr_punch.7 } }
+        }
     }
     option = { # 我看到了桌子上的姓名牌。
         name = JAP_pnr_punch.2.c
         ai_chance = { factor = 1 }
+        trigger = { NOT = { has_country_flag = JAP_pnr_trap_punch_flag } }
+        set_country_flag = JAP_pnr_strike_punch_flag
+        clr_country_flag = JAP_parliament_fight_start
+        clr_country_flag = JAP_parliament_fight_hold
+        clr_country_flag = JAP_parliament_fight_dodge
+        clr_country_flag = JAP_parliament_fight_dodge_miss
+        clr_country_flag = JAP_parliament_fight_attack
+        clr_country_flag = JAP_parliament_fight_attack_miss
+        hidden_effect = { country_event = JAP_pnr_punch.3 }
+        custom_effect_tooltip = JAP_pnr_punch.2.c_tt
     }
     option = { # 防御。
         name = JAP_pnr_punch.2.d
         ai_chance = { factor = 1 }
+        trigger = {
+            OR = {
+               check_variable = { JAP_pnr_your_punching_life_var > 0 }
+               check_variable = { JAP_pnr_enemies_punching_life_var > 0 } 
+            }
+        }
+        clr_country_flag = JAP_parliament_fight_start
+        clr_country_flag = JAP_parliament_fight_hold
+        clr_country_flag = JAP_parliament_fight_dodge
+        clr_country_flag = JAP_parliament_fight_dodge_miss
+        clr_country_flag = JAP_parliament_fight_attack
+        clr_country_flag = JAP_parliament_fight_attack_miss
+        custom_effect_tooltip = JAP_pnr_punch.2.d_tt
+        random_list = {
+            1 = {
+                set_country_flag = JAP_parliament_fight_dodge
+                set_country_flag = JAP_parliament_fight_attack_power
+                add_to_variable = {
+                    var = JAP_pnr_your_punching_life_var
+                    value = 5
+                    tooltip = JAP_pnr_your_punching_life_var_increase_tt
+                }
+                clamp_variable = { var = JAP_pnr_your_punching_life_var min = 0 }
+
+            }
+            1 = {
+                set_country_flag = JAP_parliament_fight_dodge_miss
+                subtract_from_variable = {
+                    var = JAP_pnr_your_punching_life_var
+                    value = 3
+                    tooltip = JAP_pnr_your_punching_life_var_decrease_tt
+                }
+                clamp_variable = { var = JAP_pnr_your_punching_life_var min = 0 }
+            }
+        }
+        hidden_effect = { country_event = { id = JAP_pnr_punch.2 } country_event = { id = JAP_pnr_punch.7 } }
+    }
+    option = { # 胜负已分！
+        name = JAP_pnr_punch.2.e
+        ai_chance = { factor = 1 }
+        trigger = {
+            OR = {
+               check_variable = { JAP_pnr_your_punching_life_var < 1 }
+               check_variable = { JAP_pnr_enemies_punching_life_var < 1 } 
+            }
+        }
+        if = {
+            limit = { check_variable = { JAP_pnr_your_punching_life_var < 1 } }
+            country_event = JAP_pnr_punch.6
+        }
+        else = {
+            country_event = JAP_pnr_punch.5
+        }
+    }
+}
+
+country_event = { # 缠斗-机制
+    id = JAP_pnr_punch.7
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_punch.2" }
+    title = JAP_pnr_punch.2.t
+    desc = {
+        trigger = { has_country_flag = JAP_parliament_fight_start }
+        text = JAP_pnr_punch.2.desc
+    }
+    desc = {
+        trigger = { has_country_flag = JAP_parliament_fight_hold }
+        text = JAP_pnr_punch.2.desc_hold
+    }
+    desc = {
+        trigger = { has_country_flag = JAP_parliament_fight_dodge }
+        text = JAP_pnr_punch.2.desc_dodge
+    }
+    desc = {
+        trigger = { has_country_flag = JAP_parliament_fight_dodge_miss }
+        text = JAP_pnr_punch.2.desc_dodge_miss
+    }
+    desc = {
+        trigger = { has_country_flag = JAP_parliament_fight_attack }
+        text = JAP_pnr_punch.2.desc_attack
+    }
+    desc = {
+        trigger = { has_country_flag = JAP_parliament_fight_attack_miss }
+        text = JAP_pnr_punch.2.desc_attack_miss
+    }
+    picture = GFX_report_event_pnr_JAP_parliament_violence_1
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 跳到桌子上突袭。
+        name = JAP_pnr_punch.2.a
+        ai_chance = { factor = 1 }
+        trigger = { NOT = { has_country_flag = JAP_pnr_strike_punch_flag } }
+        clr_country_flag = JAP_parliament_fight_start
+        clr_country_flag = JAP_parliament_fight_hold
+        clr_country_flag = JAP_parliament_fight_dodge
+        clr_country_flag = JAP_parliament_fight_dodge_miss
+        clr_country_flag = JAP_parliament_fight_attack
+        clr_country_flag = JAP_parliament_fight_attack_miss
+        hidden_effect = { country_event = JAP_pnr_punch.4 }
+        custom_effect_tooltip = JAP_pnr_punch.2.a_tt
+    }
+    option = { # 给他一棍。
+        name = JAP_pnr_punch.2.b
+        ai_chance = { factor = 1 }
+        trigger = {
+            OR = {
+               check_variable = { JAP_pnr_your_punching_life_var > 0 }
+               check_variable = { JAP_pnr_enemies_punching_life_var > 0 } 
+            }
+        }
+        set_country_flag = JAP_pnr_strike_punch_flag
+        clr_country_flag = JAP_parliament_fight_start
+        clr_country_flag = JAP_parliament_fight_hold
+        clr_country_flag = JAP_parliament_fight_dodge
+        clr_country_flag = JAP_parliament_fight_dodge_miss
+        clr_country_flag = JAP_parliament_fight_attack
+        clr_country_flag = JAP_parliament_fight_attack_miss
+        if = {
+            limit = { has_country_flag = JAP_parliament_fight_attack_power }
+            random_list = {
+                65 = {
+                    set_country_flag = JAP_parliament_fight_attack
+                    subtract_from_variable = {
+                        var = JAP_pnr_enemies_punching_life_var
+                        value = 5
+                        tooltip = JAP_pnr_enemies_punching_life_var_decrease_tt
+                    }
+                    clamp_variable = { var = JAP_pnr_enemies_punching_life_var min = 0 }
+                    clr_country_flag = JAP_parliament_fight_attack_power
+                }
+                45 = {
+                    set_country_flag = JAP_parliament_fight_attack_miss
+                    subtract_from_variable = {
+                        var = JAP_pnr_your_punching_life_var
+                        value = 5
+                        tooltip = JAP_pnr_your_punching_life_var_decrease_tt
+                    }
+                    clamp_variable = { var = JAP_pnr_your_punching_life_var min = 0 }
+                    clr_country_flag = JAP_parliament_fight_attack_power
+                }
+            }
+            hidden_effect = { country_event = { id = JAP_pnr_punch.2 } country_event = { id = JAP_pnr_punch.7 } }
+        }
+        else = {
+            random_list = {
+                1 = {
+                    set_country_flag = JAP_parliament_fight_attack
+                    subtract_from_variable = {
+                        var = JAP_pnr_enemies_punching_life_var
+                        value = 5
+                        tooltip = JAP_pnr_enemies_punching_life_var_decrease_tt
+                    }
+                    clamp_variable = { var = JAP_pnr_enemies_punching_life_var min = 0 }
+                }
+                1 = {
+                    set_country_flag = JAP_parliament_fight_attack_miss
+                    subtract_from_variable = {
+                        var = JAP_pnr_your_punching_life_var
+                        value = 5
+                        tooltip = JAP_pnr_your_punching_life_var_decrease_tt
+                    }
+                    clamp_variable = { var = JAP_pnr_your_punching_life_var min = 0 }
+                }
+            }
+            hidden_effect = { country_event = { id = JAP_pnr_punch.2 } country_event = { id = JAP_pnr_punch.7 } }
+        }
+    }
+    option = { # 我看到了桌子上的姓名牌。
+        name = JAP_pnr_punch.2.c
+        ai_chance = { factor = 1 }
+        trigger = { NOT = { has_country_flag = JAP_pnr_trap_punch_flag } }
+        set_country_flag = JAP_pnr_strike_punch_flag
+        clr_country_flag = JAP_parliament_fight_start
+        clr_country_flag = JAP_parliament_fight_hold
+        clr_country_flag = JAP_parliament_fight_dodge
+        clr_country_flag = JAP_parliament_fight_dodge_miss
+        clr_country_flag = JAP_parliament_fight_attack
+        clr_country_flag = JAP_parliament_fight_attack_miss
+        hidden_effect = { country_event = JAP_pnr_punch.3 }
+        custom_effect_tooltip = JAP_pnr_punch.2.c_tt
+    }
+    option = { # 防御。
+        name = JAP_pnr_punch.2.d
+        ai_chance = { factor = 1 }
+        trigger = {
+            OR = {
+               check_variable = { JAP_pnr_your_punching_life_var > 0 }
+               check_variable = { JAP_pnr_enemies_punching_life_var > 0 } 
+            }
+        }
+        clr_country_flag = JAP_parliament_fight_start
+        clr_country_flag = JAP_parliament_fight_hold
+        clr_country_flag = JAP_parliament_fight_dodge
+        clr_country_flag = JAP_parliament_fight_dodge_miss
+        clr_country_flag = JAP_parliament_fight_attack
+        clr_country_flag = JAP_parliament_fight_attack_miss
+        custom_effect_tooltip = JAP_pnr_punch.2.d_tt
+        random_list = {
+            1 = {
+                set_country_flag = JAP_parliament_fight_dodge
+                set_country_flag = JAP_parliament_fight_attack_power
+                add_to_variable = {
+                    var = JAP_pnr_your_punching_life_var
+                    value = 5
+                    tooltip = JAP_pnr_your_punching_life_var_increase_tt
+                }
+                clamp_variable = { var = JAP_pnr_your_punching_life_var min = 0 }
+
+            }
+            1 = {
+                set_country_flag = JAP_parliament_fight_dodge_miss
+                subtract_from_variable = {
+                    var = JAP_pnr_your_punching_life_var
+                    value = 3
+                    tooltip = JAP_pnr_your_punching_life_var_decrease_tt
+                }
+                clamp_variable = { var = JAP_pnr_your_punching_life_var min = 0 }
+            }
+        }
+        hidden_effect = { country_event = { id = JAP_pnr_punch.2 } country_event = { id = JAP_pnr_punch.7 } }
+    }
+    option = { # 胜负已分！
+        name = JAP_pnr_punch.2.e
+        ai_chance = { factor = 1 }
+        trigger = {
+            OR = {
+               check_variable = { JAP_pnr_your_punching_life_var < 1 }
+               check_variable = { JAP_pnr_enemies_punching_life_var < 1 } 
+            }
+        }
+        if = {
+            limit = { check_variable = { JAP_pnr_your_punching_life_var < 1 } }
+            country_event = JAP_pnr_punch.6
+        }
+        else = {
+            country_event = JAP_pnr_punch.5
+        }
     }
 }
 
@@ -7208,6 +7667,85 @@ country_event = { # 历史的反复
     option = { # 我怎么会记得这种事！
         name = JAP_pnr_punch.3.a
         ai_chance = { factor = 1 }
+        set_country_flag = JAP_pnr_trap_punch_flag
+        set_country_flag = JAP_parliament_fight_hold
+        subtract_from_variable = {
+            var = JAP_pnr_your_punching_life_var
+            value = 5
+            tooltip = JAP_pnr_your_punching_life_var_decrease_tt
+        }
+        country_event = JAP_pnr_punch.2
+    }
+}
+
+country_event = { # 蛙扑
+    id = JAP_pnr_punch.4
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_punch.4" }
+    title = JAP_pnr_punch.4.t
+    desc = JAP_pnr_punch.4.desc
+    picture = GFX_report_event_pnr_JAP_parliament_violence
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 先发制人原则！
+        name = JAP_pnr_punch.4.a
+        ai_chance = { factor = 1 }
+        set_country_flag = JAP_pnr_strike_punch_flag
+        set_country_flag = JAP_parliament_fight_hold
+        subtract_from_variable = {
+            var = JAP_pnr_enemies_punching_life_var
+            value = 10
+            tooltip = JAP_pnr_enemies_punching_life_var_decrease_tt
+        }
+        country_event = JAP_pnr_punch.2
+    }
+}
+
+country_event = { # 战胜对手
+    id = JAP_pnr_punch.5
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_punch.5" }
+    title = JAP_pnr_punch.5.t
+    desc = JAP_pnr_punch.5.desc
+    picture = GFX_report_event_JAP_diet
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我是冠军！
+        name = JAP_pnr_punch.5.a
+        ai_chance = { factor = 1 }
+        add_political_power = 6
+        set_country_flag = jap_achievement_parliament_punch_winner_flag
+        clr_country_flag = JAP_pnr_strike_punch_flag
+        clr_country_flag = JAP_pnr_trap_punch_flag
+        clr_country_flag = JAP_parliament_fight_start
+        clr_country_flag = JAP_parliament_fight_hold
+        clr_country_flag = JAP_parliament_fight_dodge
+        clr_country_flag = JAP_parliament_fight_dodge_miss
+        clr_country_flag = JAP_parliament_fight_attack
+        clr_country_flag = JAP_parliament_fight_attack_miss
+    }
+}
+
+country_event = { # 眼前一黑
+    id = JAP_pnr_punch.6
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_punch.6" }
+    title = JAP_pnr_punch.6.t
+    desc = JAP_pnr_punch.6.desc
+    picture = GFX_report_event_JAP_diet
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # GUA! SAYONARA！
+        name = JAP_pnr_punch.6.a
+        ai_chance = { factor = 1 }
+        clr_country_flag = JAP_pnr_strike_punch_flag
+        clr_country_flag = JAP_pnr_trap_punch_flag
+        clr_country_flag = JAP_parliament_fight_start
+        clr_country_flag = JAP_parliament_fight_hold
+        clr_country_flag = JAP_parliament_fight_dodge
+        clr_country_flag = JAP_parliament_fight_dodge_miss
+        clr_country_flag = JAP_parliament_fight_attack
+        clr_country_flag = JAP_parliament_fight_attack_miss
     }
 }
 

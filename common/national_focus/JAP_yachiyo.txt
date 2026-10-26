@@ -374,10 +374,10 @@ focus_tree = {
 		prerequisite = {
 			focus = JAP_pnr_shanghai_night_strike
 		}
-		completion_reward = {
-		}
 		available = {
-			NOT = { has_idea = JAP_pnr_forever_frozen_in_1928 }
+			NOT = {
+				has_idea = JAP_pnr_forever_frozen_in_1928
+			}
 		}
 		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
@@ -443,13 +443,21 @@ focus_tree = {
 		prerequisite = {
 			focus = JAP_pnr_kasumigaseki_diplomacy
 		}
-		available = {
-			date > 1936.9.17
-		}
 		completion_reward = {
-			activate_targeted_decision = { target = FNG decision = FNG_JAP_pnr_zizhu_difangzhuyishili } 
-			activate_targeted_decision = { target = FNG decision = FNG_JAP_pnr_zhichi_zhongguotongyi }
+			activate_targeted_decision = {
+				target = FNG
+				decision = FNG_JAP_pnr_zizhu_difangzhuyishili
+			}
+			activate_targeted_decision = {
+				target = FNG
+				decision = FNG_JAP_pnr_zhichi_zhongguotongyi
+			}
 			JAP_pnr_offensive_realpolitik_update = yes
+		}
+		available = {
+			date
+			>
+			1936.9.17
 		}
 		relative_position_id = JAP_pnr_kasumigaseki_diplomacy
 	}
@@ -1019,6 +1027,7 @@ focus_tree = {
 		x = 10
 		y = 3
 		cost = 5
+		icon = GFX_focus_generic_university_3
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1043,6 +1052,7 @@ focus_tree = {
 		x = 8
 		y = 3
 		cost = 5
+		icon = GFX_goal_constitutional_guarantees
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1121,6 +1131,7 @@ focus_tree = {
 		x = 7
 		y = 4
 		cost = 5
+		icon = GFX_focus_ETH_the_lion_and_the_sun
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1146,6 +1157,7 @@ focus_tree = {
 		x = 7
 		y = 2
 		cost = 4
+		icon = GFX_goal_agrarian_reform
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1217,6 +1229,7 @@ focus_tree = {
 		x = 7
 		y = 1
 		cost = 3
+		icon = GFX_JAP_pnr_new_shindojo
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1229,6 +1242,7 @@ focus_tree = {
 		x = 6
 		y = 3
 		cost = 5
+		icon = GFX_focus_JAP_pnr_experience_the_meaning_of_labor
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1241,6 +1255,7 @@ focus_tree = {
 		x = 9
 		y = 2
 		cost = 5
+		icon = GFX_goal_generic_party_bottle
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -1253,6 +1268,7 @@ focus_tree = {
 		x = 11
 		y = 2
 		cost = 5
+		icon = GFX_focus_ICE_embrace_the_workers_revolution
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -11302,7 +11318,7 @@ focus_tree = {
 		id = JAP_pnr_fiscal_austerity
 		x = -3
 		y = 1
-		cost = 2
+		cost = 3
 		icon = GFX_goal_generic_austerity_measures
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -11435,7 +11451,9 @@ focus_tree = {
 				tooltip = production_speed_buildings_factor_tt
 			}
 			force_update_dynamic_modifier = yes
-			add_to_variable = { jap_black_monday_focus_count_var = 1 }
+			add_to_variable = {
+				jap_black_monday_focus_count_var = 1
+			}
 		}
 		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
 	}
@@ -11532,7 +11550,9 @@ focus_tree = {
 				id = JAP_pnr_earlygame.19
 				days = 3
 			}
-			add_to_variable = { jap_black_monday_focus_count_var = 1 }
+			add_to_variable = {
+				jap_black_monday_focus_count_var = 1
+			}
 		}
 		relative_position_id = JAP_pnr_black_monday_arrives_in_the_east
 	}
@@ -11611,7 +11631,7 @@ focus_tree = {
 		id = JAP_pnr_jikyoku_kyokyu_jigyo
 		x = -5
 		y = 1
-		cost = 2
+		cost = 3
 		icon = GFX_focus_AST_liberty_loans
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -12602,7 +12622,7 @@ focus_tree = {
 		x = 0
 		y = 5
 		cost = 4
-		icon = GFX_focus_ARG_crackdown_on_corruption
+		icon = GFX_focus_INS_eventual_autonomy
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
@@ -13447,10 +13467,10 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		mutually_exclusive = {
-			focus = JAP_pnr_utopia_is_within_reach
 			focus = JAP_pnr_the_light_of_eastern_democracy
 			focus = JAP_pnr_continuation_of_landtag_of_prussia_system
 			focus = JAP_pnr_only_the_strict_father
+			focus = JAP_pnr_utopia_is_within_reach
 		}
 		prerequisite = {
 			focus = JAP_pnr_phasianus_versicolor

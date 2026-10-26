@@ -97,12 +97,22 @@ JAP_congress_refresh_ruling_party = {
 JAP_congress_set_initial_authority = {
 	JAP_congress_refresh_ruling_party = yes
 	set_variable = { JAP_congress_authority_initial = JAP_congress_majority_party_seats }
-	multiply_variable = { JAP_congress_authority_initial = 0.75 }
+	multiply_variable = { JAP_congress_authority_initial = 0.35 }
 	if = {
 		limit = { check_variable = { JAP_congress_authority_initial > 234 } }
 		set_variable = { JAP_congress_authority_initial = 234 }
 	}
 	set_variable = { JAP_congress_authority = JAP_congress_authority_initial }
+}
+
+JAP_congress_reset_initial_authority = {
+	JAP_congress_refresh_ruling_party = yes
+	set_variable = { JAP_congress_authority_initial = JAP_congress_majority_party_seats }
+	multiply_variable = { JAP_congress_authority_initial = JAP_congress_authority_initial_mult_var }
+	if = {
+		limit = { check_variable = { JAP_congress_authority_initial > 234 } }
+		set_variable = { JAP_congress_authority_initial = 234 }
+	}
 }
 
 JAP_congress_reset_authority = {

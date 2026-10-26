@@ -1,0 +1,44 @@
+JAP_pnr_shakai_taishuto_decision_category = {
+    JAP_pnr_purge_party = {
+        icon = GFX_decision_generic_speech
+        allowed = { always = no }
+        visible = { has_country_flag = pnr_shakai_taishuto_government_flag }
+		available = { hidden_trigger = { always = no } }
+		selectable_mission = no
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 365
+		priority = 100
+        timeout_effect = {
+            set_temp_variable = { JAP_pnr_st_rev_part_temp_var = JAP_pnr_st_rev_part_var }
+            if = {
+                limit = { check_variable = { JAP_pnr_st_con_part_var > JAP_pnr_st_rev_part_temp_var } }
+                country_event = { id = JAP_pnr_midgame.102 days = 10 }
+            }
+            else = {
+                country_event = { id = JAP_pnr_midgame.101 days = 10 }
+            }
+        }
+        fixed_random_seed = no
+    }
+    JAP_pnr_tiaojie_fenqi = {
+        icon = GFX_decision_generic_political_discourse
+		cost = 30
+		days_remove = 35
+        days_re_enable = 30
+        visible = {
+            has_country_leader = { character = JAP_pnr_isoo_abe ruling_only = yes }
+            check_variable = { JAP_pnr_tiaojie_fenqi_count_var > 0 }
+        }
+		available = { has_country_leader = { character = JAP_pnr_isoo_abe ruling_only = yes } }
+        complete_effect = {
+            add_to_variable = { JAP_pnr_tiaojie_fenqi_count_var = -1 }
+            custom_effect_tooltip = JAP_pnr_tiaojie_fenqi_tt
+        }
+		remove_effect = {
+			add_days_mission_timeout = { mission = JAP_pnr_purge_party days = 30 }
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+    }
+}

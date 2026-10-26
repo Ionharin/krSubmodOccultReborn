@@ -1,0 +1,464 @@
+characters = {
+	JAP_pnr_nakano_seigo = {
+		name = JAP_pnr_nakano_seigo
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_nakano_seigo_army_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_nakano_seigo_advisor
+			available = {
+				OR = {
+					has_government = national_populist
+					has_completed_focus = JAP_towards_nationalist_mass_party
+				}
+			}
+			traits = { KR_nationalist_ideologue }
+		}
+	}
+
+	JAP_pnr_hashimoto_kingoro = {
+		name = JAP_pnr_hashimoto_kingoro
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_hashimoto_kingoro_army_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_hashimoto_kingoro_advisor
+			available = {
+				has_government = national_populist
+			}
+			traits = { KR_adventurous_daredevil }
+		}
+	}
+
+	JAP_pnr_suetsugu_nobumasa = {
+		name = JAP_pnr_suetsugu_nobumasa
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_suetsugu_nobumasa_army_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_suetsugu_nobumasa_advisor
+			available = {
+				has_government = national_populist
+			}
+			traits = { KR_prince_of_terror }
+		}
+	}
+
+	JAP_pnr_goto_fumio = {
+		name = JAP_pnr_goto_fumio
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_goto_fumio_army_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_goto_fumio_advisor
+			available = {
+				has_government = paternal_autocrat
+			}
+			traits = { KR_administrative_genius }
+		}
+	}
+
+	JAP_pnr_minobe_tatsukichi = {
+		name = JAP_pnr_minobe_tatsukichi
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_minobe_tatsukichi_army_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_minobe_tatsukichi_advisor
+			available = {
+				has_democratic_government = yes
+			}
+			traits = { KR_political_specialist }
+		}
+	}
+
+	JAP_pnr_kijuro_shidehara = {
+		name = JAP_pnr_kijuro_shidehara
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_kijuro_shidehara_army_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_kijuro_shidehara_advisor
+			available = {
+				has_democratic_government = yes
+			}
+			traits = { KR_compassionate_gentleman }
+		}
+	}
+
+	JAP_pnr_ozaki_yukio = {
+		name = JAP_pnr_ozaki_yukio
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_ozaki_yukio_army_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_ozaki_yukio_advisor
+			available = {
+				has_democratic_government = yes
+			}
+			traits = { KR_veteran_democrat }
+		}
+	}
+
+	JAP_pnr_fujiwara_ginjiro = {
+		name = JAP_pnr_fujiwara_ginjiro
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_fujiwara_ginjiro_army_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_fujiwara_ginjiro_advisor
+			traits = { KR_captain_of_industry }
+		}
+	}
+
+	JAP_pnr_godo_takuo = {
+		name = JAP_pnr_godo_takuo
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_godo_takuo_army_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_godo_takuo_advisor
+			traits = { KR_war_industrialist }
+			ai_will_do = {
+				factor = 500
+				modifier = {
+					factor = 50
+					threat > 0.49
+				}
+			}
+		}
+	}
+
+	JAP_pnr_ikeda_shigeaki = {
+		name = JAP_pnr_ikeda_shigeaki
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_ikeda_shigeaki_army_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_ikeda_shigeaki_advisor
+			traits = { KR_governor_of_bank_of_japan }
+			ai_will_do = { factor = 450 }
+		}
+	}
+
+	JAP_pnr_matsuoka_yosuke = {
+		name = JAP_pnr_matsuoka_yosuke
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_matsuoka_yosuke_army_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_matsuoka_yosuke_advisor
+			traits = { KR_railway_magnate }
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	JAP_pnr_nosaka_sanzo = {
+		name = JAP_pnr_nosaka_sanzo
+		portraits = {
+			civilian = {
+				large = GFX_portrait_JAP_nosaka_sanzo_civilian_large
+			}
+			army = {
+				large = GFX_portrait_JAP_nosaka_sanzo_army_large
+				small = GFX_portrait_JAP_nosaka_sanzo_army_small
+			}
+		}
+		corps_commander = {
+			desc = JAP_nosaka_sanzo_commander_desc
+			traits = { politically_connected }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_nosaka_sanzo_advisor
+			desc = JAP_nosaka_sanzo_commander_desc
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_completed_focus = JAP_enforce_ideological_purity
+			}
+			visible = {
+				has_socialist_government = yes
+			}
+			traits = { KR_council_communist }
+		}
+	}
+
+	JAP_pnr_yamakawa_hitoshi = {
+		name = JAP_pnr_yamakawa_hitoshi
+		portraits = {
+			civilian = {
+				small = GFX_portrait_JAP_yamakawa_hitoshi_civilian_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_yamakawa_hitoshi_advisor
+			visible = {
+				has_socialist_government = yes
+			}
+			traits = { KR_socialism_proponent }
+		}
+	}
+
+	JAP_pnr_yamakawa_kikue = {
+		name = JAP_pnr_yamakawa_kikue
+		portraits = {
+			civilian = {
+				small = GFX_portrait_JAP_yamakawa_kikue_civilian_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_yamakawa_kikue_advisor
+			available = {
+				OR = {
+					has_completed_focus = JAP_strive_towards_social_equity
+					has_completed_focus = JAP_emancipate_women
+				}
+			}
+			visible = {
+				has_socialist_government = yes
+			}
+			traits = { KR_prominent_feminist }
+		}
+	}
+
+	JAP_pnr_osugi_sakae = {
+		name = JAP_pnr_osugi_sakae
+		portraits = {
+			civilian = {
+				small = GFX_portrait_JAP_osugi_sakae_civilian_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_osugi_sakae_advisor
+			visible = {
+				has_socialist_government = yes
+			}
+			traits = { KR_socialist_novelist }
+		}
+	}
+
+	JAP_pnr_ishikawa_sanshiro = {
+		name = JAP_pnr_ishikawa_sanshiro
+		portraits = {
+			civilian = {
+				small = GFX_portrait_JAP_ishikawa_sanshiro_civilian_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_ishikawa_sanshiro_advisor
+			available = { has_completed_focus = JAP_strengthen_workers_councils }
+			visible = {
+				has_socialist_government = yes
+			}
+			traits = { KR_patriotic_socialist }
+		}
+	}
+
+	JAP_pnr_imperial_diet = {
+		name = JAP_pnr_imperial_diet
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_imperial_diet_army_small
+			}
+		}
+		advisor = {
+			slot = second_in_command
+			idea_token = JAP_imperial_diet_sic
+			traits = { KR_parliament_sic }
+			cost = 0
+			can_be_fired = no
+		}
+	}
+
+	JAP_pnr_reorganised_national_diet = {
+		name = JAP_pnr_reorganised_national_diet
+		portraits = {
+			army = {
+				small = GFX_idea_jap_the_unthinkable_option
+			}
+		}
+		advisor = {
+			slot = second_in_command
+			idea_token = JAP_reorganised_national_diet_sic
+			visible = { has_socialist_government = yes }
+			traits = { KR_parliament_sic }
+			cost = 0
+			can_be_fired = no
+		}
+	}
+
+	JAP_pnr_mizuno_rentaro = {
+		name = JAP_pnr_mizuno_rentaro
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_mizuno_rentaro_army_small
+			}
+		}
+		advisor = {
+			slot = second_in_command
+			idea_token = JAP_mizuno_rentaro_sic
+			traits = { KR_happy_amateur_sic }
+			cost = 0
+			can_be_fired = no
+		}
+	}
+
+	JAP_pnr_machida_chuji = {
+		name = JAP_pnr_machida_chuji
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_machida_chuji_army_small
+			}
+		}
+		advisor = {
+			slot = second_in_command
+			idea_token = JAP_machida_chuji_sic
+			traits = { KR_silent_workhorse_sic }
+			cost = 0
+			can_be_fired = no
+		}
+	}
+
+	JAP_pnr_maeda_yonezo = {
+		name = JAP_pnr_maeda_yonezo
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_maeda_yonezo_army_small
+			}
+		}
+		advisor = {
+			slot = second_in_command
+			idea_token = JAP_maeda_yonezo_sic
+			traits = { KR_brilliant_lawyer_sic }
+			cost = 0
+			can_be_fired = no
+		}
+	}
+
+	JAP_pnr_yoshizawa_kenkichi = {
+		name = JAP_pnr_yoshizawa_kenkichi
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_yoshizawa_kenkichi_army_small
+			}
+		}
+		advisor = {
+			slot = second_in_command
+			idea_token = JAP_yoshizawa_kenkichi_sic
+			traits = { KR_naive_optimist_sic }
+			cost = 0
+			can_be_fired = no
+		}
+	}
+
+	JAP_pnr_abe_isoo = {
+		name = JAP_pnr_abe_isoo
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_abe_isoo_army_small
+			}
+		}
+		advisor = {
+			slot = second_in_command
+			idea_token = JAP_abe_isoo_sic
+			traits = { KR_reformist_socialist_sic }
+			cost = 0
+			can_be_fired = no
+		}
+	}
+
+	JAP_pnr_hiranuma_kiichiro = {
+		name = JAP_pnr_hiranuma_kiichiro
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_hiranuma_kiichiro_army_small
+			}
+		}
+		advisor = {
+			slot = second_in_command
+			idea_token = JAP_hiranuma_kiichiro_sic
+			traits = { KR_local_tyrant_sic }
+			cost = 0
+			can_be_fired = no
+		}
+	}
+
+	JAP_pnr_konoe_fumimaro = {
+		name = JAP_pnr_konoe_fumimaro
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_konoe_fumimaro_army_small
+			}
+		}
+		advisor = {
+			slot = second_in_command
+			idea_token = JAP_konoe_fumimaro_sic
+			traits = { KR_imperial_prince_sic }
+			cost = 0
+			can_be_fired = no
+		}
+	}
+
+	JAP_pnr_kuhara_fusanosuke = {
+		name = JAP_pnr_kuhara_fusanosuke
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_kuhara_fusanosuke_army_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_kuhara_fusanosuke_advisor
+			available = {
+				has_completed_focus = JAP_work_through_the_dojinkai
+			}
+			traits = { KR_corporate_suit }
+		}
+	}
+
+}
+
