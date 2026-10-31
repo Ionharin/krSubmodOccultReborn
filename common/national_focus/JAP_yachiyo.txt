@@ -78,15 +78,37 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		completion_reward = {
-			create_faction_from_template = faction_template_co_prosperity_sphere
+			if = {
+				limit = {
+					has_country_flag = jap_pnr_choice_economy_unite_flag
+				}
+				set_faction_manifest = faction_manifest_pan_asia_pnr
+			}
+			else_if = {
+				limit = {
+					has_country_flag = jap_pnr_choice_economy_impire_flag
+				}
+				set_faction_manifest = faction_manifest_asia_imperial_pnr
+			}
 		}
 		available = {
+			has_country_flag = RUS_Black_Monday_Happened
+			is_faction_leader = yes
 			NOT = {
 				has_dynamic_modifier = JAP_pnr_lost_decade_nightmare_modifier
 			}
-			is_faction_leader = yes
-			has_completed_focus = JAP_pnr_support_the_construction_of_the_GGO
-			has_completed_focus = JAP_pnr_reassess_mainland_policy
+		}
+		select_effect = {
+			country_event = {
+				id = JAP_pnr_kg.3
+				days = 2
+			}
+			hidden_effect = {
+				clr_country_flag = jap_pnr_choice_economy_impire_flag
+				clr_country_flag = jap_pnr_choice_military_impire_flag
+				clr_country_flag = jap_pnr_choice_economy_unite_flag
+				clr_country_flag = jap_pnr_choice_military_unite_flag
+			}
 		}
 	}
 	focus = {
@@ -216,7 +238,7 @@ focus_tree = {
 	}
 	focus = {
 		id = JAP_pnr_japanese_aitake
-		x = 20
+		x = 0
 		y = 7
 		cost = 3
 		icon = GFX_focus_JAP_new_order_in_east_asia
@@ -678,10 +700,17 @@ focus_tree = {
 			focus = JAP_pnr_kasumigaseki_diplomacy
 		}
 		completion_reward = {
-			add_ideas = JAP_pnr_seek_to_oil_seller
-			VEN = {
-				give_market_access = JAP
+			if = {
+				limit = { has_idea = JAP_pnr_seek_to_oil_seller_0 }
+				swap_ideas = {
+					remove_idea = JAP_pnr_seek_to_oil_seller_0
+					add_idea = JAP_pnr_seek_to_oil_seller_1
+				}
 			}
+			else = {
+				add_ideas = JAP_pnr_seek_to_oil_seller
+			}
+			VEN = { give_market_access = JAP }
 		}
 		available = {
 			has_country_flag = RUS_Black_Monday_Happened
@@ -840,7 +869,7 @@ focus_tree = {
 		id = JAP_pnr_dancing_with_the_bear
 		x = 4
 		y = 4
-		cost = 3
+		cost = 4
 		icon = GFX_focus_JAP_pnr_economy_control
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -850,12 +879,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			activate_targeted_decision = {
-				decision = JAP_pnr_consolidate_control_over_taiwan
-				target = TAI
+				decision = JAP_develop_chosen_tungsten_mines1
+				target = 527
 			}
 			activate_targeted_decision = {
-				decision = JAP_pnr_consolidate_control_over_korea
-				target = KOJ
+				decision = JAP_develop_taiwan_oil1
+				target = 524
 			}
 		}
 		relative_position_id = JAP_pnr_68th_sessions_imperial_diet
@@ -885,14 +914,18 @@ focus_tree = {
 			focus = JAP_pnr_fate_of_National_Security_Act
 		}
 		completion_reward = {
-			activate_targeted_decision = {
-				decision = JAP_pnr_ship_weapons_to_taiwan
-				target = TAI
+			1100 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = {
+						id = 6944
+					}
+					instant_build = yes
+				}
 			}
-			activate_targeted_decision = {
-				decision = JAP_pnr_ship_weapons_to_korea
-				target = KOJ
-			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = JAP_pnr_invade_mongolia_tt
 		}
 		relative_position_id = JAP_pnr_68th_sessions_imperial_diet
 	}
@@ -1117,12 +1150,38 @@ focus_tree = {
 		id = JAP_pnr_reborn_of_kototamahime
 		x = 5
 		y = 3
-		cost = 0
+		cost = 5
 		icon = GFX_goal_generic_foreign_investments
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = JAP_pnr_fate_of_National_Security_Act
+		}
+		completion_reward = {
+			525 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					province = 7125
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = building_state_modifier|dam
+				INDENT = ""
+			}
+			build_railway = {
+				level = 2
+				path = {
+					4056
+					4086
+					1081
+					11977
+					7204
+					7221
+					7125
+				}
+			}
 		}
 		relative_position_id = JAP_pnr_68th_sessions_imperial_diet
 	}
@@ -1215,12 +1274,19 @@ focus_tree = {
 		id = JAP_pnr_return_to_mount_kiyosumi
 		x = 5
 		y = 5
-		cost = 0
+		cost = 4
 		icon = GFX_focus_generic_soldier_salute
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = JAP_pnr_reborn_of_kototamahime
+		}
+		completion_reward = {
+			745 = {
+				add_dynamic_modifier = {
+					modifier = PNR_strengthen_garrison_forces_modifier
+				}
+			}
 		}
 		relative_position_id = JAP_pnr_68th_sessions_imperial_diet
 	}
@@ -4382,6 +4448,9 @@ focus_tree = {
 		prerequisite = {
 			focus = JAP_pnr_asian_solidarity_agreement
 		}
+		completion_reward = {
+			set_faction_manifest = faction_manifest_asia_imperial_pnr
+		}
 		available = {
 			always = no
 		}
@@ -4392,11 +4461,14 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 7
-		icon = GFX_goal_JAP_pan_asian
+		icon = GFX_focus_JAP_promote_pan_asianism
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = JAP_pnr_asian_solidarity_agreement
+		}
+		completion_reward = {
+			set_faction_manifest = faction_manifest_pan_asia_pnr
 		}
 		available = {
 			always = no
@@ -5683,8 +5755,8 @@ focus_tree = {
 	}
 	focus = {
 		id = JAP_pnr_constitution_still_exists
-		x = 18
-		y = 10
+		x = 19
+		y = 9
 		cost = 5
 		icon = GFX_goal_generic_parliament
 		continue_if_invalid = no
@@ -5966,19 +6038,6 @@ focus_tree = {
 			add_timed_idea = {
 				idea = JAP_pnr_seoul_asia_university_preparations
 				days = 1440
-			}
-			if = {
-				limit = {
-					KOJ = {
-						exists = yes
-					}
-				}
-				KOJ = {
-					add_timed_idea = {
-						idea = JAP_pnr_seoul_asia_university_preparations
-						days = 1440
-					}
-				}
 			}
 		}
 		relative_position_id = JAP_pnr_second_restoration
@@ -10241,15 +10300,33 @@ focus_tree = {
 		id = JAP_pnr_japan_is_at_its_most_dangerous_moment
 		x = 3
 		y = 3
-		cost = 2
+		cost = 5
 		icon = GFX_generic_light_industry
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = JAP_pnr_fate_of_National_Security_Act
 		}
-		available = {
-			always = no
+		completion_reward = {
+			524 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				remove_dynamic_modifier = {
+					modifier = PNR_regional_development_0_modifier
+				}
+				add_dynamic_modifier = {
+					modifier = PNR_regional_development_1_modifier
+				}
+			}
 		}
 		relative_position_id = JAP_pnr_68th_sessions_imperial_diet
 	}
@@ -11373,7 +11450,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			1102 = {
-				remove_building = {
+				add_building_construction = {
 					type = industrial_complex
 					level = 1
 				}
@@ -11806,6 +11883,8 @@ focus_tree = {
 			focus = JAP_pnr_black_monday_arrives_in_the_east
 		}
 		completion_reward = {
+			add_one_random_civilian_factory = yes
+			add_one_random_military_factory = yes
 			add_ideas = JAP_pnr_guide_invisible_finger_idea_0
 			unlock_decision_category_tooltip = JAP_pnr_black_monday_development_category
 			activate_targeted_decision = {
@@ -11877,8 +11956,6 @@ focus_tree = {
 			focus = JAP_pnr_deal_a_heavy_blow_to_the_zaibatsu
 		}
 		completion_reward = {
-			add_one_random_civilian_factory = yes
-			add_one_random_military_factory = yes
 			add_tech_bonus = {
 				name = JAP_pnr_improve_production_efficiency
 				ahead_reduction = 1
@@ -13794,7 +13871,7 @@ focus_tree = {
 		id = JAP_pnr_fate_of_National_Security_Act
 		x = 2
 		y = 2
-		cost = 3
+		cost = 4
 		icon = GFX_goal_japanese_imperialism
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -13802,13 +13879,24 @@ focus_tree = {
 			focus = JAP_pnr_support_the_construction_of_the_GGO
 		}
 		completion_reward = {
-			activate_targeted_decision = {
-				decision = JAP_pnr_fund_taiwan
-				target = TAI
+			524 = {
+				increase_state_category_by_one_level = yes
 			}
-			activate_targeted_decision = {
-				decision = JAP_pnr_fund_korea
-				target = KOJ
+			527 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			1100 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 		relative_position_id = JAP_pnr_68th_sessions_imperial_diet
@@ -13961,12 +14049,53 @@ focus_tree = {
 		id = JAP_pnr_bring_back_peace
 		x = 3
 		y = 5
-		cost = 3
+		cost = 4
 		icon = GFX_goal_generic_naval_base
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		prerequisite = {
 			focus = JAP_pnr_japan_is_at_its_most_dangerous_moment
+		}
+		completion_reward = {
+			524 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = {
+						id = 11914
+						id = 12068
+					}
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					province = {
+						id = 9955
+					}
+					instant_build = yes
+				}
+			}
+			645 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = {
+						id = 13025
+					}
+					instant_build = yes
+				}
+			}
+			648 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					province = {
+						id = 13026
+					}
+					instant_build = yes
+				}
+			}
 		}
 		relative_position_id = JAP_pnr_68th_sessions_imperial_diet
 	}
@@ -15412,7 +15541,7 @@ focus_tree = {
 		id = JAP_pnr_support_the_construction_of_the_GGO
 		x = 1
 		y = 1
-		cost = 2
+		cost = 3
 		icon = GFX_focus_JAP_hasten_the_integration_of_taiwan
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -15420,21 +15549,21 @@ focus_tree = {
 			focus = JAP_pnr_68th_sessions_imperial_diet
 		}
 		completion_reward = {
-			add_political_power = -25
-			KOJ = {
-				remove_ideas = JAP_pnr_deadlock_financial_situation_4
-			}
-			TAI = {
-				remove_ideas = JAP_pnr_deadlock_financial_situation_4
+			every_controlled_state = {
+				limit = {
+					OR = {
+						is_core_of = KOR
+						is_core_of = TAI
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = PNR_regional_development_0_modifier
+				}
 			}
 		}
 		available = {
-			has_country_flag = RUS_Black_Monday_Happened
-			KOJ = {
-				has_idea = JAP_pnr_deadlock_financial_situation_4
-			}
-			TAI = {
-				has_idea = JAP_pnr_deadlock_financial_situation_4
+			NOT = {
+				has_dynamic_modifier = JAP_pnr_lost_decade_nightmare_modifier
 			}
 		}
 		relative_position_id = JAP_pnr_68th_sessions_imperial_diet

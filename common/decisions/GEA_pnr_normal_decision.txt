@@ -1,0 +1,187 @@
+GEA_diguo_de_wuqi_category = {
+    GEA_cai_qu_shou_duan_decision = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = { tag = GEA }
+		available = {
+			JAP = { exists = yes }
+			custom_trigger_tooltip = { tooltip = GEA_alert_level_check_normal_tt check_variable = { gea_alert_situation_var > 1 } }
+		}
+		cost = 5
+		ai_will_do = { base = 5000 }
+		days_remove = 14
+		remove_effect = {
+			country_event = JAP_pnr_foreign_events.30
+		}
+	}
+	GEA_bao_ri_ying_cheng_decision = {
+        icon = GFX_decision_generic_nationalism
+		allowed = { tag = GEA }
+        available = {
+            JAP = { exists = yes }
+            NOT = {
+				is_ally_with = JAP
+				has_war_with = JAP
+				has_non_aggression_pact_with = JAP
+				JAP = { is_guaranteed_by = ROOT }
+			}
+			custom_trigger_tooltip = {
+				tooltip = is_not_engaged_in_a_limited_war
+				NOT = { has_variable = limiting_war_target }
+			}
+            OR = {
+                JAP = { has_war_with = CHN }
+                AND = {
+                    custom_trigger_tooltip = { tooltip = GEA_alert_level_check_serious_tt check_variable = { gea_alert_situation_var > 3 } }
+                    JAP = { has_war = yes }
+                }
+            }
+            any_of_scopes = {
+				array = ROOT.japanese_oversea_lands
+				is_controlled_by = JAP
+			}
+        }
+        visible = {
+            JAP = { exists = yes }
+			any_of_scopes = {
+				array = ROOT.japanese_oversea_lands
+				is_controlled_by = JAP
+			}
+        }
+        highlight_states = {
+			highlight_states_trigger = {
+				is_in_array = { array = ROOT.japanese_oversea_lands value = THIS }
+				is_controlled_by = JAP
+			}
+		}
+        days_remove = 30
+        war_with_on_remove = JAP
+        fire_only_once = yes
+        complete_effect = {
+            custom_effect_tooltip = GEA_bao_ri_ying_cheng_decision_tt
+            clear_variable = pre_limiting_war_faction_leader
+        }
+        ai_will_do = { base = 5000 }
+        remove_effect = {
+            if = {
+				limit = {
+					is_in_faction = yes
+					is_faction_leader = no
+				}
+				faction_leader = { set_variable = { ROOT.pre_limiting_war_faction_leader = THIS } }
+				leave_faction = yes
+			}
+            custom_effect_tooltip = tooltip_white_line
+            set_rule = { can_join_factions = no }
+			clear_array = limiting_war_japanese_oversea_lands
+			clear_variable = limiting_war_target
+			clear_array = limiting_war_target_allies
+
+			for_each_scope_loop = {
+				array = japanese_oversea_lands
+				if = {
+					limit = { is_controlled_by = JAP }
+					add_to_array = { array = ROOT.limiting_war_japanese_oversea_lands value = THIS }
+				}
+			}
+			set_variable = { limiting_war_target = JAP }
+			if = {
+				limit = { JAP = { is_subject = yes } }
+				JAP = {
+					overlord = {
+						add_to_array = { array = ROOT.limiting_war_target_allies value = THIS }
+					}
+				}
+			}
+			hidden_effect = {
+				JAP = {
+					if = {
+						limit = { is_in_faction = yes }
+						every_allied_country = {
+							limit = {
+								NOT = { is_in_array = { array = ROOT.limiting_war_target_allies value = THIS } }
+							}
+							add_to_array = { array = ROOT.limiting_war_target_allies value = THIS }
+						}
+					}
+				}
+			}
+			JAP = { clear_array = countries_that_guaranteed_me_pre_limiting_war }
+			every_country = {
+				limit = { has_guaranteed = JAP }
+				add_to_array = { array = JAP.countries_that_guaranteed_me_pre_limiting_war value = THIS }
+				diplomatic_relation = {
+					country = JAP
+					relation = guarantee
+					active = no
+				}
+			}
+			JAP = {
+				if = {
+					limit = { is_in_faction = no }
+					if = {
+						limit = { has_rule = can_join_factions }
+						set_country_flag = limiting_war_could_join_factions
+					}
+					set_rule = { can_join_factions = no }
+				}
+			}
+            declare_war_on = {
+				target = JAP
+				type = annex_everything
+			}
+            activate_mission = GEA_bao_ri_ying_cheng_mission_decision
+        }
+    }
+    GEA_bao_ri_ying_cheng_mission_decision = {
+        icon = GFX_decision_continent_asia
+		visible = { always = yes }
+        is_good = no
+        highlight_states = {
+			highlight_states_trigger = {
+				is_in_array = { array = ROOT.japanese_oversea_lands value = THIS }
+				NOT = { is_controlled_by = ROOT }
+			}
+		}
+		available = {
+			all_of_scopes = {
+				array = ROOT.japanese_oversea_lands
+				is_controlled_by = ROOT
+			}
+		}
+        cancel_trigger = {
+			OR = {
+				exists = no
+				has_capitulated = yes
+				JAP = { has_capitulated = yes }
+				JAP = { exists = no }
+			}
+		}
+        activation = { always = no }
+        days_mission_timeout = 10
+        cancel_effect = {
+			if = {
+				limit = {
+					JAP = {
+						OR = {
+							has_capitulated = yes
+							exists = no
+						}
+					}
+				}
+				limiting_war_peace_out = yes
+				set_rule = { can_join_factions = yes }
+				limiting_war_re_add_to_old_faction = yes
+				limiting_war_clear_begonia_leaf_variables = yes
+			}
+		}
+        complete_effect = {
+            add_political_power = 50
+        }
+        timeout_effect = {
+			white_peace = {
+                tag = JAP
+                message = GEA_bao_ri_ying_cheng_mission_decision_failed_tt
+            }
+		}
+    }
+}

@@ -4,6 +4,11 @@ set_naval_oob = "JAP_naval"
 set_fuel_ratio = 0.75
 set_convoys = 300
 starting_train_buffer = 2
+set_stability = 0.30
+set_war_support = 0.15
+set_fuel_ratio = 0.40
+set_research_slots = 4
+load_focus_tree = JAP_pnr_yachiyo
 
 set_technology = {
 	### Infantry ###
@@ -138,7 +143,8 @@ add_breakthrough_progress = {
 	specialization = specialization_land
 	value = 0.1
 }
-country_event = { id = japan_domestic_events.1 days = 1 } #AI path selection
+
+#country_event = { id = japan_domestic_events.1 days = 1 } #AI path selection
 country_event = { id = japan_foreign_events.1 days = 7 } #Mantetsu Declares Record Earnings
 # country_event = { id = japan_domestic_events.2 days = 21 } #Dissolution of the Diet
 country_event = { id = japan_domestic_events.404 days = 35 } # First Japanese Baseball League
@@ -161,10 +167,38 @@ country_event = { id = japan_domestic_events.409 days = 2805 } #1943 Tottori ear
 country_event = { id = japan_domestic_events.410 days = 330 } #Taihoku City Public Auditorium completed
 country_event = { id = japan_domestic_events.411 days = 2160 } #'Little Marin and the Sailor' - Newest Book on Japan's Shelves
 
+country_event = { id = JAP_pnr_earlygame.1 days = 2 } #犬养毅国会质询
+country_event = { id = JAP_pnr_earlygame.5 days = 12 } #天皇大命
+country_event = { id = JAP_pnr_foreign_events.1 days = 14 } #上海突袭
+country_event = { id = JAP_pnr_normal.1 days = 15 } #日共分裂事件
+country_event = { id = JAP_pnr_earlygame.12 days = 17 } #黑色星期一即将开始
+country_event = { id = JAP_pnr_earlygame.50 days = 34 } #黑色星期一同步
+country_event = { id = JAP_pnr_jpc.1 days = 28 } #赤色魔手触发
+country_event = { id = JAP_pnr_foreign_events.6 days = 85 } # 山本条太郎去世
+CHI = { country_event = { id = JAP_pnr_foreign_events.6 days = 85 } }
+FNG = { country_event = { id = JAP_pnr_foreign_events.6 days = 85 } }
+country_event = { id = JAP_pnr_normal.18 days = 120 } #卓别林
+country_event = { id = JAP_pnr_earlygame.21 days = 115 } # 五一五事件链开始
+country_event = { id = JAP_pnr_earlygame.25 days = 135 } # 五一五事件
+country_event = { id = JAP_pnr_earlygame.26 days = 150 } # 国家保安法
+
+unlock_national_focus = JAP_pnr_south_manchuria_railway_our_bond_with_the_continent
+unlock_national_focus = JAP_pnr_rice_valley_self_governance_act
+
+set_power_balance = {
+	id = JAP_hero_et_gangster_bop
+	left_side = JAP_pnr_bop_gangster
+	right_side = JAP_pnr_bop_hero
+	set_value = -0.9
+}
+
 add_ideas = {
 	#Ideas
 	JAP_narrow_rail_0
 	FNG_mantetsu_profits
+	JAP_pnr_showa_tenno
+	JAP_pnr_housing_finance_agency
+	JAP_pnr_forever_frozen_in_1928
 
 	#Laws
 	volunteer_only
@@ -177,9 +211,9 @@ add_dynamic_modifier = {
 
 set_politics = {
 	ruling_party = social_conservative
-	last_election = "1932.2.20"
+	last_election = "1932.1.23"
 	election_frequency = 48
-	elections_allowed = yes
+	elections_allowed = no
 }
 
 set_variable = { country_intro_page_count = 5 }
@@ -198,7 +232,7 @@ set_popularities = {
 	national_populist = 4
 }
 
-#create_faction_from_template = faction_template_co_prosperity_sphere
+create_faction_from_template = faction_template_jap_pnr_co_sphere
 
 ### Country Leaders ###
 recruit_character = JAP_hirohito
@@ -376,7 +410,7 @@ JAP_imamura_hitoshi = { set_character_flag = JAP_reactionary_officer }
 JAP_terauchi_hisaichi = { set_character_flag = JAP_reactionary_officer }
 JAP_hata_shunroku = { set_character_flag = JAP_reactionary_officer }
 JAP_sugiyama_hajime = { set_character_flag = JAP_reactionary_officer }
-JAP_nagata_tetsuzan = { set_character_flag = JAP_reactionary_officer }
+#JAP_nagata_tetsuzan = { set_character_flag = JAP_reactionary_officer }
 JAP_koga_mineichi = { set_character_flag = JAP_reactionary_officer }
 JAP_yamamoto_isoroku = { set_character_flag = JAP_reactionary_officer }
 JAP_ozawa_jisaburo = { set_character_flag = JAP_reactionary_officer }
@@ -399,16 +433,15 @@ JAP_tsukahara_nishizo = { set_character_flag = JAP_reactionary_officer }
 JAP_teramoto_kumaichi = { set_character_flag = JAP_reactionary_officer }
 JAP_ugaki_matome = { set_character_flag = JAP_reactionary_officer }
 JAP_sugawara_michio = { set_character_flag = JAP_reactionary_officer }
-JAP_obata_toshiro = { set_character_flag = JAP_reactionary_officer }
+#JAP_obata_toshiro = { set_character_flag = JAP_reactionary_officer }
 JAP_tokugawa_yoshitoshi = { set_character_flag = JAP_reactionary_officer }
 JAP_suetsugu_nobumasa = { set_character_flag = JAP_reactionary_officer }
-JAP_hayashi_senjuro = { set_character_flag = JAP_reactionary_officer }
+#JAP_hayashi_senjuro = { set_character_flag = JAP_reactionary_officer }
 JAP_hashimoto_kingoro = { set_character_flag = JAP_reactionary_officer }
 
 ### others
-activate_targeted_decision = { decision = JAP_develop_chosen_tungsten_mines1 target = 527 }
+#activate_targeted_decision = { decision = JAP_develop_chosen_tungsten_mines1 target = 527 }
 KOR = { activate_targeted_decision = { decision = JAP_develop_chosen_tungsten_mines1 target = 527 } }
-KOJ = { activate_targeted_decision = { decision = JAP_develop_chosen_tungsten_mines1 target = 527 } }
 
 set_variable = { JAP_land_reform_cost_1 = 50 }
 set_variable = { JAP_land_reform_cost_2 = 75 }
@@ -419,6 +452,142 @@ set_variable = { JAP_land_reform_pp_2 = 35 }
 set_variable = { JAP_land_reform_pp_3 = 50 }
 set_variable = { JAP_eco_cost_1 = 75 }
 set_variable = { JAP_eco_cost_2 = 125 }
+
+##########   PNR  SETTING   ###########
+### JAP Puppet Register ###
+recruit_character = JAP_pnr_hiroyasu
+recruit_character = JAP_pnr_mishima
+recruit_character = JAP_pnr_onisaburo
+recruit_character = JAP_pnr_kong_decheng
+
+### JAP Independ Character Register ###
+recruit_character = JAP_pnr_ogishi_raiko
+recruit_character = JAP_pnr_adachi_kenzo
+recruit_character = JAP_pnr_isoo_abe
+recruit_character = JAP_pnr_hirohito
+recruit_character = JAP_pnr_suzuki_kisaburo
+recruit_character = JAP_pnr_inukai_tsuyoshi
+recruit_character = JAP_pnr_hakamada_satomi
+recruit_character = JAP_pnr_katsuno_kinmasa
+recruit_character = JAP_pnr_hamaguchi_osachi
+recruit_character = JAP_pnr_fusanosuke_kuhara
+recruit_character = JAP_pnr_hisashi_aso
+recruit_character = JAP_pnr_katsumaro_akamatsu
+recruit_character = JAP_pnr_nishio_suehiro
+recruit_character = JAP_pnr_kato_kanju
+recruit_character = JAP_pnr_yamamoto_senji
+recruit_character = JAP_pnr_masaki_jinzaburo
+recruit_character = JAP_pnr_okawa_shumei
+recruit_character = JAP_pnr_asanuma_inejiro
+recruit_character = JAP_pnr_yasuoka_masahiro
+recruit_character = JAP_pnr_ishiwara_kanji
+recruit_character = JAP_pnr_fumimaro_konoe
+recruit_character = JAP_pnr_hayashi_senjuro
+recruit_character = JAP_pnr_ugaki_kazushige
+
+### Second in Command ###
+recruit_character = JAP_pnr_saionji_kinmochi
+recruit_character = JAP_pnr_hyakutake_saburou
+recruit_character = JAP_pnr_ichiki_kitokuro
+recruit_character = JAP_pnr_kido_koichi
+recruit_character = JAP_pnr_kurahei_yuasa
+recruit_character = JAP_pnr_makino_nobuaki
+recruit_character = JAP_pnr_tokugawa_yoshichika
+recruit_character = JAP_pnr_honjo_shigeru
+
+### Advisor ###
+recruit_character = JAP_pnr_obata_toshiro
+recruit_character = JAP_pnr_nagata_tetsuzan
+recruit_character = JAP_pnr_fujii_sadanobu
+recruit_character = JAP_pnr_takahashi_korekiyo
+recruit_character = JAP_pnr_tsushima_juichi
+recruit_character = JAP_pnr_inoue_junnosuke
+recruit_character = JAP_pnr_mineo_osumi
+recruit_character = JAP_pnr_hatoyama_ichiro
+recruit_character = JAP_pnr_yoshiyuki_kawashima
+recruit_character = JAP_pnr_yamaji_joichi
+recruit_character = JAP_pnr_kato_choichi
+recruit_character = JAP_pnr_furuya_yoshitaka
+recruit_character = JAP_pnr_koike_jiro
+recruit_character = JAP_pnr_yoshiharu_yutani
+recruit_character = JAP_pnr_kurihara_hikosaburo
+recruit_character = JAP_pnr_fukuda_torakame
+recruit_character = JAP_pnr_nataka_masasuke
+recruit_character = JAP_pnr_kazami_akira
+recruit_character = JAP_pnr_mamoru_kishi
+recruit_character = JAP_pnr_sato_hiraku
+recruit_character = JAP_pnr_tanaka_yotatsu
+recruit_character = JAP_pnr_fukami_kiyoshi
+
+
+activate_advisor = JAP_pnr_saionji_kinmochi_idea
+activate_advisor = JAP_pnr_hayashi_senjuro_idea
+activate_advisor = JAP_pnr_mineo_osumi_idea
+
+### Retire Path Advisors ###
+JAP_pnr_yoshiyuki_kawashima = { retire = yes }
+
+set_party_name = {
+	ideology = totalist
+	long_name = JAP_pnr_totalist_party_long
+	name = JAP_pnr_totalist_party
+}
+set_party_name = {
+	ideology = radical_socialist
+	long_name = JAP_pnr_totalist_party_long
+	name = JAP_pnr_totalist_party
+}
+set_party_name = {
+	ideology = syndicalist
+	long_name = JAP_pnr_syndicalist_party_long
+	name = JAP_pnr_syndicalist_party
+}
+set_party_name = {
+	ideology = social_democrat
+	long_name = JAP_pnr_social_democrat_party_long
+	name = JAP_pnr_social_democrat_party
+}
+set_party_name = {
+	ideology = social_liberal
+	long_name = JAP_pnr_social_liberal_party_long
+	name = JAP_pnr_social_liberal_party
+}
+set_party_name = {
+	ideology = authoritarian_democrat
+	long_name = JAP_pnr_authoritarian_democrat_party_long
+	name = JAP_pnr_authoritarian_democrat_party
+}
+set_party_name = {
+	ideology = market_liberal
+	long_name = JAP_pnr_market_liberal_party_long
+	name = JAP_pnr_market_liberal_party
+}
+set_party_name = {
+	ideology = social_conservative
+	long_name = JAP_pnr_social_conservative_party_long
+	name = JAP_pnr_social_conservative_party
+}
+set_party_name = {
+	ideology = paternal_autocrat
+	long_name = JAP_pnr_paternal_autocrat_party_long
+	name = JAP_pnr_paternal_autocrat_party
+}
+set_party_name = {
+	ideology = national_populist
+	long_name = JAP_pnr_national_populist_party_long
+	name = JAP_pnr_national_populist_party
+}
+
+JAP_pnr_inukai_tsuyoshi = { promote_character = social_conservative_subtype }
+JAP_pnr_hakamada_satomi = { promote_character = totalist_subtype }
+JAP_pnr_hakamada_satomi = { promote_character = radical_socialist_subtype }
+JAP_pnr_hamaguchi_osachi = { promote_character = market_liberal_subtype }
+JAP_pnr_hisashi_aso = { promote_character = social_democrat_subtype }
+JAP_pnr_katsumaro_akamatsu = { promote_character = national_populist_subtype }
+JAP_pnr_isoo_abe = { promote_character = social_liberal_subtype }
+JAP_pnr_saionji_kinmochi = { promote_character = paternal_autocrat_subtype }
+JAP_pnr_kato_kanju = { promote_character = syndicalist_subtype }
+JAP_pnr_adachi_kenzo = { promote_character = authoritarian_democrat_subtype }
 
 ################
 ### Variants ###
@@ -535,7 +704,7 @@ if = {
 			special_type_slot_1 = empty
 		}
 		# Should be nakajima, but currently nakajima is limited to naval planes only
-		design_team = mio:JAP_kyushu_hikoki_organisation
+		design_team = mio:JAP_mitsubishi_air_mio
 	}
 	create_equipment_variant = {
 		name = "A4N"
@@ -547,9 +716,65 @@ if = {
 			engine_type_slot = engine_1_1x
 			special_type_slot_1 = empty
 		}
-		design_team = mio:JAP_nakajima_organisation
+		design_team = mio:JAP_mitsubishi_air_mio
+	}
+	create_equipment_variant = {
+		name = "Ki-10"
+		type = small_plane_airframe_0
+		show_position = no
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = empty
+		}
+		design_team = mio:JAP_mitsubishi_air_mio
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Ki-27"
+		type = small_plane_airframe_1
+		show_position = no
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = empty
+		}
+		design_team = mio:JAP_mitsubishi_air_mio
+	}
+	create_equipment_variant = {
+		name = "A5M1"
+		type = cv_small_plane_airframe_1
+		show_position = no
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = empty
+		}
+		design_team = mio:JAP_mitsubishi_air_mio
 	}
 	### Small planes
+	create_equipment_variant = {
+		name = "Ki-3"
+		type = small_plane_cas_airframe_0
+		show_position = no
+		modules = {
+			fixed_main_weapon_slot = bomb_locks
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		design_team = mio:JAP_mitsubishi_air_mio
+	}
+	create_equipment_variant = {
+		name = "D1A2"
+		type = cv_small_plane_cas_airframe_0
+		show_position = no
+		modules = {
+			fixed_main_weapon_slot = bomb_locks
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = dive_brakes_small
+		}
+		design_team = mio:JAP_mitsubishi_air_mio
+	}
 	create_equipment_variant = {
 		name = "Ki-32"
 		type = small_plane_cas_airframe_1
@@ -561,7 +786,7 @@ if = {
 			special_type_slot_1 = lmg_defense_turret
 		}
 		# Should be kawasaki, but it is not implemented
-		design_team = mio:JAP_yokosuka_organisation
+		design_team = mio:JAP_mitsubishi_air_mio
 	}
 	### CV planes
 	create_equipment_variant = {
@@ -574,7 +799,7 @@ if = {
 			engine_type_slot = engine_2_1x
 			special_type_slot_1 = dive_brakes_small
 		}
-		design_team = mio:JAP_aichi_organisation
+		design_team = mio:JAP_mitsubishi_air_mio
 	}
 	create_equipment_variant = {
 		name = "B5N"
@@ -586,7 +811,29 @@ if = {
 			engine_type_slot = engine_2_1x
 			special_type_slot_1 = empty
 		}
-		design_team = mio:JAP_nakajima_organisation
+		design_team = mio:JAP_mitsubishi_air_mio
+	}
+	create_equipment_variant = {
+		name = "G3M"
+		type = small_plane_naval_bomber_airframe_1
+		show_position = no
+		modules = {
+			fixed_main_weapon_slot = torpedo_mounting
+			engine_type_slot = engine_2_2x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		design_team = mio:JAP_mitsubishi_air_mio
+	}
+	create_equipment_variant = {
+		name = "B4Y"
+		type = cv_small_plane_naval_bomber_airframe_0
+		show_position = no
+		modules = {
+			fixed_main_weapon_slot = torpedo_mounting
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = empty
+		}
+		design_team = mio:JAP_mitsubishi_air_mio
 	}
 	### Medium planes
 	create_equipment_variant = {
@@ -599,6 +846,6 @@ if = {
 			engine_type_slot = engine_1_2x
 			special_type_slot_1 = lmg_defense_turret
 		}
-		design_team = mio:JAP_kawanishi_organisation
+		design_team = mio:JAP_mitsubishi_air_mio
 	}
 }

@@ -48,6 +48,14 @@ ideas = {
 			targeted_modifier = { tag = JAP attack_bonus_against = 0.10 }
 			targeted_modifier = { tag = JAP breakthrough_bonus_against = 0.10 }
 		}
+		JAP_pnr_be_blocked_malacca_0 = {
+			picture = generic_coastal_defense_ships2
+			allowed = { always = no }
+			modifier = {
+				production_lack_of_resource_penalty_factor = 0.50
+				trade_opinion_factor = -0.25
+			}
+		}
 		JAP_narrow_rail_0 = {
 			picture = JAP_Shitty_Tracks
 			allowed = { always = no }
@@ -580,6 +588,25 @@ ideas = {
 				fuel_gain_factor = 0.10
 				consumer_goods_factor = 0.05
 			}
+			targeted_modifier = { tag = VEN trade_cost_for_target_factor = -0.25 }
+		}
+		JAP_pnr_seek_to_oil_seller_0 = {
+			picture = Oil
+			allowed = { always = no }
+			modifier = {
+				fuel_gain_factor = 0.10
+				consumer_goods_factor = 0.05
+			}
+			targeted_modifier = { tag = DEI trade_cost_for_target_factor = -0.25 }
+		}
+		JAP_pnr_seek_to_oil_seller_1 = {
+			picture = Oil
+			allowed = { always = no }
+			modifier = {
+				fuel_gain_factor = 0.15
+				consumer_goods_factor = 0.07
+			}
+			targeted_modifier = { tag = VEN trade_cost_for_target_factor = -0.25 }
 			targeted_modifier = { tag = VEN trade_cost_for_target_factor = -0.25 }
 		}
 		JAP_pnr_tokyo_support_kwantung_army = {

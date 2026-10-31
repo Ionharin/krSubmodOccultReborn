@@ -4,18 +4,18 @@
 
 JAP_congress_can_see_button = {
 	tag = JAP
+	is_ai = no
 }
 
 JAP_congress_can_open = {
 	tag = JAP
+	is_ai = no
 }
 
-JAP_congress_interface_is_open = {
-	has_country_flag = JAP_congress_interface_open
-}
+JAP_congress_interface_is_open = { has_country_flag = JAP_congress_interface_open }
 
 JAP_congress_can_vote_agenda = {
-		NOT = { has_country_flag = pnr_congress_temporarily_unable }
+	NOT = { has_country_flag = pnr_congress_temporarily_unable }
 	custom_override_tooltip = {
 		tooltip = JAP_congress_agenda_yearly_limit_tt
 		check_variable = { JAP_congress_agendas_passed_this_year < 3 }
@@ -96,9 +96,6 @@ JAP_congress_can_recover_authority = {
 # OTHER SETTING #
 #################
 
-
-
-
 pnr_is_co_prosperity_candidate_trigger = {
 	OR = {
 		tag = SIA
@@ -122,7 +119,7 @@ pnr_is_co_prosperity_candidate_trigger = {
 		#tag = NEP #commenting out Nepal for now to avoid war with India
 		tag = SAR
 		tag = TAI
-		tag = KOJ
+		#tag = KOJ
 		AND = {
 			tag = HAW
 			OR = {

@@ -1,88 +1,118 @@
-defined_text = { #FNG-JAP RELATIONSHIP TIMEOUT
-	name = JAP_pnr_guirendengche_qinglong_zaoqiu_catgory_text
-	text = { trigger = { JAP = { NOT = { has_active_mission = JAP_pnr_doubts_about_zhang_mission } } } localization_key = JAP_pnr_guirendengche_qinglong_zaoqiu_catgory_no_war_desc }
-	text = { trigger = { JAP = { has_active_mission = JAP_pnr_doubts_about_zhang_mission } } localization_key = JAP_pnr_guirendengche_qinglong_zaoqiu_catgory_war_start_desc }
-}
+	defined_text = { #FNG-JAP RELATIONSHIP TIMEOUT
+		name = JAP_pnr_guirendengche_qinglong_zaoqiu_catgory_text
+		text = { trigger = { JAP = { NOT = { has_active_mission = JAP_pnr_doubts_about_zhang_mission } } } localization_key = JAP_pnr_guirendengche_qinglong_zaoqiu_catgory_no_war_desc }
+		text = { trigger = { JAP = { has_active_mission = JAP_pnr_doubts_about_zhang_mission } } localization_key = JAP_pnr_guirendengche_qinglong_zaoqiu_catgory_war_start_desc }
+	}
 
-defined_text = { #FNG-JAP COLLABORATION
-	name = JAP_pnr_seek_other_collabrator_text
-	text = { trigger = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var = 100 } } localization_key = JAP_pnr_seek_other_collabrator_text_5 }
-	text = { trigger = { AND = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var > 79 } check_variable = { JAP.JAP_seek_other_collabrator_progress_var < 100 } } } localization_key = JAP_pnr_seek_other_collabrator_text_4 }
-	text = { trigger = { AND = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var > 59 } check_variable = { JAP.JAP_seek_other_collabrator_progress_var < 80 } } } localization_key = JAP_pnr_seek_other_collabrator_text_3 }
-	text = { trigger = { AND = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var > 39 } check_variable = { JAP.JAP_seek_other_collabrator_progress_var < 60 } } } localization_key = JAP_pnr_seek_other_collabrator_text_2 }
-	text = { trigger = { AND = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var > 19 } check_variable = { JAP.JAP_seek_other_collabrator_progress_var < 40 } } } localization_key = JAP_pnr_seek_other_collabrator_text_1 }
-	text = { trigger = { AND = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var > -1 } check_variable = { JAP.JAP_seek_other_collabrator_progress_var < 20 } } } localization_key = JAP_pnr_seek_other_collabrator_text_0 }
-}
+	defined_text = { #FNG-JAP COLLABORATION
+		name = JAP_pnr_seek_other_collabrator_text
+		text = { trigger = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var = 100 } } localization_key = JAP_pnr_seek_other_collabrator_text_5 }
+		text = { trigger = { AND = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var > 79 } check_variable = { JAP.JAP_seek_other_collabrator_progress_var < 100 } } } localization_key = JAP_pnr_seek_other_collabrator_text_4 }
+		text = { trigger = { AND = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var > 59 } check_variable = { JAP.JAP_seek_other_collabrator_progress_var < 80 } } } localization_key = JAP_pnr_seek_other_collabrator_text_3 }
+		text = { trigger = { AND = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var > 39 } check_variable = { JAP.JAP_seek_other_collabrator_progress_var < 60 } } } localization_key = JAP_pnr_seek_other_collabrator_text_2 }
+		text = { trigger = { AND = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var > 19 } check_variable = { JAP.JAP_seek_other_collabrator_progress_var < 40 } } } localization_key = JAP_pnr_seek_other_collabrator_text_1 }
+		text = { trigger = { AND = { check_variable = { JAP.JAP_seek_other_collabrator_progress_var > -1 } check_variable = { JAP.JAP_seek_other_collabrator_progress_var < 20 } } } localization_key = JAP_pnr_seek_other_collabrator_text_0 }
+	}
 
-defined_text = {
-	name = valon_pon_darc_day_1_text
-	text = { trigger = { check_variable = { valon_pon_darc_conference_1_var  = 1 } } localization_key = valon_pon_darc_text_1 }
-	text = { trigger = { check_variable = { valon_pon_darc_conference_1_var  = 2 } } localization_key = valon_pon_darc_text_2 }
-}
+	defined_text = {
+		name = valon_pon_darc_day_1_text
+		text = { trigger = { check_variable = { valon_pon_darc_conference_1_var  = 1 } } localization_key = valon_pon_darc_text_1 }
+		text = { trigger = { check_variable = { valon_pon_darc_conference_1_var  = 2 } } localization_key = valon_pon_darc_text_2 }
+	}
 
-defined_text = {
-	name = valon_pon_darc_day_2_text
-	text = { trigger = { check_variable = { valon_pon_darc_conference_2_var  = 1 } } localization_key = valon_pon_darc_text_3 }
-	text = { trigger = { check_variable = { valon_pon_darc_conference_2_var  = 2 } } localization_key = valon_pon_darc_text_4 }
-}
+	defined_text = {
+		name = valon_pon_darc_day_2_text
+		text = { trigger = { check_variable = { valon_pon_darc_conference_2_var  = 1 } } localization_key = valon_pon_darc_text_3 }
+		text = { trigger = { check_variable = { valon_pon_darc_conference_2_var  = 2 } } localization_key = valon_pon_darc_text_4 }
+	}
 
-defined_text = {
-	name = valon_pon_darc_day_3_text
-	text = { trigger = { check_variable = { valon_pon_darc_conference_3_var  = 1 } } localization_key = valon_pon_darc_text_5 }
-	text = { trigger = { check_variable = { valon_pon_darc_conference_3_var  = 2 } } localization_key = valon_pon_darc_text_6 }
-}
+	defined_text = {
+		name = valon_pon_darc_day_3_text
+		text = { trigger = { check_variable = { valon_pon_darc_conference_3_var  = 1 } } localization_key = valon_pon_darc_text_5 }
+		text = { trigger = { check_variable = { valon_pon_darc_conference_3_var  = 2 } } localization_key = valon_pon_darc_text_6 }
+	}
 
 ### Kasumigaseki Diplomacy regional conflict slots
-defined_text = {
-	name = kd_now_events0
-	text = { trigger = { check_variable = { JAP_pnr_kd_events^0 = 1 } } localization_key = JAP_pnr_kd_events0 }
-	text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
-}
+	defined_text = {
+		name = kd_now_events0
+		text = { trigger = { check_variable = { JAP_pnr_kd_events^0 = 1 } } localization_key = JAP_pnr_kd_events0 }
+		text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
+	}
 
-defined_text = {
-	name = kd_now_events1
-	text = { trigger = { check_variable = { JAP_pnr_kd_events^1 = 1 } } localization_key = JAP_pnr_kd_events1 }
-	text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
-}
+	defined_text = {
+		name = kd_now_events1
+		text = { trigger = { check_variable = { JAP_pnr_kd_events^1 = 1 } } localization_key = JAP_pnr_kd_events1 }
+		text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
+	}
 
-defined_text = {
-	name = kd_now_events2
-	text = { trigger = { check_variable = { JAP_pnr_kd_events^2 = 1 } } localization_key = JAP_pnr_kd_events2 }
-	text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
-}
+	defined_text = {
+		name = kd_now_events2
+		text = { trigger = { check_variable = { JAP_pnr_kd_events^2 = 1 } } localization_key = JAP_pnr_kd_events2 }
+		text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
+	}
 
-defined_text = {
-	name = kd_now_events3
-	text = { trigger = { check_variable = { JAP_pnr_kd_events^3 = 1 } } localization_key = JAP_pnr_kd_events3 }
-	text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
-}
+	defined_text = {
+		name = kd_now_events3
+		text = { trigger = { check_variable = { JAP_pnr_kd_events^3 = 1 } } localization_key = JAP_pnr_kd_events3 }
+		text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
+	}
 
-defined_text = {
-	name = kd_now_events4
-	text = { trigger = { check_variable = { JAP_pnr_kd_events^4 = 1 } } localization_key = JAP_pnr_kd_events4 }
-	text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
-}
+	defined_text = {
+		name = kd_now_events4
+		text = { trigger = { check_variable = { JAP_pnr_kd_events^4 = 1 } } localization_key = JAP_pnr_kd_events4 }
+		text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
+	}
 
-defined_text = {
-	name = kd_now_events5
-	text = { trigger = { check_variable = { JAP_pnr_kd_events^5 = 1 } } localization_key = JAP_pnr_kd_events5 }
-	text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
-}
+	defined_text = {
+		name = kd_now_events5
+		text = { trigger = { check_variable = { JAP_pnr_kd_events^5 = 1 } } localization_key = JAP_pnr_kd_events5 }
+		text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
+	}
 
-defined_text = {
-	name = kd_now_events6
-	text = { trigger = { check_variable = { JAP_pnr_kd_events^6 = 1 } } localization_key = JAP_pnr_kd_events6 }
-	text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
-}
+	defined_text = {
+		name = kd_now_events6
+		text = { trigger = { check_variable = { JAP_pnr_kd_events^6 = 1 } } localization_key = JAP_pnr_kd_events6 }
+		text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
+	}
 
-defined_text = {
-	name = kd_now_events7
-	text = { trigger = { check_variable = { JAP_pnr_kd_events^7 = 1 } } localization_key = JAP_pnr_kd_events7 }
-	text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
-}
+	defined_text = {
+		name = kd_now_events7
+		text = { trigger = { check_variable = { JAP_pnr_kd_events^7 = 1 } } localization_key = JAP_pnr_kd_events7 }
+		text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
+	}
 
-defined_text = {
-	name = kd_now_events8
-	text = { trigger = { check_variable = { JAP_pnr_kd_events^8 = 1 } } localization_key = JAP_pnr_kd_events8 }
-	text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
-}
+	defined_text = {
+		name = kd_now_events8
+		text = { trigger = { check_variable = { JAP_pnr_kd_events^8 = 1 } } localization_key = JAP_pnr_kd_events8 }
+		text = { trigger = { always = yes } localization_key = JAP_pnr_kd_events_none }
+	}
+
+### For Party Path Minigame
+	defined_text = { # seiyukai enemy
+		name = loc_seiyukai_enemy_0
+		text = { trigger = { has_country_leader = { character = JAP_pnr_fusanosuke_kuhara ruling_only = yes } } localization_key = JAP_pnr_suzuki_kisaburo }
+		text = { trigger = { has_country_leader = { character = JAP_pnr_suzuki_kisaburo ruling_only = yes } } localization_key = JAP_pnr_fusanosuke_kuhara }
+	}
+	defined_text = { # seiyukai event leader
+		name = loc_first_party_election_0
+		text = { trigger = { has_completed_focus = JAP_pnr_leaning_toward_suzuki_faction } localization_key = JAP_pnr_suzuki_kisaburo }
+		text = { trigger = { has_completed_focus = JAP_pnr_join_forces_with_the_wakuhara_faction } localization_key = JAP_pnr_fusanosuke_kuhara }
+	}
+	defined_text = { # seiyukai event leader
+		name = loc_first_party_election_1
+		text = { trigger = { has_country_flag = pnr_support_suzuki } localization_key = JAP_pnr_suzuki_kisaburo }
+		text = { trigger = { has_country_flag = pnr_support_kuhara } localization_key = JAP_pnr_fusanosuke_kuhara }
+	}
+	defined_text = { # seiyukai allies 0
+		name = loc_allies_situation_0
+		text = { trigger = { has_country_leader = { character = JAP_pnr_fusanosuke_kuhara ruling_only = yes } NOT = { has_country_flag = seiyukai_allies_betrayed_us_flag } } localization_key = JAP_pnr_seiyukai_party_support_allies_2_tt }
+		text = { trigger = { has_country_leader = { character = JAP_pnr_suzuki_kisaburo ruling_only = yes } NOT = { has_country_flag = seiyukai_allies_betrayed_us_flag } } localization_key = JAP_pnr_seiyukai_party_support_allies_1_tt }
+		text = { trigger = { always = yes } localization_key = JAP_pnr_seiyukai_party_support_allies_0_tt }
+	}
+	defined_text = { # seiyukai allies 1
+		name = loc_allies_situation_1
+		text = { trigger = { has_country_leader = { character = JAP_pnr_fusanosuke_kuhara ruling_only = yes } NOT = { has_country_flag = seiyukai_allies_betrayed_us_flag } } localization_key = JAP_pnr_seiyukai_party_support_allies_1_tt }
+		text = { trigger = { has_country_leader = { character = JAP_pnr_suzuki_kisaburo ruling_only = yes } NOT = { has_country_flag = seiyukai_allies_betrayed_us_flag } } localization_key = JAP_pnr_seiyukai_party_support_allies_2_tt }
+		text = { trigger = { has_country_flag = seiyukai_allies_betrayed_us_flag } localization_key = JAP_pnr_seiyukai_party_support_allies_3_tt }
+		text = { trigger = { always = yes } localization_key = JAP_pnr_seiyukai_party_support_allies_0_tt }
+	}

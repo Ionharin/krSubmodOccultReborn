@@ -2,10 +2,21 @@ faction_template_china_wushan = {
 	name = faction_QIE_world_moral_association
 	icon = GFX_faction_logo_wushan_moral_association
 	manifest = faction_manifest_world_wide_ethical_society
-
 	default_rules = {
 		joining_rule_non_socialist
 		joining_rule_same_continent_only
+		dismissal_rule_ideology_socialist
+		change_leader_rule_never
+	}
+}
+
+faction_template_jap_pnr_co_sphere = {
+	name = faction_JAP_pnr_start_factions_name
+	icon = GFX_faction_logo_japanese_co_prosperity_sphere
+	manifest = faction_manifest_asia_economic_control_pnr
+	default_rules = {
+		joining_rule_non_socialist
+		joining_rule_asia_only
 		dismissal_rule_ideology_socialist
 		change_leader_rule_never
 	}

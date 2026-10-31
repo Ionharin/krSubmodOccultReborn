@@ -190,22 +190,22 @@ JAP_pnr_black_monday_development_category  = {
 	}
 }
 
-JAP_pnr_oriental_policy_category = {
-	icon = GFX_decision_cat_JAP_pnr_we_salute
-	picture = GFX_decisions_picture_pnr_KOR_oriental_development_company
-	priority = 65
-	allowed = { always = no }
-	custom_icon = {
-		tag = KOJ
-		value = pnr_koj_pg_stability_value
-		desc = pnr_koj_pg_stability_value_tt
-	}
-	custom_icon = {
-		tag = TAI
-		value = pnr_tai_pg_stability_value
-		desc = pnr_tai_pg_stability_value_tt
-	}
-}
+#JAP_pnr_oriental_policy_category = {
+#	icon = GFX_decision_cat_JAP_pnr_we_salute
+#	picture = GFX_decisions_picture_pnr_KOR_oriental_development_company
+#	priority = 65
+#	allowed = { always = no }
+#	custom_icon = {
+#		tag = KOJ
+#		value = pnr_koj_pg_stability_value
+#		desc = pnr_koj_pg_stability_value_tt
+#	}
+#	custom_icon = {
+#		tag = TAI
+#		value = pnr_tai_pg_stability_value
+#		desc = pnr_tai_pg_stability_value_tt
+#	}
+#}
 
 JAP_pnr_guirendengche_qinglong_zaoqiu_catgory = {
 	icon = GFX_decision_category_fengtian
@@ -241,13 +241,11 @@ JAP_pnr_shanghai_strike_category = {
 	}
 }
 
-JAP_pnr_party_support_category = {
+JAP_pnr_seiyukai_party_support_category = {
 	icon = GFX_decision_category_JAP_imperial_glory_blue
-	allowed = {
-		tag = JAP
-	}
+	allowed = { tag = JAP }
 	visible = { always = yes }
-	visible_when_empty = no
+	visible_when_empty = yes
 	priority = 100
 }
 
@@ -267,16 +265,4 @@ JAP_pnr_asia_co_prosperity_sphere_category = {
 	visible = { has_completed_focus = JAP_pnr_asian_solidarity_agreement }
 	visible_when_empty = yes
 	priority = 50
-}
-
-JAP_pnr_debug_category = {
-	icon = generic_political_reform
-	priority = 1
-	allowed = {
-		tag = JAP
-	}
-	visible = {
-		is_debug = yes
-	}
-	visible_when_empty = yes
 }
