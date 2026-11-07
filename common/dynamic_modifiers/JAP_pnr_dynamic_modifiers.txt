@@ -5,6 +5,13 @@ JAP_pnr_bad_landreform_problem_modifier = {
 	political_power_cost = JAP_pnr_bad_landreform_problem_modifier_political_power_cost
 }
 
+JAP_pnr_narrow_rail_modifier = {
+	icon = GFX_decision_railroad
+	army_speed_factor_for_controller = -0.10
+	state_resources_factor = -0.15
+	supply_factor = -0.10
+	state_production_speed_rail_way_factor = 0.15
+}
 
 JAP_pnr_operation_launched_modifier = {
 	icon = GFX_decision_hol_draw_up_staff_plans
@@ -44,7 +51,6 @@ JAP_pnr_asian_revitalisation_institute_modifier = {
 	research_sharing_per_country_bonus = JAP.JAP_pnr_asian_revitalisation_institute_modifier_research_sharing_per_country_bonus
 	research_sharing_per_country_bonus_factor = JAP.JAP_pnr_asian_revitalisation_institute_modifier_research_sharing_per_country_bonus_factor
 	research_speed_factor = JAP.JAP_pnr_asian_revitalisation_institute_modifier_research_speed_factor
-	special_project_speed_factor = JAP.JAP_pnr_asian_revitalisation_institute_modifier_special_project_speed_factor
 	consumer_goods_factor = JAP.JAP_pnr_asian_revitalisation_institute_modifier_consumer_goods_factor
 	no_supply_grace = JAP.JAP_pnr_asian_revitalisation_institute_modifier_no_supply_grace
 	operation_outcome = JAP.JAP_pnr_asian_revitalisation_institute_modifier_operation_outcome
@@ -197,4 +203,31 @@ JAP_pnr_seiyosha_modifier = {
 	custom_modifier_tooltip = JAP_pnr_seiyosha_modifier_tt
 	political_power_gain = -0.06
 	party_popularity_stability_factor = JAP_pnr_seiyosha_party_popularity_stability_factor
+}
+
+JAP_pnr_city_priority_0_modifier = {
+    icon = GFX_modifiers_JAP_taiheiyo_belt
+    state_production_speed_buildings_factor = JAP.JAP_pnr_cp_production_speed_var
+    local_factory_energy_consumption = JAP.JAP_pnr_cp_energy_consumption_var
+	state_resources_factor = JAP.JAP_pnr_cp_local_resources_var
+	local_building_slots = JAP.JAP_pnr_cp_building_slots_var
+}
+
+JAP_pnr_oriential_company_modifier = {
+	industrial_factory_donations = JAP.JAP_pnr_oriential_company_modifier_industrial_factory_donations_var
+}
+
+JAP_pnr_yen_economic_sphere_leader = {
+	icon = GFX_idea_JAP_yen
+	remove_trigger = { is_economic_sphere_leader = no }
+	industrial_capacity_factory = global.JAP_pnr_yen_economic_sphere_industry_boost
+	industrial_capacity_dockyard = global.JAP_pnr_yen_economic_sphere_industry_boost
+	consumer_goods_factor = global.JAP_pnr_economic_sphere_goods_var
+}
+
+JAP_pnr_yen_economic_sphere_member = {
+	icon = GFX_idea_JAP_yen
+	remove_trigger = { JAP = { is_leader_of_economic_sphere_of_ROOT = no } }
+	production_speed_buildings_factor = global.JAP_pnr_economic_sphere_production_speed_member_var
+	consumer_goods_factor = global.JAP_pnr_economic_sphere_goods_member_var
 }

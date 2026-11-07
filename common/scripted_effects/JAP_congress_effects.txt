@@ -105,14 +105,14 @@ JAP_congress_set_initial_authority = {
 	set_variable = { JAP_congress_authority = JAP_congress_authority_initial }
 }
 
-JAP_congress_reset_initial_authority = {
-	JAP_congress_refresh_ruling_party = yes
+JAP_congress_update_initial_authority = { # Update National Focus Bonus
 	set_variable = { JAP_congress_authority_initial = JAP_congress_majority_party_seats }
 	multiply_variable = { JAP_congress_authority_initial = JAP_congress_authority_initial_mult_var }
 	if = {
 		limit = { check_variable = { JAP_congress_authority_initial > 234 } }
 		set_variable = { JAP_congress_authority_initial = 234 }
 	}
+	set_variable = { JAP_congress_authority = JAP_congress_authority_initial }
 }
 
 JAP_congress_reset_authority = {
@@ -1059,6 +1059,7 @@ JAP_congress_set_seats_position = {
 	add_to_array = { JAP_congress_x_array = 550 }
 	add_to_array = { JAP_congress_y_array = 260 }
 }
+
 JAP_congress_rebuild_seats = {
 	JAP_congress_refresh_ruling_party = yes
 	JAP_congress_set_seats_position = yes

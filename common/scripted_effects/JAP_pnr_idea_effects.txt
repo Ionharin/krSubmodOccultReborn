@@ -29,6 +29,10 @@ JAP_pnr_offensive_realpolitik_update = { #Update Policy Idea
 			add_idea = JAP_pnr_offensive_realpolitik_1
 		}
 	}
+	else_if = {
+		limit = { NOT = { has_idea = JAP_pnr_offensive_realpolitik_4 } }
+		add_ideas = JAP_pnr_offensive_realpolitik
+	}
 }
 
 JAP_pnr_farewell_to_the_lost_decade_update = { #Update Chaos
@@ -192,78 +196,6 @@ JAP_pnr_update_relationship_with_provisional_government_modifier = { # Colony Se
 	force_update_dynamic_modifier = yes
 }
 
-#### LAND REFORM ###
-
-JAP_pnr_update_landreform_costs = {
-	set_variable = { JAP_pnr_landreform_current_time_1 = JAP_pnr_peasant_angry_var }
-	multiply_variable = { JAP_pnr_landreform_current_time_1 = 5 }
-	add_to_variable = { JAP_pnr_landreform_current_time_1 = JAP_pnr_landreform_time_1 }
-	set_variable = { JAP_pnr_landreform_current_time_2 = JAP_pnr_peasant_angry_var }
-	multiply_variable = { JAP_pnr_landreform_current_time_2 = 5 }
-	add_to_variable = { JAP_pnr_landreform_current_time_2 = JAP_pnr_landreform_time_2 }
-	set_variable = { JAP_pnr_landreform_current_time_3 = JAP_pnr_peasant_angry_var }
-	multiply_variable = { JAP_pnr_landreform_current_time_3 = 5 }
-	add_to_variable = { JAP_pnr_landreform_current_time_3 = JAP_pnr_landreform_time_3 }
-
-	set_variable = { JAP_pnr_landreform_current_pp_1 = JAP_pnr_peasant_angry_var }
-	multiply_variable = { JAP_pnr_landreform_current_pp_1 = 3 }
-	add_to_variable = { JAP_pnr_landreform_current_pp_1 = JAP_pnr_landreform_pp_1 }
-	set_variable = { JAP_pnr_landreform_current_pp_2 = JAP_pnr_peasant_angry_var }
-	multiply_variable = { JAP_pnr_landreform_current_pp_2 = 3 }
-	add_to_variable = { JAP_pnr_landreform_current_pp_2 = JAP_pnr_landreform_pp_2 }
-	set_variable = { JAP_pnr_landreform_current_pp_3 = JAP_pnr_peasant_angry_var }
-	multiply_variable = { JAP_pnr_landreform_current_pp_3 = 3 }
-	add_to_variable = { JAP_pnr_landreform_current_pp_3 = JAP_pnr_landreform_pp_3 }
-}
-
-JAP_pnr_update_bad_landreform_problem_modifier = {
-	set_temp_variable = {
-		JAP_pnr_bad_landreform_problem_manpower_factor = max_available_manpower_k
-	}
-	subtract_from_temp_variable = { JAP_pnr_bad_landreform_problem_manpower_factor = 300 }
-	divide_temp_variable = { JAP_pnr_bad_landreform_problem_manpower_factor = 100 }
-	clamp_temp_variable = { var = JAP_pnr_bad_landreform_problem_manpower_factor min = 0 max = 10 }
-	set_variable = {
-		JAP_pnr_bad_landreform_problem_modifier_consumer_goods_factor = {
-			value = JAP_pnr_bad_landreform_problem_manpower_factor
-			multiply = 0.025
-		}
-	}
-	set_variable = {
-		JAP_pnr_bad_landreform_problem_modifier_political_power_cost = {
-			value = JAP_pnr_bad_landreform_problem_manpower_factor
-			multiply = 0.03
-		}
-	}
-	force_update_dynamic_modifier = yes
-}
-
-JAP_pnr_landreform_check_completion = {
-	clamp_variable = { var = JAP_pnr_landreform_progress_var max = 100 min = 0 }
-	clamp_variable = { var = JAP_pnr_landreform_result_var max = 100 min = 0 }
-	clamp_variable = { var = JAP_pnr_landowner_angry_var max = 10 min = 0 }
-	clamp_variable = { var = JAP_pnr_peasant_angry_var max = 10 min = 0 }
-	if = {
-		limit = { check_variable = { JAP_pnr_landreform_progress_var > 99 } }
-		set_country_flag = pnr_landreform_end_flag
-	}
-	JAP_pnr_update_landreform_costs = yes
-}
-
-JAP_pnr_apply_landreform_landowner_backlash = {
-	if = {
-		limit = { check_variable = { JAP_pnr_landowner_angry_var > 0 } }
-		set_temp_variable = { JAP_pnr_landreform_landowner_stability_penalty = JAP_pnr_landowner_angry_var }
-		multiply_temp_variable = { JAP_pnr_landreform_landowner_stability_penalty = -0.005 }
-		add_stability = var:JAP_pnr_landreform_landowner_stability_penalty
-		add_to_variable = {
-			var = JAP_pnr_landreform_progress_var
-			value = JAP_pnr_landowner_angry_var
-			tooltip = JAP_pnr_landreform_progress_var_raised
-		}
-	}
-}
-
 ###  Other Policy ###
 
 JAP_pnr_nsb_clear_draft = { # after 515 NSB clear effect
@@ -385,7 +317,7 @@ JAP_pnr_pan_asia_progress_var_increase_normal_effect = {
 		limit = { is_in_faction_with = ROOT }
 		add_to_temp_variable = { JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var = THIS.num_of_factories }
 	}
-	multiply_temp_variable = { JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var = JAP_pnr_pan_asia_modifier_point_progress_quarterly_multply_var }
+	multiply_temp_variable = { JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var = JAP.JAP_pnr_pan_asia_modifier_point_progress_quarterly_multply_var }
 	clamp_temp_variable = { var = JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var min = 0 max = 100 }
 	add_to_variable = { JAP.JAP_pnr_pan_asia_modifier_point_progress_var = JAP.JAP_pnr_pan_asia_modifier_factory_total_temp_var }
 	if = {
@@ -414,14 +346,185 @@ JAP_pnr_pan_asia_progress_var_increase_defeat_effect = {
 	}
 }
 
+### JAP Faction Setting ###
+
+JAP_pnr_yen_economic_sphere_display = {
+	if = {
+		limit = { has_variable = economic_sphere }
+		var:economic_sphere = {
+			set_character_name = JAP_pnr_yen_economic_sphere_leader
+			set_character_flag = has_custom_script_handle
+			var:icon = { set_character_name = "GFX_goal_JAP_co_prosperity_sphere" }
+			var:desc = { set_character_name = JAP_pnr_yen_economic_sphere_member_desc }
+			set_variable = { red = 0.988 }
+			set_variable = { green = 0.788 }
+			set_variable = { blue = 0.725 }
+		}
+	}
+}
+JAP_pnr_create_yen_economic_sphere = {
+	if = {
+		limit = { NOT = { is_economic_sphere_leader = yes } }
+		create_economic_sphere = yes
+		var:economic_sphere = {
+			set_character_name = JAP_pnr_yen_economic_sphere_leader
+			set_character_flag = has_custom_script_handle
+			var:icon = { set_character_name = "GFX_goal_JAP_co_prosperity_sphere" }
+			var:desc = { set_character_name = JAP_pnr_yen_economic_sphere_member_desc }
+			set_variable = { red = 0.988 }
+			set_variable = { green = 0.788 }
+			set_variable = { blue = 0.725 }
+		}
+	}
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = JAP_pnr_yen_economic_sphere_leader } } }
+		add_dynamic_modifier = { modifier = JAP_pnr_yen_economic_sphere_leader }
+	}
+	if = {
+		limit = { NOT = { is_in_tech_sharing_group = japan_research } }
+		add_to_tech_sharing_group = japan_research
+	}
+	JAP_pnr_yen_economic_sphere_display = yes
+	JAP_pnr_refresh_yen_economic_sphere_members = yes
+	JAP_pnr_recalculate_yen_economic_sphere_economic_integration = yes
+}
+
+JAP_pnr_add_to_yen_economic_sphere = {
+	if = {
+		limit = {
+			NOT = { tag = JAP }
+			JAP = { is_economic_sphere_leader = yes }
+		}
+		if = {
+			limit = {
+				is_in_economic_sphere = yes
+				JAP = { is_leader_of_economic_sphere_of_PREV = no }
+			}
+			leave_economic_sphere = yes
+		}
+		if = {
+			limit = { JAP = { is_leader_of_economic_sphere_of_PREV = no } }
+			set_temp_variable = { sphere_target = THIS }
+			JAP = { add_to_economic_sphere = yes }
+		}
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = JAP_pnr_yen_economic_sphere_member } } }
+			add_dynamic_modifier = { modifier = JAP_pnr_yen_economic_sphere_member }
+		}
+		if = {
+			limit = { NOT = { is_in_tech_sharing_group = japan_research } }
+			add_to_tech_sharing_group = japan_research
+		}
+		JAP = { JAP_pnr_recalculate_yen_economic_sphere_economic_integration = yes }
+	}
+}
+
+JAP_pnr_remove_from_yen_economic_sphere = {
+	if = {
+		limit = { JAP = { is_leader_of_economic_sphere_of_PREV = yes } }
+		leave_economic_sphere = yes
+		if = {
+			limit = { has_dynamic_modifier = { modifier = JAP_pnr_yen_economic_sphere_member } }
+			remove_dynamic_modifier = { modifier = JAP_pnr_yen_economic_sphere_member }
+		}
+		if = {
+			limit = { is_in_tech_sharing_group = japan_research }
+			remove_from_tech_sharing_group = japan_research
+		}
+		JAP = { JAP_pnr_recalculate_yen_economic_sphere_economic_integration = yes }
+	}
+}
+
+JAP_pnr_refresh_yen_economic_sphere_members = {
+	if = {
+		limit = { is_economic_sphere_leader = yes }
+		if = {
+			limit = { NOT = { is_in_tech_sharing_group = japan_research } }
+			add_to_tech_sharing_group = japan_research
+		}
+		JAP_pnr_yen_economic_sphere_display = yes
+		for_each_scope_loop = {
+			array = JAP.economic_sphere:members
+			if = {
+				limit = { NOT = { is_in_tech_sharing_group = japan_research } }
+				add_to_tech_sharing_group = japan_research
+			}
+			if = {
+				limit = {
+					NOT = { tag = JAP }
+					NOT = { is_subject_of = JAP }
+					NOT = { is_in_faction_with = JAP }
+				}
+				JAP_pnr_remove_from_yen_economic_sphere = yes
+			}
+		}
+		every_subject_country = {
+			limit = {
+				exists = yes
+				NOT = { tag = JAP }
+			}
+			JAP_pnr_add_to_yen_economic_sphere = yes
+		}
+		every_other_country = {
+			limit = {
+				exists = yes
+				is_in_faction_with = JAP
+				NOT = { tag = JAP }
+			}
+			JAP_pnr_add_to_yen_economic_sphere = yes
+		}
+	}
+}
+
+JAP_pnr_recalculate_yen_economic_sphere_economic_integration = {
+	if = {
+		limit = { is_economic_sphere_leader = yes }
+		hidden_effect = {
+			set_temp_variable = { JAP_yen_economic_sphere_factories = 0 }
+			for_each_scope_loop = {
+				array = JAP.economic_sphere:members
+				add_to_temp_variable = { JAP_yen_economic_sphere_factories = THIS.num_of_civilian_factories }
+			}
+
+			set_temp_variable = { JAP.JAP_yen_economic_sphere_member_mult_temp_var = JAP.JAP_yen_economic_sphere_member_mult_var }
+
+			set_variable = { global.JAP_pnr_economic_sphere_goods_member_var = JAP_yen_economic_sphere_factories }
+			clamp_variable = { var = global.JAP_pnr_economic_sphere_goods_member_var max = 100 min = 0 }
+			multiply_variable = { global.JAP_pnr_economic_sphere_goods_member_var = -1 }
+			multiply_variable = { global.JAP_pnr_economic_sphere_goods_member_var = JAP.JAP_yen_economic_sphere_member_mult_temp_var }
+
+			set_variable = { global.JAP_pnr_economic_sphere_production_speed_member_var = JAP_yen_economic_sphere_factories }
+			clamp_variable = { var = global.JAP_pnr_economic_sphere_production_speed_member_var max = 100 min = 0 }
+			multiply_variable = { global.JAP_pnr_economic_sphere_production_speed_member_var = JAP.JAP_yen_economic_sphere_member_mult_temp_var }
+
+			set_temp_variable = { JAP.JAP_yen_economic_sphere_mult_temp_var = JAP.JAP_yen_economic_sphere_mult_var }
+			set_temp_variable = { JAP.JAP_yen_economic_sphere_goods_mult_temp_var = JAP.JAP_yen_economic_sphere_goods_mult_var }
+			subtract_from_temp_variable = { JAP_yen_economic_sphere_factories = JAP.num_of_civilian_factories }
+
+			set_variable = { global.JAP_pnr_yen_economic_sphere_industry_boost = JAP_yen_economic_sphere_factories }
+			clamp_variable = { var = global.JAP_pnr_yen_economic_sphere_industry_boost max = 50 min = 0 }
+			multiply_variable = { global.JAP_pnr_yen_economic_sphere_industry_boost = JAP.JAP_yen_economic_sphere_mult_var }
+
+			set_variable = { global.JAP_pnr_economic_sphere_goods_var = JAP_yen_economic_sphere_factories }
+			clamp_variable = { var = global.JAP_pnr_economic_sphere_goods_var max = 100 min = 0 }
+			multiply_variable = { global.JAP_pnr_economic_sphere_goods_var = -1.5 }
+			multiply_variable = { global.JAP_pnr_economic_sphere_goods_var = JAP.JAP_yen_economic_sphere_goods_mult_var }
+		}
+		for_each_scope_loop = {
+			array = JAP.economic_sphere:members
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
 ### 1936 Election System Route Check ###
 
 JAP_pnr_first_election_route_check = {
 	if = {
         limit = { check_variable = { JAP_pnr_election_winning_party = 7 } }
         custom_effect_tooltip = JAP_pnr_normal.4.seiyukai_tt
-        complete_national_focus = JAP_pnr_constitution_still_exists
-        hidden_effect = { set_politics = { ruling_party = social_conservative } }
+		complete_national_focus = JAP_pnr_constitution_still_exists
+        hidden_effect = { country_event = JAP_pnr_earlygame.60 }
     }
     if = {
         limit = { check_variable = { JAP_pnr_election_winning_party = 10 } }

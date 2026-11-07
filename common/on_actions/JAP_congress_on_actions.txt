@@ -2,32 +2,29 @@ on_actions = {
 	on_startup = {
 		effect = {
 			JAP = {
+				JAP_congress_initialize_values = yes
+				JAP_pnr_election_ensure_projected_results = yes
+				JAP_pnr_initialize_startup_variables = yes
+				JAP_pnr_initialize_kanebukuro_kozuchi = yes
+				JAP_pnr_initialize_new_party_preparation = yes
+				JAP_pnr_initialize_grey_cardinals = yes
+				JAP_pnr_clamp_showa_restoration_variables = yes
+				JAP_pnr_initialize_operation_launched_modifier_variables = yes
 				if = {
-					limit = { exists = yes }
-					JAP_congress_initialize_values = yes
-					JAP_pnr_election_ensure_projected_results = yes
-					JAP_pnr_initialize_startup_variables = yes
-					JAP_pnr_initialize_kanebukuro_kozuchi = yes
-					JAP_pnr_initialize_new_party_preparation = yes
-					JAP_pnr_initialize_grey_cardinals = yes
-					JAP_pnr_clamp_showa_restoration_variables = yes
-					JAP_pnr_initialize_operation_launched_modifier_variables = yes
-					if = {
-						limit = {
-							has_completed_focus = JAP_pnr_68th_sessions_imperial_diet
-							NOT = { has_country_flag = JAP_pnr_election_completed }
-						}
-						set_country_flag = pnr_congress_temporarily_unable
-						set_country_flag = JAP_pnr_election_in_progress
+					limit = {
+						has_completed_focus = JAP_pnr_68th_sessions_imperial_diet
+						NOT = { has_country_flag = JAP_pnr_election_completed }
 					}
-					if = {
-						limit = { NOT = { has_country_flag = JAP_congress_annual_agenda_loop_started } }
-						set_country_flag = JAP_congress_annual_agenda_loop_started
-						country_event = { id = JAP_pnr_hidden.3 days = 365 }
+					set_country_flag = pnr_congress_temporarily_unable
+					set_country_flag = JAP_pnr_election_in_progress
 					}
+				if = {
+					limit = { NOT = { has_country_flag = JAP_congress_annual_agenda_loop_started } }
+					set_country_flag = JAP_congress_annual_agenda_loop_started
+					country_event = { id = JAP_pnr_hidden.3 days = 365 }
 				}
 				random_list = {
-                    50 = { unlock_national_focus = JAP_pnr_join_forces_with_the_wakuhara_faction }
+                	50 = { unlock_national_focus = JAP_pnr_join_forces_with_the_wakuhara_faction }
     				50 = { unlock_national_focus = JAP_pnr_leaning_toward_suzuki_faction }
                 }
 			}
@@ -39,19 +36,14 @@ on_actions = {
 			if = {
 				limit = { exists = yes }
 				JAP_pnr_monthly_miitsu_drift = yes
+				set_variable = { JAP.JAP_pnr_oriential_company_modifier_industrial_factory_donations_var = THIS.num_subjects }
+				force_update_dynamic_modifier = yes
 			}
 		}
 	}
 
 	on_weekly = {
 		effect = {
-			#if = {
-			#	limit = {
-			#		tag = JAP
-			#		has_dynamic_modifier = { modifier = JAP_pnr_bad_landreform_problem_modifier }
-			#	}
-			#	JAP_pnr_update_bad_landreform_problem_modifier = yes
-			#}
 		}
 	}
 

@@ -707,7 +707,6 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 ### Indian Civil War ###
 	JAP_pnr_operation_spartacus_india_decision = { # Operation Spartacus
 		icon = GFX_decision_continent_north_america
-
 		visible = { 
 			has_completed_focus = JAP_pnr_our_benefit_in_india
 		}
@@ -726,5 +725,112 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		complete_effect = {
 			send_equipment = { target = HND type = infantry_equipment amount = 1000 }
 		}
+	}
+
+### Common Diplomacy ###
+	JAP_pnr_trade_with_universal_oil_products_decision = {
+		icon = GFX_decision_continent_north_america
+		allowed = { always = no }
+		priority = 30
+		cost = 20
+		days_remove = 60
+		available = { has_global_flag = USA_civil_war_begun_flag has_idea = JAP_pnr_japan_gasoline_company }
+		fire_only_once = yes
+		remove_effect = {
+			steal_random_tech_bonus = { 
+				category = synth_resources 
+				folder = industry_folder 
+				ahead_reduction = 0.5
+				bonus = 1
+				base_bonus = 1
+				dynamic = yes 
+				name = JAP_pnr_trade_with_universal_oil_products_decision 
+				target = USA 
+				uses = 1
+			}
+		}
+		ai_will_do = { factor = 10 }
+	}
+	JAP_pnr_trade_with_standard_vacuum_oil_company_decision = {
+		icon = GFX_decision_oil
+		allowed = { always = no }
+		priority = 30
+		cost = 40
+		days_remove = 60
+		available = { has_global_flag = USA_civil_war_begun_flag has_idea = JAP_pnr_japan_gasoline_company }
+		fire_only_once = yes
+		remove_effect = {
+			534 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = { factor = 10 }
+	}
+
+### Confuciusm ###
+	JAP_pnr_save_the_kong_decheng_decision = {
+		icon = GFX_decisions_generic_counter_infiltration
+        is_good = no
+		days_mission_timeout = 120
+		fire_only_once = yes
+		priority = 200
+        available = { JAP = { has_war = yes } }
+        allowed = { always = no }
+		timeout_effect = {
+			add_political_power = 10
+		}
+		fixed_random_seed = no
+	}
+	JAP_pnr_youshui_kong_lingjun_decision = {
+		icon = GFX_decision_generic_welfare
+		allowed = { always = no }
+		priority = 50
+		cost = 5
+		days_remove = 35
+		available = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
+		visible = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
+		modifier = { political_power_cost = 0.02 }
+		remove_effect = {
+			custom_effect_tooltip = shibun_alliance_var_increase_tt
+			add_to_variable = { shibun_alliance_var = 1 }
+		}
+		ai_will_do = { factor = 10 }
+	}
+	JAP_pnr_calling_saint_way_decision = {
+		icon = GFX_decision_hol_radio_oranje
+		allowed = { always = no }
+		priority = 50
+		cost = 10
+		days_remove = 21
+		days_re_enable = 28
+		available = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
+		visible = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
+		remove_effect = {
+			custom_effect_tooltip = shibun_alliance_var_increase_tt
+			add_to_variable = { shibun_alliance_var = 1 }
+			var:597.owner = { add_popularity = { ideology = authoritarian_democrat popularity = 0.02 } }
+		}
+		ai_will_do = { factor = 10 }
+	}
+	JAP_pnr_offer_palaces_fix_loan_decision = {
+		icon = GFX_decision_generic_welfare
+		allowed = { always = no }
+		priority = 50
+		cost = 20
+		days_remove = 28
+		available = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
+		visible = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
+		fire_only_once = yes
+		remove_effect = {
+			custom_effect_tooltip = shibun_alliance_var_increase_tt
+			add_to_variable = { shibun_alliance_var = 2 }
+			var:597.owner = { add_political_power = 10 }
+		}
+		ai_will_do = { factor = 10 }
 	}
 }

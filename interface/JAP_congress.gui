@@ -163,7 +163,7 @@ guiTypes = {
 				instantTextBoxType = {
 					name = "JAP_congress_majority_party_title"
 					position = { x = 0 y = 14 }
-					font = "hoi_20b"
+					font = "hoi_24header"
 					borderSize = { x = 0 y = 0 }
 					text = JAP_congress_majority_party_title
 					maxWidth = 185
@@ -185,7 +185,6 @@ guiTypes = {
 						name = "JAP_congress_majority_party_1_icon"
 						position = { x = 12 y = 12 }
 						spriteType = "GFX_jap_congress_party_1_icon"
-						pdx_tooltip_delayed = JAP_congress_majority_party_tt
 						scale = 0.9
 					}
 
@@ -193,7 +192,6 @@ guiTypes = {
 						name = "JAP_congress_majority_party_2_icon"
 						position = { x = 10 y = 12 }
 						spriteType = "GFX_jap_congress_party_2_icon"
-						pdx_tooltip_delayed = JAP_congress_majority_party_tt
 						scale = 0.9
 					}
 
@@ -201,7 +199,6 @@ guiTypes = {
 						name = "JAP_congress_majority_party_3_icon"
 						position = { x = 14 y = 12 }
 						spriteType = "GFX_jap_congress_party_3_icon"
-						pdx_tooltip_delayed = JAP_congress_majority_party_tt
 						scale = 0.9
 					}
 
@@ -209,7 +206,6 @@ guiTypes = {
 						name = "JAP_congress_majority_party_4_icon"
 						position = { x = 14 y = 12 }
 						spriteType = "GFX_jap_congress_party_4_icon"
-						pdx_tooltip_delayed = JAP_congress_majority_party_tt
 						scale = 0.9
 					}
 
@@ -217,15 +213,13 @@ guiTypes = {
 						name = "JAP_congress_majority_party_5_icon"
 						position = { x = 14 y = 12 }
 						spriteType = "GFX_jap_congress_party_5_icon"
-						pdx_tooltip_delayed = JAP_congress_majority_party_tt
 						scale = 0.9
 					}
 
 					iconType = {
 						name = "JAP_congress_majority_party_6_icon"
-						position = { x = 14 y = 12 }
+						position = { x = 14 y = 9 }
 						spriteType = "GFX_jap_congress_party_6_icon"
-						pdx_tooltip_delayed = JAP_congress_majority_party_tt
 						scale = 0.9
 					}
 
@@ -233,7 +227,6 @@ guiTypes = {
 						name = "JAP_congress_majority_party_7_icon"
 						position = { x = 14 y = 12 }
 						spriteType = "GFX_jap_congress_party_7_icon"
-						pdx_tooltip_delayed = JAP_congress_majority_party_tt
 						scale = 0.9
 					}
 
@@ -241,7 +234,6 @@ guiTypes = {
 						name = "JAP_congress_majority_party_8_icon"
 						position = { x = 14 y = 12 }
 						spriteType = "GFX_jap_congress_party_8_icon"
-						pdx_tooltip_delayed = JAP_congress_majority_party_tt
 						scale = 0.9
 					}
 
@@ -249,7 +241,6 @@ guiTypes = {
 						name = "JAP_congress_majority_party_9_icon"
 						position = { x = 14 y = 12 }
 						spriteType = "GFX_jap_congress_party_9_icon"
-						pdx_tooltip_delayed = JAP_congress_majority_party_tt
 						scale = 0.9
 					}
 
@@ -257,7 +248,6 @@ guiTypes = {
 						name = "JAP_congress_majority_party_10_icon"
 						position = { x = 14 y = 12 }
 						spriteType = "GFX_jap_congress_party_10_icon"
-						pdx_tooltip_delayed = JAP_congress_majority_party_tt
 						scale = 0.9
 					}
 				}
@@ -287,7 +277,7 @@ guiTypes = {
 				instantTextBoxType = {
 					name = "JAP_congress_authority_title"
 					position = { x = 0 y = 14 }
-					font = "hoi_20b"
+					font = "hoi_24header"
 					borderSize = { x = 0 y = 0 }
 					text = JAP_congress_authority_title
 					maxWidth = 185
@@ -334,6 +324,39 @@ guiTypes = {
 					pdx_tooltip_delayed = JAP_congress_authority_increase_tt
 				}
 			}
+
+			containerWindowType = {
+				name = "JAP_congress_special_acts_container"
+				position = { x = 438 y = 25 }
+				size = { width = 185 height = 195 }
+
+				background = {
+					name = "Background"
+					quadTextureSprite = "GFX_tiled_research_bg"
+				}
+
+				instantTextBoxType = {
+					name = "JAP_special_acts_title"
+					position = { x = 0 y = 14 }
+					font = "hoi_24header"
+					borderSize = { x = 0 y = 0 }
+					text = JAP_congress_authority_title
+					maxWidth = 185
+					format = center
+				}
+
+				iconType = {
+					name = "JAP_congress_special_act_democracy_weapon_active_icon"
+					position = { x = 99 y = 50 }
+					spriteType = GFX_jap_congress_special_act_democracy_weapon_active
+				}
+
+				iconType = {
+					name = "JAP_congress_special_act_democracy_production_active_icon"
+					position = { x = 14 y = 50 }
+					spriteType = GFX_jap_congress_special_act_democracy_production_active
+				}
+			}	
 
 			containerWindowType = {
 				name = "JAP_congress_action_buttons_container"

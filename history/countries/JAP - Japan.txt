@@ -194,7 +194,6 @@ set_power_balance = {
 
 add_ideas = {
 	#Ideas
-	JAP_narrow_rail_0
 	FNG_mantetsu_profits
 	JAP_pnr_showa_tenno
 	JAP_pnr_housing_finance_agency
@@ -208,6 +207,14 @@ add_dynamic_modifier = {
 	modifier = FNG_mantetsu_profits_modifier
 	scope = FNG
 }
+
+every_state = {
+	limit = { is_core_of = JAP }
+	add_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier }
+}
+
+645 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+648 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
 
 set_politics = {
 	ruling_party = social_conservative
@@ -447,11 +454,13 @@ set_variable = { JAP_land_reform_cost_1 = 50 }
 set_variable = { JAP_land_reform_cost_2 = 75 }
 set_variable = { JAP_land_reform_cost_3 = 100 }
 set_variable = { JAP_land_reform_cost_4 = 150 }
-set_variable = { JAP_land_reform_pp_1 = 20 }
-set_variable = { JAP_land_reform_pp_2 = 35 }
-set_variable = { JAP_land_reform_pp_3 = 50 }
+set_variable = { JAP_land_reform_pp_1 = 30 }
+set_variable = { JAP_land_reform_pp_2 = 50 }
+set_variable = { JAP_land_reform_pp_3 = 70 }
 set_variable = { JAP_eco_cost_1 = 75 }
 set_variable = { JAP_eco_cost_2 = 125 }
+
+set_variable = { JAP_pnr_landreform_result_var = 0 }
 
 ##########   PNR  SETTING   ###########
 ### JAP Puppet Register ###
@@ -518,6 +527,10 @@ recruit_character = JAP_pnr_mamoru_kishi
 recruit_character = JAP_pnr_sato_hiraku
 recruit_character = JAP_pnr_tanaka_yotatsu
 recruit_character = JAP_pnr_fukami_kiyoshi
+recruit_character = JAP_pnr_ogawa_goutaro
+recruit_character = JAP_pnr_tawara_magoichi
+recruit_character = JAP_pnr_maeda_fusanosuke
+recruit_character = JAP_pnr_fujiwara_iwaichi
 
 
 activate_advisor = JAP_pnr_saionji_kinmochi_idea
@@ -526,6 +539,10 @@ activate_advisor = JAP_pnr_mineo_osumi_idea
 
 ### Retire Path Advisors ###
 JAP_pnr_yoshiyuki_kawashima = { retire = yes }
+retire_character = JAP_pnr_ogawa_goutaro
+retire_character = JAP_pnr_tawara_magoichi
+retire_character = JAP_pnr_maeda_fusanosuke
+retire_character = JAP_pnr_fujiwara_iwaichi
 
 set_party_name = {
 	ideology = totalist
@@ -611,7 +628,7 @@ if = {
 			tank_nsb_armor_upgrade = 1
 		}
 		obsolete = yes
-		design_team = mio:JAP_nissan_organisation
+		design_team = mio:JAP_sagami_mio
 	}
 	create_equipment_variant = {
 		name = "Type 95 Ha-Go"
@@ -630,7 +647,7 @@ if = {
 			tank_nsb_engine_upgrade = 4
 			tank_nsb_armor_upgrade = 2
 		}
-		design_team = mio:JAP_nissan_organisation
+		design_team = mio:JAP_sagami_mio
 	}
 	create_equipment_variant = {
 		name = "Type 89 I-Go"
@@ -648,7 +665,7 @@ if = {
 		upgrades = {
 			tank_nsb_engine_upgrade = 5
 		}
-		design_team = mio:JAP_ishikawajima_organisation
+		design_team = mio:JAP_sagami_mio
 	}
 	create_equipment_variant = {
 		name = "I-Go Hei"										# Imaginary design, type 89 chassis and superstructure/close support gun like Ho-Ro
@@ -666,7 +683,7 @@ if = {
 		upgrades = {
 			tank_nsb_engine_upgrade = 5
 		}
-		design_team = mio:JAP_ishikawajima_organisation
+		design_team = mio:JAP_sagami_mio
 	}
 	create_equipment_variant = {
 		name = "Type 91"
@@ -686,37 +703,25 @@ if = {
 		upgrades = {
 			tank_nsb_engine_upgrade = 4
 		}
-		design_team = mio:JAP_ishikawajima_organisation
+		design_team = mio:JAP_sagami_mio
 	}
 }
 
 if = {
 	limit = { has_dlc_bba = yes }
-	### Obsolete planes
+	### Fighters
 	create_equipment_variant = {
 		name = "Type 91"
 		type = small_plane_airframe_0
 		show_position = no
-		parent_version = 0
 		modules = {
 			fixed_main_weapon_slot = light_mg_2x
 			engine_type_slot = engine_1_1x
 			special_type_slot_1 = empty
 		}
 		# Should be nakajima, but currently nakajima is limited to naval planes only
-		design_team = mio:JAP_mitsubishi_air_mio
-	}
-	create_equipment_variant = {
-		name = "A4N"
-		type = cv_small_plane_airframe_0
-		show_position = no
-		parent_version = 0
-		modules = {
-			fixed_main_weapon_slot = light_mg_2x
-			engine_type_slot = engine_1_1x
-			special_type_slot_1 = empty
-		}
-		design_team = mio:JAP_mitsubishi_air_mio
+		design_team = mio:JAP_hikari_mio
+		obsolete = yes
 	}
 	create_equipment_variant = {
 		name = "Ki-10"
@@ -727,8 +732,9 @@ if = {
 			engine_type_slot = engine_2_1x
 			special_type_slot_1 = empty
 		}
-		design_team = mio:JAP_mitsubishi_air_mio
+		design_team = mio:JAP_hikari_mio
 		obsolete = yes
+		icon = GFX_JAP_small_0_ki_10_medium
 	}
 	create_equipment_variant = {
 		name = "Ki-27"
@@ -739,7 +745,20 @@ if = {
 			engine_type_slot = engine_2_1x
 			special_type_slot_1 = empty
 		}
-		design_team = mio:JAP_mitsubishi_air_mio
+		# Should be nakajima, but currently nakajima is limited to naval planes only
+		design_team = mio:JAP_hikari_mio
+	}
+	create_equipment_variant = {
+		name = "A4N"
+		type = cv_small_plane_airframe_0
+		show_position = no
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		design_team = mio:JAP_hikari_mio
+		obsolete = yes
 	}
 	create_equipment_variant = {
 		name = "A5M1"
@@ -750,9 +769,10 @@ if = {
 			engine_type_slot = engine_2_1x
 			special_type_slot_1 = empty
 		}
-		design_team = mio:JAP_mitsubishi_air_mio
+		design_team = mio:JAP_hikari_mio
+		icon = GFX_JAP_carrier_1_a5m1_medium
 	}
-	### Small planes
+	### CAS
 	create_equipment_variant = {
 		name = "Ki-3"
 		type = small_plane_cas_airframe_0
@@ -762,57 +782,37 @@ if = {
 			engine_type_slot = engine_1_1x
 			special_type_slot_1 = lmg_defense_turret
 		}
-		design_team = mio:JAP_mitsubishi_air_mio
+		# Should be kawasaki, but it is not implemented
+		design_team = mio:JAP_hikari_mio
 	}
 	create_equipment_variant = {
-		name = "D1A2"
+		name = "D1A1"
 		type = cv_small_plane_cas_airframe_0
 		show_position = no
 		modules = {
 			fixed_main_weapon_slot = bomb_locks
 			engine_type_slot = engine_2_1x
-			special_type_slot_1 = dive_brakes_small
-		}
-		design_team = mio:JAP_mitsubishi_air_mio
-	}
-	create_equipment_variant = {
-		name = "Ki-32"
-		type = small_plane_cas_airframe_1
-		show_position = no
-		parent_version = 0
-		modules = {
-			fixed_main_weapon_slot = bomb_locks
-			engine_type_slot = engine_2_1x
-			special_type_slot_1 = lmg_defense_turret
-		}
-		# Should be kawasaki, but it is not implemented
-		design_team = mio:JAP_mitsubishi_air_mio
-	}
-	### CV planes
-	create_equipment_variant = {
-		name = "D1A2"
-		type = cv_small_plane_cas_airframe_1
-		show_position = no
-		parent_version = 0
-		modules = {
-			fixed_main_weapon_slot = bomb_locks
-			engine_type_slot = engine_2_1x
-			special_type_slot_1 = dive_brakes_small
-		}
-		design_team = mio:JAP_mitsubishi_air_mio
-	}
-	create_equipment_variant = {
-		name = "B5N"
-		type = cv_small_plane_naval_bomber_airframe_1
-		show_position = no
-		parent_version = 0
-		modules = {
-			fixed_main_weapon_slot = torpedo_mounting
-			engine_type_slot = engine_2_1x
 			special_type_slot_1 = empty
 		}
-		design_team = mio:JAP_mitsubishi_air_mio
+		design_team = mio:JAP_hikari_mio
+		obsolete = yes
+		icon = GFX_JAP_carrier_0_d1a1_medium
 	}
+	create_equipment_variant = {
+		name = "D1A2"
+		type = cv_small_plane_cas_airframe_0
+		show_position = no
+		mark_older_equipment_obsolete = yes
+		modules = {
+			fixed_main_weapon_slot = bomb_locks
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = dive_brakes_small
+		}
+		design_team = mio:JAP_hikari_mio
+		icon = GFX_JAP_carrier_0_d1a2_medium
+	}
+
+	### NAV
 	create_equipment_variant = {
 		name = "G3M"
 		type = small_plane_naval_bomber_airframe_1
@@ -822,30 +822,88 @@ if = {
 			engine_type_slot = engine_2_2x
 			special_type_slot_1 = lmg_defense_turret
 		}
-		design_team = mio:JAP_mitsubishi_air_mio
+		design_team = mio:JAP_hikari_mio
+	}
+	create_equipment_variant = {
+		name = "B2M"
+		type = cv_small_plane_naval_bomber_airframe_0
+		show_position = no
+		modules = {
+			fixed_main_weapon_slot = torpedo_mounting
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		# Should be yokosuka, but currently yokosuka is limited to cv cas planes only
+		design_team = mio:JAP_hikari_mio
+		obsolete = yes
+		icon = GFX_JAP_carrier_0_b2m_medium
 	}
 	create_equipment_variant = {
 		name = "B4Y"
 		type = cv_small_plane_naval_bomber_airframe_0
 		show_position = no
+		mark_older_equipment_obsolete = yes
 		modules = {
 			fixed_main_weapon_slot = torpedo_mounting
 			engine_type_slot = engine_2_1x
 			special_type_slot_1 = empty
 		}
-		design_team = mio:JAP_mitsubishi_air_mio
+		# Should be yokosuka, but currently yokosuka is limited to cv cas planes only
+		design_team = mio:JAP_hikari_mio
+		icon = GFX_JAP_carrier_0_b4y_medium
 	}
+
 	### Medium planes
 	create_equipment_variant = {
-		name = "Ki-2"
+		name = "Ki-1"
 		type = medium_plane_airframe_0
 		show_position = no
-		parent_version = 0
 		modules = {
 			fixed_main_weapon_slot = medium_bomb_bay
 			engine_type_slot = engine_1_2x
 			special_type_slot_1 = lmg_defense_turret
 		}
-		design_team = mio:JAP_mitsubishi_air_mio
+		design_team = mio:JAP_hikari_mio
+		obsolete = yes
+		icon = GFX_JAP_medium_0_ki_1_2_medium
+	}
+
+	create_equipment_variant = {
+		name = "Ki-2"
+		type = medium_plane_airframe_0
+		show_position = no
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			engine_type_slot = engine_2_2x
+			special_type_slot_1 = lmg_defense_turret_2x
+		}
+		design_team = mio:JAP_hikari_mio
+	}
+
+	### Large Planes
+	create_equipment_variant = {
+		name = "H4H"
+		type = large_plane_maritime_patrol_plane_airframe_0
+		show_position = no
+		modules = {
+			fixed_main_weapon_slot = torpedo_mounting
+			engine_type_slot = engine_1_4x
+			special_type_slot_1 = lmg_defense_turret_2x
+			special_type_slot_2 = flying_boat_large
+		}
+		design_team = mio:JAP_hikari_mio
+	}
+
+	create_equipment_variant = {
+		name = "Ki-20"
+		type = large_plane_airframe_0
+		show_position = no
+		modules = {
+			fixed_main_weapon_slot = large_bomb_bay
+			engine_type_slot = engine_1_4x
+			special_type_slot_1 = lmg_defense_turret_2x
+			special_type_slot_2 = lmg_defense_turret
+		}
+		design_team = mio:JAP_hikari_mio
 	}
 }

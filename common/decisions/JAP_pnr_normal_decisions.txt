@@ -281,6 +281,57 @@ JAP_hero_et_gangster_bop_category = { #BOP
 		}
 		fixed_random_seed = no
 	}
+	### Naval Mission
+	JAP_pnr_complete_the_fourth_circle_plan = {
+		icon = GFX_decision_generic_merge_plant_ship
+		allowed = { always = no }
+		available = {
+			has_navy_size = { unit = battleship size > 7 }
+			has_navy_size = { unit = carrier size > 7 }
+			has_navy_size = { unit = battle_cruiser size > 5 }
+			has_navy_size = { unit = heavy_cruiser size > 19 }
+			has_navy_size = { unit = light_cruiser size > 19 }
+			has_navy_size = { unit = destroyer size > 149 }
+		}
+		priority = 99
+		days_mission_timeout = 1450
+		is_good = no
+		cancel_trigger = { is_subject = yes }
+		complete_effect = {
+			navy_experience = 50
+			add_mastery_bonus = {
+				name = JAP_pnr_complete_the_fourth_circle_plan
+				bonus = 0.15
+				days = 365
+				track = capital_ships
+			}
+			add_mastery_bonus = {
+				name = JAP_pnr_complete_the_fourth_circle_plan
+				bonus = 0.15
+				days = 365
+				track = carriers
+			}
+			add_mastery_bonus = {
+				name = JAP_pnr_complete_the_fourth_circle_plan
+				bonus = 0.15
+				days = 365
+				track = screens
+			}
+			add_mastery_bonus = {
+				name = JAP_pnr_complete_the_fourth_circle_plan
+				bonus = 0.05
+				days = 365
+				track = submarines
+			}
+		}
+		timeout_effect = {
+			log = "[GetLogRoot]: Decision timeout JAP_pnr_complete_the_fourth_circle_plan"
+		}
+		cancel_effect = {
+			log = "[GetLogRoot]: Decision cancel JAP_pnr_complete_the_fourth_circle_plan"
+		}
+		fixed_random_seed = no
+	}
 }
 
 JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
@@ -523,43 +574,14 @@ JAP_pnr_landreform_category = { # LAND REFORM
     JAP_pnr_landreform_countdown = {
         icon = GFX_decision_eng_blackshirt_march
         is_good = no
-		days_mission_timeout = 55
+		days_mission_timeout = 1085
+		fire_only_once = yes
 		priority = 100
 		#cancel_trigger = { has_country_flag = pnr_landreform_end_flag }
         activation = { NOT = { has_country_flag = pnr_landreform_end_flag } }
         available = { has_country_flag = pnr_landreform_end_flag }
         allowed = { always = no }
-
 		timeout_effect = {
-			add_to_variable = {
-				var = JAP_pnr_landreform_result_var
-				value = 1
-				tooltip = JAP_pnr_landreform_result_var_raised
-			}
-			add_to_variable = {
-				var = JAP_pnr_landreform_progress_var
-				value = 5
-				tooltip = JAP_pnr_landreform_progress_var_raised
-			}
-			clamp_variable = { var = JAP_pnr_landreform_progress_var max = 100 min = 0 }
-            if = {
-                limit = { check_variable = { JAP_pnr_landreform_progress_var > 99 } }
-                set_country_flag = pnr_landreform_end_flag
-                add_power_balance_value = {
-					id = JAP_hero_et_gangster_bop
-					value = 0.2
-					tooltip_side = JAP_pnr_bop_hero
-				}
-            }
-            else_if = {
-                custom_effect_tooltip = tooltip_white_line
-
-            }
-            #hidden_effect = {
-                #activate_mission = JAP_pnr_landreform_countdown
-            #}
-		}
-		complete_effect = {
 			custom_effect_tooltip = pnr_reduce_lost_decade_tt
             effect_tooltip = {
 				add_power_balance_value = {
@@ -568,85 +590,101 @@ JAP_pnr_landreform_category = { # LAND REFORM
 					tooltip_side = JAP_pnr_bop_hero
 				}
 			}
+			set_country_flag = pnr_landreform_end_flag
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = { check_variable = { JAP_pnr_landreform_result_var > 119 } }
+				add_ideas = JAP_pnr_land_reform_result_idea_4
+			}
+			else_if = {
+				limit = { check_variable = { JAP_pnr_landreform_result_var > 100 } }
+				add_ideas = JAP_pnr_land_reform_result_idea_3
+			}
+			else_if = {
+				limit = { check_variable = { JAP_pnr_landreform_result_var > 80 } }
+				add_ideas = JAP_pnr_land_reform_result_idea_2
+			}
+			else_if = {
+				limit = { check_variable = { JAP_pnr_landreform_result_var > 60 } }
+				add_ideas = JAP_pnr_land_reform_result_idea_1
+			}
+			else_if = {
+				limit = { check_variable = { JAP_pnr_landreform_result_var > 40 } }
+				add_ideas = JAP_pnr_land_reform_result_idea_0
+			}
+			else_if = {
+				limit = { check_variable = { JAP_pnr_landreform_result_var > 20 } }
+				add_political_power = 150
+				add_stability = 0.10
+			}
+			else = {
+				add_political_power = 50
+				add_stability = 0.05
+			}
 		}
 		fixed_random_seed = no
     }
 	JAP_pnr_cuicu_difang_xingdong = {
 		icon = GFX_decision_hol_radio_oranje
-		cost = 15
-		days_remove = 21
-		priority = 99
-		cancel_trigger = { has_country_flag = pnr_landreform_end_flag }
-		available = { NOT = { has_country_flag = pnr_landreform_end_flag } }
-        allowed = { always = no }
-		complete_effect = {
-			add_to_variable = {
-				var = JAP_pnr_landreform_result_var
-				value = 1
-				tooltip = JAP_pnr_landreform_result_var_raised
-			}
-			add_to_variable = {
-				var = JAP_pnr_landreform_progress_var
-				value = 1
-				tooltip = JAP_pnr_landreform_progress_var_raised
-			}
-			JAP_pnr_landreform_check_completion = yes
-		}
-		ai_will_do = { factor = 10 }
-		fixed_random_seed = no
-	}
-	JAP_pnr_concede_to_landowners = {
-		icon = GFX_decision_generic_agreement
-		cost = 15
-		days_remove = 30
+		cost = var:JAP_land_reform_pp_1
+		days_remove = var:JAP_land_reform_cost_2
 		priority = 99
 		cancel_trigger = { has_country_flag = pnr_landreform_end_flag }
 		available = { NOT = { has_country_flag = pnr_landreform_end_flag } }
         allowed = { always = no }
 		remove_effect = {
 			add_to_variable = {
-				var = JAP_pnr_landowner_angry_var
-				value = -1
-				tooltip = JAP_pnr_landowner_angry_var_raised
+				var = JAP_pnr_landreform_result_var
+				value = 3
+				tooltip = JAP_pnr_landreform_result_var_raised
 			}
-			add_to_variable = {
-				var = JAP_pnr_landreform_progress_var
-				value = 2
-				tooltip = JAP_pnr_landreform_progress_var_raised
-			}
-			JAP_pnr_landreform_check_completion = yes
+			add_days_mission_timeout = { mission = JAP_pnr_landreform_countdown days = -30 }
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 10 }
 		fixed_random_seed = no
 	}
 	JAP_pnr_promise_rapid_reform = {
 		icon = GFX_decision_generic_speech
-		cost = 15
-		days_remove = 30
+		cost = var:JAP_land_reform_pp_1
+		days_remove = var:JAP_land_reform_cost_1
+		days_re_enable = 50
 		priority = 98
 		cancel_trigger = { has_country_flag = pnr_landreform_end_flag }
 		available = { NOT = { has_country_flag = pnr_landreform_end_flag } }
         allowed = { always = no }
 		remove_effect = {
+			add_days_mission_timeout = { mission = JAP_pnr_landreform_countdown days = 40 }
+		}
+		ai_will_do = { factor = 0 }
+		fixed_random_seed = no
+	}
+	JAP_pnr_concede_to_landowners = {
+		icon = GFX_decision_generic_agreement
+		cost = var:JAP_land_reform_pp_1
+		days_remove = var:JAP_land_reform_cost_1
+		fire_only_once = yes
+		priority = 97
+		cancel_trigger = { has_country_flag = pnr_landreform_end_flag }
+		available = { NOT = { has_country_flag = pnr_landreform_end_flag } }
+        allowed = { always = no }
+		complete_effect = {
+			add_popularity = { ideology = national_populist popularity = 0.01 }
+			add_popularity = { ideology = radical_socialist popularity = 0.01 }
+		}
+		remove_effect = {
 			add_to_variable = {
-				var = JAP_pnr_peasant_angry_var
-				value = -1
-				tooltip = JAP_pnr_peasant_angry_var_raised
+				var = JAP_pnr_landreform_result_var
+				value = 3
+				tooltip = JAP_pnr_landreform_result_var_raised
 			}
-			add_to_variable = {
-				var = JAP_pnr_landreform_progress_var
-				value = 2
-				tooltip = JAP_pnr_landreform_progress_var_raised
-			}
-			JAP_pnr_landreform_check_completion = yes
 		}
 		ai_will_do = { factor = 0 }
 		fixed_random_seed = no
 	}
 	JAP_pnr_relax_free_land_transactions = {
 		icon = GFX_decision_generic_agriculture
-		cost = var:JAP_pnr_landreform_current_pp_1
-		days_remove = var:JAP_pnr_landreform_current_time_1
+		cost = var:JAP_land_reform_pp_2
+		days_remove = var:JAP_land_reform_cost_2
 		fire_only_once = yes
 		priority = 89
 		cancel_trigger = { has_country_flag = pnr_landreform_end_flag }
@@ -666,16 +704,9 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 2
+				value = 5
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
-			add_to_variable = {
-				var = JAP_pnr_landreform_progress_var
-				value = 3
-				tooltip = JAP_pnr_landreform_progress_var_raised
-			}
-			JAP_pnr_apply_landreform_landowner_backlash = yes
-			JAP_pnr_landreform_check_completion = yes
 		}
 		ai_will_do = {
 			base = 2000
@@ -688,15 +719,15 @@ JAP_pnr_landreform_category = { # LAND REFORM
 	}
 	JAP_pnr_protect_tenant_farming_rights = {
 		icon = GFX_decision_generic_agriculture
-		cost = var:JAP_pnr_landreform_current_pp_1
-		days_remove = var:JAP_pnr_landreform_current_time_1
+		cost = var:JAP_land_reform_pp_2
+		days_remove = var:JAP_land_reform_cost_2
 		fire_only_once = yes
 		priority = 88
 		cancel_trigger = { has_country_flag = pnr_landreform_end_flag }
 		available = { NOT = { has_country_flag = pnr_landreform_end_flag } }
         allowed = { always = no }
 		modifier = {
-			consumer_goods_factor = 0.05
+			stability_weekly = 0.02
 		}
 		remove_effect = {
             1104 = {
@@ -708,37 +739,25 @@ JAP_pnr_landreform_category = { # LAND REFORM
             }
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
-				var = JAP_pnr_landowner_angry_var
-				value = 1
-				tooltip = JAP_pnr_landowner_angry_var_raised
-			}
-			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 2
+				value = 5
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
-			add_to_variable = {
-				var = JAP_pnr_landreform_progress_var
-				value = 3
-				tooltip = JAP_pnr_landreform_progress_var_raised
-			}
-			JAP_pnr_apply_landreform_landowner_backlash = yes
-			JAP_pnr_landreform_check_completion = yes
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 		fixed_random_seed = no
 	}
 	JAP_pnr_reduce_land_purchase_loan_rates = {
 		icon = GFX_decision_generic_agriculture
-		cost = var:JAP_pnr_landreform_current_pp_1
-		days_remove = var:JAP_pnr_landreform_current_time_1
+		cost = var:JAP_land_reform_pp_2
+		days_remove = var:JAP_land_reform_cost_2
 		fire_only_once = yes
 		priority = 87
 		cancel_trigger = { has_country_flag = pnr_landreform_end_flag }
 		available = { NOT = { has_country_flag = pnr_landreform_end_flag } }
         allowed = { always = no }
 		modifier = {
-			consumer_goods_factor = 0.05
+			political_power_gain = -0.03
 		}
 		remove_effect = {
             531 = {
@@ -751,24 +770,17 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 2
+				value = 5
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
-			add_to_variable = {
-				var = JAP_pnr_landreform_progress_var
-				value = 3
-				tooltip = JAP_pnr_landreform_progress_var_raised
-			}
-			JAP_pnr_apply_landreform_landowner_backlash = yes
-			JAP_pnr_landreform_check_completion = yes
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 		fixed_random_seed = no
 	}
 	JAP_pnr_regulate_land_transactions = {
 		icon = GFX_decision_generic_agriculture
-		cost = var:JAP_pnr_landreform_current_pp_2
-		days_remove = var:JAP_pnr_landreform_current_time_2
+		cost = var:JAP_land_reform_pp_2
+		days_remove = var:JAP_land_reform_cost_3
 		fire_only_once = yes
 		priority = 79
 		cancel_trigger = { has_country_flag = pnr_landreform_end_flag }
@@ -776,244 +788,151 @@ JAP_pnr_landreform_category = { # LAND REFORM
         allowed = { always = no }
 		modifier = {
 			consumer_goods_factor = 0.05
-            political_power_cost = 0.05
 		}
 		remove_effect = {
             1103 = { increase_state_category_by_one_level = yes }
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
-				var = JAP_pnr_landowner_angry_var
-				value = 1
-				tooltip = JAP_pnr_landowner_angry_var_raised
-			}
-			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 3
+				value = 10
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
-			add_to_variable = {
-				var = JAP_pnr_landreform_progress_var
-				value = 4
-				tooltip = JAP_pnr_landreform_progress_var_raised
-			}
-			JAP_pnr_apply_landreform_landowner_backlash = yes
-			JAP_pnr_landreform_check_completion = yes
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 		fixed_random_seed = no
 	}
 	JAP_pnr_freeze_land_rent = {
 		icon = GFX_decision_generic_agriculture
-		cost = var:JAP_pnr_landreform_current_pp_2
-		days_remove = var:JAP_pnr_landreform_current_time_2
+		cost = var:JAP_land_reform_pp_2
+		days_remove = var:JAP_land_reform_cost_3
 		fire_only_once = yes
 		priority = 78
 		cancel_trigger = { has_country_flag = pnr_landreform_end_flag }
 		available = { NOT = { has_country_flag = pnr_landreform_end_flag } }
         allowed = { always = no }
 		modifier = {
-			consumer_goods_factor = 0.05
             political_power_cost = 0.05
 		}
 		remove_effect = {
             536 = { increase_state_category_by_one_level = yes }
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
-				var = JAP_pnr_landowner_angry_var
-				value = 1
-				tooltip = JAP_pnr_landowner_angry_var_raised
-			}
-			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 3
+				value = 10
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
-			add_to_variable = {
-				var = JAP_pnr_landreform_progress_var
-				value = 4
-				tooltip = JAP_pnr_landreform_progress_var_raised
-			}
-			JAP_pnr_apply_landreform_landowner_backlash = yes
-			JAP_pnr_landreform_check_completion = yes
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 		fixed_random_seed = no
 	}
 	JAP_pnr_dual_rice_price_system = {
 		icon = GFX_decision_generic_agriculture
-		cost = var:JAP_pnr_landreform_current_pp_2
-		days_remove = var:JAP_pnr_landreform_current_time_2
+		cost = var:JAP_land_reform_pp_2
+		days_remove = var:JAP_land_reform_cost_3
 		fire_only_once = yes
 		priority = 77
 		cancel_trigger = { has_country_flag = pnr_landreform_end_flag }
 		available = { NOT = { has_country_flag = pnr_landreform_end_flag } }
         allowed = { always = no }
-		modifier = {
-			consumer_goods_factor = 0.05
-            political_power_cost = 0.05
+		complete_effect = {
+			add_days_mission_timeout = { mission = JAP_pnr_landreform_countdown days = -49 }
 		}
 		remove_effect = {
             536 = { increase_state_category_by_one_level = yes }
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 3
+				value = 10
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
-			add_to_variable = {
-				var = JAP_pnr_landreform_progress_var
-				value = 4
-				tooltip = JAP_pnr_landreform_progress_var_raised
-			}
-			JAP_pnr_apply_landreform_landowner_backlash = yes
-			JAP_pnr_landreform_check_completion = yes
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 		fixed_random_seed = no
 	}
 	JAP_pnr_compulsory_purchase_of_kind_rent = {
 		icon = GFX_decision_generic_agriculture
-		cost = var:JAP_pnr_landreform_current_pp_3
-		days_remove = var:JAP_pnr_landreform_current_time_3
+		cost = var:JAP_land_reform_pp_3
+		days_remove = var:JAP_land_reform_cost_4
 		fire_only_once = yes
 		priority = 69
 		cancel_trigger = { has_country_flag = pnr_landreform_end_flag }
 		available = { NOT = { has_country_flag = pnr_landreform_end_flag } }
         allowed = { always = no }
-		modifier = {
-			consumer_goods_factor = 0.10
-            political_power_cost = 0.08
-		}
 		remove_effect = {
             532 = { increase_state_category_by_one_level = yes }
-            1104 = { increase_state_category_by_one_level = yes }
+			1104 = { increase_state_category_by_one_level = yes }
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
-				var = JAP_pnr_landowner_angry_var
-				value = 1
-				tooltip = JAP_pnr_landowner_angry_var_raised
-			}
-			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 5
+				value = 10
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
-			add_to_variable = {
-				var = JAP_pnr_landreform_progress_var
-				value = 5
-				tooltip = JAP_pnr_landreform_progress_var_raised
-			}
-			JAP_pnr_apply_landreform_landowner_backlash = yes
-			JAP_pnr_landreform_check_completion = yes
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 		fixed_random_seed = no
 	}
 	JAP_pnr_establish_farmland_committees = {
 		icon = GFX_decision_generic_agriculture
-		cost = var:JAP_pnr_landreform_current_pp_3
-		days_remove = var:JAP_pnr_landreform_current_time_3
+		cost = var:JAP_land_reform_pp_3
+		days_remove = var:JAP_land_reform_cost_4
 		fire_only_once = yes
 		priority = 68
 		cancel_trigger = { has_country_flag = pnr_landreform_end_flag }
 		available = { NOT = { has_country_flag = pnr_landreform_end_flag } }
         allowed = { always = no }
-		modifier = {
-			consumer_goods_factor = 0.10
-            political_power_cost = 0.08
-		}
 		remove_effect = {
 			529 = { increase_state_category_by_one_level = yes }
             1101 = { increase_state_category_by_one_level = yes }
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 5
+				value = 10
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
-			add_to_variable = {
-				var = JAP_pnr_landreform_progress_var
-				value = 5
-				tooltip = JAP_pnr_landreform_progress_var_raised
-			}
-			JAP_pnr_apply_landreform_landowner_backlash = yes
-			JAP_pnr_landreform_check_completion = yes
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 100 }
 		fixed_random_seed = no
 	}
 	JAP_pnr_grant_powers_to_local_governors = {
 		icon = GFX_decision_generic_agriculture
-		cost = var:JAP_pnr_landreform_current_pp_3
-		days_remove = var:JAP_pnr_landreform_current_time_3
+		cost = var:JAP_land_reform_pp_3
+		days_remove = var:JAP_land_reform_cost_4
 		fire_only_once = yes
 		priority = 67
 		cancel_trigger = { has_country_flag = pnr_landreform_end_flag }
 		available = { NOT = { has_country_flag = pnr_landreform_end_flag } }
         allowed = { always = no }
-		modifier = {
-			consumer_goods_factor = 0.10
-            political_power_cost = 0.08
-		}
 		remove_effect = {
 			533 = { increase_state_category_by_one_level = yes }
             528 = { increase_state_category_by_one_level = yes }
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 5
+				value = 10
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
-			add_to_variable = {
-				var = JAP_pnr_landreform_progress_var
-				value = 5
-				tooltip = JAP_pnr_landreform_progress_var_raised
-			}
-			JAP_pnr_apply_landreform_landowner_backlash = yes
-			JAP_pnr_landreform_check_completion = yes
 		}
 		ai_will_do = { factor = 0 }
 		fixed_random_seed = no
 	}
 	JAP_pnr_standardize_rural_management = {
 		icon = GFX_decision_generic_agriculture
-		cost = var:JAP_pnr_landreform_current_pp_3
-		days_remove = var:JAP_pnr_landreform_current_time_3
+		cost = var:JAP_land_reform_pp_3
+		days_remove = var:JAP_land_reform_cost_4
 		fire_only_once = yes
 		priority = 66
 		cancel_trigger = { has_country_flag = pnr_landreform_end_flag }
 		available = { NOT = { has_country_flag = pnr_landreform_end_flag } }
         allowed = { always = no }
-		modifier = {
-			consumer_goods_factor = 0.10
-            political_power_cost = 0.08
-		}
 		remove_effect = {
             1106 = { increase_state_category_by_one_level = yes }
             1102 = { increase_state_category_by_one_level = yes }
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
-				var = JAP_pnr_landowner_angry_var
-				value = 1
-				tooltip = JAP_pnr_landowner_angry_var_raised
-			}
-			add_to_variable = {
-				var = JAP_pnr_peasant_angry_var
-				value = 1
-				tooltip = JAP_pnr_peasant_angry_var_raised
-			}
-			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 5
+				value = 10
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
-			add_to_variable = {
-				var = JAP_pnr_landreform_progress_var
-				value = 5
-				tooltip = JAP_pnr_landreform_progress_var_raised
-			}
-			JAP_pnr_apply_landreform_landowner_backlash = yes
-			JAP_pnr_landreform_check_completion = yes
 		}
 		ai_will_do = { factor = 0 }
 		fixed_random_seed = no
@@ -2153,6 +2072,149 @@ JAP_pnr_black_monday_development_category = {
 		ai_will_do = { factor = 0 }
 		fixed_random_seed = no
 	}
+	### Railway Decisions ###
+		### Keep Narrow Rail ###
+		JAP_pnr_renovation_of_north_japan_railway_decision = {
+			icon = GFX_decision_railroad
+			cost = 25
+			allowed = { always = no }
+			priority = 120
+			available = { num_of_civilian_factories_available_for_projects > 1 }
+			modifier = { civilian_factory_use = 2 }
+			fire_only_once = yes
+			days_remove = 60
+			complete_effect = { add_to_variable = { jap_railway_build_var = 1 } }
+			remove_effect = {
+				537 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				555 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				536 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				533 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				1106 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				if = {
+					limit = { check_variable = { jap_railway_build_var > 1 } }
+					add_ideas = JAP_narrow_rail_1
+				}
+			}
+		}
+		JAP_pnr_renovation_of_east_japan_railway_decision = {
+			icon = GFX_decision_railroad
+			cost = 25
+			allowed = { always = no }
+			priority = 120
+			available = { num_of_civilian_factories_available_for_projects > 1 }
+			modifier = { civilian_factory_use = 2 }
+			fire_only_once = yes
+			days_remove = 60
+			complete_effect = { add_to_variable = { jap_railway_build_var = 1 } }
+			remove_effect = {
+				534 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				1101 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				282 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				1105 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				532 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				535 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				if = {
+					limit = { check_variable = { jap_railway_build_var > 1 } }
+					add_ideas = JAP_narrow_rail_1
+				}
+			}
+		}
+		JAP_pnr_renovation_of_west_japan_railway_decision = {
+			icon = GFX_decision_railroad
+			cost = 25
+			allowed = { always = no }
+			priority = 120
+			available = { num_of_civilian_factories_available_for_projects > 1 }
+			modifier = { civilian_factory_use = 2 }
+			fire_only_once = yes
+			days_remove = 60
+			complete_effect = { add_to_variable = { jap_railway_build_var = 1 } }
+			remove_effect = {
+				531 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				1104 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				1103 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				529 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				530 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				528 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				1102 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				526 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				if = {
+					limit = { check_variable = { jap_railway_build_var > 1 } }
+					add_ideas = JAP_narrow_rail_1
+				}
+			}
+		}
+		### Change Narrow Rail ###
+		JAP_pnr_rebuild_of_north_japan_railway_decision = {
+			icon = GFX_decision_railroad
+			cost = 40
+			allowed = { always = no }
+			priority = 120
+			available = { num_of_civilian_factories_available_for_projects > 1 }
+			modifier = { civilian_factory_use = 2 }
+			fire_only_once = yes
+			days_remove = 90
+			complete_effect = { add_to_variable = { jap_railway_build_var = 1 } }
+			remove_effect = {
+				537 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				555 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				536 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				533 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				1106 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				if = {
+					limit = { check_variable = { jap_railway_build_var > 1 } }
+					add_ideas = JAP_narrow_rail_2
+				}
+			}
+		}
+		JAP_pnr_rebuild_of_east_japan_railway_decision = {
+			icon = GFX_decision_railroad
+			cost = 40
+			allowed = { always = no }
+			priority = 120
+			available = { num_of_civilian_factories_available_for_projects > 1 }
+			modifier = { civilian_factory_use = 2 }
+			fire_only_once = yes
+			days_remove = 90
+			complete_effect = { add_to_variable = { jap_railway_build_var = 1 } }
+			remove_effect = {
+				534 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				1101 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				282 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				1105 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				532 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				535 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				if = {
+					limit = { check_variable = { jap_railway_build_var > 1 } }
+					add_ideas = JAP_narrow_rail_2
+				}
+			}
+		}
+		JAP_pnr_rebuild_of_west_japan_railway_decision = {
+			icon = GFX_decision_railroad
+			cost = 40
+			allowed = { always = no }
+			priority = 120
+			available = { num_of_civilian_factories_available_for_projects > 1 }
+			modifier = { civilian_factory_use = 2 }
+			fire_only_once = yes
+			days_remove = 90
+			complete_effect = { add_to_variable = { jap_railway_build_var = 1 } }
+			remove_effect = {
+				531 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				1104 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				1103 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				529 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				530 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				528 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				1102 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				526 = { remove_dynamic_modifier = { modifier = JAP_pnr_narrow_rail_modifier } }
+				if = {
+					limit = { check_variable = { jap_railway_build_var > 1 } }
+					add_ideas = JAP_narrow_rail_2
+				}
+			}
+		}
 }
 
 JAP_pnr_guirendengche_qinglong_zaoqiu_catgory = {
@@ -3235,15 +3297,10 @@ JAP_pnr_red_conspiracy_category = {
 		cancel_trigger = {
 			NOT = { has_country_flag = JAP_pnr_red_conspiracy_done }
 		}
-		cost = 10
 		days_remove = 21
-		fire_only_once = yes
-		modifier = {
-			political_power_factor = -0.05
-		}
-		complete_effect = {
-			add_manpower = -100
-		}
+		days_re_enable = 7
+		modifier = { political_power_factor = -0.05 }
+		complete_effect = { add_manpower = -100 add_stability = -0.01 }
 		remove_effect = {
 			subtract_from_variable = {
 				var = JAP_pnr_red_conspiracy_strength
@@ -3264,12 +3321,9 @@ JAP_pnr_red_conspiracy_category = {
 		cancel_trigger = {
 			NOT = { has_country_flag = JAP_pnr_red_conspiracy_done }
 		}
-		cost = 10
-		days_remove = 14
-		fire_only_once = yes
-		modifier = {
-			consumer_goods_factor = 0.1
-		}
+		days_remove = 21
+		days_re_enable = 7
+		modifier = { consumer_goods_factor = 0.1 }
 		remove_effect = {
 			subtract_from_variable = {
 				var = JAP_pnr_red_conspiracy_strength
@@ -3290,12 +3344,9 @@ JAP_pnr_red_conspiracy_category = {
 		cancel_trigger = {
 			NOT = { has_country_flag = JAP_pnr_red_conspiracy_done }
 		}
-		cost = 10
 		days_remove = 21
-		fire_only_once = yes
-		modifier = {
-			stability_weekly = -0.01
-		}
+		days_re_enable = 7
+		modifier = { stability_weekly = -0.01 }
 		remove_effect = {
 			subtract_from_variable = {
 				var = JAP_pnr_red_conspiracy_strength
@@ -3316,13 +3367,9 @@ JAP_pnr_red_conspiracy_category = {
 		cancel_trigger = {
 			NOT = { has_country_flag = JAP_pnr_red_conspiracy_done }
 		}
-		cost = 0
-		days_remove = 28
-		fire_only_once = yes
-		complete_effect = {
-			add_manpower = -20
-			add_political_power = -25
-		}
+		days_remove = 35
+		days_re_enable = 7
+		complete_effect = { add_manpower = -20 add_stability = -0.01 }
 		remove_effect = {
 			subtract_from_variable = {
 				var = JAP_pnr_red_conspiracy_strength
@@ -3337,15 +3384,10 @@ JAP_pnr_red_conspiracy_category = {
 	JAP_pnr_red_conspiracy_selective_reform = {
 		icon = GFX_decision_eng_trade_unions_support
 		allowed = { always = no }
-		available = {
-			has_country_flag = JAP_pnr_red_conspiracy_done
-		}
-		cancel_trigger = {
-			NOT = { has_country_flag = JAP_pnr_red_conspiracy_done }
-		}
-		cost = 20
-		days_remove = 14
-		fire_only_once = yes
+		available = { has_country_flag = JAP_pnr_red_conspiracy_done }
+		cancel_trigger = { NOT = { has_country_flag = JAP_pnr_red_conspiracy_done } }
+		days_remove = 21
+		days_re_enable = 7
 		modifier = {
 			political_power_factor = -0.1
 		}
@@ -3363,18 +3405,12 @@ JAP_pnr_red_conspiracy_category = {
 	JAP_pnr_red_conspiracy_lapse_on_security = {
 		icon = GFX_decision_generic_political_rally
 		allowed = { always = no }
-		available = {
-			has_country_flag = JAP_pnr_red_conspiracy_done
-		}
-		cancel_trigger = {
-			NOT = { has_country_flag = JAP_pnr_red_conspiracy_done }
-		}
-
-		cost = 15
-		days_remove = 28
-		fire_only_once = yes
+		available = { has_country_flag = JAP_pnr_red_conspiracy_done }
+		cancel_trigger = { NOT = { has_country_flag = JAP_pnr_red_conspiracy_done } }
+		days_remove = 21
+		days_re_enable = 7
 		modifier = {
-			political_power_gain = 0.20
+			political_power_gain = 0.10
 		}
 		complete_effect = {
 			add_command_power = 10

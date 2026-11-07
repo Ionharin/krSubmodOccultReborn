@@ -135,7 +135,18 @@ on_send_volunteers = {
 				}
                 set_country_flag = JAP_pnr_support_India
 			}
-        }
+			if = { # For Mid-Asia WAR against - RUS
+				limit = {
+					OR = {
+						TRK = { has_war_with = RUS }
+						KHI = { has_war_with = RUS }
+						KAZ = { has_war_with = RUS }
+					}
+                    NOT = { has_country_flag = JAP_pnr_support_Midasia }
+				}
+                set_country_flag = JAP_pnr_support_Midasia
+			}
+		}
     }
 }
 }

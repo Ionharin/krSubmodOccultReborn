@@ -63,25 +63,22 @@ ideas = {
 				supply_node_range = -0.20
 				supply_consumption_factor = 0.20
 				local_resources_factor = -0.10
-				production_speed_rail_way_factor = 0.10
 			}
 		}
 		JAP_narrow_rail_1 = {
 			picture = JAP_Shitty_Tracks
 			allowed = { always = no }
 			modifier = {
-				truck_attrition_factor = -0.25
 				army_speed_factor = 0.05
 				production_speed_rail_way_factor = 0.10
 			}
 		}
 		JAP_narrow_rail_2 = {
-			picture = JAP_Shitty_Tracks
+			picture = generic_train_tracks
 			allowed = { always = no }
 			modifier = {
-				supply_node_range = 0.10
-				org_loss_when_moving = -0.15
-				local_resources_factor = 0.10
+				supply_node_range = 0.05
+				army_speed_factor = 0.10
 			}
 		}
 		JAP_pnr_deadlock_financial_situation_0 = {
@@ -328,7 +325,11 @@ ideas = {
 			modifier = {
 				stability_factor = -0.10
 				war_support_factor = -0.10
-				consumer_goods_factor = -0.20
+			}
+			on_add = {
+				remove_ideas = JAP_pnr_takahashi_finance_0
+				remove_ideas = JAP_pnr_takahashi_finance_1
+				remove_ideas = JAP_pnr_takahashi_finance_2
 			}
 			on_remove = {
 				remove_dynamic_modifier = { modifier = JAP_pnr_lost_decade_nightmare_modifier }
@@ -414,14 +415,69 @@ ideas = {
 			allowed = { always = no }
 			modifier = {
 				stability_factor = -0.15
-				political_power_gain = 0.05
 				mobilization_laws_cost_factor = 3
 				trade_laws_cost_factor = 3
 				economy_cost_factor = 3
 				political_advisor_cost_factor = 3
 			}
 		}
+		JAP_pnr_land_reform_result_idea_0 = {
+			picture = generic_agrarian_reform
+			modifier = {
+				monthly_population = 0.15
+				political_power_factor = 0.05
+			}
+		}
+		JAP_pnr_land_reform_result_idea_1 = {
+			picture = generic_agrarian_reform
+			modifier = {
+				monthly_population = 0.15
+				political_power_factor = 0.10
+			}
+		}
+		JAP_pnr_land_reform_result_idea_2 = {
+			picture = PRC_land_revolution_expedited
+			modifier = {
+				monthly_population = 0.15
+				political_power_factor = 0.10
+				stability_factor = 0.10
+				global_building_slots_factor = 0.055
+			}
+		}
+		JAP_pnr_land_reform_result_idea_3 = {
+			picture = PRC_land_revolution_expedited
+			modifier = {
+				monthly_population = 0.20
+				political_power_factor = 0.10
+				stability_factor = 0.10
+				global_building_slots_factor = 0.10
+			}
+		}
+		JAP_pnr_land_reform_result_idea_4 = {
+			picture = generic_mechanised_agriculture
+			modifier = {
+				monthly_population = 0.30
+				political_power_factor = 0.10
+				stability_factor = 0.10
+				global_building_slots_factor = 0.20
+			}
+		}
+
 	### Kasumigaseki diplomacy Ideas ###
+		JAP_pnr_ind_chroma_treaty_idea = {
+			picture = generic_constitutional_guarantees
+			modifier = {
+				country_resource_chromium = 12
+			}
+			targeted_modifier = { tag = HND trade_cost_for_target_factor = -0.10 }
+		}
+		JAP_pnr_ind_tungsten_treaty_idea = {
+			picture = generic_constitutional_guarantees
+			modifier = {
+				country_resource_tungsten = 12
+			}
+			targeted_modifier = { tag = PRF trade_cost_for_target_factor = -0.10 }
+		}
 		JAP_pnr_military_mission_ideas = {
 			picture = JAP_pnr_military_mission_ideas
 			allowed = { always = no }
@@ -462,8 +518,7 @@ ideas = {
 			allowed = { always = no }
 			modifier = {
 				send_volunteer_size = 2
-				political_power_factor = 0.03
-				opinion_gain_monthly_factor = 0.08
+				opinion_gain_monthly_factor = 0.10
 			}
 		}
 		JAP_pnr_offensive_realpolitik_2 = {
@@ -471,9 +526,10 @@ ideas = {
 			allowed = { always = no }
 			modifier = {
 				send_volunteer_size = 2
-				political_power_factor = 0.04
-				opinion_gain_monthly_factor = 0.08
-				guarantee_cost = -0.15
+				opinion_gain_monthly_factor = 0.10
+				experience_gain_army = 0.02
+				experience_gain_navy = 0.02
+				experience_gain_air = 0.02
 			}
 		}
 		JAP_pnr_offensive_realpolitik_3 = {
@@ -481,12 +537,10 @@ ideas = {
 			allowed = { always = no }
 			modifier = {
 				send_volunteer_size = 2
-				political_power_factor = 0.06
-				opinion_gain_monthly_factor = 0.10
-				guarantee_cost = -0.15
-				experience_gain_army = 0.03
-				experience_gain_navy = 0.03
-				experience_gain_air = 0.03
+				opinion_gain_monthly_factor = 0.20
+				experience_gain_army = 0.02
+				experience_gain_navy = 0.02
+				experience_gain_air = 0.02
 			}
 		}
 		JAP_pnr_offensive_realpolitik_4 = {
@@ -494,26 +548,20 @@ ideas = {
 			allowed = { always = no }
 			modifier = {
 				send_volunteer_size = 3
-				political_power_factor = 0.08
 				opinion_gain_monthly_factor = 0.20
-				guarantee_cost = -0.25
 				embargo_cost_factor = -0.45
-				experience_gain_army = 0.07
-				experience_gain_navy = 0.07
-				experience_gain_air = 0.07
+				experience_gain_army = 0.04
+				experience_gain_navy = 0.04
+				experience_gain_air = 0.04
 			}
 		}
 		JAP_pnr_restore_naval_shipbuilding_plan = {
-			picture = JAP_imperial_navy
+			picture = generic_navy_bonus
 			allowed = { always = no }
 			modifier = {
 				industrial_capacity_dockyard = 0.10
 			}
 			equipment_bonus = {
-				submarine = {
-					build_cost_ic = -0.10
-					instant = yes
-				}
 				screen_ship = {
 					build_cost_ic = -0.10
 					instant = yes
@@ -533,21 +581,12 @@ ideas = {
 			}
 		}
 		JAP_pnr_20_knot_scrap_plan_idea = {
-			picture = JAP_imperial_navy
+			picture = economic_control_icon
 			allowed = { always = no }
-			equipment_bonus = {
-				screen_ship = {
-					build_cost_ic = -0.15
-					instant = yes
-				}
-				ship_hull_cruiser = {
-					build_cost_ic = -0.15
-					instant = yes
-				}
-				capital_ship = {
-					build_cost_ic = -0.15
-					instant = yes
-				}
+			modifier = {
+				refit_speed = 0.30
+				refit_ic_cost = -0.30
+				naval_equipment_upgrade_xp_cost = -25
 			}
 		}
 		JAP_pnr_develop_assault_guns = {
@@ -578,8 +617,20 @@ ideas = {
 			picture = generic_manpower_bonusjap_ichi_go
 			allowed = { always = no }
 			modifier = { custom_modifier_tooltip = JAP_pnr_ko_campaign_against_china_tt }
-			on_remove = { remove_ideas = { JAP_pnr_hidden_ko_campaign_1 } }
-			on_add = { add_ideas = { JAP_pnr_hidden_ko_campaign_1 } }
+			targeted_modifier = { tag = ANQ hidden_modifier = { attack_bonus_against = 0.30 } }
+			targeted_modifier = { tag = CHI hidden_modifier = { attack_bonus_against = 0.30 } }
+			targeted_modifier = { tag = FNG hidden_modifier = { attack_bonus_against = 0.30 } }
+			targeted_modifier = { tag = GXC hidden_modifier = { attack_bonus_against = 0.30 } }
+			targeted_modifier = { tag = HNN hidden_modifier = { attack_bonus_against = 0.30 } }
+			targeted_modifier = { tag = LEP hidden_modifier = { attack_bonus_against = 0.30 } }
+			targeted_modifier = { tag = QIE hidden_modifier = { attack_bonus_against = 0.30 } }
+			targeted_modifier = { tag = SHX hidden_modifier = { attack_bonus_against = 0.30 } }
+			targeted_modifier = { tag = SIK hidden_modifier = { attack_bonus_against = 0.30 } }
+			targeted_modifier = { tag = SHD hidden_modifier = { attack_bonus_against = 0.30 } }
+			targeted_modifier = { tag = SZC hidden_modifier = { attack_bonus_against = 0.30 } }
+			targeted_modifier = { tag = XSM hidden_modifier = { attack_bonus_against = 0.30 } }
+			targeted_modifier = { tag = YUN hidden_modifier = { attack_bonus_against = 0.30 } }
+			targeted_modifier = { tag = UPC hidden_modifier = { attack_bonus_against = 0.30 } }
 		}
 		JAP_pnr_seek_to_oil_seller = {
 			picture = Oil
@@ -618,26 +669,11 @@ ideas = {
 			}
 		}
 	### New Military Ideas ###
-		#JAP_pnr_coping_with_wide_battlefields_idea = {
-			#picture = SWE_ga_pa_tactics
-			#allowed = { always = no }
-			#modifier = {			
-			#}
-		#}
-		#JAP_pnr_seeking_to_add_strategic_units_idea = {
-			#picture = SWE_ga_pa_tactics
-			#allowed = { always = no }
-			#modifier = {
-				#supply_consumption_factor = -0.10
-				#no_supply_grace = 96
-			#}
-		#}
 		JAP_pnr_young_turks_general_staff_office_idea_0 = {
 			picture = jap_pnr_general_staff_office
 			allowed = { always = no }
 			modifier = {
-				command_power_gain_mult = 0.05
-				planning_speed = -0.20
+				planning_speed = -0.25
 				max_planning = 0.10
 			}
 		}
@@ -645,9 +681,8 @@ ideas = {
 			picture = jap_pnr_general_staff_office
 			allowed = { always = no }
 			modifier = {
-				command_power_gain_mult = 0.05
 				supply_consumption_factor = -0.10
-				planning_speed = -0.20
+				planning_speed = -0.25
 				max_planning = 0.10
 			}
 		}
@@ -655,24 +690,21 @@ ideas = {
 			picture = jap_pnr_general_staff_office
 			allowed = { always = no }
 			modifier = {
-				command_power_gain_mult = 0.05
 				supply_consumption_factor = -0.10
-				coordination_bonus = 0.05
-				planning_speed = -0.20
-				max_planning = 0.10
+				planning_speed = -0.25
+				max_planning = 0.15
 			}
 		}
 		JAP_pnr_young_turks_general_staff_office_idea_3 = {
 			picture = jap_pnr_general_staff_office
 			allowed = { always = no }
 			modifier = {
-				command_power_gain_mult = 0.10
 				supply_consumption_factor = -0.10
-				coordination_bonus = 0.05
 				army_speed_factor = 0.05
-				planning_speed = -0.20
-				max_planning = 0.10
+				planning_speed = -0.25
+				max_planning = 0.15
 				skill_bonus_factor = 0.10
+				additional_brigade_column_size = 1
 			}
 			equipment_bonus = {
 				mio_cat_eq_all_tanks = {
@@ -765,7 +797,6 @@ ideas = {
 			picture = jap_pnr_general_staff_office
 			allowed = { always = no }
 			modifier = {
-				command_power_gain_mult = 0.05
 				max_command_power = 40
 				max_planning_factor = 0.15
 			}
@@ -774,7 +805,6 @@ ideas = {
 			picture = jap_pnr_general_staff_office
 			allowed = { always = no }
 			modifier = {
-				command_power_gain_mult = 0.05
 				army_speed_factor = 0.05
 				max_command_power = 40
 				land_reinforce_rate = 0.05
@@ -785,7 +815,6 @@ ideas = {
 			picture = jap_pnr_general_staff_office
 			allowed = { always = no }
 			modifier = {
-				command_power_gain_mult = 0.05
 				army_speed_factor = 0.10
 				max_command_power = 40
 				land_reinforce_rate = 0.05
@@ -797,13 +826,13 @@ ideas = {
 			picture = jap_pnr_general_staff_office
 			allowed = { always = no }
 			modifier = {
-				command_power_gain_mult = 0.10
 				army_speed_factor = 0.10
 				max_command_power = 40
 				land_reinforce_rate = 0.05
 				land_mastery_gain_factor = 0.10
 				command_abilities_cost_factor = -0.25
 				max_planning_factor = 0.15
+				additional_brigade_column_size = 1
 			}
 		}
 		JAP_pnr_tide_of_soldier_0 = {
@@ -897,34 +926,40 @@ ideas = {
 			modifier = {
 				operative_slot = 1
 				operation_outcome = 0.20
-				encryption = 15
-				army_intel_to_others = -10
-				navy_intel_to_others = -10
+				decryption_factor = 0.15
 			}
 		}
 		JAP_pnr_flip_the_chessboard_3 = {
 			picture = generic_spy_intel
 			allowed = { always = no }
 			modifier = {
-				operative_slot = 2
+				operative_slot = 1
 				operation_outcome = 0.20
-				encryption = 15
 				army_intel_to_others = -10
 				navy_intel_to_others = -10
-				enemy_operative_intel_extraction_rate = 0.15
 			}
 		}
-		JAP_pnr_flip_the_chessboard_4 = {
+		JAP_pnr_flip_the_chessboard_24 = {
 			picture = generic_spy_intel
 			allowed = { always = no }
 			modifier = {
 				operative_slot = 2
 				operation_outcome = 0.20
-				encryption = 15
+				decryption_factor = 0.15
+				enemy_operative_intel_extraction_rate = 0.10
+				enemy_operative_recruitment_chance = 0.10
+			}
+		}
+		JAP_pnr_flip_the_chessboard_34 = {
+			picture = generic_spy_intel
+			allowed = { always = no }
+			modifier = {
+				operative_slot = 2
+				operation_outcome = 0.20
 				army_intel_to_others = -10
 				navy_intel_to_others = -10
-				enemy_operative_intel_extraction_rate = 0.15
-				enemy_operative_recruitment_chance = 0.15
+				enemy_operative_intel_extraction_rate = 0.10
+				enemy_operative_recruitment_chance = 0.10
 			}
 		}
 		JAP_pnr_air_defense_force_0 = {
@@ -1481,9 +1516,8 @@ ideas = {
 			picture = generic_army_staff
 			allowed = { always = no }
 			modifier = {
-				planning_speed = -0.25
-				max_planning = 0.15
-				combat_width_factor = -0.10
+				planning_speed = -0.15
+				max_planning = 0.10
 			}
 		}
 		JAP_pnr_ministry_of_war_planning_0 = {
@@ -2630,13 +2664,13 @@ ideas = {
 		##### Seiyukai NATIONAL IDEAS ######
 		####################################
 
-		JAP_pnr_invest_underdeveloped_regions = {
-			picture = generic_construct_civ_factory
+		JAP_pnr_control_military_unto_parliament = {
+			picture = chi_army_corruption3
 			allowed = { always = no }
 			modifier = {
-				production_speed_infrastructure_factor = 0.20
-				production_speed_industrial_complex_factor = 0.10
-				production_speed_arms_factory_factor = 0.10
+				conscription = 0.01
+				army_morale_factor = 0.10
+				war_support_factor = 0.10
 			}
 		}
 		JAP_pnr_stand_on_the_land_0 = {
@@ -2690,19 +2724,26 @@ ideas = {
 			picture = generic_political_discourse
 			allowed = { always = no }
 			modifier = {
-				party_popularity_stability_factor = 0.10
-				stability_factor = 0.05
+				stability_factor = 0.10
 				social_conservative_drift = 0.02
+			}
+		}
+		JAP_pnr_chairmen_support_government_1 = {
+			picture = generic_political_discourse
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.10
+				social_conservative_drift = 0.02
+				weekly_casualties_war_support = 0.003
+				offensive_war_stability_factor = 0.15
 			}
 		}
 		JAP_pnr_end_caretaker_government = {
 			picture = generic_pp_unity_bonus
 			allowed = { always = no }
 			modifier = {
-				weekly_casualties_war_support = 0.003
 				production_factory_start_efficiency_factor = 0.10
-				offensive_war_stability_factor = 0.15
-				war_support_factor = 0.05
+				war_support_factor = 0.10
 			}
 		}
 		JAP_pnr_friend_of_government = {
@@ -2711,12 +2752,81 @@ ideas = {
 			modifier = {
 				stability_factor = 0.10
 				mobilization_speed = 0.15
-				political_power_factor = 0.05
-				production_factory_efficiency_gain_factor = 0.05
-				industrial_capacity_factory = 0.10
+				production_factory_efficiency_gain_factor = 0.10
+				global_building_slots_factor = 0.05
+			}
+		}
+
+		####################################
+		##### Minseito NATIONAL IDEAS ######
+		####################################
+		JAP_pnr_tax_source_reorganization = {
+			picture = generic_coins
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.5
+				stability_weekly = -0.001
+			}
+		}
+		JAP_pnr_gradual_integration_0 = {
+			picture = ARG_rapid_militarization
+			allowed = { always = no }
+			research_bonus = { industry = 0.10 }
+		}
+		JAP_pnr_gradual_integration_1 = {
+			picture = ARG_rapid_militarization
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.15
+				production_speed_buildings_factor = 0.05
+			}
+			research_bonus = { industry = 0.10 }
+		}
+		JAP_pnr_gradual_integration_2 = {
+			picture = ARG_rapid_militarization
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.30
+				production_speed_buildings_factor = 0.05
+				consumer_goods_factor = -0.075
+			}
+			research_bonus = { industry = 0.10 }
+		}
+		JAP_pnr_constitutionalism_and_civil_rights = {
+			picture = generic_constitutional_guarantees
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.10
+				political_advisor_cost_factor = -0.33
+			}
+		}
+		JAP_pnr_national_education_enterprise = {
+			picture = jap_supremacy_of_will
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = -0.05
+				research_speed_factor = 0.10
+			}
+		}
+		JAP_pnr_womens_local_council_rights = {
+			picture = HOL_workplace_democracy
+			allowed = { always = no }
+			modifier = {
+				monthly_population = -0.05
 				consumer_goods_factor = -0.05
 			}
 		}
+		JAP_pnr_parliament_centrism_established = {
+			picture = JAP_the_civilian_cabinet
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.10
+				production_factory_max_efficiency_factor = 0.10
+				party_popularity_stability_factor = 0.20
+				political_power_factor = 0.10
+			}
+		}
+
 
 	}
 
@@ -2726,9 +2836,38 @@ ideas = {
 		JAP_pnr_niseko = {
 			picture = jap_pnr_niseko
 			allowed = { tag = JAP }
-			research_bonus = { industry = 0.05 }
+			research_bonus = { synth_resources = 0.05 }
+			available = { has_completed_focus = JAP_pnr_hedging_bets_ensures_eternal_invincibility }
+			visible = { has_completed_focus = JAP_pnr_hedging_bets_ensures_eternal_invincibility }
+			traits = { chemical_producer }
 			modifier = {
-				
+				stability_factor = 0.05
+				production_lack_of_resource_penalty_factor = -0.10
+			}
+		}
+		JAP_pnr_oriential_company = {
+			picture = JAP_oriental_development_company
+			allowed = { tag = JAP }
+			on_add = { hidden_effect = { add_dynamic_modifier = { modifier = JAP_pnr_oriential_company_modifier } } }
+			on_remove = { hidden_effect = { remove_dynamic_modifier = { modifier = JAP_pnr_oriential_company_modifier } } }
+			visible = { has_completed_focus = JAP_pnr_oriental_development_company }
+			available = { has_completed_focus = JAP_pnr_oriental_development_company }
+			traits = { industrial_manufacturer }
+			modifier = {
+				consumer_goods_factor = -0.10
+				non_core_manpower = 0.01
+				custom_modifier_tooltip = JAP_pnr_oriential_company_tt
+			}
+		}
+		JAP_pnr_japan_gasoline_company = {
+			picture = jap_pnr_japan_gasoline_company
+			allowed = { tag = JAP }
+			visible = { has_completed_focus = JAP_pnr_the_united_states_is_stuck_in_the_quagmire }
+			available = { has_completed_focus = JAP_pnr_the_united_states_is_stuck_in_the_quagmire }
+			traits = { chemical_producer }
+			modifier = {
+				production_oil_factor = 0.10
+				trade_opinion_factor = 0.20
 			}
 		}
 	}
