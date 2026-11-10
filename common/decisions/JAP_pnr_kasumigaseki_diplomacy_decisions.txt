@@ -787,7 +787,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		fixed_random_seed = no
 	}
 	JAP_pnr_youshui_kong_lingjun_decision = {
-		icon = GFX_decision_generic_welfare
+		icon = GFX_decision_generic_agreement
 		allowed = { always = no }
 		priority = 50
 		cost = 5
@@ -814,6 +814,22 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			custom_effect_tooltip = shibun_alliance_var_increase_tt
 			add_to_variable = { shibun_alliance_var = 1 }
 			var:597.owner = { add_popularity = { ideology = authoritarian_democrat popularity = 0.02 } }
+		}
+		ai_will_do = { factor = 10 }
+	}
+	JAP_pnr_prepare_anti_confucianism_decision = {
+		icon = GFX_decision_radar
+		allowed = { always = no }
+		priority = 50
+		cost = 10
+		days_remove = 28
+		available = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
+		visible = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
+		fire_only_once = yes
+		remove_effect = {
+			custom_effect_tooltip = shibun_alliance_var_increase_tt
+			add_to_variable = { shibun_alliance_var = 1 }
+			var:597.owner = { add_stability = -0.01 }
 		}
 		ai_will_do = { factor = 10 }
 	}

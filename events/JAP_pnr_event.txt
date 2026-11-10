@@ -5554,6 +5554,39 @@ country_event = { # 名单问题
     }
 }
 
+country_event = { # 转型中的[JAP.GetRulingParty]
+    id = JAP_pnr_midgame.9
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_midgame.9" }
+    title = JAP_pnr_midgame.9.t
+    desc = JAP_pnr_midgame.9.desc
+    picture = GFX_report_event_JAP_rice_farmers
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 我们不能农村切断友谊。
+        name = JAP_pnr_midgame.9.a
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = JAP_pnr_sukekawa_keishiro_idea
+		hidden_effect = {
+			JAP_pnr_sukekawa_keishiro = {
+				set_nationality = JAP
+			}
+		}
+    }
+    option = { # 谁在乎那些种地的泥腿子？
+        name = JAP_pnr_midgame.9.b
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = JAP_pnr_honda_yoshinari_idea
+		hidden_effect = {
+			JAP_pnr_honda_yoshinari = {
+				set_nationality = JAP
+			}
+		}
+    }
+}
+
 
 country_event = { # 帝国议会临时会召开
     id = JAP_pnr_515.1
@@ -8738,7 +8771,10 @@ country_event = { # 第二天：亚洲去殖民化
 
 country_event = { # 硝烟散去……
     id = JAP_pnr_foreign_events.21
-    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.21" }
+    immediate = {
+        log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.21"
+        set_country_flag = jap_pnr_shanghai_strike_end_flag
+    }
     title = JAP_pnr_foreign_events.21.t
     desc = {
         trigger = {
@@ -9329,6 +9365,81 @@ country_event = { # 和[JAP.GetNameDef]讲和？
             JAP = { country_event = { id = JAP_pnr_foreign_events.36 days = 5 } }
             DEI = { country_event = { id = JAP_pnr_foreign_events.36 days = 5 } }
         }
+    }
+}
+
+country_event = { # 衍圣公将遭废黜
+    id = JAP_pnr_foreign_events.41
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.40" }
+    title = JAP_pnr_foreign_events.41.t
+    desc = JAP_pnr_foreign_events.41.desc
+    picture = GFX_JAP_pnr_foreign_events_40
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 机会猝然而至……
+        name = JAP_pnr_foreign_events.41.a
+        ai_chance = { factor = 1 }
+    }
+    option = { # 中国不需要“公爵”。
+        name = JAP_pnr_foreign_events.41.b
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 《复兴东方文化击灭白人完成大东亚圣战》
+    id = JAP_pnr_foreign_events.42
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.41" }
+    title = JAP_pnr_foreign_events.42.t
+    desc = JAP_pnr_foreign_events.42.desc
+    picture = GFX_JAP_pnr_foreign_events_41
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 此上四端，仅就感想所及。
+        name = JAP_pnr_foreign_events.42.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 《衍圣公告中国人民书》
+    id = JAP_pnr_foreign_events.43
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.42" }
+    title = JAP_pnr_foreign_events.43.t
+    desc = JAP_pnr_foreign_events.43.desc
+    picture = GFX_JAP_pnr_foreign_events_42
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 仁人之兵，王师不战。
+        name = JAP_pnr_foreign_events.43.a
+        ai_chance = { factor = 1 }
+    }
+}
+
+country_event = { # 外务省三羽乌
+    id = JAP_pnr_foreign_events.44
+    immediate = { log = "[GetDateText]: [Root.GetName]: event JAP_pnr_foreign_events.44" }
+    title = JAP_pnr_foreign_events.44.t
+    desc = JAP_pnr_foreign_events.44.desc
+    picture = GFX_report_event_pnr_JAP_trois_mousquetaires_of_kasumigaseki
+    is_triggered_only = yes
+    hidden = no
+    timeout_days = 14
+    option = { # 重光葵是个相当合适的人选。
+        name = JAP_pnr_foreign_events.44.a
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = JAP_pnr_foreign_events.44.a_tt
+    }
+    option = { # 我们该派白鸟敏夫去担此大任。
+        name = JAP_pnr_foreign_events.44.b
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = JAP_pnr_foreign_events.44.b_tt
+    }
+    option = { # 或许应该让堀内谦介去做沟通工作。
+        name = JAP_pnr_foreign_events.44.c
+        ai_chance = { factor = 1 }
+        custom_effect_tooltip = JAP_pnr_foreign_events.44.c_tt
     }
 }
 

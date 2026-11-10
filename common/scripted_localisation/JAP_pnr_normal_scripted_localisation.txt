@@ -116,3 +116,20 @@
 		text = { trigger = { has_country_flag = seiyukai_allies_betrayed_us_flag } localization_key = JAP_pnr_seiyukai_party_support_allies_3_tt }
 		text = { trigger = { always = yes } localization_key = JAP_pnr_seiyukai_party_support_allies_0_tt }
 	}
+
+### For Shanghai Strike ###
+	defined_text = {
+		name = loc_shanghai_strike_category
+		text = { trigger = { NOT = { has_country_flag = jap_pnr_shanghai_strike_end_flag } } localization_key = JAP_pnr_shanghai_strike_category_0 }
+		text = { trigger = { always = yes } localization_key = JAP_pnr_shanghai_strike_category_1 }
+	}
+	defined_text = {
+		name = loc_shanghai_strike_category_desc
+		text = { trigger = { NOT = { has_country_flag = jap_pnr_shanghai_strike_end_flag } } localization_key = JAP_pnr_shanghai_strike_category_desc_0 }
+		text = { trigger = { always = yes } localization_key = JAP_pnr_shanghai_strike_category_desc_1 }
+	}
+	defined_text = {
+		name = loc_chinese_diplomancy_result
+		text = { trigger = { check_variable = { jap_pnr_chinese_diplomancy_result_var > 69 } } localization_key = JAP_pnr_special_relationship_between_china_and_japan }
+		text = { trigger = { always = yes } localization_key = JAP_pnr_no_hope_of_reconciliation_remains }
+	}
