@@ -251,99 +251,8 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 			reliability = 0.05
 		}
 	}
-
 	include = JAP_armor_shared_mio
 	remove_trait = { JAP_mio_trait_merge_edogawa }
-	override_trait = {
-		token = JAP_mio_trait_merge_hitachi
-		on_complete = {
-			JAP = {
-				mio:JAP_hitachi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_edogawa_jukogyo_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_sagami
-		on_complete = {
-			JAP = {
-				mio:JAP_sagami_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_edogawa_jukogyo_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_armor
-		on_complete = {
-			JAP = {
-				mio:JAP_mitsubishi_armor_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_edogawa_jukogyo_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_ishikawajima
-		on_complete = {
-			JAP = {
-				mio:JAP_ishikawajima_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_edogawa_jukogyo_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nissan
-		on_complete = {
-			JAP = {
-				mio:JAP_nissan_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_edogawa_jukogyo_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_hitachi_mio = { # Hitachi
 	name = JAP_hitachi_mio
@@ -561,99 +470,8 @@ JAP_hitachi_mio = { # Hitachi
 			production_capacity_factor = 0.10
 		}
 	}
-
 	include = JAP_armor_shared_mio
 	remove_trait = { JAP_mio_trait_merge_hitachi }
-	override_trait = {
-		token = JAP_mio_trait_merge_edogawa
-		on_complete = {
-			JAP = {
-				mio:JAP_edogawa_jukogyo_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hitachi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_sagami
-		on_complete = {
-			JAP = {
-				mio:JAP_sagami_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hitachi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_armor
-		on_complete = {
-			JAP = {
-				mio:JAP_mitsubishi_armor_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hitachi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_ishikawajima
-		on_complete = {
-			JAP = {
-				mio:JAP_ishikawajima_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hitachi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nissan
-		on_complete = {
-			JAP = {
-				mio:JAP_nissan_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hitachi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_sagami_mio = { # Sagami
 	name = JAP_sagami_mio
@@ -866,96 +684,6 @@ JAP_sagami_mio = { # Sagami
 	}
 	include = JAP_armor_shared_mio
 	remove_trait = { JAP_mio_trait_merge_sagami }
-	override_trait = {
-		token = JAP_mio_trait_merge_edogawa
-		on_complete = {
-			JAP = {
-				mio:JAP_edogawa_jukogyo_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_sagami_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_hitachi
-		on_complete = {
-			JAP = {
-				mio:JAP_hitachi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_sagami_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_armor
-		on_complete = {
-			JAP = {
-				mio:JAP_mitsubishi_armor_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_sagami_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_ishikawajima
-		on_complete = {
-			JAP = {
-				mio:JAP_ishikawajima_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_sagami_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nissan
-		on_complete = {
-			JAP = {
-				mio:JAP_nissan_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_sagami_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_mitsubishi_armor_mio = { # Mitsubishi Armor
 	name = JAP_mitsubishi_armor_mio
@@ -1123,99 +851,8 @@ JAP_mitsubishi_armor_mio = { # Mitsubishi Armor
 			defense = 0.10
 		}
 	}
-
 	include = JAP_armor_shared_mio
 	remove_trait = { JAP_mio_trait_merge_mitsubishi_armor }
-	override_trait = {
-		token = JAP_mio_trait_merge_edogawa
-		on_complete = {
-			JAP = {
-				mio:JAP_edogawa_jukogyo_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_mitsubishi_armor_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_hitachi
-		on_complete = {
-			JAP = {
-				mio:JAP_hitachi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_mitsubishi_armor_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_sagami
-		on_complete = {
-			JAP = {
-				mio:JAP_sagami_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_mitsubishi_armor_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_ishikawajima
-		on_complete = {
-			JAP = {
-				mio:JAP_ishikawajima_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_mitsubishi_armor_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nissan
-		on_complete = {
-			JAP = {
-				mio:JAP_nissan_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_mitsubishi_armor_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_ishikawajima_mio = { # Ishikawajima
 	name = JAP_ishikawajima_mio
@@ -1417,99 +1054,8 @@ JAP_ishikawajima_mio = { # Ishikawajima
 			maximum_speed = 0.1
 		}
 	}
-
 	include = JAP_armor_shared_mio
 	remove_trait = { JAP_mio_trait_merge_ishikawajima }
-	override_trait = {
-		token = JAP_mio_trait_merge_edogawa
-		on_complete = {
-			JAP = {
-				mio:JAP_edogawa_jukogyo_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_ishikawajima_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_hitachi
-		on_complete = {
-			JAP = {
-				mio:JAP_hitachi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_ishikawajima_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_sagami
-		on_complete = {
-			JAP = {
-				mio:JAP_sagami_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_ishikawajima_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_armor
-		on_complete = {
-			JAP = {
-				mio:JAP_mitsubishi_armor_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_ishikawajima_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nissan
-		on_complete = {
-			JAP = {
-				mio:JAP_nissan_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_ishikawajima_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_nissan_mio = { # Nissan
 	name = nissan
@@ -1683,99 +1229,8 @@ JAP_nissan_mio = { # Nissan
 			air_attack = 0.05
 		}
 	}
-
 	include = JAP_armor_shared_mio
 	remove_trait = { JAP_mio_trait_merge_nissan }
-	override_trait = {
-		token = JAP_mio_trait_merge_edogawa
-		on_complete = {
-			JAP = {
-				mio:JAP_edogawa_jukogyo_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nissan_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_hitachi
-		on_complete = {
-			JAP = {
-				mio:JAP_hitachi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nissan_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_sagami
-		on_complete = {
-			JAP = {
-				mio:JAP_sagami_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nissan_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_armor
-		on_complete = {
-			JAP = {
-				mio:JAP_mitsubishi_armor_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nissan_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_ishikawajima
-		on_complete = {
-			JAP = {
-				mio:JAP_ishikawajima_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nissan_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_armor_shared_mio = { # Special functions prepared for the concern route and all armor MIOs
 	allowed = { always = no }
@@ -1868,12 +1323,18 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 		icon = GFX_mio_trait_hitachi
 		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			has_mio_size > 4
+			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
-			JAP = { mio:JAP_hitachi_mio = {
-				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
-				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
-			} }
+			JAP = {
+				mio:JAP_hitachi_mio = {
+					NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+					NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+				}
+			}
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_hitachi_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 		position = { x = 1 y = 4 }
 		equipment_bonus = {
@@ -1889,12 +1350,18 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 		icon = GFX_mio_trait_mitsubishi
 		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			has_mio_size > 4
+			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
-			JAP = { mio:JAP_mitsubishi_armor_mio = {
-				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
-				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
-			} }
+			JAP = {
+				mio:JAP_mitsubishi_armor_mio = {
+					NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+					NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+				}
+			}
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_mitsubishi_armor_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 		position = { x = 3 y = 4 }
 		equipment_bonus = {
@@ -1910,12 +1377,16 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 		icon = GFX_mio_trait_sagami
 		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			has_mio_size > 4
+			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = { mio:JAP_sagami_mio = {
 				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
 				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_sagami_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 		position = { x = 2 y = 4 }
 		production_bonus = {
@@ -1931,12 +1402,16 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 		icon = GFX_mio_trait_nissan
 		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			has_mio_size > 4
+			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = { mio:JAP_nissan_mio = {
 				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
 				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_nissan_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 		position = { x = 5 y = 4 }
 		equipment_bonus = {
@@ -1952,7 +1427,7 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 		icon = GFX_mio_trait_ishikawajima
 		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			has_mio_size > 4
+			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = { mio:JAP_ishikawajima_mio = {
 				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
@@ -1962,6 +1437,10 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 		position = { x = 4 y = 4 }
 		equipment_bonus = {
 			maximum_speed = 0.15
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_ishikawajima_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 		organization_modifier = {
 			military_industrial_organization_funds_gain = 0.05
@@ -1973,12 +1452,16 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 		icon = GFX_mio_trait_edogawa_jukogyo
 		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			has_mio_size > 4
+			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = { mio:JAP_edogawa_jukogyo_mio = {
 				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
 				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_edogawa_jukogyo_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 		position = { x = 0 y = 4 }
 		equipment_bonus = {
@@ -2138,117 +1621,8 @@ JAP_mitsubishi_air_mio = { # Mitsubishi Air
 			military_industrial_organization_design_team_assign_cost = 1.5
 		}
 	}
-
 	include = JAP_air_shared_mio
 	remove_trait = { JAP_mio_trait_merge_mitsubishi_air }
-	override_trait = {
-		token = JAP_mio_trait_merge_hiro
-		on_complete = {
-			JAP = {
-				mio:JAP_hiro_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_mitsubishi_air_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_hikari
-		on_complete = {
-			JAP = {
-				mio:JAP_hikari_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_mitsubishi_air_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kawanishi
-		on_complete = {
-			JAP = {
-				mio:JAP_kawanishi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_mitsubishi_air_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_aichi
-		on_complete = {
-			JAP = {
-				mio:JAP_aichi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_mitsubishi_air_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nakajima
-		on_complete = {
-			JAP = {
-				mio:JAP_nakajima_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_mitsubishi_air_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_tachikawa
-		on_complete = {
-			JAP = {
-				mio:JAP_tachikawa_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_mitsubishi_air_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_hiro_mio = { # Hiro
 	name = JAP_hiro_mio
@@ -2408,114 +1782,6 @@ JAP_hiro_mio = { # Hiro
 
 	include = JAP_air_shared_mio
 	remove_trait = { JAP_mio_trait_merge_hiro }
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_air
-		on_complete = {
-			JAP = {
-				mio:JAP_mitsubishi_air_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hiro_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_hikari
-		on_complete = {
-			JAP = {
-				mio:JAP_hikari_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hiro_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kawanishi
-		on_complete = {
-			JAP = {
-				mio:JAP_kawanishi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hiro_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_aichi
-		on_complete = {
-			JAP = {
-				mio:JAP_aichi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hiro_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nakajima
-		on_complete = {
-			JAP = {
-				mio:JAP_nakajima_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hiro_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_tachikawa
-		on_complete = {
-			JAP = {
-				mio:JAP_tachikawa_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hiro_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_hikari_mio = { # Hikari
 	name = JAP_hikari_mio
@@ -2648,114 +1914,6 @@ JAP_hikari_mio = { # Hikari
 
 	include = JAP_air_shared_mio
 	remove_trait = { JAP_mio_trait_merge_hikari }
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_air
-		on_complete = {
-			JAP = {
-				mio:JAP_mitsubishi_air_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hikari_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_hiro
-		on_complete = {
-			JAP = {
-				mio:JAP_hiro_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hikari_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kawanishi
-		on_complete = {
-			JAP = {
-				mio:JAP_kawanishi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hikari_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_aichi
-		on_complete = {
-			JAP = {
-				mio:JAP_aichi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hikari_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nakajima
-		on_complete = {
-			JAP = {
-				mio:JAP_nakajima_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hikari_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_tachikawa
-		on_complete = {
-			JAP = {
-				mio:JAP_tachikawa_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_hikari_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_kawanishi_mio = { # Kawanishi
 	name = kawanishi
@@ -2945,114 +2103,6 @@ JAP_kawanishi_mio = { # Kawanishi
 
 	include = JAP_air_shared_mio
 	remove_trait = { JAP_mio_trait_merge_kawanishi }
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_air
-		on_complete = {
-			JAP = {
-				mio:JAP_mitsubishi_air_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kawanishi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_hiro
-		on_complete = {
-			JAP = {
-				mio:JAP_hiro_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kawanishi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_hikari
-		on_complete = {
-			JAP = {
-				mio:JAP_hikari_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kawanishi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_aichi
-		on_complete = {
-			JAP = {
-				mio:JAP_aichi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kawanishi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nakajima
-		on_complete = {
-			JAP = {
-				mio:JAP_nakajima_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kawanishi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_tachikawa
-		on_complete = {
-			JAP = {
-				mio:JAP_tachikawa_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kawanishi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_aichi_mio = { # Aichi
 	name = aichi
@@ -3219,114 +2269,6 @@ JAP_aichi_mio = { # Aichi
 
 	include = JAP_air_shared_mio
 	remove_trait = { JAP_mio_trait_merge_aichi }
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_air
-		on_complete = {
-			JAP = {
-				mio:JAP_mitsubishi_air_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_aichi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_hiro
-		on_complete = {
-			JAP = {
-				mio:JAP_hiro_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_aichi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_hikari
-		on_complete = {
-			JAP = {
-				mio:JAP_hikari_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_aichi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kawanishi
-		on_complete = {
-			JAP = {
-				mio:JAP_kawanishi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_aichi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nakajima
-		on_complete = {
-			JAP = {
-				mio:JAP_nakajima_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_aichi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_tachikawa
-		on_complete = {
-			JAP = {
-				mio:JAP_tachikawa_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_aichi_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_nakajima_mio = { # Nakajima
 	name = kr_nakajima
@@ -3510,114 +2452,6 @@ JAP_nakajima_mio = { # Nakajima
 
 	include = JAP_air_shared_mio
 	remove_trait = { JAP_mio_trait_merge_nakajima }
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_air
-		on_complete = {
-			JAP = {
-				mio:JAP_mitsubishi_air_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nakajima_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_hiro
-		on_complete = {
-			JAP = {
-				mio:JAP_hiro_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nakajima_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_hikari
-		on_complete = {
-			JAP = {
-				mio:JAP_hikari_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nakajima_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kawanishi
-		on_complete = {
-			JAP = {
-				mio:JAP_kawanishi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nakajima_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_aichi
-		on_complete = {
-			JAP = {
-				mio:JAP_aichi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nakajima_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_tachikawa
-		on_complete = {
-			JAP = {
-				mio:JAP_tachikawa_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nakajima_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_tachikawa_mio = { # Tachikawa
 	name = tachikawa
@@ -3762,117 +2596,8 @@ JAP_tachikawa_mio = { # Tachikawa
 			air_agility = -0.05
 		}
 	}
-
 	include = JAP_air_shared_mio
 	remove_trait = { JAP_mio_trait_merge_tachikawa }
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_air
-		on_complete = {
-			JAP = {
-				mio:JAP_mitsubishi_air_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_tachikawa_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_hiro
-		on_complete = {
-			JAP = {
-				mio:JAP_hiro_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_tachikawa_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_hikari
-		on_complete = {
-			JAP = {
-				mio:JAP_hikari_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_tachikawa_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kawanishi
-		on_complete = {
-			JAP = {
-				mio:JAP_kawanishi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_tachikawa_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_aichi
-		on_complete = {
-			JAP = {
-				mio:JAP_aichi_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_tachikawa_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nakajima
-		on_complete = {
-			JAP = {
-				mio:JAP_nakajima_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_tachikawa_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_air_shared_mio = {# Special functions prepared for the concern route and all air MIOs
 	allowed = { always = no }
@@ -3965,13 +2690,17 @@ JAP_air_shared_mio = {# Special functions prepared for the concern route and all
 		icon = GFX_mio_trait_hiro
 		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			has_mio_size > 4
+			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = { mio:JAP_hiro_mio = {
 				has_mio_size > 2
 				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
 				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_hiro_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 		position = { x = 1 y = 4 }
 		equipment_bonus = {
@@ -3988,13 +2717,17 @@ JAP_air_shared_mio = {# Special functions prepared for the concern route and all
 		icon = GFX_mio_trait_hikari
 		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			has_mio_size > 4
+			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = { mio:JAP_hikari_mio = {
 				has_mio_size > 2
 				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
 				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_hikari_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 		position = { x = 2 y = 4 }
 		equipment_bonus = {
@@ -4010,13 +2743,17 @@ JAP_air_shared_mio = {# Special functions prepared for the concern route and all
 		icon = GFX_mio_trait_kawanishi
 		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			has_mio_size > 4
+			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = { mio:JAP_kawanishi_mio = {
 				has_mio_size > 2
 				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
 				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_kawanishi_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 		position = { x = 3 y = 4 }
 		production_bonus = {
@@ -4032,13 +2769,17 @@ JAP_air_shared_mio = {# Special functions prepared for the concern route and all
 		icon = GFX_mio_trait_aichi
 		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			has_mio_size > 4
+			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = { mio:JAP_aichi_mio = {
 				has_mio_size > 2
 				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
 				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_aichi_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 		position = { x = 4 y = 4 }
 		equipment_bonus = {
@@ -4054,13 +2795,17 @@ JAP_air_shared_mio = {# Special functions prepared for the concern route and all
 		icon = GFX_mio_trait_nakajima
 		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			has_mio_size > 4
+			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = { mio:JAP_nakajima_mio = {
 				has_mio_size > 2
 				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
 				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_nakajima_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 		position = { x = 5 y = 4 }
 		equipment_bonus = {
@@ -4077,13 +2822,17 @@ JAP_air_shared_mio = {# Special functions prepared for the concern route and all
 		icon = GFX_mio_trait_mitsubishi
 		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			has_mio_size > 4
+			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = { mio:JAP_mitsubishi_air_mio = {
 				has_mio_size > 2
 				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
 				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_mitsubishi_air_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 		position = { x = 0 y = 4 }
 		production_bonus = {
@@ -4101,13 +2850,17 @@ JAP_air_shared_mio = {# Special functions prepared for the concern route and all
 		icon = GFX_mio_trait_tachikawa
 		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = { 
-			has_mio_size > 4
+			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = { mio:JAP_ishikawajima_mio = {
 				has_mio_size > 2
 				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
 				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_ishikawajima_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 		position = { x = 6 y = 4 }
 		equipment_bonus = {
