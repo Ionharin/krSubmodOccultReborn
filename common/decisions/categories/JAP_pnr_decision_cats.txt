@@ -233,12 +233,8 @@ JAP_pnr_shanghai_strike_category = {
 	allowed = {
 		tag = JAP
 	}
-	visible = {
-		AND = {
-			has_completed_focus = JAP_pnr_shanghai_night_strike
-			NOT = { has_global_flag = LEP_league_war_over }
-		}
-	}
+	visible = { AND = { has_completed_focus = JAP_pnr_shanghai_night_strike } }
+	visible_when_empty = yes
 }
 
 JAP_pnr_pan_left_fightline_category = {
@@ -254,7 +250,10 @@ JAP_pnr_pan_left_fightline_category = {
 JAP_pnr_asia_co_prosperity_sphere_category = {
 	icon = GFX_decision_cat_JAP_pnr_victory_wing
 	allowed = { tag = JAP }
-	visible = { has_completed_focus = JAP_pnr_asian_solidarity_agreement }
+	visible = {
+		has_completed_focus = JAP_pnr_asian_solidarity_agreement
+		is_faction_leader = yes
+	}
 	visible_when_empty = yes
 	priority = 50
 }

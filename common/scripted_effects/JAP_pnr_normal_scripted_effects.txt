@@ -274,11 +274,11 @@ JAP_pnr_check_red_conspiracy_threshold_events = { # Trigger JAP_pnr_rs.1
         }
         if = {
             limit = { check_variable = { JAP_pnr_mio_check_military_factories_var < 100 } }
-            multiply_temp_variable = { JAP_pnr_mio_check_military_factories_var = 0.0030 }
-            add_mio_funds_gain_factor = JAP_pnr_mio_check_military_factories_var
+            multiply_temp_variable = { JAP_pnr_mio_check_military_factories_var = 0.0020 }
+            add_mio_research_bonus = JAP_pnr_mio_check_military_factories_var
         }
         else = {
-            add_mio_funds_gain_factor = 0.30
+            add_mio_research_bonus = 0.20
         }
     }
 
@@ -339,6 +339,20 @@ JAP_pnr_check_red_conspiracy_threshold_events = { # Trigger JAP_pnr_rs.1
             add_to_variable = { JAP.JAP_pnr_pan_asia_modifier_point_var = 1 }
             country_event = { id = JAP_pnr_foreign_events.26 days = 7 random_hours = 3 }
         }
+    }
+
+    JAP_pnr_pan_asia_point_var_increase_win_effect = {
+        add_to_variable = {
+            var = JAP_pnr_pan_asia_modifier_point_var
+            value = 1
+            tooltip = JAP_pnr_pan_asia_modifier_point_var_add_tt
+        }
+        custom_effect_tooltip = pnr_reduce_lost_decade_tt
+		add_power_balance_value = {
+			id = JAP_hero_et_gangster_bop
+			value = 0.2
+			tooltip_side = JAP_pnr_bop_hero
+		}
     }
 
     JAP_pnr_pan_asia_progress_var_increase_defeat_effect = {

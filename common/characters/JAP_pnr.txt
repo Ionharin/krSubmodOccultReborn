@@ -4,7 +4,7 @@ characters = {
 		name = JAP_pnr_hirohito
 		portraits = {
 			civilian = {
-				large = GFX_portrait_jap_pnr_hirohito
+				large = GFX_portrait_JAP_pnr_hirohito_large
 			}
 		}
 		country_leader = {
@@ -70,6 +70,7 @@ characters = {
 			}
 		}
 		country_leader = {
+			desc = JAP_pnr_aikawa_yoshisuke_desc
 			ideology = market_liberal_subtype
 			traits = { }
 			expire = "1965.1.1.1"
@@ -172,15 +173,15 @@ characters = {
 			}
 		}
 		country_leader = {
-			desc = JAP_pnr_hayashi_senjuro_leader_desc
+			desc = JAP_pnr_hayashi_senjuro_desc
 			ideology = authoritarian_democrat_subtype
 			traits = { JAP_pnr_the_puppet_pm_trait }
 			expire = "1965.1.1.1"
 			id = -1
 		}
 		advisor = {
-			slot = political_advisor
-            desc = JAP_pnr_hayashi_senjuro_advisor_desc
+			slot = army_chief
+            desc = JAP_pnr_hayashi_senjuro_desc
 			idea_token = JAP_pnr_hayashi_senjuro_idea
 			traits = { PNR_lujun_dachen_1 }
 			cost = 150
@@ -419,6 +420,7 @@ characters = {
 			}
 		}
 		country_leader = {
+			desc = JAP_pnr_suzuki_kisaburo_desc
 			ideology = social_conservative_subtype
 			traits = { }
 			expire = "1965.1.1.1"
@@ -509,6 +511,7 @@ characters = {
 			}
 		}
 		country_leader = {
+			desc = JAP_pnr_hamaguchi_osachi_desc
 			ideology = market_liberal_subtype
 			traits = { }
 			expire = "1965.1.1.1"
@@ -639,10 +642,6 @@ characters = {
             idea_token = JAP_pnr_takahashi_korekiyo_advisor_idea
             desc = JAP_pnr_takahashi_korekiyo_desc
             traits = { JAP_pnr_advocate_of_proactive_fiscal_policy_trait }
-            available = {
-				is_country_leader = no
-			}
-			can_be_fired = no
             cost = 150
         }
 	}
@@ -659,9 +658,8 @@ characters = {
             desc = JAP_pnr_obata_toshiro_desc
             ledger = army
             allowed = { has_completed_focus = JAP_pnr_army_expansion_plan }
-            visible = { always = yes }
+			available = { is_country_leader = no }
             traits = { JAP_pnr_triumph_of_the_will_trait }
-			can_be_fired = no
             cost = 100
         }
 	}
@@ -678,9 +676,8 @@ characters = {
             desc = JAP_pnr_nagata_tetsuzan_desc
             ledger = army
             allowed = { has_completed_focus = JAP_pnr_navy_expansion_plan }
-            visible = { always = yes }
+			available = { is_country_leader = no }
             traits = { JAP_pnr_advocate_of_modern_warfare_trait }
-			can_be_fired = no
             cost = 100
         }
 	}
@@ -707,7 +704,7 @@ characters = {
             }
         }
         advisor = {
-			slot = political_advisor
+			slot = navy_chief
             desc = JAP_pnr_mineo_osumi_desc
 			idea_token = JAP_pnr_mineo_osumi_idea
 			traits = { PNR_haijun_dachen_1 }

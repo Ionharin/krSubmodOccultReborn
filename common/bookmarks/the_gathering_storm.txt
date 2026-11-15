@@ -11,7 +11,7 @@ bookmarks = {
 		include_majors_in_minor_list = no
 
 		filters = { label } ## changed from new_content, continent to remove hardcoded filters
-		label_order = { new_content_label recommended_label }
+		label_order = { new_content_label recommended_label submod_rework_label }
 
 		## Label usage:
 		##	new_content_label - Content added in the current patch cycle
@@ -195,11 +195,12 @@ bookmarks = {
 		JAP = {
 			version = yachiyo_jishi
 			history = JAP_KR_pnr_gathering_storm_desc
-			ideology = social_conservative
+			ideology = paternal_autocrat
+			override_leader_portrait = JAP_pnr_hirohito
 			ideas = {
 				JAP_pnr_showa_tenno
 				JAP_pnr_forever_frozen_in_1928
-				JAP_pnr_offensive_realpolitik_4
+				JAP_pnr_housing_finance_agency
 			}
 			focuses = {
 				JAP_pnr_prepare_continental_warfare
@@ -1366,19 +1367,19 @@ bookmarks = {
 
 		QIE = {
 			minor = yes
-			version = beta
-			history = QIE_KR_gathering_storm_desc
+			version = vedremo
+			history = QIE_KR_wushan_gathering_storm_desc
 			ideology = authoritarian_democrat
-			label = { recommended_label }
+			label = { recommended_label submod_rework_label }
 			ideas = {
-				QIE_big_debt
-				QIE_legitimacy_of_the_monarchy
-				QIE_stalled_80_division_reform_plan
+				QIE_conspiracy_of_wushan
+				QIE_wushan_theocratic_authority_1
+				QIE_wushan_belligerent_government
 			}
 			focuses = {
-				QIE_restoration
-				QIE_future_of_the_zhili_clique
-				QIE_let_the_five_banner_flag_fly
+				QIE_wushan_power
+				QIE_the_seances_of_master_lv
+				QIE_wushan_the_new_government_reviving_tradition
 			}
 		}
 
@@ -1595,6 +1596,7 @@ bookmarks = {
 			version = beta
 			history = GEA_KR_gathering_storm_desc
 			ideology = paternal_autocrat
+			label = { submod_rework_label }
 			ideas = {
 				GEA_colonial_question
 				GEA_AOG_bonus_idea

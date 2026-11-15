@@ -1,27 +1,7 @@
 JAP_pnr_kasumigaseki_diplomacy_category = {
-### Common Decisions WAR ###
-	JAP_pnr_support_temporary_mil_factory_decision = {
-		icon = GFX_decision_wrenches
-		allowed = { always = no }
-		available = {
-			FROM = {
-				exists = yes
-				has_war = yes
-				NOT = { has_war_with = JAP }
-			}
-		}
-		custom_cost_text = CP_15
-		custom_cost_trigger = { command_power > 14.99 }
-		days_remove = 120
-		fire_only_once = yes
-		ai_will_do = { factor = 1 }
-		complete_effect = { FROM = { add_offsite_building = { type = arms_factory level = 1 } } }
-		remove_effect = { FROM = { add_offsite_building = { type = arms_factory level = -1 } } }
-		fixed_random_seed = no
-	}
 ### SIK Civil War ###
-	JAP_pnr_shandong_gedimu = {
-		icon = GFX_decision_generic_reorganize_irregulars
+	JAP_pnr_ets_yunshu_huangjin_decision = {
+		icon = GFX_decision_gre_investment_decisions
 		allowed = { always = no }
 		visible = { check_variable = { JAP_pnr_kd_events^2 = 1 } }
 		fire_only_once = yes
@@ -33,12 +13,9 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			}
 		}
 		ai_will_do = { factor = 50 }
-		cost = 0
-		custom_cost_trigger = { command_power > 4.99 }
-		custom_cost_text = CP_5
+		cost = 15
 		days_remove = 28
 		complete_effect = {
-			ETS = { add_manpower = 6000 }
 			hidden_effect = {
 				if = {
 					limit = { NOT = { has_country_flag = JAP_pnr_support_ETS } }
@@ -47,57 +24,13 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			}
 		}
 		remove_effect = {
-			ETS = {
-				add_stability = 0.05
-				add_popularity = {
-					ideology = var:current_party_ideology_group
-					popularity = 0.05
-				}
-			}
+			ETS = { add_to_variable = { ETS_gold_amount = 2 tooltip = ETS_gold_increase } }
 		}
 	}	
-	JAP_pnr_huanxing_tacheng_qianfufenzi = {
-		icon = GFX_decision_onmap_recruit_operative
-		allowed = { always = no }
-		visible = { check_variable = { JAP_pnr_kd_events^2 = 1 } }
-		fire_only_once = yes
-		available = {
-			country_exists = ETS
-			OR = {
-				ETS = { has_war_with = SIK }
-				ETS = { has_war_with = KUM }
-			}
-		}
-		ai_will_do = { factor = 50 }
-		cost = 0
-		custom_cost_trigger = { command_power > 14.99 }
-		custom_cost_text = CP_15
-		complete_effect = {
-			ETS = {
-				add_intel = {
-					target = SIK
-    				civilian_intel = 20
-    				army_intel = 20
-				}
-				add_intel = {
-					target = KUM
-    				civilian_intel = 20
-    				army_intel = 20
-				}
-			}
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_ETS } }
-					set_country_flag = JAP_pnr_support_ETS
-				}
-			}
-		}
-	}
-	JAP_pnr_cong_kabuer_tigong_wuqi = {
+	JAP_pnr_ets_cong_kabuer_tigong_wuqi_decision = {
 		icon = GFX_decision_generic_welfare
 		allowed = { always = no }
 		visible = { check_variable = { JAP_pnr_kd_events^2 = 1 } }
-		fire_only_once = yes
 		available = {
 			country_exists = ETS
 			OR = {
@@ -107,9 +40,13 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		}
 		ai_will_do = { factor = 50 }
 		custom_cost_text = 500_guns
-		custom_cost_trigger = { NOT = { has_equipment = { infantry_equipment < 500 } } }
+		custom_cost_trigger = {
+			NOT = { has_equipment = { infantry_equipment < 500 } }
+		}
+		days_remove = 28
+		days_re_enable = 70
+		ai_will_do = { factor = 50 }
 		complete_effect = {
-			send_equipment = { target = ETS type = infantry_equipment amount = 500 }
 			hidden_effect = {
 				if = {
 					limit = { NOT = { has_country_flag = JAP_pnr_support_ETS } }
@@ -117,8 +54,39 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 				}
 			}
 		}
+		remove_effect = {
+			army_experience = 10
+			send_equipment = { target = ETS type = infantry_equipment amount = 500 }
+		}
+		fixed_random_seed = no
 	}
-	JAP_pnr_chiyuan_tongbao_minzu = {
+	JAP_pnr_ets_tigong_jinji_jiekuan_decision = {
+		icon = GFX_decision_wrenches
+		allowed = { always = no }
+		available = {
+			country_exists = ETS
+			OR = {
+				ETS = { has_war_with = SIK }
+				ETS = { has_war_with = KUM }
+			}
+		}
+		cost = 15
+		days_remove = 180
+		fire_only_once = yes
+		ai_will_do = { factor = 50 }
+		complete_effect = {
+			ETS = { add_offsite_building = { type = arms_factory level = 1 } }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_ETS } }
+					set_country_flag = JAP_pnr_support_ETS
+				}
+			}
+		}
+		remove_effect = { ETS = { add_offsite_building = { type = arms_factory level = -1 } } }
+		fixed_random_seed = no
+	}
+	JAP_pnr_ets_chiyuan_tongbao_minzu_decision = {
 		icon = GFX_decision_SWE_set_army_budget
 		allowed = { always = no }
 		visible = { check_variable = { JAP_pnr_kd_events^2 = 1 } }
@@ -131,16 +99,17 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			}
 		}
 		ai_will_do = { factor = 50 }
-		cost = 10
+		custom_cost_text = CP_10
+		custom_cost_trigger = { command_power > 9.99 }
 		days_remove = 120
 		modifier = {
 			civilian_factory_use = 2
 			experience_gain_army = 0.02
 		}
 		complete_effect = {
-			ETS = { add_offsite_building = { type = arms_factory level = 1 } }
 			add_relation_modifier = { target = ETS modifier = volunteer_limit_plus_2 }
 			hidden_effect = {
+				add_command_power = -10
 				if = {
 					limit = { NOT = { has_country_flag = JAP_pnr_support_ETS } }
 					set_country_flag = JAP_pnr_support_ETS
@@ -148,7 +117,6 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			}
 		}
 		remove_effect = {
-			ETS = { add_offsite_building = { type = arms_factory level = -1 } }
 			remove_relation_modifier = { target = ETS modifier = volunteer_limit_plus_2 }
 		}
 	}
@@ -294,62 +262,6 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			}
 		}
 	}
-	JAP_pnr_KHI_support_volunteer_2_decision = {
-		icon = GFX_decisions_generic_infiltration
-		allowed = { always = no }
-		visible = { check_variable = { JAP_pnr_kd_events^7 = 1 } }
-		fire_only_once = yes
-		available = {
-			KHI = { has_war_with = RUS }
-		}
-		ai_will_do = { factor = 50 }
-		priority = 99
-		cost = 10
-		days_remove = 120
-		modifier = {
-			experience_gain_army = 0.01
-		}
-		complete_effect = {
-			add_relation_modifier = { target = KHI modifier = volunteer_limit_plus_2 }
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_KHITRK } }
-					set_country_flag = JAP_pnr_support_KHITRK
-				}
-			}
-		}
-		remove_effect = {
-			remove_relation_modifier = { target = KHI modifier = volunteer_limit_plus_2 }
-		}
-	}
-	JAP_pnr_TRK_support_volunteer_2_decision = {
-		icon = GFX_decisions_generic_infiltration
-		allowed = { always = no }
-		visible = { check_variable = { JAP_pnr_kd_events^7 = 1 } }
-		fire_only_once = yes
-		available = {
-			TRK = { has_war_with = RUS }
-		}
-		ai_will_do = { factor = 50 }
-		priority = 99
-		cost = 10
-		days_remove = 120
-		modifier = {
-			experience_gain_army = 0.01
-		}
-		complete_effect = {
-			add_relation_modifier = { target = TRK modifier = volunteer_limit_plus_2 }
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_KHITRK } }
-					set_country_flag = JAP_pnr_support_KHITRK
-				}
-			}
-		}
-		remove_effect = {
-			remove_relation_modifier = { target = TRK modifier = volunteer_limit_plus_2 }
-		}
-	}
 	JAP_pnr_calling_ets_come_to_help_friends_decision = {
 		icon = GFX_decisions_generic_infiltration
 		allowed = { always = no }
@@ -373,8 +285,6 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		complete_effect = {
 			ETS = { add_relation_modifier = { target = KHI modifier = volunteer_limit_plus_3 } }
 			ETS = { add_relation_modifier = { target = TRK modifier = volunteer_limit_plus_3 } }
-			activate_targeted_decision = { target = KHI decision = JAP_pnr_KHI_support_volunteer_2_decision }
-			activate_targeted_decision = { target = TRK decision = JAP_pnr_TRK_support_volunteer_2_decision }
 			hidden_effect = {
 				if = {
 					limit = { NOT = { has_country_flag = JAP_pnr_support_KHITRK } }
@@ -726,7 +636,83 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			send_equipment = { target = HND type = infantry_equipment amount = 1000 }
 		}
 	}
-
+	JAP_pnr_offer_mil_factory_to_PRF_decision = {
+		icon = GFX_decision_wrenches
+			allowed = { always = no }
+			available = {
+				PRF = {
+					exists = yes
+					has_war = yes
+					NOT = { has_war_with = JAP }
+				}
+			}
+			cost = 10
+			days_remove = 180
+			fire_only_once = yes
+			ai_will_do = { factor = 50 }
+			complete_effect = { FROM = { add_offsite_building = { type = arms_factory level = 1 } } }
+			remove_effect = { FROM = { add_offsite_building = { type = arms_factory level = -1 } } }
+			fixed_random_seed = no
+	}
+### Spanish War ###
+	JAP_pnr_support_spr_decision = {
+		icon = GFX_decision_continent_europe
+		allowed = { always = no }
+		available = {
+			SPR = {
+				OR = {
+					has_war = yes
+					has_civil_war = yes
+				}
+				exists = yes
+			}
+		}
+		ai_will_do = { factor = 10 }
+		custom_cost_text = 500_guns
+		custom_cost_trigger = {
+			NOT = { has_equipment = { infantry_equipment < 500 } }
+		}
+		days_remove = 90
+		days_re_enable = 45
+		complete_effect = {
+			army_experience = 15
+			send_equipment = { target = SPR type = infantry_equipment amount = 500 }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_country_flag = JAP_pnr_support_SPR } }
+					set_country_flag = JAP_pnr_support_SPR
+				}
+			}
+		}
+	}
+	JAP_pnr_borrow_industry_to_spr_decision = {
+		icon = GFX_decision_decision_generic_chinese_officers
+			allowed = { always = no }
+			available = {
+				SPR = {
+					exists = yes
+					has_war = yes
+					NOT = { has_war_with = JAP }
+				}
+			}
+			custom_cost_text = CP_15
+			custom_cost_trigger = { command_power > 14.99 }
+			days_remove = 120
+			fire_only_once = yes
+			ai_will_do = { factor = 10 }
+			modifier = { political_power_cost = -0.10 }
+			complete_effect = { 
+				SPR = { add_offsite_building = { type = arms_factory level = 1 } }
+				hidden_effect = {
+					if = {
+						limit = { NOT = { has_country_flag = JAP_pnr_support_SPR } }
+						set_country_flag = JAP_pnr_support_SPR
+					}
+				}
+			}
+			remove_effect = { SPR = { add_offsite_building = { type = arms_factory level = -1 } } }
+			fixed_random_seed = no
+	}
 ### Common Diplomacy ###
 	JAP_pnr_trade_with_universal_oil_products_decision = {
 		icon = GFX_decision_continent_north_america
@@ -771,82 +757,50 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		}
 		ai_will_do = { factor = 10 }
 	}
+### Diplomacy Sample ###
+	JAP_pnr_sample_mil_factory_decision = {
+			icon = GFX_decision_wrenches
+			allowed = { always = no }
+			available = {
+				FROM = {
+					exists = yes
+					has_war = yes
+					NOT = { has_war_with = JAP }
+				}
+			}
+			custom_cost_text = CP_10
+			custom_cost_trigger = { command_power > 9.99 }
+			days_remove = 180
+			fire_only_once = yes
+			ai_will_do = { factor = 50 }
+			complete_effect = { FROM = { add_offsite_building = { type = arms_factory level = 1 } } }
+			remove_effect = { FROM = { add_offsite_building = { type = arms_factory level = -1 } } }
+			fixed_random_seed = no
+		}
+	JAP_pnr_sample_rifle_support_decision = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = { always = no }
+		available = {
+			FROM = {
+				exists = yes
+				has_war = yes
+				NOT = { has_war_with = JAP }
+			}
+		}
+		custom_cost_text = 1000_guns
+		custom_cost_trigger = {
+			NOT = { has_equipment = { infantry_equipment < 1000 } }
+		}
+		days_remove = 60
+		days_re_enable = 90
+		ai_will_do = { factor = 20 }
+		complete_effect = {
 
-### Confuciusm ###
-	JAP_pnr_save_the_kong_decheng_decision = {
-		icon = GFX_decisions_generic_counter_infiltration
-        is_good = no
-		days_mission_timeout = 120
-		fire_only_once = yes
-		priority = 200
-        available = { JAP = { has_war = yes } }
-        allowed = { always = no }
-		timeout_effect = {
-			add_political_power = 10
+		}
+		remove_effect = {
+			army_experience = 10
+			send_equipment = { target = FROM type = infantry_equipment amount = 1000 }
 		}
 		fixed_random_seed = no
-	}
-	JAP_pnr_youshui_kong_lingjun_decision = {
-		icon = GFX_decision_generic_agreement
-		allowed = { always = no }
-		priority = 50
-		cost = 5
-		days_remove = 35
-		available = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
-		visible = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
-		modifier = { political_power_cost = 0.02 }
-		remove_effect = {
-			custom_effect_tooltip = shibun_alliance_var_increase_tt
-			add_to_variable = { shibun_alliance_var = 1 }
-		}
-		ai_will_do = { factor = 10 }
-	}
-	JAP_pnr_calling_saint_way_decision = {
-		icon = GFX_decision_hol_radio_oranje
-		allowed = { always = no }
-		priority = 50
-		cost = 10
-		days_remove = 21
-		days_re_enable = 28
-		available = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
-		visible = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
-		remove_effect = {
-			custom_effect_tooltip = shibun_alliance_var_increase_tt
-			add_to_variable = { shibun_alliance_var = 1 }
-			var:597.owner = { add_popularity = { ideology = authoritarian_democrat popularity = 0.02 } }
-		}
-		ai_will_do = { factor = 10 }
-	}
-	JAP_pnr_prepare_anti_confucianism_decision = {
-		icon = GFX_decision_radar
-		allowed = { always = no }
-		priority = 50
-		cost = 10
-		days_remove = 28
-		available = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
-		visible = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = shibun_alliance_var_increase_tt
-			add_to_variable = { shibun_alliance_var = 1 }
-			var:597.owner = { add_stability = -0.01 }
-		}
-		ai_will_do = { factor = 10 }
-	}
-	JAP_pnr_offer_palaces_fix_loan_decision = {
-		icon = GFX_decision_generic_welfare
-		allowed = { always = no }
-		priority = 50
-		cost = 20
-		days_remove = 28
-		available = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
-		visible = { has_active_mission = JAP_pnr_save_the_kong_decheng_decision }
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = shibun_alliance_var_increase_tt
-			add_to_variable = { shibun_alliance_var = 2 }
-			var:597.owner = { add_political_power = 10 }
-		}
-		ai_will_do = { factor = 10 }
 	}
 }

@@ -376,7 +376,7 @@ recruit_character = JAP_yoji_ito
 recruit_character = JAP_yoshio_nishina
 
 ### Character Setup ###
-JAP_hirohito = { set_character_as_monarch = yes }
+#JAP_hirohito = { set_character_as_monarch = yes }
 
 JAP_nosaka_sanzo = {
 	set_nationality = CHI
@@ -601,6 +601,20 @@ set_party_name = {
 	name = JAP_pnr_national_populist_party
 }
 
+### Character Setup ###
+# These are country variables because the scripted GUI runs in player_context.
+# Update both whenever the active second-in-command changes.
+set_variable = { alternativeLeadertoken = token:JAP_pnr_hirohito }
+set_variable = { SICportrait = token:jap_pnr_hirohito }
+JAP_pnr_hirohito = {
+	set_character_as_monarch = yes
+	set_character_flag = head_of_country_flag
+	set_variable = { alternativeLeadertoken = token:JAP_pnr_hirohito }
+	set_variable = { SICportrait = token:JAP_pnr_hirohito }
+	set_variable = { SICtittle = 1 }
+}
+
+
 JAP_pnr_inukai_tsuyoshi = { promote_character = social_conservative_subtype }
 JAP_pnr_hakamada_satomi = { promote_character = totalist_subtype }
 JAP_pnr_hakamada_satomi = { promote_character = radical_socialist_subtype }
@@ -609,6 +623,7 @@ JAP_pnr_hisashi_aso = { promote_character = social_democrat_subtype }
 JAP_pnr_katsumaro_akamatsu = { promote_character = national_populist_subtype }
 JAP_pnr_isoo_abe = { promote_character = social_liberal_subtype }
 JAP_pnr_saionji_kinmochi = { promote_character = paternal_autocrat_subtype }
+JAP_pnr_hirohito = { promote_character = paternal_autocrat_subtype }
 JAP_pnr_kato_kanju = { promote_character = syndicalist_subtype }
 JAP_pnr_adachi_kenzo = { promote_character = authoritarian_democrat_subtype }
 

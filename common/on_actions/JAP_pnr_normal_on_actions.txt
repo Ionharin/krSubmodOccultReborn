@@ -82,6 +82,20 @@ on_send_volunteers = {
 				}
 				set_country_flag = JAP_pnr_support_SHX
 			}
+			if = { # For Muslim-Buddhism War XSM
+				limit = {
+					FROM = {
+                        tag = XSM
+                        OR = {
+                            has_war_with = MON
+							has_war_with = TIB
+                            has_war_with = SHX
+                        }
+                    }
+                    NOT = { has_country_flag = JAP_pnr_support_XSM }
+				}
+				set_country_flag = JAP_pnr_support_XSM
+			}
             if = { # For SIA Civil War
 				limit = {
 					SIA = { has_civil_war = yes }
@@ -142,9 +156,9 @@ on_send_volunteers = {
 						KHI = { has_war_with = RUS }
 						KAZ = { has_war_with = RUS }
 					}
-                    NOT = { has_country_flag = JAP_pnr_support_Midasia }
+                    NOT = { has_country_flag = JAP_pnr_support_KHITRK }
 				}
-                set_country_flag = JAP_pnr_support_Midasia
+                set_country_flag = JAP_pnr_support_KHITRK
 			}
 		}
     }

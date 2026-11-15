@@ -11,48 +11,20 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
     allowed = { tag = JAP }
 	#visible = { JAP = { is_ai = no } }
 	ai_will_do = { base = 10 }
-    available = { 1101 = { is_owned_and_controlled_by = FROM } }
-	equipment_type = { mio_cat_eq_all_light_tank armored_car_equipment }
-	research_categories = { mio_cat_tech_light_armor_and_modules cat_armored_cars }
-    on_design_team_assigned_to_tech = {
-		if = {
-			limit = { is_mio_trait_completed = JAP_mio_armor_kokka_soudashou }
-			set_temp_variable = { mio_kokka_soudashou_research_bonus_temp_var = JAP.JAP_mio_kokka_soudashou_bonus_var }
-			multiply_temp_variable = { mio_kokka_soudashou_research_bonus_temp_var = 0.10 }
-			add_mio_research_bonus = mio_kokka_soudashou_research_bonus_temp_var
-		}
-	}
-	on_industrial_manufacturer_assigned = {
-		if = {
-			limit = { is_mio_trait_completed = JAP_mio_armor_kokka_soudashou }
-			custom_effect_tooltip = JAP_edogawa_jukogyo_mio
-		}
-	}
-	on_industrial_manufacturer_unassigned = {
-		if = {
-			limit = { is_mio_trait_completed = JAP_mio_armor_kokka_soudashou }
-			custom_effect_tooltip = JAP_edogawa_jukogyo_mio
-		}
-	}
-	on_tech_research_completed = {
-		if = {
-			limit = { is_mio_trait_completed = JAP_mio_armor_kokka_soudashou }
-			JAP = { add_political_power = 15 }
-		}
-	}
+	equipment_type = { armor }
+	research_categories = { mio_cat_tech_all_armor_and_modules }
 	initial_trait = {
 		name = edogawa_jukogyo_subtitle
-		organization_modifier = { military_industrial_organization_size_up_requirement = -0.20 }
+		organization_modifier = { military_industrial_organization_size_up_requirement = -0.15 }
 	}
 	add_trait = {
 		token = JAP_mio_edogawa_1
 		name = generic_mio_trait_multi_plant_cooperation
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
-		mutually_exclusive = { JAP_mio_edogawa_4 }
-		position = { x = 0 y = 0 }
-
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		position = { x = 1 y = 0 }
 		production_bonus = {
-			production_efficiency_cap_factor = 0.05
+			production_efficiency_gain_factor = -0.10
+			production_cost_factor = -0.01
 		}
 	}
 	add_trait = {
@@ -60,9 +32,11 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		name = KR_MIO_Trait_clear_random_engine_jams
 		icon = GFX_generic_mio_trait_icon_maximum_speed
 		position = { x = 4 y = 0 }
-
 		equipment_bonus = {
-			maximum_speed = 0.05
+			maximum_speed = -0.05
+		}
+		production_bonus = {
+			production_cost_factor = -0.01
 		}
 	}
 	add_trait = {
@@ -71,41 +45,34 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		icon = GFX_KR_generic_mio_trait_icon_funds
 		position = { x = 7 y = 0 }
 		organization_modifier = {
-			military_industrial_organization_funds_gain = 0.05
+			military_industrial_organization_funds_gain = -0.05
 		}
-	}
-	add_trait = {
-		token = JAP_mio_edogawa_4
-		name = generic_mio_trait_24h_rotation_shifts
-		icon = GFX_generic_mio_trait_icon_efficiency_gain
-		mutually_exclusive = { JAP_mio_edogawa_1 }
-		position = { x = 2 y = 0 }
-
 		production_bonus = {
-			production_efficiency_gain_factor = 0.12
+			production_cost_factor = -0.01
 		}
 	}
 	add_trait = {
 		token = JAP_mio_edogawa_5
 		name = generic_mio_streamlined_production
-		icon = GFX_generic_mio_trait_icon_production_capacity
-		any_parent = { JAP_mio_edogawa_1 JAP_mio_edogawa_4 }
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { JAP_mio_edogawa_1 }
 		position = { x = 1 y = 1 }
-
 		production_bonus = {
-			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = -0.05
+			production_cost_factor = -0.01
 		}
 	}
 	add_trait = {
 		token = JAP_mio_edogawa_6
 		name = generic_mio_trait_simplified_layout
-		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		icon = GFX_generic_mio_trait_icon_conversion_speed
 		all_parents = { JAP_mio_edogawa_5 }
 		mutually_exclusive = { JAP_mio_edogawa_7 }
 		position = { x = 0 y = 2 }
 
 		production_bonus = {
-			production_cost_factor = -0.03
+			production_conversion_speed_factor = -0.20
+			production_cost_factor = -0.01
 		}
 	}
 	add_trait = {
@@ -116,7 +83,8 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		mutually_exclusive = { JAP_mio_edogawa_6 }
 		position = { x = 2 y = 2 }
 		production_bonus = {
-			production_resource_need_factor = -0.10
+			production_resource_need_factor = 0.15
+			production_cost_factor = -0.01
 		}
 	}
 	add_trait = {
@@ -126,6 +94,10 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		all_parents = { JAP_mio_edogawa_3 }
 		mutually_exclusive = { JAP_mio_edogawa_9 }		position = { x = 7 y = 1 }
 		organization_modifier = {
+			military_industrial_organization_research_bonus = -0.05
+		}
+		production_bonus = {
+			production_cost_factor = -0.01
 		}
 	}
 	add_trait = {
@@ -135,7 +107,10 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		all_parents = { JAP_mio_edogawa_3 }
 		mutually_exclusive = { JAP_mio_edogawa_8 }		position = { x = 6 y = 1 }
 		organization_modifier = {
-			military_industrial_organization_size_up_requirement = -0.05
+			military_industrial_organization_size_up_requirement = 0.05
+		}
+		production_bonus = {
+			production_cost_factor = -0.01
 		}
 	}
 	add_trait = {
@@ -145,7 +120,10 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		all_parents = { JAP_mio_edogawa_2 }
 		position = { x = 3 y = 1 }
 		equipment_bonus = {
-			soft_attack = 0.1
+			soft_attack = -0.05
+		}
+		production_bonus = {
+			production_cost_factor = -0.01
 		}
 	}
 	add_trait = {
@@ -156,7 +134,10 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		position = { x = 5 y = 1 }
 
 		equipment_bonus = {
-			armor_value = 0.10
+			armor_value = -0.10
+		}
+		production_bonus = {
+			production_cost_factor = -0.01
 		}
 	}
 	add_trait = {
@@ -201,43 +182,10 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		position = { x = 4 y = 1 }
 
 		equipment_bonus = {
-			breakthrough = 0.08
+			breakthrough = -0.05
 		}
-	}
-	add_trait = {
-		token = JAP_mio_edogawa_15
-		name = generic_mio_trait_efficient_scrap_recycling
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank_materials
-		all_parents = { JAP_mio_edogawa_19 }
-		any_parent = { JAP_mio_edogawa_6 JAP_mio_edogawa_7 }
-		mutually_exclusive = { JAP_mio_edogawa_16 JAP_mio_edogawa_17 }
-		position = { x = 4 y = 3 }
 		production_bonus = {
-			production_resource_penalty_factor = -0.15
-		}
-	}
-	add_trait = {
-		token = JAP_mio_edogawa_16
-		name = generic_mio_improved_tracks_and_suspension
-		icon = GFX_generic_mio_department_icon_tank_general_engine
-		all_parents = { JAP_mio_edogawa_19 }
-		any_parent = { JAP_mio_edogawa_12 JAP_mio_edogawa_13 JAP_mio_edogawa_6 JAP_mio_edogawa_7 }
-		mutually_exclusive = { JAP_mio_edogawa_15 JAP_mio_edogawa_17 }
-		position = { x = 3 y = 3 }
-		equipment_bonus = {
-			breakthrough = 0.10
-		}
-	}
-	add_trait = {
-		token = JAP_mio_edogawa_17
-		name = generic_mio_trait_improved_tooling
-		icon = GFX_generic_mio_department_icon_tank_general_production
-		all_parents = { JAP_mio_edogawa_19 }
-		any_parent = { JAP_mio_edogawa_12 JAP_mio_edogawa_13 }
-		mutually_exclusive = { JAP_mio_edogawa_15 JAP_mio_edogawa_16 }
-		position = { x = 5 y = 3 }
-		equipment_bonus = {
-			hardness = 0.12
+			production_cost_factor = -0.01
 		}
 	}
 	add_trait = {
@@ -248,7 +196,10 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 		position = { x = 4 y = 2 }
 
 		equipment_bonus = {
-			reliability = 0.05
+			reliability = -0.10
+		}
+		production_bonus = {
+			production_cost_factor = -0.01
 		}
 	}
 	include = JAP_armor_shared_mio
@@ -258,10 +209,10 @@ JAP_hitachi_mio = { # Hitachi
 	name = JAP_hitachi_mio
     icon = GFX_idea_jap_mio_hitachi
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
-    available = { 282 = { is_owned_and_controlled_by = FROM } }
-	equipment_type = { light_tank_artillery_chassis medium_tank_artillery_chassis heavy_tank_artillery_chassis light_tank_destroyer_chassis medium_tank_destroyer_chassis heavy_tank_destroyer_chassis light_tank_aa_chassis medium_tank_aa_chassis heavy_tank_aa_chassis }
-	research_categories = { mio_cat_tech_all_armor_and_modules mio_cat_all_artillery_equipment }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
+	equipment_type = { armor }
+	research_categories = { mio_cat_tech_all_armor_and_modules }
     on_design_team_assigned_to_tech = {
 	}
 	on_design_team_assigned_to_variant = {
@@ -281,70 +232,8 @@ JAP_hitachi_mio = { # Hitachi
 		}
 	}
 	add_trait = {
-		token = JAP_mio_hitachi_1
-		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_reliability
-		position = { x = 1 y = 0 }
-		equipment_bonus = {
-			reliability = 0.05
-		}
-	}
-	add_trait = {
-		token = JAP_mio_hitachi_2
-		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_build_cost_ic
-		mutually_exclusive = { JAP_mio_hitachi_3 JAP_mio_hitachi_4 }
-		all_parents = { JAP_mio_hitachi_1 }
-		position = { x = 0 y = 1 }
-		equipment_bonus = {
-			build_cost_ic = -0.05
-		}
-	}
-	add_trait = {
-		token = JAP_mio_hitachi_3
-		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_production_capacity
-		mutually_exclusive = { JAP_mio_hitachi_2 JAP_mio_hitachi_4 }
-		all_parents = { JAP_mio_hitachi_1 }
-		position = { x = 1 y = 1 }
-		production_bonus = {
-			production_capacity_factor = 0.03
-		}
-	}
-	add_trait = {
-		token = JAP_mio_hitachi_4
-		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_resources
-		mutually_exclusive = { JAP_mio_hitachi_2 JAP_mio_hitachi_3 }
-		all_parents = { JAP_mio_hitachi_1 }
-		position = { x = 2 y = 1 }
-		production_bonus = {
-			production_resource_need_factor = -0.10
-		}
-	}
-	add_trait = {
-		token = JAP_mio_hitachi_5
-		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
-		any_parent = { JAP_mio_hitachi_2 JAP_mio_hitachi_3 JAP_mio_hitachi_4 }
-		position = { x = 0 y = 2 }
-		production_bonus = {
-			production_efficiency_cap_factor = 0.10
-		}
-	}
-	add_trait = {
-		token = JAP_mio_hitachi_6
-		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_efficiency_gain
-		any_parent = { JAP_mio_hitachi_2 JAP_mio_hitachi_3 JAP_mio_hitachi_4 }
-		position = { x = 2 y = 2 }
-		production_bonus = {
-			production_efficiency_gain_factor = 0.15
-		}
-	}
-	add_trait = {
 		token = JAP_mio_hitachi_7
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_trait_heavy_assault_gun_improvements
 		icon = GFX_generic_mio_department_icon_tank_general_engine
 		position = { x = 5 y = 0 }
 		equipment_bonus = {
@@ -353,27 +242,29 @@ JAP_hitachi_mio = { # Hitachi
 	}
 	add_trait = {
 		token = JAP_mio_hitachi_8
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_trait_advanced_artillery_racks
 		icon = GFX_generic_mio_trait_icon_fuel_consumption
 		all_parents = { JAP_mio_hitachi_7 }
 		position = { x = 3 y = 1 }
 		equipment_bonus = {
-			fuel_capacity = 1
+			fuel_capacity = -0.15
+			soft_attack = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_hitachi_9
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_trait_battle_tank_specifications
 		icon = GFX_generic_mio_trait_icon_maximum_speed
 		all_parents = { JAP_mio_hitachi_7 }
 		position = { x = 7 y = 1 }
 		equipment_bonus = {
-			maximum_speed = 0.05
+			maximum_speed = -0.05
+			hard_attack = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_hitachi_10
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_trait_advanced_barrel_forging
 		icon = GFX_generic_mio_trait_icon_breakthrough
 		mutually_exclusive = { JAP_mio_hitachi_11 }
 		all_parents = { JAP_mio_hitachi_8 }
@@ -384,7 +275,7 @@ JAP_hitachi_mio = { # Hitachi
 	}
 	add_trait = {
 		token = JAP_mio_hitachi_11
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_trait_improved_direct_fire_targeting
 		icon = GFX_generic_mio_department_icon_tank_general_spg
 		mutually_exclusive = { JAP_mio_hitachi_10 }
 		all_parents = { JAP_mio_hitachi_8 }
@@ -395,7 +286,7 @@ JAP_hitachi_mio = { # Hitachi
 	}
 	add_trait = {
 		token = JAP_mio_hitachi_12
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_trait_stable_platforms
 		icon = GFX_generic_mio_department_icon_tank_general_spg
 		mutually_exclusive = { JAP_mio_hitachi_13 }
 		all_parents = { JAP_mio_hitachi_9 }
@@ -406,7 +297,7 @@ JAP_hitachi_mio = { # Hitachi
 	}
 	add_trait = {
 		token = JAP_mio_hitachi_13
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_trait_improved_hydraulic_recoil_system
 		icon = GFX_generic_mio_trait_icon_breakthrough
 		mutually_exclusive = { JAP_mio_hitachi_12 }
 		all_parents = { JAP_mio_hitachi_9 }
@@ -417,57 +308,25 @@ JAP_hitachi_mio = { # Hitachi
 	}
 	add_trait = {
 		token = JAP_mio_hitachi_14
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_trait_advanced_anti_air_targeting
 		icon = GFX_generic_mio_department_icon_tank_general_spg
 		all_parents = { JAP_mio_hitachi_7 }
 		position = { x = 5 y = 1 }
 		equipment_bonus = {
-			soft_attack = 0.06
-			hard_attack = 0.06
-			air_attack = 0.06
-		}
-	}
-	add_trait = {
-		token = JAP_mio_hitachi_15
-		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_max_strength
-		any_parent = { JAP_mio_hitachi_10 JAP_mio_hitachi_11 }
-		position = { x = 3 y = 3 }
-		equipment_bonus = {
-			armor_value = 0.1
+			air_attack = 0.05
 		}
 	}
 	add_trait = {
 		token = JAP_mio_hitachi_16
-		name = KR_MIO_Trait_increased_fire_accuracy
+		name = generic_mio_trait_rapid_fire
 		icon = GFX_generic_mio_department_icon_tank_general_spg
 		any_parent = { JAP_mio_hitachi_10 JAP_mio_hitachi_11 JAP_mio_hitachi_12 JAP_mio_hitachi_13 }
 		all_parents = { JAP_mio_hitachi_14 }
 		position = { x = 5 y = 3 }
 		equipment_bonus = {
-			soft_attack = 0.08
-			hard_attack = 0.08
-			air_attack = 0.08
-		}
-	}
-	add_trait = {
-		token = JAP_mio_hitachi_17
-		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_trait_icon_maximum_speed
-		any_parent = { JAP_mio_hitachi_12 JAP_mio_hitachi_13 }
-		position = { x = 7 y = 3 }
-		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-	}
-	add_trait = {
-		token = JAP_mio_hitachi_18
-		name = KR_MIO_Trait_increased_fire_accuracy
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank_production
-		any_parent = { JAP_mio_hitachi_2 JAP_mio_hitachi_3 JAP_mio_hitachi_4 }
-		position = { x = 1 y = 3 }
-		production_bonus = {
-			production_capacity_factor = 0.10
+			soft_attack = 0.06
+			hard_attack = 0.06
+			air_attack = 0.06
 		}
 	}
 	include = JAP_armor_shared_mio
@@ -477,8 +336,8 @@ JAP_sagami_mio = { # Sagami
 	name = JAP_sagami_mio
     icon = GFX_idea_jap_mio_sagami
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
-    available = { 1101 = { is_owned_and_controlled_by = FROM } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { armor }
 	research_categories = { mio_cat_tech_all_armor_and_modules }
     on_design_team_assigned_to_tech = {
@@ -603,7 +462,7 @@ JAP_sagami_mio = { # Sagami
 		all_parents = { JAP_mio_sagami_4 }
 		position = { x = 5 y = 1 }
 		production_bonus = {
-			production_cost_factor = -0.05
+			production_cost_factor = -0.02
 		}
 	}
 	add_trait = {
@@ -668,7 +527,7 @@ JAP_sagami_mio = { # Sagami
 		all_parents = { JAP_mio_sagami_14 JAP_mio_sagami_15 }
 		position = { x = 5 y = 3 }
 		production_bonus = {
-			production_cost_factor = -0.05
+			production_cost_factor = -0.03
 		}
 	}
 	add_trait = {
@@ -689,9 +548,10 @@ JAP_mitsubishi_armor_mio = { # Mitsubishi Armor
 	name = JAP_mitsubishi_armor_mio
     icon = GFX_idea_mitsubishi
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
-	equipment_type = { mio_cat_eq_all_light_tank mio_cat_eq_all_medium_tank mio_cat_eq_all_heavy_tank }
-	research_categories = { mio_cat_tech_light_armor_and_modules mio_cat_tech_medium_armor_and_modules mio_cat_tech_heavy_armor_and_modules }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
+	equipment_type = { armor }
+	research_categories = { mio_cat_tech_all_armor_and_modules }
     on_design_team_assigned_to_tech = {
 	}
 	on_design_team_assigned_to_variant = {
@@ -858,7 +718,8 @@ JAP_ishikawajima_mio = { # Ishikawajima
 	name = JAP_ishikawajima_mio
     icon = GFX_idea_ishikawajima
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { armor }
 	research_categories = { mio_cat_tech_all_armor_and_modules }
     on_design_team_assigned_to_tech = {
@@ -1061,29 +922,14 @@ JAP_nissan_mio = { # Nissan
 	name = nissan
     icon = GFX_idea_nissan
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
-	equipment_type = { mio_cat_eq_all_light_tank mio_cat_eq_all_medium_tank }
-	research_categories = { mio_cat_tech_light_armor_and_modules mio_cat_tech_medium_armor_and_modules }
-    on_design_team_assigned_to_tech = {
-		JAP = { add_cic = 100 }
-	}
-	on_design_team_assigned_to_variant = {
-		JAP = { add_cic = 50 }
-	}
-	on_industrial_manufacturer_assigned = {
-		JAP = { add_cic = 100 }
-	}
-	on_tech_research_completed = {
-		JAP = {
-			add_cic = 200
-			add_political_power = 25
-		}
-	}
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
+	equipment_type = { armor }
+	research_categories = { mio_cat_tech_all_armor_and_modules }
 	initial_trait = {
 		name = nissan_subtitle
 		organization_modifier = {
 			military_industrial_organization_funds_gain = 0.05
-			military_industrial_organization_task_capacity = 2
 		}
 	}
 	add_trait = {
@@ -1312,8 +1158,6 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 		available = { JAP = { has_completed_focus = JAP_pnr_support_factory_expansion } }
 		position = { x = 9 y = 0 }
 		organization_modifier = {
-			military_industrial_organization_size_up_requirement = -0.15
-			military_industrial_organization_research_bonus = 0.20
 			military_industrial_organization_funds_gain = 0.15
 		}
 	}
@@ -1338,7 +1182,7 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 		}
 		position = { x = 1 y = 4 }
 		equipment_bonus = {
-			soft_attack = 0.15
+			soft_attack = 0.10
 		}
 		organization_modifier = {
 			military_industrial_organization_funds_gain = 0.05
@@ -1354,6 +1198,7 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = {
 				mio:JAP_mitsubishi_armor_mio = {
+					has_mio_size > 2
 					NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
 					NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 				}
@@ -1380,6 +1225,7 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = { mio:JAP_sagami_mio = {
+				has_mio_size > 2
 				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
 				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			} }
@@ -1390,7 +1236,8 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 		}
 		position = { x = 2 y = 4 }
 		production_bonus = {
-			production_capacity_factor = 0.10
+			production_efficiency_cap_factor = 0.05
+			production_efficiency_gain_factor = 0.10
 		}
 		organization_modifier = {
 			military_industrial_organization_funds_gain = 0.05
@@ -1405,6 +1252,7 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = { mio:JAP_nissan_mio = {
+				has_mio_size > 2
 				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
 				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			} }
@@ -1430,13 +1278,14 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = { mio:JAP_ishikawajima_mio = {
+				has_mio_size > 2
 				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
 				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			} }
 		}
 		position = { x = 4 y = 4 }
 		equipment_bonus = {
-			maximum_speed = 0.15
+			maximum_speed = 0.10
 		}
 		on_complete = {
 			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_ishikawajima_mio } }
@@ -1455,6 +1304,7 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 			has_mio_size > 3
 			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			JAP = { mio:JAP_edogawa_jukogyo_mio = {
+				has_mio_size > 2
 				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
 				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
 			} }
@@ -1464,8 +1314,8 @@ JAP_armor_shared_mio = { # Special functions prepared for the concern route and 
 			JAP_pnr_mio_merge_control_effect = yes
 		}
 		position = { x = 0 y = 4 }
-		equipment_bonus = {
-			breakthrough = 0.10
+		production_bonus = {
+			production_cost_factor = -0.05
 		}
 		organization_modifier = {
 			military_industrial_organization_funds_gain = 0.05
@@ -1507,7 +1357,8 @@ JAP_mitsubishi_air_mio = { # Mitsubishi Air
 	name = mitsubishi
 	icon = GFX_idea_JAP_mitsubishi_airplanes
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { mio_cat_eq_all_aircraft }
 	research_categories = { mio_cat_all_light_aircraft_and_modules mio_cat_all_medium_aircraft_and_modules mio_cat_all_heavy_aircraft_and_modules plane_modules_tech }
 	initial_trait = {
@@ -1628,7 +1479,8 @@ JAP_hiro_mio = { # Hiro
 	name = JAP_hiro_mio
 	icon = GFX_idea_JAP_hiro_naval_arsenal
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = {
 		small_plane_naval_bomber_airframe
 		medium_plane_airframe
@@ -1787,7 +1639,8 @@ JAP_hikari_mio = { # Hikari
 	name = JAP_hikari_mio
 	icon = GFX_idea_JAP_hikari_naval_arsenal
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { mio_cat_eq_all_aircraft }
 	research_categories = { mio_cat_all_light_aircraft_and_modules mio_cat_all_medium_aircraft_and_modules mio_cat_all_heavy_aircraft_and_modules plane_modules_tech }
     on_design_team_assigned_to_tech = {
@@ -1919,7 +1772,8 @@ JAP_kawanishi_mio = { # Kawanishi
 	name = kawanishi
 	icon = GFX_idea_JAP_kawanishi
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { mio_cat_eq_all_aircraft }
 	research_categories = { mio_cat_all_light_aircraft_and_modules mio_cat_all_medium_aircraft_and_modules mio_cat_all_heavy_aircraft_and_modules plane_modules_tech }
 	initial_trait = {
@@ -2108,7 +1962,8 @@ JAP_aichi_mio = { # Aichi
 	name = aichi
 	icon = GFX_idea_aichi
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { 
 		small_plane_naval_bomber_airframe
 		medium_plane_airframe
@@ -2274,7 +2129,8 @@ JAP_nakajima_mio = { # Nakajima
 	name = kr_nakajima
 	icon = GFX_idea_nakajima
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = {
 		tactical_bomber
 		large_plane_airframe
@@ -2457,7 +2313,8 @@ JAP_tachikawa_mio = { # Tachikawa
 	name = tachikawa
 	icon = GFX_idea_JAP_tachikawa_aircraft_company
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = {
 		small_plane_cas_airframe
 		cv_small_plane_cas_airframe
@@ -2610,7 +2467,7 @@ JAP_air_shared_mio = {# Special functions prepared for the concern route and all
 		position = { x = 9 y = 4 }
 		on_complete = {
 			JAP = {
-				army_experience = JAP_mio_experience_var
+				air_experience = JAP_mio_experience_var
 				add_cic = JAP_mio_cic_var
 				add_to_variable = { JAP_mio_experience_var = 5 }
 				add_to_variable = { JAP_mio_command_power_var = 5 }
@@ -2679,8 +2536,6 @@ JAP_air_shared_mio = {# Special functions prepared for the concern route and all
 		available = { JAP = { has_completed_focus = JAP_pnr_support_factory_expansion } }
 		position = { x = 9 y = 0 }
 		organization_modifier = {
-			military_industrial_organization_size_up_requirement = -0.15
-			military_industrial_organization_research_bonus = 0.20
 			military_industrial_organization_funds_gain = 0.15
 		}
 	}
@@ -2895,6 +2750,9 @@ JAP_air_shared_mio = {# Special functions prepared for the concern route and all
 				add_to_variable = { JAP.JAP_mio_kokka_soudashou_var = -1 }
 			}
 		}
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 1
+		}
 	}
 }
 ####################
@@ -2904,7 +2762,8 @@ JAP_kure_naval_mio = { # Kure Naval
 	name = kure_naval_arsenal
 	icon = GFX_idea_kure_naval_arsenal
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = {
 		mio_cat_eq_all_battleship
 		mio_cat_eq_all_carrier
@@ -3088,123 +2947,15 @@ JAP_kure_naval_mio = { # Kure Naval
 			naval_torpedo_damage_reduction_factor = 0.10
 		}
 	}
-
 	include = JAP_navy_shared_mio
 	remove_trait = { JAP_mio_trait_merge_kure }
-	override_trait = {
-		token = JAP_mio_trait_merge_maizuru
-		on_complete = {
-			JAP = {
-				mio:JAP_maizuru_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kure_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_kobe
-		on_complete = {
-			JAP = {
-				mio:JAP_kobe_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kure_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_sasebo
-		on_complete = {
-			JAP = {
-				mio:JAP_sasebo_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kure_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_yokosuka
-		on_complete = {
-			JAP = {
-				mio:JAP_yokosuka_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kure_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kawasaki
-		on_complete = {
-			JAP = {
-				mio:JAP_kawasaki_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kure_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_ishikawajima_navy
-		on_complete = {
-			JAP = {
-				mio:JAP_ishikawajima_navy_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kure_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_maizuru_naval_mio = { # Maizuru Naval
 	name = maizuru_naval_arsenal
 	icon = GFX_idea_maizuru_naval_arsenal
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { mio_cat_eq_all_ships }
 	research_categories = { mio_cat_tech_all_carrier_and_modules mio_cat_tech_all_capital_ship_and_modules mio_cat_tech_all_destroyer_and_modules mio_cat_tech_all_cruiser_and_modules mio_cat_tech_all_submarine_and_modules tp_tech }
 	initial_trait = {
@@ -3386,114 +3137,6 @@ JAP_maizuru_naval_mio = { # Maizuru Naval
 
 	include = JAP_navy_shared_mio
 	remove_trait = { JAP_mio_trait_merge_maizuru }
-	override_trait = {
-		token = JAP_mio_trait_merge_kure
-		on_complete = {
-			JAP = {
-				mio:JAP_kure_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_maizuru_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_kobe
-		on_complete = {
-			JAP = {
-				mio:JAP_kobe_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_maizuru_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_sasebo
-		on_complete = {
-			JAP = {
-				mio:JAP_sasebo_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_maizuru_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_yokosuka
-		on_complete = {
-			JAP = {
-				mio:JAP_yokosuka_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_maizuru_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kawasaki
-		on_complete = {
-			JAP = {
-				mio:JAP_kawasaki_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_maizuru_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_ishikawajima_navy
-		on_complete = {
-			JAP = {
-				mio:JAP_ishikawajima_navy_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_maizuru_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_kobe_naval_mio = { # Mitsubishi Kobe Naval
 	name = mitsubishi_kobe_naval_mio
@@ -3708,120 +3351,13 @@ JAP_kobe_naval_mio = { # Mitsubishi Kobe Naval
 
 	include = JAP_navy_shared_mio
 	remove_trait = { JAP_mio_trait_merge_mitsubishi_kobe }
-	override_trait = {
-		token = JAP_mio_trait_merge_kure
-		on_complete = {
-			JAP = {
-				mio:JAP_kure_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kobe_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_maizuru
-		on_complete = {
-			JAP = {
-				mio:JAP_maizuru_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kobe_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_sasebo
-		on_complete = {
-			JAP = {
-				mio:JAP_sasebo_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kobe_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_yokosuka
-		on_complete = {
-			JAP = {
-				mio:JAP_yokosuka_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kobe_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kawasaki
-		on_complete = {
-			JAP = {
-				mio:JAP_kawasaki_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kobe_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_ishikawajima_navy
-		on_complete = {
-			JAP = {
-				mio:JAP_ishikawajima_navy_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kobe_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_sasebo_naval_mio = { # Sasebo
 	name = sasebo_naval_arsenal
 	icon = GFX_idea_sasebo_naval_arsenal
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { mio_cat_eq_all_ships }
 	research_categories = { mio_cat_tech_all_carrier_and_modules mio_cat_tech_all_capital_ship_and_modules mio_cat_tech_all_destroyer_and_modules mio_cat_tech_all_cruiser_and_modules mio_cat_tech_all_submarine_and_modules tp_tech }
 	initial_trait = {
@@ -3930,120 +3466,13 @@ JAP_sasebo_naval_mio = { # Sasebo
 
 	include = JAP_navy_shared_mio
 	remove_trait = { JAP_mio_trait_merge_sasebo }
-	override_trait = {
-		token = JAP_mio_trait_merge_kure
-		on_complete = {
-			JAP = {
-				mio:JAP_kure_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_sasebo_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_maizuru
-		on_complete = {
-			JAP = {
-				mio:JAP_maizuru_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_sasebo_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_kobe
-		on_complete = {
-			JAP = {
-				mio:JAP_kobe_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_sasebo_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_yokosuka
-		on_complete = {
-			JAP = {
-				mio:JAP_yokosuka_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_sasebo_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kawasaki
-		on_complete = {
-			JAP = {
-				mio:JAP_kawasaki_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_sasebo_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_ishikawajima_navy
-		on_complete = {
-			JAP = {
-				mio:JAP_ishikawajima_navy_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_sasebo_naval_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_yokosuka_mio = { # Yokosuka
 	name = yokosuka_naval_arsenal
 	icon = GFX_idea_yokosuka_naval_arsenal
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { mio_cat_eq_all_ships }
 	research_categories = { mio_cat_tech_all_carrier_and_modules mio_cat_tech_all_capital_ship_and_modules mio_cat_tech_all_destroyer_and_modules mio_cat_tech_all_cruiser_and_modules mio_cat_tech_all_submarine_and_modules tp_tech }
 	initial_trait = {
@@ -4175,120 +3604,13 @@ JAP_yokosuka_mio = { # Yokosuka
 
 	include = JAP_navy_shared_mio
 	remove_trait = { JAP_mio_trait_merge_yokosuka }
-	override_trait = {
-		token = JAP_mio_trait_merge_kure
-		on_complete = {
-			JAP = {
-				mio:JAP_kure_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_yokosuka_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_maizuru
-		on_complete = {
-			JAP = {
-				mio:JAP_maizuru_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_yokosuka_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_kobe
-		on_complete = {
-			JAP = {
-				mio:JAP_kobe_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_yokosuka_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_sasebo
-		on_complete = {
-			JAP = {
-				mio:JAP_sasebo_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_yokosuka_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kawasaki
-		on_complete = {
-			JAP = {
-				mio:JAP_kawasaki_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_yokosuka_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_ishikawajima_navy
-		on_complete = {
-			JAP = {
-				mio:JAP_ishikawajima_navy_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_yokosuka_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_kawasaki_mio = { # Kawasaki
 	name = kawasaki
 	icon = GFX_idea_kawasaki
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { submarine }
 	research_categories = { mio_cat_tech_all_submarine_and_modules tp_tech }
 	initial_trait = {
@@ -4411,120 +3733,13 @@ JAP_kawasaki_mio = { # Kawasaki
 
 	include = JAP_navy_shared_mio
 	remove_trait = { JAP_mio_trait_merge_kawasaki }
-	override_trait = {
-		token = JAP_mio_trait_merge_kure
-		on_complete = {
-			JAP = {
-				mio:JAP_kure_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kawasaki_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_maizuru
-		on_complete = {
-			JAP = {
-				mio:JAP_maizuru_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kawasaki_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_kobe
-		on_complete = {
-			JAP = {
-				mio:JAP_kobe_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kawasaki_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_sasebo
-		on_complete = {
-			JAP = {
-				mio:JAP_sasebo_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kawasaki_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_yokosuka
-		on_complete = {
-			JAP = {
-				mio:JAP_yokosuka_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kawasaki_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_ishikawajima_navy
-		on_complete = {
-			JAP = {
-				mio:JAP_ishikawajima_navy_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kawasaki_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_ishikawajima_navy_mio = { # Ishikawajima
 	name = JAP_ishikawajima_mio
     icon = GFX_idea_ishikawajima
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { mio_cat_eq_all_ships }
 	research_categories = { mio_cat_tech_all_carrier_and_modules mio_cat_tech_all_capital_ship_and_modules mio_cat_tech_all_destroyer_and_modules mio_cat_tech_all_cruiser_and_modules mio_cat_tech_all_submarine_and_modules tp_tech }
 	initial_trait = {
@@ -4681,114 +3896,6 @@ JAP_ishikawajima_navy_mio = { # Ishikawajima
 
 	include = JAP_navy_shared_mio
 	remove_trait = { JAP_mio_trait_merge_ishikawajima_navy }
-	override_trait = {
-		token = JAP_mio_trait_merge_kure
-		on_complete = {
-			JAP = {
-				mio:JAP_kure_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_ishikawajima_navy_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_maizuru
-		on_complete = {
-			JAP = {
-				mio:JAP_maizuru_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_ishikawajima_navy_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_mitsubishi_kobe
-		on_complete = {
-			JAP = {
-				mio:JAP_kobe_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_ishikawajima_navy_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_sasebo
-		on_complete = {
-			JAP = {
-				mio:JAP_sasebo_naval_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_ishikawajima_navy_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_yokosuka
-		on_complete = {
-			JAP = {
-				mio:JAP_yokosuka_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_ishikawajima_navy_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kawasaki
-		on_complete = {
-			JAP = {
-				mio:JAP_kawasaki_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_ishikawajima_navy_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_navy_shared_mio = { # Special functions prepared for the concern route and all navy MIOs
 	allowed = { always = no }
@@ -4851,24 +3958,28 @@ JAP_navy_shared_mio = { # Special functions prepared for the concern route and a
 		name = KR_MIO_Trait_increased_fire_accuracy
 		icon = GFX_generic_mio_trait_icon_unique
 		special_trait_background = yes
-
-		available = {
-			always = yes
-		}
-
 		position = { x = 9 y = 0 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.15
 		}
 	}
 	trait = {
 		token = JAP_mio_trait_merge_maizuru
 		name = PNR_JAP_mio_merge_maizuru
 		icon = GFX_mio_trait_maizuru
-
+		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			always = yes
+			has_mio_size > 3
+			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			JAP = { mio:JAP_maizuru_naval_mio = {
+				has_mio_size > 2
+				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_maizuru_naval_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 
 		position = { x = 1 y = 4 }
@@ -4881,9 +3992,19 @@ JAP_navy_shared_mio = { # Special functions prepared for the concern route and a
 		token = JAP_mio_trait_merge_mitsubishi_kobe
 		name = PNR_JAP_mio_merge_mitsubishi_kobe
 		icon = GFX_mio_trait_mitsubishi_kobe
-
+		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			always = yes
+			has_mio_size > 3
+			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			JAP = { mio:JAP_kobe_naval_mio = {
+				has_mio_size > 2
+				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_kobe_naval_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 
 		position = { x = 2 y = 4 }
@@ -4896,9 +4017,19 @@ JAP_navy_shared_mio = { # Special functions prepared for the concern route and a
 		token = JAP_mio_trait_merge_sasebo
 		name = PNR_JAP_mio_merge_sasebo
 		icon = GFX_mio_trait_sasebo
-
+		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			always = yes
+			has_mio_size > 3
+			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			JAP = { mio:JAP_sasebo_naval_mio = {
+				has_mio_size > 2
+				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_sasebo_naval_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 
 		position = { x = 3 y = 4 }
@@ -4911,6 +4042,20 @@ JAP_navy_shared_mio = { # Special functions prepared for the concern route and a
 		token = JAP_mio_trait_merge_yokosuka
 		name = KR_MIO_Trait_increased_fire_accuracy
 		icon = GFX_mio_trait_yokosuka
+		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
+		available = {
+			has_mio_size > 3
+			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			JAP = { mio:JAP_yokosuka_mio = {
+				has_mio_size > 2
+				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_yokosuka_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
+		}
 		position = { x = 4 y = 4 }
 		equipment_bonus = {
 			naval_weather_penalty_factor = -0.15
@@ -4920,9 +4065,19 @@ JAP_navy_shared_mio = { # Special functions prepared for the concern route and a
 		token = JAP_mio_trait_merge_kawasaki
 		name = KR_MIO_Trait_increased_fire_accuracy
 		icon = GFX_mio_trait_kawasaki
-
+		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			always = yes
+			has_mio_size > 3
+			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			JAP = { mio:JAP_kawasaki_mio = {
+				has_mio_size > 2
+				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_kawasaki_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 
 		position = { x = 5 y = 4 }
@@ -4935,9 +4090,19 @@ JAP_navy_shared_mio = { # Special functions prepared for the concern route and a
 		token = JAP_mio_trait_merge_kure
 		name = PNR_JAP_mio_merge_kure
 		icon = GFX_mio_trait_kure
-
+		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			always = yes
+			has_mio_size > 3
+			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			JAP = { mio:JAP_kure_naval_mio = {
+				has_mio_size > 2
+				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_kure_naval_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 
 		position = { x = 0 y = 4 }
@@ -4950,9 +4115,19 @@ JAP_navy_shared_mio = { # Special functions prepared for the concern route and a
 		token = JAP_mio_trait_merge_ishikawajima_navy
 		name = PNR_JAP_mio_merge_ishikawajima
 		icon = GFX_mio_trait_ishikawajima
-
+		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
 		available = {
-			always = yes
+			has_mio_size > 3
+			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			JAP = { mio:JAP_ishikawajima_navy_mio = {
+				has_mio_size > 2
+				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_ishikawajima_navy_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
 		}
 
 		position = { x = 6 y = 4 }
@@ -4967,9 +4142,26 @@ JAP_navy_shared_mio = { # Special functions prepared for the concern route and a
 		icon = GFX_mio_trait_kokka_soudashou
 		special_trait_background = yes
 		position = { x = 8 y = 4 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		available = {
+			has_mio_size > 5
+			JAP = { has_completed_focus = JAP_pnr_industrial_control_law }
+			custom_trigger_tooltip = {
+				tooltip = JAP_mio_kokka_soudashou_var_tt
+				check_variable = { JAP.JAP_mio_kokka_soudashou_var > 0 }
+			}
+			has_mio_flag = {
+				flag = mio_has_merge_as_leader_flag value > 2
+			}
+		}
+		on_complete = {
+			custom_effect_tooltip = mio_kokka_soudashou_desc_tt
+			JAP = {
+				add_to_variable = { JAP.JAP_mio_kokka_soudashou_bonus_var = 1 }
+				add_to_variable = { JAP.JAP_mio_kokka_soudashou_var = -1 }
+			}
+		}
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 1
 		}
 	}
 }
@@ -4980,23 +4172,21 @@ JAP_rikken_mio = { # Rikken
     name = JAP_rikken_mio
     icon = GFX_idea_jap_pnr_riken
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { infantry_equipment }
 	research_categories = { infantry_weapons }
     on_design_team_assigned_to_tech = {
-		JAP = { add_cic = 100 }
 	}
 	on_design_team_assigned_to_variant = {
-		JAP = { add_cic = 50 }
 	}
 	on_industrial_manufacturer_assigned = {
-		JAP = { add_cic = 100 }
 	}
 	on_tech_research_completed = {
-		JAP = {
-			add_cic = 200
-			add_political_power = 25
-		}
+	}
+	initial_trait = {
+		name = rikken_subtitle
+		organization_modifier = { military_industrial_organization_size_up_requirement = -0.15 }
 	}
 	add_trait = {
 		token = JAP_mio_rikken_1
@@ -5107,154 +4297,30 @@ JAP_rikken_mio = { # Rikken
 
 	include = JAP_materiel_shared_mio
 	remove_trait = { JAP_mio_trait_merge_rikken }
-	override_trait = {
-		token = JAP_mio_trait_merge_isuzu
-		on_complete = {
-			JAP = {
-				mio:JAP_isuzu_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_rikken_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_panasonic
-		on_complete = {
-			JAP = {
-				mio:JAP_panasonic_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_rikken_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kokura
-		on_complete = {
-			JAP = {
-				mio:JAP_kokura_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_rikken_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_osaka
-		on_complete = {
-			JAP = {
-				mio:JAP_osaka_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_rikken_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nagoya_toriimatsu
-		on_complete = {
-			JAP = {
-				mio:JAP_toriimatsu_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_rikken_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nippon_sharyo
-		on_complete = {
-			JAP = {
-				mio:JAP_nippon_sharyo_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_rikken_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_toyota
-		on_complete = {
-			JAP = {
-				mio:JAP_pnr_toyoda_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_rikken_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_isuzu_mio = { # Isuzu
 	name = JAP_isuzu_mio
     icon = GFX_idea_JAP_isuzu_mot_1
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { motorized_equipment mechanized_equipment armored_car_equipment }
 	research_categories = { mio_cat_tech_all_motorized_mechanized }
     on_design_team_assigned_to_tech = {
-		JAP = { add_cic = 100 }
+
 	}
 	on_design_team_assigned_to_variant = {
-		JAP = { add_cic = 50 }
+
 	}
 	on_industrial_manufacturer_assigned = {
-		JAP = { add_cic = 100 }
+
 	}
 	on_tech_research_completed = {
-		JAP = {
-			add_cic = 200
-			add_political_power = 25
-		}
+
+	}
+	initial_trait = {
+		name = rikken_subtitle
+		organization_modifier = { military_industrial_organization_size_up_requirement = -0.15 }
 	}
 	add_trait = {
 		token = JAP_mio_isuzu_1
@@ -5383,154 +4449,18 @@ JAP_isuzu_mio = { # Isuzu
 
 	include = JAP_materiel_shared_mio
 	remove_trait = { JAP_mio_trait_merge_isuzu }
-	override_trait = {
-		token = JAP_mio_trait_merge_rikken
-		on_complete = {
-			JAP = {
-				mio:JAP_rikken_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_isuzu_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_panasonic
-		on_complete = {
-			JAP = {
-				mio:JAP_panasonic_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_isuzu_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kokura
-		on_complete = {
-			JAP = {
-				mio:JAP_kokura_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_isuzu_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_osaka
-		on_complete = {
-			JAP = {
-				mio:JAP_osaka_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_isuzu_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nagoya_toriimatsu
-		on_complete = {
-			JAP = {
-				mio:JAP_toriimatsu_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_isuzu_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nippon_sharyo
-		on_complete = {
-			JAP = {
-				mio:JAP_nippon_sharyo_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_isuzu_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_toyota
-		on_complete = {
-			JAP = {
-				mio:JAP_pnr_toyoda_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_isuzu_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_panasonic_mio = { # Panasonic
     name = JAP_panasonic_mio
     icon = GFX_idea_jap_pnr_panasonic
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { infantry_equipment }
 	research_categories = { infantry_weapons }
-    on_design_team_assigned_to_tech = {
-		JAP = { add_cic = 100 }
-	}
-	on_design_team_assigned_to_variant = {
-		JAP = { add_cic = 50 }
-	}
-	on_industrial_manufacturer_assigned = {
-		JAP = { add_cic = 100 }
-	}
-	on_tech_research_completed = {
-		JAP = {
-			add_cic = 200
-			add_political_power = 25
-		}
+    initial_trait = {
+		name = panasonic_subtitle
+		organization_modifier = { military_industrial_organization_size_up_requirement = -0.15 }
 	}
 	add_trait = {
 		token = JAP_mio_panasonic_1
@@ -5665,138 +4595,13 @@ JAP_panasonic_mio = { # Panasonic
 
 	include = JAP_materiel_shared_mio
 	remove_trait = { JAP_mio_trait_merge_panasonic }
-	override_trait = {
-		token = JAP_mio_trait_merge_rikken
-		on_complete = {
-			JAP = {
-				mio:JAP_rikken_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_panasonic_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_isuzu
-		on_complete = {
-			JAP = {
-				mio:JAP_isuzu_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_panasonic_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kokura
-		on_complete = {
-			JAP = {
-				mio:JAP_kokura_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_panasonic_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_osaka
-		on_complete = {
-			JAP = {
-				mio:JAP_osaka_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_panasonic_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nagoya_toriimatsu
-		on_complete = {
-			JAP = {
-				mio:JAP_toriimatsu_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_panasonic_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nippon_sharyo
-		on_complete = {
-			JAP = {
-				mio:JAP_nippon_sharyo_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_panasonic_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_toyota
-		on_complete = {
-			JAP = {
-				mio:JAP_pnr_toyoda_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_panasonic_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_kokura_mio = { # Kokura
 	name = kokura_arsenal
 	icon = GFX_idea_tokyo_arsenal
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { infantry_equipment support_equipment }
 	research_categories = { infantry_weapons support_tech }
     on_design_team_assigned_to_tech = {
@@ -6006,138 +4811,13 @@ JAP_kokura_mio = { # Kokura
 
 	include = JAP_materiel_shared_mio
 	remove_trait = { JAP_mio_trait_merge_kokura }
-	override_trait = {
-		token = JAP_mio_trait_merge_rikken
-		on_complete = {
-			JAP = {
-				mio:JAP_rikken_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kokura_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_isuzu
-		on_complete = {
-			JAP = {
-				mio:JAP_isuzu_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kokura_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_panasonic
-		on_complete = {
-			JAP = {
-				mio:JAP_panasonic_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kokura_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_osaka
-		on_complete = {
-			JAP = {
-				mio:JAP_osaka_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kokura_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nagoya_toriimatsu
-		on_complete = {
-			JAP = {
-				mio:JAP_toriimatsu_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kokura_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nippon_sharyo
-		on_complete = {
-			JAP = {
-				mio:JAP_nippon_sharyo_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kokura_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_toyota
-		on_complete = {
-			JAP = {
-				mio:JAP_pnr_toyoda_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_kokura_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_osaka_mio = { # Osaka
 	name = JAP_osaka_mio
 	icon = GFX_idea_osaka_army_arsenal
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = {
 		artillery_equipment
 		anti_tank_equipment
@@ -6145,18 +4825,6 @@ JAP_osaka_mio = { # Osaka
 		rocket_artillery_equipment
 	}
 	research_categories = { mio_cat_all_artillery_equipment }
-    on_design_team_assigned_to_tech = {
-
-	}
-	on_design_team_assigned_to_variant = {
-
-	}
-	on_industrial_manufacturer_assigned = {
-
-	}
-	on_tech_research_completed = {
-
-	}
 	initial_trait = {
 		name = pnr_osaka_subtitle
 		organization_modifier = {
@@ -6309,138 +4977,13 @@ JAP_osaka_mio = { # Osaka
 
 	include = JAP_materiel_shared_mio
 	remove_trait = { JAP_mio_trait_merge_osaka }
-	override_trait = {
-		token = JAP_mio_trait_merge_rikken
-		on_complete = {
-			JAP = {
-				mio:JAP_rikken_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_osaka_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_isuzu
-		on_complete = {
-			JAP = {
-				mio:JAP_isuzu_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_osaka_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_panasonic
-		on_complete = {
-			JAP = {
-				mio:JAP_panasonic_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_osaka_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kokura
-		on_complete = {
-			JAP = {
-				mio:JAP_kokura_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_osaka_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nagoya_toriimatsu
-		on_complete = {
-			JAP = {
-				mio:JAP_toriimatsu_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_osaka_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nippon_sharyo
-		on_complete = {
-			JAP = {
-				mio:JAP_nippon_sharyo_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_osaka_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_toyota
-		on_complete = {
-			JAP = {
-				mio:JAP_pnr_toyoda_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_osaka_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_toriimatsu_mio = { # Toriimatsu
 	 name = JAP_toriimatsu_mio
     icon = GFX_idea_JAP_nagoya_arsenal
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = {
 		artillery_equipment
 		anti_tank_equipment
@@ -6449,19 +4992,19 @@ JAP_toriimatsu_mio = { # Toriimatsu
 	}
 	research_categories = { mio_cat_all_artillery_equipment }
     on_design_team_assigned_to_tech = {
-		JAP = { add_cic = 100 }
 	}
 	on_design_team_assigned_to_variant = {
-		JAP = { add_cic = 50 }
+
 	}
 	on_industrial_manufacturer_assigned = {
-		JAP = { add_cic = 100 }
+
 	}
 	on_tech_research_completed = {
-		JAP = {
-			add_cic = 200
-			add_political_power = 25
-		}
+
+	}
+	initial_trait = {
+		name = toriimatsu_subtitle
+		organization_modifier = { military_industrial_organization_size_up_requirement = -0.15 }
 	}
 	add_trait = {
 		token = JAP_mio_panasonic_1
@@ -6583,138 +5126,13 @@ JAP_toriimatsu_mio = { # Toriimatsu
 
 	include = JAP_materiel_shared_mio
 	remove_trait = { JAP_mio_trait_merge_nagoya_toriimatsu }
-	override_trait = {
-		token = JAP_mio_trait_merge_rikken
-		on_complete = {
-			JAP = {
-				mio:JAP_rikken_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_toriimatsu_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_isuzu
-		on_complete = {
-			JAP = {
-				mio:JAP_isuzu_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_toriimatsu_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_panasonic
-		on_complete = {
-			JAP = {
-				mio:JAP_panasonic_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_toriimatsu_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kokura
-		on_complete = {
-			JAP = {
-				mio:JAP_kokura_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_toriimatsu_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_osaka
-		on_complete = {
-			JAP = {
-				mio:JAP_osaka_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_toriimatsu_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nippon_sharyo
-		on_complete = {
-			JAP = {
-				mio:JAP_nippon_sharyo_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_toriimatsu_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_toyota
-		on_complete = {
-			JAP = {
-				mio:JAP_pnr_toyoda_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_toriimatsu_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_nippon_sharyo_mio = { # Nippon Sharyo
 	name = JAP_nippon_sharyo_mio
 	icon = GFX_idea_JAP_nippon_sharyo
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { train_equipment railway_gun_equipment support_equipment }
 	research_categories = { train_tech support_tech }
 	on_design_team_assigned_to_tech = {
@@ -6875,153 +5293,19 @@ JAP_nippon_sharyo_mio = { # Nippon Sharyo
 
 	include = JAP_materiel_shared_mio
 	remove_trait = { JAP_mio_trait_merge_nippon_sharyo }
-	override_trait = {
-		token = JAP_mio_trait_merge_rikken
-		on_complete = {
-			JAP = {
-				mio:JAP_rikken_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nippon_sharyo_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_isuzu
-		on_complete = {
-			JAP = {
-				mio:JAP_isuzu_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nippon_sharyo_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_panasonic
-		on_complete = {
-			JAP = {
-				mio:JAP_panasonic_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nippon_sharyo_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kokura
-		on_complete = {
-			JAP = {
-				mio:JAP_kokura_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nippon_sharyo_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_osaka
-		on_complete = {
-			JAP = {
-				mio:JAP_osaka_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nippon_sharyo_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nagoya_toriimatsu
-		on_complete = {
-			JAP = {
-				mio:JAP_toriimatsu_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nippon_sharyo_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_toyota
-		on_complete = {
-			JAP = {
-				mio:JAP_pnr_toyoda_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_nippon_sharyo_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_pnr_toyoda_mio = { # Toyoda
     name = toyota
     icon = GFX_idea_jap_mio_toyota
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	#visible = { JAP = { is_ai = no } }
+	ai_will_do = { base = 10 }
 	equipment_type = { motorized_equipment mechanized_equipment armored_car_equipment }
 	research_categories = { mio_cat_tech_all_motorized_mechanized }
-    on_design_team_assigned_to_tech = {
-		JAP = { add_cic = 100 }
-	}
-	on_design_team_assigned_to_variant = {
-		JAP = { add_cic = 50 }
-	}
-	on_industrial_manufacturer_assigned = {
-		JAP = { add_cic = 100 }
-	}
-	on_tech_research_completed = {
-		JAP = {
-			add_cic = 200
-			add_political_power = 25
+    initial_trait = {
+		name = toyota_subtitle
+		organization_modifier = {
+			military_industrial_organization_size_up_requirement = -0.15
 		}
 	}
 	add_trait = {
@@ -7188,132 +5472,6 @@ JAP_pnr_toyoda_mio = { # Toyoda
 
 	include = JAP_materiel_shared_mio
 	remove_trait = { JAP_mio_trait_merge_toyota }
-	override_trait = {
-		token = JAP_mio_trait_merge_rikken
-		on_complete = {
-			JAP = {
-				mio:JAP_rikken_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_pnr_toyoda_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_isuzu
-		on_complete = {
-			JAP = {
-				mio:JAP_isuzu_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_pnr_toyoda_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_panasonic
-		on_complete = {
-			JAP = {
-				mio:JAP_panasonic_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_pnr_toyoda_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_kokura
-		on_complete = {
-			JAP = {
-				mio:JAP_kokura_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_pnr_toyoda_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_osaka
-		on_complete = {
-			JAP = {
-				mio:JAP_osaka_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_pnr_toyoda_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nagoya_toriimatsu
-		on_complete = {
-			JAP = {
-				mio:JAP_toriimatsu_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_pnr_toyoda_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
-	override_trait = {
-		token = JAP_mio_trait_merge_nippon_sharyo
-		on_complete = {
-			JAP = {
-				mio:JAP_nippon_sharyo_mio = { set_mio_flag = mio_has_merge_as_memeber_flag }
-				mio:JAP_pnr_toyoda_mio = {
-					if = {
-						limit = { NOT = { has_mio_flag = mio_has_merge_as_leader_flag } }
-						set_mio_flag = mio_has_merge_as_leader_flag
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-					else = {
-						modify_mio_flag = { flag = mio_has_merge_as_leader_flag value = 1 }
-					}
-				}
-			}
-		}
-	}
 }
 JAP_materiel_shared_mio = { # Special functions prepared for the concern route and all materiel MIOs
 	allowed = { always = no }
@@ -7402,6 +5560,20 @@ JAP_materiel_shared_mio = { # Special functions prepared for the concern route a
 		token = JAP_mio_trait_merge_isuzu
 		name = PNR_JAP_mio_merge_isuzu
 		icon = GFX_mio_trait_isuzu
+		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
+		available = {
+			has_mio_size > 3
+			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			JAP = { mio:JAP_isuzu_mio = {
+				has_mio_size > 2
+				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_isuzu_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
+		}
 		position = { x = 1 y = 4 }
 		equipment_bonus = {
 			maximum_speed = 0.15
@@ -7411,6 +5583,20 @@ JAP_materiel_shared_mio = { # Special functions prepared for the concern route a
 		token = JAP_mio_trait_merge_panasonic
 		name = PNR_JAP_mio_merge_panasonic
 		icon = GFX_mio_trait_panasonic
+		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
+		available = {
+			has_mio_size > 3
+			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			JAP = { mio:JAP_panasonic_mio = {
+				has_mio_size > 2
+				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_panasonic_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
+		}
 		position = { x = 2 y = 4 }
 		equipment_bonus = {
 			soft_attack = 0.15
@@ -7420,6 +5606,20 @@ JAP_materiel_shared_mio = { # Special functions prepared for the concern route a
 		token = JAP_mio_trait_merge_toyota
 		name = PNR_JAP_mio_merge_toyota
 		icon = GFX_mio_trait_toyota
+		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
+		available = {
+			has_mio_size > 3
+			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			JAP = { mio:JAP_pnr_toyoda_mio = {
+				has_mio_size > 2
+				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_pnr_toyoda_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
+		}
 		position = { x = 3 y = 4 }
 		equipment_bonus = {
 			hardness = 0.15
@@ -7429,6 +5629,20 @@ JAP_materiel_shared_mio = { # Special functions prepared for the concern route a
 		token = JAP_mio_trait_merge_kokura
 		name = KR_MIO_Trait_increased_fire_accuracy
 		icon = GFX_mio_trait_kokura
+		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
+		available = {
+			has_mio_size > 3
+			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			JAP = { mio:JAP_kokura_mio = {
+				has_mio_size > 2
+				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_kokura_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
+		}
 		position = { x = 4 y = 4 }
 		production_bonus = {
 			production_efficiency_cap_factor = 0.15
@@ -7438,6 +5652,20 @@ JAP_materiel_shared_mio = { # Special functions prepared for the concern route a
 		token = JAP_mio_trait_merge_osaka
 		name = KR_MIO_Trait_increased_fire_accuracy
 		icon = GFX_mio_trait_osaka
+		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
+		available = {
+			has_mio_size > 3
+			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			JAP = { mio:JAP_osaka_mio = {
+				has_mio_size > 2
+				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_osaka_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
+		}
 		position = { x = 5 y = 4 }
 		equipment_bonus = {
 			breakthrough = 0.15
@@ -7447,6 +5675,20 @@ JAP_materiel_shared_mio = { # Special functions prepared for the concern route a
 		token = JAP_mio_trait_merge_rikken
 		name = PNR_JAP_mio_merge_rikken
 		icon = GFX_mio_trait_rikken
+		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
+		available = {
+			has_mio_size > 3
+			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			JAP = { mio:JAP_rikken_mio = {
+				has_mio_size > 2
+				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_rikken_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
+		}
 		position = { x = 0 y = 4 }
 		production_bonus = {
 			production_cost_factor = -0.15
@@ -7456,6 +5698,20 @@ JAP_materiel_shared_mio = { # Special functions prepared for the concern route a
 		token = JAP_mio_trait_merge_nagoya_toriimatsu
 		name = PNR_JAP_mio_merge_nagoya_toriimatsu
 		icon = GFX_mio_trait_nagoya_toriimatsu
+		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
+		available = {
+			has_mio_size > 3
+			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			JAP = { mio:JAP_toriimatsu_mio = {
+				has_mio_size > 2
+				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_toriimatsu_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
+		}
 		position = { x = 6 y = 4 }
 		equipment_bonus = {
 			defense = 0.15
@@ -7465,6 +5721,20 @@ JAP_materiel_shared_mio = { # Special functions prepared for the concern route a
 		token = JAP_mio_trait_merge_nippon_sharyo
 		name = PNR_JAP_mio_merge_nippon_sharyo
 		icon = GFX_mio_trait_nippon_sharyo
+		visible = { NOT = { has_mio_flag = mio_has_merge_as_memeber_flag } }
+		available = {
+			has_mio_size > 3
+			NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			JAP = { mio:JAP_nippon_sharyo_mio = {
+				has_mio_size > 2
+				NOT = { has_mio_flag = { flag = mio_has_merge_as_leader_flag value > 2 } }
+				NOT = { has_mio_flag = mio_has_merge_as_memeber_flag }
+			} }
+		}
+		on_complete = {
+			JAP = { set_temp_variable = { JAP_mio_merge_member = mio:JAP_nippon_sharyo_mio } }
+			JAP_pnr_mio_merge_control_effect = yes
+		}
 		position = { x = 7 y = 4 }
 		production_bonus = {
 			production_conversion_speed_factor = 0.60
@@ -7476,9 +5746,26 @@ JAP_materiel_shared_mio = { # Special functions prepared for the concern route a
 		icon = GFX_mio_trait_kokka_soudashou
 		special_trait_background = yes
 		position = { x = 8 y = 4 }
-
-		equipment_bonus = {
-			maximum_speed = 0.1
+		available = {
+			has_mio_size > 5
+			JAP = { has_completed_focus = JAP_pnr_industrial_control_law }
+			custom_trigger_tooltip = {
+				tooltip = JAP_mio_kokka_soudashou_var_tt
+				check_variable = { JAP.JAP_mio_kokka_soudashou_var > 0 }
+			}
+			has_mio_flag = {
+				flag = mio_has_merge_as_leader_flag value > 2
+			}
+		}
+		on_complete = {
+			custom_effect_tooltip = mio_kokka_soudashou_desc_tt
+			JAP = {
+				add_to_variable = { JAP.JAP_mio_kokka_soudashou_bonus_var = 1 }
+				add_to_variable = { JAP.JAP_mio_kokka_soudashou_var = -1 }
+			}
+		}
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 1
 		}
 	}
 }

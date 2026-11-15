@@ -1,0 +1,122 @@
+###############################
+#####  IS POWERED BY TEK  #####
+###############################
+
+defined_text = { 
+	name = GetSICName
+	text = {
+		trigger = {
+			any_character = {
+				#is_second_in_command = yes
+				has_character_flag = head_of_country_flag
+				set_temp_variable = { current_sic_character = THIS }
+			}
+		}
+		localization_key = "[?current_sic_character.GetName]"
+	}
+
+}
+
+defined_text = { 
+	name = GetSICInstant
+	text = {
+		trigger = {
+			any_character = {
+				#is_second_in_command = yes
+				has_character_flag = head_of_country_flag
+				set_temp_variable = { current_sic_character = THIS }
+			}
+		}
+		localization_key = "[?alternativeLeadertoken.GetTokenKey]_override_instant"
+	}
+
+}
+
+defined_text = { 
+	name = GetSICPortrait
+
+	text = {
+		trigger = {
+			has_variable = SICportrait
+		}
+		localization_key = "GFX_portrait_[?SICportrait.GetTokenKey]_large"
+	}
+
+}
+
+defined_text = { 
+	name = GetSICDesc
+
+	text = {
+		trigger = {
+			has_variable = alternativeLeadertoken
+		}
+		localization_key = "[?alternativeLeadertoken.GetTokenKey]_desc"
+	}
+
+}
+
+defined_text = { 
+	name = GetHOSTittle
+
+	text = {
+		trigger = {
+			any_character = {
+				is_country_leader = yes
+				NOT = {
+					check_variable = {
+						SICtittle = 0
+					}
+				}
+				set_temp_variable = {
+					temp_tittle_sic = var:SICtittle
+				}
+				PREV = {
+					set_temp_variable = {
+						gui_t_hos = var:temp_tittle_sic
+					}
+				}
+			}
+		}
+		localization_key = "KRM_sic_tittle_[?gui_t_hos]"
+	}
+
+	text = {
+		trigger = {}
+		localization_key = "KRM_sic_tittle_0"
+	}
+
+}
+
+defined_text = { 
+	name = GetSICTittle
+
+	text = {
+		trigger = {
+			any_character = {
+				#is_second_in_command = yes
+
+				NOT = {
+					check_variable = {
+						SICtittle = 0
+					}
+				}
+				set_temp_variable = {
+					temp_tittle_sic = var:SICtittle
+				}
+				PREV = {
+					set_temp_variable = {
+						gui_t_sic = var:temp_tittle_sic
+					}
+				}
+			}
+		}
+		localization_key = "KRM_sic_tittle_[?gui_t_sic]"
+	}
+
+	text = {
+		trigger = {}
+		localization_key = "KRM_sic_tittle_1"
+	}
+
+}
