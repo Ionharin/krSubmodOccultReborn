@@ -28,19 +28,13 @@ on_send_volunteers = {
 				}
 				set_country_flag = JAP_pnr_support_ANQ
 			}
-            if = { # For Muslim-Buddhism War XSM
+			if = {
 				limit = {
-					FROM = {
-                        tag = XSM
-                        OR = {
-                            has_war_with = MON
-							has_war_with = TIB
-                            has_war_with = SHX
-                        }
-                    }
-                    NOT = { has_country_flag = JAP_pnr_support_XSM }
+					FROM = { original_tag = ANQ }
+					GEA = { exists = yes }
 				}
-				set_country_flag = JAP_pnr_support_
+				ANQ = { save_global_event_target_as = JAP_volunteer_target }
+				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
 			}
 			if = { # For SIK War ETS
 				limit = {
@@ -53,6 +47,13 @@ on_send_volunteers = {
                     NOT = { has_country_flag = JAP_pnr_support_ETS }
 				}
 				set_country_flag = JAP_pnr_support_ETS
+			}
+			if = {
+				limit = {
+					FROM = { original_tag = ETS }
+					GEA = { exists = yes }
+				}
+				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
 			}
             if = { # For Muslim-Buddhism War TIB
 				limit = {
@@ -96,6 +97,30 @@ on_send_volunteers = {
 				}
 				set_country_flag = JAP_pnr_support_XSM
 			}
+			if = {
+				limit = {
+					FROM = { tag = TIB }
+					GEA = { exists = yes }
+				}
+				TIB = { save_global_event_target_as = JAP_volunteer_target }
+				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
+			}
+			if = {
+				limit = {
+					FROM = { tag = XSM }
+					GEA = { exists = yes }
+				}
+				TIB = { save_global_event_target_as = JAP_volunteer_target }
+				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
+			}
+			if = {
+				limit = {
+					FROM = { tag = SHX }
+					GEA = { exists = yes }
+				}
+				TIB = { save_global_event_target_as = JAP_volunteer_target }
+				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
+			}
             if = { # For SIA Civil War
 				limit = {
 					SIA = { has_civil_war = yes }
@@ -104,6 +129,24 @@ on_send_volunteers = {
 				}
 				set_country_flag = JAP_pnr_support_SIA
 			}
+			if = {
+				limit = {
+					SIA = { has_civil_war = yes }
+					FROM = { original_tag = SIA }
+					GEA = { exists = yes }
+				}
+				every_country = {
+					limit = {
+						original_tag = SIA
+						has_volunteers_amount_from = {
+							tag = JAP
+							count > 0
+						}
+					}
+					save_global_event_target_as = JAP_volunteer_target
+				}
+				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
+			}
             if = { # For INC War
 				limit = {
 					INC = { has_war_with = GEA }
@@ -111,6 +154,7 @@ on_send_volunteers = {
                     NOT = { has_country_flag = JAP_pnr_support_INC }
 				}
 				set_country_flag = JAP_pnr_support_INC
+				GEA = { country_event = { id = JAP_pnr_foreign_events.29 } }
 			}
             if = { # For SPA Civil War
 				limit = {
@@ -148,6 +192,22 @@ on_send_volunteers = {
                     NOT = { has_country_flag = JAP_pnr_support_India }
 				}
                 set_country_flag = JAP_pnr_support_India
+			}
+			if = {
+				limit = {
+					FROM = { tag = PRF }
+					GEA = { exists = yes }
+				}
+				PRF = { save_global_event_target_as = JAP_volunteer_target }
+				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
+			}
+			if = {
+				limit = {
+					FROM = { tag = HND }
+					GEA = { exists = yes }
+				}
+				HND = { save_global_event_target_as = JAP_volunteer_target }
+				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
 			}
 			if = { # For Mid-Asia WAR against - RUS
 				limit = {

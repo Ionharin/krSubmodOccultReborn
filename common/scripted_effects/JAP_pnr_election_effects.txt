@@ -56,6 +56,8 @@ JAP_pnr_election_refresh_projected_changes = {
 	subtract_from_variable = { JAP_pnr_election_party_change^7 = JAP_pnr_election_party_seats_initial^7 }
 	set_variable = { JAP_pnr_election_party_change^8 = JAP_pnr_election_party_seats^8 }
 	subtract_from_variable = { JAP_pnr_election_party_change^8 = JAP_pnr_election_party_seats_initial^8 }
+	set_variable = { JAP_pnr_election_party_change^9 = JAP_pnr_election_party_seats^9 }
+	subtract_from_variable = { JAP_pnr_election_party_change^9 = JAP_pnr_election_party_seats_initial^9 }
 	set_variable = { JAP_pnr_election_party_change^10 = JAP_pnr_election_party_seats^10 }
 	subtract_from_variable = { JAP_pnr_election_party_change^10 = JAP_pnr_election_party_seats_initial^10 }
 }
@@ -114,6 +116,7 @@ JAP_pnr_election_commit_results = {
 	add_to_array = { JAP_congress_faction_list = 6 }
 	add_to_array = { JAP_congress_faction_list = 7 }
 	add_to_array = { JAP_congress_faction_list = 8 }
+	add_to_array = { JAP_congress_faction_list = 9 }
 	add_to_array = { JAP_congress_faction_list = 10 }
 
 	set_variable = { JAP_congress_faction_seats_list^1 = 0 }
@@ -130,4 +133,17 @@ JAP_pnr_election_commit_results = {
 	clr_country_flag = JAP_pnr_election_in_progress
 	JAP_congress_rebuild_seats = yes
 	JAP_congress_set_initial_authority = yes
+}
+
+JAP_pnr_startup_election_setting = {
+	JAP_pnr_election_ensure_projected_results = yes
+	set_variable = { JAP_pnr_election_party_seats^2 = 18 }
+	set_variable = { JAP_pnr_election_party_seats^4 = 36 }
+	set_variable = { JAP_pnr_election_party_seats^5 = 45 }
+	set_variable = { JAP_pnr_election_party_seats^6 = 108 }
+	set_variable = { JAP_pnr_election_party_seats^7 = 171 }
+	set_variable = { JAP_pnr_election_party_seats^8 = 45 }
+	set_variable = { JAP_pnr_election_party_seats^9 = 7 }
+	set_variable = { JAP_pnr_election_party_seats^10 = 36 }
+	JAP_pnr_election_refresh_projected_changes = yes
 }

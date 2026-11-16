@@ -129,14 +129,11 @@
 
 ### For Shanghai Strike ###
 	defined_text = {
-		name = loc_shanghai_strike_category
-		text = { trigger = { NOT = { has_country_flag = jap_pnr_shanghai_strike_end_flag } } localization_key = JAP_pnr_shanghai_strike_category_0 }
-		text = { trigger = { always = yes } localization_key = JAP_pnr_shanghai_strike_category_1 }
-	}
-	defined_text = {
-		name = loc_shanghai_strike_category_desc
-		text = { trigger = { NOT = { has_country_flag = jap_pnr_shanghai_strike_end_flag } } localization_key = JAP_pnr_shanghai_strike_category_desc_0 }
-		text = { trigger = { always = yes } localization_key = JAP_pnr_shanghai_strike_category_desc_1 }
+		name = loc_chinese_diplomancy_officer
+		text = { trigger = { check_variable = { chinese_diplomancy_officer = 1 } } localization_key = chinese_diplomancy_officer_1 }
+		text = { trigger = { check_variable = { chinese_diplomancy_officer = 2 } } localization_key = chinese_diplomancy_officer_2 }
+		text = { trigger = { check_variable = { chinese_diplomancy_officer = 3 } } localization_key = chinese_diplomancy_officer_3 }
+		text = { trigger = { always = yes } localization_key = chinese_diplomancy_officer_4 }
 	}
 	defined_text = {
 		name = loc_chinese_diplomancy_result

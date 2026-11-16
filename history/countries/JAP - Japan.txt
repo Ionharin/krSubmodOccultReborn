@@ -177,6 +177,8 @@ country_event = { id = JAP_pnr_jpc.1 days = 28 } #赤色魔手触发
 country_event = { id = JAP_pnr_foreign_events.6 days = 85 } # 山本条太郎去世
 CHI = { country_event = { id = JAP_pnr_foreign_events.6 days = 85 } }
 FNG = { country_event = { id = JAP_pnr_foreign_events.6 days = 85 } }
+var:597.owner = { country_event = { id = JAP_pnr_foreign_events.41 days = 436 } } #孔子大典
+country_event = { id = JAP_pnr_foreign_events.41 days = 436 } #孔子大典
 country_event = { id = JAP_pnr_normal.18 days = 120 } #卓别林
 country_event = { id = JAP_pnr_earlygame.21 days = 115 } # 五一五事件链开始
 country_event = { id = JAP_pnr_earlygame.25 days = 135 } # 五一五事件
@@ -246,7 +248,7 @@ recruit_character = JAP_hirohito
 
 recruit_character = JAP_takamatsu_nobuhito
 recruit_character = JAP_arahata_kanson
-recruit_character = JAP_katayama_tetsu
+#recruit_character = JAP_katayama_tetsu
 recruit_character = JAP_ishibashi_tanzan
 recruit_character = JAP_yoshida_shigeru
 recruit_character = JAP_kishi_nobusuke
@@ -303,8 +305,8 @@ recruit_character = JAP_nagumo_chuichi
 
 ### Advisors ###
 # NatPop
-recruit_character = JAP_okawa_shumei
-recruit_character = JAP_nakano_seigo
+#recruit_character = JAP_okawa_shumei
+#recruit_character = JAP_nakano_seigo
 recruit_character = JAP_hashimoto_kingoro
 recruit_character = JAP_suetsugu_nobumasa
 # PatAut
@@ -318,7 +320,7 @@ recruit_character = JAP_fujiwara_ginjiro
 recruit_character = JAP_godo_takuo
 recruit_character = JAP_ikeda_shigeaki
 recruit_character = JAP_matsuoka_yosuke
-recruit_character = JAP_kido_koichi
+#recruit_character = JAP_kido_koichi
 
 #Socialist
 recruit_character = JAP_nosaka_sanzo
@@ -454,9 +456,9 @@ set_variable = { JAP_land_reform_cost_1 = 50 }
 set_variable = { JAP_land_reform_cost_2 = 75 }
 set_variable = { JAP_land_reform_cost_3 = 100 }
 set_variable = { JAP_land_reform_cost_4 = 150 }
-set_variable = { JAP_land_reform_pp_1 = 30 }
-set_variable = { JAP_land_reform_pp_2 = 50 }
-set_variable = { JAP_land_reform_pp_3 = 70 }
+set_variable = { JAP_land_reform_pp_1 = 20 }
+set_variable = { JAP_land_reform_pp_2 = 35 }
+set_variable = { JAP_land_reform_pp_3 = 50 }
 set_variable = { JAP_eco_cost_1 = 75 }
 set_variable = { JAP_eco_cost_2 = 125 }
 
@@ -534,6 +536,9 @@ recruit_character = JAP_pnr_fujiwara_iwaichi
 recruit_character = JAP_pnr_mikuni_naotomi
 recruit_character = JAP_pnr_sukekawa_keishiro
 recruit_character = JAP_pnr_honda_yoshinari
+recruit_character = JAP_pnr_shoda_kazue
+recruit_character = JAP_pnr_nakano_seigo
+recruit_character = JAP_pnr_nakajima_chikuhei
 
 
 activate_advisor = JAP_pnr_saionji_kinmochi_idea
@@ -541,7 +546,7 @@ activate_advisor = JAP_pnr_hayashi_senjuro_idea
 activate_advisor = JAP_pnr_mineo_osumi_idea
 
 ### Retire Path Advisors ###
-JAP_pnr_yoshiyuki_kawashima = { retire = yes }
+retire_character = JAP_pnr_yoshiyuki_kawashima
 retire_character = JAP_pnr_ogawa_goutaro
 retire_character = JAP_pnr_tawara_magoichi
 retire_character = JAP_pnr_maeda_fusanosuke
@@ -549,6 +554,7 @@ retire_character = JAP_pnr_fujiwara_iwaichi
 retire_character = JAP_pnr_mikuni_naotomi
 retire_character = JAP_pnr_sukekawa_keishiro
 retire_character = JAP_pnr_honda_yoshinari
+retire_character = JAP_pnr_nakajima_chikuhei
 
 set_party_name = {
 	ideology = totalist

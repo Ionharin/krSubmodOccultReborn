@@ -169,6 +169,7 @@ JAP_pnr_landreform_category = {
 	picture = GFX_decision_cat_JAP_land_reform
 	priority = 60
 	allowed = { always = no }
+	visible = { has_active_mission = JAP_pnr_landreform_countdown }
 }
 
 JAP_pnr_kwan_island_crisis_category = {
@@ -227,13 +228,13 @@ JAP_hero_et_gangster_bop_category = {
 }
 
 JAP_pnr_shanghai_strike_category = {
-	icon = GFX_decision_category_spr_political_assassination
+	icon = GFX_decision_category_qing_hall
 	picture = GFX_decision_cat_picture_chinese_troops
 	priority = 95
 	allowed = {
 		tag = JAP
 	}
-	visible = { AND = { has_completed_focus = JAP_pnr_shanghai_night_strike } }
+	#visible = { AND = { has_completed_focus = JAP_pnr_shanghai_night_strike } }
 	visible_when_empty = yes
 }
 

@@ -335,13 +335,13 @@ JAP_hero_et_gangster_bop_category = { #BOP
 ### Cooperation Army ###
 	JAP_pnr_dahan_yijun_decision = {
 		icon = GFX_decision_chinese_flag
-		allowed = { always = no }
-		cancel_trigger = { 606 = { NOT = { is_controlled_by_ROOT_or_ally = yes } } }
-		available = { 606 = { is_controlled_by_ROOT_or_ally = yes } }
+		#allowed = { always = no }
+		cancel_trigger = { 611 = { NOT = { is_controlled_by_ROOT_or_ally = yes } } }
+		available = { 611 = { is_controlled_by_ROOT_or_ally = yes } }
 		priority = 120
 		custom_cost_trigger = { command_power > 9.99 }
 		custom_cost_text = CP_10
-		days = 35
+		days_remove = 35
 		fire_only_once = yes
 		complete_effect = { hidden_effect = { add_command_power = -10 } }
 		remove_effect = {
@@ -410,7 +410,7 @@ JAP_hero_et_gangster_bop_category = { #BOP
 		priority = 120
 		custom_cost_trigger = { command_power > 9.99 }
 		custom_cost_text = CP_10
-		days = 35
+		days_remove = 35
 		fire_only_once = yes
 		complete_effect = { hidden_effect = { add_command_power = -10 } }
 		remove_effect = {
@@ -474,6 +474,16 @@ JAP_hero_et_gangster_bop_category = { #BOP
 }
 
 JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
+	JAP_pnr_1936_chinese_tax_conference_decision = {
+		icon = GFX_decision_government
+		is_good = no
+		cancel_trigger = { QIE = { has_country_flag = JAP_pnr_1936_chinese_tax_conference_decision_success_flag } }
+		available = { hidden_trigger = { always = no } }
+		days_mission_timeout = 90
+		fire_only_once = yes
+		selectable_mission = no
+		priority = 200
+	}
 	JAP_pnr_south_china_melee_anq_decision = { # ANQ support
 		icon = GFX_decision_decision_generic_chinese_officers
 		#allowed = { always = no }
@@ -518,7 +528,7 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 	}
 	JAP_pnr_tongma_sunchuanfang = {
 		icon = GFX_decision_generic_political_rally
-		#allowed = { always = no }
+		allowed = { always = no }
 		cancel_trigger = { has_global_flag = LEP_collapse }
 		cost = 15
 		fire_only_once = yes
@@ -535,16 +545,13 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 			}
 		}
 		remove_effect = {
-			LEP = {
-				add_stability = -0.05
-				effect_tooltip = { country_event = { id = league_collapse_events.7 } }
-			}
+			LEP = { effect_tooltip = { country_event = { id = league_collapse_events.7 } } }
 		}
 		fixed_random_seed = no
 	}
 	JAP_pnr_zhangtie_dazibao = {
 		icon = GFX_decision_generic_nationalism
-		#allowed = { always = no }
+		allowed = { always = no }
 		cancel_trigger = { has_global_flag = LEP_league_war_over }
 		cost = 15
 		fire_only_once = yes
@@ -573,7 +580,7 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 	}
 	JAP_pnr_ti_chendiaoyuan_xuanchuan = {
 		icon = GFX_decision_generic_political_address
-		#allowed = { always = no }
+		allowed = { always = no }
 		cancel_trigger = { has_global_flag = LEP_league_war_over }
 		cost = 20
 		ai_will_do = { factor = 100 }
@@ -590,8 +597,6 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 			}
 		}
 		remove_effect = {
-		if = {
-			limit = { NOT = { has_global_flag = LEP_collapse } }
 			ANQ = {
 				add_to_temp_variable = { ANQ_credibility_factor_change = 5 tooltip = ANQ_increase_credibility_tt }
 				ANQ_recalculate_chens_credibility = yes
@@ -603,18 +608,7 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 					create_unit = { division = "name = \"Bubing Xie\" division_template = \"Bubing Xie\" start_experience_factor = 0.4 start_equipment_factor = 0.4" owner = ANQ }
 				}
 				country_event = { id = JAP_pnr_foreign_events.3 days = 1 }
-			}
-		}
-		else = {
-			ANQ = {
-				add_to_variable = {
-					var = china_league_war_morale
-					value = 10
-					tooltip = china_league_war_morale_var_increse_tt
-				}
-			}
-		}
-			
+			}			
 		}
 		fixed_random_seed = no
 	}
@@ -661,7 +655,10 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 			ANQ = { has_country_flag = ANQ_friendly_japan }
 		}
 		cancel_trigger = { has_global_flag = LEP_league_war_over }
-		cost = 25
+		custom_cost_text = 500_guns
+		custom_cost_trigger = {
+			NOT = { has_equipment = { infantry_equipment < 500 } }
+		}
 		fire_only_once = yes
 		ai_will_do = { factor = 100 }
 		priority = 99
@@ -679,7 +676,8 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 			}
 		}
 		remove_effect = {
-			ANQ = { add_equipment_to_stockpile = { type = infantry_equipment amount = 500 } }
+			army_experience = 10
+			send_equipment = { target = ANQ type = infantry_equipment amount = 500 }
 		}
 		fixed_random_seed = no
 	}
@@ -807,11 +805,10 @@ JAP_pnr_landreform_category = { # LAND REFORM
 			}
 			else_if = {
 				limit = { check_variable = { JAP_pnr_landreform_result_var > 20 } }
-				add_political_power = 150
+				add_political_power = 100
 				add_stability = 0.10
 			}
 			else = {
-				add_political_power = 50
 				add_stability = 0.05
 			}
 		}
@@ -828,10 +825,10 @@ JAP_pnr_landreform_category = { # LAND REFORM
 		remove_effect = {
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 3
+				value = 6
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
-			add_days_mission_timeout = { mission = JAP_pnr_landreform_countdown days = -30 }
+			add_days_mission_timeout = { mission = JAP_pnr_landreform_countdown days = -20 }
 		}
 		ai_will_do = { factor = 10 }
 		fixed_random_seed = no
@@ -846,7 +843,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
 		available = { NOT = { has_country_flag = pnr_landreform_end_flag } }
         allowed = { always = no }
 		remove_effect = {
-			add_days_mission_timeout = { mission = JAP_pnr_landreform_countdown days = 40 }
+			add_days_mission_timeout = { mission = JAP_pnr_landreform_countdown days = 60 }
 		}
 		ai_will_do = { factor = 0 }
 		fixed_random_seed = no
@@ -867,7 +864,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
 		remove_effect = {
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 3
+				value = 6
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -897,7 +894,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 5
+				value = 10
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -933,7 +930,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 5
+				value = 10
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -963,7 +960,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 5
+				value = 10
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -987,7 +984,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 10
+				value = 15
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1011,7 +1008,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 10
+				value = 15
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1035,7 +1032,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 10
+				value = 15
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1057,7 +1054,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 10
+				value = 15
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1079,7 +1076,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 10
+				value = 15
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1101,7 +1098,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 10
+				value = 15
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1123,7 +1120,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 10
+				value = 15
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -3647,7 +3644,85 @@ JAP_pnr_red_conspiracy_category = {
 }
 
 JAP_pnr_seiyukai_party_support_category = {
-	
+	JAP_pnr_fanduipai_zhengzai_xingdong_0_decision = {
+		icon = GFX_decision_SWI_no_elected_president
+		allowed = { always = no }
+		available = { hidden_trigger = { always = no } }
+		selectable_mission = no
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 14
+		priority = 100
+		timeout_effect = {
+			log = "[GetLogRoot]: Decision timeout JAP_pnr_fanduipai_zhengzai_xingdong_0_decision"
+			custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
+			add_to_variable = { JAP_pnr_seiyukai_support_power_var = -5 }
+			add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 5 }
+			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
+			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+			hidden_effect = { activate_mission = JAP_pnr_fanduipai_zhengzai_xingdong_1_decision }
+		}
+	}
+	JAP_pnr_fanduipai_zhengzai_xingdong_1_decision = {
+		icon = GFX_decision_SWI_no_elected_president
+		allowed = { always = no }
+		available = { hidden_trigger = { always = no } }
+		selectable_mission = no
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 21
+		priority = 100
+		timeout_effect = {
+			log = "[GetLogRoot]: Decision timeout JAP_pnr_fanduipai_zhengzai_xingdong_1_decision"
+			custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
+			add_to_variable = { JAP_pnr_seiyukai_support_power_var = -5 }
+			add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 5 }
+			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
+			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+			hidden_effect = { activate_mission = JAP_pnr_fanduipai_zhengzai_xingdong_2_decision }
+		}
+	}
+	JAP_pnr_fanduipai_zhengzai_xingdong_2_decision = {
+		icon = GFX_decision_SWI_no_elected_president
+		allowed = { always = no }
+		available = { hidden_trigger = { always = no } }
+		selectable_mission = no
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 28
+		priority = 100
+		timeout_effect = {
+			log = "[GetLogRoot]: Decision timeout JAP_pnr_fanduipai_zhengzai_xingdong_2_decision"
+			custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
+			add_to_variable = { JAP_pnr_seiyukai_support_power_var = -5 }
+			add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 5 }
+			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
+			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+			hidden_effect = { activate_mission = JAP_pnr_fanduipai_zhengzai_xingdong_3_decision }
+		}
+	}
+	JAP_pnr_fanduipai_zhengzai_xingdong_3_decision = {
+		icon = GFX_decision_SWI_no_elected_president
+		allowed = { always = no }
+		available = { hidden_trigger = { always = no } }
+		selectable_mission = no
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 35
+		priority = 100
+		timeout_effect = {
+			log = "[GetLogRoot]: Decision timeout JAP_pnr_fanduipai_zhengzai_xingdong_3_decision"
+			custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
+			add_to_variable = { JAP_pnr_seiyukai_support_power_var = -5 }
+			add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 5 }
+			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
+			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+		}
+	}
+	JAP_pnr_lalong_dangyuan_decision = {
+
+	}
+
 }
 
 JAP_pnr_national_security_bill_category = { # NSA/NSB debations

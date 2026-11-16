@@ -40,17 +40,13 @@ focus_tree = {
 		id = JAP_pnr_the_shadow_of_war
 		x = 37
 		y = 9
-		cost = 0
+		cost = 2
 		icon = GFX_focus_JAP_the_imperial_defense_plan
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		completion_reward = {
 			if = {
-				limit = {
-					NOT = {
-						has_country_flag = jap_pnr_army_question_has_done_flag
-					}
-				}
+				limit = { has_idea = JAP_pnr_forever_frozen_in_1928 }
 				custom_effect_tooltip = pnr_warning_of_military_path_before_done_tt
 				custom_effect_tooltip = tooltip_white_line
 			}
@@ -379,7 +375,7 @@ focus_tree = {
 		id = JAP_pnr_reassess_mainland_policy
 		x = -4
 		y = 1
-		cost = 3
+		cost = 2
 		icon = GFX_focus_jap_cast_the_die
 		continue_if_invalid = no
 		cancel_if_invalid = yes
@@ -3637,13 +3633,8 @@ focus_tree = {
 			}
 		}
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = jap_pnr_army_support_imperial_way_line
-				has_country_flag = jap_pnr_army_question_has_done_flag
-			}
-			hidden_trigger = {
-				has_country_flag = jap_pnr_army_support_imperial_way_line
-			}
+			has_country_flag = jap_pnr_army_support_imperial_way_line
+			NOT = { has_idea = JAP_pnr_forever_frozen_in_1928 }
 		}
 		relative_position_id = JAP_pnr_the_shadow_of_war
 	}
@@ -3675,13 +3666,8 @@ focus_tree = {
 			country_event = JAP_pnr_military_events.2
 		}
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = jap_pnr_army_support_anti_imperial_way_line
-				has_country_flag = jap_pnr_army_question_has_done_flag
-			}
-			hidden_trigger = {
-				has_country_flag = jap_pnr_army_support_anti_imperial_way_line
-			}
+			has_country_flag = jap_pnr_army_support_anti_imperial_way_line
+			NOT = { has_idea = JAP_pnr_forever_frozen_in_1928 }
 		}
 		relative_position_id = JAP_pnr_the_shadow_of_war
 	}
@@ -6735,7 +6721,7 @@ focus_tree = {
 		select_effect = {
 			country_event = {
 				id = JAP_pnr_midgame.2
-				days = 5
+				days = 10
 			}
 		}
 		relative_position_id = JAP_pnr_constitution_still_exists
@@ -7381,6 +7367,9 @@ focus_tree = {
 				tooltip = JAP_congress_authority_initial_mult_var_change_tt
 			}
 			JAP_congress_update_initial_authority = yes
+			hidden_effect = {
+				country_event = { id = JAP_pnr_midgame.7 days = 12 }
+			}
 		}
 		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
 	}
@@ -7432,8 +7421,7 @@ focus_tree = {
 			focus = JAP_pnr_building_nation_through_industry
 		}
 		completion_reward = {
-			add_one_random_civilian_factory = yes
-			add_one_random_civilian_factory = yes
+			country_event = JAP_pnr_midgame.6
 		}
 		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
 	}
@@ -7487,11 +7475,9 @@ focus_tree = {
 			focus = JAP_pnr_the_voice_of_the_countryside
 		}
 		completion_reward = {
-			add_tech_bonus = {
-				name = JAP_pnr_lobbying_the_house_of_lords
-				bonus = 0.75
-				uses = 1
-				category = industry
+			add_popularity = { ideology = social_conservative popularity = 0.02 }
+			hidden_effect = {
+				country_event = { id = JAP_pnr_midgame.4 days = 8 }
 			}
 		}
 		relative_position_id = JAP_pnr_independent_cabinet_of_the_rikken_seiyukai
@@ -14831,7 +14817,6 @@ focus_tree = {
 		continue_if_invalid = no
 		cancel_if_invalid = yes
 		completion_reward = {
-			set_country_flag = jap_pnr_army_question_has_done_flag
 		}
 		available = {
 			always = no
@@ -15331,30 +15316,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			JAP_pnr_offensive_realpolitik_update = yes
-			set_variable = {
-				shibun_alliance_var = 0
-			}
-			activate_mission = JAP_pnr_save_the_kong_decheng_decision
-			activate_targeted_decision = {
-				target = JAP
-				decision = JAP_pnr_youshui_kong_lingjun_decision
-			}
-			activate_targeted_decision = {
-				target = JAP
-				decision = JAP_pnr_calling_saint_way_decision
-			}
-			activate_targeted_decision = {
-				target = JAP
-				decision = JAP_pnr_prepare_anti_confucianism_decision
-			}
-			activate_targeted_decision = {
-				target = JAP
-				decision = JAP_pnr_offer_palaces_fix_loan_decision
-			}
-			custom_effect_tooltip = tooltip_white_line
-			custom_effect_tooltip = JAP_pnr_shibun_alliance_tt
+			
 		}
 		available = {
+			NOT = { has_completed_focus = JAP_pnr_the_peace_of_asia }
 			OR = {
 				597 = {
 					is_controlled_by = CHI
