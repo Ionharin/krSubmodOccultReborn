@@ -11,4 +11,4 @@ tags={
 	"Translation"
 }
 name="KR_developing_penglaiNondumRepetra"
-supported_version="1.19.*"
+supported_version="1.20.*"

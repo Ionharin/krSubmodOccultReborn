@@ -9,7 +9,7 @@ JAP_edogawa_jukogyo_mio = { # Edogawa Jukogyo
 	name = JAP_edogawa_jukogyo_mio
     icon = GFX_idea_jap_mio_edogawa_jukogyo
     allowed = { tag = JAP }
-	#visible = { JAP = { is_ai = no } }
+	available = { JAP = { has_completed_focus = JAP_pnr_leaving_the_island_for_the_mainland } }
 	ai_will_do = { base = 10 }
 	equipment_type = { armor }
 	research_categories = { mio_cat_tech_all_armor_and_modules }
@@ -548,7 +548,7 @@ JAP_mitsubishi_armor_mio = { # Mitsubishi Armor
 	name = JAP_mitsubishi_armor_mio
     icon = GFX_idea_mitsubishi
     allowed = { tag = JAP }
-	#visible = { JAP = { is_ai = no } }
+	available = { JAP = { has_completed_focus = JAP_pnr_maritime_defense_perimeter } }
 	ai_will_do = { base = 10 }
 	equipment_type = { armor }
 	research_categories = { mio_cat_tech_all_armor_and_modules }
@@ -1357,7 +1357,7 @@ JAP_mitsubishi_air_mio = { # Mitsubishi Air
 	name = mitsubishi
 	icon = GFX_idea_JAP_mitsubishi_airplanes
     allowed = { tag = JAP }
-	#visible = { JAP = { is_ai = no } }
+	available = { JAP = { has_completed_focus = JAP_pnr_maritime_defense_perimeter } }
 	ai_will_do = { base = 10 }
 	equipment_type = { mio_cat_eq_all_aircraft }
 	research_categories = { mio_cat_all_light_aircraft_and_modules mio_cat_all_medium_aircraft_and_modules mio_cat_all_heavy_aircraft_and_modules plane_modules_tech }
@@ -3142,7 +3142,7 @@ JAP_kobe_naval_mio = { # Mitsubishi Kobe Naval
 	name = mitsubishi_kobe_naval_mio
 	icon = GFX_idea_jap_mio_kobe
     allowed = { tag = JAP }
-	visible = { JAP = { is_ai = no } }
+	available = { JAP = { has_completed_focus = JAP_pnr_maritime_defense_perimeter } }
 	equipment_type = {
 		mio_cat_eq_all_cruiser
 		mio_cat_eq_all_destroyer

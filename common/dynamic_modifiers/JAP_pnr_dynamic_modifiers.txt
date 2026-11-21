@@ -1,10 +1,3 @@
-JAP_pnr_bad_landreform_problem_modifier = {
-	icon = GFX_idea_generic_agrarian_reform
-	consumer_goods_factor = JAP_pnr_bad_landreform_problem_modifier_consumer_goods_factor
-	stability_factor = -0.15
-	political_power_cost = JAP_pnr_bad_landreform_problem_modifier_political_power_cost
-}
-
 JAP_pnr_narrow_rail_modifier = {
 	icon = GFX_decision_railroad
 	army_speed_factor_for_controller = -0.10
@@ -21,18 +14,6 @@ JAP_pnr_operation_launched_modifier = {
 	initiative_factor = JAP_pnr_operation_launched_initiative_factor
 	army_attack_speed_factor = JAP_pnr_operation_launched_army_attack_speed_factor
 	supply_factor = JAP_pnr_operation_launched_supply_factor
-}
-
-JAP_pnr_technology_investment_modifier = {
-	icon = GFX_idea_INS_prioritizing_dutch_profits
-	local_resources_factor = JAP_pnr_technology_investment_local_resources_factor
-	research_speed_factor = JAP_pnr_technology_investment_research_speed_factor
-	air_defence_factor = JAP_pnr_technology_investment_air_defence_factor
-	refit_ic_cost = JAP_pnr_technology_investment_refit_ic_cost
-	naval_detection = JAP_pnr_technology_investment_naval_detection
-	army_fuel_consumption_factor = JAP_pnr_technology_investment_army_fuel_consumption_factor
-	coordination_bonus = JAP_pnr_technology_investment_coordination_bonus
-	experience_loss_factor = JAP_pnr_technology_investment_experience_loss_factor
 }
 
 JAP_pnr_NSA_idea = {
@@ -86,8 +67,8 @@ JAP_pnr_relationship_with_provisional_government_modifier = {
 
 JAP_pnr_lost_decade_nightmare_modifier = {
 	icon = GFX_idea_usa_great_depression_3
-
-	political_power_cost = 0.40
+	remove_trigger = { check_variable = { JAP.JAP_pnr_lost_decade_consumer_goods_factor < 0.01 } }
+	political_power_cost = 0.25
 	consumer_goods_factor = JAP_pnr_lost_decade_consumer_goods_factor
 	stability_factor = JAP_pnr_lost_decade_stability_factor
 	production_speed_buildings_factor = JAP_pnr_lost_decade_production_speed_buildings_factor
@@ -137,7 +118,7 @@ JAP_pnr_sakura_hill_modifier = {
 	state_production_speed_buildings_factor = 0.15
 }
 
-JAP_pnr_fleet_plan_modifier = {
+JAP_pnr_fleet_plan_modifier = { # Navy BUFF
 	icon = GFX_idea_JAP_imperial_navy
 
 	experience_gain_navy_factor = JAP_pnr_fleet_plan_experience_gain_navy_factor

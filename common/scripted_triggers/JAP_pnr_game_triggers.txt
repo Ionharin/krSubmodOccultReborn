@@ -27,42 +27,48 @@ JAP_congress_can_vote_agenda = {
 }
 
 JAP_congress_agenda_1_available = {
-	NOT = { has_country_flag = JAP_congress_agenda_1_active }
+	hidden_trigger = { NOT = { has_country_flag = JAP_congress_agenda_1_active } }
 	JAP_congress_can_vote_agenda = yes
 }
 
 JAP_congress_agenda_2_available = {
-	NOT = { has_country_flag = JAP_congress_agenda_2_active }
+	hidden_trigger = { NOT = { has_country_flag = JAP_congress_agenda_2_active } }
 	JAP_congress_can_vote_agenda = yes
 }
 
 JAP_congress_agenda_3_available = {
-	NOT = { has_country_flag = JAP_congress_agenda_3_active }
+	hidden_trigger = { NOT = { has_country_flag = JAP_congress_agenda_3_active } }
 	JAP_congress_can_vote_agenda = yes
 }
 
 JAP_congress_agenda_4_available = {
-	NOT = { has_country_flag = JAP_congress_agenda_4_active }
+	OR = {
+		has_completed_focus = JAP_pnr_short_term_decisive_battle_doctrine
+		has_completed_focus = JAP_pnr_prepare_for_total_war
+	}
+	hidden_trigger = { NOT = { has_country_flag = JAP_congress_agenda_4_active } }
 	JAP_congress_can_vote_agenda = yes
 }
 
 JAP_congress_agenda_5_available = {
-	NOT = { has_country_flag = JAP_congress_agenda_5_active }
+	has_completed_focus = JAP_pnr_audit_supervision_education_project
+	hidden_trigger = { NOT = { has_country_flag = JAP_congress_agenda_5_active } }
 	JAP_congress_can_vote_agenda = yes
 }
 
 JAP_congress_agenda_6_available = {
-	NOT = { has_country_flag = JAP_congress_agenda_6_active }
+	hidden_trigger = { NOT = { has_country_flag = JAP_congress_agenda_6_active } }
 	JAP_congress_can_vote_agenda = yes
 }
 
 JAP_congress_agenda_7_available = {
-	NOT = { has_country_flag = JAP_congress_agenda_7_active }
+	hidden_trigger = { NOT = { has_country_flag = JAP_congress_agenda_7_active } }
 	JAP_congress_can_vote_agenda = yes
 }
 
 JAP_congress_agenda_8_available = {
-	NOT = { has_country_flag = JAP_congress_agenda_8_active }
+	has_completed_focus = JAP_pnr_dancing_with_the_bear
+	hidden_trigger = { NOT = { has_country_flag = JAP_congress_agenda_8_active } }
 	JAP_congress_can_vote_agenda = yes
 }
 
@@ -109,7 +115,6 @@ pnr_is_co_prosperity_candidate_trigger = {
 		}
 		tag = MAL
 		tag = INS
-		tag = INC
 		tag = VIN
 		tag = LAO
 		tag = CAM

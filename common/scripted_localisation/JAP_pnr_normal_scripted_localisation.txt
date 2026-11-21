@@ -90,11 +90,11 @@
 ### For Hirohito ###
 	defined_text = {
 		name = loc_JAP_pnr_hirohito_review
-		text = { trigger = { has_country_leader = { character = JAP_pnr_inukai_tsuyoshi } } localization_key = loc_JAP_pnr_hirohito_review_tt_0 }
-		text = { trigger = { has_country_leader = { character = JAP_pnr_suzuki_kisaburo } } localization_key = loc_JAP_pnr_hirohito_review_tt_1 }
-		text = { trigger = { has_country_leader = { character = JAP_pnr_fusanosuke_kuhara } } localization_key = loc_JAP_pnr_hirohito_review_tt_2 }
-		text = { trigger = { has_country_leader = { character = JAP_pnr_hamaguchi_osachi } } localization_key = loc_JAP_pnr_hirohito_review_tt_3 }
-		text = { trigger = { has_country_leader = { character = JAP_pnr_isoo_abe } } localization_key = loc_JAP_pnr_hirohito_review_tt_4 }
+		text = { trigger = { JAP = { has_country_leader = { character = JAP_pnr_inukai_tsuyoshi } } } localization_key = loc_JAP_pnr_hirohito_review_tt_0 }
+		text = { trigger = { JAP = { has_country_leader = { character = JAP_pnr_suzuki_kisaburo } } } localization_key = loc_JAP_pnr_hirohito_review_tt_1 }
+		text = { trigger = { JAP = { has_country_leader = { character = JAP_pnr_fusanosuke_kuhara } } } localization_key = loc_JAP_pnr_hirohito_review_tt_2 }
+		text = { trigger = { JAP = { has_country_leader = { character = JAP_pnr_hamaguchi_osachi } } } localization_key = loc_JAP_pnr_hirohito_review_tt_3 }
+		text = { trigger = { JAP = { has_country_leader = { character = JAP_pnr_isoo_abe } } } localization_key = loc_JAP_pnr_hirohito_review_tt_4 }
 	}
 
 ### For Party Path Minigame
@@ -113,30 +113,135 @@
 		text = { trigger = { has_country_flag = pnr_support_suzuki } localization_key = JAP_pnr_suzuki_kisaburo }
 		text = { trigger = { has_country_flag = pnr_support_kuhara } localization_key = JAP_pnr_fusanosuke_kuhara }
 	}
-	defined_text = { # seiyukai allies 0
-		name = loc_allies_situation_0
-		text = { trigger = { has_country_leader = { character = JAP_pnr_fusanosuke_kuhara ruling_only = yes } NOT = { has_country_flag = seiyukai_allies_betrayed_us_flag } } localization_key = JAP_pnr_seiyukai_party_support_allies_2_tt }
-		text = { trigger = { has_country_leader = { character = JAP_pnr_suzuki_kisaburo ruling_only = yes } NOT = { has_country_flag = seiyukai_allies_betrayed_us_flag } } localization_key = JAP_pnr_seiyukai_party_support_allies_1_tt }
-		text = { trigger = { always = yes } localization_key = JAP_pnr_seiyukai_party_support_allies_0_tt }
-	}
-	defined_text = { # seiyukai allies 1
-		name = loc_allies_situation_1
-		text = { trigger = { has_country_leader = { character = JAP_pnr_fusanosuke_kuhara ruling_only = yes } NOT = { has_country_flag = seiyukai_allies_betrayed_us_flag } } localization_key = JAP_pnr_seiyukai_party_support_allies_1_tt }
-		text = { trigger = { has_country_leader = { character = JAP_pnr_suzuki_kisaburo ruling_only = yes } NOT = { has_country_flag = seiyukai_allies_betrayed_us_flag } } localization_key = JAP_pnr_seiyukai_party_support_allies_2_tt }
-		text = { trigger = { has_country_flag = seiyukai_allies_betrayed_us_flag } localization_key = JAP_pnr_seiyukai_party_support_allies_3_tt }
-		text = { trigger = { always = yes } localization_key = JAP_pnr_seiyukai_party_support_allies_0_tt }
-	}
-
 ### For Shanghai Strike ###
 	defined_text = {
 		name = loc_chinese_diplomancy_officer
-		text = { trigger = { check_variable = { chinese_diplomancy_officer = 1 } } localization_key = chinese_diplomancy_officer_1 }
-		text = { trigger = { check_variable = { chinese_diplomancy_officer = 2 } } localization_key = chinese_diplomancy_officer_2 }
-		text = { trigger = { check_variable = { chinese_diplomancy_officer = 3 } } localization_key = chinese_diplomancy_officer_3 }
+		text = { trigger = { JAP = { check_variable = { chinese_diplomancy_officer = 1 } } } localization_key = chinese_diplomancy_officer_1 }
+		text = { trigger = { JAP = { check_variable = { chinese_diplomancy_officer = 2 } } } localization_key = chinese_diplomancy_officer_2 }
+		text = { trigger = { JAP = { check_variable = { chinese_diplomancy_officer = 3 } } } localization_key = chinese_diplomancy_officer_3 }
 		text = { trigger = { always = yes } localization_key = chinese_diplomancy_officer_4 }
 	}
 	defined_text = {
 		name = loc_chinese_diplomancy_result
 		text = { trigger = { check_variable = { jap_pnr_chinese_diplomancy_result_var > 69 } } localization_key = JAP_pnr_special_relationship_between_china_and_japan }
 		text = { trigger = { always = yes } localization_key = JAP_pnr_no_hope_of_reconciliation_remains }
+	}
+
+### For 515 Debate ###
+	defined_text = {
+		name = GetJAPPNRParliamentSupportStatus
+		text = {
+			trigger = { check_variable = { JAP_pnr_parliament_support_var > 1 } }
+			localization_key = JAP_pnr_parliament_support_status_safe
+		}
+		text = {
+			trigger = { check_variable = { JAP_pnr_parliament_support_var > -1 } }
+			localization_key = JAP_pnr_parliament_support_status_contested
+		}
+		text = {
+			localization_key = JAP_pnr_parliament_support_status_unwelcome
+		}
+	}
+
+### Election News ###
+	defined_text = {
+		name = loc_jap_pnr_election_true_result
+		text = {
+			trigger = {
+				check_variable = { JAP_pnr_election_party_true_factor^4 > JAP_pnr_election_party_true_factor^6 }
+				check_variable = { JAP_pnr_election_party_true_factor^4 > JAP_pnr_election_party_true_factor^7 }
+				check_variable = { JAP_pnr_election_party_true_factor^4 > JAP_pnr_election_party_true_factor^8 }
+				check_variable = { JAP_pnr_election_party_true_factor^4 > JAP_pnr_election_party_true_factor^10 }
+			}
+			localization_key = loc_election_true_result_2
+		}
+		text = {
+			trigger = {
+				check_variable = { JAP_pnr_election_party_true_factor^6 > JAP_pnr_election_party_true_factor^4 }
+				check_variable = { JAP_pnr_election_party_true_factor^6 > JAP_pnr_election_party_true_factor^7 }
+				check_variable = { JAP_pnr_election_party_true_factor^6 > JAP_pnr_election_party_true_factor^8 }
+				check_variable = { JAP_pnr_election_party_true_factor^6 > JAP_pnr_election_party_true_factor^10 }
+			}
+			localization_key = loc_election_true_result_3
+		}
+		text = {
+			trigger = {
+				check_variable = { JAP_pnr_election_party_true_factor^7 > JAP_pnr_election_party_true_factor^4 }
+				check_variable = { JAP_pnr_election_party_true_factor^7 > JAP_pnr_election_party_true_factor^6 }
+				check_variable = { JAP_pnr_election_party_true_factor^7 > JAP_pnr_election_party_true_factor^8 }
+				check_variable = { JAP_pnr_election_party_true_factor^7 > JAP_pnr_election_party_true_factor^10 }
+			}
+			localization_key = loc_election_true_result_4
+		}
+		text = {
+			trigger = {
+				check_variable = { JAP_pnr_election_party_true_factor^8 > JAP_pnr_election_party_true_factor^4 }
+				check_variable = { JAP_pnr_election_party_true_factor^8 > JAP_pnr_election_party_true_factor^6 }
+				check_variable = { JAP_pnr_election_party_true_factor^8 > JAP_pnr_election_party_true_factor^7 }
+				check_variable = { JAP_pnr_election_party_true_factor^8 > JAP_pnr_election_party_true_factor^10 }
+			}
+			localization_key = loc_election_true_result_5
+		}
+		text = {
+			trigger = {
+				check_variable = { JAP_pnr_election_party_true_factor^10 > JAP_pnr_election_party_true_factor^4 }
+				check_variable = { JAP_pnr_election_party_true_factor^10 > JAP_pnr_election_party_true_factor^6 }
+				check_variable = { JAP_pnr_election_party_true_factor^10 > JAP_pnr_election_party_true_factor^8 }
+				check_variable = { JAP_pnr_election_party_true_factor^10 > JAP_pnr_election_party_true_factor^7 }
+			}
+			localization_key = loc_election_true_result_6
+		}
+		#text = {
+		#	trigger = { check_variable = { JAP_pnr_election_party_true_factor^11 > 5 } }
+		#	localization_key = loc_election_true_result_8
+		#}
+		text = {
+			localization_key = loc_election_true_result_1
+		}
+	}
+
+### Parliament Loc ###
+	defined_text = {
+		name = loc_JAP_congress_agenda_cgf
+		text = { localization_key = MODIFIER_CONSUMER_GOODS_FACTOR }
+	}
+	defined_text = {
+		name = loc_JAP_congress_agenda_tt_0
+		text = { localization_key = modifier_production_speed_industrial_complex_factor }
+	}
+	defined_text = {
+		name = loc_JAP_congress_agenda_tt_1
+		text = { localization_key = modifier_production_speed_arms_factory_factor }
+	}
+	defined_text = {
+		name = loc_JAP_congress_agenda_tt_2
+		text = { localization_key = modifier_production_speed_rail_way_factor }
+	}
+	defined_text = {
+		name = loc_JAP_congress_agenda_tt_3
+		text = { localization_key = modifier_production_speed_naval_base_factor }
+	}
+	defined_text = {
+		name = loc_JAP_congress_agenda_tt_4
+		text = { localization_key = MODIFIER_XP_GAIN_ARMY }
+	}
+	defined_text = {
+		name = loc_JAP_congress_agenda_tt_5
+		text = { localization_key = MODIFIER_XP_GAIN_NAVY }
+	}
+	defined_text = {
+		name = loc_JAP_congress_agenda_tt_6
+		text = { localization_key = MODIFIER_XP_GAIN_AIR }
+	}
+	defined_text = {
+		name = loc_JAP_congress_agenda_tt_7
+		text = { localization_key = MODIFIER_RESEARCH_SPEED_FACTOR }
+	}
+	defined_text = {
+		name = loc_JAP_congress_agenda_tt_8
+		text = { localization_key = MODIFIER_POLITICAL_POWER_FACTOR }
+	}
+	defined_text = {
+		name = loc_JAP_congress_agenda_tt_9
+		text = { localization_key = MODIFIER_COMPLIANCE_GAIN_ADD }
 	}

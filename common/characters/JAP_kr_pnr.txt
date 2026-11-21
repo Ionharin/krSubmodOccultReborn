@@ -4,6 +4,7 @@ characters = {
 ### Advisor ###
 ###############
 
+# Common Unlock
 # SocCon
 # AIW
 # Kokumin Domei
@@ -13,15 +14,31 @@ characters = {
 		name = JAP_pnr_shoda_kazue
 		portraits = {
 			civilian = {
-				small = GFX_portrait_jap_pnr_shoda_kazue_adv
+				small = GFX_portrait_JAP_pnr_shoda_kazue_adv
 			}
 		}
 		advisor = {
 			slot = political_advisor
-			idea_token = JAP_pnr_fujiwara_ginjiro_advisor_idea
-			traits = { KR_economic_reformer }
+			idea_token = JAP_pnr_shoda_kazue_idea
+			traits = { KR_technocrat }
 		}
 	}
+
+### Common Unlock ###
+	JAP_pnr_mori_hideoto = { #毛里英于菟
+		name = JAP_pnr_mori_hideoto
+		portraits = {
+			civilian = {
+				small = GFX_portrait_JAP_pnr_mori_hideoto_adv
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_pnr_mori_hideoto_idea
+			traits = { KR_industrialiser }
+		}
+	}
+
 ### SocCon ###
 	JAP_pnr_hatoyama_ichiro = { #鸠山一郎
 		name = JAP_hatoyama_ichiro
@@ -47,7 +64,7 @@ characters = {
         }
         advisor = {
             slot = political_advisor
-            idea_token = JAP_pnr_takahashi_korekiyo_advisor_idea
+            idea_token = JAP_pnr_takahashi_korekiyo_idea
             desc = JAP_pnr_takahashi_korekiyo_desc
             traits = { JAP_pnr_advocate_of_proactive_fiscal_policy_trait }
         }
@@ -56,20 +73,43 @@ characters = {
 		name = JAP_pnr_nakajima_chikuhei
         portraits = {
             civilian = {
+				large = GFX_portrait_JAP_pnr_nakajima_chikuhei
                 small = GFX_portrait_jap_pnr_nakajima_chikuhei_adv
             }
         }
         advisor = {
             slot = political_advisor
-            idea_token = JAP_pnr_nakajima_chikuheiadvisor_idea
+            idea_token = JAP_pnr_nakajima_chikuhei_idea
             desc = JAP_pnr_nakajima_chikuhei_desc
-            traits = { KR_armaments_organiser }
+			available = { is_country_leader = no }
+            traits = { KR_war_industrialist }
         }
+		country_leader = {
+			desc = JAP_pnr_nakajima_chikuhei_desc
+			ideology = social_conservative_subtype
+			traits = { GBR_army_experience }
+			expire = "1965.1.1.1"
+			id = -1
+		}
 	}
 ### MarLib ###
 
 ### AIW ###
-
+	JAP_pnr_ugaki_kazushige = { # 宇垣一成（1940年民政党战后选举也可出现）
+		name = JAP_pnr_ugaki_kazushige
+		portraits = {
+			civilian = {
+				large = GFX_portrait_jap_pnr_ugaki_kazushige
+			}
+		}
+		country_leader = {
+			desc = JAP_pnr_ugaki_kazushige_desc
+			ideology = authoritarian_democrat_subtype
+			traits = { BUK_progressive_grey_eminence_leader }
+			expire = "1965.1.1.1"
+			id = -1
+		}
+	}
 ### Kokumin Domei ###
 	JAP_pnr_nakano_seigo = { #中野正刚
 		name = JAP_nakano_seigo
@@ -80,9 +120,74 @@ characters = {
 		}
 		advisor = {
 			slot = political_advisor
-			idea_token = JAP_pnr_nakano_seigo_advisor
+			idea_token = JAP_pnr_nakano_seigo_idea
 			available = { is_country_leader = no }
 			traits = { JAP_sixiang_zongcai_trait }
+		}
+	}
+
+### Court Group ###
+	JAP_pnr_kido_koichi = { #木户幸一
+		name = JAP_kido_koichi
+        portraits = {
+            civilian = {
+                small = GFX_portrait_jap_pnr_kido_koichi_adv
+            }
+        }
+        advisor = {
+			slot = second_in_command
+            desc = JAP_pnr_kido_koichi_advisor_desc
+			idea_token = JAP_pnr_kido_koichi_idea
+			traits = { KR_pragmatic_intriguer_sic }
+			cost = 0
+			can_be_fired = no
+		}
+	}
+	JAP_pnr_kiyoura_keigo = { #清浦圭吾
+		name = JAP_pnr_kiyoura_keigo
+		portraits = {
+			civilian = {
+				small = GFX_portrait_JAP_pnr_kiyoura_keigo_adv
+			}
+		}
+		advisor = {
+			slot = second_in_command
+			idea_token = JAP_pnr_kiyoura_keigo_idea
+			available = { is_country_leader = no }
+			traits = { KR_modern_aristocrat_sic }
+			cost = 0
+			can_be_fired = no
+		}
+	}
+	JAP_pnr_makino_nobuaki = { #牧野伸显
+		name = JAP_pnr_makino_nobuaki
+        portraits = {
+            civilian = {
+                small = GFX_portrait_jap_pnr_makino_nobuaki_adv
+            }
+        }
+        advisor = {
+			slot = second_in_command
+            desc = JAP_pnr_makino_nobuaki_advisor_desc
+			idea_token = JAP_pnr_makino_nobuaki_idea
+			traits = { JAP_pnr_the_believer_of_tenno_trait }
+			cost = 0
+			can_be_fired = no
+		}
+	}
+	JAP_pnr_court_group = { #御前会议
+		name = JAP_pnr_court_group
+		portraits = {
+			army = {
+				small = GFX_portrait_JAP_imperial_diet_army_small
+			}
+		}
+		advisor = {
+			slot = second_in_command
+			idea_token = JAP_pnr_court_group_idea
+			traits = { JAP_pnr_kyujitai_trait }
+			cost = 0
+			can_be_fired = no
 		}
 	}
 }

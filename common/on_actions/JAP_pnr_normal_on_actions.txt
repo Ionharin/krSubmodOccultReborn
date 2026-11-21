@@ -31,10 +31,16 @@ on_send_volunteers = {
 			if = {
 				limit = {
 					FROM = { original_tag = ANQ }
-					GEA = { exists = yes }
+					GEA = {
+						exists = yes
+						NOT = { has_country_flag = we_should_anti_JAP_in_ANQ_flag }
+					}
 				}
 				ANQ = { save_global_event_target_as = JAP_volunteer_target }
-				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
+				GEA = {
+					country_event = { id = JAP_pnr_foreign_events.53 days = 20 random_days = 3 }
+					set_country_flag = { flag = we_should_anti_JAP_in_ANQ_flag days = 500 value = 1 }
+				}
 			}
 			if = { # For SIK War ETS
 				limit = {
@@ -51,9 +57,18 @@ on_send_volunteers = {
 			if = {
 				limit = {
 					FROM = { original_tag = ETS }
-					GEA = { exists = yes }
+					GEA = {
+						exists = yes
+						NOT = { has_country_flag = we_should_anti_JAP_in_ETS_flag }
+					}
 				}
-				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
+				ETS = { save_global_event_target_as = JAP_volunteer_target }
+				GEA = {
+					country_event = { id = JAP_pnr_foreign_events.53 days = 20 random_days = 3 }
+					set_country_flag = { flag = we_should_anti_JAP_in_ETS_flag days = 500 value = 1 }
+				}
+				
+				
 			}
             if = { # For Muslim-Buddhism War TIB
 				limit = {
@@ -100,26 +115,45 @@ on_send_volunteers = {
 			if = {
 				limit = {
 					FROM = { tag = TIB }
-					GEA = { exists = yes }
+					GEA = {
+						exists = yes
+						NOT = { has_country_flag = we_should_anti_JAP_in_TIB_flag }
+					}
 				}
 				TIB = { save_global_event_target_as = JAP_volunteer_target }
-				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
+				GEA = {
+					country_event = { id = JAP_pnr_foreign_events.53 days = 20 random_days = 3 }
+					set_country_flag = { flag = we_should_anti_JAP_in_TIB_flag days = 500 value = 1 }
+				}
+				
 			}
 			if = {
 				limit = {
 					FROM = { tag = XSM }
-					GEA = { exists = yes }
+					GEA = {
+						exists = yes
+						NOT = { has_country_flag = we_should_anti_JAP_in_XSM_flag }
+					}
 				}
-				TIB = { save_global_event_target_as = JAP_volunteer_target }
-				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
+				XSM = { save_global_event_target_as = JAP_volunteer_target }
+				GEA = {
+					country_event = { id = JAP_pnr_foreign_events.53 days = 20 random_days = 3 }
+					set_country_flag = { flag = we_should_anti_JAP_in_XSM_flag days = 500 value = 1 }	
+				}
 			}
 			if = {
 				limit = {
 					FROM = { tag = SHX }
-					GEA = { exists = yes }
+					GEA = {
+						exists = yes
+						NOT = { has_country_flag = we_should_anti_JAP_in_SHX_flag }
+					}
 				}
-				TIB = { save_global_event_target_as = JAP_volunteer_target }
-				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
+				SHX = { save_global_event_target_as = JAP_volunteer_target }
+				GEA = {
+					country_event = { id = JAP_pnr_foreign_events.53 days = 20 random_days = 3 }
+					set_country_flag = { flag = we_should_anti_JAP_in_SHX_flag days = 500 value = 1 }
+				}
 			}
             if = { # For SIA Civil War
 				limit = {
@@ -133,7 +167,10 @@ on_send_volunteers = {
 				limit = {
 					SIA = { has_civil_war = yes }
 					FROM = { original_tag = SIA }
-					GEA = { exists = yes }
+					GEA = {
+						exists = yes
+						NOT = { has_country_flag = we_should_anti_JAP_in_SIA_flag }
+					}
 				}
 				every_country = {
 					limit = {
@@ -145,15 +182,18 @@ on_send_volunteers = {
 					}
 					save_global_event_target_as = JAP_volunteer_target
 				}
-				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
-			}
-            if = { # For INC War
-				limit = {
-					INC = { has_war_with = GEA }
-					FROM = { tag = INC }
-                    NOT = { has_country_flag = JAP_pnr_support_INC }
+				GEA = {
+					country_event = { id = JAP_pnr_foreign_events.53 days = 20 random_days = 3 }
+					set_country_flag = { flag = we_should_anti_JAP_in_SIA_flag days = 500 value = 1 }
 				}
-				set_country_flag = JAP_pnr_support_INC
+			}
+            if = { # For VIN War
+				limit = {
+					VIN = { has_war_with = GEA }
+					FROM = { tag = VIN }
+                    NOT = { has_country_flag = JAP_pnr_support_VIN }
+				}
+				set_country_flag = JAP_pnr_support_VIN
 				GEA = { country_event = { id = JAP_pnr_foreign_events.29 } }
 			}
             if = { # For SPA Civil War
@@ -196,18 +236,31 @@ on_send_volunteers = {
 			if = {
 				limit = {
 					FROM = { tag = PRF }
-					GEA = { exists = yes }
+					GEA = {
+						exists = yes
+						NOT = { has_country_flag = we_should_anti_JAP_in_PRF_flag }
+					}
 				}
 				PRF = { save_global_event_target_as = JAP_volunteer_target }
-				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
+				GEA = {
+					country_event = { id = JAP_pnr_foreign_events.53 days = 20 random_days = 3 }
+					set_country_flag = { flag = we_should_anti_JAP_in_PRF_flag days = 500 value = 1 }
+				}
 			}
 			if = {
 				limit = {
 					FROM = { tag = HND }
-					GEA = { exists = yes }
+					GEA = {
+						exists = yes
+						NOT = { has_country_flag = we_should_anti_JAP_in_HND_flag }
+					}
 				}
 				HND = { save_global_event_target_as = JAP_volunteer_target }
-				GEA = { country_event = { id = JAP_pnr_foreign_events.53 days = 14 random_days = 3 } }
+				GEA = {
+					country_event = { id = JAP_pnr_foreign_events.53 days = 20 random_days = 3 }
+					set_country_flag = { flag = we_should_anti_JAP_in_HND_flag days = 500 value = 1 }
+				}
+				
 			}
 			if = { # For Mid-Asia WAR against - RUS
 				limit = {

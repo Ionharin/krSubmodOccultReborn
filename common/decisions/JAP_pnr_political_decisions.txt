@@ -42,3 +42,271 @@ JAP_pnr_shakai_taishuto_decision_category = {
 		fixed_random_seed = no
     }
 }
+
+JAP_pnr_seiyukai_party_support_category = {
+### Party Crisis ###
+	JAP_pnr_fanduipai_zhengzai_xingdong_0_decision = {
+		icon = GFX_decision_SWI_no_elected_president
+		allowed = { always = no }
+		available = { hidden_trigger = { always = no } }
+		selectable_mission = no
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 21
+		priority = 100
+		timeout_effect = {
+			log = "[GetLogRoot]: Decision timeout JAP_pnr_fanduipai_zhengzai_xingdong_0_decision"
+			custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
+			add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.05 }
+			add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.05 }
+			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
+			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+			hidden_effect = { activate_mission = JAP_pnr_fanduipai_zhengzai_xingdong_1_decision }
+		}
+	}
+	JAP_pnr_fanduipai_zhengzai_xingdong_1_decision = {
+		icon = GFX_decision_SWI_no_elected_president
+		allowed = { always = no }
+		available = { hidden_trigger = { always = no } }
+		selectable_mission = no
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 21
+		priority = 100
+		timeout_effect = {
+			log = "[GetLogRoot]: Decision timeout JAP_pnr_fanduipai_zhengzai_xingdong_1_decision"
+            add_popularity = { ideology = social_conservative popularity = -0.02 }
+			custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
+			add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.05 }
+			add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.05 }
+			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
+			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+			hidden_effect = { activate_mission = JAP_pnr_fanduipai_zhengzai_xingdong_2_decision }
+		}
+	}
+	JAP_pnr_fanduipai_zhengzai_xingdong_2_decision = {
+		icon = GFX_decision_SWI_no_elected_president
+		allowed = { always = no }
+		available = { hidden_trigger = { always = no } }
+		selectable_mission = no
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 28
+		priority = 100
+		timeout_effect = {
+			log = "[GetLogRoot]: Decision timeout JAP_pnr_fanduipai_zhengzai_xingdong_2_decision"
+            add_stability = -0.03
+			custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
+			add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.05 }
+			add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.05 }
+			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
+			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+			hidden_effect = { activate_mission = JAP_pnr_fanduipai_zhengzai_xingdong_3_decision }
+		}
+	}
+	JAP_pnr_fanduipai_zhengzai_xingdong_3_decision = {
+		icon = GFX_decision_SWI_no_elected_president
+		allowed = { always = no }
+		available = { hidden_trigger = { always = no } }
+		selectable_mission = no
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 35
+		priority = 100
+		timeout_effect = {
+			log = "[GetLogRoot]: Decision timeout JAP_pnr_fanduipai_zhengzai_xingdong_3_decision"
+            add_political_power = -25
+			custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
+			add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.05 }
+			add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.05 }
+			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
+			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+		}
+	}
+	JAP_pnr_destory_loyal_member_decision = {
+        icon = GFX_decision_eng_trade_unions_demand
+        allowed = { always = no }
+        visible = {
+            hidden_trigger = {
+                OR = {
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_0_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_1_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_2_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_3_decision
+                }
+            }
+        }
+        cost = 20
+        available = { NOT = { has_country_flag = we_are_trying_to_winning_a_faction_flag } }
+        days_remove = 14
+        days_re_enable = 14
+        remove_effect = {
+            random_list = {
+                1 = {
+                    custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
+                    add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
+                    add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
+                }
+                1 = {
+
+                }
+            }
+        }
+        fixed_random_seed = no
+    }
+    JAP_pnr_winning_over_hyogo_member_decision = {
+		icon = GFX_decision_eng_trade_unions_demand
+        visible = {
+            hidden_trigger = {
+                OR = {
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_0_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_1_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_2_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_3_decision
+                }
+            }
+        }
+        cost = 15
+        available = { NOT = { has_country_flag = we_are_trying_to_winning_a_faction_flag } }
+        days_remove = 21
+        remove_effect = {
+            custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
+            add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
+            add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
+        }
+        highlight_states = { highlight_state_targets = { state = 1104 } }
+	}
+    JAP_pnr_winning_over_oita_member_decision = {
+		icon = GFX_decision_eng_trade_unions_demand
+        visible = {
+            hidden_trigger = {
+                OR = {
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_0_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_1_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_2_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_3_decision
+                }
+            }
+        }
+        cost = 15
+        available = { NOT = { has_country_flag = we_are_trying_to_winning_a_faction_flag } }
+        days_remove = 21
+        remove_effect = {
+            custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
+            add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
+            add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
+        }
+        highlight_states = { highlight_state_targets = { state = 528 } }
+	}
+    JAP_pnr_winning_over_iwate_member_decision = {
+		icon = GFX_decision_eng_trade_unions_demand
+        visible = {
+            hidden_trigger = {
+                OR = {
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_0_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_1_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_2_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_3_decision
+                }
+            }
+        }
+        cost = 15
+        available = { NOT = { has_country_flag = we_are_trying_to_winning_a_faction_flag } }
+        days_remove = 21
+        remove_effect = {
+            custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
+            add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
+            add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
+        }
+        highlight_states = { highlight_state_targets = { state = 1106 } }
+	}
+    JAP_pnr_winning_over_fukui_member_decision = {
+		icon = GFX_decision_eng_trade_unions_demand
+        visible = {
+            hidden_trigger = {
+                OR = {
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_0_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_1_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_2_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_3_decision
+                }
+            }
+        }
+        cost = 15
+        available = { NOT = { has_country_flag = we_are_trying_to_winning_a_faction_flag } }
+        days_remove = 21
+        remove_effect = {
+            custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
+            add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
+            add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
+        }
+        highlight_states = { highlight_state_targets = { state = 535 } }
+	}
+    JAP_pnr_winning_over_hiroshima_member_decision = {
+		icon = GFX_decision_eng_trade_unions_demand
+        visible = {
+            hidden_trigger = {
+                OR = {
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_0_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_1_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_2_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_3_decision
+                }
+            }
+        }
+        cost = 15
+        available = { NOT = { has_country_flag = we_are_trying_to_winning_a_faction_flag } }
+        days_remove = 21
+        remove_effect = {
+            custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
+            add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
+            add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
+        }
+        highlight_states = { highlight_state_targets = { state = 529 } }
+	}
+    JAP_pnr_winning_over_tokushima_member_decision = {
+		icon = GFX_decision_eng_trade_unions_demand
+        visible = {
+            hidden_trigger = {
+                OR = {
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_0_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_1_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_2_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_3_decision
+                }
+            }
+        }
+        cost = 15
+        available = { NOT = { has_country_flag = we_are_trying_to_winning_a_faction_flag } }
+        days_remove = 21
+        remove_effect = {
+            custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
+            add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
+            add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
+        }
+        highlight_states = { highlight_state_targets = { state = 530 } }
+	}
+    JAP_pnr_winning_over_tokyo_member_decision = {
+		icon = GFX_decision_eng_trade_unions_demand
+        visible = {
+            hidden_trigger = {
+                OR = {
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_0_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_1_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_2_decision
+                    has_active_mission = JAP_pnr_fanduipai_zhengzai_xingdong_3_decision
+                }
+            }
+        }
+        cost = 15
+        available = { NOT = { has_country_flag = we_are_trying_to_winning_a_faction_flag } }
+        days_remove = 21
+        remove_effect = {
+            custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
+            add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
+            add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
+        }
+        highlight_states = { highlight_state_targets = { state = 282 } }
+	}
+### Local Office Revolution ###
+}

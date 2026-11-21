@@ -453,12 +453,20 @@ characters = {
 		}
 		corps_commander = {
 			desc = JAP_honjo_shigeru_commander_desc
-			traits = { old_guard war_hero }
-			skill = 1
-			attack_skill = 1
-			defense_skill = 1
+			traits = { old_guard war_hero politically_connected infantry_officer hidden_sympathies }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
 			planning_skill = 1
 			logistics_skill = 1
+		}
+		advisor = {
+			slot = second_in_command
+            desc = JAP_honjo_shigeru_commander_desc
+			idea_token = JAP_honjo_shigeru_advisor_idea
+			traits = { KR_flamboyant_brute }
+			cost = 0
+			can_be_fired = no
 		}
 	}
 	JAP_umezu_yoshijiro = {
@@ -1022,7 +1030,7 @@ characters = {
 		advisor = {
 			slot = political_advisor
 			idea_token = JAP_goto_fumio_advisor
-			traits = { KR_technocrat }
+			traits = { KR_pragmatic_statesman }
 		}
 	}
 	JAP_koiso_kuniaki = {
@@ -1130,7 +1138,7 @@ characters = {
 			available = {
 				has_democratic_government = yes
 			}
-			traits = { KR_political_specialist }
+			traits = { KR_silent_workhorse }
 		}
 	}
 	JAP_kijuro_shidehara = {

@@ -224,8 +224,7 @@ ideas = {
 			allowed = { always = no }
 			modifier = {
 				consumer_goods_factor = -0.05
-				production_speed_buildings_factor = 0.10
-				global_building_slots_factor = 0.10
+				global_building_slots_factor = 0.05
 			}
 		}
 		JAP_pnr_asia_european_international_railway_idea = {
@@ -379,67 +378,6 @@ ideas = {
 				mobilization_laws_cost_factor = 3
 			}
 		}
-		#JAP_pnr_farewell_to_the_lost_decade = {
-			#picture = pnr_strike
-			#allowed = { always = no }
-			#modifier = {
-				#political_power_cost = 0.10
-				#consumer_goods_factor = 0.15
-				#production_speed_arms_factory_factor = -0.20
-				#war_support_factor = -0.15
-				#stability_factor = -0.15
-				#monthly_population = -0.10
-				#mobilization_laws_cost_factor = 1.6
-			#}
-		#}
-		#JAP_pnr_farewell_to_the_lost_decade_1 = {
-			#picture = pnr_strike
-			#allowed = { always = no }
-			#modifier = {
-				#political_power_cost = 0.08
-				#consumer_goods_factor = 0.11
-				#production_speed_arms_factory_factor = -0.15
-				#war_support_factor = -0.11
-				#stability_factor = -0.11
-				#monthly_population = -0.08
-				#mobilization_laws_cost_factor = 0.8
-			#}
-		#}
-		#JAP_pnr_farewell_to_the_lost_decade_2 = {
-			#picture = pnr_strike
-			#allowed = { always = no }
-			#modifier = {
-				#political_power_cost = 0.06
-				#consumer_goods_factor = 0.09
-				#production_speed_arms_factory_factor = -0.10
-				#war_support_factor = -0.09
-				#stability_factor = -0.09
-				#monthly_population = -0.06
-			#}
-		#}
-		#JAP_pnr_farewell_to_the_lost_decade_3 = {
-			#picture = pnr_strike
-			#allowed = { always = no }
-			#modifier = {
-				#political_power_cost = 0.04
-				#consumer_goods_factor = 0.06
-				#production_speed_arms_factory_factor = -0.05
-				#war_support_factor = -0.06
-				#stability_factor = -0.06
-				#monthly_population = -0.04
-			#}
-		#}
-		#JAP_pnr_farewell_to_the_lost_decade_4 = {
-			#picture = pnr_strike
-			#allowed = { always = no }
-			#modifier = {
-				#political_power_cost = 0.02
-				#consumer_goods_factor = 0.03
-				#war_support_factor = -0.03
-				#stability_factor = -0.03
-				#monthly_population = -0.02
-			#}
-		#}
 		JAP_pnr_forever_frozen_in_1928 = {
 			picture = JAP_pnr_forever_frozen_in_1928
 			allowed = { always = no }
@@ -491,6 +429,20 @@ ideas = {
 				stability_factor = 0.10
 				global_building_slots_factor = 0.20
 			}
+		}
+
+		JAP_pnr_japanese_control_our_economy_idea = {
+			picture = generic_nationalization
+			available = {
+				JAP = { exists = yes }
+				JAP = { NOT = { is_subject_of = ROOT } }
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				production_factory_max_efficiency_factor = 0.10
+			}
+			targeted_modifier = { tag = JAP cic_to_target_factor = 0.20 }
+			targeted_modifier = { tag = JAP mic_to_target_factor = 0.20 }
 		}
 
 	### Kasumigaseki diplomacy Ideas ###
@@ -699,35 +651,6 @@ ideas = {
 			}
 		}
 	### New Military Ideas ###
-		JAP_pnr_qianghua_tuijinli = {
-			picture = ast_volunteer_defence_corps
-			allowed = { always = no }
-			modifier = {
-				combat_width_factor = -0.10
-				land_reinforce_rate = 0.05
-			}
-		}
-		JAP_pnr_pohuai_zhandouxian = {
-			picture = ast_volunteer_defence_corps
-			allowed = { always = no }
-			modifier = {
-				breakthrough_factor = 0.10
-				coordination_bonus = 0.05
-			}
-		}
-		JAP_pnr_weapon_update_0 = {
-			picture = jap_duplicate_research
-			allowed = { always = no }
-			research_bonus = {
-				artillery = 0.1
-			}
-			equipment_bonus = {
-				artillery = {
-					build_cost_ic = -0.05
-					instant = yes
-				}
-			}
-		}
 		JAP_pnr_young_turks_general_staff_office_idea_0 = {
 			picture = jap_pnr_general_staff_office
 			allowed = { always = no }
@@ -2889,8 +2812,7 @@ ideas = {
 				political_power_factor = 0.10
 			}
 		}
-
-
+	
 	}
 
 ### Industrial Concern ###
@@ -2943,7 +2865,7 @@ ideas = {
 			allowed = { always = no }
 			modifier = {
 				consumer_goods_factor = 0.03
-				production_speed_industrial_complex_factor = 0.05
+				production_speed_industrial_complex_factor = 0.10
 			}
 		}
 		JAP_congress_agenda_2_idea = {
@@ -2951,7 +2873,7 @@ ideas = {
 			allowed = { always = no }
 			modifier = {
 				consumer_goods_factor = 0.03
-				production_speed_arms_factory_factor = 0.05
+				production_speed_arms_factory_factor = 0.10
 			}
 		}
 		JAP_congress_agenda_3_idea = {
@@ -2959,24 +2881,25 @@ ideas = {
 			allowed = { always = no }
 			modifier = {
 				consumer_goods_factor = 0.03
-				production_speed_rail_way_factor = 0.08
-				production_speed_infrastructure_factor = 0.08
+				production_speed_rail_way_factor = 0.07
+				production_speed_naval_base_factor = 0.07
 			}
 		}
 		JAP_congress_agenda_4_idea = {
 			picture = generic_reserve_divisions
 			allowed = { always = no }
 			modifier = {
-				consumer_goods_factor = 0.03
-				training_time_factor = -0.10
-				experience_gain_army = 0.07
+				consumer_goods_factor = 0.05
+				experience_gain_army = 0.04
+				experience_gain_navy = 0.04
+				experience_gain_air = 0.04
 			}
 		}
 		JAP_congress_agenda_5_idea = {
 			picture = generic_research_bonus
 			allowed = { always = no }
 			modifier = {
-				consumer_goods_factor = 0.03
+				consumer_goods_factor = 0.05
 				research_speed_factor = 0.05
 			}
 		}
@@ -2984,8 +2907,8 @@ ideas = {
 			picture = RAJ_boycott_british_made_goods
 			allowed = { always = no }
 			modifier = {
-				consumer_goods_factor = 0.03
-				political_power_factor = 0.05
+				consumer_goods_factor = 0.05
+				political_power_factor = 0.10
 			}
 		}
 		JAP_congress_agenda_7_idea = {

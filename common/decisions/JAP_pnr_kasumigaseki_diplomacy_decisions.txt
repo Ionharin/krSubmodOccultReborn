@@ -3,10 +3,13 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 	JAP_pnr_ets_yunshu_huangjin_decision = {
 		icon = GFX_decision_gre_investment_decisions
 		allowed = { always = no }
-		visible = { check_variable = { JAP_pnr_kd_events^2 = 1 } }
+		visible = {
+			check_variable = { JAP_pnr_kd_events^2 = 1 }
+			ETS = { exists = yes }
+		}
 		fire_only_once = yes
 		available = {
-			country_exists = ETS
+			ETS = { exists = yes }
 			OR = {
 				ETS = { has_war_with = SIK }
 				ETS = { has_war_with = KUM }
@@ -30,9 +33,12 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 	JAP_pnr_ets_cong_kabuer_tigong_wuqi_decision = {
 		icon = GFX_decision_generic_welfare
 		allowed = { always = no }
-		visible = { check_variable = { JAP_pnr_kd_events^2 = 1 } }
+		visible = {
+			check_variable = { JAP_pnr_kd_events^2 = 1 }
+			ETS = { exists = yes }
+		}
 		available = {
-			country_exists = ETS
+			ETS = { exists = yes }
 			OR = {
 				ETS = { has_war_with = SIK }
 				ETS = { has_war_with = KUM }
@@ -63,8 +69,12 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 	JAP_pnr_ets_tigong_jinji_jiekuan_decision = {
 		icon = GFX_decision_wrenches
 		allowed = { always = no }
+		visible = {
+			check_variable = { JAP_pnr_kd_events^2 = 1 }
+			ETS = { exists = yes }
+		}
 		available = {
-			country_exists = ETS
+			ETS = { exists = yes }
 			OR = {
 				ETS = { has_war_with = SIK }
 				ETS = { has_war_with = KUM }
@@ -89,10 +99,13 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 	JAP_pnr_ets_chiyuan_tongbao_minzu_decision = {
 		icon = GFX_decision_SWE_set_army_budget
 		allowed = { always = no }
-		visible = { check_variable = { JAP_pnr_kd_events^2 = 1 } }
 		fire_only_once = yes
+		visible = {
+			check_variable = { JAP_pnr_kd_events^2 = 1 }
+			ETS = { exists = yes }
+		}
 		available = {
-			country_exists = ETS
+			ETS = { exists = yes }
 			OR = {
 				ETS = { has_war_with = SIK }
 				ETS = { has_war_with = KUM }
@@ -454,16 +467,16 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		priority = 100
         activation = {
 			OR = {
-				INC = { exists = yes }
-				INC ={ has_war_with = GEA }
+				VIN = { exists = yes }
+				VIN ={ has_war_with = GEA }
 			}
 		}
-        available = { NOT = { INC ={ has_war_with = GEA } } }
+        available = { NOT = { VIN ={ has_war_with = GEA } } }
         allowed = { always = no }
 		timeout_effect = {
 			add_intel = { target = GEA civilian_intel = 10 army_intel = 10 navy_intel = 10 airforce_intel = 10 }
-			activate_targeted_decision = { decision = JAP_pnr_indonicia_support_volunteer_2_decision target = INC }
-			activate_targeted_decision = { decision = JAP_pnr_indonicia_arm_training_decision target = INC } 
+			activate_targeted_decision = { decision = JAP_pnr_indonicia_support_volunteer_2_decision target = VIN }
+			activate_targeted_decision = { decision = JAP_pnr_indonicia_arm_training_decision target = VIN } 
 		}
 		fixed_random_seed = no
     }
@@ -473,8 +486,8 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		visible = { check_variable = { JAP_pnr_kd_events^1 = 1 } }
 		fire_only_once = yes
 		available = {
-			INC = { exists = yes }
-			INC = { has_war_with = GEA }
+			VIN = { exists = yes }
+			VIN = { has_war_with = GEA }
 			num_of_civilian_factories_available_for_projects > 1
 		}
 		ai_will_do = { factor = 50 }
@@ -486,18 +499,18 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			experience_gain_army = 0.02
 		}
 		complete_effect = {
-			INC = { add_offsite_building = { type = arms_factory level = 1 } }
-			add_relation_modifier = { target = INC modifier = volunteer_limit_plus_1 }
+			VIN = { add_offsite_building = { type = arms_factory level = 1 } }
+			add_relation_modifier = { target = VIN modifier = volunteer_limit_plus_1 }
 			hidden_effect = {
 				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_INC } }
-					set_country_flag = JAP_pnr_support_INC
+					limit = { NOT = { has_country_flag = JAP_pnr_support_VIN } }
+					set_country_flag = JAP_pnr_support_VIN
 				}
 			}
 		}
 		remove_effect = {
-			INC = { add_offsite_building = { type = arms_factory level = -1 } }
-			remove_relation_modifier = { target = INC modifier = volunteer_limit_plus_1 }
+			VIN = { add_offsite_building = { type = arms_factory level = -1 } }
+			remove_relation_modifier = { target = VIN modifier = volunteer_limit_plus_1 }
 		}
 	}
 	JAP_pnr_indonicia_support_volunteer_2_decision = {
@@ -506,8 +519,8 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		visible = { check_variable = { JAP_pnr_kd_events^1 = 1 } }
 		fire_only_once = yes
 		available = {
-			INC = { exists = yes }
-			INC = { has_war_with = GEA }
+			VIN = { exists = yes }
+			VIN = { has_war_with = GEA }
 		}
 		ai_will_do = { factor = 50 }
 		priority = 99
@@ -517,16 +530,16 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			experience_gain_army = 0.01
 		}
 		complete_effect = {
-			add_relation_modifier = { target = INC modifier = volunteer_limit_plus_2 }
+			add_relation_modifier = { target = VIN modifier = volunteer_limit_plus_2 }
 			hidden_effect = {
 				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_INC } }
-					set_country_flag = JAP_pnr_support_INC
+					limit = { NOT = { has_country_flag = JAP_pnr_support_VIN } }
+					set_country_flag = JAP_pnr_support_VIN
 				}
 			}
 		}
 		remove_effect = {
-			remove_relation_modifier = { target = INC modifier = volunteer_limit_plus_2 }
+			remove_relation_modifier = { target = VIN modifier = volunteer_limit_plus_2 }
 		}
 	}
 	JAP_pnr_indonicia_arm_training_decision = {
@@ -535,8 +548,8 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		visible = { check_variable = { JAP_pnr_kd_events^1 = 1 } }
 		fire_only_once = yes
 		available = {
-			INC = { exists = yes }
-			INC = { has_war_with = GEA }
+			VIN = { exists = yes }
+			VIN = { has_war_with = GEA }
 		}
 		ai_will_do = { factor = 50 }
 		priority = 99
@@ -544,14 +557,14 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		custom_cost_text = CP_10
 		days_remove = 28
 		complete_effect = {
-			INC = { country_event = JAP_pnr_foreign_events.28 }
+			VIN = { country_event = JAP_pnr_foreign_events.28 }
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = if_they_accept_tt
-			INC = { effect_tooltip = { add_timed_idea = { idea = JAP_pnr_military_mission_ideas days = 180 } } }
+			VIN = { effect_tooltip = { add_timed_idea = { idea = JAP_pnr_military_mission_ideas days = 180 } } }
 			hidden_effect = {
 				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_INC } }
-					set_country_flag = JAP_pnr_support_INC
+					limit = { NOT = { has_country_flag = JAP_pnr_support_VIN } }
+					set_country_flag = JAP_pnr_support_VIN
 				}
 			}
 		}
@@ -562,8 +575,8 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		visible = { check_variable = { JAP_pnr_kd_events^1 = 1 } }
 		fire_only_once = yes
 		available = {
-			INC = { exists = yes }
-			INC = { has_war_with = GEA }
+			VIN = { exists = yes }
+			VIN = { has_war_with = GEA }
 		}
 		ai_will_do = { factor = 50 }
 		priority = 99
@@ -574,13 +587,13 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		complete_effect = {
 			hidden_effect = {
 				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_INC } }
-					set_country_flag = JAP_pnr_support_INC
+					limit = { NOT = { has_country_flag = JAP_pnr_support_VIN } }
+					set_country_flag = JAP_pnr_support_VIN
 				}
 			}
 		}
 		remove_effect = {
-			send_equipment = { target = INC type = infantry_equipment amount = 1000 }
+			send_equipment = { target = VIN type = infantry_equipment amount = 1000 }
 		}
 	}
 	JAP_pnr_volunteer_manpower_to_INC_decision = {
@@ -588,8 +601,8 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		allowed = { always = no }
 		visible = { check_variable = { JAP_pnr_kd_events^1 = 1 } }
 		available = {
-			INC = { exists = yes }
-			INC = { has_war_with = GEA }
+			VIN = { exists = yes }
+			VIN = { has_war_with = GEA }
 		}
 		ai_will_do = { factor = 50 }
 		priority = 99
@@ -599,17 +612,17 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			if = {
 				limit = { has_active_mission = JAP_pnr_inc_war_with_gea_phase_1_countdown }
 				JAP = { add_manpower = -800 }
-				INC = { add_manpower = 800 }
+				VIN = { add_manpower = 800 }
 			}
 			else = {
 				JAP = { add_manpower = -2010 }
-				INC = { add_manpower = 2000 }
-				add_intel = { target = INC civilian_intel = 5 army_intel = 5 navy_intel = 5 airforce_intel = 5 }
+				VIN = { add_manpower = 2000 }
+				add_intel = { target = VIN civilian_intel = 5 army_intel = 5 navy_intel = 5 airforce_intel = 5 }
 			}
 			hidden_effect = {
 				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_INC } }
-					set_country_flag = JAP_pnr_support_INC
+					limit = { NOT = { has_country_flag = JAP_pnr_support_VIN } }
+					set_country_flag = JAP_pnr_support_VIN
 				}
 			}
 		}
