@@ -336,6 +336,7 @@ JAP_hero_et_gangster_bop_category = { #BOP
 	JAP_pnr_dahan_yijun_decision = { #Zhangyuan 大汉义军
 		icon = GFX_decision_chinese_flag
 		#allowed = { always = no }
+		visible = { any_enemy_country = { is_chinese_tag = yes } }
 		cancel_trigger = { 611 = { NOT = { is_controlled_by_ROOT_or_ally = yes } } }
 		available = { 611 = { is_controlled_by_ROOT_or_ally = yes } }
 		priority = 120
@@ -412,6 +413,7 @@ JAP_hero_et_gangster_bop_category = { #BOP
 	JAP_pnr_heping_jiuguo_jun_decision = { #Kaifeng 和平救国军（不是和平建国军，是张岚峰的那支）
 		icon = GFX_decision_chinese_flag
 		allowed = { always = no }
+		visible = { any_enemy_country = { is_chinese_tag = yes } }
 		cancel_trigger = { 1059 = { NOT = { is_controlled_by_ROOT_or_ally = yes } } }
 		available = { 1059 = { is_controlled_by_ROOT_or_ally = yes } }
 		priority = 120
@@ -486,6 +488,7 @@ JAP_hero_et_gangster_bop_category = { #BOP
 	JAP_pnr_dongya_tongmeng_zizhi_jun_decision = { #Taiyuan 东亚同盟自治军
 		icon = GFX_decision_chinese_flag
 		#allowed = { always = no }
+		visible = { any_enemy_country = { is_chinese_tag = yes } }
 		cancel_trigger = { 1072 = { NOT = { is_controlled_by_ROOT_or_ally = yes } } }
 		available = { 1072 = { is_controlled_by_ROOT_or_ally = yes } }
 		priority = 120
@@ -555,6 +558,7 @@ JAP_hero_et_gangster_bop_category = { #BOP
 	JAP_pnr_zhongyong_jiuguo_jun_decision = { #Jinan 忠勇救国军 （别和戴老板的忠义救国军混了）
 		icon = GFX_decision_chinese_flag
 		#allowed = { always = no }
+		visible = { any_enemy_country = { is_chinese_tag = yes } }
 		cancel_trigger = { 597 = { NOT = { is_controlled_by_ROOT_or_ally = yes } } }
 		available = { 597 = { is_controlled_by_ROOT_or_ally = yes } }
 		priority = 120
@@ -629,6 +633,7 @@ JAP_hero_et_gangster_bop_category = { #BOP
 	JAP_pnr_zhonghua_ziyou_yijun_decision = { #Nanjing 中华自由义军（就是和平建国军）
 		icon = GFX_decision_chinese_flag
 		#allowed = { always = no }
+		visible = { any_enemy_country = { is_chinese_tag = yes } }
 		cancel_trigger = { 613 = { NOT = { is_controlled_by_ROOT_or_ally = yes } } }
 		available = { 613 = { is_controlled_by_ROOT_or_ally = yes } }
 		priority = 120
@@ -703,6 +708,7 @@ JAP_hero_et_gangster_bop_category = { #BOP
 	JAP_pnr_yiyong_fenggong_dui_decision = { #Liaoning 义勇奉公队
 		icon = GFX_decision_chinese_flag
 		#allowed = { always = no }
+		visible = { any_enemy_country = { is_chinese_tag = yes } }
 		cancel_trigger = { 716 = { NOT = { is_controlled_by_ROOT_or_ally = yes } } }
 		available = { 716 = { is_controlled_by_ROOT_or_ally = yes } }
 		priority = 120
@@ -777,6 +783,7 @@ JAP_hero_et_gangster_bop_category = { #BOP
 	JAP_pnr_dadao_jiefang_jun_decision = { #shanghai 大道解放军（完全虚构，原型是上海大道政府的伪军）
 		icon = GFX_decision_chinese_flag
 		#allowed = { always = no }
+		visible = { any_enemy_country = { is_chinese_tag = yes } }
 		cancel_trigger = { 743 = { NOT = { is_controlled_by_ROOT_or_ally = yes } } }
 		available = { 743 = { is_controlled_by_ROOT_or_ally = yes } }
 		priority = 120
@@ -1142,8 +1149,7 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 		}
 		ai_will_do = { factor = 10 }
 	}
-
-### Common Diplomancy ### 这些基本上就是广田弘毅构想中的五步走侵吞中国计划，泛亚派官僚完全就是“朝鲜组”的精神继承人，然而就和朝鲜组一样都被天保钱脑袋干碎了。
+### Common Diplomancy ### 
 	### For LEC ###
 	JAP_pnr_give_pressure_to_the_lec_decision = { #给LEC上个弱智原版buff，后面重置LEC一定要给改了！
 		icon = GFX_decision_generic_political_address
@@ -1200,7 +1206,7 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 				NOT = { is_ally_with = JAP }
 			}
 		}
-		cost = 70
+		cost = 30
 		days_remove = 49
 		fire_only_once = yes
 		remove_effect = {
@@ -1223,14 +1229,13 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 	### 和 CHN（关内合法政府）的谈判 ###
 	JAP_pnr_shougou_zhongwen_baozhi_decision = {
 		icon = GFX_decision_ger_mefo_bills
-		allowed = { always = no }
-		visible = { CHN = { NOT = { is_ally_with = JAP } } }
-		priority = 91
-		available = {
-			CHN = {
-				NOT = { has_war_with = JAP }
-			}
+		visible = {
+			check_variable = { chinese_diplomancy_officer > 0 }
+			CHN = { NOT = { is_ally_with = JAP } }
+			has_completed_focus = JAP_pnr_reassess_mainland_policy
 		}
+		priority = 91
+		available = { CHN = { NOT = { has_war_with = JAP } } }
 		cost = 30
 		days_remove = 100
 		modifier = { political_power_cost = 0.03 }
@@ -1245,6 +1250,7 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 	JAP_pnr_chongqi_1936_guanshui_tanpan_decision = {
 		
 	}
+
 }
 
 JAP_pnr_landreform_category = { # LAND REFORM
