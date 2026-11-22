@@ -684,8 +684,8 @@ country_event = { # 1936年第一次选举结果
     id = JAP_pnr_normal.4
     immediate = {
         log = "[GetDateText]: [Root.GetName]: event JAP_pnr_normal.4"
-        JAP_pnr_election_commit_results = yes
 		JAP_pnr_election_calculate_winner = yes
+        JAP_pnr_election_commit_results = yes
 		JAP_congress_update_gui = yes
     }
     title = JAP_pnr_normal.4.t
@@ -5194,8 +5194,8 @@ country_event = { # 宪政的拯救者
     option = { # 相信老人的智慧！
         name = JAP_pnr_earlygame.60.a
         ai_chance = { factor = 1 }
-        add_stability = 0.05
         add_popularity = { ideology = social_conservative popularity = 0.05 }
+        set_country_flag = pnr_rikken_seiyukai_government_flag
         if = {
             limit = { NOT = { has_government = social_conservative } }
             set_politics = { ruling_party = social_conservative }
@@ -5228,8 +5228,10 @@ country_event = { # 政友会穿越风暴
         set_variable = { JAP_pnr_seiyukai_support_power_var = 0.5 }
         set_variable = { JAP_pnr_seiyukai_resist_power_var = 0.5 }
         set_variable = { seyukai_allies_betrayed = 0 }
-        set_country_flag = pnr_rikken_seiyukai_government_flag
-        hidden_effect = { country_event = { id = JAP_pnr_midgame.2 days = 12 } }
+        hidden_effect = {
+            country_event = { id = JAP_pnr_midgame.2 days = 15 }
+            country_event = { id = JAP_pnr_midgame.15 days = 8 }    
+        }
     }
 }
 
@@ -5291,7 +5293,7 @@ country_event = { # 修复信任
     option = { # 纯真之心是无价之物。
         name = JAP_pnr_midgame.3.a
         ai_chance = { factor = 1 }
-        add_popularity = { ideology = social_conservative popularity = 0.03 }
+        add_stability = 0.02
         hidden_effect = {
             country_event = { id = JAP_pnr_midgame.11 days = 35 }
         }
@@ -5299,7 +5301,7 @@ country_event = { # 修复信任
     option = { # 以我之见，不过是城府极深的老狐狸。
         name = JAP_pnr_midgame.3.b
         ai_chance = { factor = 1 }
-        add_political_power = 25
+        add_popularity = { ideology = social_conservative popularity = 0.05 }
         hidden_effect = {
             country_event = { id = JAP_pnr_midgame.11 days = 35 }
         }
@@ -5318,12 +5320,8 @@ country_event = { # 推进地方自治分权
     option = { # 有趣，接下来会如何发展？
         name = JAP_pnr_midgame.4.a
         ai_chance = { factor = 1 }
-        add_tech_bonus = {
-			name = JAP_pnr_lobbying_the_house_of_lords
-			bonus = 0.50
-			uses = 1
-			category = industry
-		}
+        activate_targeted_decision = { decision = JAP_pnr_public_service_down_decision target = JAP }
+        activate_targeted_decision = { decision = JAP_pnr_local_law_setting_decision target = JAP }
     }
 }
 
@@ -5343,18 +5341,17 @@ country_event = { # 土地改革的命运
         remove_mission = JAP_pnr_landreform_countdown
         set_temp_variable = { JAP_pnr_landreform_result_0_temp_var = JAP_pnr_landreform_result_var }
         multiply_temp_variable = { JAP_pnr_landreform_result_0_temp_var = 1 }
-        add_political_power = var:JAP_pnr_landreform_result_temp_var
+        add_political_power = var:JAP_pnr_landreform_result_0_temp_var
         set_temp_variable = { JAP_pnr_landreform_result_1_temp_var = JAP_pnr_landreform_result_var }
-        multiply_temp_variable = { JAP_pnr_landreform_result_1_temp_var = 0.01 }
+        multiply_temp_variable = { JAP_pnr_landreform_result_1_temp_var = 0.003 }
         add_stability = var:JAP_pnr_landreform_result_1_temp_var
         set_temp_variable = { JAP_pnr_landreform_result_2_temp_var = JAP_pnr_landreform_result_var }
-        multiply_temp_variable = { JAP_pnr_landreform_result_2_temp_var = 0.015 }
-        add_popularity = { ideology = social_conservative popularity = var:JAP_pnr_landreform_result_1_temp_var }
+        multiply_temp_variable = { JAP_pnr_landreform_result_2_temp_var = 0.0016 }
+        add_popularity = { ideology = social_conservative popularity = var:JAP_pnr_landreform_result_2_temp_var }
     }
     option = { # 故事不错，下一个。
         name = JAP_pnr_midgame.5.b
         ai_chance = { factor = 1 }
-        add_stability = -0.01
         add_to_variable = {
 			var = JAP_pnr_landreform_result_var
 			value = 10
@@ -5424,8 +5421,8 @@ country_event = { # 党内分裂的批评
         custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
         add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.05 }
         add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.05 }
-        clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
-        clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+        clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+        clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
     }
 }
 
@@ -5444,8 +5441,8 @@ country_event = { # 名单问题
         custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
         add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
         add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
-        clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
-        clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+        clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+        clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
     }
     option = { # 真是欺人太甚！
         name = JAP_pnr_midgame.8.b
@@ -5453,8 +5450,8 @@ country_event = { # 名单问题
         custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
         add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.05 }
         add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.05 }
-        clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
-        clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+        clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+        clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
     }
 }
 
@@ -5480,15 +5477,15 @@ country_event = { # 转型中的[JAP.GetRulingParty]
             custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
             add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.1 }
             add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.1 }
-            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
-            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
         }
         else = {
             custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
             add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.1 }
             add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.1 }
-            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
-            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
         }
     }
     option = { # 谁在乎那些种地的泥腿子？
@@ -5504,15 +5501,15 @@ country_event = { # 转型中的[JAP.GetRulingParty]
             custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
             add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.1 }
             add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.1 }
-            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
-            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
         }
         else = {
             custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
             add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.1 }
             add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.1 }
-            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
-            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
         }
     }
 }
@@ -5535,15 +5532,15 @@ country_event = { # 1937年预算案
             custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
             add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
             add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
-            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
-            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
         }
         else = {
             custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
             add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.05 }
             add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.05 }
-            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
-            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
         }
     }
     option = { # 不能再无底线支援地方农村了，调整地方居民税。
@@ -5555,15 +5552,15 @@ country_event = { # 1937年预算案
             custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
             add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.05 }
             add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.05 }
-            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
-            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
         }
         else = {
             custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
             add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
             add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
-            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
-            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+            clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
         }
     }
 }
@@ -5583,8 +5580,8 @@ country_event = { # 缓解对抗还是另一场阴谋？
         add_political_power = 25
         add_popularity = { ideology = social_conservative  popularity = 0.02 }
         hidden_effect = {
-            country_event = { id = JAP_pnr_midgame.12 days = 16 }
-            country_event = { id = JAP_pnr_midgame.13 days = 21 random_days = 7 }
+            country_event = { id = JAP_pnr_midgame.12 days = 30 random_hours = 6 }
+            country_event = { id = JAP_pnr_midgame.13 days = 16 random_days = 7 }
         }
     }
 }
@@ -5624,10 +5621,29 @@ country_event = { # 修正预算案？
     option = { # 我们当然尊重专家们的意见。
         name = JAP_pnr_midgame.13.a
         ai_chance = { factor = 1 }
+        add_popularity = { ideology = social_conservative popularity = 0.02 }
+        custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
+        add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.03 }
+        add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.03 }
+        clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+        clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
+        hidden_effect = {
+            country_event = { id = JAP_pnr_midgame.14 days = 12 }
+        }
     }
     option = { # 说这么多，我还以为你是大藏大臣。
         name = JAP_pnr_midgame.13.b
         ai_chance = { factor = 1 }
+        add_political_power = 15
+        custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
+        add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.03 }
+        add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.03 }
+        clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+        clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
+        add_to_variable = { seyukai_allies_betrayed = 1 }
+        hidden_effect = {
+            country_event = { id = JAP_pnr_midgame.14 days = 12 }
+        }
     }
 }
 
@@ -5643,14 +5659,33 @@ country_event = { # 不受欢迎的破坏者
     option = { # 警告他管好自己。
         name = JAP_pnr_midgame.14.a
         ai_chance = { factor = 1 }
+        add_popularity = { ideology = social_conservative popularity = -0.01 }
+        custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
+        add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.01 }
+        add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.01 }
+        clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+        clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
+        add_to_variable = { seyukai_allies_betrayed = 0.5 }
     }
     option = { # 我们该直接开除他。
         name = JAP_pnr_midgame.14.b
         ai_chance = { factor = 1 }
+        add_popularity = { ideology = social_conservative popularity = -0.02 }
+        custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
+        add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.03 }
+        add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.03 }
+        clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+        clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
+        add_to_variable = { seyukai_allies_betrayed = 1 }
     }
     option = { # 让他说话又不会有什么大问题。
         name = JAP_pnr_midgame.14.c
         ai_chance = { factor = 1 }
+        custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
+        add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.03 }
+        add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.03 }
+        clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+        clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
     }
 }
 
@@ -5681,12 +5716,12 @@ country_event = { # [loc_seyukai_enemy_0]投下爆弹
     option = { # 我们谈谈吧，在党内谈谈。
         name = JAP_pnr_midgame.16.a
         ai_chance = { factor = 1 }
-        country_event = { id = JAP_pnr_midgame.20 }
+        country_event = { id = JAP_pnr_midgame.20 days = 8 }
     }
     option = { # 这是最纯粹的背叛，开除他们。
         name = JAP_pnr_midgame.16.b
         ai_chance = { factor = 1 }
-        country_event = { id = JAP_pnr_midgame.21 }
+        country_event = { id = JAP_pnr_midgame.21 days = 8 }
     }
 }
 
@@ -5702,10 +5737,22 @@ country_event = { # 奔向中岛知久平
     option = { # 至少他是我们的盟友——对吧？
         name = JAP_pnr_midgame.17.a
         ai_chance = { factor = 1 }
+        trigger = { has_country_leader = { character = JAP_pnr_suzuki_kisaburo ruling_only = yes } }
+        custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
+        add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.03 }
+        add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.03 }
+        clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+        clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
     }
     option = { # 要想个办法破坏他和[loc_seiyukai_enemy_0]之间的关系……
         name = JAP_pnr_midgame.17.b
         ai_chance = { factor = 1 }
+        trigger = { NOT = { has_country_leader = { character = JAP_pnr_suzuki_kisaburo ruling_only = yes } } }
+        custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
+        add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.03 }
+        add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.03 }
+        clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+        clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
     }
 }
 
@@ -5759,12 +5806,12 @@ country_event = { # 党内调解
     option = { # 团结大过一切，接受条件。
         name = JAP_pnr_midgame.20.a
         ai_chance = { factor = 1 }
-        country_event = { id = JAP_pnr_midgame.23 }
+        country_event = { id = JAP_pnr_midgame.23 days = 5 }
     }
     option = { # 得寸进尺的小人们，你们现在全部被开除了！
         name = JAP_pnr_midgame.20.b
         ai_chance = { factor = 1 }
-        country_event = { id = JAP_pnr_midgame.21 }
+        country_event = { id = JAP_pnr_midgame.21 days = 3 }
     }
 }
 
@@ -5780,7 +5827,7 @@ country_event = { # 克以惩罚
     option = { # 让我们看看叛徒的下场！
         name = JAP_pnr_midgame.21.a
         ai_chance = { factor = 1 }
-        country_event = { id = JAP_pnr_midgame.27 }
+        country_event = { id = JAP_pnr_midgame.22 days = 10 random_days = 3 }
     }
 }
 
@@ -5796,11 +5843,12 @@ country_event = { # [loc_seiyukai_enemy_0]呼吁[JAP.GetLeader]辞职
     option = { # 这是谁家的狗在叫？
         name = JAP_pnr_midgame.22.a
         ai_chance = { factor = 1 }
+        country_event = { id = JAP_pnr_midgame.25 days = 30 }
     }
     option = { # 要死一起死，你们干了什么我又不是不知道。
         name = JAP_pnr_midgame.22.b
         ai_chance = { factor = 1 }
-        country_event = { id = JAP_pnr_midgame.24 }
+        country_event = { id = JAP_pnr_midgame.24 days = 10 }
     }
     option = { # 没救了，我还是辞职吧。
         name = JAP_pnr_midgame.22.c
@@ -7383,10 +7431,9 @@ country_event = { # 死之高贵
             custom_effect_tooltip = JAP_pnr_foreign_events_new_decision_unlock_no_category_tt
         }
         custom_effect_tooltip = tooltip_white_line
-        activate_mission = JAP_pnr_inc_war_with_gea_phase_1_countdown
-        activate_targeted_decision = { target = VIN decision = JAP_pnr_indonicia_support_volunteer_1_decision }
+        activate_targeted_decision = { target = VIN decision = JAP_pnr_indonicia_support_volunteer_2_decision }
         activate_targeted_decision = { target = VIN decision = JAP_pnr_secret_support_weapon_to_INC_decision }
-        activate_targeted_decision = { target = VIN decision = JAP_pnr_volunteer_manpower_to_INC_decision }
+        activate_targeted_decision = { target = VIN decision = JAP_pnr_indonicia_arm_training_decision }
     }
 }
 
@@ -7478,6 +7525,20 @@ country_event = { # 日升时分
             custom_effect_tooltip = JAP_pnr_foreign_events_new_decision_unlock_no_category_tt
         }
         custom_effect_tooltip = tooltip_white_line
+        activate_targeted_decision = { target = PRF decision = JAP_pnr_PRF_offer_mil_factory_decision }
+        activate_targeted_decision = { target = HND decision = JAP_pnr_HND_offer_mil_factory_decision }
+        if = {
+            limit = { has_completed_focus = JAP_pnr_support_the_princely_federation }
+            activate_targeted_decision = { target = PRF decision = JAP_pnr_PRF_support_volunteer_2_decision }
+            activate_targeted_decision = { target = PRF decision = JAP_pnr_PRF_arm_training_decision }
+            activate_targeted_decision = { target = PRF decision = JAP_pnr_secret_support_weapon_to_PRF_decision }
+        }
+        else_if = {
+            limit = { has_completed_focus = JAP_pnr_support_the_azad_hind }
+            activate_targeted_decision = { target = HND decision = JAP_pnr_HND_support_volunteer_2_decision }
+            activate_targeted_decision = { target = HND decision = JAP_pnr_HND_arm_training_decision }
+            activate_targeted_decision = { target = HND decision = JAP_pnr_secret_support_weapon_to_HND_decision }
+        }
     }
 }
 
@@ -9999,30 +10060,9 @@ country_event = { # 衍圣公将遭废黜
         set_variable = {
 			shibun_alliance_var = 0
 		}
-		activate_mission = JAP_pnr_save_the_kong_decheng_decision
-		activate_targeted_decision = {
-			target = JAP
-			decision = JAP_pnr_youshui_kong_lingjun_decision
-		}
-		activate_targeted_decision = {
-			target = JAP
-			decision = JAP_pnr_calling_saint_way_decision
-		}
-		activate_targeted_decision = {
-			target = JAP
-			decision = JAP_pnr_prepare_anti_confucianism_decision
-		}
-		activate_targeted_decision = {
-			target = JAP
-			decision = JAP_pnr_offer_palaces_fix_loan_decision
-		}
+		activate_mission = JAP_pnr_confuciusm_crsis_start
 		custom_effect_tooltip = tooltip_white_line
 		custom_effect_tooltip = JAP_pnr_shibun_alliance_tt
-    }
-    option = { # 中国不需要“公爵”。
-        name = JAP_pnr_foreign_events.41.b
-        ai_chance = { factor = 1 }
-        add_political_power = 50
     }
 }
 

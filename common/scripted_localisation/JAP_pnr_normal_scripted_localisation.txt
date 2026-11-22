@@ -146,49 +146,29 @@
 ### Election News ###
 	defined_text = {
 		name = loc_jap_pnr_election_true_result
+		# Uses the same winner triggers as JAP_pnr_election_calculate_winner, so the headline always matches the result
 		text = {
-			trigger = {
-				check_variable = { JAP_pnr_election_party_true_factor^4 > JAP_pnr_election_party_true_factor^6 }
-				check_variable = { JAP_pnr_election_party_true_factor^4 > JAP_pnr_election_party_true_factor^7 }
-				check_variable = { JAP_pnr_election_party_true_factor^4 > JAP_pnr_election_party_true_factor^8 }
-				check_variable = { JAP_pnr_election_party_true_factor^4 > JAP_pnr_election_party_true_factor^10 }
-			}
+			trigger = { JAP_pnr_election_seimin_coalition_leads = yes }
+			localization_key = loc_election_true_result_1
+		}
+		text = {
+			trigger = { JAP_pnr_election_shakai_taishuto_leads = yes }
 			localization_key = loc_election_true_result_2
 		}
 		text = {
-			trigger = {
-				check_variable = { JAP_pnr_election_party_true_factor^6 > JAP_pnr_election_party_true_factor^4 }
-				check_variable = { JAP_pnr_election_party_true_factor^6 > JAP_pnr_election_party_true_factor^7 }
-				check_variable = { JAP_pnr_election_party_true_factor^6 > JAP_pnr_election_party_true_factor^8 }
-				check_variable = { JAP_pnr_election_party_true_factor^6 > JAP_pnr_election_party_true_factor^10 }
-			}
+			trigger = { JAP_pnr_election_party_6_leads = yes }
 			localization_key = loc_election_true_result_3
 		}
 		text = {
-			trigger = {
-				check_variable = { JAP_pnr_election_party_true_factor^7 > JAP_pnr_election_party_true_factor^4 }
-				check_variable = { JAP_pnr_election_party_true_factor^7 > JAP_pnr_election_party_true_factor^6 }
-				check_variable = { JAP_pnr_election_party_true_factor^7 > JAP_pnr_election_party_true_factor^8 }
-				check_variable = { JAP_pnr_election_party_true_factor^7 > JAP_pnr_election_party_true_factor^10 }
-			}
+			trigger = { JAP_pnr_election_party_7_leads = yes }
 			localization_key = loc_election_true_result_4
 		}
 		text = {
-			trigger = {
-				check_variable = { JAP_pnr_election_party_true_factor^8 > JAP_pnr_election_party_true_factor^4 }
-				check_variable = { JAP_pnr_election_party_true_factor^8 > JAP_pnr_election_party_true_factor^6 }
-				check_variable = { JAP_pnr_election_party_true_factor^8 > JAP_pnr_election_party_true_factor^7 }
-				check_variable = { JAP_pnr_election_party_true_factor^8 > JAP_pnr_election_party_true_factor^10 }
-			}
+			trigger = { JAP_pnr_election_party_8_leads = yes }
 			localization_key = loc_election_true_result_5
 		}
 		text = {
-			trigger = {
-				check_variable = { JAP_pnr_election_party_true_factor^10 > JAP_pnr_election_party_true_factor^4 }
-				check_variable = { JAP_pnr_election_party_true_factor^10 > JAP_pnr_election_party_true_factor^6 }
-				check_variable = { JAP_pnr_election_party_true_factor^10 > JAP_pnr_election_party_true_factor^8 }
-				check_variable = { JAP_pnr_election_party_true_factor^10 > JAP_pnr_election_party_true_factor^7 }
-			}
+			trigger = { JAP_pnr_election_party_10_leads = yes }
 			localization_key = loc_election_true_result_6
 		}
 		#text = {

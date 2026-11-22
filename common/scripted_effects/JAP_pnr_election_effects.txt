@@ -1,5 +1,36 @@
 ### JAP 1936 Election Effects ###
 
+### Final Result Seat Tuning ###
+# The projected seats (JAP_pnr_election_party_seats^n) only move during the campaign for display.
+# The final result is decided by JAP_pnr_election_party_true_factor^n (see JAP_pnr_election_triggers.txt)
+# and the seats below. Every distribution adds up to @JAP_PNR_ELECTION_TOTAL_SEATS.
+@JAP_PNR_ELECTION_TOTAL_SEATS = 466
+@JAP_PNR_ELECTION_WINNER_SEATS = 244
+@JAP_PNR_ELECTION_SECOND_SEATS = 106
+@JAP_PNR_ELECTION_THIRD_SEATS = 82
+@JAP_PNR_ELECTION_REST_SEATS_1 = 14
+@JAP_PNR_ELECTION_REST_SEATS_2 = 12
+@JAP_PNR_ELECTION_REST_SEATS_3 = 6
+@JAP_PNR_ELECTION_REST_SEATS_4 = 2
+# Shakai Taishuto victory: the winner seats are split between its social democrat (4) and social liberal (5) wings
+@JAP_PNR_ELECTION_SHAKAI_TAISHUTO_WIN_SEATS_4 = 135
+@JAP_PNR_ELECTION_SHAKAI_TAISHUTO_WIN_SEATS_5 = 109
+# Seimin Coalition victory
+@JAP_PNR_ELECTION_COALITION_SEATS_7 = 147
+@JAP_PNR_ELECTION_COALITION_SEATS_6 = 125
+@JAP_PNR_ELECTION_COALITION_REST_SEATS_1 = 76
+@JAP_PNR_ELECTION_COALITION_REST_SEATS_2 = 64
+@JAP_PNR_ELECTION_COALITION_REST_SEATS_3 = 34
+@JAP_PNR_ELECTION_COALITION_REST_SEATS_4 = 16
+@JAP_PNR_ELECTION_COALITION_REST_SEATS_5 = 4
+# Fringe parties never run for government; these scores keep them at the bottom of the rest-seat ranking
+@JAP_PNR_ELECTION_SYNDICALIST_TRUE_FACTOR = -50
+@JAP_PNR_ELECTION_INDEPENDENT_TRUE_FACTOR = -20
+# Halving divisor for Shakai Taishuto seats when it does not win
+@JAP_PNR_ELECTION_SHAKAI_TAISHUTO_WINGS = 2
+# Starting score for the rest-seat ranking; lower than any real score
+@JAP_PNR_ELECTION_RANK_FLOOR = -1000
+
 JAP_pnr_election_initialize_projected_results = {
 	set_country_flag = JAP_pnr_election_projected_initialized
 	set_variable = { JAP_pnr_election_total_seats = 466 }
@@ -64,52 +95,260 @@ JAP_pnr_election_refresh_projected_changes = {
 	subtract_from_variable = { JAP_pnr_election_party_change^10 = JAP_pnr_election_party_seats_initial^10 }
 }
 
-JAP_pnr_election_calculate_winner = {
-	JAP_pnr_election_ensure_projected_results = yes
-	### Initialize Winner Trigger ###
-	set_variable = { JAP_pnr_election_winning_party = 12 }
-	set_variable = { JAP_pnr_election_winning_party_seats = 234 }
-	set_variable = { JAP_pnr_election_shakai_taishuto_seats = JAP_pnr_election_party_seats^5 } # For Shakai_taishuto
-	add_to_variable = { JAP_pnr_election_shakai_taishuto_seats = JAP_pnr_election_party_seats^4 } # For Shakai_taishuto
-	set_variable = { JAP_pnr_election_seimin_teikei_seats = JAP_pnr_election_party_seats^7 } # For Shakai_taishuto
-	add_to_variable = { JAP_pnr_election_seimin_teikei_seats = JAP_pnr_election_party_seats^6 } # For Shakai_taishuto
-	### For Party Seats Calculate ###
+### Final Result Helpers ###
+
+JAP_pnr_election_reset_final_seats = {
+	set_variable = { JAP_pnr_election_final_seats^1 = 0 }
+	set_variable = { JAP_pnr_election_final_seats^2 = 0 }
+	set_variable = { JAP_pnr_election_final_seats^3 = 0 }
+	set_variable = { JAP_pnr_election_final_seats^4 = 0 }
+	set_variable = { JAP_pnr_election_final_seats^5 = 0 }
+	set_variable = { JAP_pnr_election_final_seats^6 = 0 }
+	set_variable = { JAP_pnr_election_final_seats^7 = 0 }
+	set_variable = { JAP_pnr_election_final_seats^8 = 0 }
+	set_variable = { JAP_pnr_election_final_seats^9 = 0 }
+	set_variable = { JAP_pnr_election_final_seats^10 = 0 }
+	JAP_pnr_election_clear_rest_pool = yes
+}
+
+JAP_pnr_election_clear_rest_pool = {
+	clr_country_flag = JAP_pnr_election_rest_pool_2
+	clr_country_flag = JAP_pnr_election_rest_pool_4
+	clr_country_flag = JAP_pnr_election_rest_pool_8
+	clr_country_flag = JAP_pnr_election_rest_pool_9
+	clr_country_flag = JAP_pnr_election_rest_pool_10
+}
+
+# Seiyukai (7) and Minseito (6) take the second and third places by score; Seiyukai wins a tie.
+JAP_pnr_election_assign_major_parties_by_score = {
 	if = {
-		limit = { check_variable = { JAP_pnr_election_party_seats^10 > JAP_pnr_election_winning_party_seats } }
-		set_variable = { JAP_pnr_election_winning_party = 10 }
-		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_party_seats^10 }
+		limit = { check_variable = { JAP_pnr_election_party_true_factor^6 > JAP_pnr_election_party_true_factor^7 } }
+		add_to_variable = { JAP_pnr_election_final_seats^6 = @JAP_PNR_ELECTION_SECOND_SEATS }
+		add_to_variable = { JAP_pnr_election_final_seats^7 = @JAP_PNR_ELECTION_THIRD_SEATS }
 	}
-	else_if = {
-		limit = { check_variable = { JAP_pnr_election_party_seats^8 > JAP_pnr_election_winning_party_seats } }
-		set_variable = { JAP_pnr_election_winning_party = 8 }
-		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_party_seats^8 }
-	}
-	else_if = {
-		limit = { check_variable = { JAP_pnr_election_party_seats^7 > JAP_pnr_election_winning_party_seats } }
-		set_variable = { JAP_pnr_election_winning_party = 7 }
-		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_party_seats^7 }
-	}
-	else_if = {
-		limit = { check_variable = { JAP_pnr_election_party_seats^6 > JAP_pnr_election_winning_party_seats } }
-		set_variable = { JAP_pnr_election_winning_party = 6 }
-		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_party_seats^6 }
-	}
-	else_if = {
-		limit = { check_variable = { JAP_pnr_election_shakai_taishuto_seats > JAP_pnr_election_winning_party_seats } }
-		set_variable = { JAP_pnr_election_winning_party = 5 }
-		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_shakai_taishuto_seats }
-	}
-	else_if = {
-		limit = { check_variable = { JAP_pnr_election_seimin_teikei_seats > JAP_pnr_election_winning_party_seats } }
-		set_variable = { JAP_pnr_election_winning_party = 11 }
-		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_seimin_teikei_seats }
+	else = {
+		add_to_variable = { JAP_pnr_election_final_seats^7 = @JAP_PNR_ELECTION_SECOND_SEATS }
+		add_to_variable = { JAP_pnr_election_final_seats^6 = @JAP_PNR_ELECTION_THIRD_SEATS }
 	}
 }
 
+# Input: temp variable JAP_pnr_election_shakai_taishuto_share
+# A non-winning Shakai Taishuto splits its seats evenly between parties 4 and 5; an odd seat goes to the independents (9).
+JAP_pnr_election_add_shakai_taishuto_share = {
+	set_temp_variable = { JAP_pnr_election_shakai_taishuto_odd_seat = JAP_pnr_election_shakai_taishuto_share }
+	modulo_temp_variable = { JAP_pnr_election_shakai_taishuto_odd_seat = @JAP_PNR_ELECTION_SHAKAI_TAISHUTO_WINGS }
+	set_temp_variable = { JAP_pnr_election_shakai_taishuto_half = JAP_pnr_election_shakai_taishuto_share }
+	subtract_from_temp_variable = { JAP_pnr_election_shakai_taishuto_half = JAP_pnr_election_shakai_taishuto_odd_seat }
+	divide_temp_variable = { JAP_pnr_election_shakai_taishuto_half = @JAP_PNR_ELECTION_SHAKAI_TAISHUTO_WINGS }
+	add_to_variable = { JAP_pnr_election_final_seats^4 = JAP_pnr_election_shakai_taishuto_half }
+	add_to_variable = { JAP_pnr_election_final_seats^5 = JAP_pnr_election_shakai_taishuto_half }
+	add_to_variable = { JAP_pnr_election_final_seats^9 = JAP_pnr_election_shakai_taishuto_odd_seat }
+}
+
+# Input: temp variable JAP_pnr_election_slot_seats
+# Gives one rest-seat slot to the best-scoring party still flagged JAP_pnr_election_rest_pool_<n>, then removes it from the pool.
+# Candidates are checked in ascending index order and replace the current best on an equal score, so ties go to the higher index.
+# Party 4 stands for the whole Shakai Taishuto.
+JAP_pnr_election_give_rest_slot = {
+	set_temp_variable = { JAP_pnr_election_best_party = 0 }
+	set_temp_variable = { JAP_pnr_election_best_factor = @JAP_PNR_ELECTION_RANK_FLOOR }
+	if = {
+		limit = {
+			has_country_flag = JAP_pnr_election_rest_pool_2
+			NOT = { check_variable = { JAP_pnr_election_party_true_factor^2 < JAP_pnr_election_best_factor } }
+		}
+		set_temp_variable = { JAP_pnr_election_best_party = 2 }
+		set_temp_variable = { JAP_pnr_election_best_factor = JAP_pnr_election_party_true_factor^2 }
+	}
+	if = {
+		limit = {
+			has_country_flag = JAP_pnr_election_rest_pool_4
+			NOT = { check_variable = { JAP_pnr_election_party_true_factor^4 < JAP_pnr_election_best_factor } }
+		}
+		set_temp_variable = { JAP_pnr_election_best_party = 4 }
+		set_temp_variable = { JAP_pnr_election_best_factor = JAP_pnr_election_party_true_factor^4 }
+	}
+	if = {
+		limit = {
+			has_country_flag = JAP_pnr_election_rest_pool_8
+			NOT = { check_variable = { JAP_pnr_election_party_true_factor^8 < JAP_pnr_election_best_factor } }
+		}
+		set_temp_variable = { JAP_pnr_election_best_party = 8 }
+		set_temp_variable = { JAP_pnr_election_best_factor = JAP_pnr_election_party_true_factor^8 }
+	}
+	if = {
+		limit = {
+			has_country_flag = JAP_pnr_election_rest_pool_9
+			NOT = { check_variable = { JAP_pnr_election_party_true_factor^9 < JAP_pnr_election_best_factor } }
+		}
+		set_temp_variable = { JAP_pnr_election_best_party = 9 }
+		set_temp_variable = { JAP_pnr_election_best_factor = JAP_pnr_election_party_true_factor^9 }
+	}
+	if = {
+		limit = {
+			has_country_flag = JAP_pnr_election_rest_pool_10
+			NOT = { check_variable = { JAP_pnr_election_party_true_factor^10 < JAP_pnr_election_best_factor } }
+		}
+		set_temp_variable = { JAP_pnr_election_best_party = 10 }
+		set_temp_variable = { JAP_pnr_election_best_factor = JAP_pnr_election_party_true_factor^10 }
+	}
+
+	if = {
+		limit = { check_variable = { JAP_pnr_election_best_party = 2 } }
+		add_to_variable = { JAP_pnr_election_final_seats^2 = JAP_pnr_election_slot_seats }
+		clr_country_flag = JAP_pnr_election_rest_pool_2
+	}
+	else_if = {
+		limit = { check_variable = { JAP_pnr_election_best_party = 4 } }
+		set_temp_variable = { JAP_pnr_election_shakai_taishuto_share = JAP_pnr_election_slot_seats }
+		JAP_pnr_election_add_shakai_taishuto_share = yes
+		clr_country_flag = JAP_pnr_election_rest_pool_4
+	}
+	else_if = {
+		limit = { check_variable = { JAP_pnr_election_best_party = 8 } }
+		add_to_variable = { JAP_pnr_election_final_seats^8 = JAP_pnr_election_slot_seats }
+		clr_country_flag = JAP_pnr_election_rest_pool_8
+	}
+	else_if = {
+		limit = { check_variable = { JAP_pnr_election_best_party = 9 } }
+		add_to_variable = { JAP_pnr_election_final_seats^9 = JAP_pnr_election_slot_seats }
+		clr_country_flag = JAP_pnr_election_rest_pool_9
+	}
+	else_if = {
+		limit = { check_variable = { JAP_pnr_election_best_party = 10 } }
+		add_to_variable = { JAP_pnr_election_final_seats^10 = JAP_pnr_election_slot_seats }
+		clr_country_flag = JAP_pnr_election_rest_pool_10
+	}
+	else = {
+		# Should never happen: every slot list is exactly as long as its pool. Keep the seat total intact anyway.
+		log = "[GetDateText]: JAP election: empty rest pool, slot seats go to independents"
+		add_to_variable = { JAP_pnr_election_final_seats^9 = JAP_pnr_election_slot_seats }
+	}
+}
+
+# Pool: the 4 parties flagged by the caller
+JAP_pnr_election_distribute_standard_rest_seats = {
+	set_temp_variable = { JAP_pnr_election_slot_seats = @JAP_PNR_ELECTION_REST_SEATS_1 }
+	JAP_pnr_election_give_rest_slot = yes
+	set_temp_variable = { JAP_pnr_election_slot_seats = @JAP_PNR_ELECTION_REST_SEATS_2 }
+	JAP_pnr_election_give_rest_slot = yes
+	set_temp_variable = { JAP_pnr_election_slot_seats = @JAP_PNR_ELECTION_REST_SEATS_3 }
+	JAP_pnr_election_give_rest_slot = yes
+	set_temp_variable = { JAP_pnr_election_slot_seats = @JAP_PNR_ELECTION_REST_SEATS_4 }
+	JAP_pnr_election_give_rest_slot = yes
+	JAP_pnr_election_clear_rest_pool = yes
+}
+
+# Pool: 2, 4, 8, 9, 10
+JAP_pnr_election_distribute_coalition_rest_seats = {
+	set_temp_variable = { JAP_pnr_election_slot_seats = @JAP_PNR_ELECTION_COALITION_REST_SEATS_1 }
+	JAP_pnr_election_give_rest_slot = yes
+	set_temp_variable = { JAP_pnr_election_slot_seats = @JAP_PNR_ELECTION_COALITION_REST_SEATS_2 }
+	JAP_pnr_election_give_rest_slot = yes
+	set_temp_variable = { JAP_pnr_election_slot_seats = @JAP_PNR_ELECTION_COALITION_REST_SEATS_3 }
+	JAP_pnr_election_give_rest_slot = yes
+	set_temp_variable = { JAP_pnr_election_slot_seats = @JAP_PNR_ELECTION_COALITION_REST_SEATS_4 }
+	JAP_pnr_election_give_rest_slot = yes
+	set_temp_variable = { JAP_pnr_election_slot_seats = @JAP_PNR_ELECTION_COALITION_REST_SEATS_5 }
+	JAP_pnr_election_give_rest_slot = yes
+	JAP_pnr_election_clear_rest_pool = yes
+}
+
+### Final Result ###
+# Sets JAP_pnr_election_winning_party and JAP_pnr_election_final_seats^n.
+# Winner ids: 5 = Shakai Taishuto, 6 = Minseito, 7 = Seiyukai, 8 = Kokumin Domei, 10 = National Populist, 11 = Seimin Coalition.
+# 12 (transcendent cabinet) is a special ending and is never produced here.
+JAP_pnr_election_calculate_winner = {
+	JAP_pnr_election_ensure_projected_results = yes
+	JAP_pnr_election_reset_final_seats = yes
+
+	if = {
+		limit = { JAP_pnr_election_seimin_coalition_leads = yes }
+		set_variable = { JAP_pnr_election_winning_party = 11 }
+		add_to_variable = { JAP_pnr_election_final_seats^7 = @JAP_PNR_ELECTION_COALITION_SEATS_7 }
+		add_to_variable = { JAP_pnr_election_final_seats^6 = @JAP_PNR_ELECTION_COALITION_SEATS_6 }
+		set_country_flag = JAP_pnr_election_rest_pool_2
+		set_country_flag = JAP_pnr_election_rest_pool_4
+		set_country_flag = JAP_pnr_election_rest_pool_8
+		set_country_flag = JAP_pnr_election_rest_pool_9
+		set_country_flag = JAP_pnr_election_rest_pool_10
+		JAP_pnr_election_distribute_coalition_rest_seats = yes
+	}
+	else_if = {
+		limit = { JAP_pnr_election_party_10_leads = yes }
+		set_variable = { JAP_pnr_election_winning_party = 10 }
+		add_to_variable = { JAP_pnr_election_final_seats^10 = @JAP_PNR_ELECTION_WINNER_SEATS }
+		JAP_pnr_election_assign_major_parties_by_score = yes
+		set_country_flag = JAP_pnr_election_rest_pool_2
+		set_country_flag = JAP_pnr_election_rest_pool_4
+		set_country_flag = JAP_pnr_election_rest_pool_8
+		set_country_flag = JAP_pnr_election_rest_pool_9
+		JAP_pnr_election_distribute_standard_rest_seats = yes
+	}
+	else_if = {
+		limit = { JAP_pnr_election_party_8_leads = yes }
+		set_variable = { JAP_pnr_election_winning_party = 8 }
+		add_to_variable = { JAP_pnr_election_final_seats^8 = @JAP_PNR_ELECTION_WINNER_SEATS }
+		JAP_pnr_election_assign_major_parties_by_score = yes
+		set_country_flag = JAP_pnr_election_rest_pool_2
+		set_country_flag = JAP_pnr_election_rest_pool_4
+		set_country_flag = JAP_pnr_election_rest_pool_9
+		set_country_flag = JAP_pnr_election_rest_pool_10
+		JAP_pnr_election_distribute_standard_rest_seats = yes
+	}
+	else_if = {
+		limit = { JAP_pnr_election_party_7_leads = yes }
+		set_variable = { JAP_pnr_election_winning_party = 7 }
+		add_to_variable = { JAP_pnr_election_final_seats^7 = @JAP_PNR_ELECTION_WINNER_SEATS }
+		add_to_variable = { JAP_pnr_election_final_seats^6 = @JAP_PNR_ELECTION_SECOND_SEATS }
+		set_temp_variable = { JAP_pnr_election_shakai_taishuto_share = @JAP_PNR_ELECTION_THIRD_SEATS }
+		JAP_pnr_election_add_shakai_taishuto_share = yes
+		set_country_flag = JAP_pnr_election_rest_pool_2
+		set_country_flag = JAP_pnr_election_rest_pool_8
+		set_country_flag = JAP_pnr_election_rest_pool_9
+		set_country_flag = JAP_pnr_election_rest_pool_10
+		JAP_pnr_election_distribute_standard_rest_seats = yes
+	}
+	else_if = {
+		limit = { JAP_pnr_election_party_6_leads = yes }
+		set_variable = { JAP_pnr_election_winning_party = 6 }
+		add_to_variable = { JAP_pnr_election_final_seats^6 = @JAP_PNR_ELECTION_WINNER_SEATS }
+		add_to_variable = { JAP_pnr_election_final_seats^7 = @JAP_PNR_ELECTION_SECOND_SEATS }
+		set_temp_variable = { JAP_pnr_election_shakai_taishuto_share = @JAP_PNR_ELECTION_THIRD_SEATS }
+		JAP_pnr_election_add_shakai_taishuto_share = yes
+		set_country_flag = JAP_pnr_election_rest_pool_2
+		set_country_flag = JAP_pnr_election_rest_pool_8
+		set_country_flag = JAP_pnr_election_rest_pool_9
+		set_country_flag = JAP_pnr_election_rest_pool_10
+		JAP_pnr_election_distribute_standard_rest_seats = yes
+	}
+	else = { # Shakai Taishuto (JAP_pnr_election_shakai_taishuto_leads)
+		set_variable = { JAP_pnr_election_winning_party = 5 }
+		add_to_variable = { JAP_pnr_election_final_seats^4 = @JAP_PNR_ELECTION_SHAKAI_TAISHUTO_WIN_SEATS_4 }
+		add_to_variable = { JAP_pnr_election_final_seats^5 = @JAP_PNR_ELECTION_SHAKAI_TAISHUTO_WIN_SEATS_5 }
+		JAP_pnr_election_assign_major_parties_by_score = yes
+		set_country_flag = JAP_pnr_election_rest_pool_2
+		set_country_flag = JAP_pnr_election_rest_pool_8
+		set_country_flag = JAP_pnr_election_rest_pool_9
+		set_country_flag = JAP_pnr_election_rest_pool_10
+		JAP_pnr_election_distribute_standard_rest_seats = yes
+	}
+
+	if = {
+		limit = { check_variable = { JAP_pnr_election_winning_party = 11 } }
+		set_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_final_seats^7 }
+		add_to_variable = { JAP_pnr_election_winning_party_seats = JAP_pnr_election_final_seats^6 }
+	}
+	else = {
+		set_variable = { JAP_pnr_election_winning_party_seats = @JAP_PNR_ELECTION_WINNER_SEATS }
+	}
+}
+
+# Writes the final result into the Imperial Diet panel. Call after JAP_pnr_election_calculate_winner.
 JAP_pnr_election_commit_results = {
 	JAP_pnr_election_ensure_projected_results = yes
 
-	set_variable = { JAP_congress_total_seats = 466 }
+	set_variable = { JAP_congress_total_seats = @JAP_PNR_ELECTION_TOTAL_SEATS }
 
 	clear_array = JAP_congress_faction_list
 	add_to_array = { JAP_congress_faction_list = 2 }
@@ -121,16 +360,16 @@ JAP_pnr_election_commit_results = {
 	add_to_array = { JAP_congress_faction_list = 9 }
 	add_to_array = { JAP_congress_faction_list = 10 }
 
-	set_variable = { JAP_congress_faction_seats_list^1 = 0 }
-	set_variable = { JAP_congress_faction_seats_list^2 = JAP_pnr_election_party_seats^2 }
-	set_variable = { JAP_congress_faction_seats_list^3 = 0 }
-	set_variable = { JAP_congress_faction_seats_list^4 = JAP_pnr_election_party_seats^4 }
-	set_variable = { JAP_congress_faction_seats_list^5 = JAP_pnr_election_party_seats^5 }
-	set_variable = { JAP_congress_faction_seats_list^6 = JAP_pnr_election_party_seats^6 }
-	set_variable = { JAP_congress_faction_seats_list^7 = JAP_pnr_election_party_seats^7 }
-	set_variable = { JAP_congress_faction_seats_list^8 = JAP_pnr_election_party_seats^8 }
-	set_variable = { JAP_congress_faction_seats_list^9 = 0 }
-	set_variable = { JAP_congress_faction_seats_list^10 = JAP_pnr_election_party_seats^10 }
+	set_variable = { JAP_congress_faction_seats_list^1 = JAP_pnr_election_final_seats^1 }
+	set_variable = { JAP_congress_faction_seats_list^2 = JAP_pnr_election_final_seats^2 }
+	set_variable = { JAP_congress_faction_seats_list^3 = JAP_pnr_election_final_seats^3 }
+	set_variable = { JAP_congress_faction_seats_list^4 = JAP_pnr_election_final_seats^4 }
+	set_variable = { JAP_congress_faction_seats_list^5 = JAP_pnr_election_final_seats^5 }
+	set_variable = { JAP_congress_faction_seats_list^6 = JAP_pnr_election_final_seats^6 }
+	set_variable = { JAP_congress_faction_seats_list^7 = JAP_pnr_election_final_seats^7 }
+	set_variable = { JAP_congress_faction_seats_list^8 = JAP_pnr_election_final_seats^8 }
+	set_variable = { JAP_congress_faction_seats_list^9 = JAP_pnr_election_final_seats^9 }
+	set_variable = { JAP_congress_faction_seats_list^10 = JAP_pnr_election_final_seats^10 }
 
 	clr_country_flag = JAP_pnr_election_in_progress
 	JAP_congress_rebuild_seats = yes
@@ -148,10 +387,12 @@ JAP_pnr_startup_election_setting = {
 	set_variable = { JAP_pnr_election_party_seats^9 = 7 }
 	set_variable = { JAP_pnr_election_party_seats^10 = 36 }
 	JAP_pnr_election_refresh_projected_changes = yes
+	set_variable = { JAP_pnr_election_party_true_factor^2 = @JAP_PNR_ELECTION_SYNDICALIST_TRUE_FACTOR }
 	set_variable = { JAP_pnr_election_party_true_factor^4 = 0 }
 	set_variable = { JAP_pnr_election_party_true_factor^6 = 2 }
 	set_variable = { JAP_pnr_election_party_true_factor^7 = 2 }
 	set_variable = { JAP_pnr_election_party_true_factor^8 = 0 }
+	set_variable = { JAP_pnr_election_party_true_factor^9 = @JAP_PNR_ELECTION_INDEPENDENT_TRUE_FACTOR }
 	set_variable = { JAP_pnr_election_party_true_factor^10 = 0 }
 	set_variable = { JAP_pnr_election_party_true_factor^11 = 0 }
 	#add_to_variable = { JAP_pnr_election_party_true_factor^11 = JAP.JAP_pnr_election_party_true_factor^6 }

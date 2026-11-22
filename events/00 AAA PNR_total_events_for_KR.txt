@@ -1137,26 +1137,194 @@ country_event = { # change trigger so that MoG will not trigger this event
 ### SIK ###
 ###########
 
-news_event = {
-	id = xinjiang_events.111
-	immediate = {
-		log = "[GetLogInfo]: event xinjiang_events.111"
-		hidden_effect = { JAP = { country_event = { id = JAP_pnr_military_events.13 days = 3 } } }	
+country_event = { #Uprisings expand to Kashgar
+	id = xinjiang_events.34
+	title = xinjiang_events.34.t
+	desc = {
+		text = xinjiang_events.34.SIK.desc
+		trigger = { tag = SIK }
 	}
-	title = xinjiang_events.111.t
-	desc = xinjiang_events.111.d
-	picture = GFX_news_event_SIK_xinjiang
-
+	desc = {
+		text = xinjiang_events.34.KUM.desc
+		trigger = { tag = KUM }
+	}
+	picture = GFX_report_event_ETS_founding_nation
 	is_triggered_only = yes
-	fire_for_sender = no
-	major = yes
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			JAP = { country_event = { id = JAP_pnr_military_events.13 days = 3 } }
+			ETS = {
+				transfer_state = 619
+				set_province_controller = 4973
+				set_province_controller = 10911
+				transfer_technology = yes
 
-	trigger = { wants_world_news = yes }
+				#Military
+				division_template = {
+					name = "Bughra's Militia"
+					division_names_group = CA_MIL_01
+					is_locked = yes
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
+					}
+				}
+				division_template = {
+					name = "Timur's Militia"
+					division_names_group = CA_MIL_01
+					is_locked = yes
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
+					}
+				}
+				287 = { #Qiemo
+					create_unit = {
+						division = "name = \"Revolutionary Guard\" division_template = \"Revolutionary Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.7"
+						owner = PREV
+						prioritize_location = 4973
+						allow_spawning_on_enemy_provs = yes
+					}
+					create_unit = {
+						division = "name = \"Keriya Miners\" division_template = \"Bughra's Militia\" start_experience_factor = 0.03 start_equipment_factor = 0.3"
+						owner = PREV
+						prioritize_location = 13531
+						allow_spawning_on_enemy_provs = yes
+					}
+				}
+				619 = { #Kashgar
+					create_unit = {
+						division = "name = \"1. Kashgar Revolutionary Guard\" division_template = \"Timur's Militia\" start_experience_factor = 0.1 start_equipment_factor = 0.7"
+						owner = ETS
+						prioritize_location = 2015
+						allow_spawning_on_enemy_provs = yes
+					}
+					create_unit = {
+						division = "name = \"2. Kashgar Revolutionary Guard\" division_template = \"Timur's Militia\" start_experience_factor = 0.05 start_equipment_factor = 0.7"
+						owner = ETS
+						prioritize_location = 2015
+						allow_spawning_on_enemy_provs = yes
+					}
+					create_unit = {
+						division = "name = \"1. Yarkand Revolutionary\" division_template = \"Timur's Militia\" start_experience_factor = 0.05 start_equipment_factor = 0.5"
+						owner = ETS
+						prioritize_location = 1970
+						allow_spawning_on_enemy_provs = yes
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = ETS_fledgling_military
+				}
 
-	show_major = { regional_asia_news = yes }
+				declare_war_on = {
+					target = SIK
+					type = annex_everything
+				}
+				if = {
+					limit = {
+						can_declare_war_on = KUM
+						KUM = {
+							has_war_with = SIK
+							is_subject = no
+							is_in_faction = no
+						}
+					}
+					declare_war_on = {
+						target = KUM
+						type = annex_everything
+					}
+				}
+			}
+			SIK = {
+				if = {
+					limit = { exists = yes }
+					set_province_controller = 8112
+					set_province_controller = 13731
+					set_province_controller = 7949
+					set_province_controller = 4828
+					if = {
+						limit = { has_template = "Khotan Tungan Defense Division" }
+						delete_unit_template_and_units = { division_template = "Khotan Tungan Defense Division" disband = yes } #no cheating
+					}
+					division_template = {
+						name = "Khotan Tungan Defense Division"
+						division_names_group = SIK_INF_01
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+						}
+					}
+					random_owned_controlled_state = {
+						prioritize = { 617 }
+						limit = { valid_state_for_spawning_friendly_unit = yes }
+						create_unit = {
+							division = "name = \"Kashgar Garrison\" division_template = \"Khotan Tungan Defense Division\" start_experience_factor = 0.4"
+							owner = ROOT
+						}
+					}
+					random_owned_controlled_state = {
+						prioritize = { 617 }
+						limit = { valid_state_for_spawning_friendly_unit = yes }
+						create_unit = {
+							division = "name = \"Khotan Tungan Defense Division\" division_template = \"Khotan Tungan Defense Division\" start_experience_factor = 0.6"
+							owner = ROOT
+						}
+					}
+					country_event = { id = xinjiang_events.46 days = 3 }
+					country_event = { id = xinjiang_events.35 days = 9 }
+				}
+			}
+			KUM = {
+				if = {
+					limit = { exists = yes }
+					set_country_flag = KUM_ETS_rose_up_flag #So they can't claim victory until they fought ETS
+				}
+			}
+		}
+		set_global_flag = SIK_ETS_rebellion
+		hidden_effect = {
+			ETS = {
+				complete_national_focus = ETS_uyghur_revolution
+				add_ideas = ETS_fight_for_xinjiang_idea
+			}
+		}
+	}
 
-	option = { #Interesting
-		name = xinjiang_events.111.a
+	option = {
+		log = "[GetLogInfo]: event xinjiang_events.34 option xinjiang_events.34.a"
+		name = xinjiang_events.34.a
+		if = {
+			limit = { tag = SIK }
+			activate_mission = SIK_defend_dihua_mission
+			activate_mission = SIK_unify_xinjiang
+			add_ideas = SIK_enemies_all_sides
+			add_ideas = SIK_rumors_discontent
+			custom_effect_tooltip = ETS_uprising_tooltip
+			custom_effect_tooltip = SIK_control_shaowu_divisions
+			custom_effect_tooltip = SIK_yarkand_deployment
+		}
+	}
+
+	option = {#Play as East Turkestan, be careful of PRC secret police
+		log = "[GetLogInfo]: event xinjiang_events.34 option xinjiang_events.34.b"
+		name = xinjiang_events.34.b
+		if = {
+			limit = { tag = SIK }
+			activate_mission = SIK_defend_dihua_mission
+			activate_mission = SIK_unify_xinjiang
+			add_ideas = SIK_enemies_all_sides
+			add_ideas = SIK_rumors_discontent
+		}
+		ETS = {
+			change_tag_from = ROOT
+		}
 	}
 }
 

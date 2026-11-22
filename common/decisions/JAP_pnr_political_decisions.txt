@@ -59,9 +59,12 @@ JAP_pnr_seiyukai_party_support_category = {
 			custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
 			add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.05 }
 			add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.05 }
-			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
-			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
-			hidden_effect = { activate_mission = JAP_pnr_fanduipai_zhengzai_xingdong_1_decision }
+			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
+			hidden_effect = {
+                activate_mission = JAP_pnr_fanduipai_zhengzai_xingdong_1_decision
+                country_event = { id = JAP_pnr_midgame.17 days = 4 }
+            }
 		}
 	}
 	JAP_pnr_fanduipai_zhengzai_xingdong_1_decision = {
@@ -79,9 +82,12 @@ JAP_pnr_seiyukai_party_support_category = {
 			custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
 			add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.05 }
 			add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.05 }
-			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
-			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
-			hidden_effect = { activate_mission = JAP_pnr_fanduipai_zhengzai_xingdong_2_decision }
+			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
+			hidden_effect = {
+                activate_mission = JAP_pnr_fanduipai_zhengzai_xingdong_2_decision
+                country_event = { id = JAP_pnr_midgame.18 days = 12 }
+            }
 		}
 	}
 	JAP_pnr_fanduipai_zhengzai_xingdong_2_decision = {
@@ -99,8 +105,8 @@ JAP_pnr_seiyukai_party_support_category = {
 			custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
 			add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.05 }
 			add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.05 }
-			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
-			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
 			hidden_effect = { activate_mission = JAP_pnr_fanduipai_zhengzai_xingdong_3_decision }
 		}
 	}
@@ -119,8 +125,11 @@ JAP_pnr_seiyukai_party_support_category = {
 			custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_decrease
 			add_to_variable = { JAP_pnr_seiyukai_support_power_var = -0.05 }
 			add_to_variable = { JAP_pnr_seiyukai_resist_power_var = 0.05 }
-			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 100 min = 0 }
-			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 100 min = 0 }
+			clamp_variable = { var = JAP_pnr_seiyukai_support_power_var max = 1 min = 0 }
+			clamp_variable = { var = JAP_pnr_seiyukai_resist_power_var max = 1 min = 0 }
+            hidden_effect = {
+                country_event = { id = JAP_pnr_midgame.16 days = 11 random_days = 5 }
+            }
 		}
 	}
 	JAP_pnr_destory_loyal_member_decision = {
@@ -169,7 +178,11 @@ JAP_pnr_seiyukai_party_support_category = {
         cost = 15
         available = { NOT = { has_country_flag = we_are_trying_to_winning_a_faction_flag } }
         days_remove = 21
+        complete_effect = {
+            set_country_flag = we_are_trying_to_winning_a_faction_flag
+        }
         remove_effect = {
+            clr_country_flag = we_are_trying_to_winning_a_faction_flag
             custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
             add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
             add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
@@ -191,7 +204,11 @@ JAP_pnr_seiyukai_party_support_category = {
         cost = 15
         available = { NOT = { has_country_flag = we_are_trying_to_winning_a_faction_flag } }
         days_remove = 21
+        complete_effect = {
+            set_country_flag = we_are_trying_to_winning_a_faction_flag
+        }
         remove_effect = {
+            clr_country_flag = we_are_trying_to_winning_a_faction_flag
             custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
             add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
             add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
@@ -213,7 +230,11 @@ JAP_pnr_seiyukai_party_support_category = {
         cost = 15
         available = { NOT = { has_country_flag = we_are_trying_to_winning_a_faction_flag } }
         days_remove = 21
+        complete_effect = {
+            set_country_flag = we_are_trying_to_winning_a_faction_flag
+        }
         remove_effect = {
+            clr_country_flag = we_are_trying_to_winning_a_faction_flag
             custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
             add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
             add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
@@ -235,7 +256,11 @@ JAP_pnr_seiyukai_party_support_category = {
         cost = 15
         available = { NOT = { has_country_flag = we_are_trying_to_winning_a_faction_flag } }
         days_remove = 21
+        complete_effect = {
+            set_country_flag = we_are_trying_to_winning_a_faction_flag
+        }
         remove_effect = {
+            clr_country_flag = we_are_trying_to_winning_a_faction_flag
             custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
             add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
             add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
@@ -257,7 +282,11 @@ JAP_pnr_seiyukai_party_support_category = {
         cost = 15
         available = { NOT = { has_country_flag = we_are_trying_to_winning_a_faction_flag } }
         days_remove = 21
+        complete_effect = {
+            set_country_flag = we_are_trying_to_winning_a_faction_flag
+        }
         remove_effect = {
+            clr_country_flag = we_are_trying_to_winning_a_faction_flag
             custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
             add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
             add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
@@ -279,7 +308,11 @@ JAP_pnr_seiyukai_party_support_category = {
         cost = 15
         available = { NOT = { has_country_flag = we_are_trying_to_winning_a_faction_flag } }
         days_remove = 21
+        complete_effect = {
+            set_country_flag = we_are_trying_to_winning_a_faction_flag
+        }
         remove_effect = {
+            clr_country_flag = we_are_trying_to_winning_a_faction_flag
             custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
             add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
             add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
@@ -301,7 +334,11 @@ JAP_pnr_seiyukai_party_support_category = {
         cost = 15
         available = { NOT = { has_country_flag = we_are_trying_to_winning_a_faction_flag } }
         days_remove = 21
+        complete_effect = {
+            set_country_flag = we_are_trying_to_winning_a_faction_flag
+        }
         remove_effect = {
+            clr_country_flag = we_are_trying_to_winning_a_faction_flag
             custom_effect_tooltip = JAP_pnr_seiyukai_support_power_var_increase
             add_to_variable = { JAP_pnr_seiyukai_support_power_var = 0.05 }
             add_to_variable = { JAP_pnr_seiyukai_resist_power_var = -0.05 }
@@ -309,4 +346,65 @@ JAP_pnr_seiyukai_party_support_category = {
         highlight_states = { highlight_state_targets = { state = 282 } }
 	}
 ### Local Office Revolution ###
+    JAP_pnr_tax_power_down_decision = {
+        icon = GFX_decision_hol_attract_foreign_investors
+        allowed = { always = no }
+        cost = 45
+        days_remove = 120
+        fire_only_once = yes
+        modifier = { consumer_goods_factor = 0.05 }
+        remove_effect = {
+            add_stability = 0.10
+            add_popularity = { ideology = social_conservative popularity = 0.04 }
+            add_to_variable = { seiyukai_local_revolution_var = 1 }
+        }
+    }
+    JAP_pnr_public_service_down_decision = {
+        icon = GFX_decision_generic_speech
+        allowed = { always = no }
+        cost = 45
+        days_remove = 120
+        fire_only_once = yes
+        modifier = { consumer_goods_factor = 0.05 }
+        remove_effect = {
+            add_one_random_infrastructure = yes
+            add_one_random_infrastructure = yes
+            add_to_variable = { seiyukai_local_revolution_var = 1 }
+        }
+    }
+    JAP_pnr_local_law_setting_decision = {
+        icon = GFX_decision_generic_political_address
+        allowed = { always = no }
+        cost = 45
+        days_remove = 120
+        fire_only_once = yes
+        modifier = { consumer_goods_factor = 0.05 }
+        remove_effect = {
+            add_stability = 0.10
+            add_to_variable = { seiyukai_local_revolution_var = 1 }
+        }
+    }
+    JAP_pnr_simply_the_judgement_system_decision = {
+        icon = GFX_decision_government
+        allowed = { always = no }
+        cost = 45
+        days_remove = 120
+        fire_only_once = yes
+        modifier = { political_power_factor = 0.05 }
+        remove_effect = {
+            add_to_variable = { seiyukai_local_revolution_var = 1 }
+        }
+    }
+    JAP_pnr_setting_local_school_decision = {
+        icon = GFX_decision_ger_mefo_bills
+        allowed = { always = no }
+        cost = 45
+        days_remove = 120
+        fire_only_once = yes
+        modifier = { consumer_goods_factor = 0.05 }
+        remove_effect = {
+            add_ideas = JAP_pnr_village_education_improve_idea
+            add_to_variable = { seiyukai_local_revolution_var = 1 }
+        }
+    }
 }

@@ -153,3 +153,53 @@ pnr_is_co_prosperity_candidate_trigger = {
 		is_subject_of = JAP
 	}
 }
+
+#################
+# 1936 Election #
+#################
+
+JAP_pnr_election_seimin_coalition_leads = {
+	check_variable = { JAP_pnr_election_party_true_factor^6 = JAP_pnr_election_party_true_factor^7 }
+	NOT = { check_variable = { JAP_pnr_election_party_true_factor^6 < JAP_pnr_election_party_true_factor^4 } }
+	NOT = { check_variable = { JAP_pnr_election_party_true_factor^6 < JAP_pnr_election_party_true_factor^8 } }
+	NOT = { check_variable = { JAP_pnr_election_party_true_factor^6 < JAP_pnr_election_party_true_factor^10 } }
+}
+
+JAP_pnr_election_party_10_leads = {
+	NOT = { JAP_pnr_election_seimin_coalition_leads = yes }
+	NOT = { check_variable = { JAP_pnr_election_party_true_factor^10 < JAP_pnr_election_party_true_factor^4 } }
+	NOT = { check_variable = { JAP_pnr_election_party_true_factor^10 < JAP_pnr_election_party_true_factor^6 } }
+	NOT = { check_variable = { JAP_pnr_election_party_true_factor^10 < JAP_pnr_election_party_true_factor^7 } }
+	NOT = { check_variable = { JAP_pnr_election_party_true_factor^10 < JAP_pnr_election_party_true_factor^8 } }
+}
+
+JAP_pnr_election_party_8_leads = {
+	NOT = { JAP_pnr_election_seimin_coalition_leads = yes }
+	check_variable = { JAP_pnr_election_party_true_factor^8 > JAP_pnr_election_party_true_factor^10 }
+	NOT = { check_variable = { JAP_pnr_election_party_true_factor^8 < JAP_pnr_election_party_true_factor^4 } }
+	NOT = { check_variable = { JAP_pnr_election_party_true_factor^8 < JAP_pnr_election_party_true_factor^6 } }
+	NOT = { check_variable = { JAP_pnr_election_party_true_factor^8 < JAP_pnr_election_party_true_factor^7 } }
+}
+
+JAP_pnr_election_party_7_leads = {
+	NOT = { JAP_pnr_election_seimin_coalition_leads = yes }
+	check_variable = { JAP_pnr_election_party_true_factor^7 > JAP_pnr_election_party_true_factor^10 }
+	check_variable = { JAP_pnr_election_party_true_factor^7 > JAP_pnr_election_party_true_factor^8 }
+	check_variable = { JAP_pnr_election_party_true_factor^7 > JAP_pnr_election_party_true_factor^6 }
+	NOT = { check_variable = { JAP_pnr_election_party_true_factor^7 < JAP_pnr_election_party_true_factor^4 } }
+}
+
+JAP_pnr_election_party_6_leads = {
+	NOT = { JAP_pnr_election_seimin_coalition_leads = yes }
+	check_variable = { JAP_pnr_election_party_true_factor^6 > JAP_pnr_election_party_true_factor^10 }
+	check_variable = { JAP_pnr_election_party_true_factor^6 > JAP_pnr_election_party_true_factor^8 }
+	check_variable = { JAP_pnr_election_party_true_factor^6 > JAP_pnr_election_party_true_factor^7 }
+	NOT = { check_variable = { JAP_pnr_election_party_true_factor^6 < JAP_pnr_election_party_true_factor^4 } }
+}
+
+JAP_pnr_election_shakai_taishuto_leads = {
+	check_variable = { JAP_pnr_election_party_true_factor^4 > JAP_pnr_election_party_true_factor^10 }
+	check_variable = { JAP_pnr_election_party_true_factor^4 > JAP_pnr_election_party_true_factor^8 }
+	check_variable = { JAP_pnr_election_party_true_factor^4 > JAP_pnr_election_party_true_factor^7 }
+	check_variable = { JAP_pnr_election_party_true_factor^4 > JAP_pnr_election_party_true_factor^6 }
+}

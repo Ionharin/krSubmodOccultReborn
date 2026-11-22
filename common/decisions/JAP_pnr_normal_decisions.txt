@@ -858,6 +858,7 @@ JAP_hero_et_gangster_bop_category = { #BOP
 }
 
 JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
+### Eastern China Crisis ###
 	JAP_pnr_1936_chinese_tax_conference_decision = {
 		icon = GFX_decision_government
 		is_good = no
@@ -891,7 +892,8 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 		}
 		ai_will_do = { factor = 10 }
 		priority = 99
-		cost = 5
+		custom_cost_text = CP_10
+		custom_cost_trigger = { command_power > 9.99 }
 		days_remove = 120
 		modifier = {
 			civilian_factory_use = 2
@@ -904,6 +906,7 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 				limit = { NOT = { has_country_flag = JAP_pnr_support_ANQ } }
 				set_country_flag = JAP_pnr_support_ANQ
 			}
+			hidden_effect = { add_command_power = -10 }
 		}
 		remove_effect = {
 			ANQ = { add_offsite_building = { type = industrial_complex level = -1 } }
@@ -913,6 +916,10 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 	JAP_pnr_tongma_sunchuanfang = {
 		icon = GFX_decision_generic_political_rally
 		allowed = { always = no }
+		visible = { 
+			ANQ = { exists = yes }
+			NOT = { has_global_flag = LEP_league_war_over }
+		}
 		cancel_trigger = { has_global_flag = LEP_collapse }
 		cost = 15
 		fire_only_once = yes
@@ -936,6 +943,10 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 	JAP_pnr_zhangtie_dazibao = {
 		icon = GFX_decision_generic_nationalism
 		allowed = { always = no }
+		visible = { 
+			ANQ = { exists = yes }
+			NOT = { has_global_flag = LEP_league_war_over }
+		}
 		cost = 15
 		fire_only_once = yes
 		ai_will_do = { factor = 100 }
@@ -964,6 +975,10 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 	JAP_pnr_ti_chendiaoyuan_xuanchuan = {
 		icon = GFX_decision_generic_political_address
 		allowed = { always = no }
+		visible = { 
+			ANQ = { exists = yes }
+			NOT = { has_global_flag = LEP_league_war_over }
+		}
 		cancel_trigger = { has_global_flag = LEP_league_war_over }
 		cost = 20
 		ai_will_do = { factor = 100 }
@@ -1073,6 +1088,27 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 		fixed_random_seed = no
 	}
 ### Confuciusm ###
+	JAP_pnr_confuciusm_crsis_start = {
+		icon = GFX_decision_eng_trade_unions_demand
+		days_mission_timeout = 28
+		fire_only_once = yes
+		selectable_mission = yes
+		is_good = yes
+		allowed = { always = no }
+		ai_will_do = { base = 0 }
+		complete_effect = {
+			activate_mission = JAP_pnr_save_the_kong_decheng_decision
+			activate_targeted_decision = { decision = JAP_pnr_youshui_kong_lingjun_decision target = var:1064.owner }
+			activate_targeted_decision = { decision = JAP_pnr_calling_saint_way_decision target = var:1064.owner }
+			activate_targeted_decision = { decision = JAP_pnr_prepare_anti_confucianism_decision target = var:1064.owner }
+			activate_targeted_decision = { decision = JAP_pnr_offer_palaces_fix_loan_decision target = var:1064.owner }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = JAP_pnr_shibun_alliance_tt
+		}
+		timeout_effect = {
+			add_political_power = 30
+		}
+	}
 	JAP_pnr_save_the_kong_decheng_decision = {
 		icon = GFX_decisions_generic_counter_infiltration
         is_good = no
@@ -1226,7 +1262,7 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 			hidden_effect = {  }
 		}
 	}
-	### 和 CHN（关内合法政府）的谈判 ###
+	### 和 CHN（关内合法政府）的谈判与危机 ###
 	JAP_pnr_shougou_zhongwen_baozhi_decision = {
 		icon = GFX_decision_ger_mefo_bills
 		visible = {
@@ -1236,8 +1272,9 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 		}
 		priority = 91
 		available = { CHN = { NOT = { has_war_with = JAP } } }
-		cost = 30
+		cost = 15
 		days_remove = 100
+		days_re_enable = 1
 		modifier = { political_power_cost = 0.03 }
 		complete_effect = {
 			custom_effect_tooltip = jap_pnr_chinese_diplomancy_result_var_increase_tt
@@ -1245,12 +1282,42 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 		}
 	}
 	JAP_pnr_chengjie_guannei_yunshu_decision = {
-
+		icon = GFX_decision_train
+		allowed = { always = no }
+		priority = 91
+		available = { CHN = { NOT = { has_war_with = JAP } } }
+		cancel_trigger = { CHN = { has_war_with = JAP } }
+		fire_only_once = yes
+		cost = 30
+		days_remove = 70
+		complete_effect = {
+			custom_effect_tooltip = jap_pnr_chinese_diplomancy_result_var_increase_tt
+        	add_to_variable = { jap_pnr_chinese_diplomancy_result_var = 6 }
+		}
+		remove_effect = {
+			CHN = {
+				add_one_random_infrastructure = yes
+				add_one_random_infrastructure = yes
+			}
+		}
 	}
 	JAP_pnr_chongqi_1936_guanshui_tanpan_decision = {
-		
+		icon = GFX_decision_generic_flags
+		allowed = { always = no }
+		visible = {
+			check_variable = { chinese_diplomancy_officer > 0 }
+			CHN = { NOT = { is_ally_with = JAP } }
+			has_completed_focus = JAP_pnr_reassess_mainland_policy
+			LEC = {
+				national_populist > 0.20
+			}
+		}
+		available = {
+			has_global_flag = USA_civil_war_begun_flag
+			CHN = { NOT = { has_war_with = JAP } }
+		}
+		cancel_trigger = { CHN = { has_war_with = JAP } }
 	}
-
 }
 
 JAP_pnr_landreform_category = { # LAND REFORM
@@ -1317,7 +1384,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
 		remove_effect = {
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 6
+				value = 10
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 			add_days_mission_timeout = { mission = JAP_pnr_landreform_countdown days = -20 }
@@ -1356,7 +1423,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
 		remove_effect = {
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 6
+				value = 10
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1386,7 +1453,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 10
+				value = 15
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1422,7 +1489,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 10
+				value = 15
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1452,7 +1519,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 10
+				value = 15
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1476,7 +1543,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 15
+				value = 20
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1500,7 +1567,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 15
+				value = 20
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1524,7 +1591,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 15
+				value = 20
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1546,7 +1613,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 15
+				value = 20
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1568,7 +1635,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 15
+				value = 20
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1590,7 +1657,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 15
+				value = 20
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
@@ -1612,7 +1679,7 @@ JAP_pnr_landreform_category = { # LAND REFORM
             custom_effect_tooltip = tooltip_white_line
 			add_to_variable = {
 				var = JAP_pnr_landreform_result_var
-				value = 15
+				value = 20
 				tooltip = JAP_pnr_landreform_result_var_raised
 			}
 		}
