@@ -441,8 +441,8 @@ ideas = {
 				production_speed_buildings_factor = 0.10
 				production_factory_max_efficiency_factor = 0.10
 			}
-			targeted_modifier = { tag = JAP cic_to_target_factor = 0.20 }
-			targeted_modifier = { tag = JAP mic_to_target_factor = 0.20 }
+			targeted_modifier = { tag = JAP cic_to_target_factor = 0.25 }
+			targeted_modifier = { tag = JAP mic_to_target_factor = 0.25 }
 		}
 
 	### Kasumigaseki diplomacy Ideas ###
@@ -487,8 +487,15 @@ ideas = {
 				industrial_factory_donations = 1
 			}
 		}
+		JAP_pan_asia_revolution_origin_land = {
+			picture = JAP_east_asian_co_prosperity
+			allowed = { always = no }
+			modifier = {
+				send_volunteer_size = 1
+			}
+		}
 		JAP_pnr_offensive_realpolitik = {
-			picture = jap_pnr_offensive_realpolitik
+			picture = JAP_east_asian_co_prosperity
 			allowed = { always = no }
 			modifier = {
 				send_volunteer_size = 1
@@ -496,18 +503,18 @@ ideas = {
 			}
 		}
 		JAP_pnr_offensive_realpolitik_1 = {
-			picture = jap_pnr_offensive_realpolitik
+			picture = JAP_east_asian_co_prosperity
 			allowed = { always = no }
 			modifier = {
-				send_volunteer_size = 2
+				send_volunteer_size = 1
 				opinion_gain_monthly_factor = 0.10
 			}
 		}
 		JAP_pnr_offensive_realpolitik_2 = {
-			picture = jap_pnr_offensive_realpolitik
+			picture = JAP_east_asian_co_prosperity
 			allowed = { always = no }
 			modifier = {
-				send_volunteer_size = 2
+				send_volunteer_size = 1
 				opinion_gain_monthly_factor = 0.10
 				experience_gain_army = 0.02
 				experience_gain_navy = 0.02
@@ -515,7 +522,7 @@ ideas = {
 			}
 		}
 		JAP_pnr_offensive_realpolitik_3 = {
-			picture = jap_pnr_offensive_realpolitik
+			picture = JAP_east_asian_co_prosperity
 			allowed = { always = no }
 			modifier = {
 				send_volunteer_size = 2
@@ -526,10 +533,10 @@ ideas = {
 			}
 		}
 		JAP_pnr_offensive_realpolitik_4 = {
-			picture = jap_pnr_offensive_realpolitik
+			picture = JAP_east_asian_co_prosperity
 			allowed = { always = no }
 			modifier = {
-				send_volunteer_size = 3
+				send_volunteer_size = 2
 				opinion_gain_monthly_factor = 0.20
 				embargo_cost_factor = -0.45
 				experience_gain_army = 0.04
@@ -670,6 +677,13 @@ ideas = {
 			modifier = {
 				experience_gain_army = 0.02
 				training_time_factor = -0.10
+			}
+		}
+		JAP_pnr_economic_crisis_idea = {
+			picture = ARG_political_corruption_modifier
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.15
 			}
 		}
 	### New Military Ideas ###

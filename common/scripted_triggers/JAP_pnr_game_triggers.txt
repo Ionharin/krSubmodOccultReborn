@@ -203,3 +203,14 @@ JAP_pnr_election_shakai_taishuto_leads = {
 	check_variable = { JAP_pnr_election_party_true_factor^4 > JAP_pnr_election_party_true_factor^7 }
 	check_variable = { JAP_pnr_election_party_true_factor^4 > JAP_pnr_election_party_true_factor^6 }
 }
+
+JAP_pnr_is_valid_control_finance_target = {
+	NOT = { tag = ROOT }
+	OR = {
+		is_subject_of = ROOT
+		AND = {
+			is_in_faction_with = ROOT
+			ROOT = { is_faction_leader = yes }
+		}
+	}
+}

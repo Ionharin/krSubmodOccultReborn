@@ -202,7 +202,8 @@ JAP_pnr_yen_economic_sphere_leader = {
 	icon = GFX_idea_JAP_yen
 	remove_trigger = { is_economic_sphere_leader = no }
 	industrial_capacity_factory = global.JAP_pnr_yen_economic_sphere_industry_boost
-	industrial_capacity_dockyard = global.JAP_pnr_yen_economic_sphere_industry_boost
+	industrial_capacity_dockyard = JAP.JAP_yen_economic_sphere_industrial_capacity_dockyard_var
+	production_lack_of_resource_penalty_factor = global.JAP_pnr_yen_economic_sphere_lack_of_resource_boost
 	consumer_goods_factor = global.JAP_pnr_economic_sphere_goods_var
 }
 
@@ -211,4 +212,5 @@ JAP_pnr_yen_economic_sphere_member = {
 	remove_trigger = { JAP = { is_leader_of_economic_sphere_of_ROOT = no } }
 	production_speed_buildings_factor = global.JAP_pnr_economic_sphere_production_speed_member_var
 	consumer_goods_factor = global.JAP_pnr_economic_sphere_goods_member_var
+	production_speed_industrial_complex_factor = JAP.JAP_yen_economic_sphere_speed_industrial_complex_var
 }

@@ -2085,307 +2085,6 @@ JAP_pnr_kwan_island_crisis_category = { # 1936.4 kwan crisis
 	}
 }
 
-## JAP_pnr_oriental_policy_category = {
-## 	JAP_pnr_revalue_taiwan = {
-## 		icon = GFX_decision_hol_attract_foreign_investors
-## 		days_remove = 90
-## 		days_re_enable = 90
-## 		available = {
-## 			country_exists = TAI
-## 			custom_trigger_tooltip = {
-## 				tooltip = pnr_oriental_policy_category_economy_normal_tt
-## 				TAI = {
-## 					is_subject_of = JAP
-## 					check_variable = { pnr_provisional_government_stability_var > 9 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
-## 				}
-## 			}
-## 		}
-## 		custom_cost_trigger = {
-## 			TAI = { check_variable = { pnr_provisional_government_stability_var > 9 } }
-## 		}
-## 		custom_cost_text = JAP_pnr_oriental_policy_category_pgst_10_cost
-## 		modifier = { political_power_gain = 0.2 }
-## 		complete_effect = {
-## 			TAI = {
-## 				add_to_variable = {
-## 					var = pnr_provisional_government_stability_var
-## 					value = -10
-## 					tooltip = pnr_oriental_policy_category
-## 				}
-## 				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
-## 			}
-## 		}
-## 		ai_will_do = { factor = 0 }
-## 		fixed_random_seed = no
-## 	}
-## 	JAP_pnr_revalue_korea = {
-## 		icon = GFX_decision_hol_attract_foreign_investors
-## 		days_remove = 90
-## 		days_re_enable = 90
-## 		available = {
-## 			country_exists = KOJ
-## 			custom_trigger_tooltip = {
-## 				tooltip = pnr_oriental_policy_category_economy_normal_tt
-## 				KOJ = {
-## 					is_subject_of = JAP
-## 					check_variable = { pnr_provisional_government_stability_var > 9 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
-## 				}
-## 			}
-## 		}
-## 		custom_cost_trigger = {
-## 			KOJ = { check_variable = { pnr_provisional_government_stability_var > 9 } }
-## 		}
-## 		custom_cost_text = JAP_pnr_oriental_policy_category_pgst_10_cost
-## 		modifier = { political_power_gain = 0.2 }
-## 		complete_effect = {
-## 			KOJ = {
-## 				add_to_variable = {
-## 					var = pnr_provisional_government_stability_var
-## 					value = -10
-## 					tooltip = pnr_oriental_policy_category
-## 				}
-## 				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
-## 			}
-## 		}
-## 		ai_will_do = { factor = 0 }
-## 		fixed_random_seed = no
-## 	}
-## 	JAP_pnr_fund_taiwan = {
-## 		icon = GFX_decision_gre_investment_decisions
-## 		cost = 20
-## 		days_remove = 120
-## 		days_re_enable = 30
-## 		allowed = { always = no }
-## 		available = {
-## 			country_exists = TAI
-## 			custom_trigger_tooltip = {
-## 				tooltip = pnr_oriental_policy_category_economy_normal_tt
-## 				TAI = {
-## 					is_subject_of = JAP
-## 					check_variable = { pnr_provisional_government_stability_var < 96 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
-## 				}
-## 			}
-## 		}
-## 		remove_effect = {
-## 			TAI = {
-## 				add_to_variable = {
-## 					var = pnr_provisional_government_stability_var
-## 					value = 5
-## 					tooltip = pnr_oriental_policy_category
-## 				}
-## 				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
-## 			}
-## 		}
-## 		ai_will_do = { factor = 0 }
-## 		fixed_random_seed = no
-## 	}
-## 	JAP_pnr_fund_korea = {
-## 		icon = GFX_decision_gre_investment_decisions
-## 		cost = 20
-## 		days_remove = 120
-## 		days_re_enable = 30
-## 		allowed = { always = no }
-## 		available = {
-## 			country_exists = KOJ
-## 			custom_trigger_tooltip = {
-## 				tooltip = pnr_oriental_policy_category_economy_normal_tt
-## 				KOJ = {
-## 					is_subject_of = JAP
-## 					check_variable = { pnr_provisional_government_stability_var < 96 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
-## 				}
-## 			}
-## 		}
-## 		remove_effect = {
-## 			KOJ = {
-## 				add_to_variable = {
-## 					var = pnr_provisional_government_stability_var
-## 					value = 5
-## 					tooltip = pnr_oriental_policy_category
-## 				}
-## 				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
-## 			}
-## 		}
-## 		ai_will_do = { factor = 0 }
-## 		fixed_random_seed = no
-## 	}
-## 	JAP_pnr_ship_weapons_to_taiwan = {
-## 		icon = GFX_decision_support_equipment
-## 		days_remove = 60
-## 		days_re_enable = 30
-## 		allowed = { always = no }
-## 		available = {
-## 			country_exists = TAI
-## 			custom_trigger_tooltip = {
-## 				tooltip = pnr_oriental_policy_category_economy_normal_tt
-## 				TAI = {
-## 					is_subject_of = JAP
-## 					check_variable = { pnr_provisional_government_stability_var < 96 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
-## 				}
-## 			}
-## 		}
-## 		custom_cost_text = JAP_pnr_1000_infantry_100_support_equipment_cost
-## 		custom_cost_trigger = {
-## 			NOT = { has_equipment = { infantry_equipment < 1000 } }
-## 			NOT = { has_equipment = { support_equipment < 100 } }
-## 		}
-## 		complete_effect = {
-## 			send_equipment = { target = TAI type = infantry_equipment amount = 1000 }
-## 			send_equipment = { target = TAI type = support_equipment amount = 100 }
-## 		}
-## 		remove_effect = {
-## 			TAI = {
-## 				add_to_variable = {
-## 					var = pnr_provisional_government_stability_var
-## 					value = 5
-## 					tooltip = pnr_oriental_policy_category
-## 				}
-## 				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
-## 			}
-## 		}
-## 		ai_will_do = { factor = 0 }
-## 		fixed_random_seed = no
-## 	}
-## 	JAP_pnr_ship_weapons_to_korea = {
-## 		icon = GFX_decision_support_equipment
-## 		days_remove = 60
-## 		days_re_enable = 30
-## 		allowed = { always = no }
-## 		available = {
-## 			country_exists = KOJ
-## 			custom_trigger_tooltip = {
-## 				tooltip = pnr_oriental_policy_category_economy_normal_tt
-## 				KOJ = {
-## 					is_subject_of = JAP
-## 					check_variable = { pnr_provisional_government_stability_var < 96 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
-## 				}
-## 			}
-## 		}
-## 		custom_cost_text = JAP_pnr_1000_infantry_100_support_equipment_cost
-## 		custom_cost_trigger = {
-## 			NOT = { has_equipment = { infantry_equipment < 1000 } }
-## 			NOT = { has_equipment = { support_equipment < 100 } }
-## 		}
-## 		complete_effect = {
-## 			send_equipment = { target = KOJ type = infantry_equipment amount = 1000 }
-## 			send_equipment = { target = KOJ type = support_equipment amount = 100 }
-## 		}
-## 		remove_effect = {
-## 			KOJ = {
-## 				add_to_variable = {
-## 					var = pnr_provisional_government_stability_var
-## 					value = 5
-## 					tooltip = pnr_oriental_policy_category
-## 				}
-## 				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
-## 			}
-## 		}
-## 		ai_will_do = { factor = 0 }
-## 		fixed_random_seed = no
-## 	}
-## 	JAP_pnr_consolidate_control_over_taiwan = {
-## 		icon = GFX_decision_government
-## 		cost = 45
-## 		days_remove = 180
-## 		allowed = { always = no }
-## 		fire_only_once = yes
-## 		available = {
-## 			country_exists = TAI
-## 			custom_trigger_tooltip = {
-## 				tooltip = pnr_oriental_policy_category_economy_normal_tt
-## 				TAI = {
-## 					is_subject_of = JAP
-## 					check_variable = { pnr_provisional_government_stability_var < 91 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
-## 				}
-## 			}
-## 		}
-## 		remove_effect = {
-## 			TAI = {
-## 				add_one_random_civilian_factory = yes
-## 				add_one_random_civilian_factory = yes
-## 				add_to_variable = {
-## 					var = pnr_provisional_government_stability_var
-## 					value = 10
-## 					tooltip = pnr_oriental_policy_category
-## 				}
-## 				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
-## 			}
-## 		}
-## 		ai_will_do = { factor = 0 }
-## 		fixed_random_seed = no
-## 	}
-## 	JAP_pnr_consolidate_control_over_korea = {
-## 		icon = GFX_decision_government
-## 		cost = 45
-## 		days_remove = 180
-## 		allowed = { always = no }
-## 		fire_only_once = yes
-## 		available = {
-## 			country_exists = KOJ
-## 			custom_trigger_tooltip = {
-## 				tooltip = pnr_oriental_policy_category_economy_normal_tt
-## 				KOJ = {
-## 					is_subject_of = JAP
-## 					check_variable = { pnr_provisional_government_stability_var < 91 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_0 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_1 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_2 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_3 }
-## 					NOT = { has_idea = JAP_pnr_deadlock_financial_situation_4 }
-## 				}
-## 			}
-## 		}
-## 		remove_effect = {
-## 			KOJ = {
-## 				add_one_random_civilian_factory = yes
-## 				add_one_random_civilian_factory = yes
-## 				add_to_variable = {
-## 					var = pnr_provisional_government_stability_var
-## 					value = 10
-## 					tooltip = pnr_oriental_policy_category
-## 				}
-## 				JAP_pnr_update_relationship_with_provisional_government_modifier = yes
-## 			}
-## 		}
-## 		ai_will_do = { factor = 0 }
-## 		fixed_random_seed = no
-## 	}
-## }
-
 JAP_pnr_black_monday_development_category = {
 	### Black Monday Decisions ###
 		JAP_pnr_decrease_black_monday_countdown = {
@@ -4621,7 +4320,7 @@ JAP_pnr_national_security_bill_category = { # NSA/NSB debations
 		}
 		ai_will_do = { factor = 0 }
 	}
-	JAP_pnr_nsb_emergency_suppression_power = { #选举事件将为弱势党派提供更少席位
+	JAP_pnr_nsb_emergency_suppression_power = { #稳定度 +5%
 		icon = GFX_decision_generic_confiscation
 		allowed = { tag = JAP }
 		visible = { has_country_flag = JAP_pnr_nsb_debate_begun }
@@ -4639,7 +4338,17 @@ JAP_pnr_national_security_bill_category = { # NSA/NSB debations
 				}
 			}
 			custom_effect_tooltip = JAP_pnr_nsb_if_article_passes_tt
-			custom_effect_tooltip = JAP_pnr_nsb_weaker_parties_gain_fewer_seats_tt
+			effect_tooltip = {
+				custom_effect_tooltip = {
+					localization_key = tooltip_modify_dynmod
+					DYNMOD = JAP_pnr_NSA_idea
+				}
+				add_to_variable = {
+					var = JAP_pnr_NSA_idea_stability_factor
+					value = 0.05
+					tooltip = stability_factor_tt
+				}
+			}
 			hidden_effect = {
 				add_to_variable = { JAP_pnr_nsb_article_count = 1 }
 				set_country_flag = pnr_nsb_decision_7_flag
@@ -4816,6 +4525,7 @@ JAP_pnr_asia_co_prosperity_sphere_category = { # Faction Decisions
 		custom_cost_text = JAP_pnr_pan_asia_modifier_point_1_cost
 		days_remove = 56
 		days_re_enable = 365
+		priority = 100
 		#fire_only_once = yes
 		modifier = {
 			improve_relations_maintain_cost_factor = -0.25
@@ -4842,8 +4552,9 @@ JAP_pnr_asia_co_prosperity_sphere_category = { # Faction Decisions
 	JAP_pnr_invite_somebody_join_into_our_faction_decision = {
 		icon = GFX_decision_hand_out
 		priority = 20
-		allowed = { always = no }
+		visible = { has_completed_focus = JAP_pnr_the_new_order_of_aisa }
 		available = {
+			has_global_flag = second_weltkrieg_has_started
 			at_peace_or_same_enemies_as_FROM = yes
 			FROM = { at_peace_or_same_enemies_as_ROOT = yes }
 			NOT = { has_war_with = FROM }
@@ -4865,6 +4576,14 @@ JAP_pnr_asia_co_prosperity_sphere_category = { # Faction Decisions
 				NOT = { has_country_flag = JAP_invited_to_sphere }
 			}
 		}
+		target_trigger = {
+			FROM = {
+				has_socialist_government = no
+				is_asian_focused_tag = yes
+				is_chinese_tag = no
+				is_in_india = no
+			}
+		}
 		custom_cost_trigger = { check_variable = { JAP_pnr_pan_asia_modifier_point_var > 0 } }
 		custom_cost_text = JAP_pnr_pan_asia_modifier_point_1_cost
 		days_re_enable = 365
@@ -4873,38 +4592,6 @@ JAP_pnr_asia_co_prosperity_sphere_category = { # Faction Decisions
 			log = "[GetLogRoot][GetLogFrom]: Decision complete JAP_pnr_invite_somebody_join_into_our_fuction_decision"
 			subtract_from_variable = { JAP_pnr_pan_asia_modifier_point_var = 1 }
 			FROM = { country_event = JAP_pnr_foreign_events.57 }
-		}
-		fixed_random_seed = no
-	}
-	JAP_pnr_invite_somebody_join_into_our_faction_free_decision = {
-		icon = GFX_decision_hand_out
-		priority = 20
-		allowed = { always = no }
-		available = {
-			at_peace_or_same_enemies_as_FROM = yes
-			FROM = { at_peace_or_same_enemies_as_ROOT = yes }
-			NOT = { has_war_with = FROM }
-			NOT = { GER = { has_guaranteed = FROM } }
-			NOT = { GEA = { has_guaranteed = FROM } }
-		}
-		visible = {
-			is_faction_leader = yes
-			FROM = {
-				exists = yes
-				is_in_faction = no
-				is_subject = no
-				has_socialist_government = no
-				OR = {
-					is_in_economic_sphere = no
-					is_in_economic_sphere_led_by_ROOT = yes
-				}
-				NOT = { has_country_flag = JAP_invited_to_sphere }
-			}
-		}
-		ai_will_do = { base = 10000 }
-		complete_effect = {
-			log = "[GetLogRoot][GetLogFrom]: Decision complete JAP_pnr_invite_somebody_join_into_our_faction_free_decision"
-			FROM = { add_to_faction = ROOT }
 		}
 		fixed_random_seed = no
 	}
@@ -4932,19 +4619,22 @@ JAP_pnr_asia_co_prosperity_sphere_category = { # Faction Decisions
 ### Imeprial Factional Decisions ###
 	JAP_pnr_control_members_finance = {
 		icon = GFX_decision_generic_confiscation
+		visible = { has_completed_focus = JAP_pnr_squeeze_out_excess_water }
 		available = {
 			hidden_trigger = {
-				is_faction_leader = yes
 				FROM = { exists = yes }
-				FROM = { is_in_faction_with = JAP }
+				FROM = { JAP_pnr_is_valid_control_finance_target = yes }
 			}
 		}
 		cancel_trigger = {
 			OR = {
-				is_faction_leader = no
 				FROM = { exists = no }
-				FROM = { NOT = { is_in_faction_with = JAP } }
+				FROM = { NOT = { JAP_pnr_is_valid_control_finance_target = yes } }
 			}
+		}
+		target_array = allies
+		target_trigger = {
+			FROM = { JAP_pnr_is_valid_control_finance_target = yes }
 		}
 		priority = 50
 		allowed = { tag = JAP }
@@ -4959,7 +4649,218 @@ JAP_pnr_asia_co_prosperity_sphere_category = { # Faction Decisions
 			}
 		}
 	}
+	JAP_pnr_buhuaqian_de_zhanzheng_decision = {
+		icon = GFX_decision_generic_confiscation
+		allowed = { always = no }
+		custom_cost_trigger = { check_variable = { JAP_pnr_pan_asia_modifier_point_var > 0 } }
+		custom_cost_text = JAP_pnr_pan_asia_modifier_point_1_cost
+		days_remove = 90
+		days_re_enable = 365
+		priority = 99
+		#fire_only_once = yes
+		modifier = {
+			consumer_goods_factor = -0.35
+		}
+		complete_effect = {
+			every_country = {
+				limit = {
+					is_in_faction_with = JAP
+					NOT = { tag = JAP }
+				}
+				add_ideas = JAP_pnr_economic_crisis_idea
+			} 
+			subtract_from_variable = { JAP_pnr_pan_asia_modifier_point_var = 1 }
+		}
+		fixed_random_seed = no
+	}
+}
 
+JAP_pnr_election_category = { #选举内容
+	JAP_pnr_election_countdown_decision = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		priority = 100
+		allowed = { tag = JAP }
+		visible = {
+			#always = no
+			tag = JAP
+			has_country_flag = JAP_pnr_election_in_progress
+			NOT = { has_country_flag = JAP_pnr_election_completed }
+		}
+		activation = {
+			#always = no
+			tag = JAP
+			has_country_flag = JAP_pnr_election_in_progress
+			NOT = { has_country_flag = JAP_pnr_election_completed }
+		}
+		available = {
+			has_country_flag = JAP_pnr_election_completed
+		}
+		fixed_random_seed = no
+		selectable_mission = no
+		fire_only_once = yes
+		is_good = no
+		days_mission_timeout = 40
+
+		timeout_effect = {
+			log = "[GetLogRoot]: Decision timeout JAP_pnr_election_countdown_decision"
+			set_country_flag = JAP_pnr_election_completed
+			clr_country_flag = pnr_congress_temporarily_unable
+			#JAP_pnr_election_commit_results = yes
+			#JAP_pnr_election_calculate_winner = yes
+			#JAP_congress_update_gui = yes
+			country_event = { id = JAP_pnr_normal.26 days = 2 }
+		}
+	}
+	JAP_pnr_election_party_10_leaflets = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 0
+		days_remove = 14
+		allowed = { always = no }
+		cancel_trigger = { has_country_flag = JAP_pnr_election_completed }
+		complete_effect = {
+			add_to_variable = { jap_pnr_election_var = 1 }
+			custom_effect_tooltip = pnr_election_force_right_wings_tt
+        	add_to_variable = { JAP_pnr_election_party_true_factor^10 = 1 }
+			JAP_pnr_election_ensure_projected_results = yes
+			add_to_variable = {
+				var = JAP_pnr_election_party_seats^10
+				value = 5
+				tooltip = JAP_pnr_election_party_10_tt
+			}
+			add_to_variable = {
+				var = JAP_pnr_election_party_seats^6
+				value = -2
+				tooltip = JAP_pnr_election_party_6_tt
+			}
+			add_to_variable = {
+				var = JAP_pnr_election_party_seats^7
+				value = -3
+				tooltip = JAP_pnr_election_party_7_tt
+			}
+			JAP_pnr_election_refresh_projected_changes = yes
+		}
+		ai_will_do = { factor = 100 }
+	}
+	JAP_pnr_election_party_4_leaflets = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 0
+		days_remove = 14
+		allowed = { always = no }
+		cancel_trigger = { has_country_flag = JAP_pnr_election_completed }
+		complete_effect = {
+			add_to_variable = { jap_pnr_election_var = 1 }
+			custom_effect_tooltip = pnr_election_force_left_wings_tt
+        	add_to_variable = { JAP_pnr_election_party_true_factor^4 = 1 }
+			JAP_pnr_election_ensure_projected_results = yes
+			add_to_variable = {
+				var = JAP_pnr_election_party_seats^4
+				value = 5
+				tooltip = JAP_pnr_election_party_4_tt
+			}
+			add_to_variable = {
+				var = JAP_pnr_election_party_seats^6
+				value = -2
+				tooltip = JAP_pnr_election_party_6_tt
+			}
+			add_to_variable = {
+				var = JAP_pnr_election_party_seats^7
+				value = -3
+				tooltip = JAP_pnr_election_party_7_tt
+			}
+			JAP_pnr_election_refresh_projected_changes = yes
+		}
+		ai_will_do = { factor = 100 }
+	}
+	JAP_pnr_election_party_7_leaflets = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 0
+		days_remove = 14
+		allowed = { always = no }
+		cancel_trigger = { has_country_flag = JAP_pnr_election_completed }
+		complete_effect = {
+			add_to_variable = { jap_pnr_election_var = 1 }
+			custom_effect_tooltip = pnr_election_force_left_wings_tt
+        	add_to_variable = { JAP_pnr_election_party_true_factor^7 = 1 }
+			JAP_pnr_election_ensure_projected_results = yes
+			add_to_variable = {
+				var = JAP_pnr_election_party_seats^7
+				value = 5
+				tooltip = JAP_pnr_election_party_7_tt
+			}
+			add_to_variable = {
+				var = JAP_pnr_election_party_seats^6
+				value = -3
+				tooltip = JAP_pnr_election_party_6_tt
+			}
+			add_to_variable = {
+				var = JAP_pnr_election_party_seats^4
+				value = -2
+				tooltip = JAP_pnr_election_party_4_tt
+			}
+			JAP_pnr_election_refresh_projected_changes = yes
+		}
+		ai_will_do = { factor = 100 }
+	}
+	JAP_pnr_election_party_8_leaflets = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 0
+		days_remove = 14
+		allowed = { always = no }
+		cancel_trigger = { has_country_flag = JAP_pnr_election_completed }
+		complete_effect = {
+			add_to_variable = { jap_pnr_election_var = 1 }
+			custom_effect_tooltip = pnr_election_force_national_wings_tt
+        	add_to_variable = { JAP_pnr_election_party_true_factor^8 = 1 }
+			JAP_pnr_election_ensure_projected_results = yes
+			add_to_variable = {
+				var = JAP_pnr_election_party_seats^8
+				value = 5
+				tooltip = JAP_pnr_election_party_8_tt
+			}
+			add_to_variable = {
+				var = JAP_pnr_election_party_seats^6
+				value = -2
+				tooltip = JAP_pnr_election_party_6_tt
+			}
+			add_to_variable = {
+				var = JAP_pnr_election_party_seats^7
+				value = -3
+				tooltip = JAP_pnr_election_party_7_tt
+			}
+			JAP_pnr_election_refresh_projected_changes = yes
+		}
+		ai_will_do = { factor = 100 }
+	}
+	JAP_pnr_election_party_6_leaflets = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 0
+		days_remove = 14
+		allowed = { always = no }
+		cancel_trigger = { has_country_flag = JAP_pnr_election_completed }
+		complete_effect = {
+			add_to_variable = { jap_pnr_election_var = 1 }
+			custom_effect_tooltip = pnr_election_force_anti_wings_tt
+        	add_to_variable = { JAP_pnr_election_party_true_factor^6 = 1 }
+			JAP_pnr_election_ensure_projected_results = yes
+			add_to_variable = {
+				var = JAP_pnr_election_party_seats^6
+				value = 5
+				tooltip = JAP_pnr_election_party_6_tt
+			}
+			add_to_variable = {
+				var = JAP_pnr_election_party_seats^7
+				value = -3
+				tooltip = JAP_pnr_election_party_7_tt
+			}
+			add_to_variable = {
+				var = JAP_pnr_election_party_seats^4
+				value = -2
+				tooltip = JAP_pnr_election_party_4_tt
+			}
+			JAP_pnr_election_refresh_projected_changes = yes
+		}
+		ai_will_do = { factor = 100 }
+	}
 }
 
 prospect_for_resources = {

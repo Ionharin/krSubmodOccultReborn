@@ -80,6 +80,13 @@ JAP_pnr_offensive_realpolitik_update = { #Update Policy Idea
 			add_idea = JAP_pnr_offensive_realpolitik_1
 		}
 	}
+    else_if = {
+		limit = { has_idea = JAP_pan_asia_revolution_origin_land }
+		swap_ideas = {
+			remove_idea = JAP_pan_asia_revolution_origin_land
+			add_idea = JAP_pnr_offensive_realpolitik
+		}
+	}
 	else_if = {
 		limit = { NOT = { has_idea = JAP_pnr_offensive_realpolitik_4 } }
 		add_ideas = JAP_pnr_offensive_realpolitik
@@ -530,24 +537,24 @@ JAP_pnr_check_red_conspiracy_threshold_events = { # Trigger JAP_pnr_rs.1
                     add_to_temp_variable = { JAP_yen_economic_sphere_factories = THIS.num_of_civilian_factories }
                 }
 
-                set_temp_variable = { JAP.JAP_yen_economic_sphere_member_mult_temp_var = JAP.JAP_yen_economic_sphere_member_mult_var }
-
                 set_variable = { global.JAP_pnr_economic_sphere_goods_member_var = JAP_yen_economic_sphere_factories }
                 clamp_variable = { var = global.JAP_pnr_economic_sphere_goods_member_var max = 100 min = 0 }
                 multiply_variable = { global.JAP_pnr_economic_sphere_goods_member_var = -1 }
-                multiply_variable = { global.JAP_pnr_economic_sphere_goods_member_var = JAP.JAP_yen_economic_sphere_member_mult_temp_var }
+                multiply_variable = { global.JAP_pnr_economic_sphere_goods_member_var = JAP.JAP_yen_economic_sphere_member_mult_var }
 
                 set_variable = { global.JAP_pnr_economic_sphere_production_speed_member_var = JAP_yen_economic_sphere_factories }
                 clamp_variable = { var = global.JAP_pnr_economic_sphere_production_speed_member_var max = 100 min = 0 }
-                multiply_variable = { global.JAP_pnr_economic_sphere_production_speed_member_var = JAP.JAP_yen_economic_sphere_member_mult_temp_var }
+                multiply_variable = { global.JAP_pnr_economic_sphere_production_speed_member_var = JAP.JAP_yen_economic_sphere_member_mult_var }
 
-                set_temp_variable = { JAP.JAP_yen_economic_sphere_mult_temp_var = JAP.JAP_yen_economic_sphere_mult_var }
-                set_temp_variable = { JAP.JAP_yen_economic_sphere_goods_mult_temp_var = JAP.JAP_yen_economic_sphere_goods_mult_var }
                 subtract_from_temp_variable = { JAP_yen_economic_sphere_factories = JAP.num_of_civilian_factories }
 
                 set_variable = { global.JAP_pnr_yen_economic_sphere_industry_boost = JAP_yen_economic_sphere_factories }
                 clamp_variable = { var = global.JAP_pnr_yen_economic_sphere_industry_boost max = 50 min = 0 }
                 multiply_variable = { global.JAP_pnr_yen_economic_sphere_industry_boost = JAP.JAP_yen_economic_sphere_mult_var }
+
+                set_variable = { global.JAP_pnr_yen_economic_sphere_lack_of_resource_boost = JAP_yen_economic_sphere_factories }
+                clamp_variable = { var = global.JAP_pnr_yen_economic_sphere_lack_of_resource_boost max = 50 min = 0 }
+                multiply_variable = { global.JAP_pnr_yen_economic_sphere_lack_of_resource_boost = JAP.JAP_yen_economic_sphere_lack_resource_mult_var }
 
                 set_variable = { global.JAP_pnr_economic_sphere_goods_var = JAP_yen_economic_sphere_factories }
                 clamp_variable = { var = global.JAP_pnr_economic_sphere_goods_var max = 100 min = 0 }
