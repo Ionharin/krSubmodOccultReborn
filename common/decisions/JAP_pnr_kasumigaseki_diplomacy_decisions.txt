@@ -19,12 +19,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		cost = 15
 		days_remove = 28
 		complete_effect = {
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_ETS } }
-					set_country_flag = JAP_pnr_support_ETS
-				}
-			}
+			ETS = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			ETS = { add_to_variable = { ETS_gold_amount = 2 tooltip = ETS_gold_increase } }
@@ -53,12 +48,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		days_re_enable = 70
 		ai_will_do = { factor = 50 }
 		complete_effect = {
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_ETS } }
-					set_country_flag = JAP_pnr_support_ETS
-				}
-			}
+			ETS = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			army_experience = 10
@@ -86,12 +76,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		ai_will_do = { factor = 50 }
 		complete_effect = {
 			ETS = { add_offsite_building = { type = arms_factory level = 1 } }
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_ETS } }
-					set_country_flag = JAP_pnr_support_ETS
-				}
-			}
+			ETS = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = { ETS = { add_offsite_building = { type = arms_factory level = -1 } } }
 		fixed_random_seed = no
@@ -121,13 +106,8 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		}
 		complete_effect = {
 			add_relation_modifier = { target = ETS modifier = volunteer_limit_plus_2 }
-			hidden_effect = {
-				add_command_power = -10
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_ETS } }
-					set_country_flag = JAP_pnr_support_ETS
-				}
-			}
+			hidden_effect = { add_command_power = -10 }
+			ETS = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			remove_relation_modifier = { target = ETS modifier = volunteer_limit_plus_2 }
@@ -151,12 +131,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		}
 		complete_effect = {
 			add_relation_modifier = { target = SIA modifier = volunteer_limit_plus_2 }
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_SIA } }
-					set_country_flag = JAP_pnr_support_SIA
-				}
-			}
+			SIA = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			remove_relation_modifier = { target = SIA modifier = volunteer_limit_plus_2 }
@@ -179,12 +154,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		}
 		complete_effect = {
 			add_relation_modifier = { target = D06 modifier = volunteer_limit_plus_2 }
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_SIA } }
-					set_country_flag = JAP_pnr_support_SIA
-				}
-			}
+			D06 = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			remove_relation_modifier = { target = D06 modifier = volunteer_limit_plus_2 }
@@ -208,12 +178,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		}
 		complete_effect = {
 			add_relation_modifier = { target = KHI modifier = volunteer_limit_plus_1 }
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_KHITRK } }
-					set_country_flag = JAP_pnr_support_KHITRK
-				}
-			}
+			KHI = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			remove_relation_modifier = { target = KHI modifier = volunteer_limit_plus_1 }
@@ -236,12 +201,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		}
 		complete_effect = {
 			add_relation_modifier = { target = TRK modifier = volunteer_limit_plus_1 }
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_KHITRK } }
-					set_country_flag = JAP_pnr_support_KHITRK
-				}
-			}
+			TRK = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			remove_relation_modifier = { target = TRK modifier = volunteer_limit_plus_1 }
@@ -267,12 +227,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			else = {
 				send_equipment = { target = FROM type = infantry_equipment amount = 500 }
 			}
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_KHITRK } }
-					set_country_flag = JAP_pnr_support_KHITRK
-				}
-			}
+			FROM = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 	}
 	JAP_pnr_calling_ets_come_to_help_friends_decision = {
@@ -298,11 +253,13 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		complete_effect = {
 			ETS = { add_relation_modifier = { target = KHI modifier = volunteer_limit_plus_3 } }
 			ETS = { add_relation_modifier = { target = TRK modifier = volunteer_limit_plus_3 } }
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_KHITRK } }
-					set_country_flag = JAP_pnr_support_KHITRK
-				}
+			if = {
+				limit = { KHI = { has_war_with = RUS } }
+				KHI = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
+			}
+			if = {
+				limit = { TRK = { has_war_with = RUS } }
+				TRK = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 			}
 		}
 		remove_effect = {
@@ -338,12 +295,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			add_relation_modifier = { target = TIB modifier = volunteer_limit_plus_2 }
 			remove_targeted_decision = { target = SHX decision = JAP_pnr_muslim_buddhism_volunteer_SHX_decision }
 			remove_targeted_decision = { target = XSM decision = JAP_pnr_muslim_buddhism_volunteer_XSM_decision }
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_TIB } }
-					set_country_flag = JAP_pnr_support_TIB
-				}
-			}
+			TIB = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			TIB = { add_offsite_building = { type = arms_factory level = -1 } }
@@ -377,12 +329,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			add_relation_modifier = { target = SHX modifier = volunteer_limit_plus_2 }
 			remove_targeted_decision = { target = TIB decision = JAP_pnr_muslim_buddhism_volunteer_TIB_decision }
 			remove_targeted_decision = { target = XSM decision = JAP_pnr_muslim_buddhism_volunteer_XSM_decision }
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_SHX } }
-					set_country_flag = JAP_pnr_support_SHX
-				}
-			}
+			SHX = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			SHX = { add_offsite_building = { type = arms_factory level = -1 } }
@@ -416,12 +363,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			add_relation_modifier = { target = XSM modifier = volunteer_limit_plus_2 }
 			remove_targeted_decision = { target = SHX decision = JAP_pnr_muslim_buddhism_volunteer_SHX_decision }
 			remove_targeted_decision = { target = TIB decision = JAP_pnr_muslim_buddhism_volunteer_TIB_decision }
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_XSM } }
-					set_country_flag = JAP_pnr_support_XSM
-				}
-			}
+			XSM = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			XSM = { add_offsite_building = { type = arms_factory level = -1 } }
@@ -477,12 +419,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		}
 		complete_effect = {
 			add_relation_modifier = { target = VIN modifier = volunteer_limit_plus_2 }
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_VIN } }
-					set_country_flag = JAP_pnr_support_VIN
-				}
-			}
+			VIN = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			remove_relation_modifier = { target = VIN modifier = volunteer_limit_plus_2 }
@@ -507,13 +444,8 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = if_they_accept_tt
 			VIN = { effect_tooltip = { add_timed_idea = { idea = JAP_pnr_military_mission_ideas days = 180 } } }
-			hidden_effect = {
-				add_command_power = -15
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_VIN } }
-					set_country_flag = JAP_pnr_support_VIN
-				}
-			}
+			hidden_effect = { add_command_power = -15 }
+			VIN = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 	}
 	JAP_pnr_secret_support_weapon_to_INC_decision = {
@@ -532,12 +464,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		custom_cost_text = 1000_guns
 		custom_cost_trigger = { NOT = { has_equipment = { infantry_equipment < 1000 } } }
 		complete_effect = {
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_VIN } }
-					set_country_flag = JAP_pnr_support_VIN
-				}
-			}
+			VIN = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			send_equipment = { target = VIN type = infantry_equipment amount = 1000 }
@@ -568,13 +495,8 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		}
 		complete_effect = {
 			add_relation_modifier = { target = PRF modifier = volunteer_limit_plus_2 }
-			hidden_effect = {
-				add_command_power = -10
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_India } }
-					set_country_flag = JAP_pnr_support_India
-				}
-			}
+			hidden_effect = { add_command_power = -10 }
+			PRF = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			remove_relation_modifier = { target = PRF modifier = volunteer_limit_plus_2 }
@@ -600,12 +522,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			cost = 10
 			complete_effect = {
 				PRF = { add_offsite_building = { type = arms_factory level = 1 } }
-				hidden_effect = {
-					if = {
-						limit = { NOT = { has_country_flag = JAP_pnr_support_India } }
-						set_country_flag = JAP_pnr_support_India
-					}
-				}
+				PRF = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 			}
 			remove_effect = {
 				PRF = { add_offsite_building = { type = arms_factory level = -1 } }
@@ -634,13 +551,8 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = if_they_accept_tt
 			PRF = { effect_tooltip = { add_timed_idea = { idea = JAP_pnr_military_mission_ideas days = 180 } } }
-			hidden_effect = {
-				add_command_power = -15
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_India } }
-					set_country_flag = JAP_pnr_support_India
-				}
-			}
+			hidden_effect = { add_command_power = -15 }
+			PRF = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 	}
 	JAP_pnr_secret_support_weapon_to_PRF_decision = {
@@ -663,12 +575,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		custom_cost_text = 1000_guns
 		custom_cost_trigger = { NOT = { has_equipment = { infantry_equipment < 1000 } } }
 		complete_effect = {
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_India } }
-					set_country_flag = JAP_pnr_support_India
-				}
-			}
+			PRF = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			send_equipment = { target = PRF type = infantry_equipment amount = 1000 }
@@ -698,13 +605,8 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		}
 		complete_effect = {
 			add_relation_modifier = { target = HND modifier = volunteer_limit_plus_2 }
-			hidden_effect = {
-				add_command_power = -10
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_India } }
-					set_country_flag = JAP_pnr_support_India
-				}
-			}
+			hidden_effect = { add_command_power = -10 }
+			HND = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			remove_relation_modifier = { target = HND modifier = volunteer_limit_plus_2 }
@@ -730,12 +632,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		cost = 10
 		complete_effect = {
 			HND = { add_offsite_building = { type = arms_factory level = 1 } }
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_India } }
-					set_country_flag = JAP_pnr_support_India
-				}
-			}
+			HND = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			HND = { add_offsite_building = { type = arms_factory level = -1 } }
@@ -764,13 +661,8 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = if_they_accept_tt
 			HND = { effect_tooltip = { add_timed_idea = { idea = JAP_pnr_military_mission_ideas days = 180 } } }
-			hidden_effect = {
-				add_command_power = -15
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_India } }
-					set_country_flag = JAP_pnr_support_India
-				}
-			}
+			hidden_effect = { add_command_power = -15 }
+			HND = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 	}
 	JAP_pnr_secret_support_weapon_to_HND_decision = {
@@ -793,12 +685,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		custom_cost_text = 1000_guns
 		custom_cost_trigger = { NOT = { has_equipment = { infantry_equipment < 1000 } } }
 		complete_effect = {
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_India } }
-					set_country_flag = JAP_pnr_support_India
-				}
-			}
+			HND = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 		remove_effect = {
 			send_equipment = { target = HND type = infantry_equipment amount = 1000 }
@@ -827,12 +714,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 		complete_effect = {
 			army_experience = 15
 			send_equipment = { target = SPR type = infantry_equipment amount = 500 }
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = JAP_pnr_support_SPR } }
-					set_country_flag = JAP_pnr_support_SPR
-				}
-			}
+			SPR = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 		}
 	}
 	JAP_pnr_borrow_industry_to_spr_decision = {
@@ -853,12 +735,7 @@ JAP_pnr_kasumigaseki_diplomacy_category = {
 			modifier = { political_power_cost = -0.10 }
 			complete_effect = { 
 				SPR = { add_offsite_building = { type = arms_factory level = 1 } }
-				hidden_effect = {
-					if = {
-						limit = { NOT = { has_country_flag = JAP_pnr_support_SPR } }
-						set_country_flag = JAP_pnr_support_SPR
-					}
-				}
+				SPR = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 			}
 			remove_effect = { SPR = { add_offsite_building = { type = arms_factory level = -1 } } }
 			fixed_random_seed = no

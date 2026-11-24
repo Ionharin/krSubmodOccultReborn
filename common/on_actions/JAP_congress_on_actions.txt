@@ -56,6 +56,19 @@ on_actions = {
 		}
 	}
 
+	on_weekly_JAP = { #每周刷新经济圈
+		effect = {
+			if = {
+				limit = {
+					is_economic_sphere_leader = yes
+					has_dynamic_modifier = { modifier = JAP_pnr_yen_economic_sphere_leader }
+				}
+				JAP_pnr_refresh_yen_economic_sphere_members = yes
+				JAP_pnr_recalculate_yen_economic_sphere_economic_integration = yes
+			}
+		}
+	}
+
 	on_civil_war_end = { # 为了死了妈的泰国内战判断
 		effect = { # For SIA civil War
 			if = {
@@ -73,6 +86,22 @@ on_actions = {
 		}
 	}
 
+	on_war = { # 老日路边力证之一：只有中国击败日本的global flag没有老日开战或者赢的flag  还是太黑暗了老日赢了的世界线
+		effect = {
+			if = {
+				limit = {
+					original_tag = JAP
+					is_faction_leader = yes
+					any_enemy_country = {
+						is_chinese_tag = yes
+						is_subject = no
+					}
+				}
+				set_global_flag = pnr_sencond_sino_nippon_war_start_flag
+			}
+		}
+	}
+
 	on_send_volunteers = { # 被GEA折磨了？这里把JAP_pnr_foreign_events.53注释掉直接清净
 		effect = {
 			if = {
@@ -81,9 +110,9 @@ on_actions = {
 					limit = {
 						has_global_flag = LEP_collapse
 						FROM = { original_tag = ANQ }
-						NOT = { has_country_flag = JAP_pnr_support_ANQ }
+						FROM = { NOT = { has_country_flag = JAP_pnr_supported_by_JAP_flag } }
 					}
-					set_country_flag = JAP_pnr_support_ANQ
+					FROM = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 				}
 				if = {
 					limit = {
@@ -101,15 +130,16 @@ on_actions = {
 				}
 				if = { # For SIK War ETS
 					limit = {
-						ETS = {
+						FROM = {
+							original_tag = ETS
 							OR = {
 								has_war_with = KUM
 								has_war_with = SIK
 							}
 						}
-						NOT = { has_country_flag = JAP_pnr_support_ETS }
+						FROM = { NOT = { has_country_flag = JAP_pnr_supported_by_JAP_flag } }
 					}
-					set_country_flag = JAP_pnr_support_ETS
+					FROM = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 				}
 				if = {
 					limit = {
@@ -137,9 +167,9 @@ on_actions = {
 								has_war_with = SHX
 							}
 						}
-						NOT = { has_country_flag = JAP_pnr_support_TIB }
+						FROM = { NOT = { has_country_flag = JAP_pnr_supported_by_JAP_flag } }
 					}
-					set_country_flag = JAP_pnr_support_TIB
+					FROM = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 				}
 				if = { # For Muslim-Buddhism War SHX
 					limit = {
@@ -151,9 +181,9 @@ on_actions = {
 								has_war_with = XSM
 							}
 						}
-						NOT = { has_country_flag = JAP_pnr_support_SHX }
+						FROM = { NOT = { has_country_flag = JAP_pnr_supported_by_JAP_flag } }
 					}
-					set_country_flag = JAP_pnr_support_SHX
+					FROM = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 				}
 				if = { # For Muslim-Buddhism War XSM
 					limit = {
@@ -165,9 +195,9 @@ on_actions = {
 								has_war_with = SHX
 							}
 						}
-						NOT = { has_country_flag = JAP_pnr_support_XSM }
+						FROM = { NOT = { has_country_flag = JAP_pnr_supported_by_JAP_flag } }
 					}
-					set_country_flag = JAP_pnr_support_XSM
+					FROM = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 				}
 				if = {
 					limit = {
@@ -216,9 +246,9 @@ on_actions = {
 					limit = {
 						SIA = { has_civil_war = yes }
 						FROM = { original_tag = SIA }
-						NOT = { has_country_flag = JAP_pnr_support_SIA }
+						FROM = { NOT = { has_country_flag = JAP_pnr_supported_by_JAP_flag } }
 					}
-					set_country_flag = JAP_pnr_support_SIA
+					FROM = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 				}
 				if = {
 					limit = {
@@ -248,9 +278,9 @@ on_actions = {
 					limit = {
 						VIN = { has_war_with = GEA }
 						FROM = { tag = VIN }
-						NOT = { has_country_flag = JAP_pnr_support_VIN }
+						FROM = { NOT = { has_country_flag = JAP_pnr_supported_by_JAP_flag } }
 					}
-					set_country_flag = JAP_pnr_support_VIN
+					FROM = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 					GEA = { country_event = { id = JAP_pnr_foreign_events.29 } }
 				}
 				if = { # For SPA Civil War
@@ -258,9 +288,9 @@ on_actions = {
 						has_global_flag = spanish_civil_war
 						FROM = { original_tag = SPA }
 						FROM = { tag = SPR }
-						NOT = { has_country_flag = JAP_pnr_support_SPR }
+						FROM = { NOT = { has_country_flag = JAP_pnr_supported_by_JAP_flag } }
 					}
-					set_country_flag = JAP_pnr_support_SPR
+					FROM = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 				}
 				if = { # For IND Civil War - HND
 					limit = {
@@ -272,9 +302,9 @@ on_actions = {
 								has_war_with = RAJ
 							}
 						}
-						NOT = { has_country_flag = JAP_pnr_support_India }
+						FROM = { NOT = { has_country_flag = JAP_pnr_supported_by_JAP_flag } }
 					}
-					set_country_flag = JAP_pnr_support_India
+					FROM = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 				}
 				if = { # For IND Civil War - PRF
 					limit = {
@@ -286,9 +316,9 @@ on_actions = {
 								has_war_with = HND
 							}
 						}
-						NOT = { has_country_flag = JAP_pnr_support_India }
+						FROM = { NOT = { has_country_flag = JAP_pnr_supported_by_JAP_flag } }
 					}
-					set_country_flag = JAP_pnr_support_India
+					FROM = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 				}
 				if = {
 					limit = {
@@ -321,14 +351,17 @@ on_actions = {
 				}
 				if = { # For Mid-Asia WAR against - RUS
 					limit = {
-						OR = {
-							TRK = { has_war_with = RUS }
-							KHI = { has_war_with = RUS }
-							KAZ = { has_war_with = RUS }
+						FROM = {
+							OR = {
+								original_tag = TRK
+								original_tag = KHI
+								original_tag = KAZ
+							}
+							has_war_with = RUS
 						}
-						NOT = { has_country_flag = JAP_pnr_support_KHITRK }
+						FROM = { NOT = { has_country_flag = JAP_pnr_supported_by_JAP_flag } }
 					}
-					set_country_flag = JAP_pnr_support_KHITRK
+					FROM = { set_country_flag = JAP_pnr_supported_by_JAP_flag }
 				}
 			}
 		}

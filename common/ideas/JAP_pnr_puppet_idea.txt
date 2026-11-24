@@ -1,5 +1,6 @@
 ideas ={
 	country = {
+	### 日本作为QIE傀儡 ###
 		JAP_pnr_under_the_shadow_of_the_dragon = {
 			picture = generic_nationalization
 			allowed = { always = no }
@@ -101,6 +102,71 @@ ideas ={
 				consumer_goods_factor = -0.10
 				political_power_gain = 0.40
 				production_speed_arms_factory_factor = 0.20
+			}
+		}
+	### 日本傀儡其他国家 ###
+	}
+	trade_laws = {
+		JAP_pnr_unequal_treaties_japan_lesser = {
+		on_add = { log = "[GetLogRoot]: add idea JAP_pnr_unequal_treaties_japan_lesser" }
+			name = unequal_treaties
+			picture = unequal_treaties
+			level = 3
+			removal_cost = -1
+			cancel_if_invalid = no
+
+			allowed = { always = no }
+			cancel = {
+				NOT = {
+					has_idea = FNG_mantetsu_influence_idea
+					is_subject_of = JAP
+				}
+			}
+
+			modifier = {
+				min_export = 0.45
+				civilian_intel_to_others = 40.0
+			}
+			targeted_modifier = {
+				tag = JAP
+				cic_to_target_factor = 0.2
+			}
+
+			allowed_to_remove = {
+				NOT = {
+					has_idea = FNG_mantetsu_influence_idea
+					is_subject_of = JAP
+				}
+			}
+			on_remove = {
+				#Have post-LEC China start with export focus
+				if = {
+					limit = {
+						has_idea = closed_economy
+					}
+					swap_ideas = {
+						remove_idea = closed_economy
+						add_idea = 	export_focus
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = limited_exports
+					}
+					swap_ideas = {
+						remove_idea = limited_exports
+						add_idea = export_focus
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = free_trade
+					}
+					swap_ideas = {
+						remove_idea = free_trade
+						add_idea = export_focus
+					}
+				}
 			}
 		}
 	}

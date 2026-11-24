@@ -1,9 +1,9 @@
 on_actions = {
-	on_daily = {
+	# Per-tag daily hooks instead of a global on_daily: only the listed country runs these, not every country every day.
+	on_daily_QIE = {
 		effect = {
 			if = { # Owen Lattimore coming!
 				limit = {
-					tag = QIE
 					date > 1936.11.1
 					date < 1936.11.30
 					NOT = { has_country_flag = QIE_ws_leader_30_triggered }
@@ -13,7 +13,6 @@ on_actions = {
 			}
 			if = { # In fact, Hungary is Shanxi,right?
 				limit = {
-					tag = QIE
 					NOT = { has_country_flag = QIE_ws_normal_event_10_triggered }
 					NOT = { country_exists = HUN }
 					HUN = {
@@ -25,10 +24,7 @@ on_actions = {
 				country_event = { id = QIE_ws_normal_events.10 days = 0 }
 			}
 			if = { # industry building post-war industrial promotion
-				limit = {
-					tag = QIE
-					has_idea = QIE_wushan_jiangzhou_industrial_promotion
-				}
+				limit = { has_idea = QIE_wushan_jiangzhou_industrial_promotion }
 				add_to_variable = { QIE_wushan_jiangzhou_factory_timer = 1 }
 				if = {
 					limit = {
@@ -101,70 +97,9 @@ on_actions = {
 					}
 				}
 			}
-			if = { # electrification spreads to neighbouring core states
-				limit = {
-					OR = {
-						tag = QIE
-						tag = KOR
-						tag = JAP
-					}
-					has_country_flag = QIE_wushan_electrification_spread_enabled
-				}
-				add_to_variable = { QIE_wushan_electrification_spread_timer = 1 }
-				if = {
-					limit = {
-						check_variable = { QIE_wushan_electrification_spread_timer > 89 }
-						any_controlled_state = {
-							has_dynamic_modifier = {
-								modifier = QIE_wushan_electrification_modifier
-							}
-							any_neighbor_state = {
-								is_controlled_by = ROOT
-								is_core_of = ROOT
-								NOT = {
-									has_dynamic_modifier = {
-										modifier = QIE_wushan_electrification_modifier
-									}
-								}
-							}
-						}
-					}
-					set_variable = { QIE_wushan_electrification_spread_timer = 0 }
-					random_controlled_state = {
-						limit = {
-							has_dynamic_modifier = {
-								modifier = QIE_wushan_electrification_modifier
-							}
-							any_neighbor_state = {
-								is_controlled_by = ROOT
-								is_core_of = ROOT
-								NOT = {
-									has_dynamic_modifier = {
-										modifier = QIE_wushan_electrification_modifier
-									}
-								}
-							}
-						}
-						random_neighbor_state = {
-							limit = {
-								is_controlled_by = ROOT
-								is_core_of = ROOT
-								NOT = {
-									has_dynamic_modifier = {
-										modifier = QIE_wushan_electrification_modifier
-									}
-								}
-							}
-							add_dynamic_modifier = {
-								modifier = QIE_wushan_electrification_modifier
-							}
-						}
-					}
-				}
-			}
+			QIE_wushan_electrification_spread_daily_tick = yes
 			if = { # Analyze seances status
 				limit = {
-					tag = QIE
 					has_completed_focus = QIE_seances_restart_in_beijing
 					has_variable = god_circle_days_until_next_upgrade
 					check_variable = { god_circle_days_until_next_upgrade > 0 }
@@ -175,7 +110,6 @@ on_actions = {
 			}
 			if = { # Analyze seances status
 				limit = {
-					tag = QIE
 					has_completed_focus = QIE_seances_restart_in_beijing
 					has_variable = god_circle_focus_var
 					check_variable = { god_circle_tier < 3 }
@@ -200,18 +134,27 @@ on_actions = {
 				}
 				QIE_update_god_circle_tier = yes
 			}
-			if = { # Refresh Heaven Earth GUI availability after cosmetic tag changes
+			if = { # Refresh Eco-Sphere
 				limit = {
-					OR = {
-						original_tag = KOR
-						has_cosmetic_tag = KOR_pnr_pocheongyo
-						has_cosmetic_tag = KOR_pnr_taegeukdo
-						has_cosmetic_tag = KOR_pnr_jeungsanbeop
-						has_country_flag = KOR_heaven_earth_interface_open
-					}
+					is_economic_sphere_leader = yes
+					has_dynamic_modifier = { modifier = QIE_wushan_world_moral_association }
 				}
-				KOR_heaven_earth_update_gui = yes
+				QIE_refresh_world_moral_association_members = yes
+				QIE_recalculate_world_moral_association_economic_integration = yes
 			}
+		}
+	}
+
+	on_daily_KOR = {
+		effect = {
+			QIE_wushan_electrification_spread_daily_tick = yes
+			KOR_heaven_earth_update_gui = yes # Refresh Heaven Earth GUI availability after cosmetic tag changes
+		}
+	}
+
+	on_daily_JAP = {
+		effect = {
+			QIE_wushan_electrification_spread_daily_tick = yes
 		}
 	}
 }

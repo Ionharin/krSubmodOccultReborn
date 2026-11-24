@@ -259,3 +259,44 @@ QIE_apply_god_circle_final_focus_floor = {
 		set_variable = { god_circle_days_until_next_upgrade = 0 }
 	}
 }
+
+# Scope: QIE / KOR / JAP. Called daily from QIE_god_circle_on_actions.txt.
+# Every 90 days, electrification spreads from an electrified state to one neighbouring controlled core state.
+QIE_wushan_electrification_spread_daily_tick = {
+	if = {
+		limit = { has_country_flag = QIE_wushan_electrification_spread_enabled }
+		add_to_variable = { QIE_wushan_electrification_spread_timer = 1 }
+		if = {
+			limit = {
+				check_variable = { QIE_wushan_electrification_spread_timer > 89 }
+				any_controlled_state = {
+					has_dynamic_modifier = { modifier = QIE_wushan_electrification_modifier }
+					any_neighbor_state = {
+						is_controlled_by = ROOT
+						is_core_of = ROOT
+						NOT = { has_dynamic_modifier = { modifier = QIE_wushan_electrification_modifier } }
+					}
+				}
+			}
+			set_variable = { QIE_wushan_electrification_spread_timer = 0 }
+			random_controlled_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = QIE_wushan_electrification_modifier }
+					any_neighbor_state = {
+						is_controlled_by = ROOT
+						is_core_of = ROOT
+						NOT = { has_dynamic_modifier = { modifier = QIE_wushan_electrification_modifier } }
+					}
+				}
+				random_neighbor_state = {
+					limit = {
+						is_controlled_by = ROOT
+						is_core_of = ROOT
+						NOT = { has_dynamic_modifier = { modifier = QIE_wushan_electrification_modifier } }
+					}
+					add_dynamic_modifier = { modifier = QIE_wushan_electrification_modifier }
+				}
+			}
+		}
+	}
+}
