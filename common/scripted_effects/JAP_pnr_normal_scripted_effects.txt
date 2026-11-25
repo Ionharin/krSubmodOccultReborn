@@ -48,6 +48,79 @@ JAP_pnr_decrease_black_monday_debuff_modifier_effect = { #diff BM debuff
     force_update_dynamic_modifier = yes
 }
 
+#### Release Chinese Puppet ####
+
+JAP_pnr_release_QIE_effect = {
+    QIE = {
+        every_core_state = { remove_core_of = QIE }
+        hidden_effect = {
+            every_state = {
+                limit = { is_claimed_by = QIE }
+                remove_claim_by = QIE
+            }
+        }
+    }
+    QIE = {
+      608 = { add_core_of = QIE }
+      611 = { add_core_of = QIE }
+      614 = { add_core_of = QIE }
+      1060 = { add_core_of = QIE }
+      1061 = { add_core_of = QIE }
+      1062 = { add_core_of = QIE }
+      1063 = { add_core_of = QIE }
+      1068 = { add_core_of = QIE }
+    }
+    if = {
+        limit = { QIE = { exists = no } }
+        release_puppet = QIE
+    }
+    if = {
+        limit = { JAP_pnr_is_pan_asia_country_flag_trigger = no }
+        QIE = {
+            set_cosmetic_tag = QIE_pnr_jap_puppet_monarch_cosmetic_tag
+            load_focus_tree = PAP_pnr_puppet_wushan
+            if = {
+                limit = { JAP = { has_idea = JAP_pnr_confusiusm_blood_idea } }
+                JAP_pnr_kong_decheng = {
+                    set_nationality = QIE
+                    promote_character = paternal_autocrat_subtype
+                    add_country_leader_trait = { QIE_restored_emperor3 }    
+                }              
+            }
+            else = {
+                if = {
+                    limit = { QIE = { NOT = { has_country_leader = { character = QIE_aisin_gioro_puyi } } } }
+                    hidden_effect = { recruit_character = QIE_aisin_gioro_puyi }
+                }
+                add_country_leader_role = {
+                    character = QIE_aisin_gioro_puyi
+                    promote_leader = yes
+                    country_leader = {
+                       ideology = paternal_autocrat_subtype
+                        expire = "1965.1.1.1"
+                        trait = { QIE_restored_emperor3 }
+                    }
+                }
+                QIE_aisin_gioro_puyi = {
+                    set_country_leader_portrait = { 
+                        ideology = paternal_autocrat_subtype 
+                        portrait = GFX_portrait_QIE_aisin_gioro_puyi_civilian_large_uniform 
+                    }
+                }
+            }
+            set_politics = { ruling_party = paternal_autocrat elections_allowed = no }
+            mark_focus_tree_layout_dirty = yes
+        }
+    }
+    else = {
+       QIE = {
+            set_cosmetic_tag = QIE_pnr_jap_puppet_monarch_cosmetic_tag
+            load_focus_tree = PAP_pnr_puppet_wushan
+            set_politics = { ruling_party = authoritarian_democrat elections_allowed = no }
+            mark_focus_tree_layout_dirty = yes
+        } 
+    }
+}
 
 #### Ideas Update ####
 

@@ -429,5 +429,81 @@ JAP_pnr_seiyukai_party_support_category = {
 }
 
 JAP_pnr_seiyukai_minseito_coop_category = {
-    
+	JAP_pnr_negotiate_party_disagreements = {
+		icon = GFX_decision_generic_political_address
+		allowed = { always = no }
+		cost = 25
+		days_remove = 60
+		remove_effect = {
+			add_political_power = 50
+		}
+	}
+	JAP_pnr_constrain_privy_council = {
+		icon = GFX_decision_generic_political_address
+		allowed = { always = no }
+		cost = 40
+		days_remove = 70
+		fire_only_once = yes
+		remove_effect = {
+			if = {
+				limit = { has_idea = JAP_pnr_break_privileged_politics_0 }
+				swap_ideas = {
+					remove_idea = JAP_pnr_break_privileged_politics_0
+					add_idea = JAP_pnr_break_privileged_politics_1
+				}
+			}
+			else_if = {
+				limit = { has_idea = JAP_pnr_break_privileged_politics_1 }
+				swap_ideas = {
+					remove_idea = JAP_pnr_break_privileged_politics_1
+					add_idea = JAP_pnr_break_privileged_politics_2
+				}
+			}
+		}
+	}
+	JAP_pnr_constrain_house_of_peers = {
+		icon = GFX_decision_generic_political_address
+		allowed = { always = no }
+		cost = 40
+		days_remove = 70
+		fire_only_once = yes
+		remove_effect = {
+			if = {
+				limit = { has_idea = JAP_pnr_break_privileged_politics_0 }
+				swap_ideas = {
+					remove_idea = JAP_pnr_break_privileged_politics_0
+					add_idea = JAP_pnr_break_privileged_politics_1
+				}
+			}
+			else_if = {
+				limit = { has_idea = JAP_pnr_break_privileged_politics_1 }
+				swap_ideas = {
+					remove_idea = JAP_pnr_break_privileged_politics_1
+					add_idea = JAP_pnr_break_privileged_politics_2
+				}
+			}
+		}
+	}
+	JAP_pnr_call_for_civic_duty = {
+		icon = GFX_decision_generic_political_address
+		allowed = { always = no }
+		cost = 20
+		days_remove = 90
+		days_re_enable = 30
+		modifier = {
+			social_conservative_drift = 0.01
+			market_liberal_drift = 0.01
+		}
+	}
+	JAP_pnr_industrious_service = {
+		icon = GFX_decision_generic_political_address
+		allowed = { always = no }
+		cost = 20
+		days_remove = 90
+		days_re_enable = 30
+		modifier = {
+			production_factory_max_efficiency_factor = 0.05
+			production_factory_efficiency_gain_factor = 0.10
+		}
+	}
 }

@@ -1290,6 +1290,37 @@ JAP_pnr_shanghai_strike_category = { #1936.2 ANQ support
 		}
 		cancel_trigger = { CHN = { has_war_with = JAP } }
 	}
+### After War Split China ###
+	JAP_pnr_split_QIE_decision = { #大中华帝国或者华北国
+		icon = GFX_decision_jap_conquer_china
+		visible = {
+			OR = {
+				AND = {
+					QIE = { exists = no }
+					592 = { is_owned_by_ROOT_or_subject = yes } #Guangzhou
+					608 = { is_owned_by_ROOT_or_subject = yes } #Beijing
+					613 = { is_owned_by_ROOT_or_subject = yes } #Nanjing
+					650 = { is_owned_by_ROOT_or_subject = yes } #Chongqing
+					716 = { is_owned_by_ROOT_or_subject = yes } #Shenyang
+					1048 = { is_owned_by_ROOT_or_subject = yes } #Wuhan
+					1072 = { is_owned_by_ROOT_or_subject = yes } #Taiyuan
+					597 = { is_owned_by_ROOT_or_subject = yes } #Jinan
+					325 = { is_owned_by_ROOT_or_subject = yes } #Kunming
+					283 = { is_owned_by_ROOT_or_subject = yes } #Lanzhou
+					743 = { is_owned_by_ROOT_or_subject = yes } #Shanghai
+				}
+				AND = {
+					has_global_flag = china_united
+					CHN = { is_subject_of = JAP }
+				}
+			}
+		}
+		available = {
+			has_war = no
+		}
+		complete_effect = { JAP_pnr_release_QIE_effect = yes }
+	}
+
 }
 
 JAP_pnr_landreform_category = { # LAND REFORM
