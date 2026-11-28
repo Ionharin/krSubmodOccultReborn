@@ -1,0 +1,24 @@
+#### The Defeat Route ####
+    ideas = {
+        country = {
+            JAP_pnr_war_after_the_great_war_idea = {
+                picture = BEL_scars_of_ww1
+                allowed = { always = no }
+                on_add = { country_lock_all_division_template = yes }
+                on_remove = { country_lock_all_division_template = no }
+                modifier = {
+                    political_power_factor = -0.50
+                    stability_factor = -0.30
+                    war_support_factor = -0.30
+                    trade_opinion_factor = -0.75
+                    disabled_ideas = 1
+                    custom_modifier_tooltip = cannot_train_units_tt
+                }
+                rule = {
+                    can_join_factions = no
+                    can_not_declare_war = yes
+                    can_send_volunteers = no
+			    }
+            }
+        }
+    }
